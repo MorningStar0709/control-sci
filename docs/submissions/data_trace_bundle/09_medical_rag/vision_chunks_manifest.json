@@ -1,0 +1,7 @@
+{
+  "total_vision_chunks": 730,
+  "description": "MiMo-V2.5 视觉描述 FAISS 索引",
+  "generated_at": "2026-05-11T16:44:59",
+  "index_path": "D:\\WorkPlace\\AI\\MinerU\\data\\sources_medical\\index\\medical_vision.index",
+  "model": "mimo-v2.5"
+}

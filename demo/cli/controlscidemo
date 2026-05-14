@@ -1,0 +1,563 @@
+#!/usr/bin/env python
+"""
+ControlSci Demo CLI --- 三赛道快速验证入口
+
+用法:
+  python demo/cli/controlscidemo track1 --quick        # Track1 快速演示 (3-5 题)
+  python demo/cli/controlscidemo track1 --sample 10     # Track1 展示 10 题
+  python demo/cli/controlscidemo track2 --quick         # Track2 快速演示
+  python demo/cli/controlscidemo track3 --quick         # Track3 快速演示
+  python demo/cli/controlscidemo all --quick            # 三赛道全跑
+
+输出: 每题展示 Input / Output / Evidence / Pass Criteria / Score Item / Boundary
+失败时给出清晰的文字说明，不裸抛 Python traceback。
+"""
+import argparse
+import os
+import re
+import sys
+import time
+from pathlib import Path
+
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+except AttributeError:
+    pass
+
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
+
+CASES_DIR = PROJECT_ROOT / "docs" / "submissions"
+TRACK1_CASES = CASES_DIR / "track1_sci_align_20_cases.md"
+TRACK2_CASES = CASES_DIR / "track2_agent_20_cases.md"
+TRACK3_CASES = CASES_DIR / "track3_medical_rag_20_cases.md"
+
+QUICK_COUNT = 5
+KNOWN_PATH_PREFIXES = ("benchmark", "corpus", "data", "docs", "demo")
+KNOWN_SEARCH_DIRS = (
+    PROJECT_ROOT / "benchmark" / "agent" / "logs",
+    PROJECT_ROOT / "benchmark" / "agent" / "examples" / "logs",
+    PROJECT_ROOT / "benchmark" / "eval" / "results",
+    PROJECT_ROOT / "benchmark" / "dataset",
+    PROJECT_ROOT / "data",
+    PROJECT_ROOT / "corpus",
+    PROJECT_ROOT / "docs",
+)
+
+ANSI_RESET = "\033[0m"
+ANSI_BOLD = "\033[1m"
+ANSI_DIM = "\033[2m"
+ANSI_RED = "\033[31m"
+ANSI_GREEN = "\033[32m"
+ANSI_YELLOW = "\033[33m"
+ANSI_BLUE = "\033[34m"
+ANSI_MAGENTA = "\033[35m"
+ANSI_CYAN = "\033[36m"
+ANSI_WHITE = "\033[37m"
+ASCII_ONLY = (
+    os.environ.get("CONTROLSCI_ASCII") == "1"
+    or os.environ.get("NO_UNICODE") == "1"
+)
+
+
+def glyph(text: str, fallback: str) -> str:
+    return fallback if ASCII_ONLY else text
+
+
+def style(text: str, code: str = "") -> str:
+    if os.environ.get("NO_COLOR") or not sys.stdout.isatty():
+        return text
+    return f"{code}{text}{ANSI_RESET}"
+
+
+def header(text: str) -> str:
+    return style(text, ANSI_BOLD + ANSI_CYAN)
+
+
+def success(text: str) -> str:
+    return style(text, ANSI_GREEN)
+
+
+def warn(text: str) -> str:
+    return style(text, ANSI_YELLOW)
+
+
+def error(text: str) -> str:
+    return style(text, ANSI_RED)
+
+
+def dim(text: str) -> str:
+    return style(text, ANSI_DIM)
+
+
+def bold(text: str) -> str:
+    return style(text, ANSI_BOLD)
+
+
+def magenta(text: str) -> str:
+    return style(text, ANSI_MAGENTA)
+
+
+def sep(char: str = "─", width: int = 72) -> str:
+    if ASCII_ONLY and char not in ("-", "="):
+        char = "-" if char == "─" else "="
+    return dim(char * width)
+
+
+def normalize_inline_markdown(value: str) -> str:
+    value = re.sub(r"<br\s*/?>", "\n        ", value, flags=re.IGNORECASE)
+    value = value.replace("\\|", "|")
+    return value.strip()
+
+
+def extract_markdown_cells(line: str) -> tuple[str, str] | None:
+    """
+    Parse a two-column Markdown row while tolerating unescaped pipes in value cells.
+    The case files use key-value tables, so the first column is the key and the
+    remaining cells should be preserved as the value.
+    """
+    stripped = line.strip()
+    if not stripped.startswith("|"):
+        return None
+
+    body = stripped[1:]
+    if body.endswith("|"):
+        body = body[:-1]
+
+    parts = body.split("|")
+    if len(parts) < 2:
+        return None
+
+    key = parts[0].strip()
+    value = "|".join(parts[1:]).strip()
+    return key, value
+
+
+def parse_markdown_table(lines: list[str]) -> dict[str, str]:
+    """
+    解析 Markdown 键值对表格，格式:
+    | **Key** | Value |
+    | Key | Value |
+    返回 {key_clean: value_clean}
+    """
+    result: dict[str, str] = {}
+    for line in lines:
+        line = line.strip()
+        if not line.startswith("|"):
+            continue
+        cells = extract_markdown_cells(line)
+        if cells is None:
+            continue
+        key, value = cells
+        if key.startswith("---") or key.startswith(":--"):
+            continue
+        key = re.sub(r"\*\*(.+?)\*\*", r"\1", key).strip()
+        result[key] = normalize_inline_markdown(value)
+    return result
+
+
+def strip_code_path(path_text: str) -> str:
+    cleaned = path_text.strip().strip("`").strip().rstrip("、；;,.)，。")
+    if ":" in cleaned and not re.match(r"^[A-Za-z]:[/\\]", cleaned):
+        cleaned = cleaned.split(":", 1)[0]
+    return cleaned
+
+
+def is_path_like(value: str) -> bool:
+    if not value or value in {".", ".."}:
+        return False
+    normalized = value.replace("\\", "/").strip()
+    if normalized.startswith(".") and not normalized.startswith("./"):
+        return False
+    if normalized.startswith(KNOWN_PATH_PREFIXES):
+        return True
+    if "/" in normalized:
+        compact = normalized.strip("/")
+        if "/" not in compact and not re.search(r"\.[A-Za-z0-9]+$", compact):
+            return False
+        return True
+    return bool(re.search(r"\.(json|jsonl|md|py|log|txt|csv|html|png|jpg|jpeg|pdf)$", normalized, re.I))
+
+
+def extract_candidate_paths(text: str) -> list[str]:
+    """
+    Extract likely local paths from mixed Chinese prose and Markdown snippets.
+    Prefer backtick-wrapped paths, then fall back to path-looking tokens.
+    """
+    if not text:
+        return []
+
+    candidates: list[str] = []
+    candidates.extend(item for item in re.findall(r"`([^`]+)`", text) if is_path_like(strip_code_path(item)))
+    candidates.extend(
+        re.findall(
+            r"(?<![\w/\\.-])((?:benchmark|corpus|data|docs|demo)[/\\][^\s`，。；;、)）]+)",
+            text,
+        )
+    )
+
+    seen: set[str] = set()
+    paths: list[str] = []
+    for item in candidates:
+        item = strip_code_path(item)
+        if not item:
+            continue
+        normalized = item.replace("\\", "/")
+        if normalized in seen:
+            continue
+        seen.add(normalized)
+        paths.append(normalized)
+    return paths
+
+
+def resolve_candidate_path(path_text: str) -> Path:
+    cleaned = strip_code_path(path_text)
+    p = Path(cleaned)
+    if p.is_absolute():
+        return p
+    return PROJECT_ROOT / p
+
+
+def resolve_existing_candidate(path_text: str) -> Path | None:
+    direct = resolve_candidate_path(path_text)
+    if direct.exists():
+        return direct
+
+    cleaned = strip_code_path(path_text).replace("\\", "/")
+    if "/" in cleaned:
+        return None
+
+    for directory in KNOWN_SEARCH_DIRS:
+        candidate = directory / cleaned
+        if candidate.exists():
+            return candidate
+    return None
+
+
+def print_path_status(label: str, text: str, not_found_note: str | None = None) -> bool:
+    candidates = extract_candidate_paths(text)
+    if not candidates:
+        return False
+
+    found_any = False
+    for candidate in candidates:
+        resolved = resolve_existing_candidate(candidate)
+        if resolved is not None:
+            display = str(resolved.relative_to(PROJECT_ROOT)).replace("\\", "/")
+            print(f"  {bold(label)} {success(f'{glyph('✓', '[OK]')} {candidate}')}")
+            if display != candidate:
+                print(f"  {bold('  Resolved:')} {dim(display)}")
+            found_any = True
+        else:
+            print(f"  {bold(label)} {warn(f'{glyph('△', '[WARN]')} {candidate} not found')}")
+
+    if not found_any and not_found_note:
+        print(f"  {bold(label)} {warn(not_found_note)}")
+    return found_any
+
+
+def print_reference_status(label: str, text: str) -> bool:
+    candidates = extract_candidate_paths(text)
+    if not candidates:
+        return False
+
+    found_any = False
+    for candidate in candidates:
+        resolved = resolve_existing_candidate(candidate)
+        if resolved is not None:
+            display = str(resolved.relative_to(PROJECT_ROOT)).replace("\\", "/")
+            print(f"  {bold(label)} {success(f'{glyph('✓', '[OK]')} {candidate}')}")
+            if display != candidate:
+                print(f"  {bold('  Resolved:')} {dim(display)}")
+            found_any = True
+        else:
+            print(f"  {bold(label)} {dim(f'Reference ID: {candidate}')}")
+    return found_any
+
+
+def choose_cases(cases: list[dict], quick: bool, sample_count: int | None) -> tuple[list[dict], str]:
+    if sample_count is not None:
+        n = min(sample_count, len(cases))
+        return cases[:n], dim(f"--sample {sample_count}: 展示前 {n}/{len(cases)} 题")
+    if quick:
+        n = min(QUICK_COUNT, len(cases))
+        return cases[:n], warn(f"--quick 模式: 展示前 {n}/{len(cases)} 题")
+    return cases, dim(f"展示全部 {len(cases)} 题")
+
+
+def split_cases(filepath: Path) -> list[dict]:
+    """
+    将 case 文件拆分为独立的 case 块。
+    每个 case 以 '### Case XX —' 开头，下一个 case 或文件结束结尾。
+    返回 [{"header": ..., "fields": {...}}, ...]
+    """
+    text = filepath.read_text(encoding="utf-8")
+    blocks = re.split(r"\n(?=### Case \d+)", text)
+
+    cases: list[dict] = []
+    for block in blocks:
+        block = block.strip()
+        if not block or not block.startswith("### Case"):
+            continue
+
+        lines = block.split("\n")
+        header_line = ""
+        table_lines: list[str] = []
+        in_table = False
+
+        for i, line in enumerate(lines):
+            if i == 0 and line.startswith("### Case"):
+                header_line = line.replace("### ", "").strip()
+                continue
+            if line.startswith("|"):
+                in_table = True
+            if in_table:
+                if line.startswith("|"):
+                    table_lines.append(line)
+                else:
+                    if table_lines:
+                        in_table = False
+
+        if not table_lines:
+            continue
+
+        fields = parse_markdown_table(table_lines)
+        if fields:
+            fields["_header"] = header_line
+            cases.append({"header": header_line, "fields": fields})
+
+    return cases
+
+
+def print_case_track1(case: dict, idx: int, total: int):
+    f = case["fields"]
+    print(f"\n  {bold(f'[{idx}/{total}]')} {magenta(f.get('Case 编号', '?'))} — {f.get('覆盖类型', '?')}")
+    print(f"  {dim('─' * 68)}")
+    print(f"  {bold('Input:')}     {f.get('Input', '?')[:120]}")
+    print(f"  {bold('Expected:')}  {f.get('Expected behavior', '?')[:120]}")
+    output = f.get("System output", "?")
+    print(f"  {bold('Output:')}    {output[:120]}")
+    print(f"  {bold('Evidence:')}  {dim(f.get('Evidence path', '?'))}")
+    evidence = f.get("Evidence path", "")
+    if evidence and evidence != "?":
+        print_reference_status("  Status:", evidence)
+    print(f"  {bold('Pass:')}      {f.get('Pass criteria', '?')[:120]}")
+    print(f"  {bold('Score:')}     {f.get('Related score item', '?')}")
+    print(f"  {bold('Boundary:')}  {f.get('Boundary note', '?')[:120]}")
+
+
+def print_case_track2(case: dict, idx: int, total: int):
+    f = case["fields"]
+    print(f"\n  {bold(f'[{idx}/{total}]')} {magenta(f.get('Case 编号', '?'))} — {f.get('类别', '?')}")
+    print(f"  {dim('─' * 68)}")
+    print(f"  {bold('Intent:')}    {f.get('Intent/Input', '?')[:120]}")
+    print(f"  {bold('Plan:')}      {f.get('Agent plan', '?')[:120]}")
+    print(f"  {bold('Tools:')}     {f.get('Tool calls', '?')[:120]}")
+    print(f"  {bold('Output:')}    {f.get('Output', '?')[:120]}")
+    log_path = f.get("Log path", "")
+    print(f"  {bold('Log:')}       {dim(log_path)}")
+    if log_path:
+        print_path_status(
+            "  Log status:",
+            log_path,
+            warn(f"{glyph('△', '[WARN]')} No referenced log file found locally"),
+        )
+    print(f"  {bold('Pass:')}      {f.get('Pass criteria', '?')[:120]}")
+    print(f"  {bold('Score:')}     {f.get('Related score item', '?')}")
+    print(f"  {bold('Boundary:')}  {f.get('Boundary note', '?')[:120]}")
+
+
+def print_case_track3(case: dict, idx: int, total: int):
+    f = case["fields"]
+    print(f"\n  {bold(f'[{idx}/{total}]')} {magenta(f.get('Case 编号', '?'))} — {f.get('类别', '?')}")
+    print(f"  {dim('─' * 68)}")
+    print(f"  {bold('Question:')}  {f.get('Question', '?')[:120]}")
+    evidence = f.get("Retrieved evidence", "?")
+    print(f"  {bold('Evidence:')}  {dim(evidence[:150])}")
+    print(f"  {bold('Answer:')}    {f.get('System answer', '?')[:150]}")
+    print(f"  {bold('Confidence:')} {f.get('Confidence', '?')}")
+    print(f"  {bold('Vision:')}    {f.get('Vision enhancement', '?')}")
+    print(f"  {bold('Endpoint:')}  {f.get('Endpoint vs Conclusion', '?')[:120]}")
+    print(f"  {bold('Pass:')}      {f.get('Pass criteria', '?')[:120]}")
+    print(f"  {bold('Score:')}     {f.get('Related score item', '?')}")
+    print(f"  {bold('Boundary:')}  {f.get('Boundary note', '?')[:120]}")
+
+
+def run_track1(case_file: Path, quick: bool, sample_count: int | None):
+    print(f"\n{sep('═')}")
+    print(f"  {header('Track1')} — {bold('ControlSci Sci-Align')} (科学数据对齐与跨模态评测)")
+    print(f"  {dim(f'数据源: {case_file}')}")
+    print(f"{sep('═')}")
+
+    if not case_file.exists():
+        print(f"  {error(f'{glyph('✗', '[FAIL]')} 样例文件不存在: {case_file}')}")
+        return False
+
+    cases = split_cases(case_file)
+    if not cases:
+        print(f"  {error(f'{glyph('✗', '[FAIL]')} 未能解析出任何 case，请检查文件格式')}")
+        return False
+
+    selected, mode_message = choose_cases(cases, quick, sample_count)
+    print(f"  {mode_message}")
+
+    start = time.time()
+    for i, case in enumerate(selected, 1):
+        print_case_track1(case, i, len(cases))
+
+    elapsed = time.time() - start
+    print(f"\n  {success(f'{glyph('✓', '[OK]')} Track1 完成')} — {len(selected)} 题, 耗时 {elapsed:.1f}s")
+    print(f"  {dim('验收标准: controlscidemo track1 --quick 在 30s 内完成')}")
+    if elapsed > 30:
+        print(f"  {warn(f'{glyph('△', '[WARN]')} 耗时 {elapsed:.1f}s 超过 30s 基准线')}")
+    return True
+
+
+def run_track2(case_file: Path, quick: bool, sample_count: int | None):
+    print(f"\n{sep('═')}")
+    print(f"  {header('Track2')} — {bold('ControlSci Data Agent')} (智能体与数据工程)")
+    print(f"  {dim(f'数据源: {case_file}')}")
+    print(f"{sep('═')}")
+
+    if not case_file.exists():
+        print(f"  {error(f'{glyph('✗', '[FAIL]')} 样例文件不存在: {case_file}')}")
+        return False
+
+    cases = split_cases(case_file)
+    if not cases:
+        print(f"  {error(f'{glyph('✗', '[FAIL]')} 未能解析出任何 case，请检查文件格式')}")
+        return False
+
+    selected, mode_message = choose_cases(cases, quick, sample_count)
+    print(f"  {mode_message}")
+
+    print(f"  {dim('Track2 采用日志重放模式，不启动真实 Agent 管道')}")
+
+    start = time.time()
+    for i, case in enumerate(selected, 1):
+        print_case_track2(case, i, len(cases))
+
+    elapsed = time.time() - start
+    print(f"\n  {success(f'{glyph('✓', '[OK]')} Track2 完成')} — {len(selected)} 题, 耗时 {elapsed:.1f}s")
+    return True
+
+
+def run_track3(case_file: Path, quick: bool, sample_count: int | None):
+    print(f"\n{sep('═')}")
+    print(f"  {header('Track3')} — {bold('Clinical Evidence Synthesis')} (医疗 RAG 问答)")
+    print(f"  {dim(f'数据源: {case_file}')}")
+    print(f"{sep('═')}")
+
+    if not case_file.exists():
+        print(f"  {error(f'{glyph('✗', '[FAIL]')} 样例文件不存在: {case_file}')}")
+        return False
+
+    cases = split_cases(case_file)
+    if not cases:
+        print(f"  {error(f'{glyph('✗', '[FAIL]')} 未能解析出任何 case，请检查文件格式')}")
+        return False
+
+    selected, mode_message = choose_cases(cases, quick, sample_count)
+    print(f"  {mode_message}")
+
+    start = time.time()
+    for i, case in enumerate(selected, 1):
+        print_case_track3(case, i, len(cases))
+
+    elapsed = time.time() - start
+    print(f"\n  {success(f'{glyph('✓', '[OK]')} Track3 完成')} — {len(selected)} 题, 耗时 {elapsed:.1f}s")
+    return True
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="ControlSci Demo CLI — 三赛道快速验证入口",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+示例:
+  python demo/cli/controlscidemo track1 --quick
+  python demo/cli/controlscidemo track2 --quick
+  python demo/cli/controlscidemo track3 --sample 10
+  python demo/cli/controlscidemo all --quick
+        """,
+    )
+    parser.add_argument(
+        "track",
+        choices=["track1", "track2", "track3", "all"],
+        help="赛道选择: track1 (Sci-Align), track2 (Agent), track3 (Medical RAG), all (全部)",
+    )
+    parser.add_argument(
+        "--quick",
+        action="store_true",
+        help=f"快速模式: 每赛道只展示前 {QUICK_COUNT} 题",
+    )
+    parser.add_argument(
+        "--sample",
+        type=int,
+        metavar="N",
+        help="展示前 N 题 (覆盖 --quick)",
+    )
+
+    args = parser.parse_args()
+
+    if args.sample is not None and args.sample < 1:
+        print(f"\n{error(f'{glyph('✗', '[FAIL]')} --sample 必须为正整数，收到: {args.sample}')}")
+        sys.exit(1)
+
+    sample_count = args.sample if args.sample else None
+    quick = args.quick and sample_count is None
+
+    now_str = time.strftime("%Y-%m-%d %H:%M:%S")
+    print(f"\n{bold('ControlSci Demo CLI')}")
+    print(f"{dim(f'项目根目录: {PROJECT_ROOT}')}")
+    print(f"{dim(f'时间: {now_str}')}")
+
+    tracks = {
+        "track1": (TRACK1_CASES, run_track1),
+        "track2": (TRACK2_CASES, run_track2),
+        "track3": (TRACK3_CASES, run_track3),
+    }
+
+    overall_start = time.time()
+
+    if args.track == "all":
+        ok = True
+        for name, (case_file, runner) in tracks.items():
+            try:
+                ok = runner(case_file, quick, sample_count) and ok
+            except Exception as e:
+                ok = False
+                print(f"\n  {error(f'{glyph('✗', '[FAIL]')} {name} 执行异常')}")
+                print(f"  {error(str(e))}")
+        if not ok:
+            print(f"\n{error(f'{glyph('✗', '[FAIL]')} 至少一个赛道执行失败')}")
+            sys.exit(1)
+    else:
+        case_file, runner = tracks[args.track]
+        try:
+            if not runner(case_file, quick, sample_count):
+                sys.exit(1)
+        except Exception as e:
+            print(f"\n  {error(f'{glyph('✗', '[FAIL]')} {args.track} 执行异常')}")
+            print(f"  {error(str(e))}")
+            sys.exit(1)
+
+    overall_elapsed = time.time() - overall_start
+    print(f"\n{sep('═')}")
+    print(f"  {success(f'{glyph('✓', '[OK]')} CLI 执行完毕')} — 总耗时 {overall_elapsed:.1f}s")
+    print(f"{sep('═')}\n")
+
+
+if __name__ == "__main__":
+    try:
+        main()
+    except KeyboardInterrupt:
+        print(f"\n{warn('中断退出')}")
+        sys.exit(130)
+    except FileNotFoundError as e:
+        print(f"\n{error(f'文件未找到: {e}')}")
+        print(f"{dim('请确认在项目根目录 (d:/WorkPlace/AI/MinerU) 下运行')}")
+        sys.exit(1)
+    except Exception as e:
+        print(f"\n{error(f'未预期的错误: {type(e).__name__}: {e}')}")
+        sys.exit(1)

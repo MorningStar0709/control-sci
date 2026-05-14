@@ -1,0 +1,4 @@
+# ControlSci Demo CLI 依赖
+# 本项目只需 Python 标准库，无外部依赖
+# 如需要彩色终端输出，确认终端支持 ANSI escape codes (Windows Terminal / PowerShell 7+)
+python>=3.10

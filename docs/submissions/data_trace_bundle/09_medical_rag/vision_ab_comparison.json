@@ -1,0 +1,498 @@
+{
+  "血糖变化趋势图": {
+    "text_top5": [
+      [
+        "PMC10579102_chunk_038",
+        "_front_matter_other"
+      ],
+      [
+        "PMC9911317_chunk_024",
+        "references"
+      ],
+      [
+        "PMC7618672_chunk_014",
+        "_results_other"
+      ],
+      [
+        "PMC9911317_chunk_023",
+        "references"
+      ],
+      [
+        "PMC8982306_chunk_025",
+        "outcome_measures"
+      ]
+    ],
+    "vision_top5_ids": [
+      "vision_PMC10579102/fec5bfb95b2b11be806967f64ebae97ab0ad40151a838ef7d77436a09b690239.jpg",
+      "vision_PMC10579102/c8b0773f88212b03867cb01c539d93a743b705a9f70f42c1b88df41988cf62c1.jpg",
+      "vision_PMC6448906/a572a47d03d5e457208b0085870bd2859b8ce91c72ed47ee146359af2e281c86.jpg",
+      "vision_PMC10579102/acd471ca28f49c92dd1617a7f4b3244130f6d42b82aa442af71bed496fec559c.jpg",
+      "vision_PMC6448906/a1e834ee4882c9a197fc915a49c92627c7f480728187c7c2b2a45c6e8991aefb.jpg"
+    ],
+    "vision_top5_desc": [
+      "这是一张折线图，展示了一名患者住院期间（共5天，120小时）的自我监测血糖（SMBG）变化趋势。图中黑色数据点连线显示血糖值在5.6至15 mmol/L之间波动，浅蓝色阴影区域标示了目标血糖范围（约5",
+      "这是一张折线图，展示了住院患者餐后毛细血管血糖的平均日变化趋势。横轴为住院天数（1-6天），纵轴为平均血糖浓度（mmol/L）。数据显示，随着住院时间延长，患者平均血糖水平从约12 mmol/L逐渐下",
+      "这是一张连续血糖监测的折线图，展示了从17:00至次日07:00期间的血糖水平变化趋势。图中深蓝色曲线代表平均血糖值，浅蓝色阴影区域表示血糖波动范围。血糖值在6.1至10.0 mmol/l之间波动，整",
+      "这是一张折线图，展示了住院期间患者餐前毛细血管血糖的平均日变化趋势。横轴为住院天数（1-6天），纵轴为平均血糖值（mmol/L）。数据显示，血糖水平在住院第1-2天较高（约10 mmol/L），随后逐",
+      "这是一张连续血糖监测的折线图，展示了从17:00至次日07:00期间的血糖水平变化趋势。红色实线代表平均血糖值，粉色阴影区域表示血糖波动范围。图中显示血糖在21:00至23:00期间达到峰值（约10."
+    ],
+    "combined_top5": [
+      [
+        "PMC10579102_chunk_038",
+        0.01639344262295082
+      ],
+      [
+        "vision_PMC10579102_fec5bfb95b2b11be806967f64ebae97ab0ad40151a838ef7d77436a09b690239",
+        0.01639344262295082
+      ],
+      [
+        "PMC9911317_chunk_024",
+        0.016129032258064516
+      ],
+      [
+        "vision_PMC10579102_c8b0773f88212b03867cb01c539d93a743b705a9f70f42c1b88df41988cf62c1",
+        0.016129032258064516
+      ],
+      [
+        "PMC7618672_chunk_014",
+        0.015873015873015872
+      ]
+    ],
+    "vision_in_text_top5": false,
+    "vision_in_combined": false
+  },
+  "患者生存曲线": {
+    "text_top5": [
+      [
+        "PMC6726216_chunk_014",
+        "_methods_other"
+      ],
+      [
+        "PMC9911317_chunk_024",
+        "references"
+      ],
+      [
+        "PMC12928687_chunk_024",
+        "_statistical_analysis_other"
+      ],
+      [
+        "PMC9911317_chunk_023",
+        "references"
+      ],
+      [
+        "PMC11466402_chunk_015",
+        "intervention"
+      ]
+    ],
+    "vision_top5_ids": [
+      "vision_PMC6726216/56fd1c431eedd52ab0a8429cd4a87da4d3c9fc82cde256234f62b957daa19fa7.jpg",
+      "vision_PMC6726216/f3e47f245ffb66ea0da7a4f1411b062ab8f42bfeedbb9de15e0658ee3d4bc704.jpg",
+      "vision_PMC9443636/d0221a410fdb4dea95493b728a794774d2c271472dd6aefd4eef2c20995df04c.jpg",
+      "vision_PMC9443636/dfb2dd9678798a0d88ebc3ae854e36c002126a16e03220b7fe6eef005ea27d6b.jpg",
+      "vision_PMC11339407/8c6b78b394f4c49749fe6f27804b1fda0b2a133a94cfcc2770902b05361431b7.jpg"
+    ],
+    "vision_top5_desc": [
+      "这是一张Kaplan-Meier生存曲线图，展示了AC+P治疗方案下患者的总生存率随时间（0-15年）的变化。图中蓝色实线代表观察到的生存率，红色虚线代表经调整后的预测生存率。两条曲线均呈下降趋势，但",
+      "这是一张生存分析曲线图，展示了“AC”组患者的总生存率随时间（0-15年）的变化趋势。图中包含两条曲线：蓝色实线代表实际观察到的生存数据（Observed - AC），红色虚线代表经过调整后的模型预测",
+      "这是一张关于抗生素头孢曲松（Ceftriaxone）的生存分析曲线图（Kaplan-Meier曲线）。图中展示了两条曲线，分别代表不同组别患者达到某种临床终点（如治疗成功或微生物学清除）的累积概率随时",
+      "这是一张生存分析曲线图，展示了环丙沙星（Ciprofloxacin）治疗下两组患者的生存概率随时间变化的趋势。黄色曲线代表的组别生存概率上升更快且最终平台期更高，蓝色曲线组别则相对较低，表明两组在生存",
+      "这是一张Kaplan-Meier生存曲线图，展示了对照组（Control）与OPTIMAL组患者在随访期间无急性加重的比例随时间变化的趋势。图中显示，两组曲线在350天内均呈下降趋势，但差异无统计学意"
+    ],
+    "combined_top5": [
+      [
+        "vision_PMC10493474_ac4b9c979c8c88db8c4615b2018a080a093dadc457a3ef90e425f55eb3982590",
+        0.028991596638655463
+      ],
+      [
+        "PMC6726216_chunk_014",
+        0.01639344262295082
+      ],
+      [
+        "vision_PMC6726216_56fd1c431eedd52ab0a8429cd4a87da4d3c9fc82cde256234f62b957daa19fa7",
+        0.01639344262295082
+      ],
+      [
+        "PMC9911317_chunk_024",
+        0.016129032258064516
+      ],
+      [
+        "vision_PMC6726216_f3e47f245ffb66ea0da7a4f1411b062ab8f42bfeedbb9de15e0658ee3d4bc704",
+        0.016129032258064516
+      ]
+    ],
+    "vision_in_text_top5": false,
+    "vision_in_combined": false
+  },
+  "临床试验流程图": {
+    "text_top5": [
+      [
+        "PMC10829799_chunk_000",
+        "other"
+      ],
+      [
+        "PMC9911317_chunk_024",
+        "references"
+      ],
+      [
+        "PMC10803438_chunk_012",
+        "_population_other"
+      ],
+      [
+        "PMC9911317_chunk_023",
+        "references"
+      ],
+      [
+        "PMC6921499_chunk_027",
+        "_ethical_approval_other"
+      ]
+    ],
+    "vision_top5_ids": [
+      "vision_PMC11297938/4eb7b2bd569bf2e080210f98baca34a24c38b4718bfffb977901f2503bd22d4f.jpg",
+      "vision_PMC3002358/30f34e411f9e56b4e57f57d7ba33c54f920ac74dd9c9d3a2e165fe000533697c.jpg",
+      "vision_PMC6448906/6aca979350a838315540197de13eef7a837e7037dc1d4de34c912138838d2c51.jpg",
+      "vision_PMC10803438/bfc040ffae76f5a6e9bd00c8a976090d22af9c8ea51ee55fbb136509065f4388.jpg",
+      "vision_PMC6009467/cc9c6f9167a1f1c79d90e6ded520b50759104ee8e980893c5a43e7c6e7b32ebc.jpg"
+    ],
+    "vision_top5_desc": [
+      "这是一张流程图，展示了单臂临床试验的受试者流程。研究纳入15名受试者进行资格评估，全部分配至干预组，无排除。随访期间1人脱落，最终14人纳入分析。该图清晰呈现了从入组、分配、随访到分析的完整流程，涉及",
+      "这是一张临床试验流程图，展示了针对计划接受辅助化疗的原发性乳腺癌或结肠癌患者的研究设计。流程从患者筛选开始，排除不合格或不愿参与者后，进行化疗前基线测量（T0）。随后患者被随机分配至三个干预组：Onc",
+      "这是一张临床试验流程图，展示了随机交叉试验的受试者流程。研究共筛选25名受试者，排除5人后，20人被随机分配至闭环和开环两组，每组10人。所有受试者均完成第一阶段干预后进行交叉，最终全部20名受试者均",
+      "这是一张临床试验流程图，展示了研究从筛选、随机分组到随访的完整设计。研究将30名受试者随机分为两组：立即治疗组（n=15）和等待名单/延迟治疗组（n=15）。立即治疗组接受为期3周的治疗（包括准备、给",
+      "该图为一项糖尿病临床试验的流程示意图。研究包含5-9周的导入期，随后将约120名受试者随机分配至标准糖尿病治疗组（n≈60）或混合闭环系统组（n≈60），进行为期26周的干预。图中详细标注了从入组到研"
+    ],
+    "combined_top5": [
+      [
+        "PMC10829799_chunk_000",
+        0.01639344262295082
+      ],
+      [
+        "vision_PMC11297938_4eb7b2bd569bf2e080210f98baca34a24c38b4718bfffb977901f2503bd22d4f",
+        0.01639344262295082
+      ],
+      [
+        "PMC9911317_chunk_024",
+        0.016129032258064516
+      ],
+      [
+        "vision_PMC3002358_30f34e411f9e56b4e57f57d7ba33c54f920ac74dd9c9d3a2e165fe000533697c",
+        0.016129032258064516
+      ],
+      [
+        "PMC10803438_chunk_012",
+        0.015873015873015872
+      ]
+    ],
+    "vision_in_text_top5": false,
+    "vision_in_combined": false
+  },
+  "药物剂量-反应关系": {
+    "text_top5": [
+      [
+        "PMC7932937_chunk_016",
+        "pharmacokinetics"
+      ],
+      [
+        "PMC9911317_chunk_024",
+        "references"
+      ],
+      [
+        "PMC6133081_chunk_012",
+        "_data_collection_other"
+      ],
+      [
+        "PMC9911317_chunk_023",
+        "references"
+      ],
+      [
+        "PMC6133081_chunk_009",
+        "_study_design_other"
+      ]
+    ],
+    "vision_top5_ids": [
+      "vision_PMC5753844/6ff87b3aa00dba8cd376666888639c3151dbb4e10196e49da9482a0957d29b8c.jpg",
+      "vision_PMC11622436/9528be2915032d2cb9b4014f10073af70841ddddb81d9cdc73d2c4cb8bfd5518.jpg",
+      "vision_PMC4740560/af995b8a66376c9a7f820c2b3d69b27458dd4898a513d90cad5117a21e0476e7.jpg",
+      "vision_PMC4740560/474a622074e7e212155d8cf1e02fa5f17a13fb7df3bc903bf50ba79a3373a642.jpg",
+      "vision_PMC4740560/0edcadc989f3653688fa2e7e7b9c5365ee13f25d6916f69daab6dd6121864500.jpg"
+    ],
+    "vision_top5_desc": [
+      "该图为四幅剂量-效应关系曲线图，展示了不同剂量（dose, mg）下MBL减少量（MBL reduction, mL）的四种典型反应模式：(1)陡峭上升型，在约1.2mg后效应急剧增加；(2)缓慢上升",
+      "这是一张剂量-反应关系图，展示了抗结核药物吡嗪酰胺的稳态药时曲线下面积（AUCss）与发生3级或更高级别不良事件概率之间的关系。图中红色曲线及阴影区域表明，随着AUCss从100 mg·h/L增加至8",
+      "该图包含四个子图，展示了药物剂量与药代动力学参数的关系。左上和右上为双对数坐标散点图，分别显示药物剂量（0.25-32 mg）与峰浓度（Cmax）及药时曲线下面积（AUC）呈线性正相关。左下和右下为残",
+      "这是一张折线图，展示了不同剂量（2、4、6、8 mg/day）下，治疗2周、4周和8周后的疗效反应率。随着剂量增加和治疗时间延长，反应率显著上升。在6 mg/day剂量下，8周治疗组的反应率达到约1.",
+      "这是一张散点图，展示了药物暴露量与临床疗效之间的关系。横轴为达索曲林（dasotraline）的平均血药浓度（Cav，单位：ng/ml），纵轴为ADHD RS-IV量表评分较基线的变化值。图中包含两种"
+    ],
+    "combined_top5": [
+      [
+        "PMC7932937_chunk_016",
+        0.01639344262295082
+      ],
+      [
+        "vision_PMC5753844_6ff87b3aa00dba8cd376666888639c3151dbb4e10196e49da9482a0957d29b8c",
+        0.01639344262295082
+      ],
+      [
+        "PMC9911317_chunk_024",
+        0.016129032258064516
+      ],
+      [
+        "vision_PMC11622436_9528be2915032d2cb9b4014f10073af70841ddddb81d9cdc73d2c4cb8bfd5518",
+        0.016129032258064516
+      ],
+      [
+        "PMC6133081_chunk_012",
+        0.015873015873015872
+      ]
+    ],
+    "vision_in_text_top5": false,
+    "vision_in_combined": false
+  },
+  "MRI 影像结果": {
+    "text_top5": [
+      [
+        "PMC8266944_chunk_015",
+        "results"
+      ],
+      [
+        "PMC8600696_chunk_013",
+        "_exclusion_criteria_other"
+      ],
+      [
+        "PMC7793822_chunk_012",
+        "results"
+      ],
+      [
+        "PMC12742169_chunk_019",
+        "outcome_measures"
+      ],
+      [
+        "PMC7439928_chunk_003",
+        "results"
+      ]
+    ],
+    "vision_top5_ids": [
+      "vision_PMC5690098/5d3ae372ee844ceb940621dec6f83f736b9524ee370ecc8a4e663afc18c59b3a.jpg",
+      "vision_PMC5714048/90a69fcd094d3701654b3ab35311dc74e92225844e26a8077b71f467bd008372.jpg",
+      "vision_PMC10493474/ac4b9c979c8c88db8c4615b2018a080a093dadc457a3ef90e425f55eb3982590.jpg",
+      "vision_PMC11320540/ddacec21ceec1c5276ee2afa8d0af7e98664cdf6156af1c347a39da9bcf6ca1e.jpg",
+      "vision_PMC12801964/96b1390bb46e4fb43fae4878c87edf30843c34c8e61d34d6eea0df3518d529e7.jpg"
+    ],
+    "vision_top5_desc": [
+      "该图为医学影像图，展示了三种不同放疗计划（专家计划、临床计划、PAF计划）在盆腔CT横断面、冠状面和矢状面上的剂量分布对比。图中彩色等剂量线勾画了靶区和危及器官的受照剂量，核心发现是PAF计划在靶区覆",
+      "该图为医学影像图，展示了头颈部肿瘤放疗计划的剂量分布对比。左侧为手动勾画计划，右侧为自动生成计划。图中彩色区域代表不同剂量水平，蓝色线为70 Gy处方剂量，黑色线为63 Gy剂量线。核心发现是自动生成",
+      "该图为散点图，展示了两组患者（早期组和晚期组，每组n=20）的MLD比值（IMRT/sim3D-CRT）。图中显示，早期组的MLD比值分布范围更广且整体水平高于晚期组，两组间差异具有统计学意义（p=0",
+      "这是一张放疗计划的CT影像图，展示了盆腔区域的横断面。图中用不同颜色勾画了靶区和危及器官：红色区域为高剂量靶区，蓝色区域为邻近器官（如膀胱），绿色区域为另一危及器官（如直肠）。彩色等剂量线（从蓝到红）",
+      "该图片为组织结构图，展示了细胞或组织的微观形态结构。图中可见多个细胞核（深染）及胞质，细胞排列紧密，可能为肿瘤组织切片。该图涉及病理学或肿瘤学领域，用于观察细胞形态、排列方式及组织结构特征，为疾病诊断"
+    ],
+    "combined_top5": [
+      [
+        "vision_PMC10493474_ac4b9c979c8c88db8c4615b2018a080a093dadc457a3ef90e425f55eb3982590",
+        0.031024531024531024
+      ],
+      [
+        "PMC8266944_chunk_015",
+        0.01639344262295082
+      ],
+      [
+        "vision_PMC5690098_5d3ae372ee844ceb940621dec6f83f736b9524ee370ecc8a4e663afc18c59b3a",
+        0.01639344262295082
+      ],
+      [
+        "PMC8600696_chunk_013",
+        0.016129032258064516
+      ],
+      [
+        "vision_PMC5714048_90a69fcd094d3701654b3ab35311dc74e92225844e26a8077b71f467bd008372",
+        0.016129032258064516
+      ]
+    ],
+    "vision_in_text_top5": false,
+    "vision_in_combined": false
+  },
+  "胰岛素输注方案": {
+    "text_top5": [
+      [
+        "PMC7618672_chunk_005",
+        "front_matter"
+      ],
+      [
+        "PMC9911317_chunk_024",
+        "references"
+      ],
+      [
+        "PMC12838616_chunk_021",
+        "methods"
+      ],
+      [
+        "PMC9911317_chunk_023",
+        "references"
+      ],
+      [
+        "PMC5035370_chunk_000",
+        "other"
+      ]
+    ],
+    "vision_top5_ids": [
+      "vision_PMC11297938/ddcce5355c9440f1f87f894e45f4f2aa50b053b4e627fcd3bc9432d5af325689.jpg",
+      "vision_PMC10579102/83de5a7d721cd66ce3892c787f85389977b517884df03f567b07d2d0680a8598.jpg",
+      "vision_PMC6561428/6f9091f3996233ee2b702a9f17eb29475afef6f109dafa7e992fa2be0e84a7f0.jpg",
+      "vision_PMC8363503/e5704d434510bbfd0354bc7b4abfa671d4e162f4c197959204abc35eb6603207.jpg",
+      "vision_PMC11292867/534a19068bd1ff103a40960fce2e8ce6bdb55cea87a148b2508d92b1a14ea692.jpg"
+    ],
+    "vision_top5_desc": [
+      "该图片为一款糖尿病管理手机应用的界面示意图，展示了胰岛素剂量计算流程。左侧界面显示基础剂量、校正剂量和餐时剂量的历史记录；中间界面为剂量计算器，需输入血糖值（6 mmol/L）、碳水化合物量（40克）",
+      "该图为流程图，展示了徐汇医院一项针对2型糖尿病（T2DM）患者胰岛素剂量调整的研究流程。研究纳入2021年4月至8月的45名患者共338个病例，涉及796个胰岛素剂量点和40种胰岛素方案。流程分为两支",
+      "该图为示意图，展示了糖尿病闭环胰岛素输注系统的组件及其数据流向。核心组件包括：带外壳的安卓手机、改良的640G胰岛素泵和Guardian 3传感器。传感器将血糖数据传输至胰岛素泵，泵再与手机进行双向通",
+      "这是一张示意图，展示了基于智能手机的闭环胰岛素输注系统架构。图中，Dexcom G6连续血糖监测仪与Dana RS胰岛素泵通过双向箭头连接至中央的Android智能手机，手机运行CamAPS FX应用",
+      "该图为多面板时间序列折线图，展示了糖尿病管理中不同胰岛素剂量下的生理指标变化。图中包含四个子图，分别显示血糖、血胰岛素、β-羟丁酸和基础胰岛素输注率随时间的变化。关键内容为对比两种餐时胰岛素剂量（9 "
+    ],
+    "combined_top5": [
+      [
+        "PMC7618672_chunk_005",
+        0.01639344262295082
+      ],
+      [
+        "vision_PMC11297938_ddcce5355c9440f1f87f894e45f4f2aa50b053b4e627fcd3bc9432d5af325689",
+        0.01639344262295082
+      ],
+      [
+        "PMC9911317_chunk_024",
+        0.016129032258064516
+      ],
+      [
+        "vision_PMC10579102_83de5a7d721cd66ce3892c787f85389977b517884df03f567b07d2d0680a8598",
+        0.016129032258064516
+      ],
+      [
+        "PMC12838616_chunk_021",
+        0.015873015873015872
+      ]
+    ],
+    "vision_in_text_top5": false,
+    "vision_in_combined": false
+  },
+  "不良事件统计图": {
+    "text_top5": [
+      [
+        "PMC10829799_chunk_008",
+        "outcome_measures"
+      ],
+      [
+        "PMC9911317_chunk_024",
+        "references"
+      ],
+      [
+        "PMC10803438_chunk_031",
+        "outcome_measures"
+      ],
+      [
+        "PMC9911317_chunk_023",
+        "references"
+      ],
+      [
+        "PMC7118863_chunk_027",
+        "statistical_analysis"
+      ]
+    ],
+    "vision_top5_ids": [
+      "vision_PMC4617442/61d0d6c3dc77f7ab383597c62c0c9f6cca0739f954fc23f89871dce9160017c4.jpg",
+      "vision_PMC9502603/fb8aa77f48eae0903ca7bf4bcdf51997e77ad6c8d3b44bc6a7f66ffb39506ab6.jpg",
+      "vision_PMC11622436/9528be2915032d2cb9b4014f10073af70841ddddb81d9cdc73d2c4cb8bfd5518.jpg",
+      "vision_PMC9502603/3fcf73bec6f39fa259e1ec848ca5287f98568f0391a81b3c620d4423c2a36cdf.jpg",
+      "vision_PMC10493474/ac4b9c979c8c88db8c4615b2018a080a093dadc457a3ef90e425f55eb3982590.jpg"
+    ],
+    "vision_top5_desc": [
+      "该图为医学临床数据管理系统的界面截图，属于流程图/示意图。核心内容展示了霍奇金淋巴瘤患者在化疗周期中“恶心”症状的严重程度和困扰程度随时间变化的折线图。左侧为症状选择列表，右侧图表显示了第1周期内，恶",
+      "这是一张堆叠柱状图，标题为“T3”。图中展示了七种不良反应（疲劳、腹泻、呼吸急促、恶心、头痛、皮疹、呕吐）在不同严重程度下的发生率。每种不良反应对应两组数据（实心柱与斜纹柱），分别代表不同治疗组或时间",
+      "这是一张剂量-反应关系图，展示了抗结核药物吡嗪酰胺的稳态药时曲线下面积（AUCss）与发生3级或更高级别不良事件概率之间的关系。图中红色曲线及阴影区域表明，随着AUCss从100 mg·h/L增加至8",
+      "这是一张堆叠柱状图，展示了在T2时间点，实验组（EG）和对照组（CG）在七种常见不良反应（疲劳、腹泻、呼吸急促、恶心、头痛、皮疹、呕吐）上的发生率及严重程度（轻度、中度、重度）分布。图中显示，两组在多",
+      "该图为散点图，展示了两组患者（早期组和晚期组，每组n=20）的MLD比值（IMRT/sim3D-CRT）。图中显示，早期组的MLD比值分布范围更广且整体水平高于晚期组，两组间差异具有统计学意义（p=0"
+    ],
+    "combined_top5": [
+      [
+        "vision_PMC10493474_ac4b9c979c8c88db8c4615b2018a080a093dadc457a3ef90e425f55eb3982590",
+        0.030090497737556562
+      ],
+      [
+        "PMC10829799_chunk_008",
+        0.01639344262295082
+      ],
+      [
+        "vision_PMC4617442_61d0d6c3dc77f7ab383597c62c0c9f6cca0739f954fc23f89871dce9160017c4",
+        0.01639344262295082
+      ],
+      [
+        "PMC9911317_chunk_024",
+        0.016129032258064516
+      ],
+      [
+        "vision_PMC9502603_fb8aa77f48eae0903ca7bf4bcdf51997e77ad6c8d3b44bc6a7f66ffb39506ab6",
+        0.016129032258064516
+      ]
+    ],
+    "vision_in_text_top5": false,
+    "vision_in_combined": false
+  },
+  "Kaplan-Meier 生存分析": {
+    "text_top5": [
+      [
+        "PMC12928687_chunk_024",
+        "_statistical_analysis_other"
+      ],
+      [
+        "PMC6726216_chunk_014",
+        "_methods_other"
+      ],
+      [
+        "PMC6726216_chunk_021",
+        "_adverse_events_other"
+      ],
+      [
+        "PMC6937062_chunk_031",
+        "statistical_analysis"
+      ],
+      [
+        "PMC6726216_chunk_018",
+        "adverse_events"
+      ]
+    ],
+    "vision_top5_ids": [
+      "vision_PMC6726216/56fd1c431eedd52ab0a8429cd4a87da4d3c9fc82cde256234f62b957daa19fa7.jpg",
+      "vision_PMC9443636/d0221a410fdb4dea95493b728a794774d2c271472dd6aefd4eef2c20995df04c.jpg",
+      "vision_PMC6726216/f3e47f245ffb66ea0da7a4f1411b062ab8f42bfeedbb9de15e0658ee3d4bc704.jpg",
+      "vision_PMC9443636/dfb2dd9678798a0d88ebc3ae854e36c002126a16e03220b7fe6eef005ea27d6b.jpg",
+      "vision_PMC11339407/8c6b78b394f4c49749fe6f27804b1fda0b2a133a94cfcc2770902b05361431b7.jpg"
+    ],
+    "vision_top5_desc": [
+      "这是一张Kaplan-Meier生存曲线图，展示了AC+P治疗方案下患者的总生存率随时间（0-15年）的变化。图中蓝色实线代表观察到的生存率，红色虚线代表经调整后的预测生存率。两条曲线均呈下降趋势，但",
+      "这是一张关于抗生素头孢曲松（Ceftriaxone）的生存分析曲线图（Kaplan-Meier曲线）。图中展示了两条曲线，分别代表不同组别患者达到某种临床终点（如治疗成功或微生物学清除）的累积概率随时",
+      "这是一张生存分析曲线图，展示了“AC”组患者的总生存率随时间（0-15年）的变化趋势。图中包含两条曲线：蓝色实线代表实际观察到的生存数据（Observed - AC），红色虚线代表经过调整后的模型预测",
+      "这是一张生存分析曲线图，展示了环丙沙星（Ciprofloxacin）治疗下两组患者的生存概率随时间变化的趋势。黄色曲线代表的组别生存概率上升更快且最终平台期更高，蓝色曲线组别则相对较低，表明两组在生存",
+      "这是一张Kaplan-Meier生存曲线图，展示了对照组（Control）与OPTIMAL组患者在随访期间无急性加重的比例随时间变化的趋势。图中显示，两组曲线在350天内均呈下降趋势，但差异无统计学意"
+    ],
+    "combined_top5": [
+      [
+        "vision_PMC10493474_ac4b9c979c8c88db8c4615b2018a080a093dadc457a3ef90e425f55eb3982590",
+        0.029211087420042643
+      ],
+      [
+        "PMC12928687_chunk_024",
+        0.01639344262295082
+      ],
+      [
+        "vision_PMC6726216_56fd1c431eedd52ab0a8429cd4a87da4d3c9fc82cde256234f62b957daa19fa7",
+        0.01639344262295082
+      ],
+      [
+        "PMC6726216_chunk_014",
+        0.016129032258064516
+      ],
+      [
+        "vision_PMC9443636_d0221a410fdb4dea95493b728a794774d2c271472dd6aefd4eef2c20995df04c",
+        0.016129032258064516
+      ]
+    ],
+    "vision_in_text_top5": false,
+    "vision_in_combined": false
+  }
+}

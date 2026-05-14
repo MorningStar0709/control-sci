@@ -1,0 +1,485 @@
+{
+  "meta": {
+    "title": "Medical RAG 跨文献证据合成 — QA 格式化输出",
+    "generated_at": "2026-05-11T11:51:07",
+    "total_qa_pairs": 11,
+    "format_version": "1.0",
+    "format_note": "P1=问题输入, P2=综合答案, P3=来源, P4=限制声明 | 参考 MinerU 官方示例格式",
+    "limitations": "基于 Hybrid 检索的 top-k chunks 合成，不保证覆盖全部相关文献。检索结果受嵌入模型和 BM25 分词影响，部分专业术语可能存在漏检。LLM 合成可能引入幻觉，关键临床决策前需验证原始文献。"
+  },
+  "qa_pairs": [
+    {
+      "qa_id": "QA-B2C57884",
+      "question": "研究中的安全性评估和伦理考量是什么？",
+      "source_chunk_id": "PMC7470506_chunk_024",
+      "source_label": "ethical_approval",
+      "output": "[DRY RUN] 合成结果占位",
+      "consistency": "unknown",
+      "consistency_reason": "dry run 模式，未调用 API",
+      "conflicts": [],
+      "key_findings": [
+        "[DRY RUN]"
+      ],
+      "sources": [
+        {
+          "chunk_id": "PMC7470506_chunk_024",
+          "pmcid": "PMC7470506",
+          "rrf_score": 0.016393,
+          "medical_label": "ethical_approval",
+          "medical_parent": "methods",
+          "filepath": "data/sources_medical/chunks/train/PMC7470506_chunk_024.md",
+          "snippet": "# SAFETY, ETHICS AND DISSEMINATION..."
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_024",
+          "pmcid": "PMC9911317",
+          "rrf_score": 0.016393,
+          "medical_label": "references",
+          "medical_parent": null,
+          "filepath": "data/sources_medical/chunks/eval/PMC9911317_chunk_024.md",
+          "snippet": "99. St. Vincent’s Institute of Medical Research. Baricitinib in new-onset type 1 diabetes (BANDIT). In: ClinicalTrials.gov. Bethesda, MD, National Library of Medicine, 2020. NLM Identifier: NCT04774224. Accessed 14 January 2022. Available from https:// clinicaltrials.gov/ct2/show/NCT04774224\n\n100. Q..."
+        },
+        {
+          "chunk_id": "PMC7414682_chunk_016",
+          "pmcid": "PMC7414682",
+          "rrf_score": 0.016129,
+          "medical_label": "ethical_approval",
+          "medical_parent": "methods",
+          "filepath": "data/sources_medical/chunks/train/PMC7414682_chunk_016.md",
+          "snippet": "# Ethical considerations\n\nThe trial was approved by the institutional review boards (IRB) of Columbia University Irving Medical Center and Weill Cornell Medicine. The trial was also registered at clinicaltrials.gov (NCT03480217)...."
+        }
+      ],
+      "n_sources": 3
+    },
+    {
+      "qa_id": "QA-A0FB86A0",
+      "question": "混合闭环疗法对血糖变异性指标有何影响？",
+      "source_chunk_id": "PMC6009467_chunk_011",
+      "source_label": "secondary_outcome",
+      "output": "[DRY RUN] 合成结果占位",
+      "consistency": "unknown",
+      "consistency_reason": "dry run 模式，未调用 API",
+      "conflicts": [],
+      "key_findings": [
+        "[DRY RUN]"
+      ],
+      "sources": [
+        {
+          "chunk_id": "PMC6448906_chunk_010",
+          "pmcid": "PMC6448906",
+          "rrf_score": 0.016393,
+          "medical_label": "results",
+          "medical_parent": null,
+          "filepath": "data/sources_medical/chunks/train/PMC6448906_chunk_010.md",
+          "snippet": "<table><tr><td>Variable</td><td>Closed-loop</td><td>Open-loop</td><td>p value</td></tr><tr><td colspan=\"4\">Time spent at low glucose</td></tr><tr><td colspan=\"4\">Proportion of time spent with glucose below 3.3 mmol/l (%)</td></tr><tr><td>All</td><td>0.0 (0.0–0.8)</td><td>0.0 (0.0–1.1)</td><td>0.7910..."
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_024",
+          "pmcid": "PMC9911317",
+          "rrf_score": 0.016393,
+          "medical_label": "references",
+          "medical_parent": null,
+          "filepath": "data/sources_medical/chunks/eval/PMC9911317_chunk_024.md",
+          "snippet": "99. St. Vincent’s Institute of Medical Research. Baricitinib in new-onset type 1 diabetes (BANDIT). In: ClinicalTrials.gov. Bethesda, MD, National Library of Medicine, 2020. NLM Identifier: NCT04774224. Accessed 14 January 2022. Available from https:// clinicaltrials.gov/ct2/show/NCT04774224\n\n100. Q..."
+        },
+        {
+          "chunk_id": "PMC7618672_chunk_005",
+          "pmcid": "PMC7618672",
+          "rrf_score": 0.016129,
+          "medical_label": "front_matter",
+          "medical_parent": null,
+          "filepath": "data/sources_medical/chunks/train/PMC7618672_chunk_005.md",
+          "snippet": "# Keywords\n\nType 1 diabetes; hybrid closed-loop; insulin pump; continuous glucose monitor; children; adolescents; newly-diagnosed; insulin variability..."
+        }
+      ],
+      "n_sources": 3
+    },
+    {
+      "qa_id": "QA-7D81A0D5",
+      "question": "AC+P方案的预测总体生存率与观察值是否有显著差异？",
+      "source_chunk_id": "PMC6726216_chunk_021",
+      "source_label": "_adverse_events_other",
+      "output": "[DRY RUN] 合成结果占位",
+      "consistency": "unknown",
+      "consistency_reason": "dry run 模式，未调用 API",
+      "conflicts": [],
+      "key_findings": [
+        "[DRY RUN]"
+      ],
+      "sources": [
+        {
+          "chunk_id": "PMC6726216_chunk_021",
+          "pmcid": "PMC6726216",
+          "rrf_score": 0.016393,
+          "medical_label": "_adverse_events_other",
+          "medical_parent": "adverse_events",
+          "filepath": "data/sources_medical/chunks/eval/PMC6726216_chunk_021.md",
+          "snippet": "<table><tr><td>Time</td><td>N</td><td>Observed survival (95% CI)</td><td>Predicted, Adjusted (95% CI)</td><td>p-value</td></tr><tr><td>1</td><td>662</td><td>0.975 (0.963–0.987)</td><td>0.963 (0.949–0.977)</td><td>0.193</td></tr><tr><td>2</td><td>611</td><td>0.903 (0.881–0.925)</td><td>0.869 (0.844–0..."
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_024",
+          "pmcid": "PMC9911317",
+          "rrf_score": 0.016393,
+          "medical_label": "references",
+          "medical_parent": null,
+          "filepath": "data/sources_medical/chunks/eval/PMC9911317_chunk_024.md",
+          "snippet": "99. St. Vincent’s Institute of Medical Research. Baricitinib in new-onset type 1 diabetes (BANDIT). In: ClinicalTrials.gov. Bethesda, MD, National Library of Medicine, 2020. NLM Identifier: NCT04774224. Accessed 14 January 2022. Available from https:// clinicaltrials.gov/ct2/show/NCT04774224\n\n100. Q..."
+        },
+        {
+          "chunk_id": "PMC6726216_chunk_020",
+          "pmcid": "PMC6726216",
+          "rrf_score": 0.016129,
+          "medical_label": "_adverse_events_other",
+          "medical_parent": "adverse_events",
+          "filepath": "data/sources_medical/chunks/eval/PMC6726216_chunk_020.md",
+          "snippet": "<table><tr><td>Category</td><td>Treatment</td><td>N</td><td>Observed survival</td><td>Predicted survival (CancerMath)</td><td>Multiplier correction</td><td>Predicted survival (Final)</td></tr><tr><td>20–39 ER(-)/PR(-)</td><td>AC+P</td><td>121</td><td>0.649</td><td>0.624</td><td>0.8078</td><td>0.504<..."
+        }
+      ],
+      "n_sources": 3
+    },
+    {
+      "qa_id": "QA-E1E55E6E",
+      "question": "SHAP enhancing clinical interpretability and predictive credibility",
+      "source_chunk_id": "PMC12801964_chunk_020",
+      "source_label": "_subgroup_analysis_other",
+      "output": "[DRY RUN] 合成结果占位",
+      "consistency": "unknown",
+      "consistency_reason": "dry run 模式，未调用 API",
+      "conflicts": [],
+      "key_findings": [
+        "[DRY RUN]"
+      ],
+      "sources": [
+        {
+          "chunk_id": "PMC12801964_chunk_020",
+          "pmcid": "PMC12801964",
+          "rrf_score": 0.031545,
+          "medical_label": "_subgroup_analysis_other",
+          "medical_parent": "subgroup_analysis",
+          "filepath": "data/sources_medical/chunks/train/PMC12801964_chunk_020.md",
+          "snippet": "# SHAP enhancing clinical interpretability and predictive credibility\n\nSHAP method was used to access the effect size and effect direction of each predictor under the XGBoost prediction model. Figure 5 showed the predictor importance (SHAP value) of the top 20 predictors, where the horizontal bar sh..."
+        },
+        {
+          "chunk_id": "PMC12801964_chunk_010",
+          "pmcid": "PMC12801964",
+          "rrf_score": 0.016393,
+          "medical_label": "_outcome_measures_other",
+          "medical_parent": "outcome_measures",
+          "filepath": "data/sources_medical/chunks/train/PMC12801964_chunk_010.md",
+          "snippet": "# Model interpretation\n\nShapley additive explanation (SHAP) method was used to interpret results from the prediction model, which is a unified approach for calculating the contribution and influence of each feature toward the final prediction model. SHAP value is able to measure the contribution of ..."
+        },
+        {
+          "chunk_id": "PMC5439542_chunk_000",
+          "pmcid": "PMC5439542",
+          "rrf_score": 0.016129,
+          "medical_label": "other",
+          "medical_parent": null,
+          "filepath": "data/sources_medical/chunks/train/PMC5439542_chunk_000.md",
+          "snippet": "# Translating U-500R Randomized Clinical Trial Evidence to the Practice Setting..."
+        }
+      ],
+      "n_sources": 3
+    },
+    {
+      "qa_id": "QA-6BB6473E",
+      "question": "OPTIMAL算法如何调整抗IL-5",
+      "source_chunk_id": "PMC11339407_chunk_008",
+      "source_label": "_population_other",
+      "output": "[DRY RUN] 合成结果占位",
+      "consistency": "unknown",
+      "consistency_reason": "dry run 模式，未调用 API",
+      "conflicts": [],
+      "key_findings": [
+        "[DRY RUN]"
+      ],
+      "sources": [
+        {
+          "chunk_id": "PMC11339407_chunk_007",
+          "pmcid": "PMC11339407",
+          "rrf_score": 0.016393,
+          "medical_label": "_population_other",
+          "medical_parent": "population",
+          "filepath": "data/sources_medical/chunks/train/PMC11339407_chunk_007.md",
+          "snippet": "# OPTIMAL algorithm\n\nThe OPTIMAL algorithm was designed as a tool to determine the optimal dosage of anti-IL-5 for individual patients by adjusting the intervals between the administration of treatments (figure 1). The dose remained the same at each administration; however, intervals were prolonged ..."
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_024",
+          "pmcid": "PMC9911317",
+          "rrf_score": 0.016393,
+          "medical_label": "references",
+          "medical_parent": null,
+          "filepath": "data/sources_medical/chunks/eval/PMC9911317_chunk_024.md",
+          "snippet": "99. St. Vincent’s Institute of Medical Research. Baricitinib in new-onset type 1 diabetes (BANDIT). In: ClinicalTrials.gov. Bethesda, MD, National Library of Medicine, 2020. NLM Identifier: NCT04774224. Accessed 14 January 2022. Available from https:// clinicaltrials.gov/ct2/show/NCT04774224\n\n100. Q..."
+        },
+        {
+          "chunk_id": "PMC11339407_chunk_018",
+          "pmcid": "PMC11339407",
+          "rrf_score": 0.016129,
+          "medical_label": "conclusion",
+          "medical_parent": null,
+          "filepath": "data/sources_medical/chunks/eval/PMC11339407_chunk_018.md",
+          "snippet": "# Conclusion\n\nOur study is the first of its kind and offers a proof of concept that titration of anti-IL-5 biologics is possible in patients who have become stable on treatment. Further studies on the long-term prognosis of titration and potential adjustments to the OPTIMAL titration algorithm are n..."
+        }
+      ],
+      "n_sources": 3
+    },
+    {
+      "qa_id": "QA-DE2103A1",
+      "question": "对不良反应信息的渴求是否调节干预对总不良反应的效果？",
+      "source_chunk_id": "PMC9502603_chunk_020",
+      "source_label": "_primary_results_other",
+      "output": "[DRY RUN] 合成结果占位",
+      "consistency": "unknown",
+      "consistency_reason": "dry run 模式，未调用 API",
+      "conflicts": [],
+      "key_findings": [
+        "[DRY RUN]"
+      ],
+      "sources": [
+        {
+          "chunk_id": "PMC9502603_chunk_020",
+          "pmcid": "PMC9502603",
+          "rrf_score": 0.016393,
+          "medical_label": "_primary_results_other",
+          "medical_parent": "primary_results",
+          "filepath": "data/sources_medical/chunks/train/PMC9502603_chunk_020.md",
+          "snippet": "# Moderator of the intervention\n\nTe interaction efect of Group x Desire for information about AEs was not signifcant in the linear mixed model (Y total AEs), indicating no moderating efect of desire for information about AEs on total AEs (estimate: 0.06, 95% CI [ 0.43; 0.54], p .82)...."
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_024",
+          "pmcid": "PMC9911317",
+          "rrf_score": 0.016393,
+          "medical_label": "references",
+          "medical_parent": null,
+          "filepath": "data/sources_medical/chunks/eval/PMC9911317_chunk_024.md",
+          "snippet": "99. St. Vincent’s Institute of Medical Research. Baricitinib in new-onset type 1 diabetes (BANDIT). In: ClinicalTrials.gov. Bethesda, MD, National Library of Medicine, 2020. NLM Identifier: NCT04774224. Accessed 14 January 2022. Available from https:// clinicaltrials.gov/ct2/show/NCT04774224\n\n100. Q..."
+        },
+        {
+          "chunk_id": "PMC9502603_chunk_028",
+          "pmcid": "PMC9502603",
+          "rrf_score": 0.016129,
+          "medical_label": "_discussion_other",
+          "medical_parent": "discussion",
+          "filepath": "data/sources_medical/chunks/train/PMC9502603_chunk_028.md",
+          "snippet": "# Further assessments\n\nDesire for information about AEs did not moderate the intervention efect. Since a monitoring coping style (i.e., attending to and seeking information on symptoms) is associated with more AEs after admission of verum medications [29] as well as placebos [25], we assumed the int..."
+        }
+      ],
+      "n_sources": 3
+    },
+    {
+      "qa_id": "QA-B8CE4581",
+      "question": "自适应结合历史对照的贝叶斯设计有何临床优势？",
+      "source_chunk_id": "PMC6221103_chunk_018",
+      "source_label": "conclusion",
+      "output": "[DRY RUN] 合成结果占位",
+      "consistency": "unknown",
+      "consistency_reason": "dry run 模式，未调用 API",
+      "conflicts": [],
+      "key_findings": [
+        "[DRY RUN]"
+      ],
+      "sources": [
+        {
+          "chunk_id": "PMC6221103_chunk_000",
+          "pmcid": "PMC6221103",
+          "rrf_score": 0.016393,
+          "medical_label": "other",
+          "medical_parent": null,
+          "filepath": "data/sources_medical/chunks/train/PMC6221103_chunk_000.md",
+          "snippet": "# Bayesian selective response-adaptive design using the historical control\n\nMi-Ok Kim1,4 Nusrat Harun1 Chunyan Liu2 Jane C. Khoury2 Joseph P. Broderick3\n\n1UCSF Helen Diller Family Comprehensive Cancer Center, San Francisco, California, USA   \n2Cincinnati Children's Hospital Medical Center, Cincinnat..."
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_024",
+          "pmcid": "PMC9911317",
+          "rrf_score": 0.016393,
+          "medical_label": "references",
+          "medical_parent": null,
+          "filepath": "data/sources_medical/chunks/eval/PMC9911317_chunk_024.md",
+          "snippet": "99. St. Vincent’s Institute of Medical Research. Baricitinib in new-onset type 1 diabetes (BANDIT). In: ClinicalTrials.gov. Bethesda, MD, National Library of Medicine, 2020. NLM Identifier: NCT04774224. Accessed 14 January 2022. Available from https:// clinicaltrials.gov/ct2/show/NCT04774224\n\n100. Q..."
+        },
+        {
+          "chunk_id": "PMC6221103_chunk_002",
+          "pmcid": "PMC6221103",
+          "rrf_score": 0.016129,
+          "medical_label": "front_matter",
+          "medical_parent": null,
+          "filepath": "data/sources_medical/chunks/train/PMC6221103_chunk_002.md",
+          "snippet": "# KEYWORDS\n\nBayesian design with commensurate priors, borrowing on the historical control data, doubly adaptive biased coin design, response-adaptive design..."
+        }
+      ],
+      "n_sources": 3
+    },
+    {
+      "qa_id": "QA-B8A32038",
+      "question": "SPRY-Metformin研究的入组标准是什么？",
+      "source_chunk_id": "PMC7526307_chunk_016",
+      "source_label": "_supplementary_other",
+      "output": "[DRY RUN] 合成结果占位",
+      "consistency": "unknown",
+      "consistency_reason": "dry run 模式，未调用 API",
+      "conflicts": [],
+      "key_findings": [
+        "[DRY RUN]"
+      ],
+      "sources": [
+        {
+          "chunk_id": "PMC7526307_chunk_017",
+          "pmcid": "PMC7526307",
+          "rrf_score": 0.016393,
+          "medical_label": "_supplementary_other",
+          "medical_parent": "supplementary",
+          "filepath": "data/sources_medical/chunks/train/PMC7526307_chunk_017.md",
+          "snippet": "# SPRY-Metformin intervention..."
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_024",
+          "pmcid": "PMC9911317",
+          "rrf_score": 0.016393,
+          "medical_label": "references",
+          "medical_parent": null,
+          "filepath": "data/sources_medical/chunks/eval/PMC9911317_chunk_024.md",
+          "snippet": "99. St. Vincent’s Institute of Medical Research. Baricitinib in new-onset type 1 diabetes (BANDIT). In: ClinicalTrials.gov. Bethesda, MD, National Library of Medicine, 2020. NLM Identifier: NCT04774224. Accessed 14 January 2022. Available from https:// clinicaltrials.gov/ct2/show/NCT04774224\n\n100. Q..."
+        },
+        {
+          "chunk_id": "PMC7526307_chunk_019",
+          "pmcid": "PMC7526307",
+          "rrf_score": 0.016129,
+          "medical_label": "methods",
+          "medical_parent": null,
+          "filepath": "data/sources_medical/chunks/train/PMC7526307_chunk_019.md",
+          "snippet": "# Box 1 Core Protocol and SPRY-Metformin Domain-Specific Appendix inclusion and exclusion criteria..."
+        }
+      ],
+      "n_sources": 3
+    },
+    {
+      "qa_id": "QA-11DD4291",
+      "question": "该临床试验的额外纳入和排除标准是什么？",
+      "source_chunk_id": "PMC12928687_chunk_011",
+      "source_label": "inclusion_criteria",
+      "output": "[DRY RUN] 合成结果占位",
+      "consistency": "unknown",
+      "consistency_reason": "dry run 模式，未调用 API",
+      "conflicts": [],
+      "key_findings": [
+        "[DRY RUN]"
+      ],
+      "sources": [
+        {
+          "chunk_id": "PMC5439542_chunk_016",
+          "pmcid": "PMC5439542",
+          "rrf_score": 0.016393,
+          "medical_label": "_results_other",
+          "medical_parent": "results",
+          "filepath": "data/sources_medical/chunks/train/PMC5439542_chunk_016.md",
+          "snippet": "# Additional Clinical Pearls..."
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_024",
+          "pmcid": "PMC9911317",
+          "rrf_score": 0.016393,
+          "medical_label": "references",
+          "medical_parent": null,
+          "filepath": "data/sources_medical/chunks/eval/PMC9911317_chunk_024.md",
+          "snippet": "99. St. Vincent’s Institute of Medical Research. Baricitinib in new-onset type 1 diabetes (BANDIT). In: ClinicalTrials.gov. Bethesda, MD, National Library of Medicine, 2020. NLM Identifier: NCT04774224. Accessed 14 January 2022. Available from https:// clinicaltrials.gov/ct2/show/NCT04774224\n\n100. Q..."
+        },
+        {
+          "chunk_id": "PMC6561428_chunk_012",
+          "pmcid": "PMC6561428",
+          "rrf_score": 0.016129,
+          "medical_label": "_randomization_other",
+          "medical_parent": "randomization",
+          "filepath": "data/sources_medical/chunks/train/PMC6561428_chunk_012.md",
+          "snippet": "# Box 1 Inclusion and exclusion criteria..."
+        }
+      ],
+      "n_sources": 3
+    },
+    {
+      "qa_id": "QA-2A0D2C89",
+      "question": "药物的药代动力学参数如何？",
+      "source_chunk_id": "PMC6133081_chunk_009",
+      "source_label": "_study_design_other",
+      "output": "[DRY RUN] 合成结果占位",
+      "consistency": "unknown",
+      "consistency_reason": "dry run 模式，未调用 API",
+      "conflicts": [],
+      "key_findings": [
+        "[DRY RUN]"
+      ],
+      "sources": [
+        {
+          "chunk_id": "PMC7932937_chunk_016",
+          "pmcid": "PMC7932937",
+          "rrf_score": 0.016393,
+          "medical_label": "pharmacokinetics",
+          "medical_parent": "results",
+          "filepath": "data/sources_medical/chunks/train/PMC7932937_chunk_016.md",
+          "snippet": "# 3.2 Pharmacokinetic/Pharmacodynamic Analysis..."
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_024",
+          "pmcid": "PMC9911317",
+          "rrf_score": 0.016393,
+          "medical_label": "references",
+          "medical_parent": null,
+          "filepath": "data/sources_medical/chunks/eval/PMC9911317_chunk_024.md",
+          "snippet": "99. St. Vincent’s Institute of Medical Research. Baricitinib in new-onset type 1 diabetes (BANDIT). In: ClinicalTrials.gov. Bethesda, MD, National Library of Medicine, 2020. NLM Identifier: NCT04774224. Accessed 14 January 2022. Available from https:// clinicaltrials.gov/ct2/show/NCT04774224\n\n100. Q..."
+        },
+        {
+          "chunk_id": "PMC6133081_chunk_012",
+          "pmcid": "PMC6133081",
+          "rrf_score": 0.016129,
+          "medical_label": "_data_collection_other",
+          "medical_parent": "data_collection",
+          "filepath": "data/sources_medical/chunks/train/PMC6133081_chunk_012.md",
+          "snippet": "# 2.4 Pharmacokinetic/Pharmacodynamic Analysis..."
+        }
+      ],
+      "n_sources": 3
+    },
+    {
+      "qa_id": "QA-B079DCA3",
+      "question": "益生菌在严重急性胰腺炎动物模型中的疗效是否受偏倚风险影响？",
+      "source_chunk_id": "PMC3496732_chunk_022",
+      "source_label": "_references_other",
+      "output": "[DRY RUN] 合成结果占位",
+      "consistency": "unknown",
+      "consistency_reason": "dry run 模式，未调用 API",
+      "conflicts": [],
+      "key_findings": [
+        "[DRY RUN]"
+      ],
+      "sources": [
+        {
+          "chunk_id": "PMC3496732_chunk_000",
+          "pmcid": "PMC3496732",
+          "rrf_score": 0.016393,
+          "medical_label": "methods",
+          "medical_parent": null,
+          "filepath": "data/sources_medical/chunks/train/PMC3496732_chunk_000.md",
+          "snippet": "# The Effects of Probiotic Supplementation on Experimental Acute Pancreatitis: A Systematic Review and Meta-Analysis\n\nCarlijn R. Hooijmans1 \\*, Rob B. M. de Vries1 , Maroeska M. Rovers2,3, Hein G. Gooszen3 , Merel Ritskes-Hoitinga1\n\n1 Radboud University Nijmegen Medical Centre, SYRCLE at Central Ani..."
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_024",
+          "pmcid": "PMC9911317",
+          "rrf_score": 0.016393,
+          "medical_label": "references",
+          "medical_parent": null,
+          "filepath": "data/sources_medical/chunks/eval/PMC9911317_chunk_024.md",
+          "snippet": "99. St. Vincent’s Institute of Medical Research. Baricitinib in new-onset type 1 diabetes (BANDIT). In: ClinicalTrials.gov. Bethesda, MD, National Library of Medicine, 2020. NLM Identifier: NCT04774224. Accessed 14 January 2022. Available from https:// clinicaltrials.gov/ct2/show/NCT04774224\n\n100. Q..."
+        },
+        {
+          "chunk_id": "PMC3496732_chunk_001",
+          "pmcid": "PMC3496732",
+          "rrf_score": 0.016129,
+          "medical_label": "front_matter",
+          "medical_parent": null,
+          "filepath": "data/sources_medical/chunks/train/PMC3496732_chunk_001.md",
+          "snippet": "# Abstract\n\nBackground:In February 2008,the resultsof the PRObiotics in PAncreatitis TRIAl (PROPATRIA)were published.This study investigated the use of probiotics in patients suffering from severe acute pancreatitis. No differences between the groups were found for any of the primary endpoints. Howe..."
+        }
+      ],
+      "n_sources": 3
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "total_references": 947,
+  "filtered_below_5kb": 113,
+  "filtered_ratio_pct": 11.9,
+  "retained": 721,
+  "retained_ratio_pct": 76.1,
+  "probe_verified_types": [
+    "scatter_plot",
+    "ct_image",
+    "tech_schematic"
+  ],
+  "probe_failed_types": [
+    "cover_thumbnail",
+    "icon"
+  ],
+  "min_size_kb": 5.0
+}

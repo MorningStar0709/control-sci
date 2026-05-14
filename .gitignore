@@ -1,0 +1,51 @@
+# ControlSci public-release allowlist
+#
+# This branch is intentionally curated for public/reviewer access.
+# Full private evidence, raw corpora, caches, model outputs and internal notes stay on main.
+
+# Python/runtime
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Secrets and local config
+.env
+.env.*
+.idea/
+.vscode/
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# Internal / raw / generated heavy assets
+_tools/
+_scratch/
+_data/
+tmp/
+_ppt_materials/
+analyze/
+.trae/
+data/
+corpus/
+dataset/
+huggingface/
+finetune/output/
+finetune/data/
+benchmark/archive/
+benchmark/compare_output/
+benchmark/logs/
+benchmark/agent/agent_report.md
+benchmark/eval/results/
+benchmark/eval/reports/
+benchmark/eval/reports_limit*/
+benchmark/agent/logs/
+benchmark/agent/results/
+benchmark/agent/test_materials/
+docs/**
+!docs/submissions/
+!docs/submissions/**
+starboard/
+node_modules/

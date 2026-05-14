@@ -1,0 +1,335 @@
+{
+  "generated_at": "2026-05-14T14:13:27",
+  "project": "ControlSci — 2026 MinerU Challenge",
+  "generator": "scripts/build_data_trace_bundle.py",
+  "strategy": "copy (源文件未移动)",
+  "description": "DATA-TRACE 配套数据集中导航包。所有数据均可在仓库原始位置找到。",
+  "total_size_mb": 35.26,
+  "files": [
+    {
+      "bundle_path": "01_corpus_scale/metadata.json",
+      "source_path": "corpus/metadata.json",
+      "size_bytes": 216255,
+      "size_mb": 0.21,
+      "sha256": "c34913ae0203b45fa127b820e5bc5491c532490543f4266c27bf070fa55481d2"
+    },
+    {
+      "bundle_path": "01_corpus_scale/corpus_stats.json",
+      "source_path": "corpus/stats/corpus_stats.json",
+      "size_bytes": 226767,
+      "size_mb": 0.22,
+      "sha256": "08e4f827d96321e1890792bce8fce7d53dc6e399ca09494ef93fd4f9196ebec8"
+    },
+    {
+      "bundle_path": "01_corpus_scale/multimodal_chunks.json",
+      "source_path": "benchmark/eval/results/multimodal_chunks.json",
+      "size_bytes": 3338459,
+      "size_mb": 3.18,
+      "sha256": "e478720212d1437bcd70125c228277f6b11411c1799da3c7bea12401c302a458"
+    },
+    {
+      "bundle_path": "01_corpus_scale/image_formula_cooccurrence.json",
+      "source_path": "benchmark/eval/results/image_formula_cooccurrence.json",
+      "size_bytes": 812,
+      "size_mb": 0.0,
+      "sha256": "f068c2bc4cc4f2d0d56841385c760f99d848c8307ebe477574b1ecef3af39db9"
+    },
+    {
+      "bundle_path": "01_corpus_scale/a1_global_pca.json",
+      "source_path": "benchmark/eval/results/chunk_embedding/a1_global_pca.json",
+      "size_bytes": 1044,
+      "size_mb": 0.0,
+      "sha256": "017d37edf1bc510a78916994dbe0c22d1ffbf97e940812db6792d378ec41b503"
+    },
+    {
+      "bundle_path": "01_corpus_scale/a2_doc_similarity.json",
+      "source_path": "benchmark/eval/results/chunk_embedding/a2_doc_similarity.json",
+      "size_bytes": 10851,
+      "size_mb": 0.01,
+      "sha256": "481d9ef8696bcc4d1060e9839d2ea8445bed68953d0953ad9d897e17e0b9f58a"
+    },
+    {
+      "bundle_path": "01_corpus_scale/a3_redundancy.json",
+      "source_path": "benchmark/eval/results/chunk_embedding/a3_redundancy.json",
+      "size_bytes": 6192,
+      "size_mb": 0.01,
+      "sha256": "1c50e4a0c8bd83e2a6e0461c21b4660106216e6d08af7d2001f77b2324f86232"
+    },
+    {
+      "bundle_path": "01_corpus_scale/a4_train_eval.json",
+      "source_path": "benchmark/eval/results/chunk_embedding/a4_train_eval.json",
+      "size_bytes": 410,
+      "size_mb": 0.0,
+      "sha256": "0c39c21831cc8a4928a4a84f84074b25fa0bdac296d85b1d37497a2ed39f5a73"
+    },
+    {
+      "bundle_path": "02_benchmark/core.json",
+      "source_path": "benchmark/dataset/core.json",
+      "size_bytes": 1152497,
+      "size_mb": 1.1,
+      "sha256": "5abf1b31fde3b6fa26538636bf238598d503ec2f67c2913bc4a8223ce3555361"
+    },
+    {
+      "bundle_path": "02_benchmark/flywheel_filtered.json",
+      "source_path": "benchmark/dataset/flywheel_filtered.json",
+      "size_bytes": 8644,
+      "size_mb": 0.01,
+      "sha256": "e478be2713004c94267cea98bb4b76da1bc0f5c1e1926f1874e508f24b94bcfd"
+    },
+    {
+      "bundle_path": "03_leaderboard/leaderboard.json",
+      "source_path": "benchmark/eval/results/leaderboard.json",
+      "size_bytes": 1528,
+      "size_mb": 0.0,
+      "sha256": "3a9a95be8a1e6e08fdc8a832ca7d04b9de201f25af282a795a08da23b62bfc4a"
+    },
+    {
+      "bundle_path": "03_leaderboard/qwen3.5_9b_target_eval.json",
+      "source_path": "benchmark/eval/results/qwen3.5_9b_target_eval.json",
+      "size_bytes": 3782309,
+      "size_mb": 3.61,
+      "sha256": "5c5de06500ffdfa8d323833b84a19d483d609a4fb6ce83d2a5b466c4e01eb516"
+    },
+    {
+      "bundle_path": "03_leaderboard/qwen3.5_9b_answers.jsonl",
+      "source_path": "benchmark/eval/results/qwen3.5_9b_answers.jsonl",
+      "size_bytes": 3614537,
+      "size_mb": 3.45,
+      "sha256": "189a8922a54374974a3ee53c1f2a769f48474b4b9dd1f83bc6a5d42fd64811e2"
+    },
+    {
+      "bundle_path": "04_qlora_ppl/eval_finetuned_report.json",
+      "source_path": "finetune/output/eval_finetuned_report.json",
+      "size_bytes": 411144,
+      "size_mb": 0.39,
+      "sha256": "63f5b181ed927a6b6aaf59116fdc71f0e7d35f219b6d6f660268bc1e0cd65815"
+    },
+    {
+      "bundle_path": "04_qlora_ppl/eval_baseline_4b_report.json",
+      "source_path": "finetune/output/eval_baseline_4b_report.json",
+      "size_bytes": 869013,
+      "size_mb": 0.83,
+      "sha256": "038599aa5926deaf672691017040a4fd6bc35edf6e13b3aa6be594ef9b613981"
+    },
+    {
+      "bundle_path": "04_qlora_ppl/perplexity_delta.json",
+      "source_path": "finetune/output/perplexity_delta.json",
+      "size_bytes": 2290,
+      "size_mb": 0.0,
+      "sha256": "c6f81b31c0c35b03f917b51189ecc8a18f7790be1a23e3717b7b865f128cbec6"
+    },
+    {
+      "bundle_path": "04_qlora_ppl/perplexity_delta_9b.json",
+      "source_path": "finetune/output/perplexity_delta_9b.json",
+      "size_bytes": 2335,
+      "size_mb": 0.0,
+      "sha256": "5f6a0bc208e38e8f547078090e7cfa9a901598e1263829534d17164a7612875b"
+    },
+    {
+      "bundle_path": "04_qlora_ppl/training.status.json",
+      "source_path": "finetune/output/qlora-qwen4b-cross/training.status.json",
+      "size_bytes": 369,
+      "size_mb": 0.0,
+      "sha256": "9a4ef9e2015f5abb126fbf0c1c3d52404ff93af391409860d4d54bf3df610593"
+    },
+    {
+      "bundle_path": "05_cross_modal/cross_modal_audit_summary.json",
+      "source_path": "benchmark/eval/results/cross_modal_audit_summary.json",
+      "size_bytes": 3515,
+      "size_mb": 0.0,
+      "sha256": "c426ba39adfb0c5a43b5c4d15abdf6ebe9367cb171d538a83d0ceda040495fe3"
+    },
+    {
+      "bundle_path": "06_visual_audit/visual_audit_results.jsonl",
+      "source_path": "benchmark/agent/results/visual_audit_results.jsonl",
+      "size_bytes": 6586628,
+      "size_mb": 6.28,
+      "sha256": "cdbc3958154d3746430fc4e4efbd1444243c59b9dbb25e4f4ca385ccb0522e59"
+    },
+    {
+      "bundle_path": "07_flywheel/flywheel_eval_deepseek.json",
+      "source_path": "benchmark/eval/results/flywheel_eval_deepseek.json",
+      "size_bytes": 14358,
+      "size_mb": 0.01,
+      "sha256": "5ecc75e096c841e1c15e7a537e6da4e4b98c37d9aca3cab828c92b5f0fb73954"
+    },
+    {
+      "bundle_path": "07_flywheel/flywheel_progress_deepseek.jsonl",
+      "source_path": "benchmark/eval/results/flywheel_progress_deepseek.jsonl",
+      "size_bytes": 12698,
+      "size_mb": 0.01,
+      "sha256": "d67d3904b4140edea8f50f13a9b9174f52b97e85f55df085a4cf782443770890"
+    },
+    {
+      "bundle_path": "07_flywheel/2605.02370_Robust Adaptive Predictive Control for Hook-Based Aerial Tra.pdf",
+      "source_path": "data/sources_flywheel/2605.02370_Robust Adaptive Predictive Control for Hook-Based Aerial Tra.pdf",
+      "size_bytes": 4898895,
+      "size_mb": 4.67,
+      "sha256": "6a7e54d96671e14e5f0da65eef199e691258417a563306033206fa527d81d8d6"
+    },
+    {
+      "bundle_path": "07_flywheel/2605.03662_Feasibility-aware Hybrid Control for Motion Planning under S.pdf",
+      "source_path": "data/sources_flywheel/2605.03662_Feasibility-aware Hybrid Control for Motion Planning under S.pdf",
+      "size_bytes": 649571,
+      "size_mb": 0.62,
+      "sha256": "5dd92933150dbf97e129686906edaac28fcc95db8058fa20ef73f86c2e8c4857"
+    },
+    {
+      "bundle_path": "07_flywheel/2605.05182_A Closed-Form Dual-Barrier CBF Safety Filter for Holonomic R.pdf",
+      "source_path": "data/sources_flywheel/2605.05182_A Closed-Form Dual-Barrier CBF Safety Filter for Holonomic R.pdf",
+      "size_bytes": 403789,
+      "size_mb": 0.39,
+      "sha256": "d2c41b8fad7d7bdb6eed3b81a87ce3769c52737239a430c4aa642256b370d129"
+    },
+    {
+      "bundle_path": "07_flywheel/2605.05575_Maximal Controlled Invariant-MPC - Enhancing Feasibility and.pdf",
+      "source_path": "data/sources_flywheel/2605.05575_Maximal Controlled Invariant-MPC - Enhancing Feasibility and.pdf",
+      "size_bytes": 2411139,
+      "size_mb": 2.3,
+      "sha256": "80c9d34a3ca0cd17a41c42865d3ce4e1a7af6d95ea217afb012b6e47f02cb3fd"
+    },
+    {
+      "bundle_path": "07_flywheel/2605.06630_Quantifying Trade-Offs Between Stability and Goal-Obfuscatio.pdf",
+      "source_path": "data/sources_flywheel/2605.06630_Quantifying Trade-Offs Between Stability and Goal-Obfuscatio.pdf",
+      "size_bytes": 444687,
+      "size_mb": 0.42,
+      "sha256": "6da8d2c844d3bfc98ffcfdb746e02d25bdde0dfbbeb1118b0e39c5947fb1635f"
+    },
+    {
+      "bundle_path": "08_think_probe/think_probe_35b_10queries.json",
+      "source_path": "benchmark/eval/results/think_probe_35b_10queries.json",
+      "size_bytes": 12487,
+      "size_mb": 0.01,
+      "sha256": "3c85ea259ddf7b88f24137da6bac78abf80f26b9cade83d83bb946fe8af0dad1"
+    },
+    {
+      "bundle_path": "09_medical_rag/qa_output.json",
+      "source_path": "data/sources_medical/qa/qa_output.json",
+      "size_bytes": 24761,
+      "size_mb": 0.02,
+      "sha256": "c1d4a5c7b9f56b2c5d20b6fa6388ac846239e4b9a86a1c7133e35267fa28745b"
+    },
+    {
+      "bundle_path": "09_medical_rag/vision_chunks_manifest.json",
+      "source_path": "data/sources_medical/vision/vision_chunks_manifest.json",
+      "size_bytes": 256,
+      "size_mb": 0.0,
+      "sha256": "6082ed6a79557627249ce96d2219c986c090c81dcada0c7990f90c7dcc865e84"
+    },
+    {
+      "bundle_path": "09_medical_rag/vision_quality_control.json",
+      "source_path": "data/sources_medical/vision/vision_quality_control.json",
+      "size_bytes": 330,
+      "size_mb": 0.0,
+      "sha256": "a5721719f20d64dd1d3ef3641ebfc476a9ef75a84247622d4448caed5f850ae5"
+    },
+    {
+      "bundle_path": "09_medical_rag/vision_descriptions.jsonl",
+      "source_path": "data/sources_medical/vision/vision_descriptions.jsonl",
+      "size_bytes": 737928,
+      "size_mb": 0.7,
+      "sha256": "0709097b1a376a2f60724507505d38edd5e52ae595946c52e2c6e1d454b11b89"
+    },
+    {
+      "bundle_path": "09_medical_rag/vision_descriptions_qwen35.jsonl",
+      "source_path": "data/sources_medical/vision/vision_descriptions_qwen35.jsonl",
+      "size_bytes": 1698379,
+      "size_mb": 1.62,
+      "sha256": "7a68b7a50a79837b621a67c6572a189ae73125a4c00c0842756f156a466a6a16"
+    },
+    {
+      "bundle_path": "09_medical_rag/vision_ab_comparison.json",
+      "source_path": "benchmark/eval/results/medical/vision_ab_comparison.json",
+      "size_bytes": 24458,
+      "size_mb": 0.02,
+      "sha256": "9414025901d09434e2b5d38d4b13c0af73351297a7fe1da0b95016fabb03c773"
+    },
+    {
+      "bundle_path": "09_medical_rag/medbench_35b_speed_probe.json",
+      "source_path": "data/sources_medical/medbench/medbench_35b_speed_probe.json",
+      "size_bytes": 14693,
+      "size_mb": 0.01,
+      "sha256": "7762415ccf23cc2a2a81a42ec66907b404fe626848c0e3998a15a27ee13add64"
+    },
+    {
+      "bundle_path": "10_charts/a1_global_pca.png",
+      "source_path": "benchmark/eval/results/chunk_embedding/a1_global_pca.png",
+      "size_bytes": 2226743,
+      "size_mb": 2.12,
+      "sha256": "dda645b0a429fb5e0eb7fc257078eecdfa6764e60ee1f1e7ad8a5407e7dc60d9"
+    },
+    {
+      "bundle_path": "10_charts/a2_doc_similarity.png",
+      "source_path": "benchmark/eval/results/chunk_embedding/a2_doc_similarity.png",
+      "size_bytes": 1160885,
+      "size_mb": 1.11,
+      "sha256": "23d1219e5b3f05d3bf27e0eb5fb0516592f51c6f9c36aa1dbc3c9c4e5a2b2d4c"
+    },
+    {
+      "bundle_path": "10_charts/a2_doc_similarity_full.png",
+      "source_path": "benchmark/eval/results/chunk_embedding/a2_doc_similarity_full.png",
+      "size_bytes": 1161821,
+      "size_mb": 1.11,
+      "sha256": "4ba38e8525f887ca34a592365c10066fdf3b1f6fb3d17a26697d43194df22c42"
+    },
+    {
+      "bundle_path": "10_charts/a4_train_eval.png",
+      "source_path": "benchmark/eval/results/chunk_embedding/a4_train_eval.png",
+      "size_bytes": 836175,
+      "size_mb": 0.8,
+      "sha256": "ab3f254ac95d76d54106b2500394ff4535f028f582e14fc369f1343400e75cec"
+    }
+  ],
+  "excluded": [
+    {
+      "source_path": "benchmark/eval/results/chunk_embedding/embeddings_cache.npy",
+      "estimated_size": "278 MB",
+      "reason": "可重新生成（衍生缓存文件）",
+      "regeneration_command": "conda run --no-capture-output -n myenv python benchmark/eval/chunk_embedding_analysis.py"
+    },
+    {
+      "source_path": "data/sources_medical/index/medical.index",
+      "estimated_size": "33 MB",
+      "reason": "可重新生成（衍生缓存文件）",
+      "regeneration_command": "conda run --no-capture-output -n myenv python -m controlsci.medical.indexing"
+    },
+    {
+      "source_path": "data/sources_medical/index/embeddings_cache.npy",
+      "estimated_size": "33 MB",
+      "reason": "可重新生成（衍生缓存文件）",
+      "regeneration_command": "conda run --no-capture-output -n myenv python -m controlsci.medical.indexing"
+    },
+    {
+      "source_path": "data/sources_medical/index/bm25.pkl",
+      "estimated_size": "17 MB",
+      "reason": "可重新生成（衍生缓存文件）",
+      "regeneration_command": "conda run --no-capture-output -n myenv python -m controlsci.medical.indexing"
+    }
+  ],
+  "non_file_sources": [
+    {
+      "label": "DT #23",
+      "note": "benchmark/agent/agent_report.md §3.4 L254 — Markdown 行引用"
+    },
+    {
+      "label": "DT #34",
+      "note": "抽样确认 — 人工核查"
+    },
+    {
+      "label": "DT #69",
+      "note": "git log — 版本控制元数据"
+    },
+    {
+      "label": "DT #70",
+      "note": "evaluate 管线日志 — 分布式运行时日志"
+    },
+    {
+      "label": "DT #73",
+      "note": "GPU 嵌入分析 — 已删除，无日志"
+    },
+    {
+      "label": "DT #74",
+      "note": "Ollama 评测进度日志 — 运行时日志"
+    }
+  ]
+}

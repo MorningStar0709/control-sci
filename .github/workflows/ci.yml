@@ -1,0 +1,81 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install openai httpx anthropic
+
+      - name: Syntax check (benchmark/eval)
+        run: |
+          python -m py_compile benchmark/eval/validate_dataset.py
+          python -m py_compile benchmark/eval/evaluate.py
+          python -m py_compile benchmark/eval/judge.py
+          python -m py_compile benchmark/eval/utils.py
+          python -m py_compile benchmark/eval/report.py
+          python -m py_compile benchmark/eval/cross_domain_test.py
+          python -m py_compile benchmark/eval/cross_domain_radar.py
+          python -m py_compile benchmark/eval/cross_judge.py
+          python -m py_compile benchmark/eval/quality_audit.py
+          python -m py_compile benchmark/eval/self_correction_test.py
+          python -m py_compile benchmark/eval/self_correction_test_mimo.py
+          python -m py_compile benchmark/eval/self_correction_test_minimax.py
+          python -m py_compile benchmark/eval/summarize_multi.py
+          python -m py_compile benchmark/eval/t2_deep_analysis.py
+          python -m py_compile benchmark/eval/embedding_analysis.py
+          python -m py_compile benchmark/eval/dimension_waterfall.py
+          python -m py_compile benchmark/eval/formula_density.py
+          python -m py_compile benchmark/eval/image_formula_cooccurrence.py
+          python -m py_compile benchmark/eval/failure_analysis.py
+          python -m py_compile benchmark/eval/report_viz.py
+          python -m py_compile benchmark/eval/build_mimo_candidates.py
+          python -m py_compile benchmark/eval/build_minimax_candidates.py
+          python -m py_compile benchmark/eval/build_multimodal_index.py
+          python -m py_compile benchmark/eval/ping_models.py
+          python -m py_compile benchmark/eval/run_eval_pipeline.py
+          python -m py_compile benchmark/eval/monitor_eval.py
+          python -m py_compile benchmark/eval/check_leaderboard.py
+
+      - name: Syntax check (benchmark/pipeline)
+        run: |
+          python -m py_compile benchmark/pipeline/build_benchmark.py
+          python -m py_compile benchmark/pipeline/export_dataset.py
+          python -m py_compile benchmark/pipeline/merge_benchmarks.py
+          python -m py_compile benchmark/pipeline/split_benchmark.py
+          python -m py_compile benchmark/pipeline/validate_benchmark.py
+          python -m py_compile benchmark/pipeline/arbiter.py
+          python -m py_compile benchmark/pipeline/orphan_judge.py
+          python -m py_compile benchmark/pipeline/compare_mineru_vs_pymupdf.py
+
+      - name: Syntax check (benchmark/generator)
+        run: |
+          python -m py_compile benchmark/generator/api.py
+          python -m py_compile benchmark/generator/prompts.py
+          python -m py_compile benchmark/generator/distribution.py
+          python -m py_compile benchmark/generator/quality.py
+
+      - name: Validate dataset (core.json)
+        run: python benchmark/eval/validate_dataset.py --input benchmark/dataset/core.json
+
+      - name: Reference evaluation (core.json)
+        run: python benchmark/eval/evaluate.py --mode reference --input benchmark/dataset/core.json --output /tmp/core_report.json
+
+      - name: Reference evaluation (sample)
+        run: python benchmark/eval/evaluate.py --mode reference --input benchmark/dataset/sample_questions.json --output /tmp/sample_report.json

@@ -1,0 +1,43 @@
+cff-version: 1.2.0
+title: "ControlSci: A Structured Cross-Modal Alignment Benchmark and Data Agent for Control Science"
+message: >-
+  If you use this project in your research, please cite this software and the
+  associated dataset (see url below).
+type: software
+authors:
+  - name: MorningStar
+    email: fanpuji55@outlook.com
+license: CC-BY-4.0
+repository-code: "https://github.com/MorningStar0709/control-sci"
+url: "https://huggingface.co/datasets/MorningStar0709/control-sci-corpus"
+year: 2026
+date-released: 2026-05-24
+abstract: >-
+  ControlSci is a structured cross-modal alignment benchmark and data agent
+  system for control science. Track 1: a 500-question 4-dimension evaluation
+  benchmark (Concept Recall / Multi-step Reasoning / Condition Sensitivity /
+  Open Design, 125 each) built from 362 control-science documents (23 textbooks
+  + 339 arXiv papers) via a fully AI-driven pipeline (MinerU parsing → LLM
+  question generation → dual-layer arbitration → embedding fast-track), covering
+  14 control sub-domains with 28,514 cross-modal chunks and 253K LaTeX formulas.
+  Track 2: ControlSci Data Agent — a 12-intent scientific document cross-modal
+  corpus agent powered by a tri-track inference engine (API / Ollama / vLLM)
+  with 4-path resource scheduling, closed-loop self-correction, MiMo-V2.5 native
+  visual auditing, QLoRA fine-tuning, and a data flywheel for automatic
+  benchmark expansion. The project demonstrates that a single-developer,
+  full-AI-driven pipeline can produce industrial-grade evaluation benchmarks and
+  agent systems without human annotation.
+keywords:
+  - control-science
+  - benchmark
+  - scialign
+  - cross-modal-alignment
+  - llm-evaluation
+  - structured-corpus
+  - mineru
+  - data-agent
+  - multi-modal
+  - qlora
+  - ai4s
+  - document-intelligence
+  - tri-engine-scheduling
