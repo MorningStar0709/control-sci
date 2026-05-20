@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     ControlSci Eval Pipeline One-Click Reproduction
     core.json -> leaderboard.json complete call chain
@@ -81,6 +81,9 @@ if ($Help) {
 }
 
 $ErrorActionPreference = "Stop"
+$env:PYTHONUTF8 = "1"
+$env:PYTHONIOENCODING = "utf-8"
+[Console]::OutputEncoding = [System.Text.UTF8Encoding]::new($false)
 $ROOT = $PSScriptRoot
 $PYTHON = "conda"
 $ENV_FLAGS = @("run", "--no-capture-output", "-n", "myenv", "python")
@@ -204,11 +207,11 @@ if (Test-Path $Input) {
 }
 
 # API Keys
-$dsKey = $env:OPENAI_API_KEY
+$dsKey = if ($env:DEEPSEEK_API_KEY) { $env:DEEPSEEK_API_KEY } else { $env:OPENAI_API_KEY }
 if ($dsKey) {
-    Write-Ok "OPENAI_API_KEY: set (DeepSeek Judge)"
+    Write-Ok "DEEPSEEK_API_KEY/OPENAI_API_KEY: set (DeepSeek Judge)"
 } else {
-    Write-Warn "OPENAI_API_KEY not set (required for Judge)"
+    Write-Warn "DEEPSEEK_API_KEY/OPENAI_API_KEY not set (required for Judge)"
 }
 
 $mimoKey = $env:MIMO_API_KEY

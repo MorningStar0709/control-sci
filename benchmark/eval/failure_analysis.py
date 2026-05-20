@@ -25,7 +25,7 @@ from openai import OpenAI, DefaultHttpxClient
 # ============================================================
 # Config
 # ============================================================
-API_KEY = os.environ.get("OPENAI_API_KEY", "")
+API_KEY = os.environ.get("DEEPSEEK_API_KEY") or os.environ.get("OPENAI_API_KEY", "")
 BASE_URL = "https://api.deepseek.com"
 MODEL = "deepseek-v4-flash"
 MAX_TOKENS = 4096

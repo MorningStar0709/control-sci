@@ -1,0 +1,135 @@
+{
+  "meta": {
+    "title": "MedBench 自评测报告",
+    "generated_at": "2026-05-11T14:39:19",
+    "elapsed_seconds": 16.7,
+    "source": "MedBench_LLM.zip",
+    "index_source": "data/sources_medical/index/",
+    "progress_source": "data\\sources_medical\\medbench\\medbench_9b_probe\\medbench_9b_probe_MedLitQA.json.progress.jsonl",
+    "status_source": "data\\sources_medical\\medbench\\medbench_9b_probe\\medbench_9b_probe_MedLitQA.json.status.json",
+    "note": "此为自评测，非 MedBench 官方评测。正式评测由组委会执行。"
+  },
+  "statistics": {
+    "total_questions": 5,
+    "total_subsets": 1,
+    "overall_avg_hits": 5.0,
+    "overall_coverage": 1.0,
+    "subsets": {
+      "MedLitQA": {
+        "total": 5,
+        "with_retrieval": 5,
+        "avg_hits": 5.0,
+        "coverage": 1.0
+      }
+    }
+  },
+  "per_question": [
+    {
+      "query_id": "MB-MedLitQA-0000-39-1b708fa1bb",
+      "subset": "MedLitQA",
+      "question": "## 任务：请根据给定的英文文献回答问题。\n\n## 要求：用中文回答。\n\n## 任务示例：英文文献如下：\nAsia, had a rate of 11.9, which was lower than the OECD average 4.5 In the United Kingdom, primary care physicians treat 90% of psy- chiatric disorders: and in Japan, some note that primary care physi- cians see patients with mood and anxiety disorders equally or even more than psychiatrists 7.8 Patients with mental health problems are at higher risk of chronid medical resources, and e more likely to have disease, use are more There is decreased quality of life due to increased morbidity 9.10.11 an acute need for appropriate mental health care to be provided in primary care worldwide, However, there is a lack of mental health training among primary care providers. 12 There have been numerous on mental health training for primary studies worldwide care nro viders including family physicians 13.14 Professional I associations of family physicians, such as the World Organization of Family Doctors (WONCA).15 the American Academy of Family Physicians (AAEP) 16 and the Roval College of General Practitioners (RCGP) 17 have also proposed recommendations s for mental health training in their spe- cialty residency The Japan Primary Care Association UPCA) has set the following objectives for mental health training in family medicine residency in Japan: clinical experience in symptomatic psychosis programs dementia addiction. depression, bipolar disorder. schizophrenia disorders anxiety disorders somatoform disorders adjustment and developmental disorders insomnia. perinatal mental health Additionally, portfolios, Obiective Structured Clinical Examinations (OSCEs), and written exams on mental health are regquired as a part of the board certification exam. However, mental health training is not mandatory for residents, and the JPCA has not developed ade quate and systematic training for mental health in primary care. The 2019 WONCA report for the international I accreditation of Japan's e residency programs family medicine enhance recommended the ment of mental health training. 9 For this reason, the JPCA established a Mental Health Committee in 2020. It works to improve the quality of mental health care and train- ing for members of JPCA, especially for its residents. Kawada et al.20 conducted a scoping review of the e competencies required in family medicine residency programs. However, they did not find adequate in formation in the literature to help them comprehensively understand what was offered, internationally, in mental health training programs was inadequate in scope of the study, 14.21 target Existing literature population,22 and types of training.23.24 For example, Leigh et al.4.21 surveyed the status of psychiatry training in family medicine and other specialties; however, the study only covered domestic programs in studied competencies in the US, not internationally. Tsutsumi et al.22 undergraduate medical education in Japan, not family medicine res- Stensrud et al. focused on training in communication skills idents. focused on competencies in addiction disorders and Dove24 This survey was an exploratory descriptive study that is part of the committee's activities. We aimed to overview and compare the actual status of mental health training for family medicine residen- cies internationally. This type of overview has not been conducted to date. We expect the survey to be a useful source, leading to rec\n\n为什么初级保健中需要提供适当的心理健康护理？\n\n答：患者有心理健康问题时，他们更有可能使用更多的慢性医疗资源，并且更有可能患有疾病。此外，他们的生活质量会因增加的疾病负担而下降。因此，全球范围内都迫切需要在初级保健中提供适当的心理健康护理。\n\n## 英文文献如下：\n【文献原文】:\n\nCatheter ablation was performed before the left  atrial appendage closure device was implanted.  After implantation, patients received oral anticoagulants and aspirin for 90 days, followed by aspirin alone until 12 months after randomization.  \n\nFollow-up imaging of the device (by transesophageal echocardiography [recommended] or computed tomography) was performed at 3 months  and 12 months.\n\n问题：该研究中左心耳封堵（LAAC）组患者术后抗栓治疗方案的具体用药、用药疗程以及随访评估是怎样的？\n\n",
+      "answer_gt": "",
+      "generated_answer": "基于提供的检索到的文献片段，**无法回答**该问题。\n\n**原因说明：**\n提供的文献片段（文献 1、文献 2、文献 3）主要涉及抑郁症治疗（HAM-D-17 评分、EMDR 疗法）、阿片类药物使用障碍以及临床试验的后续护理，**并未包含**关于“左心耳封堵（LAAC）”、“导管消融”、“口服抗凝药”、“阿司匹林”或\"3 个月/12 个月随访影像检查”等与问题相关的任何信息。\n\n虽然问题描述中有一段关于左心耳封堵的文本（\"Catheter ablation was performed before the left atrial appendage closure device was implanted...\"），但这部分文本**不属于**下方列出的“检索到的文献片段”（[文献 1]、[文献 2]、[文献 3]）。根据要求“只使用提供的文献片段中的信息”，因此无法基于给定的文献片段回答该问题。",
+      "retrieval_count": 5,
+      "retrieval_labels": [
+        "introduction",
+        "_introduction_other",
+        "_intervention_other",
+        "_population_other",
+        "_data_collection_other"
+      ],
+      "retrieval_pmcids": [
+        "PMC4609090",
+        "PMC7353769",
+        "PMC13019998"
+      ],
+      "context_chunks_used": 3
+    },
+    {
+      "query_id": "MB-MedLitQA-0001-86-2042911389",
+      "subset": "MedLitQA",
+      "question": "## 任务：请根据给定的英文文献回答问题。\n\n## 要求：用中文回答。\n\n## 任务示例：英文文献如下：\nAsia, had a rate of 11.9, which was lower than the OECD average 4.5 In the United Kingdom, primary care physicians treat 90% of psy- chiatric disorders: and in Japan, some note that primary care physi- cians see patients with mood and anxiety disorders equally or even more than psychiatrists 7.8 Patients with mental health problems are at higher risk of chronid medical resources, and e more likely to have disease, use are more There is decreased quality of life due to increased morbidity 9.10.11 an acute need for appropriate mental health care to be provided in primary care worldwide, However, there is a lack of mental health training among primary care providers. 12 There have been numerous on mental health training for primary studies worldwide care nro viders including family physicians 13.14 Professional I associations of family physicians, such as the World Organization of Family Doctors (WONCA).15 the American Academy of Family Physicians (AAEP) 16 and the Roval College of General Practitioners (RCGP) 17 have also proposed recommendations s for mental health training in their spe- cialty residency The Japan Primary Care Association UPCA) has set the following objectives for mental health training in family medicine residency in Japan: clinical experience in symptomatic psychosis programs dementia addiction. depression, bipolar disorder. schizophrenia disorders anxiety disorders somatoform disorders adjustment and developmental disorders insomnia. perinatal mental health Additionally, portfolios, Obiective Structured Clinical Examinations (OSCEs), and written exams on mental health are regquired as a part of the board certification exam. However, mental health training is not mandatory for residents, and the JPCA has not developed ade quate and systematic training for mental health in primary care. The 2019 WONCA report for the international I accreditation of Japan's e residency programs family medicine enhance recommended the ment of mental health training. 9 For this reason, the JPCA established a Mental Health Committee in 2020. It works to improve the quality of mental health care and train- ing for members of JPCA, especially for its residents. Kawada et al.20 conducted a scoping review of the e competencies required in family medicine residency programs. However, they did not find adequate in formation in the literature to help them comprehensively understand what was offered, internationally, in mental health training programs was inadequate in scope of the study, 14.21 target Existing literature population,22 and types of training.23.24 For example, Leigh et al.4.21 surveyed the status of psychiatry training in family medicine and other specialties; however, the study only covered domestic programs in studied competencies in the US, not internationally. Tsutsumi et al.22 undergraduate medical education in Japan, not family medicine res- Stensrud et al. focused on training in communication skills idents. focused on competencies in addiction disorders and Dove24 This survey was an exploratory descriptive study that is part of the committee's activities. We aimed to overview and compare the actual status of mental health training for family medicine residen- cies internationally. This type of overview has not been conducted to date. We expect the survey to be a useful source, leading to rec\n\n为什么初级保健中需要提供适当的心理健康护理？\n\n答：患者有心理健康问题时，他们更有可能使用更多的慢性医疗资源，并且更有可能患有疾病。此外，他们的生活质量会因增加的疾病负担而下降。因此，全球范围内都迫切需要在初级保健中提供适当的心理健康护理。\n\n## 英文文献如下：\nThe increased radiation exposure with CT \nscans is less of a consideration in adults but is particularly important for the pediatric population. In addition, facili_x0002_ties may not have expedient access to MRI, potentially limiting the practicality of this imaging modality. Fur_x0002_thermore, a pediatric MRI may require anesthesia for an adequate study, creating another barrier to its use.\nUltrasound is a reasonable first line study given its low cost and lack of radiation\n\n问题：应采用哪种影像学检查方法诊断儿童急性阑尾炎？\n\n",
+      "answer_gt": "",
+      "generated_answer": "根据提供的文献片段，**无法回答**关于“应采用哪种影像学检查方法诊断儿童急性阑尾炎”的问题。\n\n**原因说明：**\n提供的文献片段（文献 1、文献 2、文献 3）主要涉及巴基斯坦的心理健康状况、抑郁症和焦虑症等公共卫生问题，并未包含任何关于儿童急性阑尾炎诊断或影像学检查（如 CT、MRI、超声）的医学信息。虽然您在上方的“任务示例”中提供了一段关于儿童急性阑尾炎影像学检查的英文文本，但该文本并未包含在当前的“检索到的文献片段”列表中。根据要求“只使用提供的文献片段中的信息”，因此无法基于当前提供的文献回答该问题。",
+      "retrieval_count": 5,
+      "retrieval_labels": [
+        "inclusion_criteria",
+        "introduction",
+        "_introduction_other",
+        "discussion",
+        "references"
+      ],
+      "retrieval_pmcids": [
+        "PMC7353769",
+        "PMC13019998",
+        "PMC6417075"
+      ],
+      "context_chunks_used": 3
+    },
+    {
+      "query_id": "MB-MedLitQA-0002-142-92bb91545f",
+      "subset": "MedLitQA",
+      "question": "## 任务：请根据给定的英文文献回答问题。\n\n## 要求：用中文回答。\n\n## 任务示例：英文文献如下：\nAsia, had a rate of 11.9, which was lower than the OECD average 4.5 In the United Kingdom, primary care physicians treat 90% of psy- chiatric disorders: and in Japan, some note that primary care physi- cians see patients with mood and anxiety disorders equally or even more than psychiatrists 7.8 Patients with mental health problems are at higher risk of chronid medical resources, and e more likely to have disease, use are more There is decreased quality of life due to increased morbidity 9.10.11 an acute need for appropriate mental health care to be provided in primary care worldwide, However, there is a lack of mental health training among primary care providers. 12 There have been numerous on mental health training for primary studies worldwide care nro viders including family physicians 13.14 Professional I associations of family physicians, such as the World Organization of Family Doctors (WONCA).15 the American Academy of Family Physicians (AAEP) 16 and the Roval College of General Practitioners (RCGP) 17 have also proposed recommendations s for mental health training in their spe- cialty residency The Japan Primary Care Association UPCA) has set the following objectives for mental health training in family medicine residency in Japan: clinical experience in symptomatic psychosis programs dementia addiction. depression, bipolar disorder. schizophrenia disorders anxiety disorders somatoform disorders adjustment and developmental disorders insomnia. perinatal mental health Additionally, portfolios, Obiective Structured Clinical Examinations (OSCEs), and written exams on mental health are regquired as a part of the board certification exam. However, mental health training is not mandatory for residents, and the JPCA has not developed ade quate and systematic training for mental health in primary care. The 2019 WONCA report for the international I accreditation of Japan's e residency programs family medicine enhance recommended the ment of mental health training. 9 For this reason, the JPCA established a Mental Health Committee in 2020. It works to improve the quality of mental health care and train- ing for members of JPCA, especially for its residents. Kawada et al.20 conducted a scoping review of the e competencies required in family medicine residency programs. However, they did not find adequate in formation in the literature to help them comprehensively understand what was offered, internationally, in mental health training programs was inadequate in scope of the study, 14.21 target Existing literature population,22 and types of training.23.24 For example, Leigh et al.4.21 surveyed the status of psychiatry training in family medicine and other specialties; however, the study only covered domestic programs in studied competencies in the US, not internationally. Tsutsumi et al.22 undergraduate medical education in Japan, not family medicine res- Stensrud et al. focused on training in communication skills idents. focused on competencies in addiction disorders and Dove24 This survey was an exploratory descriptive study that is part of the committee's activities. We aimed to overview and compare the actual status of mental health training for family medicine residen- cies internationally. This type of overview has not been conducted to date. We expect the survey to be a useful source, leading to rec\n\n为什么初级保健中需要提供适当的心理健康护理？\n\n答：患者有心理健康问题时，他们更有可能使用更多的慢性医疗资源，并且更有可能患有疾病。此外，他们的生活质量会因增加的疾病负担而下降。因此，全球范围内都迫切需要在初级保健中提供适当的心理健康护理。\n\n## 英文文献如下：\nThe Southwest Oncology Group (SWOG) S1007 RxPONDER trial...assigned patients with 1 to 3 node-positive, HR-positive, HER2-negative breast cancer and an RS ≤25 to standard endocrine therapy with or without adjuvant chemotherapy. The results showed that the addition of adjuvant chemotherapy to endocrine therapy improved invasive DFS among premenopausal—but not postmenopausal—women with HR-positive, HER2-negative, node-positive breast cancer and a 21-gene assay RS up to 25.\n\n问题：对于HR阳性、HER2阴性、有1-3个淋巴结阳性且21基因复发风险评分（Recurrence Score）≤25的早期乳腺癌患者，指南在是否推荐辅助化疗方面，对绝经前和绝经后患者的建议存在关键差异。请依据RxPONDER试验的结果，分别阐述针对这两类患者的辅助化疗推荐及其理由。\n\n",
+      "answer_gt": "",
+      "generated_answer": "基于提供的检索到的文献片段，**无法回答**该问题。\n\n**原因说明：**\n提供的文献片段中：\n1.  **[文献1]** 仅描述了 SWOG S1007 RxPONDER 试验的入选标准（年龄、分期、治疗类型），未包含试验结果或关于绝经前/后患者化疗推荐的结论。\n2.  **[文献2]** 讨论的是阿片类药物使用障碍（OUDs）对家庭成员的影响，与乳腺癌化疗无关。\n3.  **[文献3]** 提及的是 NSABP B15 研究（1984-1988年），与问题中提到的 RxPONDER 试验无关。\n\n虽然用户提供的“任务示例”部分包含了关于 RxPONDER 试验结果的描述（即绝经前患者获益而绝经后患者不获益），但该描述**并未包含在“检索到的文献片段”中**。根据要求“只使用提供的文献片段中的信息”，因此无法依据给定的片段阐述针对这两类患者的辅助化疗推荐及其理由。",
+      "retrieval_count": 5,
+      "retrieval_labels": [
+        "introduction",
+        "_methods_other",
+        "_introduction_other",
+        "_population_other",
+        "population"
+      ],
+      "retrieval_pmcids": [
+        "PMC6726216",
+        "PMC7353769",
+        "PMC13019998",
+        "PMC6729066"
+      ],
+      "context_chunks_used": 3
+    },
+    {
+      "query_id": "MB-MedLitQA-0003-96-96e09a1340",
+      "subset": "MedLitQA",
+      "question": "## 任务：请根据给定的英文文献回答问题。\n\n## 要求：用中文回答。\n\n## 任务示例：英文文献如下：\nAsia, had a rate of 11.9, which was lower than the OECD average 4.5 In the United Kingdom, primary care physicians treat 90% of psy- chiatric disorders: and in Japan, some note that primary care physi- cians see patients with mood and anxiety disorders equally or even more than psychiatrists 7.8 Patients with mental health problems are at higher risk of chronid medical resources, and e more likely to have disease, use are more There is decreased quality of life due to increased morbidity 9.10.11 an acute need for appropriate mental health care to be provided in primary care worldwide, However, there is a lack of mental health training among primary care providers. 12 There have been numerous on mental health training for primary studies worldwide care nro viders including family physicians 13.14 Professional I associations of family physicians, such as the World Organization of Family Doctors (WONCA).15 the American Academy of Family Physicians (AAEP) 16 and the Roval College of General Practitioners (RCGP) 17 have also proposed recommendations s for mental health training in their spe- cialty residency The Japan Primary Care Association UPCA) has set the following objectives for mental health training in family medicine residency in Japan: clinical experience in symptomatic psychosis programs dementia addiction. depression, bipolar disorder. schizophrenia disorders anxiety disorders somatoform disorders adjustment and developmental disorders insomnia. perinatal mental health Additionally, portfolios, Obiective Structured Clinical Examinations (OSCEs), and written exams on mental health are regquired as a part of the board certification exam. However, mental health training is not mandatory for residents, and the JPCA has not developed ade quate and systematic training for mental health in primary care. The 2019 WONCA report for the international I accreditation of Japan's e residency programs family medicine enhance recommended the ment of mental health training. 9 For this reason, the JPCA established a Mental Health Committee in 2020. It works to improve the quality of mental health care and train- ing for members of JPCA, especially for its residents. Kawada et al.20 conducted a scoping review of the e competencies required in family medicine residency programs. However, they did not find adequate in formation in the literature to help them comprehensively understand what was offered, internationally, in mental health training programs was inadequate in scope of the study, 14.21 target Existing literature population,22 and types of training.23.24 For example, Leigh et al.4.21 surveyed the status of psychiatry training in family medicine and other specialties; however, the study only covered domestic programs in studied competencies in the US, not internationally. Tsutsumi et al.22 undergraduate medical education in Japan, not family medicine res- Stensrud et al. focused on training in communication skills idents. focused on competencies in addiction disorders and Dove24 This survey was an exploratory descriptive study that is part of the committee's activities. We aimed to overview and compare the actual status of mental health training for family medicine residen- cies internationally. This type of overview has not been conducted to date. We expect the survey to be a useful source, leading to rec\n\n为什么初级保健中需要提供适当的心理健康护理？\n\n答：患者有心理健康问题时，他们更有可能使用更多的慢性医疗资源，并且更有可能患有疾病。此外，他们的生活质量会因增加的疾病负担而下降。因此，全球范围内都迫切需要在初级保健中提供适当的心理健康护理。\n\n## 英文文献如下：\nHSCR is typically managed by surgical \nremoval of the aganglionic bowel and reconstruction of the intestinal \ntract by connecting the normally innervated bowel down to the anus \nwhile preserving normal sphincter function. Several procedures, namely \nSwenson, Soave and Duhamel procedures, can be undertaken and may \ninclude a laparoscopically assisted approach.\n\n问题：如何治疗先天性巨结肠（HSCR）？\n\n",
+      "answer_gt": "",
+      "generated_answer": "基于提供的文献片段，**无法回答**关于如何治疗先天性巨结肠（HSCR）的问题。\n\n**原因说明：**\n提供的文献片段（文献 1、2、3）主要涉及巴基斯坦的心理健康状况、全球疾病负担研究以及临床试验后的护理规定，**并未包含任何关于先天性巨结肠（HSCR）或其治疗方法（如手术切除无神经节肠段等）的信息**。\n\n虽然您在问题描述中引用了一段关于 HSCR 治疗的英文文本（\"HSCR is typically managed by surgical removal...\"），但该文本**并未出现在您提供的“检索到的文献片段”列表中**。根据要求“只使用提供的文献片段中的信息”，因此无法基于现有片段回答该问题。",
+      "retrieval_count": 5,
+      "retrieval_labels": [
+        "introduction",
+        "_introduction_other",
+        "_intervention_other",
+        "_population_other",
+        "references"
+      ],
+      "retrieval_pmcids": [
+        "PMC7353769",
+        "PMC13019998"
+      ],
+      "context_chunks_used": 3
+    },
+    {
+      "query_id": "MB-MedLitQA-0004-124-6f7e6ecb0f",
+      "subset": "MedLitQA",
+      "question": "## 任务：请根据给定的英文文献回答问题。\n\n## 要求：用中文回答。\n\n## 任务示例：英文文献如下：\nAsia, had a rate of 11.9, which was lower than the OECD average 4.5 In the United Kingdom, primary care physicians treat 90% of psy- chiatric disorders: and in Japan, some note that primary care physi- cians see patients with mood and anxiety disorders equally or even more than psychiatrists 7.8 Patients with mental health problems are at higher risk of chronid medical resources, and e more likely to have disease, use are more There is decreased quality of life due to increased morbidity 9.10.11 an acute need for appropriate mental health care to be provided in primary care worldwide, However, there is a lack of mental health training among primary care providers. 12 There have been numerous on mental health training for primary studies worldwide care nro viders including family physicians 13.14 Professional I associations of family physicians, such as the World Organization of Family Doctors (WONCA).15 the American Academy of Family Physicians (AAEP) 16 and the Roval College of General Practitioners (RCGP) 17 have also proposed recommendations s for mental health training in their spe- cialty residency The Japan Primary Care Association UPCA) has set the following objectives for mental health training in family medicine residency in Japan: clinical experience in symptomatic psychosis programs dementia addiction. depression, bipolar disorder. schizophrenia disorders anxiety disorders somatoform disorders adjustment and developmental disorders insomnia. perinatal mental health Additionally, portfolios, Obiective Structured Clinical Examinations (OSCEs), and written exams on mental health are regquired as a part of the board certification exam. However, mental health training is not mandatory for residents, and the JPCA has not developed ade quate and systematic training for mental health in primary care. The 2019 WONCA report for the international I accreditation of Japan's e residency programs family medicine enhance recommended the ment of mental health training. 9 For this reason, the JPCA established a Mental Health Committee in 2020. It works to improve the quality of mental health care and train- ing for members of JPCA, especially for its residents. Kawada et al.20 conducted a scoping review of the e competencies required in family medicine residency programs. However, they did not find adequate in formation in the literature to help them comprehensively understand what was offered, internationally, in mental health training programs was inadequate in scope of the study, 14.21 target Existing literature population,22 and types of training.23.24 For example, Leigh et al.4.21 surveyed the status of psychiatry training in family medicine and other specialties; however, the study only covered domestic programs in studied competencies in the US, not internationally. Tsutsumi et al.22 undergraduate medical education in Japan, not family medicine res- Stensrud et al. focused on training in communication skills idents. focused on competencies in addiction disorders and Dove24 This survey was an exploratory descriptive study that is part of the committee's activities. We aimed to overview and compare the actual status of mental health training for family medicine residen- cies internationally. This type of overview has not been conducted to date. We expect the survey to be a useful source, leading to rec\n\n为什么初级保健中需要提供适当的心理健康护理？\n\n答：患者有心理健康问题时，他们更有可能使用更多的慢性医疗资源，并且更有可能患有疾病。此外，他们的生活质量会因增加的疾病负担而下降。因此，全球范围内都迫切需要在初级保健中提供适当的心理健康护理。\n\n## 英文文献如下：\nThe preferred imaging modality for soft tissues is magnetic resonance imaging (MRI), or computed tomography (CT) if MRI is not available (CQ10). Intraoral ultrasonography (US) is considered the most accurate method for measuring DOI, followed by MRI (CQ11).\n\n问题：根据该指南，评估口腔癌原发肿瘤的软组织时，首选的影像学检查方式是什么？而对于测量肿瘤浸润深度（DOI），哪种方法被认为是最准确的？\n\n",
+      "answer_gt": "",
+      "generated_answer": "根据提供的文献片段，**无法回答**您关于“评估口腔癌原发肿瘤的软组织首选影像学检查方式”及“测量肿瘤浸润深度（DOI）最准确方法”的问题。\n\n**原因如下：**\n您提供的三个文献片段内容分别为：\n1.  **[文献1]** 涉及基线评估（患者人口学、病史、血液检查等）。\n2.  **[文献2]** 涉及阿片类药物使用障碍（OUD）对家庭成员的影响。\n3.  **[文献3]** 涉及作者所属的机构信息。\n\n虽然您问题描述中提到了“英文文献如下：The preferred imaging modality for soft tissues is magnetic resonance imaging (MRI)... (CQ10)... (CQ11)\"，但这部分内容**并未包含在下方提供的“检索到的文献片段”列表中**。根据“只使用提供的文献片段中的信息”这一要求，现有片段中没有任何关于口腔癌、MRI、CT 或 DOI 测量的信息。\n\n因此，基于给定的文献片段，无法得出该问题的答案。",
+      "retrieval_count": 5,
+      "retrieval_labels": [
+        "introduction",
+        "_introduction_other",
+        "data_collection",
+        "_front_matter_other",
+        "front_matter"
+      ],
+      "retrieval_pmcids": [
+        "PMC7353769",
+        "PMC12928687",
+        "PMC9502603",
+        "PMC13019998",
+        "PMC11369390"
+      ],
+      "context_chunks_used": 3
+    }
+  ]
+}

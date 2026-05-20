@@ -1,0 +1,25 @@
+{
+  "analysis": "2c-2_embedding_vs_llm_correlation",
+  "cross_judge": {
+    "source_model": "deepseek-v4-flash",
+    "description": "使用 cross_judge_kappa 数据, question-level embedding cos 与多 judge 均值 score 的 Spearman 相关性",
+    "correlation": {
+      "spearman_rho": 0.4628,
+      "p_value": 0.01,
+      "n_questions": 30,
+      "judge_sample_counts": {
+        "deepseek-v4-flash": 27,
+        "deepseek-v4-pro": 27,
+        "minimax-m2.5": 30
+      }
+    }
+  },
+  "full_report": {
+    "qwen3.5:9b": {
+      "spearman_rho": 0.2502,
+      "p_value": 0.0,
+      "n": 500
+    }
+  },
+  "interpretation": "若 ρ > 0.5: 嵌入 cos 与 LLM 判分中等以上相关 → embedding 快筛有一定参考价值; 若 ρ < 0.3: 嵌入 cos 与 LLM 判分弱相关 → LLM 仲裁不可替代, 验证了嵌入模型「无法区分概念正确性」的结论 (cos≈0.97 的答案可能得 0 分)。"
+}

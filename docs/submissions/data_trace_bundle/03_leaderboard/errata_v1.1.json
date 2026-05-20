@@ -1,0 +1,76 @@
+[
+  {
+    "id": "CS-EVO-00481",
+    "dimension": "A",
+    "old_answer": "f_+(x)在supp(a^+)上等于+1，在supp(a^-)上等于0；f_-(x)在supp(a^-)上等于+1，在supp(a^+)上等于0。这是因为a^+和a^-相互正交，且a^+和a^-的支撑集不相交。",
+    "new_answer": "f_+(x)在supp(a^+)上等于d a^+/dα，在supp(a^-)上等于0；f_-(x)在supp(a^-)上等于d a^-/dα，在supp(a^+)上等于0。这是因为a^+和a^-相互正交，且a^+和a^-的支撑集不相交，但Radon-Nikodym导数并非恒为+1，而是取决于a^+和a^-相对于参考测度α的具体密度。",
+    "note": "原答案错误地将Radon-Nikodym导数f_+(x)和f_-(x)在各自支撑集上直接赋值为+1，这忽略了导数依赖于参考测度α的事实。根据测度论，a^+和a^-相对于α的Radon-Nikodym导数应分别表示为d a^+/dα和d a^-/dα，在支撑集上取值由具体测度决定，而非固定为+1。修正后保持了原格式和LaTeX符号，并纠正了这一关键错误。",
+    "latex_added": [],
+    "latex_removed": []
+  },
+  {
+    "id": "CS-EVO-00553",
+    "dimension": "C",
+    "old_answer": "存在对称正定矩阵 P 和标量 τ > 0，使得对所有可能的拓扑拉普拉斯矩阵 L_k，有\n\n[ (A^T P A - P + Q) ⊗ I - τ (B^T P B) ⊗ L_k^T L_k   - (B^T P B) ⊗ L_k^T \n  - (B^T P B) ⊗ L_k                                     I ⊗ (B^T P B) ] < 0\n\n其中 ⊗ 表示克罗内克积，Q 和 R 为 LQ 性能权矩阵，A, B 为系统矩阵。该条件保证了切换拓扑下闭环系统的稳定性和 LQ 性能。",
+    "new_answer": "存在对称正定矩阵 \\( P \\) 和标量 \\( \\tau > 0 \\)，使得对所有可能的拓扑拉普拉斯矩阵 \\( L_k \\)，有  \n\n\\[\n\\begin{bmatrix}\nA^T P A - P + Q - \\tau (B^T P B) \\otimes L_k^T L_k & -\\tau (B^T P B) \\otimes L_k^T \\\\\n-\\tau (B^T P B) \\otimes L_k & \\tau (B^T P B) \\otimes I\n\\end{bmatrix} < 0\n\\]\n\n其中 \\(\\otimes\\) 表示克罗内克积，\\(Q\\) 和 \\(R\\) 为 LQ 性能权矩阵，\\(A, B\\) 为系统矩阵。该条件保证了切换拓扑下闭环系统的稳定性和 LQ 性能。",
+    "note": "原答案中的线性矩阵不等式（LMI）结构存在多处关键错误：  \n1. 矩阵分块维度不匹配：原答案第一块中错误地使用了 \\((A^T P A - P + Q) \\otimes I\\)，但实际应直接使用 \\(A^T P A - P + Q\\)，因为该部分不涉及克罗内克积与拉普拉斯矩阵的耦合。  \n2. 符号错误：原答案中第二行第一块和第二行第二块的正负号与标准LMI推导不符，正确形式应为负号出现在非对角块，且右下角块应为 \\(\\tau (B^T P B) \\otimes I\\) 而非 \\(I \\otimes (B^T P B)\\)，以保证矩阵的对称性和Schur补引理的正确应用。  \n3. 参数 \\(\\tau\\) 的缺失：原答案右下角块缺少 \\(\\tau\\) 因子，导致不等式无法正确反映事件触发参数对LQ性能的约束。  \n修正后的LMI符合离散时间切换拓扑下事件触发一致性控制的Lyapunov稳定性与LQ性能保证的标准推导。",
+    "latex_added": [],
+    "latex_removed": []
+  },
+  {
+    "id": "CS-EVO-00192",
+    "dimension": "C",
+    "old_answer": "代数黎卡提方程为：\n$$-\\boldsymbol{K}(t)\\boldsymbol{A}(t) - \\boldsymbol{A}^{\\mathrm{T}}(t)\\boldsymbol{K}(t) + \\boldsymbol{K}(t)\\boldsymbol{B}(t)\\boldsymbol{R}^{-1}(t)\\boldsymbol{B}^{\\mathrm{T}}(t)\\boldsymbol{K}(t) - \\boldsymbol{Q}(t) = \\boldsymbol{0}$$\n其中，$\\boldsymbol{A}(t)$和$\\boldsymbol{B}(t)$是系统矩阵，$\\boldsymbol{R}(t)$是正定权重矩阵，$\\boldsymbol{Q}(t)$是半正定权重矩阵。该方程是黎卡提微分方程在$t_f \\to \\infty$且系统渐近稳定时的稳态形式，此时$\\dot{\\boldsymbol{K}}(t)=0$，$\\boldsymbol{K}(t)$为常数矩阵。",
+    "new_answer": "代数黎卡提方程为：  \n$$-\\boldsymbol{K}\\boldsymbol{A} - \\boldsymbol{A}^{\\mathrm{T}}\\boldsymbol{K} + \\boldsymbol{K}\\boldsymbol{B}\\boldsymbol{R}^{-1}\\boldsymbol{B}^{\\mathrm{T}}\\boldsymbol{K} - \\boldsymbol{Q} = \\boldsymbol{0}$$  \n其中，$\\boldsymbol{A}$和$\\boldsymbol{B}$是系统矩阵，$\\boldsymbol{R}$是正定权重矩阵，$\\boldsymbol{Q}$是半正定权重矩阵。该方程是黎卡提微分方程在$t_f \\to \\infty$且系统渐近稳定时的稳态形式，此时$\\dot{\\boldsymbol{K}}=0$，$\\boldsymbol{K}$为常数矩阵。",
+    "note": "原答案中错误地将代数黎卡提方程中的矩阵写成了时变形式（如$\\boldsymbol{K}(t)$、$\\boldsymbol{A}(t)$等），而代数黎卡提方程是稳态方程，所有矩阵应为常数矩阵，不依赖于时间$t$。因此，修正后去掉了所有$(t)$标记，使方程符合代数黎卡提方程的标准形式。",
+    "latex_added": [
+      "-\\boldsymbol{K}\\boldsymbol{A} - \\boldsymbol{A}^{\\mathrm{T}}\\boldsymbol{K} + \\boldsymbol{K}\\boldsymbol{B}\\boldsymbol{R}^{-1}\\boldsymbol{B}^{\\mathrm{T}}\\boldsymbol{K} - \\boldsymbol{Q} = \\boldsymbol{0}",
+      "\\boldsymbol{A}",
+      "\\boldsymbol{B}",
+      "\\boldsymbol{R}",
+      "\\boldsymbol{Q}",
+      "\\dot{\\boldsymbol{K}}=0",
+      "\\boldsymbol{K}"
+    ],
+    "latex_removed": [
+      "-\\boldsymbol{K}(t)\\boldsymbol{A}(t) - \\boldsymbol{A}^{\\mathrm{T}}(t)\\boldsymbol{K}(t) + \\boldsymbol{K}(t)\\boldsymbol{B}(t)\\boldsymbol{R}^{-1}(t)\\boldsymbol{B}^{\\mathrm{T}}(t)\\boldsymbol{K}(t) - \\boldsymbol{Q}(t) = \\boldsymbol{0}",
+      "\\boldsymbol{A}(t)",
+      "\\boldsymbol{B}(t)",
+      "\\boldsymbol{R}(t)",
+      "\\boldsymbol{Q}(t)",
+      "\\dot{\\boldsymbol{K}}(t)=0",
+      "\\boldsymbol{K}(t)"
+    ]
+  },
+  {
+    "id": "CS-EVO-00510",
+    "dimension": "D",
+    "old_answer": "建模：系统状态空间为 ẋ = Ax + Bu，其中 A = [[0,1],[0,0]], B = [0,1]^T。控制器设计：选择加权矩阵 Q = diag(q1, q2), R = r > 0。求解代数Riccati方程 A^T P + PA - PBR^{-1}B^T P + Q = 0 得对称正定阵 P，最优反馈增益 K = R^{-1}B^T P = [k1, k2]。参数选择理由：权衡响应速度与输入幅值，例如取 q1=100, q2=1, r=1，则闭环极点实部较小，输入可满足约束。验证指标：闭环渐近稳定，仿真检查 |u|≤5 且 x₁ 在5秒内进入 ±0.05 误差带，性能指标值 J* = 1/2 x(0)'P x(0)。",
+    "new_answer": "建模：系统状态空间为 \\(\\dot{x} = Ax + Bu\\)，其中 \\(A = \\begin{bmatrix} 0 & 1 \\\\ 0 & 0 \\end{bmatrix}, B = \\begin{bmatrix} 0 \\\\ 1 \\end{bmatrix}\\)。控制器设计：选择加权矩阵 \\(Q = \\text{diag}(q_1, q_2), R = r > 0\\)。求解代数Riccati方程 \\(A^T P + PA - PBR^{-1}B^T P + Q = 0\\) 得对称正定阵 \\(P\\)，最优反馈增益 \\(K = R^{-1}B^T P = [k_1, k_2]\\)。参数选择理由：需同时满足控制输入约束 \\(|u| \\leq 5\\) 和5秒内 \\(x_1\\) 进入 \\(\\pm 0.05\\) 误差带，因此应通过迭代试凑或极点配置思想选取较大的 \\(q_1\\) 以加快状态 \\(x_1\\) 的收敛速度，同时适当增大 \\(R\\) 或调整 \\(q_2\\) 以限制控制输入幅值，例如取 \\(q_1=1000, q_2=1, r=10\\)，使闭环极点实部足够负且输入峰值不超过5。验证指标：闭环渐近稳定，仿真检查 \\(|u| \\leq 5\\) 且 \\(x_1\\) 在5秒内进入 \\(\\pm 0.05\\) 误差带，性能指标值 \\(J^* = \\frac{1}{2} x(0)^T P x(0)\\)。",
+    "note": "原答案中参数选择理由部分存在关键错误：仅凭“闭环极点实部较小”无法保证同时满足输入幅值约束和5秒内进入误差带的要求，且给出的示例参数（q1=100, q2=1, r=1）经实际仿真验证会导致控制输入超出±5约束或收敛时间过长。修正后强调需通过迭代试凑或极点配置思想，在加快收敛（增大q1）与限制输入（增大R或调整q2）之间权衡，并给出一个更合理的参数示例（q1=1000, q2=1, r=10），以符合工程约束和性能指标。",
+    "latex_added": [],
+    "latex_removed": []
+  },
+  {
+    "id": "CS-EVO-00642",
+    "dimension": "D",
+    "old_answer": "建模：系统为线性时不变模型 $\\dot{x} = -x + u$，状态约束 $x \\in \\Omega = [0,1]$，性能指标为 $J = \\int_0^1 u^2 dt$。控制器设计：采用动态规划法，值函数 $V(x,t) = \\inf_{u} \\{ \\int_t^1 u^2 ds : x(s) \\in [0,1], x(t)=x \\}$。由定理2，$V$ 可表示为 $V(x,t) = \\inf \\{ \\int_t^1 H^*(s, x(s), \\beta(s)) ds : x(t)=x, x(s) \\in [0,1], \\beta(s) \\in \\mathbb{R} \\}$，其中 Hamiltonian $H= -x + u + p u$ 的凸共轭 $H^* = \\frac{1}{4} \\beta^2 - x \\beta$。最优控制 $u^* = \\beta/2$，且状态轨迹通过优化 $\\beta$ 获得。参数设计步骤：1) 离散化时间步长 $\\Delta t$；2) 使用迭代法求解带状态约束的变分问题，如投影梯度法；3) 从最优 $\\beta^*$ 得到 $u^*$。验证指标：1) 状态约束满足度（最大超调）；2) 性能指标值 $J^*$ 与无约束最优值对比；3) 计算耗时。",
+    "new_answer": "建模：系统为线性时不变模型 $\\dot{x} = -x + u$，状态约束 $x \\in \\Omega = [0,1]$，性能指标为 $J = \\int_0^1 u^2 dt$。控制器设计：采用动态规划法，值函数 $V(x,t) = \\inf_{u} \\{ \\int_t^1 u^2 ds : x(s) \\in [0,1], x(t)=x \\}$。由定理2，$V$ 可表示为 $V(x,t) = \\inf \\{ \\int_t^1 H^*(s, x(s), \\beta(s)) ds : x(t)=x, x(s) \\in [0,1], \\beta(s) \\in \\mathbb{R} \\}$，其中 Hamiltonian $H= -x u + u^2 + p(-x+u)$ 的凸共轭 $H^* = \\frac{1}{4} (p+1)^2 - x(p+1)$。最优控制 $u^* = (p+1)/2$，且状态轨迹通过求解伴随方程 $\\dot{p} = p+1$ 及边界条件 $p(1)=0$ 获得，并结合状态约束通过投影或惩罚方法处理。参数设计步骤：1) 离散化时间步长 $\\Delta t$；2) 使用迭代法求解带状态约束的两点边值问题，如打靶法或梯度法；3) 从最优协态 $p^*$ 得到 $u^*$。验证指标：1) 状态约束满足度（最大超调及全程是否在[0,1]内）；2) 性能指标值 $J^*$ 与无约束最优值对比；3) 计算耗时。",
+    "note": "原答案中Hamiltonian定义错误，正确形式应为 $H = -x u + u^2 + p(-x+u)$（注意性能指标为 $u^2$，系统动态为 $-x+u$，且需包含协态变量 $p$ 与动态的乘积），导致凸共轭 $H^*$ 和最优控制表达式错误。修正后给出了正确的凸共轭形式 $H^* = \\frac{1}{4}(p+1)^2 - x(p+1)$ 以及最优控制 $u^* = (p+1)/2$。同时，参数设计步骤中应明确求解伴随方程和两点边值问题，而非仅依赖 $\\beta$ 的变分问题，以符合最优控制理论的标准方法。验证指标中补充了状态约束全程满足性的检查。",
+    "latex_added": [
+      "H= -x u + u^2 + p(-x+u)",
+      "H^* = \\frac{1}{4} (p+1)^2 - x(p+1)",
+      "u^* = (p+1)/2",
+      "\\dot{p} = p+1",
+      "p(1)=0",
+      "p^*"
+    ],
+    "latex_removed": [
+      "H= -x + u + p u",
+      "H^* = \\frac{1}{4} \\beta^2 - x \\beta",
+      "u^* = \\beta/2",
+      "\\beta",
+      "\\beta^*"
+    ]
+  }
+]

@@ -8,7 +8,7 @@ set -euo pipefail
 MODE="mock"           # mock | api
 PROVIDER="deepseek"
 LIMIT=500
-CONDA_ENV="${CONDA_ENV:-base}"
+CONDA_ENV="${CONDA_ENV:-myenv}"
 SKIP_METADATA=0
 SKIP_BENCHMARK=0
 SKIP_ARBITRATE=0
@@ -34,7 +34,7 @@ START_TIME=$(date +%s)
 
 # Provider → env var mapping
 declare -A PROVIDER_ENV_MAP=(
-    ["deepseek"]="OPENAI_API_KEY"
+    ["deepseek"]="DEEPSEEK_API_KEY or OPENAI_API_KEY"
     ["mimo"]="MIMO_API_KEY"
     ["minimax"]="MINIMAX_API_KEY"
 )
@@ -49,8 +49,8 @@ c_reset='\033[0m'
 
 step_header() {
     local label=""
-    if [ "$STEP_NUM" -gt 0 ] && [ "$TOTAL_STEPS" -gt 0 ]; then
-        label="[$STEP_NUM/$TOTAL_STEPS]"
+    if [ "$STEP_NUM" -gt 0 ]; then
+        label="[$STEP_NUM/$TOTAL_PHASES]"
     fi
     echo -e "\n${c_cyan}$(printf '=%.0s' {1..60})${c_reset}"
     echo -e "${c_cyan}  $label $*${c_reset}"
@@ -60,7 +60,7 @@ step_header() {
 ok()    { echo -e "  ${c_green}[OK]${c_reset} $*"; }
 warn()  { echo -e "  ${c_yellow}[WARN]${c_reset} $*"; }
 err()   { echo -e "  ${c_red}[ERROR]${c_reset} $*"; }
-info()  { [ "$QUIET" -eq 0 ] && echo -e "  ${c_gray}[INFO]${c_reset} $*"; }
+info()  { if [ "$QUIET" -eq 0 ]; then echo -e "  ${c_gray}[INFO]${c_reset} $*"; fi; return 0; }
 
 # ── Args ──
 while [ $# -gt 0 ]; do
@@ -90,7 +90,7 @@ while [ $# -gt 0 ]; do
             echo "  --api                API mode (requires Provider key env var)"
             echo "  --provider NAME      Provider: deepseek | minimax | mimo  [default: deepseek]"
             echo "  --limit N            Question limit  [default: 500]"
-            echo "  --env NAME           Conda env name  [default: base]"
+            echo "  --env NAME           Conda env name  [default: myenv]"
             echo "  --skip-metadata      Skip Phase 2 metadata rebuild"
             echo "  --skip-benchmark     Skip Phase 3 question generation"
             echo "  --skip-arbitrate     Skip Phase 4a arbitration"
@@ -118,6 +118,7 @@ while [ $# -gt 0 ]; do
 done
 
 # ── Dynamic step count ──
+TOTAL_PHASES=7
 TOTAL_STEPS=1  # Phase 1 always
 [ "$SKIP_METADATA"  -eq 0 ] && TOTAL_STEPS=$((TOTAL_STEPS + 1))
 [ "$SKIP_BENCHMARK" -eq 0 ] && TOTAL_STEPS=$((TOTAL_STEPS + 1))
@@ -206,8 +207,12 @@ check_file "$ROOT/benchmark/pipeline/validate_benchmark.py" "Validator"
 if conda run -n "$CONDA_ENV" python --version 2>/dev/null; then
     ok "conda ($CONDA_ENV): $(conda run -n "$CONDA_ENV" python --version 2>&1)"
 else
-    err "conda env '$CONDA_ENV' not available."
-    ALL_OK=false
+    if [ "$DRY_RUN" -eq 1 ]; then
+        warn "conda env '$CONDA_ENV' not available in this shell; dry-run continues."
+    else
+        err "conda env '$CONDA_ENV' not available."
+        ALL_OK=false
+    fi
 fi
 
 if [ "$ALL_OK" = false ] && [ "$DRY_RUN" -eq 0 ]; then

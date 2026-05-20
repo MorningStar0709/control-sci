@@ -1,0 +1,13 @@
+{
+  "analysis": "A4_train_eval_consistency",
+  "n_train": 22635,
+  "n_eval": 5840,
+  "split_ratio_actual": 0.7949,
+  "centroid_cosine": 0.9932,
+  "mmd_rbf": 0.002316,
+  "mmd_sigma": 1.19,
+  "mmd_p_value": 0.0,
+  "mmd_permutation_n": 200,
+  "mmd_significant": true,
+  "interpretation": "质心 cosine = 0.9932 (≈1.0 说明分布一致)。MMD = 0.0023, permutation p = 0.0000 → 差异显著。"
+}

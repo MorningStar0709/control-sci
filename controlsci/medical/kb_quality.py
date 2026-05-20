@@ -22,6 +22,7 @@ import os
 import random
 import sys
 import time
+import urllib.request
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
@@ -38,6 +39,15 @@ from controlsci.core.paths import PROJECT_ROOT
 from controlsci.medical.indexing import _load_chunk_texts, load_manifest, search_hybrid
 
 VALID_SCORES = [0.0, 0.25, 0.5, 0.75, 1.0]
+SMOKE_OLLAMA_CANDIDATES = ["gemma3:4b", "qwen3.5:9b"]
+REPORT_OLLAMA_MODELS = [
+    "gemma3:4b",
+    "llama3.2:3b",
+    "qwen3.5:2b",
+    "qwen3.5:4b",
+    "qwen3.5:9b",
+    "qwen3.5:35b",
+]
 MEDICAL_LABELS_PRIORITY = [
     "results", "methods", "discussion", "population",
     "intervention", "study_design", "statistical_analysis",
@@ -373,7 +383,7 @@ def run_judge_matrix(queries, retrieval_comparison, models_config, top_k_judge=3
 
             judge_matrix.append(judge_row)
             idx = len(judge_matrix)
-            print(f"  Judge [{idx}] query={judge_row['query_id']} chunk={judge_row['chunk_id']} ✓", flush=True)
+            print(f"  Judge [{idx}] query={judge_row['query_id']} chunk={judge_row['chunk_id']} [OK]", flush=True)
 
     return judge_matrix
 
@@ -438,7 +448,17 @@ def compute_retrieval_stats(retrieval_comparison):
     }
 
 
-def generate_report(queries, retrieval_comparison, judge_matrix, models_config, output_path, elapsed_s):
+def generate_report(
+    queries,
+    retrieval_comparison,
+    judge_matrix,
+    models_config,
+    output_path,
+    elapsed_s,
+    profile="report",
+    manifest_path=None,
+    index_dir=None,
+):
     retrieval_stats = compute_retrieval_stats(retrieval_comparison)
     judge_stats = compute_statistics(judge_matrix, models_config)
 
@@ -449,11 +469,12 @@ def generate_report(queries, retrieval_comparison, judge_matrix, models_config, 
             "title": "医疗 RAG 知识库自评测报告",
             "generated_at": time.strftime("%Y-%m-%dT%H:%M:%S"),
             "elapsed_seconds": round(elapsed_s, 1),
+            "profile": profile,
             "total_queries": len(queries),
             "total_judge_entries": len(judge_matrix),
             "judge_models": model_names,
-            "chunk_source": "data/sources_medical/chunks/chunks_manifest.json",
-            "index_source": "data/sources_medical/index/",
+            "chunk_source": str(manifest_path) if manifest_path is not None else "data/sources_medical/chunks/chunks_manifest.json",
+            "index_source": str(index_dir) if index_dir is not None else "data/sources_medical/index/",
         },
         "retrieval_comparison": {
             "summary": retrieval_stats,
@@ -559,22 +580,64 @@ def _resolve_ollama_list(raw):
     return [m.strip() for m in raw.split(",") if m.strip()]
 
 
+def _available_ollama_models(timeout_s=2):
+    try:
+        with urllib.request.urlopen("http://localhost:11434/api/tags", timeout=timeout_s) as resp:
+            payload = json.loads(resp.read().decode("utf-8"))
+    except Exception:
+        return set()
+    names = set()
+    for item in payload.get("models", []):
+        name = item.get("name")
+        if name:
+            names.add(name)
+            names.add(name.split(":", 1)[0])
+    return names
+
+
+def _resolve_profile(args):
+    profile = args.profile.lower()
+    if profile == "smoke":
+        args.n_queries = args.n_queries if args.n_queries is not None else 1
+        args.top_k = args.top_k if args.top_k is not None else 3
+        args.top_k_judge = args.top_k_judge if args.top_k_judge is not None else 1
+        args.skip_api = args.skip_api or not args.include_api
+        args.skip_query_gen = True if args.skip_query_gen is None else args.skip_query_gen
+        if args.ollama_models is None:
+            available = _available_ollama_models()
+            selected = next((m for m in SMOKE_OLLAMA_CANDIDATES if m in available), None)
+            args.ollama_models = selected or SMOKE_OLLAMA_CANDIDATES[0]
+    else:
+        args.n_queries = args.n_queries if args.n_queries is not None else 25
+        args.top_k = args.top_k if args.top_k is not None else 5
+        args.top_k_judge = args.top_k_judge if args.top_k_judge is not None else 3
+        args.skip_query_gen = False if args.skip_query_gen is None else args.skip_query_gen
+        if args.ollama_models is None:
+            args.ollama_models = ",".join(REPORT_OLLAMA_MODELS)
+    return args
+
+
 def main():
     parser = argparse.ArgumentParser(description="医疗 RAG 知识库自评测")
+    parser.add_argument("--profile", choices=["smoke", "report"], default="smoke",
+                        help="评测策略: smoke=高可用最小真实测试; report=报告级多 Judge 矩阵")
     parser.add_argument("--manifest", default=str(PROJECT_ROOT / "data" / "sources_medical" / "chunks" / "chunks_manifest.json"))
     parser.add_argument("--index-dir", default=str(PROJECT_ROOT / "data" / "sources_medical" / "index"))
     parser.add_argument("--output", default=str(PROJECT_ROOT / "benchmark" / "eval" / "results" / "medical" / "kb_quality_report.json"))
-    parser.add_argument("--n-queries", type=int, default=25, help="生成的评估查询数量 (默认 25)")
-    parser.add_argument("--top-k", type=int, default=5, help="检索返回 top-k (默认 5)")
-    parser.add_argument("--top-k-judge", type=int, default=3, help="每查询 Judge 评估 top-k 结果 (默认 3)")
+    parser.add_argument("--n-queries", type=int, default=None, help="生成的评估查询数量 (默认随 profile)")
+    parser.add_argument("--top-k", type=int, default=None, help="检索返回 top-k (默认随 profile)")
+    parser.add_argument("--top-k-judge", type=int, default=None, help="每查询 Judge 评估 top-k 结果 (默认随 profile)")
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--skip-api", action="store_true", help="跳过 API Judge (仅用本地 Ollama)")
+    parser.add_argument("--include-api", action="store_true", help="smoke profile 中显式启用 API Judge")
     parser.add_argument("--skip-ollama", action="store_true", help="跳过 Ollama Judge (仅用 API)")
-    parser.add_argument("--ollama-models", default="qwen3.5:35b,qwen3.5:9b", help="Ollama 模型列表，逗号分隔 (默认: qwen3.5:35b,qwen3.5:9b)")
-    parser.add_argument("--skip-query-gen", action="store_true", help="跳过 LLM 查询生成，使用 section 标题作为查询")
+    parser.add_argument("--ollama-models", default=None, help="Ollama 模型列表，逗号分隔 (默认随 profile)")
+    parser.add_argument("--skip-query-gen", action=argparse.BooleanOptionalAction, default=None,
+                        help="跳过 LLM 查询生成，使用 section 标题作为查询")
     parser.add_argument("--dry-run", action="store_true", help="仅验证配置和索引可用性，不运行完整评测")
 
     args = parser.parse_args()
+    args = _resolve_profile(args)
 
     manifest_path = Path(args.manifest)
     index_dir = Path(args.index_dir)
@@ -583,6 +646,7 @@ def main():
     print(f"[Init] manifest={manifest_path}", flush=True)
     print(f"[Init] index={index_dir}", flush=True)
     print(f"[Init] output={output_path}", flush=True)
+    print(f"[Init] profile={args.profile} n_queries={args.n_queries} top_k={args.top_k} top_k_judge={args.top_k_judge}", flush=True)
 
     if not manifest_path.exists():
         print(f"ERROR: manifest 不存在: {manifest_path}", flush=True)
@@ -600,7 +664,7 @@ def main():
     print(f"[Init] {manifest['total_chunks']} chunks loaded", flush=True)
 
     if args.dry_run:
-        print("\n[Dry-Run] 索引可用性验证通过 ✓", flush=True)
+        print("\n[Dry-Run] index availability check passed [OK]", flush=True)
         print(f"  FAISS: {dense_path.stat().st_size / 1024:.0f} KB", flush=True)
         print(f"  BM25:  {sparse_path.stat().st_size / 1024:.0f} KB", flush=True)
         try:
@@ -669,9 +733,19 @@ def main():
 
     elapsed = time.time() - t_start
     print(f"\n[Phase 5] 生成报告... ({elapsed:.0f}s)", flush=True)
-    generate_report(queries, retrieval_comparison, judge_matrix, models_config, output_path, elapsed)
+    generate_report(
+        queries,
+        retrieval_comparison,
+        judge_matrix,
+        models_config,
+        output_path,
+        elapsed,
+        profile=args.profile,
+        manifest_path=manifest_path,
+        index_dir=index_dir,
+    )
 
-    print(f"\nDone ✓ ({elapsed:.0f}s)", flush=True)
+    print(f"\nDone [OK] ({elapsed:.0f}s)", flush=True)
 
 
 if __name__ == "__main__":

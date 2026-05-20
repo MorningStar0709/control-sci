@@ -5,8 +5,8 @@
     "elapsed_seconds": 52.8,
     "source": "MedBench_LLM.zip",
     "index_source": "data/sources_medical/index/",
-    "progress_source": "D:\\WorkPlace\\AI\\MinerU\\data\\sources_medical\\medbench\\medbench_35b_speed_probe.json.progress.jsonl",
-    "status_source": "D:\\WorkPlace\\AI\\MinerU\\data\\sources_medical\\medbench\\medbench_35b_speed_probe.json.status.json",
+    "progress_source": "<PROJECT_ROOT>\\data\\sources_medical\\medbench\\medbench_35b_speed_probe.json.progress.jsonl",
+    "status_source": "<PROJECT_ROOT>\\data\\sources_medical\\medbench\\medbench_35b_speed_probe.json.status.json",
     "note": "此为自评测，非 MedBench 官方评测。正式评测由组委会执行。"
   },
   "statistics": {

@@ -1,0 +1,18 @@
+{
+  "model": "deepseek-v4-flash",
+  "judge_model": "qwen3.5:9b",
+  "status": "running",
+  "completed": 96,
+  "total": 220,
+  "percent": 43.64,
+  "remaining": 124,
+  "session_completed": 2,
+  "elapsed_sec": 107.43,
+  "rate_q_per_min": 1.117,
+  "eta_min": 111.01,
+  "eta_at": "2026-05-08 14:49:34",
+  "last_id": "CS-EVO-00802",
+  "consecutive_failures": 1,
+  "updated_at": "2026-05-08 12:58:33",
+  "progress_log": "ollama_chunk_0_report.json.progress.jsonl"
+}

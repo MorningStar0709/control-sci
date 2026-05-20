@@ -1,0 +1,38 @@
+{
+  "model": "deepseek-v4-flash",
+  "judge_model": "qwen3.5:35b",
+  "scorer_version": "1.1",
+  "scoring_mode": "llm_judge",
+  "total_questions": 1,
+  "overall_score": 0.3,
+  "dimension_scores": {
+    "A": 0.3
+  },
+  "records": [
+    {
+      "id": "CS-EVO-00071",
+      "dimension": "A",
+      "difficulty_level": "L1",
+      "score": 0.3,
+      "reason": "模型回答未能准确识别出'RUDER_MBOT_RL'这一特定算法（该名称极可能指代某篇特定文献中的具体算法，如基于奖励分解的鲁棒强化学习算法），而是将其作为未知术语进行推测。虽然模型给出了强化学习通用的目标函数形式，并尝试结合'鲁棒'和'奖励分解'进行解释，但其核心公式（包含方差惩罚、熵正则化等项）是通用形式的组合，而非该特定算法的标准定义。模型承认了术语的非标准性，导致其答案缺乏针对该特定问题的核心结论，属于部分正确。",
+      "issues": [
+        "未能识别特定算法名称，将其视为未知术语",
+        "给出的核心公式为通用强化学习公式的变体，而非该特定算法的标准定义",
+        "包含大量推测性内容，偏离了标准答案的精确性"
+      ],
+      "model_answer": "RUDER_MBOT_RL 并非控制科学领域的标准术语，根据命名惯例和文献线索，该名称可能指向一种针对移动机器人（Mobile Robot, MBOT）的强化学习控制算法，其前缀 “RUDER” 常与“鲁棒无偏探索”（Robust Unbiased Directed Exploration）或“奖励分解”（Reward Decomposition）相关。在强化学习框架中，这类算法的核心控制目标函数通常为最大化期望累积折扣奖励，并可能引入鲁棒性约束或方差惩罚项以提升策略的稳定性与安全性。\n\n**核心控制目标函数（通用形式）：**  \n$$\\pi^* = \\arg\\max_{\\pi \\in \\Pi} \\mathbb{E}_{\\tau \\sim p(\\tau|\\pi)} \\left[ \\sum_{t=0}^{\\infty} \\gamma^t r(s_t, a_t) - \\alpha \\cdot \\mathcal{R}(\\pi) \\right]$$  \n其中：  \n- $\\pi$ 为控制策略（从状态到动作的映射），$\\Pi$ 为策略空间；  \n- $\\tau = (s_0, a_0, s_1, a_1, \\dots)$ 为轨迹，$p(\\tau|\\pi)$ 由环境动态和策略决定；  \n- $\\gamma \\in (0,1]$ 为折扣因子；  \n- $r(s_t, a_t)$ 为即时奖励函数，通常包含跟踪误差、能量消耗、碰撞惩罚等任务相关项；  \n- $\\mathcal{R}(\\pi)$ 为鲁棒性或正则化项，例如：  \n  - **方差惩罚**：$\\mathcal{R}(\\pi) = \\operatorname{Var}_\\tau\\left(\\sum_t \\gamma^t r(s_t, a_t)\\right)$，以降低回报波动；  \n  - **最坏情况性能**：$\\mathcal{R}(\\pi) = -\\min_{p \\in \\mathcal{P}} \\mathbb{E}_p[\\cdot]$，对应鲁棒控制目标；  \n  - **熵正则化**：$\\mathcal{R}(\\pi) = \\mathbb{E}_{s\\sim d^\\pi}[\\mathcal{H}(\\pi(\\cdot|s))]$，鼓励探索；  \n- $\\alpha > 0$ 为权衡系数。\n\n若算法基于奖励分解（如 RUDDER），则目标函数保持不变，但通过将延迟奖励合理分配到前置动作上实现低方差估计。此时实际优化的可能是重新分配后的即时奖励 $ \\tilde{r}(s_t,a_t) $，即：  \n$$\\max_{\\pi} \\mathbb{E}_\\pi \\left[ \\sum_{t=0}^\\infty \\gamma^t \\tilde{r}(s_t,a_t) \\right], \\quad \\tilde{r} = \\text{Decompose}(r_1,\\dots,r_T).$$\n\n需要指出的是，具体算法细节与目标函数形式依赖对应文献（如移动机器人避障、轨迹跟踪或协同控制场景）。以上表达式涵盖了基于强化学习的机器人控制中常见的优化目标，充分体现了“鲁棒性”、“无偏探索”与“移动机器人”的核心设计思想。",
+      "expected_answer": "RUDER_MBOT_RL是一种基于强化学习的移动机器人控制算法，其核心控制目标函数为 J(π) = E[∑_{t=0}^{T} γ^t r(s_t, a_t)]，其中π为策略，γ为折扣因子，r为奖励函数。",
+      "scoring_mode": "llm_judge",
+      "scorer_version": "1.1"
+    }
+  ],
+  "issues_summary": {
+    "未能识别特定算法名称，将其视为未知术语": 1,
+    "给出的核心公式为通用强化学习公式的变体，而非该特定算法的标准定义": 1,
+    "包含大量推测性内容，偏离了标准答案的精确性": 1
+  },
+  "failure_summary": {},
+  "updated_at": "2026-05-08 18:06:16",
+  "complete": true,
+  "started_at": "2026-05-08 18:05:31"
+}

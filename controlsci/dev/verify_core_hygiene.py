@@ -77,7 +77,7 @@ def check_cloud_demo_isolation():
         "import controlsci.api.medical_rag as api; "
         "print(json.dumps(api.health(), ensure_ascii=False))"
     )
-    proc = _run(["conda", "run", "--no-capture-output", "-n", "myenv", "python", "-c", code], timeout=60)
+    proc = _run([sys.executable, "-c", code], timeout=60)
     if proc.returncode != 0:
         return _fail("cloud_demo isolation", proc.stdout + proc.stderr)
     health = json.loads(proc.stdout.strip().splitlines()[-1])

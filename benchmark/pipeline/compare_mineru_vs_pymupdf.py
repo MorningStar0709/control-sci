@@ -187,7 +187,9 @@ def compute_document_metrics(doc_name, pdf_path, mineru_formulas, mineru_fulltex
     doc.close()
 
     all_pymupdf_text_joined = "\n".join(all_pymupdf_text)
-    pymupdf_chars = len(all_pymupdf_text_joined)
+    # Count extracted text only. Joining empty page strings would otherwise
+    # count page separators as characters for scanned PDFs with no text layer.
+    pymupdf_chars = sum(len(t) for t in all_pymupdf_text)
 
     mineru_chars = len(mineru_fulltext)
     formulas_analysis = analyze_mineru_formulas(mineru_formulas)

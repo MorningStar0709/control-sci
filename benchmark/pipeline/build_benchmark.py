@@ -37,6 +37,16 @@ ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_CORPUS = ROOT / "corpus"
 DEFAULT_OUTPUT = ROOT / "benchmark" / "dataset" / "benchmark.json"
 DEFAULT_REVIEW = ROOT / "benchmark" / "dataset" / "manual_review.json"
+DEFAULT_SEED = 42
+RUN_SEED = DEFAULT_SEED
+
+
+def first_env(env_spec: str) -> str:
+    for env_name in env_spec.split("|"):
+        value = os.environ.get(env_name.strip(), "")
+        if value:
+            return value
+    return ""
 
 
 def load_json(path):
@@ -75,7 +85,7 @@ def read_chunk_text(corpus_dir, chunk):
     return text[:2400]
 
 
-def select_chunks(corpus_dir, docs, chunks, category=None, min_tokens=80):
+def select_chunks(corpus_dir, docs, chunks, category=None, min_tokens=80, seed=DEFAULT_SEED):
     selected = []
     for chunk in chunks:
         if chunk.get("estimated_tokens", 0) < min_tokens:
@@ -88,7 +98,7 @@ def select_chunks(corpus_dir, docs, chunks, category=None, min_tokens=80):
         if not text:
             continue
         selected.append({**chunk, "categories": cats, "text": text})
-    random.shuffle(selected)
+    random.Random(seed).shuffle(selected)
     return selected
 
 
@@ -112,6 +122,7 @@ def save_checkpoint(output_path, review_path, questions, review_items, index, ch
             "chunk_index": chunk_index,
             "provider": provider,
             "model": model,
+            "seed": RUN_SEED,
             "consecutive_failures": consecutive_failures,
             "questions_since_reset": questions_since_reset,
         },
@@ -135,6 +146,7 @@ def save_checkpoint(output_path, review_path, questions, review_items, index, ch
         "questions_since_reset": questions_since_reset,
         "last_question_time": time.strftime("%H:%M:%S"),
         "provider": provider,
+        "seed": RUN_SEED,
         "status": "running",
     }
     if token_usage:
@@ -166,6 +178,7 @@ def _write_light_status(status_path, questions, limit, consecutive_failures, tok
         "token_usage": {"prompt": token_usage[0], "completion": token_usage[1]},
         "last_question_time": time.strftime("%H:%M:%S"),
         "provider": provider,
+        "seed": RUN_SEED,
         "status": "running",
     }
     if quality_summary:
@@ -417,6 +430,7 @@ def generate_api_questions(chunks, limit, api_key, model, corpus_dir, provider="
             "token_usage": {"prompt": token_usage[0], "completion": token_usage[1]},
             "elapsed_sec": round(elapsed, 0),
             "provider": current_provider,
+            "seed": RUN_SEED,
             "status": final_status,
             "quality": qs,
             "last_updated": time.strftime("%H:%M:%S"),
@@ -427,7 +441,7 @@ def generate_api_questions(chunks, limit, api_key, model, corpus_dir, provider="
 
 def make_question(qid, dimension, difficulty, chunk, sibling_id=None):
     section = chunk.get("source_section") or chunk.get("chunk_id")
-    categories = chunk.get("categories") or ["classical"]
+    categories = normalize_categories(chunk.get("categories"))
     topic = section.replace("#", "").strip()[:80] or chunk.get("filename", "控制系统")
     source_ref = chunk.get("chunk_id")
 
@@ -499,6 +513,9 @@ def generate_mock_questions(chunks, limit):
             questions.append(make_question(qid_b, "C", difficulty, chunk, sibling_id=qid_a))
             index += 2
         else:
+            if dimension == "C":
+                dimension = "D"
+                difficulty = DIFFICULTY_BY_DIMENSION[dimension][group_index % len(DIFFICULTY_BY_DIMENSION[dimension])]
             qid = f"CS-EVO-{index:05d}"
             questions.append(make_question(qid, dimension, difficulty, chunk))
             index += 1
@@ -521,6 +538,7 @@ def build_meta(questions, source):
         "total_questions": len(questions),
         "dimensions": dimensions,
         "source": source,
+        "seed": RUN_SEED,
     }
 
 
@@ -571,7 +589,11 @@ def main():
                         help="Rebuild OpenAI client and system prompt every N questions (default: 15).")
     parser.add_argument("--diag-stem", default=None,
                         help="Stem name for diagnostic log file (e.g. 'diag_test'). Writes to benchmark/logs/diag/generation_diag_{stem}.logl.")
+    parser.add_argument("--seed", type=int, default=DEFAULT_SEED,
+                        help="Random seed for chunk ordering and reproducible sampling metadata.")
     args = parser.parse_args()
+    global RUN_SEED
+    RUN_SEED = args.seed
 
     if args.arbitrate:
         output_path = Path(args.output).resolve()
@@ -580,9 +602,9 @@ def main():
             raise SystemExit(f"Benchmark file not found: {output_path}")
         if not review_path.exists():
             raise SystemExit(f"Manual review file not found: {review_path}")
-        api_key = args.api_key or os.environ.get("OPENAI_API_KEY")
+        api_key = args.api_key or first_env("DEEPSEEK_API_KEY|OPENAI_API_KEY")
         if not api_key:
-            raise SystemExit("Arbitration mode requires --api-key or OPENAI_API_KEY (uses DeepSeek).")
+            raise SystemExit("Arbitration mode requires --api-key or DEEPSEEK_API_KEY/OPENAI_API_KEY (uses DeepSeek).")
         arbitrate_questions(
             str(output_path), str(review_path), str(output_path), api_key,
             workers=args.arbitrate_workers,
@@ -609,6 +631,9 @@ def main():
         cp_data = load_json(cp_out)
         resume_questions = cp_data.get("questions", [])
         state = cp_data.get("state", {})
+        checkpoint_seed = state.get("seed")
+        if checkpoint_seed is not None and int(checkpoint_seed) != args.seed:
+            raise SystemExit(f"Checkpoint seed={checkpoint_seed} does not match --seed {args.seed}. Use the original seed or start a new run.")
         start_index = state.get("next_index") or (len(resume_questions) + 1)
         start_chunk = state.get("chunk_index")
         if start_chunk is None:
@@ -631,7 +656,7 @@ def main():
         total_limit = args.limit
 
     docs, chunks = load_corpus(corpus_dir)
-    selected = select_chunks(corpus_dir, docs, chunks, category=args.category)
+    selected = select_chunks(corpus_dir, docs, chunks, category=args.category, seed=args.seed)
     if not selected:
         raise SystemExit("No usable chunks found for the requested filters.")
 
@@ -641,6 +666,7 @@ def main():
         requested = total_limit if args.supplement > 0 else args.limit
         print(f"Requested questions: {requested}")
         print(f"Mode: {'mock' if args.mock else 'api'}, provider: {args.provider}")
+        print(f"Seed: {args.seed}")
         print(f"Reset every: {args.reset_every} questions")
         if diag_path:
             print(f"Diagnostic log: {diag_path}")
@@ -654,11 +680,12 @@ def main():
     config = PROVIDER_CONFIG[provider]
     model = args.model or config["model"]
 
-    api_key = args.api_key or os.environ.get(PROVIDER_ENV_MAP[provider])
+    env_spec = PROVIDER_ENV_MAP[provider]
+    api_key = args.api_key or first_env(env_spec)
     if not api_key:
-        raise SystemExit(f"API mode requires --api-key or {PROVIDER_ENV_MAP[provider]} env var for provider '{provider}'.")
+        raise SystemExit(f"API mode requires --api-key or {env_spec.replace('|', '/')} env var for provider '{provider}'.")
 
-    print(f"[DEBUG] selected {len(selected)} chunks, provider={provider}, model={model}, limit={total_limit}, reset_every={args.reset_every}", flush=True)
+    print(f"[DEBUG] selected {len(selected)} chunks, provider={provider}, model={model}, limit={total_limit}, seed={args.seed}, reset_every={args.reset_every}", flush=True)
 
     if args.mock:
         questions = generate_mock_questions(selected, total_limit)

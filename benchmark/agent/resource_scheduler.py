@@ -67,10 +67,13 @@ PROVIDER_FALLBACK = {
     "mineru": ["script"],
 }
 
-LOCAL_ONLY_INTENTS = {
+DATA_CLASS_DEPENDENT_INTENTS = {
     "mineru_parse",
     "corpus_parse",
     "multi_format_parse",
+}
+
+LOCAL_ONLY_INTENTS = {
     "medical_rag",
     "local_finetune",
 }
@@ -626,6 +629,12 @@ class ResourceScheduler:
 
     @staticmethod
     def _data_policy(intent_id: str) -> dict:
+        if intent_id in DATA_CLASS_DEPENDENT_INTENTS:
+            return {
+                "boundary": "data_class_dependent",
+                "cloud_allowed": "conditional",
+                "reason": "public_documents_may_use_cloud_only_with_explicit_allow_cloud_upload",
+            }
         if intent_id in LOCAL_ONLY_INTENTS:
             return {
                 "boundary": "local_only",
@@ -716,7 +725,7 @@ class ResourceScheduler:
         timeout = self._ppm.get_resource_timeout(intent.get("resource_type", "api"))
 
         api_key_env_map = {
-            "deepseek": "OPENAI_API_KEY",
+            "deepseek": "DEEPSEEK_API_KEY|OPENAI_API_KEY",
             "mimo": "MIMO_API_KEY",
             "minimax": "MINIMAX_API_KEY",
             "ollama": "OLLAMA_HOST",  # Ollama 不需要 API key，OLLAMA_HOST 是服务地址

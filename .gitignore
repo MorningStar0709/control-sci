@@ -1,51 +1,147 @@
-# ControlSci public-release allowlist
-#
-# This branch is intentionally curated for public/reviewer access.
-# Full private evidence, raw corpora, caches, model outputs and internal notes stay on main.
+# ============================================================
+# ControlSci .gitignore — 精简原则：
+#   大文件 · 临时 · 隐私 · 内部  → 排除
+#   研究数据 + 源码 + 报告       → 全开源
+# ============================================================
 
-# Python/runtime
+# --- Python ---
 __pycache__/
-*.py[cod]
-.venv/
-venv/
-env/
+*.pyc
+*.egg-info/
 
-# Secrets and local config
-.env
-.env.*
+# --- IDE ---
 .idea/
 .vscode/
+*.swp
+*.swo
+
+# --- Secrets ---
+.env
+.env.*
+
+# --- 模型权重 (>160MB) ---
+*.pt
+*.pth
+*.bin
+*.safetensors
+finetune/checkpoints/
+
+# --- 大文件：衍生缓存 (>10MB) ---
+benchmark/eval/results/chunk_embedding/embeddings_cache.npy
+data/sources_medical/index/medical.index
+data/sources_medical/index/embeddings_cache.npy
+data/sources_medical/index/bm25.pkl
+docs/submissions/data_trace_bundle/09_medical_rag_large/
+docs/submissions/data_trace_bundle/10_charts_large/
+
+# --- 临时 & 内部目录 ---
+_scratch/
+_data/
+_tools/
+build/
+tmp/
+data/tmp/
+data/logs/
+data/uploads/
+
+# --- 内部文档（仅公开 submissions + DATA-TRACE 本地镜像） ---
+docs/*
+!docs/submissions/
+!docs/submissions/**
+!docs/diagrams/
+!docs/diagrams/**
+!docs/DATA-TRACE.md
+
+# --- PPT 内部素材 ---
+_ppt_materials/
+_ppt_materials_tracks/
+_final_submission_by_track/
+
+# --- 运行时 & 衍生产物 ---
+benchmark/eval/reports/
+benchmark/eval/reports_limit*/
+benchmark/eval/results/medical/*.json
+benchmark/agent/logs/
+benchmark/agent/results/*
+!benchmark/agent/results/visual_audit_results.jsonl
+benchmark/agent/*.checkpoint.json
+benchmark/*.checkpoint.json
+benchmark/generation_status.json
+benchmark/eval/audit_*.txt
+*.progress.jsonl
+
+# --- QLoRA 训练输出（仅保留评测报告） ---
+finetune/output/*
+!finetune/output/eval_finetuned_report.json
+!finetune/output/eval_baseline_4b_report.json
+!finetune/output/perplexity_delta.json
+!finetune/output/perplexity_delta_9b.json
+!finetune/output/qlora-qwen4b-cross/
+!finetune/output/qlora-qwen4b-cross/training.status.json
+
+# --- 原始输入数据（二进制/PDF 大体积） ---
+data/pdf/
+data/raw/
+data/processed/
+
+# --- MinerU 解析产物（可重建，量大） ---
+corpus/processed/
+corpus/chunks/
+data/sources_medical/chunks/
+data/sources_medical/pdf/
+
+# --- 衍生数据 ---
+/dataset/
+huggingface/
+analyze/outputs/
+
+# --- 含本地路径的结果文件 ---
+benchmark/eval/results/self_correction_candidates.json
+benchmark/eval/results/self_correction_results.json
+benchmark/eval/results/self_correction_trajectory.json
+benchmark/eval/results/minimal_repro/
+
+# --- Docker ---
+docker-data/
+
+# --- Frontend workspace ---
+starboard/node_modules/
+starboard/.next/
+starboard/.next-build/
+starboard/next-server*.log
+starboard/dev-server.log
+starboard/*acceptance*.png
+starboard/*review*.png
+starboard/*.tmp
+
+# --- MedBench（zip 文件过大） ---
+data/sources_medical/medbench/*.zip
+
+# --- Logs ---
 *.log
+*.log.err
 *.tmp
+
+# --- IDE 内部配置（仅放行公开 Skills） ---
+# 规则：用 * (不含 /) 排除顶层条目，再逐层 ! 放行
+.trae/*
+!.trae/skills/
+.trae/skills/*
+!.trae/skills/mineru-to-md/
+!.trae/skills/searching-arxiv-papers/
+.trae/skills/writing-retrospective-doc/
+
+# --- Pipeline 临时文件 ---
+pipeline/_bat_tmp/
+
+# --- OS ---
 .DS_Store
 Thumbs.db
 
-# Internal / raw / generated heavy assets
-_tools/
-_scratch/
-_data/
-tmp/
-_ppt_materials/
-analyze/
-.trae/
-data/
-corpus/
-dataset/
-huggingface/
-finetune/output/
-finetune/data/
-benchmark/archive/
-benchmark/compare_output/
-benchmark/logs/
-benchmark/agent/agent_report.md
-benchmark/eval/results/
-benchmark/eval/reports/
-benchmark/eval/reports_limit*/
-benchmark/agent/logs/
-benchmark/agent/results/
-benchmark/agent/test_materials/
-docs/**
-!docs/submissions/
-!docs/submissions/**
-starboard/
-node_modules/
+# --- Final public GitHub safety overrides ---
+# Keep these after broad allow-list rules such as !docs/submissions/**.
+docs/submissions/data_trace_bundle/09_medical_rag_large/
+docs/submissions/data_trace_bundle/10_charts_large/
+_final_submission_by_track/
+_ppt_materials_tracks/
+build/

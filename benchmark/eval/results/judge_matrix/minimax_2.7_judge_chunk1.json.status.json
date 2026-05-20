@@ -1,0 +1,17 @@
+{
+  "model": "deepseek-v4-flash",
+  "judge_model": "MiniMax-M2.7-highspeed",
+  "status": "completed",
+  "completed": 250,
+  "total": 250,
+  "percent": 100.0,
+  "remaining": 0,
+  "session_completed": 57,
+  "elapsed_sec": 1390.31,
+  "rate_q_per_min": 2.4599,
+  "eta_min": null,
+  "eta_at": "2026-05-09 00:38:15",
+  "last_id": "CS-EVO-00957",
+  "consecutive_failures": 0,
+  "updated_at": "2026-05-09 00:38:15"
+}

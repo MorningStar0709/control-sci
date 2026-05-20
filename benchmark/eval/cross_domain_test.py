@@ -218,18 +218,24 @@ def _run_background(cmd, model_name, safe_name, output_path, model_cfg):
     """Launch model evaluation as a detached background process with log redirection."""
     log_path = str(ROOT / "benchmark" / "eval" / "reports" / f"cross_domain_{safe_name}.log")
     err_path = str(ROOT / "benchmark" / "eval" / "reports" / f"cross_domain_{safe_name}.err.log")
+    Path(log_path).parent.mkdir(parents=True, exist_ok=True)
 
     print(f"  [BG] 启动后台: {model_name} ({model_cfg['family']} {model_cfg['size']})", flush=True)
     print(f"  [BG] stdout → {log_path}", flush=True)
     print(f"  [BG] stderr → {err_path}", flush=True)
 
-    proc = subprocess.Popen(
-        cmd,
-        cwd=str(ROOT),
-        stdout=open(log_path, "w", encoding="utf-8"),
-        stderr=open(err_path, "w", encoding="utf-8"),
-        creationflags=subprocess.DETACHED_PROCESS | subprocess.CREATE_NEW_PROCESS_GROUP,
-    )
+    popen_kwargs = {}
+    if os.name == "nt":
+        popen_kwargs["creationflags"] = subprocess.DETACHED_PROCESS | subprocess.CREATE_NEW_PROCESS_GROUP
+
+    with open(log_path, "w", encoding="utf-8") as stdout_f, open(err_path, "w", encoding="utf-8") as stderr_f:
+        proc = subprocess.Popen(
+            cmd,
+            cwd=str(ROOT),
+            stdout=stdout_f,
+            stderr=stderr_f,
+            **popen_kwargs,
+        )
 
     write_status({
         "status": "running",

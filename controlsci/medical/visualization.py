@@ -29,8 +29,11 @@ OUT_DIR.mkdir(parents=True, exist_ok=True)
 with open(KB_REPORT, "r", encoding="utf-8") as f:
     report = json.load(f)
 
-with open(MANIFEST, "r", encoding="utf-8") as f:
-    manifest = json.load(f)
+if MANIFEST.exists():
+    with open(MANIFEST, "r", encoding="utf-8") as f:
+        manifest = json.load(f)
+else:
+    manifest = []
 
 # ── Color palette (consistent with system_architecture) ──
 C_API = "#4285F4"
@@ -70,13 +73,13 @@ def chart_hybrid_vs_dense():
         print("  ⚠ No per_query data, skipping chart 1")
         return
 
-    fig, axes = plt.subplots(1, 2, figsize=(12, 5.5), facecolor=C_BG)
+    fig, axes = plt.subplots(1, 2, figsize=(13.5, 5.8), facecolor=C_BG)
     fig.suptitle("Hybrid vs Dense-only: Per-Query Retrieval Hit Analysis",
-                 fontsize=14, fontweight="bold", color=C_TEXT, y=0.98)
+                 fontsize=15, fontweight="bold", color=C_TEXT, y=0.97)
 
     # Sub-plot A: Hit count bar (Hybrid vs Dense for each query)
     ax = axes[0]
-    query_ids = [pq["query_id"][:8] for pq in per_query]
+    query_ids = [f"Q{i:02d}" for i in range(1, len(per_query) + 1)]
     hybrid_hits = []
     dense_hits = []
     for pq in per_query:
@@ -90,26 +93,63 @@ def chart_hybrid_vs_dense():
 
     x = np.arange(len(query_ids))
     w = 0.35
-    bars1 = ax.bar(x - w/2, hybrid_hits, w, label="Hybrid", color=C_API, alpha=0.85, edgecolor="white", linewidth=0.5)
-    bars2 = ax.bar(x + w/2, dense_hits, w, label="Dense-only", color=C_OLLAMA, alpha=0.85, edgecolor="white", linewidth=0.5)
+    ax.set_axisbelow(True)
+    bars1 = ax.bar(
+        x - w/2,
+        hybrid_hits,
+        w,
+        label="Hybrid",
+        color=C_API,
+        alpha=0.9,
+        edgecolor="white",
+        linewidth=0.5,
+        zorder=3,
+    )
+    bars2 = ax.bar(
+        x + w/2,
+        dense_hits,
+        w,
+        label="Dense-only",
+        color=C_OLLAMA,
+        alpha=0.9,
+        edgecolor="white",
+        linewidth=0.5,
+        zorder=3,
+    )
 
-    ax.set_xlabel("Query ID", fontsize=9, color=C_TEXT_SUB)
+    total_h = sum(hybrid_hits)
+    total_d = sum(dense_hits)
+    fig.legend(
+        [bars1, bars2],
+        ["Hybrid", "Dense-only"],
+        fontsize=8,
+        loc="upper left",
+        bbox_to_anchor=(0.06, 0.88),
+        ncol=2,
+        frameon=True,
+        edgecolor=C_BORDER,
+    )
+    fig.text(
+        0.5,
+        0.875,
+        f"Total correct source-label hits: Hybrid {total_h} | Dense {total_d}",
+        fontsize=9,
+        fontweight="bold",
+        ha="center",
+        va="center",
+        color=C_TEXT,
+        bbox=dict(boxstyle="round,pad=0.25", facecolor="white", edgecolor="#B8C0CC", alpha=0.98),
+    )
+
+    ax.set_title("Correct Source-Label Hits per Query", fontsize=10, fontweight="bold", color=C_TEXT, pad=10)
+    ax.set_xlabel("Query", fontsize=9, color=C_TEXT_SUB)
     ax.set_ylabel("Correct label hits (0-5)", fontsize=9, color=C_TEXT_SUB)
     ax.set_xticks(x)
-    ax.set_xticklabels(query_ids, fontsize=6, rotation=45, ha="right")
-    ax.legend(fontsize=8, loc="lower left", bbox_to_anchor=(0, 1.02), ncol=1)
+    ax.set_xticklabels(query_ids, fontsize=7, rotation=0)
     ax.set_ylim(0, 5.5)
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
-    ax.grid(axis="y", alpha=0.3, linestyle="--")
-
-    # Annotate total hits — same row as legend, to its right
-    total_h = sum(hybrid_hits)
-    total_d = sum(dense_hits)
-    ax.text(0.60, 1.02, f"Total: Hybrid={total_h}  Dense={total_d}",
-            transform=ax.transAxes, fontsize=9, ha="left", va="bottom",
-            color=C_TEXT_SUB,
-            bbox=dict(boxstyle="round,pad=0.3", facecolor="white", edgecolor=C_BORDER))
+    ax.grid(axis="y", alpha=0.3, linestyle="--", zorder=0)
 
     # Sub-plot B: Overlap ratio histogram
     ax = axes[1]
@@ -123,23 +163,42 @@ def chart_hybrid_vs_dense():
         else:
             overlaps.append(0.0)
 
-    ax.hist(overlaps, bins=10, range=(0, 1), color=C_GOLD, alpha=0.8,
-            edgecolor="white", linewidth=0.8)
+    ax.set_axisbelow(True)
+    ax.hist(
+        overlaps,
+        bins=10,
+        range=(0, 1),
+        color=C_GOLD,
+        alpha=0.85,
+        edgecolor="white",
+        linewidth=0.8,
+        zorder=3,
+    )
     mean_overlap = np.mean(overlaps)
-    ax.axvline(mean_overlap, color=C_RED, linestyle="--", linewidth=1.5,
-               label=f"Mean={mean_overlap:.2f}")
-    ax.set_xlabel("Overlap ratio (Hybrid ∩ Dense) / (Hybrid ∪ Dense)", fontsize=9, color=C_TEXT_SUB)
+    ax.axvline(mean_overlap, color=C_RED, linestyle="--", linewidth=1.5, zorder=4)
+    ax.set_title("Top-k Result Overlap Distribution", fontsize=10, fontweight="bold", color=C_TEXT, pad=10)
+    ax.set_xlabel("Overlap ratio: intersection / union", fontsize=9, color=C_TEXT_SUB)
     ax.set_ylabel("Query count", fontsize=9, color=C_TEXT_SUB)
-    ax.legend(fontsize=8)
+    ax.text(
+        0.98,
+        0.96,
+        f"Mean overlap = {mean_overlap:.2f}",
+        transform=ax.transAxes,
+        fontsize=9,
+        ha="right",
+        va="top",
+        color=C_TEXT_SUB,
+        bbox=dict(boxstyle="round,pad=0.25", facecolor="white", edgecolor=C_BORDER),
+    )
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
-    ax.grid(axis="y", alpha=0.3, linestyle="--")
+    ax.grid(axis="y", alpha=0.3, linestyle="--", zorder=0)
 
-    plt.tight_layout(rect=[0, 0, 1, 0.95])
+    plt.tight_layout(rect=[0, 0, 1, 0.82])
     path = OUT_DIR / "rag_hybrid_vs_dense.png"
     plt.savefig(path, dpi=200, bbox_inches="tight", facecolor=C_BG, edgecolor="none")
     plt.close()
-    print(f"  ✅ {path.name}")
+    print(f"  OK {path.name}")
 
 
 # =====================================================================
@@ -154,7 +213,91 @@ def chart_judge_heatmap():
     dims = ["relevance", "completeness", "traceability", "accuracy"]
     dim_labels = ["Relevance", "Completeness", "Traceability", "Accuracy"]
 
-    # Build matrix: rows=models (API first, then Local), cols=dims
+    api_order = [m for m in API_MODELS if m in per_model]
+    local_order = [m for m in LOCAL_MODELS if m in per_model]
+
+    def _matrix(model_order):
+        data = np.zeros((len(model_order), len(dims)))
+        for i, m in enumerate(model_order):
+            dim_data = per_model[m].get("dimensions", {})
+            for j, d in enumerate(dims):
+                data[i, j] = dim_data.get(d, {}).get("mean", 0)
+        return data
+
+    api_data = _matrix(api_order)
+    local_data = _matrix(local_order)
+
+    fig = plt.figure(figsize=(13.8, 6.8), facecolor=C_BG)
+    gs = fig.add_gridspec(1, 3, width_ratios=[1.05, 0.045, 0.85], wspace=0.22)
+    ax_api = fig.add_subplot(gs[0, 0])
+    cax = fig.add_subplot(gs[0, 1])
+    ax_local = fig.add_subplot(gs[0, 2])
+    fig.suptitle("Medical RAG Judge Scores: API vs Local Models",
+                 fontsize=15, fontweight="bold", color=C_TEXT, y=0.965)
+
+    overall = report.get("judge_matrix", {}).get("summary", {}).get("overall", {})
+    stats_text = (
+        f"Total judgements: {overall.get('total_judgements', 0):,}    "
+        f"Mean: {overall.get('mean_score', 0):.3f}    "
+        f"Median: {overall.get('median_score', 0):.2f}"
+    )
+    fig.text(
+        0.5,
+        0.885,
+        stats_text,
+        fontsize=9.5,
+        fontweight="bold",
+        color=C_TEXT,
+        ha="center",
+        va="center",
+        bbox=dict(boxstyle="round,pad=0.28", facecolor="white", edgecolor="#B8C0CC", alpha=0.98),
+    )
+
+    cmap = plt.cm.YlOrRd
+    norm = mcolors.Normalize(vmin=0, vmax=1)
+
+    def _draw(ax, data, model_order, title, labels_on_right=False):
+        im = ax.imshow(data, cmap=cmap, norm=norm, aspect="auto")
+        ax.set_title(title, fontsize=11, fontweight="bold", color=C_TEXT, pad=10)
+        ax.set_xticks(np.arange(len(dims)))
+        ax.set_yticks(np.arange(len(model_order)))
+        ax.set_xticklabels(dim_labels, fontsize=9.5)
+        ax.set_yticklabels([MODEL_SHORT.get(m, m) for m in model_order], fontsize=9.2, color=C_TEXT)
+        if labels_on_right:
+            ax.yaxis.tick_right()
+            ax.tick_params(axis="y", labelright=True, labelleft=False, pad=6)
+        else:
+            ax.tick_params(axis="y", labelleft=True, labelright=False, pad=6)
+        ax.tick_params(top=False, bottom=True, labeltop=False, labelbottom=True)
+        plt.setp(ax.get_xticklabels(), rotation=0, ha="center")
+
+        for i in range(len(model_order)):
+            for j in range(len(dims)):
+                val = data[i, j]
+                text_color = "white" if val >= 0.5 else "#111827"
+                ax.text(j, i, f"{val:.2f}", ha="center", va="center",
+                        fontsize=9, color=text_color, fontweight="bold")
+
+        for spine in ax.spines.values():
+            spine.set_color("#111827")
+            spine.set_linewidth(0.9)
+        return im
+
+    im = _draw(ax_api, api_data, api_order, f"API Models ({len(api_order)})")
+    _draw(ax_local, local_data, local_order, f"Local Models ({len(local_order)})", labels_on_right=True)
+
+    cbar = fig.colorbar(im, cax=cax)
+    cbar.set_label("Mean score", fontsize=9.5, color=C_TEXT)
+    cbar.ax.tick_params(colors=C_TEXT)
+
+    fig.subplots_adjust(left=0.11, right=0.88, top=0.78, bottom=0.12, wspace=0.22)
+    path = OUT_DIR / "rag_judge_heatmap.png"
+    plt.savefig(path, dpi=200, bbox_inches="tight", facecolor=C_BG, edgecolor="none")
+    plt.close()
+    print(f"  OK {path.name}")
+    return
+
+    # Legacy single-panel layout retained below for reference.
     model_order = API_MODELS + LOCAL_MODELS
     model_order = [m for m in model_order if m in per_model]
 
@@ -165,63 +308,85 @@ def chart_judge_heatmap():
             val = dim_data.get(d, {}).get("mean", 0)
             data[i, j] = val
 
-    fig, ax = plt.subplots(figsize=(9, 6.5), facecolor=C_BG)
+    fig, ax = plt.subplots(figsize=(9.6, 7.0), facecolor=C_BG)
     fig.suptitle("Medical RAG Judge Scores: 14 Models × 4 Dimensions",
-                 fontsize=14, fontweight="bold", color=C_TEXT, y=0.97)
+                 fontsize=15, fontweight="bold", color=C_TEXT, y=0.965)
+
+    overall = report.get("judge_matrix", {}).get("summary", {}).get("overall", {})
+    stats_text = (
+        f"Total judgements: {overall.get('total_judgements', 0):,}    "
+        f"Mean: {overall.get('mean_score', 0):.3f}    "
+        f"Median: {overall.get('median_score', 0):.2f}"
+    )
+    fig.text(
+        0.5,
+        0.885,
+        stats_text,
+        fontsize=9.5,
+        fontweight="bold",
+        color=C_TEXT,
+        ha="center",
+        va="center",
+        bbox=dict(boxstyle="round,pad=0.28", facecolor="white", edgecolor="#B8C0CC", alpha=0.98),
+    )
 
     cmap = plt.cm.YlOrRd
     norm = mcolors.Normalize(vmin=0, vmax=1)
 
     im = ax.imshow(data, cmap=cmap, norm=norm, aspect="auto")
 
+    ax.text(
+        -0.08,
+        1.015,
+        "API models (8)",
+        transform=ax.transAxes,
+        fontsize=9,
+        fontweight="bold",
+        color=C_TEXT,
+        ha="right",
+        va="bottom",
+        clip_on=False,
+    )
+    ax.text(
+        -0.08,
+        0.365,
+        "Local models (6)",
+        transform=ax.transAxes,
+        fontsize=9,
+        fontweight="bold",
+        color=C_TEXT,
+        ha="right",
+        va="center",
+        clip_on=False,
+    )
+
     # Grid lines
     ax.set_xticks(np.arange(len(dims)))
     ax.set_yticks(np.arange(len(model_order)))
     ax.set_xticklabels(dim_labels, fontsize=10)
-    ax.set_yticklabels([MODEL_SHORT.get(m, m) for m in model_order], fontsize=8)
-
-    # Separator between API and Local groups
-    sep_idx = len(API_MODELS) - 0.5
-    ax.axhline(y=sep_idx, color=C_TEXT, linewidth=1.5, linestyle="--", alpha=0.5)
+    ax.set_yticklabels([MODEL_SHORT.get(m, m) for m in model_order], fontsize=8.8, color=C_TEXT)
 
     # Annotate cells with values
     for i in range(len(model_order)):
         for j in range(len(dims)):
             val = data[i, j]
-            text_color = "white" if val > 0.5 else C_TEXT
+            text_color = "white" if val >= 0.5 else "#111827"
             ax.text(j, i, f"{val:.2f}", ha="center", va="center",
-                    fontsize=8, color=text_color, fontweight="bold")
+                    fontsize=8.8, color=text_color, fontweight="bold")
 
     ax.tick_params(top=False, bottom=True, labeltop=False, labelbottom=True)
     plt.setp(ax.get_xticklabels(), rotation=0, ha="center")
 
     # Colorbar
     cbar = fig.colorbar(im, ax=ax, fraction=0.046, pad=0.04)
-    cbar.set_label("Mean score", fontsize=9, color=C_TEXT_SUB)
+    cbar.set_label("Mean score", fontsize=9.5, color=C_TEXT)
+    cbar.ax.tick_params(colors=C_TEXT)
 
-    # Group labels — single line above the heatmap, left-aligned with Total
-    ax.text(0.02, 1.05, "API (8)  Local (6)",
-            transform=ax.transAxes, fontsize=8, color=C_TEXT_SUB,
-            ha="left", va="bottom", fontweight="bold",
-            bbox=dict(boxstyle="round,pad=0.4", facecolor="white",
-                      edgecolor=C_BORDER))
-
-    # Overall stats — same y, left-aligned, to the right of group label
-    overall = report.get("judge_matrix", {}).get("summary", {}).get("overall", {})
-    stats_text = (
-        f"Total: {overall.get('total_judgements', 0):,} judgements  "
-        f"Mean: {overall.get('mean_score', 0):.3f}  "
-        f"Median: {overall.get('median_score', 0):.2f}"
-    )
-    ax.text(0.02, 1.12, stats_text, transform=ax.transAxes, fontsize=8,
-            color=C_TEXT_SUB, va="bottom", ha="left",
-            bbox=dict(boxstyle="round,pad=0.3", facecolor="white", edgecolor=C_BORDER))
-
-    plt.tight_layout(rect=[0, 0, 1, 0.94])
+    plt.tight_layout(rect=[0.03, 0, 1, 0.84])
     path = OUT_DIR / "rag_judge_heatmap.png"
     plt.savefig(path, dpi=200, bbox_inches="tight", facecolor=C_BG, edgecolor="none")
     plt.close()
-    print(f"  ✅ {path.name}")
+    print(f"  OK {path.name}")
 
 
 # =====================================================================

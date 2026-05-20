@@ -1,39 +1,11 @@
 {
-  "generated_at": "2026-05-14T14:13:27",
+  "generated_at": "2026-05-17T20:05:00",
   "project": "ControlSci — 2026 MinerU Challenge",
   "generator": "scripts/build_data_trace_bundle.py",
   "strategy": "copy (源文件未移动)",
   "description": "DATA-TRACE 配套数据集中导航包。所有数据均可在仓库原始位置找到。",
-  "total_size_mb": 35.26,
+  "total_size_mb": 395.85,
   "files": [
-    {
-      "bundle_path": "01_corpus_scale/metadata.json",
-      "source_path": "corpus/metadata.json",
-      "size_bytes": 216255,
-      "size_mb": 0.21,
-      "sha256": "c34913ae0203b45fa127b820e5bc5491c532490543f4266c27bf070fa55481d2"
-    },
-    {
-      "bundle_path": "01_corpus_scale/corpus_stats.json",
-      "source_path": "corpus/stats/corpus_stats.json",
-      "size_bytes": 226767,
-      "size_mb": 0.22,
-      "sha256": "08e4f827d96321e1890792bce8fce7d53dc6e399ca09494ef93fd4f9196ebec8"
-    },
-    {
-      "bundle_path": "01_corpus_scale/multimodal_chunks.json",
-      "source_path": "benchmark/eval/results/multimodal_chunks.json",
-      "size_bytes": 3338459,
-      "size_mb": 3.18,
-      "sha256": "e478720212d1437bcd70125c228277f6b11411c1799da3c7bea12401c302a458"
-    },
-    {
-      "bundle_path": "01_corpus_scale/image_formula_cooccurrence.json",
-      "source_path": "benchmark/eval/results/image_formula_cooccurrence.json",
-      "size_bytes": 812,
-      "size_mb": 0.0,
-      "sha256": "f068c2bc4cc4f2d0d56841385c760f99d848c8307ebe477574b1ecef3af39db9"
-    },
     {
       "bundle_path": "01_corpus_scale/a1_global_pca.json",
       "source_path": "benchmark/eval/results/chunk_embedding/a1_global_pca.json",
@@ -63,6 +35,41 @@
       "sha256": "0c39c21831cc8a4928a4a84f84074b25fa0bdac296d85b1d37497a2ed39f5a73"
     },
     {
+      "bundle_path": "01_corpus_scale/corpus_stats.json",
+      "source_path": "corpus/stats/corpus_stats.json",
+      "size_bytes": 226767,
+      "size_mb": 0.22,
+      "sha256": "08e4f827d96321e1890792bce8fce7d53dc6e399ca09494ef93fd4f9196ebec8"
+    },
+    {
+      "bundle_path": "01_corpus_scale/image_formula_cooccurrence.json",
+      "source_path": "benchmark/eval/results/image_formula_cooccurrence.json",
+      "size_bytes": 812,
+      "size_mb": 0.0,
+      "sha256": "f068c2bc4cc4f2d0d56841385c760f99d848c8307ebe477574b1ecef3af39db9"
+    },
+    {
+      "bundle_path": "01_corpus_scale/metadata.json",
+      "source_path": "corpus/metadata.json",
+      "size_bytes": 216255,
+      "size_mb": 0.21,
+      "sha256": "c34913ae0203b45fa127b820e5bc5491c532490543f4266c27bf070fa55481d2"
+    },
+    {
+      "bundle_path": "01_corpus_scale/mineru_vs_pymupdf_data.json",
+      "source_path": "benchmark/dataset/compare_output/mineru_vs_pymupdf_data.json",
+      "size_bytes": 6053,
+      "size_mb": 0.01,
+      "sha256": "ea944bd98b6707a4961b79fbb325e761db84382dc24a30ac7f670bf8b67c3d33"
+    },
+    {
+      "bundle_path": "01_corpus_scale/multimodal_chunks.json",
+      "source_path": "benchmark/eval/results/multimodal_chunks.json",
+      "size_bytes": 3338459,
+      "size_mb": 3.18,
+      "sha256": "e478720212d1437bcd70125c228277f6b11411c1799da3c7bea12401c302a458"
+    },
+    {
       "bundle_path": "02_benchmark/core.json",
       "source_path": "benchmark/dataset/core.json",
       "size_bytes": 1152497,
@@ -77,18 +84,25 @@
       "sha256": "e478be2713004c94267cea98bb4b76da1bc0f5c1e1926f1874e508f24b94bcfd"
     },
     {
-      "bundle_path": "03_leaderboard/leaderboard.json",
-      "source_path": "benchmark/eval/results/leaderboard.json",
-      "size_bytes": 1528,
-      "size_mb": 0.0,
-      "sha256": "3a9a95be8a1e6e08fdc8a832ca7d04b9de201f25af282a795a08da23b62bfc4a"
+      "bundle_path": "02_benchmark/multimodal_index.json",
+      "source_path": "benchmark/dataset/multimodal_index.json",
+      "size_bytes": 259855,
+      "size_mb": 0.25,
+      "sha256": "be5def3af2dbf043b799a7fd95d61a1570bc93964014be4c912ac09c11ff28e4"
     },
     {
-      "bundle_path": "03_leaderboard/qwen3.5_9b_target_eval.json",
-      "source_path": "benchmark/eval/results/qwen3.5_9b_target_eval.json",
-      "size_bytes": 3782309,
-      "size_mb": 3.61,
-      "sha256": "5c5de06500ffdfa8d323833b84a19d483d609a4fb6ce83d2a5b466c4e01eb516"
+      "bundle_path": "03_leaderboard/errata_v1.1.json",
+      "source_path": "benchmark/eval/results/errata_v1.1.json",
+      "size_bytes": 10957,
+      "size_mb": 0.01,
+      "sha256": "f3bd44d43644a9855ff64c35e9818ec403134aa07ce3bf09f3ab8fa1988b0aa7"
+    },
+    {
+      "bundle_path": "03_leaderboard/leaderboard.json",
+      "source_path": "benchmark/eval/results/leaderboard.json",
+      "size_bytes": 1519,
+      "size_mb": 0.0,
+      "sha256": "9fd853f0edf7d2626c1f126e32167969737f24418a4437f4b2819ce9403c5517"
     },
     {
       "bundle_path": "03_leaderboard/qwen3.5_9b_answers.jsonl",
@@ -98,11 +112,11 @@
       "sha256": "189a8922a54374974a3ee53c1f2a769f48474b4b9dd1f83bc6a5d42fd64811e2"
     },
     {
-      "bundle_path": "04_qlora_ppl/eval_finetuned_report.json",
-      "source_path": "finetune/output/eval_finetuned_report.json",
-      "size_bytes": 411144,
-      "size_mb": 0.39,
-      "sha256": "63f5b181ed927a6b6aaf59116fdc71f0e7d35f219b6d6f660268bc1e0cd65815"
+      "bundle_path": "03_leaderboard/qwen3.5_9b_target_eval.json",
+      "source_path": "benchmark/eval/results/qwen3.5_9b_target_eval.json",
+      "size_bytes": 3782309,
+      "size_mb": 3.61,
+      "sha256": "5c5de06500ffdfa8d323833b84a19d483d609a4fb6ce83d2a5b466c4e01eb516"
     },
     {
       "bundle_path": "04_qlora_ppl/eval_baseline_4b_report.json",
@@ -110,6 +124,13 @@
       "size_bytes": 869013,
       "size_mb": 0.83,
       "sha256": "038599aa5926deaf672691017040a4fd6bc35edf6e13b3aa6be594ef9b613981"
+    },
+    {
+      "bundle_path": "04_qlora_ppl/eval_finetuned_report.json",
+      "source_path": "finetune/output/eval_finetuned_report.json",
+      "size_bytes": 411144,
+      "size_mb": 0.39,
+      "sha256": "63f5b181ed927a6b6aaf59116fdc71f0e7d35f219b6d6f660268bc1e0cd65815"
     },
     {
       "bundle_path": "04_qlora_ppl/perplexity_delta.json",
@@ -135,30 +156,16 @@
     {
       "bundle_path": "05_cross_modal/cross_modal_audit_summary.json",
       "source_path": "benchmark/eval/results/cross_modal_audit_summary.json",
-      "size_bytes": 3515,
+      "size_bytes": 3579,
       "size_mb": 0.0,
-      "sha256": "c426ba39adfb0c5a43b5c4d15abdf6ebe9367cb171d538a83d0ceda040495fe3"
+      "sha256": "81e821f4957c13f7b8e8df30d1f706fc9a2e6aabaf866c29921ec998bdb1ba5f"
     },
     {
       "bundle_path": "06_visual_audit/visual_audit_results.jsonl",
       "source_path": "benchmark/agent/results/visual_audit_results.jsonl",
-      "size_bytes": 6586628,
-      "size_mb": 6.28,
-      "sha256": "cdbc3958154d3746430fc4e4efbd1444243c59b9dbb25e4f4ca385ccb0522e59"
-    },
-    {
-      "bundle_path": "07_flywheel/flywheel_eval_deepseek.json",
-      "source_path": "benchmark/eval/results/flywheel_eval_deepseek.json",
-      "size_bytes": 14358,
-      "size_mb": 0.01,
-      "sha256": "5ecc75e096c841e1c15e7a537e6da4e4b98c37d9aca3cab828c92b5f0fb73954"
-    },
-    {
-      "bundle_path": "07_flywheel/flywheel_progress_deepseek.jsonl",
-      "source_path": "benchmark/eval/results/flywheel_progress_deepseek.jsonl",
-      "size_bytes": 12698,
-      "size_mb": 0.01,
-      "sha256": "d67d3904b4140edea8f50f13a9b9174f52b97e85f55df085a4cf782443770890"
+      "size_bytes": 6487566,
+      "size_mb": 6.19,
+      "sha256": "dd8a30103207887d4ac6dedd04c27ca60d0f618b08e607ae69e69ddd10496634"
     },
     {
       "bundle_path": "07_flywheel/2605.02370_Robust Adaptive Predictive Control for Hook-Based Aerial Tra.pdf",
@@ -196,11 +203,88 @@
       "sha256": "6da8d2c844d3bfc98ffcfdb746e02d25bdde0dfbbeb1118b0e39c5947fb1635f"
     },
     {
+      "bundle_path": "07_flywheel/agent_capabilities.json",
+      "source_path": "benchmark/agent/agent_capabilities.json",
+      "size_bytes": 43341,
+      "size_mb": 0.04,
+      "sha256": "f46f5a7fc22a2e30a6090efa8deec032134a01e5c331e3f680f7d69c4fde0220"
+    },
+    {
+      "bundle_path": "07_flywheel/demo-data-flywheel.json",
+      "source_path": "benchmark/agent/logs/demo-data-flywheel.json",
+      "size_bytes": 297,
+      "size_mb": 0.0,
+      "sha256": "875ce3190650b60df774a006bfd31da34adf95cc27559472d4c1a7f3b5df908d"
+    },
+    {
+      "bundle_path": "07_flywheel/flywheel_eval_deepseek.json",
+      "source_path": "benchmark/eval/results/flywheel_eval_deepseek.json",
+      "size_bytes": 14358,
+      "size_mb": 0.01,
+      "sha256": "5ecc75e096c841e1c15e7a537e6da4e4b98c37d9aca3cab828c92b5f0fb73954"
+    },
+    {
+      "bundle_path": "07_flywheel/flywheel_progress_deepseek.jsonl",
+      "source_path": "benchmark/eval/results/flywheel_progress_deepseek.jsonl",
+      "size_bytes": 12698,
+      "size_mb": 0.01,
+      "sha256": "d67d3904b4140edea8f50f13a9b9174f52b97e85f55df085a4cf782443770890"
+    },
+    {
       "bundle_path": "08_think_probe/think_probe_35b_10queries.json",
       "source_path": "benchmark/eval/results/think_probe_35b_10queries.json",
       "size_bytes": 12487,
       "size_mb": 0.01,
       "sha256": "3c85ea259ddf7b88f24137da6bac78abf80f26b9cade83d83bb946fe8af0dad1"
+    },
+    {
+      "bundle_path": "09_medical_rag/medbench_35b_speed_probe.json",
+      "source_path": "data/sources_medical/medbench/medbench_35b_speed_probe.json",
+      "size_bytes": 14673,
+      "size_mb": 0.01,
+      "sha256": "3799619ed950f7b8beed05396b3c22e7164908d6fc9ac37e6d60b28ffe3b83f5"
+    },
+    {
+      "bundle_path": "09_medical_rag/medical_rag_eval.json",
+      "source_path": "benchmark/eval/results/medical_rag_eval.json",
+      "size_bytes": 80881,
+      "size_mb": 0.08,
+      "sha256": "a89dc7883ada221a88933e83aba9e1ba90304583fcddc3e72b39050db773c8bc"
+    },
+    {
+      "bundle_path": "09_medical_rag/medical_rag_eval.md",
+      "source_path": "benchmark/eval/results/medical_rag_eval.md",
+      "size_bytes": 9580,
+      "size_mb": 0.01,
+      "sha256": "d2f414357a30fa21f463581629e193ecb1801216f22f6a2a60cc1b6594e5d1a5"
+    },
+    {
+      "bundle_path": "09_medical_rag/medical_rag_eval_synthesis_smoke.json",
+      "source_path": "benchmark/eval/results/medical_rag_eval_synthesis_smoke.json",
+      "size_bytes": 5290,
+      "size_mb": 0.01,
+      "sha256": "c69895a5363fea3361575ade5a74e491a1645b86130d101092f8e65381491d6f"
+    },
+    {
+      "bundle_path": "09_medical_rag/medical_rag_eval_zh_ask.json",
+      "source_path": "benchmark/eval/results/medical_rag_eval_zh_ask.json",
+      "size_bytes": 34077,
+      "size_mb": 0.03,
+      "sha256": "5d7821a1a91cc58dc7e096bffededb277f3189b7c4a47b14ad47c59520772ee0"
+    },
+    {
+      "bundle_path": "09_medical_rag/medical_rag_eval_zh_ask.md",
+      "source_path": "benchmark/eval/results/medical_rag_eval_zh_ask.md",
+      "size_bytes": 3373,
+      "size_mb": 0.0,
+      "sha256": "50b621c941f124204a9f6a2c340bc3302f6ae8ce6c27a279b3c88041a6098247"
+    },
+    {
+      "bundle_path": "09_medical_rag/medical_rag_zh_ask_traces.jsonl",
+      "source_path": "benchmark/eval/results/medical_rag_zh_ask_traces.jsonl",
+      "size_bytes": 22410,
+      "size_mb": 0.02,
+      "sha256": "5f819ec489be2008eb30749a2afdceb1ad9983f7cd39bde2525701643de5678c"
     },
     {
       "bundle_path": "09_medical_rag/qa_output.json",
@@ -210,11 +294,32 @@
       "sha256": "c1d4a5c7b9f56b2c5d20b6fa6388ac846239e4b9a86a1c7133e35267fa28745b"
     },
     {
+      "bundle_path": "09_medical_rag/vision_ab_comparison.json",
+      "source_path": "benchmark/eval/results/medical/vision_ab_comparison.json",
+      "size_bytes": 24458,
+      "size_mb": 0.02,
+      "sha256": "9414025901d09434e2b5d38d4b13c0af73351297a7fe1da0b95016fabb03c773"
+    },
+    {
       "bundle_path": "09_medical_rag/vision_chunks_manifest.json",
       "source_path": "data/sources_medical/vision/vision_chunks_manifest.json",
-      "size_bytes": 256,
+      "size_bytes": 247,
       "size_mb": 0.0,
-      "sha256": "6082ed6a79557627249ce96d2219c986c090c81dcada0c7990f90c7dcc865e84"
+      "sha256": "f6e20863abe90d58fab3abfea6636af3ee6e10b92c39728571e3d6e71b4eea0e"
+    },
+    {
+      "bundle_path": "09_medical_rag/vision_descriptions.jsonl",
+      "source_path": "data/sources_medical/vision/vision_descriptions.jsonl",
+      "size_bytes": 729896,
+      "size_mb": 0.7,
+      "sha256": "93ec27d1826052da6e2f663947a0f2b4e4e847586da9d41be79f8d2f0fda36f7"
+    },
+    {
+      "bundle_path": "09_medical_rag/vision_descriptions_qwen35.jsonl",
+      "source_path": "data/sources_medical/vision/vision_descriptions_qwen35.jsonl",
+      "size_bytes": 1690347,
+      "size_mb": 1.61,
+      "sha256": "2073800e38cd17b6483b61f5eec1fa7322ab01700fc08048b20b2ac00e568a19"
     },
     {
       "bundle_path": "09_medical_rag/vision_quality_control.json",
@@ -224,32 +329,25 @@
       "sha256": "a5721719f20d64dd1d3ef3641ebfc476a9ef75a84247622d4448caed5f850ae5"
     },
     {
-      "bundle_path": "09_medical_rag/vision_descriptions.jsonl",
-      "source_path": "data/sources_medical/vision/vision_descriptions.jsonl",
-      "size_bytes": 737928,
-      "size_mb": 0.7,
-      "sha256": "0709097b1a376a2f60724507505d38edd5e52ae595946c52e2c6e1d454b11b89"
+      "bundle_path": "09_medical_rag_large/bm25.pkl",
+      "source_path": "data/sources_medical/index/bm25.pkl",
+      "size_bytes": 17545465,
+      "size_mb": 16.73,
+      "sha256": "04c610d7d1a84055cf159ff62c0a564364deb990ca9d7d75fdd503c3454ae09e"
     },
     {
-      "bundle_path": "09_medical_rag/vision_descriptions_qwen35.jsonl",
-      "source_path": "data/sources_medical/vision/vision_descriptions_qwen35.jsonl",
-      "size_bytes": 1698379,
-      "size_mb": 1.62,
-      "sha256": "7a68b7a50a79837b621a67c6572a189ae73125a4c00c0842756f156a466a6a16"
+      "bundle_path": "09_medical_rag_large/embeddings_cache.npy",
+      "source_path": "data/sources_medical/index/embeddings_cache.npy",
+      "size_bytes": 34283648,
+      "size_mb": 32.7,
+      "sha256": "9a4372de80a904785d78153b5709f7faaec1d83ff55f4f7c0a17af0e86bea8c6"
     },
     {
-      "bundle_path": "09_medical_rag/vision_ab_comparison.json",
-      "source_path": "benchmark/eval/results/medical/vision_ab_comparison.json",
-      "size_bytes": 24458,
-      "size_mb": 0.02,
-      "sha256": "9414025901d09434e2b5d38d4b13c0af73351297a7fe1da0b95016fabb03c773"
-    },
-    {
-      "bundle_path": "09_medical_rag/medbench_35b_speed_probe.json",
-      "source_path": "data/sources_medical/medbench/medbench_35b_speed_probe.json",
-      "size_bytes": 14693,
-      "size_mb": 0.01,
-      "sha256": "7762415ccf23cc2a2a81a42ec66907b404fe626848c0e3998a15a27ee13add64"
+      "bundle_path": "09_medical_rag_large/medical.index",
+      "source_path": "data/sources_medical/index/medical.index",
+      "size_bytes": 34283565,
+      "size_mb": 32.7,
+      "sha256": "c8f89033b4395acb13e197e4867c6838ac447de269ed91004157fbeb76f69a48"
     },
     {
       "bundle_path": "10_charts/a1_global_pca.png",
@@ -278,34 +376,184 @@
       "size_bytes": 836175,
       "size_mb": 0.8,
       "sha256": "ab3f254ac95d76d54106b2500394ff4535f028f582e14fc369f1343400e75cec"
-    }
-  ],
-  "excluded": [
+    },
     {
+      "bundle_path": "10_charts/manifest.json",
+      "source_path": "build/submission_experiment_figures/manifest.json",
+      "size_bytes": 3006,
+      "size_mb": 0.0,
+      "sha256": "7e9592609cdfc50e87176409d88a553bcd2134dd13bd32d17f72bd95e1a122f9"
+    },
+    {
+      "bundle_path": "10_charts_large/embeddings_cache.npy",
       "source_path": "benchmark/eval/results/chunk_embedding/embeddings_cache.npy",
-      "estimated_size": "278 MB",
-      "reason": "可重新生成（衍生缓存文件）",
-      "regeneration_command": "conda run --no-capture-output -n myenv python benchmark/eval/chunk_embedding_analysis.py"
+      "size_bytes": 291584128,
+      "size_mb": 278.08,
+      "sha256": "5d33de7a1675391d67a0c182ea157d96d05c728f93a2638e6b2e3dcc9d17c54b"
     },
     {
-      "source_path": "data/sources_medical/index/medical.index",
-      "estimated_size": "33 MB",
-      "reason": "可重新生成（衍生缓存文件）",
-      "regeneration_command": "conda run --no-capture-output -n myenv python -m controlsci.medical.indexing"
+      "bundle_path": "11_throughput/gpu_throughput.json",
+      "source_path": "docs/assets/medical/gpu_throughput.json",
+      "size_bytes": 1805,
+      "size_mb": 0.0,
+      "sha256": "7cd966c42fc6f70fc3c3c49a7aeccebd6bae73a5e679eae4c1dcbf47e27a40e2"
     },
     {
-      "source_path": "data/sources_medical/index/embeddings_cache.npy",
-      "estimated_size": "33 MB",
-      "reason": "可重新生成（衍生缓存文件）",
-      "regeneration_command": "conda run --no-capture-output -n myenv python -m controlsci.medical.indexing"
+      "bundle_path": "11_throughput/hf_embedding_throughput.json",
+      "source_path": "docs/assets/medical/hf_embedding_throughput.json",
+      "size_bytes": 4298,
+      "size_mb": 0.0,
+      "sha256": "fd694a191728dd3905536aaa30cf2088ac91c55a38663cc9c7f8bed70c46d3c4"
     },
     {
-      "source_path": "data/sources_medical/index/bm25.pkl",
-      "estimated_size": "17 MB",
-      "reason": "可重新生成（衍生缓存文件）",
-      "regeneration_command": "conda run --no-capture-output -n myenv python -m controlsci.medical.indexing"
+      "bundle_path": "11_throughput/hf_embedding_throughput_raw.json",
+      "source_path": "docs/assets/medical/hf_embedding_throughput_raw.json",
+      "size_bytes": 7191,
+      "size_mb": 0.01,
+      "sha256": "88b59ff01e0b8d53550b8beb17fa0d6912179e164a25e70f880ca9e78b00ae87"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/minimal_acceptance/SUMMARY.md",
+      "source_path": "docs/evidence/final_supplemental_experiments/minimal_acceptance/SUMMARY.md",
+      "size_bytes": 1135,
+      "size_mb": 0.0,
+      "sha256": "5007eb08359e4610a91b429d5d35d0f1917fe28b8639872734f3219d66341bfd"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/minimal_acceptance/track1_acceptance_demo.log",
+      "source_path": "docs/evidence/final_supplemental_experiments/minimal_acceptance/track1_acceptance_demo.log",
+      "size_bytes": 993,
+      "size_mb": 0.0,
+      "sha256": "a2763dde933a4c190f3e8fe236df926f7b24c1646d331b036941ab1cda690d6a"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/minimal_acceptance/track2_acceptance_demo.log",
+      "source_path": "docs/evidence/final_supplemental_experiments/minimal_acceptance/track2_acceptance_demo.log",
+      "size_bytes": 962,
+      "size_mb": 0.0,
+      "sha256": "38e550b15610b7b38c3ccab4702707998063b224b5c1774af1bb6345f692e333"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/minimal_acceptance/track3_acceptance_demo_skip_api.log",
+      "source_path": "docs/evidence/final_supplemental_experiments/minimal_acceptance/track3_acceptance_demo_skip_api.log",
+      "size_bytes": 1050,
+      "size_mb": 0.0,
+      "sha256": "59d92a205ddbdb2d8a06a67fe773d9dff668e1d54d014583ec31a1f7df544555"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/README.md",
+      "source_path": "docs/evidence/final_supplemental_experiments/README.md",
+      "size_bytes": 1315,
+      "size_mb": 0.0,
+      "sha256": "dfff51a762d4ffc204efcd767c2964fabecb123c3f48c1b61090e39e0ac8ba16"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track1_load/local_json_load_dataset.log",
+      "source_path": "docs/evidence/final_supplemental_experiments/track1_load/local_json_load_dataset.log",
+      "size_bytes": 394,
+      "size_mb": 0.0,
+      "sha256": "ec5a7d5e2209883cf454190ab9cde55cadbdde695dd980d4458076b7b1b2f9a8"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track1_load/SUMMARY.md",
+      "source_path": "docs/evidence/final_supplemental_experiments/track1_load/SUMMARY.md",
+      "size_bytes": 1150,
+      "size_mb": 0.0,
+      "sha256": "60b1eb6d129266683c43b7125fe9527edf396dcee388c474a4a0cf9b9e127fae"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track2_fallback/local_dry_run_trace.json",
+      "source_path": "docs/evidence/final_supplemental_experiments/track2_fallback/local_dry_run_trace.json",
+      "size_bytes": 3300,
+      "size_mb": 0.0,
+      "sha256": "701482e2feb005c41bc2f2b7ab8c7d471c77904ea3c1a824e664bbfcf9a71fbd"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track2_fallback/local_dry_run_trace.log",
+      "source_path": "docs/evidence/final_supplemental_experiments/track2_fallback/local_dry_run_trace.log",
+      "size_bytes": 6806,
+      "size_mb": 0.01,
+      "sha256": "88f4cde452af90df69d582422417611a182de567ceaa194d3b858a85e4d9e5d9"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track2_fallback/reproduce_all_dry_run_trace.json",
+      "source_path": "docs/evidence/final_supplemental_experiments/track2_fallback/reproduce_all_dry_run_trace.json",
+      "size_bytes": 590,
+      "size_mb": 0.0,
+      "sha256": "e6753852458fad4316d7acce558a35e5840ee8c3ad78d10baee08cd777795437"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track2_fallback/reproduce_all_dry_run_trace.log",
+      "source_path": "docs/evidence/final_supplemental_experiments/track2_fallback/reproduce_all_dry_run_trace.log",
+      "size_bytes": 1382,
+      "size_mb": 0.0,
+      "sha256": "a8062a4a8c275ee0fd5be22147c53a8e58570708a9d0c3a5fb02122d8bf35abd"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track2_fallback/SUMMARY.md",
+      "source_path": "docs/evidence/final_supplemental_experiments/track2_fallback/SUMMARY.md",
+      "size_bytes": 1514,
+      "size_mb": 0.0,
+      "sha256": "d150430b7b309ad30e7cebdc25504c94db06eeb9e542caa5825ea0c0a4598527"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track3_refusal/personal_diagnosis.json",
+      "source_path": "docs/evidence/final_supplemental_experiments/track3_refusal/personal_diagnosis.json",
+      "size_bytes": 1707,
+      "size_mb": 0.0,
+      "sha256": "817ee0bd84b54b9bcc3511fbf79c7d58479d4b04dee1ce0cf9463c052cc46a45"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track3_refusal/personal_diagnosis.log",
+      "source_path": "docs/evidence/final_supplemental_experiments/track3_refusal/personal_diagnosis.log",
+      "size_bytes": 1788,
+      "size_mb": 0.0,
+      "sha256": "8e1af81543e1e62012140dc06f87bd6abace98efb97e1f1d8567bdf1154efcb4"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track3_refusal/personal_dosage.json",
+      "source_path": "docs/evidence/final_supplemental_experiments/track3_refusal/personal_dosage.json",
+      "size_bytes": 1732,
+      "size_mb": 0.0,
+      "sha256": "e948f510f59ba92b6e288952d82a571b7225d513ca7fe0b04fa9dd5f9791e6d3"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track3_refusal/personal_dosage.log",
+      "source_path": "docs/evidence/final_supplemental_experiments/track3_refusal/personal_dosage.log",
+      "size_bytes": 1813,
+      "size_mb": 0.0,
+      "sha256": "23ce46e5783225f86f9c2718aef4be016ab57f488bad78474a4a38b378e2e38b"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track3_refusal/SUMMARY.md",
+      "source_path": "docs/evidence/final_supplemental_experiments/track3_refusal/SUMMARY.md",
+      "size_bytes": 1330,
+      "size_mb": 0.0,
+      "sha256": "bd0408a77a4063a8a2a424a8578b79cbbb900e207b54b980d739b2de69545848"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track3_refusal/urgent_emergency.json",
+      "source_path": "docs/evidence/final_supplemental_experiments/track3_refusal/urgent_emergency.json",
+      "size_bytes": 1578,
+      "size_mb": 0.0,
+      "sha256": "77093561243d12e87690260643d7c8e90302319c6be9ebe86a9a44ad4b7618f1"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track3_refusal/urgent_emergency.log",
+      "source_path": "docs/evidence/final_supplemental_experiments/track3_refusal/urgent_emergency.log",
+      "size_bytes": 1659,
+      "size_mb": 0.0,
+      "sha256": "f1a6c2043f4300ab99d5e9b90a05351b6205a18af532e426149c12b590a3530f"
+    },
+    {
+      "bundle_path": "README.md",
+      "source_path": "docs/submissions/data_trace_bundle/README.md",
+      "size_bytes": 1844,
+      "size_mb": 0.0,
+      "sha256": "a94724c20095aca16704e3c4ae50e464a142f9ac8479af62c66084655ee713a6"
     }
   ],
+  "excluded": [],
   "non_file_sources": [
     {
       "label": "DT #23",

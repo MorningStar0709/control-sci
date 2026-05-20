@@ -6,13 +6,26 @@ echo "  ControlSci Benchmark Evaluation Samples"
 echo "=========================================="
 echo ""
 
+if command -v conda >/dev/null 2>&1; then
+  CONDA_CMD=(conda)
+elif command -v conda.exe >/dev/null 2>&1; then
+  CONDA_CMD=(conda.exe)
+else
+  echo "WARN: conda not found in this shell; printing examples only."
+  CONDA_CMD=()
+fi
+
 # ── Example 1: Reference mode (default) ─────────────────────
 echo "1. Reference mode (benchmark data integrity check):"
 echo "   (default, no --model argument needed)"
-conda run --no-capture-output -n myenv python benchmark/eval/evaluate.py \
-  --mode reference \
-  --input benchmark/dataset/sample_questions.json \
-  --output benchmark/dataset/sample_report.json
+if [ "${#CONDA_CMD[@]}" -gt 0 ]; then
+  "${CONDA_CMD[@]}" run --no-capture-output -n myenv python benchmark/eval/evaluate.py \
+    --mode reference \
+    --input benchmark/dataset/sample_questions.json \
+    --output benchmark/dataset/sample_report.json
+else
+  echo "   skipped: conda unavailable"
+fi
 echo ""
 
 # ── Example 2: Model mode with 3-question limit ─────────────

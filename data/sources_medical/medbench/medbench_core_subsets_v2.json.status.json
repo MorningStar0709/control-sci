@@ -1,0 +1,13 @@
+{
+  "state": "completed",
+  "pid": 3508,
+  "model": "qwen3.5:35b",
+  "total_questions": 330,
+  "completed": 330,
+  "skipped_by_resume": 330,
+  "failed": 0,
+  "elapsed_seconds": 1859.6,
+  "progress_path": "data\\sources_medical\\medbench\\medbench_core_subsets_v2.json.progress.jsonl",
+  "output_path": "data\\sources_medical\\medbench\\medbench_core_subsets_v2.json",
+  "updated_at": "2026-05-11T14:32:34"
+}

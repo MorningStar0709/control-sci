@@ -1,6 +1,9 @@
 """Dimension and difficulty distribution control for benchmark generation."""
 
 CATEGORY_MAP = {
+    "控制理论": "classical",
+    "控制科学": "modern",
+    "控制系统": "classical",
     "经典控制": "classical",
     "现代控制": "modern",
     "非线性控制": "nonlinear",

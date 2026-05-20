@@ -1,7 +1,8 @@
-"""Orchestrate the full evaluation pipeline after Phase C generation completes.
+"""Orchestrate the evaluation pipeline after Phase C generation completes.
 
 NOTE: This pipeline evaluates only 3 models (DeepSeek, MiniMax, MiMo) for
-quick verification. For the full 9-model evaluation, use evaluate.py directly.
+quick verification by default. Use --profile report or evaluate.py directly
+for full/report-grade reproduction.
 
 Usage:
     python benchmark/eval/run_eval_pipeline.py --benchmark benchmark/dataset/benchmark.json
@@ -19,12 +20,18 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 PYTHON = sys.executable
 
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+except AttributeError:
+    pass
+
 # Model definitions for evaluation
 # WARNING: This pipeline evaluates only 3 models (subset).
 # The full ControlSci Benchmark evaluates 9 models total.
 # Use benchmark/eval/evaluate.py directly for multi-model runs.
 TARGET_MODELS = [
-    {"name": "DeepSeek",   "model": "deepseek-v4-flash",      "base_url": "https://api.deepseek.com",            "api_key_env": "OPENAI_API_KEY"},
+    {"name": "DeepSeek",   "model": "deepseek-v4-flash",      "base_url": "https://api.deepseek.com",            "api_key_env": "DEEPSEEK_API_KEY|OPENAI_API_KEY"},
     {"name": "MiniMax",    "model": "MiniMax-M2.7-highspeed", "base_url": "https://api.minimaxi.com/anthropic",  "api_key_env": "MINIMAX_API_KEY"},
     {"name": "MiMo",       "model": "mimo-v2.5-pro",          "base_url": "https://api.xiaomimimo.com/v1",       "api_key_env": "MIMO_API_KEY"},
 ]
@@ -32,7 +39,7 @@ TARGET_MODELS = [
 JUDGE_CONFIG = {
     "model": "deepseek-v4-flash",
     "base_url": "https://api.deepseek.com",
-    "api_key_env": "OPENAI_API_KEY",
+    "api_key_env": "DEEPSEEK_API_KEY|OPENAI_API_KEY",
 }
 
 
@@ -42,12 +49,32 @@ def step(msg):
     print(f"{'='*60}")
 
 
+SECRET_FLAGS = {"--api-key", "--target-api-key", "--judge-api-key", "--hf-token"}
+
+
+def format_cmd(cmd):
+    masked = []
+    redact_next = False
+    for arg in cmd:
+        text = str(arg)
+        if redact_next:
+            masked.append("***")
+            redact_next = False
+            continue
+        if text in SECRET_FLAGS:
+            masked.append(text)
+            redact_next = True
+            continue
+        masked.append(text)
+    return subprocess.list2cmdline(masked) if os.name == "nt" else " ".join(masked)
+
+
 def run(cmd, cwd=None, env_extra=None):
-    print(f"  $ {cmd}", flush=True)
+    print(f"  $ {format_cmd(cmd)}", flush=True)
     full_env = os.environ.copy()
     if env_extra:
         full_env.update(env_extra)
-    result = subprocess.run(cmd, shell=True, cwd=cwd or str(ROOT), capture_output=True, text=True, env=full_env)
+    result = subprocess.run(cmd, cwd=cwd or str(ROOT), capture_output=True, text=True, env=full_env)
     for line in result.stdout.strip().split("\n"):
         if line.strip():
             print(f"  {line}", flush=True)
@@ -66,24 +93,42 @@ def load_json(path):
         return json.load(f)
 
 
+def first_env(env_spec):
+    for env_name in str(env_spec or "").split("|"):
+        value = os.environ.get(env_name.strip(), "")
+        if value:
+            return value
+    return ""
+
+
+def primary_env(env_spec):
+    return str(env_spec or "").split("|")[0].strip()
+
+
 def main():
     parser = argparse.ArgumentParser(description="Evaluation pipeline: arbitrate → evaluate 3 models → summary → export.")
+    parser.add_argument("--profile", choices=["smoke", "report"], default="smoke",
+                        help="Run profile. smoke defaults to a 10-question quick check; report leaves evaluation unbounded.")
     parser.add_argument("--benchmark", default=str(ROOT / "benchmark" / "dataset" / "benchmark.json"), help="Benchmark JSON path.")
     parser.add_argument("--review", default=str(ROOT / "benchmark" / "dataset" / "manual_review.json"), help="Manual review JSON path.")
     parser.add_argument("--output-dir", default=str(ROOT / "benchmark" / "eval_output"), help="Output directory for reports.")
     parser.add_argument("--skip-arbitrate", action="store_true", help="Skip arbitration step.")
     parser.add_argument("--skip-eval", action="store_true", help="Skip model evaluation step.")
     parser.add_argument("--skip-export", action="store_true", help="Skip HF export step.")
-    parser.add_argument("--limit", type=int, default=0, help="Limit questions per evaluation (for testing).")
+    parser.add_argument("--limit", type=int, default=None, help="Limit questions per evaluation. Default follows --profile.")
     parser.add_argument("--push-to-hub", default=None, help="HF dataset repo name for export.")
     parser.add_argument("--hf-token", default=None, help="HF token for export.")
     parser.add_argument("--supplement-target", type=int, default=500, help="Target question count after arbitration (default: 500).")
     args = parser.parse_args()
 
+    if args.limit is None:
+        args.limit = 10 if args.profile == "smoke" else 0
+
     benchmark_path = Path(args.benchmark).resolve()
     review_path = Path(args.review).resolve()
     output_dir = Path(args.output_dir).resolve()
     output_dir.mkdir(parents=True, exist_ok=True)
+    print(f"[EvalPipeline] profile={args.profile} limit={args.limit if args.limit > 0 else 'ALL'} output={output_dir}", flush=True)
 
     start_time = time.time()
 
@@ -94,7 +139,13 @@ def main():
     # ── Step 1: Arbitration ──
     if not args.skip_arbitrate:
         step("Step 1/4: Arbitration")
-        rc = run(f'{PYTHON} benchmark/pipeline/build_benchmark.py --arbitrate --output "{benchmark_path}" --manual-review-output "{review_path}"')
+        rc = run([
+            PYTHON,
+            "benchmark/pipeline/build_benchmark.py",
+            "--arbitrate",
+            "--output", str(benchmark_path),
+            "--manual-review-output", str(review_path),
+        ])
         if rc != 0:
             print("Arbitration failed. Continuing with un-arbitrated benchmark.", flush=True)
 
@@ -105,31 +156,34 @@ def main():
 
     # ── Step 2: Evaluate each target model ──
     if not args.skip_eval:
-        limit_opt = f" --limit {args.limit}" if args.limit > 0 else ""
         for model_def in TARGET_MODELS:
             step(f"Step 2/4: Evaluate {model_def['name']}")
             output_path = output_dir / f"report_{model_def['name'].lower()}.json"
-            target_api_key = os.environ.get(model_def["api_key_env"], "")
+            target_api_key = first_env(model_def["api_key_env"])
             if not target_api_key:
-                print(f"  ⚠️ No API key for {model_def['name']} ({model_def['api_key_env']}), skipping...", flush=True)
+                print(f"  ⚠️ No API key for {model_def['name']} ({model_def['api_key_env'].replace('|', '/') }), skipping...", flush=True)
                 continue
 
-            judge_api_key = os.environ.get(JUDGE_CONFIG["api_key_env"], "")
-            cmd = (
-                f'{PYTHON} benchmark/eval/evaluate.py --mode model'
-                f' --input "{benchmark_path}"'
-                f' --output "{output_path}"'
-                f' --target-model "{model_def["model"]}"'
-                f' --target-base-url "{model_def["base_url"]}"'
-                f' --judge-model "{JUDGE_CONFIG["model"]}"'
-                f' --judge-base-url "{JUDGE_CONFIG["base_url"]}"'
-                f'{limit_opt}'
-                f' --format json'
-            )
+            judge_api_key = first_env(JUDGE_CONFIG["api_key_env"])
+            cmd = [
+                PYTHON,
+                "benchmark/eval/evaluate.py",
+                "--mode", "model",
+                "--input", str(benchmark_path),
+                "--output", str(output_path),
+                "--target-model", model_def["model"],
+                "--target-base-url", model_def["base_url"],
+                "--judge-model", JUDGE_CONFIG["model"],
+                "--judge-base-url", JUDGE_CONFIG["base_url"],
+                "--format", "json",
+            ]
+            if args.limit > 0:
+                cmd.extend(["--limit", str(args.limit)])
             env_extra = {}
-            env_extra[model_def["api_key_env"]] = target_api_key
-            if JUDGE_CONFIG["api_key_env"] not in env_extra:
-                env_extra[JUDGE_CONFIG["api_key_env"]] = judge_api_key
+            env_extra[primary_env(model_def["api_key_env"])] = target_api_key
+            judge_env = primary_env(JUDGE_CONFIG["api_key_env"])
+            if judge_env not in env_extra and judge_api_key:
+                env_extra[judge_env] = judge_api_key
             rc = run(cmd, env_extra=env_extra)
             if rc == 0:
                 print(f"  Report saved: {output_path}", flush=True)
@@ -143,6 +197,8 @@ def main():
         step("Step 3/4: Generate comparison summary")
         summary = {
             "pipeline_start": time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(start_time)),
+            "profile": args.profile,
+            "limit": args.limit,
             "benchmark_source": str(benchmark_path),
             "models_evaluated": [],
         }
@@ -167,14 +223,16 @@ def main():
     if args.push_to_hub:
         step("Step 4/4: Export to HuggingFace Hub")
         hf_token = args.hf_token or os.environ.get("HF_TOKEN", "")
-        hf_flag = f' --push-to-hub "{args.push_to_hub}"' if args.push_to_hub else ""
-        hf_token_flag = f' --hf-token "{hf_token}"' if hf_token else ""
-        rc = run(
-            f'{PYTHON} benchmark/pipeline/export_dataset.py'
-            f' --input "{benchmark_path}"'
-            f' --output "{output_dir / "hf_export"}"'
-            f'{hf_flag}{hf_token_flag}'
-        )
+        cmd = [
+            PYTHON,
+            "benchmark/pipeline/export_dataset.py",
+            "--input", str(benchmark_path),
+            "--output", str(output_dir / "hf_export"),
+            "--push-to-hub", args.push_to_hub,
+        ]
+        if hf_token:
+            cmd.extend(["--hf-token", hf_token])
+        rc = run(cmd)
     else:
         print("⏩ Skipping HF export. Pass --push-to-hub <repo> to enable.", flush=True)
 

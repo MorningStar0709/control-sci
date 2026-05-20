@@ -1,0 +1,18 @@
+{
+  "model": "deepseek-v4-flash",
+  "judge_model": "deepseek-v4-flash",
+  "status": "completed",
+  "completed": 10,
+  "total": 10,
+  "percent": 100.0,
+  "remaining": 0,
+  "session_completed": 5,
+  "elapsed_sec": 96.32,
+  "rate_q_per_min": 3.1148,
+  "eta_min": 0.0,
+  "eta_at": "2026-05-14 10:58:13",
+  "last_id": "CS-EVO-00245",
+  "consecutive_failures": 0,
+  "updated_at": "2026-05-14 10:58:13",
+  "progress_log": "eval_deepseek-v4-flash.json.progress.jsonl"
+}

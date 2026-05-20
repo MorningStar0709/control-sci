@@ -1,0 +1,13 @@
+{
+  "state": "completed",
+  "pid": 28100,
+  "model": "qwen3.5:9b",
+  "total_questions": 5,
+  "completed": 5,
+  "skipped_by_resume": 0,
+  "failed": 0,
+  "elapsed_seconds": 17.0,
+  "progress_path": "data\\sources_medical\\medbench\\medbench_9b_probe\\medbench_9b_probe_MedDiag.json.progress.jsonl",
+  "output_path": "data\\sources_medical\\medbench\\medbench_9b_probe\\medbench_9b_probe_MedDiag.json",
+  "updated_at": "2026-05-11T14:38:45"
+}

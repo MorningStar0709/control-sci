@@ -1,0 +1,13 @@
+{
+  "state": "completed",
+  "pid": 7824,
+  "model": "",
+  "total_questions": 1,
+  "completed": 1,
+  "skipped_by_resume": 0,
+  "failed": 0,
+  "elapsed_seconds": 4.8,
+  "progress_path": "data\\sources_medical\\medbench\\launcher_probe.json.progress.jsonl",
+  "output_path": "data\\sources_medical\\medbench\\launcher_probe.json",
+  "updated_at": "2026-05-11T13:38:03"
+}

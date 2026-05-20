@@ -1,0 +1,50 @@
+services:
+  controlmind-cloud-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: controlmind-cloud-api:latest
+    container_name: controlmind-cloud-api
+    restart: unless-stopped
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      CLOUD_DEMO_HOST: 0.0.0.0
+      CLOUD_DEMO_PORT: 18080
+    volumes:
+      - cloud-demo-data:/app/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://127.0.0.1:18080/api/health >/dev/null || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  controlmind-cloud-web:
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    image: controlmind-cloud-web:latest
+    container_name: controlmind-cloud-web
+    restart: unless-stopped
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      CLOUD_DEMO_API_URL: http://controlmind-cloud-api:18080
+      CONTROLMIND_BACKEND_URL: http://controlmind-cloud-api:18080
+    ports:
+      - "127.0.0.1:${CLOUD_DEMO_PUBLIC_PORT:-18080}:3000"
+    depends_on:
+      controlmind-cloud-api:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "node -e \"fetch('http://127.0.0.1:3000/api/demo/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))\""]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+
+volumes:
+  cloud-demo-data:

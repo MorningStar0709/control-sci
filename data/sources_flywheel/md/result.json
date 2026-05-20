@@ -1,0 +1,126 @@
+{
+  "saved": [
+    {
+      "input": "data/sources_flywheel/2605.02370_Robust Adaptive Predictive Control for Hook-Based Aerial Tra.pdf",
+      "output": "data/sources_flywheel/md/2605.02370_Robust Adaptive Predictive Control for Hook-Based Aerial Tra/2605.02370_Robust Adaptive Predictive Control for Hook-Based Aerial Tra.md",
+      "document_dir": "data/sources_flywheel/md/2605.02370_Robust Adaptive Predictive Control for Hook-Based Aerial Tra",
+      "container_parse_dir": "/vllm-workspace/output/9ab22191-fbad-4e0b-863d-1c6bd7a1b2ae/2605.02370_Robust Adaptive Predictive Control for Hook-Based Aerial Tra/hybrid_auto",
+      "task_id": "9ab22191-fbad-4e0b-863d-1c6bd7a1b2ae",
+      "images_dir": "data/sources_flywheel/md/2605.02370_Robust Adaptive Predictive Control for Hook-Based Aerial Tra/image",
+      "stats": {
+        "block_formulas": 80,
+        "inline_formulas": 267,
+        "details_images": 8,
+        "md_images": 8,
+        "tables": 19,
+        "is_scanned_pdf": false
+      }
+    },
+    {
+      "input": "data/sources_flywheel/2605.03662_Feasibility-aware Hybrid Control for Motion Planning under S.pdf",
+      "output": "data/sources_flywheel/md/2605.03662_Feasibility-aware Hybrid Control for Motion Planning under S/2605.03662_Feasibility-aware Hybrid Control for Motion Planning under S.md",
+      "document_dir": "data/sources_flywheel/md/2605.03662_Feasibility-aware Hybrid Control for Motion Planning under S",
+      "container_parse_dir": "/vllm-workspace/output/023b0405-1136-47ab-8e66-aedd50733f4f/2605.03662_Feasibility-aware Hybrid Control for Motion Planning under S/hybrid_auto",
+      "task_id": "023b0405-1136-47ab-8e66-aedd50733f4f",
+      "images_dir": "data/sources_flywheel/md/2605.03662_Feasibility-aware Hybrid Control for Motion Planning under S/image",
+      "stats": {
+        "block_formulas": 72,
+        "inline_formulas": 283,
+        "details_images": 14,
+        "md_images": 14,
+        "tables": 171,
+        "is_scanned_pdf": false
+      }
+    },
+    {
+      "input": "data/sources_flywheel/2605.05182_A Closed-Form Dual-Barrier CBF Safety Filter for Holonomic R.pdf",
+      "output": "data/sources_flywheel/md/2605.05182_A Closed-Form Dual-Barrier CBF Safety Filter for Holonomic R/2605.05182_A Closed-Form Dual-Barrier CBF Safety Filter for Holonomic R.md",
+      "document_dir": "data/sources_flywheel/md/2605.05182_A Closed-Form Dual-Barrier CBF Safety Filter for Holonomic R",
+      "container_parse_dir": "/vllm-workspace/output/295f9293-69a9-411e-b10f-75011524f6a8/2605.05182_A Closed-Form Dual-Barrier CBF Safety Filter for Holonomic R/hybrid_auto",
+      "task_id": "295f9293-69a9-411e-b10f-75011524f6a8",
+      "images_dir": "data/sources_flywheel/md/2605.05182_A Closed-Form Dual-Barrier CBF Safety Filter for Holonomic R/image",
+      "stats": {
+        "block_formulas": 40,
+        "inline_formulas": 214,
+        "details_images": 4,
+        "md_images": 4,
+        "tables": 39,
+        "is_scanned_pdf": false
+      }
+    },
+    {
+      "input": "data/sources_flywheel/2605.05575_Maximal Controlled Invariant-MPC - Enhancing Feasibility and.pdf",
+      "output": "data/sources_flywheel/md/2605.05575_Maximal Controlled Invariant-MPC - Enhancing Feasibility and/2605.05575_Maximal Controlled Invariant-MPC - Enhancing Feasibility and.md",
+      "document_dir": "data/sources_flywheel/md/2605.05575_Maximal Controlled Invariant-MPC - Enhancing Feasibility and",
+      "container_parse_dir": "/vllm-workspace/output/bc9985b3-00eb-4b67-9759-fe974d55d5ab/2605.05575_Maximal Controlled Invariant-MPC - Enhancing Feasibility and/hybrid_auto",
+      "task_id": "bc9985b3-00eb-4b67-9759-fe974d55d5ab",
+      "images_dir": "data/sources_flywheel/md/2605.05575_Maximal Controlled Invariant-MPC - Enhancing Feasibility and/image",
+      "stats": {
+        "block_formulas": 138,
+        "inline_formulas": 361,
+        "details_images": 5,
+        "md_images": 7,
+        "tables": 114,
+        "is_scanned_pdf": false
+      }
+    },
+    {
+      "input": "data/sources_flywheel/2605.06630_Quantifying Trade-Offs Between Stability and Goal-Obfuscatio.pdf",
+      "output": "data/sources_flywheel/md/2605.06630_Quantifying Trade-Offs Between Stability and Goal-Obfuscatio/2605.06630_Quantifying Trade-Offs Between Stability and Goal-Obfuscatio.md",
+      "document_dir": "data/sources_flywheel/md/2605.06630_Quantifying Trade-Offs Between Stability and Goal-Obfuscatio",
+      "container_parse_dir": "/vllm-workspace/output/ba96d3b5-1d23-4ad9-8689-2241e281ae32/2605.06630_Quantifying Trade-Offs Between Stability and Goal-Obfuscatio/hybrid_auto",
+      "task_id": "ba96d3b5-1d23-4ad9-8689-2241e281ae32",
+      "images_dir": "data/sources_flywheel/md/2605.06630_Quantifying Trade-Offs Between Stability and Goal-Obfuscatio/image",
+      "stats": {
+        "block_formulas": 160,
+        "inline_formulas": 414,
+        "details_images": 0,
+        "md_images": 5,
+        "tables": 0,
+        "is_scanned_pdf": false
+      }
+    }
+  ],
+  "cleaned": [
+    {
+      "container": "mineru-api",
+      "path": "/vllm-workspace/output/9ab22191-fbad-4e0b-863d-1c6bd7a1b2ae",
+      "task_id": "9ab22191-fbad-4e0b-863d-1c6bd7a1b2ae"
+    },
+    {
+      "container": "mineru-api",
+      "path": "/vllm-workspace/output/023b0405-1136-47ab-8e66-aedd50733f4f",
+      "task_id": "023b0405-1136-47ab-8e66-aedd50733f4f"
+    },
+    {
+      "container": "mineru-api",
+      "path": "/vllm-workspace/output/295f9293-69a9-411e-b10f-75011524f6a8",
+      "task_id": "295f9293-69a9-411e-b10f-75011524f6a8"
+    },
+    {
+      "container": "mineru-api",
+      "path": "/vllm-workspace/output/bc9985b3-00eb-4b67-9759-fe974d55d5ab",
+      "task_id": "bc9985b3-00eb-4b67-9759-fe974d55d5ab"
+    },
+    {
+      "container": "mineru-api",
+      "path": "/vllm-workspace/output/ba96d3b5-1d23-4ad9-8689-2241e281ae32",
+      "task_id": "ba96d3b5-1d23-4ad9-8689-2241e281ae32"
+    }
+  ],
+  "skipped": [
+    {
+      "path": "data/sources_flywheel/flywheel_papers.json",
+      "reason": "unsupported_extension"
+    },
+    {
+      "path": "data/sources_flywheel/run_flywheel.py",
+      "reason": "unsupported_extension"
+    },
+    {
+      "path": "data/sources_flywheel/search_and_download.py",
+      "reason": "unsupported_extension"
+    }
+  ],
+  "result_file": "data/sources_flywheel/md/result.json"
+}

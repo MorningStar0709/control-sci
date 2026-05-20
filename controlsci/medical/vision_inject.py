@@ -77,6 +77,30 @@ CHECKPOINT_INTERVAL = 50
 MAX_WORKERS = 4
 API_TIMEOUT = 120
 
+
+def configure_paths(md_dir=None, chunks_dir=None, vision_dir=None, index_dir=None):
+    global MD_DIR, CHUNKS_DIR, VISION_DIR, INDEX_DIR
+    global DESC_JSONL, CHECKPOINT, MANIFEST, QC_REPORT
+    global VISION_INDEX, VISION_CHUNKS_JSON, EMBED_CACHE, CHUNK_MANIFEST_PATH
+
+    if md_dir:
+        MD_DIR = Path(md_dir).resolve()
+    if chunks_dir:
+        CHUNKS_DIR = Path(chunks_dir).resolve()
+    if vision_dir:
+        VISION_DIR = Path(vision_dir).resolve()
+    if index_dir:
+        INDEX_DIR = Path(index_dir).resolve()
+
+    DESC_JSONL = VISION_DIR / "vision_descriptions.jsonl"
+    CHECKPOINT = VISION_DIR / "vision_checkpoint.json"
+    MANIFEST = VISION_DIR / "vision_chunks_manifest.json"
+    QC_REPORT = VISION_DIR / "vision_quality_control.json"
+    VISION_INDEX = INDEX_DIR / "medical_vision.index"
+    VISION_CHUNKS_JSON = VISION_INDEX.with_suffix(".chunks.json")
+    EMBED_CACHE = INDEX_DIR / "embeddings_vision_cache.npy"
+    CHUNK_MANIFEST_PATH = CHUNKS_DIR / "chunks_manifest.json"
+
 # 医学图片描述 prompt — 面向 RAG 检索优化
 MEDICAL_VISION_SYSTEM = (
     "你是一个专业的医学图像描述助手。请用中文简洁准确地描述这张医学论文中的图片内容，"
@@ -108,7 +132,7 @@ def image_to_base64(image_path):
         return base64.b64encode(f.read()).decode("utf-8")
 
 
-def scan_chunk_images(max_images=None):
+def scan_chunk_images(max_images=None, save_qc=True):
     """Phase 1: 从 chunk 文件中扫描被引用的图片（质量控制过滤 <5KB）"""
     print(f"\n[Phase 1] 扫描 chunk 引用的图片...")
     print(f"  Manifest: {CHUNK_MANIFEST_PATH}")
@@ -209,20 +233,22 @@ def scan_chunk_images(max_images=None):
     total_mb = round(sum(it["file_size_kb"] for it in items) / 1024, 1)
     print(f"  平均大小: {avg_kb:.1f} KB | 总大小: {total_mb} MB")
 
-    # save quality control report
-    VISION_DIR.mkdir(parents=True, exist_ok=True)
-    qc = {
-        "total_references": total_refs,
-        "filtered_below_5kb": filtered_small,
-        "filtered_ratio_pct": round(filtered_small / total_refs * 100, 1) if total_refs else 0,
-        "retained": len(items),
-        "retained_ratio_pct": round(len(items) / total_refs * 100, 1) if total_refs else 0,
-        "probe_verified_types": ["scatter_plot", "ct_image", "tech_schematic"],
-        "probe_failed_types": ["cover_thumbnail", "icon"],
-        "min_size_kb": MIN_IMAGE_KB,
-    }
-    QC_REPORT.write_text(json.dumps(qc, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"  质量控制报告: {QC_REPORT}")
+    if save_qc:
+        VISION_DIR.mkdir(parents=True, exist_ok=True)
+        qc = {
+            "total_references": total_refs,
+            "filtered_below_5kb": filtered_small,
+            "filtered_ratio_pct": round(filtered_small / total_refs * 100, 1) if total_refs else 0,
+            "retained": len(items),
+            "retained_ratio_pct": round(len(items) / total_refs * 100, 1) if total_refs else 0,
+            "probe_verified_types": ["scatter_plot", "ct_image", "tech_schematic"],
+            "probe_failed_types": ["cover_thumbnail", "icon"],
+            "min_size_kb": MIN_IMAGE_KB,
+        }
+        QC_REPORT.write_text(json.dumps(qc, ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"  质量控制报告: {QC_REPORT}")
+    else:
+        print("  [DRY RUN] 跳过质量控制报告写入")
 
     return items
 
@@ -599,6 +625,10 @@ def print_summary(descriptions):
 
 def main():
     parser = argparse.ArgumentParser(description="MiMo-V2.5 视觉注入引擎")
+    parser.add_argument("--md-dir", default=str(MD_DIR), help="Medical Markdown root directory.")
+    parser.add_argument("--chunks-dir", default=str(CHUNKS_DIR), help="Medical chunks directory containing chunks_manifest.json.")
+    parser.add_argument("--vision-dir", default=str(VISION_DIR), help="Vision descriptions/checkpoint output directory.")
+    parser.add_argument("--index-dir", default=str(INDEX_DIR), help="Vision FAISS index output directory.")
     parser.add_argument("--skip-generate", action="store_true", help="跳过 Phase 2 描述生成（复用已有描述）")
     parser.add_argument("--skip-index", action="store_true", help="跳过 Phase 3 索引构建")
     parser.add_argument("--max-images", type=int, default=None, help="最大处理图片数（调试用）")
@@ -606,7 +636,9 @@ def main():
     parser.add_argument("--resume", action="store_true", help="从 checkpoint 断点续跑 Phase 2")
     args = parser.parse_args()
 
-    if not _get_mimo_api_key():
+    configure_paths(args.md_dir, args.chunks_dir, args.vision_dir, args.index_dir)
+
+    if not args.dry_run and not args.skip_generate and not _get_mimo_api_key():
         print("ERROR: MIMO_API_KEY 未设置")
         sys.exit(1)
 
@@ -618,7 +650,7 @@ def main():
     print(f"  ={'=' * 50}")
 
     # Phase 1: 扫描（质量控制三层过滤）
-    all_items = scan_chunk_images(max_images=args.max_images)
+    all_items = scan_chunk_images(max_images=args.max_images, save_qc=not args.dry_run)
     if not all_items:
         print("未发现图片文件")
         return

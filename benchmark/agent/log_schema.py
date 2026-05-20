@@ -1,5 +1,6 @@
 """Structured execution log schema for ControlSci Agent."""
 import json
+import uuid
 from dataclasses import dataclass, field, asdict
 from datetime import datetime
 from pathlib import Path
@@ -44,7 +45,7 @@ class ExecutionLog:
         p = Path(path)
         p.parent.mkdir(parents=True, exist_ok=True)
         content = json.dumps(self.to_dict(), ensure_ascii=False, indent=2)
-        tmp = p.with_suffix(p.suffix + ".tmp")
+        tmp = p.with_name(f"{p.name}.{uuid.uuid4().hex}.tmp")
         tmp.write_text(content, encoding="utf-8")
         tmp.replace(p)
 

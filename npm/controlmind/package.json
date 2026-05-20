@@ -1,0 +1,20 @@
+{
+  "name": "@controlmind/cli",
+  "version": "0.1.0",
+  "description": "Node launcher for the ControlMind Python CLI.",
+  "license": "CC-BY-4.0",
+  "type": "commonjs",
+  "bin": {
+    "controlmind": "bin/controlmind.js"
+  },
+  "files": [
+    "bin/controlmind.js",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "smoke": "node bin/controlmind.js --help"
+  }
+}

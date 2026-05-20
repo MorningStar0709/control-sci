@@ -1,0 +1,62 @@
+{
+  "generated_at": "2026-05-17",
+  "output_dir": "build/submission_experiment_figures",
+  "public_asset_dir": "docs/submissions/shared/assets",
+  "figures": [
+    {
+      "file": "track1_leaderboard_scores.png",
+      "generated": "build/submission_experiment_figures/track1_leaderboard_scores.png",
+      "public_copy": "docs/submissions/shared/assets/task1/track1_leaderboard_scores.png"
+    },
+    {
+      "file": "track1_mineru_vs_pymupdf_ocr.png",
+      "generated": "build/submission_experiment_figures/track1_mineru_vs_pymupdf_ocr.png",
+      "public_copy": "docs/submissions/shared/assets/task1/track1_mineru_vs_pymupdf_ocr.png"
+    },
+    {
+      "file": "track1_embedding_global_pca.png",
+      "source": "benchmark/eval/results/chunk_embedding/a1_global_pca.png",
+      "generated": "build/submission_experiment_figures/track1_embedding_global_pca.png",
+      "public_copy": "docs/submissions/shared/assets/task1/track1_embedding_global_pca.png"
+    },
+    {
+      "file": "track1_embedding_train_eval.png",
+      "source": "benchmark/eval/results/chunk_embedding/a4_train_eval.png",
+      "generated": "build/submission_experiment_figures/track1_embedding_train_eval.png",
+      "public_copy": "docs/submissions/shared/assets/task1/track1_embedding_train_eval.png"
+    },
+    {
+      "file": "track1_benchmark_coverage.png",
+      "source": "benchmark/eval/results/benchmark_quality_viz_1_coverage.png",
+      "generated": "build/submission_experiment_figures/track1_benchmark_coverage.png",
+      "public_copy": "docs/submissions/shared/assets/task1/track1_benchmark_coverage.png"
+    },
+    {
+      "file": "track1_benchmark_difficulty.png",
+      "source": "benchmark/eval/results/benchmark_quality_viz_2_difficulty.png",
+      "generated": "build/submission_experiment_figures/track1_benchmark_difficulty.png",
+      "public_copy": "docs/submissions/shared/assets/task1/track1_benchmark_difficulty.png"
+    },
+    {
+      "file": "track1_benchmark_dimension.png",
+      "source": "benchmark/eval/results/benchmark_quality_viz_3_dimension.png",
+      "generated": "build/submission_experiment_figures/track1_benchmark_dimension.png",
+      "public_copy": "docs/submissions/shared/assets/task1/track1_benchmark_dimension.png"
+    },
+    {
+      "file": "dual_track_synergy.png",
+      "generated": "build/submission_experiment_figures/dual_track_synergy.png",
+      "public_copy": "docs/submissions/shared/assets/task2/dual_track_synergy.png"
+    },
+    {
+      "file": "zh_ask_rag_trace_summary.png",
+      "generated": "build/submission_experiment_figures/zh_ask_rag_trace_summary.png",
+      "public_copy": "docs/submissions/shared/assets/task3/zh_ask_rag_trace_summary.png"
+    },
+    {
+      "file": "medbench_evidence_boundary.png",
+      "generated": "build/submission_experiment_figures/medbench_evidence_boundary.png",
+      "public_copy": "docs/submissions/shared/assets/task3/medbench_evidence_boundary.png"
+    }
+  ]
+}

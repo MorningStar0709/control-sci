@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><title>ControlSci Leaderboard</title>
+<style>
+body { font-family: sans-serif; margin: 20px; }
+table { border-collapse: collapse; margin: 20px 0; width: 100%; }
+th, td { border: 1px solid #ddd; padding: 8px; text-align: center; }
+th { background-color: #4CAF50; color: white; }
+tr:nth-child(even) { background-color: #f2f2f2; }
+.radar { margin: 20px 0; }
+.bar-container { display: flex; align-items: center; margin: 4px 0; }
+.bar-label { width: 120px; font-size: 12px; }
+.bar { height: 18px; background: #4CAF50; border-radius: 3px; min-width: 2px; }
+.bar-value { margin-left: 8px; font-size: 12px; }
+</style>
+</head>
+<body>
+<h1>ControlSci Benchmark Leaderboard</h1>
+<h2>Overall Scores</h2>
+<table><tr><th>Rank</th><th>Model</th>
+<th>Dim A</th>
+<th>Dim B</th>
+<th>Dim C</th>
+<th>Dim D</th>
+<th>Overall</th><th>Questions</th></tr>
+<tr><td>1</td><td><strong>MiMo-v2-flash</strong></td>
+<td>0.6100</td>
+<td>0.6060</td>
+<td>0.6360</td>
+<td>0.7360</td>
+<td><strong>0.6470</strong></td><td>500</td></tr>
+<tr><td>2</td><td><strong>DeepSeek-v4-flash</strong></td>
+<td>0.6340</td>
+<td>0.6310</td>
+<td>0.7140</td>
+<td>0.5500</td>
+<td><strong>0.6320</strong></td><td>500</td></tr>
+<tr><td>3</td><td><strong>Qwen3.5-9B</strong></td>
+<td>0.5690</td>
+<td>0.6100</td>
+<td>0.6620</td>
+<td>0.6590</td>
+<td><strong>0.6250</strong></td><td>500</td></tr>
+<tr><td>4</td><td><strong>DeepSeek-v4-pro</strong></td>
+<td>0.6270</td>
+<td>0.5900</td>
+<td>0.7420</td>
+<td>0.5140</td>
+<td><strong>0.6190</strong></td><td>500</td></tr>
+<tr><td>5</td><td><strong>MiniMax-M2.5-highspeed</strong></td>
+<td>0.6380</td>
+<td>0.5190</td>
+<td>0.6240</td>
+<td>0.6260</td>
+<td><strong>0.6020</strong></td><td>500</td></tr>
+<tr><td>6</td><td><strong>MiniMax-M2.7-highspeed</strong></td>
+<td>0.6050</td>
+<td>0.4850</td>
+<td>0.6120</td>
+<td>0.5930</td>
+<td><strong>0.5740</strong></td><td>500</td></tr>
+<tr><td>7</td><td><strong>MiMo-v2.5-pro</strong></td>
+<td>0.5950</td>
+<td>0.5230</td>
+<td>0.6020</td>
+<td>0.4360</td>
+<td><strong>0.5390</strong></td><td>500</td></tr>
+<tr><td>8</td><td><strong>MiMo-v2-pro</strong></td>
+<td>0.6380</td>
+<td>0.4900</td>
+<td>0.5600</td>
+<td>0.3690</td>
+<td><strong>0.5140</strong></td><td>500</td></tr>
+<tr><td>9</td><td><strong>MiMo-v2.5</strong></td>
+<td>0.6080</td>
+<td>0.4660</td>
+<td>0.5280</td>
+<td>0.1560</td>
+<td><strong>0.4400</strong></td><td>500</td></tr>
+</table>
+<h2>Dimension Scores by Model</h2>
+<h3>MiMo-v2-flash (Overall: 0.6470)</h3>
+<div class="bar-container"><span class="bar-label">Dim A</span>
+<div class="bar" style="width:61.0%;background:hsl(73, 70%, 45%);"></div>
+<span class="bar-value">0.61</span></div>
+<div class="bar-container"><span class="bar-label">Dim B</span>
+<div class="bar" style="width:60.6%;background:hsl(73, 70%, 45%);"></div>
+<span class="bar-value">0.606</span></div>
+<div class="bar-container"><span class="bar-label">Dim C</span>
+<div class="bar" style="width:63.6%;background:hsl(76, 70%, 45%);"></div>
+<span class="bar-value">0.636</span></div>
+<div class="bar-container"><span class="bar-label">Dim D</span>
+<div class="bar" style="width:73.6%;background:hsl(88, 70%, 45%);"></div>
+<span class="bar-value">0.736</span></div>
+<h3>DeepSeek-v4-flash (Overall: 0.6320)</h3>
+<div class="bar-container"><span class="bar-label">Dim A</span>
+<div class="bar" style="width:63.4%;background:hsl(76, 70%, 45%);"></div>
+<span class="bar-value">0.634</span></div>
+<div class="bar-container"><span class="bar-label">Dim B</span>
+<div class="bar" style="width:63.1%;background:hsl(76, 70%, 45%);"></div>
+<span class="bar-value">0.631</span></div>
+<div class="bar-container"><span class="bar-label">Dim C</span>
+<div class="bar" style="width:71.39999999999999%;background:hsl(86, 70%, 45%);"></div>
+<span class="bar-value">0.714</span></div>
+<div class="bar-container"><span class="bar-label">Dim D</span>
+<div class="bar" style="width:55.00000000000001%;background:hsl(66, 70%, 45%);"></div>
+<span class="bar-value">0.55</span></div>
+<h3>Qwen3.5-9B (Overall: 0.6250)</h3>
+<div class="bar-container"><span class="bar-label">Dim A</span>
+<div class="bar" style="width:56.89999999999999%;background:hsl(68, 70%, 45%);"></div>
+<span class="bar-value">0.569</span></div>
+<div class="bar-container"><span class="bar-label">Dim B</span>
+<div class="bar" style="width:61.0%;background:hsl(73, 70%, 45%);"></div>
+<span class="bar-value">0.61</span></div>
+<div class="bar-container"><span class="bar-label">Dim C</span>
+<div class="bar" style="width:66.2%;background:hsl(79, 70%, 45%);"></div>
+<span class="bar-value">0.662</span></div>
+<div class="bar-container"><span class="bar-label">Dim D</span>
+<div class="bar" style="width:65.9%;background:hsl(79, 70%, 45%);"></div>
+<span class="bar-value">0.659</span></div>
+<h3>DeepSeek-v4-pro (Overall: 0.6190)</h3>
+<div class="bar-container"><span class="bar-label">Dim A</span>
+<div class="bar" style="width:62.7%;background:hsl(75, 70%, 45%);"></div>
+<span class="bar-value">0.627</span></div>
+<div class="bar-container"><span class="bar-label">Dim B</span>
+<div class="bar" style="width:59.0%;background:hsl(71, 70%, 45%);"></div>
+<span class="bar-value">0.59</span></div>
+<div class="bar-container"><span class="bar-label">Dim C</span>
+<div class="bar" style="width:74.2%;background:hsl(89, 70%, 45%);"></div>
+<span class="bar-value">0.742</span></div>
+<div class="bar-container"><span class="bar-label">Dim D</span>
+<div class="bar" style="width:51.4%;background:hsl(62, 70%, 45%);"></div>
+<span class="bar-value">0.514</span></div>
+<h3>MiniMax-M2.5-highspeed (Overall: 0.6020)</h3>
+<div class="bar-container"><span class="bar-label">Dim A</span>
+<div class="bar" style="width:63.800000000000004%;background:hsl(77, 70%, 45%);"></div>
+<span class="bar-value">0.638</span></div>
+<div class="bar-container"><span class="bar-label">Dim B</span>
+<div class="bar" style="width:51.9%;background:hsl(62, 70%, 45%);"></div>
+<span class="bar-value">0.519</span></div>
+<div class="bar-container"><span class="bar-label">Dim C</span>
+<div class="bar" style="width:62.4%;background:hsl(75, 70%, 45%);"></div>
+<span class="bar-value">0.624</span></div>
+<div class="bar-container"><span class="bar-label">Dim D</span>
+<div class="bar" style="width:62.6%;background:hsl(75, 70%, 45%);"></div>
+<span class="bar-value">0.626</span></div>
+<h3>MiniMax-M2.7-highspeed (Overall: 0.5740)</h3>
+<div class="bar-container"><span class="bar-label">Dim A</span>
+<div class="bar" style="width:60.5%;background:hsl(73, 70%, 45%);"></div>
+<span class="bar-value">0.605</span></div>
+<div class="bar-container"><span class="bar-label">Dim B</span>
+<div class="bar" style="width:48.5%;background:hsl(58, 70%, 45%);"></div>
+<span class="bar-value">0.485</span></div>
+<div class="bar-container"><span class="bar-label">Dim C</span>
+<div class="bar" style="width:61.199999999999996%;background:hsl(73, 70%, 45%);"></div>
+<span class="bar-value">0.612</span></div>
+<div class="bar-container"><span class="bar-label">Dim D</span>
+<div class="bar" style="width:59.3%;background:hsl(71, 70%, 45%);"></div>
+<span class="bar-value">0.593</span></div>
+<h3>MiMo-v2.5-pro (Overall: 0.5390)</h3>
+<div class="bar-container"><span class="bar-label">Dim A</span>
+<div class="bar" style="width:59.5%;background:hsl(71, 70%, 45%);"></div>
+<span class="bar-value">0.595</span></div>
+<div class="bar-container"><span class="bar-label">Dim B</span>
+<div class="bar" style="width:52.300000000000004%;background:hsl(63, 70%, 45%);"></div>
+<span class="bar-value">0.523</span></div>
+<div class="bar-container"><span class="bar-label">Dim C</span>
+<div class="bar" style="width:60.199999999999996%;background:hsl(72, 70%, 45%);"></div>
+<span class="bar-value">0.602</span></div>
+<div class="bar-container"><span class="bar-label">Dim D</span>
+<div class="bar" style="width:43.6%;background:hsl(52, 70%, 45%);"></div>
+<span class="bar-value">0.436</span></div>
+<h3>MiMo-v2-pro (Overall: 0.5140)</h3>
+<div class="bar-container"><span class="bar-label">Dim A</span>
+<div class="bar" style="width:63.800000000000004%;background:hsl(77, 70%, 45%);"></div>
+<span class="bar-value">0.638</span></div>
+<div class="bar-container"><span class="bar-label">Dim B</span>
+<div class="bar" style="width:49.0%;background:hsl(59, 70%, 45%);"></div>
+<span class="bar-value">0.49</span></div>
+<div class="bar-container"><span class="bar-label">Dim C</span>
+<div class="bar" style="width:56.00000000000001%;background:hsl(67, 70%, 45%);"></div>
+<span class="bar-value">0.56</span></div>
+<div class="bar-container"><span class="bar-label">Dim D</span>
+<div class="bar" style="width:36.9%;background:hsl(44, 70%, 45%);"></div>
+<span class="bar-value">0.369</span></div>
+<h3>MiMo-v2.5 (Overall: 0.4400)</h3>
+<div class="bar-container"><span class="bar-label">Dim A</span>
+<div class="bar" style="width:60.8%;background:hsl(73, 70%, 45%);"></div>
+<span class="bar-value">0.608</span></div>
+<div class="bar-container"><span class="bar-label">Dim B</span>
+<div class="bar" style="width:46.6%;background:hsl(56, 70%, 45%);"></div>
+<span class="bar-value">0.466</span></div>
+<div class="bar-container"><span class="bar-label">Dim C</span>
+<div class="bar" style="width:52.800000000000004%;background:hsl(63, 70%, 45%);"></div>
+<span class="bar-value">0.528</span></div>
+<div class="bar-container"><span class="bar-label">Dim D</span>
+<div class="bar" style="width:15.6%;background:hsl(19, 70%, 45%);"></div>
+<span class="bar-value">0.156</span></div>
+<h2>Score Heatmap (Model × Dimension)</h2>
+<table><tr><th>Model</th>
+<th>Dim A</th>
+<th>Dim B</th>
+<th>Dim C</th>
+<th>Dim D</th>
+</tr>
+<tr><td>MiMo-v2-flash</td>
+<td style="background:rgb(99,156,100);color:black">0.6100</td>
+<td style="background:rgb(100,155,100);color:black">0.6060</td>
+<td style="background:rgb(92,163,100);color:black">0.6360</td>
+<td style="background:rgb(67,188,100);color:black">0.7360</td>
+</tr>
+<tr><td>DeepSeek-v4-flash</td>
+<td style="background:rgb(93,162,100);color:black">0.6340</td>
+<td style="background:rgb(94,161,100);color:black">0.6310</td>
+<td style="background:rgb(72,183,100);color:black">0.7140</td>
+<td style="background:rgb(114,141,100);color:black">0.5500</td>
+</tr>
+<tr><td>Qwen3.5-9B</td>
+<td style="background:rgb(109,146,100);color:black">0.5690</td>
+<td style="background:rgb(99,156,100);color:black">0.6100</td>
+<td style="background:rgb(86,169,100);color:black">0.6620</td>
+<td style="background:rgb(86,169,100);color:black">0.6590</td>
+</tr>
+<tr><td>DeepSeek-v4-pro</td>
+<td style="background:rgb(95,160,100);color:black">0.6270</td>
+<td style="background:rgb(104,151,100);color:black">0.5900</td>
+<td style="background:rgb(65,190,100);color:black">0.7420</td>
+<td style="background:rgb(123,132,100);color:black">0.5140</td>
+</tr>
+<tr><td>MiniMax-M2.5-highspeed</td>
+<td style="background:rgb(92,163,100);color:black">0.6380</td>
+<td style="background:rgb(122,133,100);color:black">0.5190</td>
+<td style="background:rgb(95,160,100);color:black">0.6240</td>
+<td style="background:rgb(95,160,100);color:black">0.6260</td>
+</tr>
+<tr><td>MiniMax-M2.7-highspeed</td>
+<td style="background:rgb(100,155,100);color:black">0.6050</td>
+<td style="background:rgb(131,124,100);color:black">0.4850</td>
+<td style="background:rgb(98,157,100);color:black">0.6120</td>
+<td style="background:rgb(103,152,100);color:black">0.5930</td>
+</tr>
+<tr><td>MiMo-v2.5-pro</td>
+<td style="background:rgb(103,152,100);color:black">0.5950</td>
+<td style="background:rgb(121,134,100);color:black">0.5230</td>
+<td style="background:rgb(101,154,100);color:black">0.6020</td>
+<td style="background:rgb(143,112,100);color:black">0.4360</td>
+</tr>
+<tr><td>MiMo-v2-pro</td>
+<td style="background:rgb(92,163,100);color:black">0.6380</td>
+<td style="background:rgb(130,125,100);color:black">0.4900</td>
+<td style="background:rgb(112,143,100);color:black">0.5600</td>
+<td style="background:rgb(160,95,100);color:white">0.3690</td>
+</tr>
+<tr><td>MiMo-v2.5</td>
+<td style="background:rgb(99,156,100);color:black">0.6080</td>
+<td style="background:rgb(136,119,100);color:black">0.4660</td>
+<td style="background:rgb(120,135,100);color:black">0.5280</td>
+<td style="background:rgb(215,40,100);color:white">0.1560</td>
+</tr>
+</table>
+<p><em>Generated by ControlSci Benchmark Report</em></p>
+</body></html>

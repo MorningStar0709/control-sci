@@ -1,0 +1,13 @@
+{
+  "state": "completed",
+  "pid": 12104,
+  "model": "",
+  "total_questions": 1320,
+  "completed": 1320,
+  "skipped_by_resume": 1022,
+  "failed": 0,
+  "elapsed_seconds": 130.6,
+  "progress_path": "data\\sources_medical\\medbench\\medbench_full_retrieval_stats_v1.json.progress.jsonl",
+  "output_path": "data\\sources_medical\\medbench\\medbench_full_retrieval_stats_v1.json",
+  "updated_at": "2026-05-11T14:57:54"
+}

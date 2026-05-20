@@ -1,0 +1,13 @@
+{
+  "state": "completed",
+  "pid": 5864,
+  "model": "qwen3.5:35b",
+  "total_questions": 3,
+  "completed": 3,
+  "skipped_by_resume": 0,
+  "failed": 0,
+  "elapsed_seconds": 52.8,
+  "progress_path": "data\\sources_medical\\medbench\\medbench_35b_speed_probe.json.progress.jsonl",
+  "output_path": "data\\sources_medical\\medbench\\medbench_35b_speed_probe.json",
+  "updated_at": "2026-05-11T13:44:13"
+}

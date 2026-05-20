@@ -1,0 +1,147 @@
+{
+  "analysis": "A9_length_bias",
+  "n_models": 9,
+  "n_per_model": 500,
+  "global_pearson_r": -0.0232,
+  "global_pearson_p": 0.1192,
+  "global_spearman_rho": 0.0356,
+  "global_spearman_p": 0.0168,
+  "per_model": [
+    {
+      "model": "mimo-v2-flash",
+      "name": "MiMo-v2-flash",
+      "mean_length": 3862,
+      "median_length": 3641,
+      "std_length": 1522,
+      "min_length": 87,
+      "max_length": 7754,
+      "pearson_r": -0.0946,
+      "pearson_p": 0.0345,
+      "spearman_rho": -0.1832,
+      "spearman_p": 0.0
+    },
+    {
+      "model": "deepseek-v4-flash",
+      "name": "DS-v4-flash",
+      "mean_length": 2747,
+      "median_length": 1786,
+      "std_length": 2253,
+      "min_length": 39,
+      "max_length": 8286,
+      "pearson_r": -0.3332,
+      "pearson_p": 0.0,
+      "spearman_rho": -0.289,
+      "spearman_p": 0.0
+    },
+    {
+      "model": "qwen3.5:9b",
+      "name": "Qwen3.5:9b",
+      "mean_length": 3914,
+      "median_length": 3564,
+      "std_length": 1704,
+      "min_length": 140,
+      "max_length": 7984,
+      "pearson_r": -0.2946,
+      "pearson_p": 0.0,
+      "spearman_rho": -0.3434,
+      "spearman_p": 0.0
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "name": "DS-v4-pro",
+      "mean_length": 2478,
+      "median_length": 1714,
+      "std_length": 2171,
+      "min_length": 0,
+      "max_length": 8235,
+      "pearson_r": -0.1191,
+      "pearson_p": 0.0077,
+      "spearman_rho": 0.0144,
+      "spearman_p": 0.7475
+    },
+    {
+      "model": "minimax-m2.5",
+      "name": "MM-m2.5",
+      "mean_length": 2840,
+      "median_length": 1845,
+      "std_length": 2569,
+      "min_length": 0,
+      "max_length": 11758,
+      "pearson_r": 0.2031,
+      "pearson_p": 0.0,
+      "spearman_rho": 0.211,
+      "spearman_p": 0.0
+    },
+    {
+      "model": "minimax-m2.7",
+      "name": "MM-m2.7",
+      "mean_length": 2646,
+      "median_length": 1788,
+      "std_length": 2518,
+      "min_length": 0,
+      "max_length": 10928,
+      "pearson_r": 0.2892,
+      "pearson_p": 0.0,
+      "spearman_rho": 0.3272,
+      "spearman_p": 0.0
+    },
+    {
+      "model": "mimo-v2.5-pro",
+      "name": "MiMo-v2.5-pro",
+      "mean_length": 3024,
+      "median_length": 1554,
+      "std_length": 2687,
+      "min_length": 0,
+      "max_length": 7798,
+      "pearson_r": -0.2405,
+      "pearson_p": 0.0,
+      "spearman_rho": -0.0806,
+      "spearman_p": 0.0718
+    },
+    {
+      "model": "mimo-v2-pro",
+      "name": "MiMo-v2-pro",
+      "mean_length": 3188,
+      "median_length": 1664,
+      "std_length": 2797,
+      "min_length": 0,
+      "max_length": 16122,
+      "pearson_r": -0.3122,
+      "pearson_p": 0.0,
+      "spearman_rho": -0.1548,
+      "spearman_p": 0.0005
+    },
+    {
+      "model": "mimo-v2.5",
+      "name": "MiMo-v2.5",
+      "mean_length": 762,
+      "median_length": 570,
+      "std_length": 841,
+      "min_length": 0,
+      "max_length": 4536,
+      "pearson_r": 0.5207,
+      "pearson_p": 0.0,
+      "spearman_rho": 0.6905,
+      "spearman_p": 0.0
+    }
+  ],
+  "dimension_corrs": {
+    "A": {
+      "pearson_r": 0.0366,
+      "p": 0.2198
+    },
+    "B": {
+      "pearson_r": -0.076,
+      "p": 0.0108
+    },
+    "C": {
+      "pearson_r": -0.1483,
+      "p": 0.0
+    },
+    "D": {
+      "pearson_r": 0.3651,
+      "p": 0.0
+    }
+  },
+  "interpretation": "若 Pearson r 显著为正 → 存在长度偏见（Judge 倾向于给长答案高分）。若 r ≈ 0 → 无系统性长度偏见。"
+}

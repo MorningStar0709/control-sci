@@ -1,0 +1,716 @@
+{
+  "meta": {
+    "total": 100,
+    "downloaded": 97,
+    "failed": 0,
+    "source": "PMC via E-utilities + PoW cookie download",
+    "date": "2026-05-10T14:29:16.823113",
+    "layers": {
+      "core": 72,
+      "extended": 20,
+      "accent": 8
+    }
+  },
+  "papers": {
+    "PMC9502603": {
+      "pmcid": "PMC9502603",
+      "title": "",
+      "label": "mpc_chemo",
+      "layer": "core",
+      "pdf_file": "12885_2022_Article_10089.pdf"
+    },
+    "PMC12487728": {
+      "pmcid": "PMC12487728",
+      "title": "",
+      "label": "adaptive_dosing",
+      "layer": "core",
+      "pdf_file": "jnumed.125.269495.pdf"
+    },
+    "PMC10829799": {
+      "pmcid": "PMC10829799",
+      "title": "",
+      "label": "optimal_dosing",
+      "layer": "core",
+      "pdf_file": "tvst-13-1-21.pdf"
+    },
+    "PMC6245004": {
+      "pmcid": "PMC6245004",
+      "title": "",
+      "label": "kalman_ecg",
+      "layer": "accent",
+      "pdf_file": "11517_2018_Article_1862.pdf"
+    },
+    "PMC4740560": {
+      "pmcid": "PMC4740560",
+      "title": "",
+      "label": "pkpd_modeling",
+      "layer": "core",
+      "pdf_file": "40261_2015_Article_358.pdf"
+    },
+    "PMC11929207": {
+      "pmcid": "PMC11929207",
+      "title": "",
+      "label": "optimal_dosing",
+      "layer": "core",
+      "pdf_file": "12879_2025_Article_10747.pdf"
+    },
+    "PMC5097399": {
+      "pmcid": "PMC5097399",
+      "title": "",
+      "label": "feedback_physiological",
+      "layer": "extended",
+      "pdf_file": "12913_2016_Article_1872.pdf"
+    },
+    "PMC6091910": {
+      "pmcid": "PMC6091910",
+      "title": "",
+      "label": "closed-loop_insulin",
+      "layer": "core",
+      "pdf_file": "bmjopen-2017-020275.pdf"
+    },
+    "PMC6448906": {
+      "pmcid": "PMC6448906",
+      "title": "",
+      "label": "closed-loop_insulin",
+      "layer": "core",
+      "pdf_file": "125_2017_Article_4395.pdf"
+    },
+    "PMC6454722": {
+      "pmcid": "PMC6454722",
+      "title": "",
+      "label": "optimal_dosing",
+      "layer": "core",
+      "pdf_file": "12916_2019_Article_1308.pdf"
+    },
+    "PMC11473295": {
+      "pmcid": "PMC11473295",
+      "title": "",
+      "label": "closed-loop_insulin",
+      "layer": "core",
+      "pdf_file": "fimmu-15-1470677.pdf"
+    },
+    "PMC10503150": {
+      "pmcid": "PMC10503150",
+      "title": "",
+      "label": "adaptive_trial",
+      "layer": "core",
+      "pdf_file": "13063_2023_Article_7613.pdf"
+    },
+    "PMC3041664": {
+      "pmcid": "PMC3041664",
+      "title": "",
+      "label": "feedback_physiological",
+      "layer": "extended",
+      "pdf_file": "1471-2458-11-90.pdf"
+    },
+    "PMC7526307": {
+      "pmcid": "PMC7526307",
+      "title": "",
+      "label": "adaptive_dosing",
+      "layer": "core",
+      "pdf_file": "bmjopen-2020-037690.pdf"
+    },
+    "PMC11297938": {
+      "pmcid": "PMC11297938",
+      "title": "",
+      "label": "rl_glucose",
+      "layer": "extended",
+      "pdf_file": "41467_2024_Article_50764.pdf"
+    },
+    "PMC7414682": {
+      "pmcid": "PMC7414682",
+      "title": "",
+      "label": "adaptive_trial",
+      "layer": "core",
+      "pdf_file": "13012_2020_Article_1017.pdf"
+    },
+    "PMC6921499": {
+      "pmcid": "PMC6921499",
+      "title": "",
+      "label": "optimal_dosing",
+      "layer": "core",
+      "pdf_file": "13063_2019_Article_3911.pdf"
+    },
+    "PMC6097773": {
+      "pmcid": "PMC6097773",
+      "title": "",
+      "label": "kalman_eeg",
+      "layer": "accent",
+      "pdf_file": "10548_2018_Article_621.pdf"
+    },
+    "PMC7691962": {
+      "pmcid": "PMC7691962",
+      "title": "",
+      "label": "adaptive_dosing",
+      "layer": "core",
+      "pdf_file": "13063_2020_Article_4912.pdf"
+    },
+    "PMC6023462": {
+      "pmcid": "PMC6023462",
+      "title": "",
+      "label": "mpc_chemo",
+      "layer": "core",
+      "pdf_file": "medicines-05-00054.pdf"
+    },
+    "PMC5439542": {
+      "pmcid": "PMC5439542",
+      "title": "",
+      "label": "adaptive_dosing",
+      "layer": "core",
+      "pdf_file": "10.1177_0145721717701579.pdf"
+    },
+    "PMC5593171": {
+      "pmcid": "PMC5593171",
+      "title": "",
+      "label": "mpc_chemo",
+      "layer": "core",
+      "pdf_file": "CTS-10-366.pdf"
+    },
+    "PMC8585847": {
+      "pmcid": "PMC8585847",
+      "title": "",
+      "label": "pkpd_modeling",
+      "layer": "core",
+      "pdf_file": "40262_2021_Article_1024.pdf"
+    },
+    "PMC7451990": {
+      "pmcid": "PMC7451990",
+      "title": "",
+      "label": "kalman_eeg",
+      "layer": "accent",
+      "pdf_file": "pcbi.1007566.pdf"
+    },
+    "PMC11292867": {
+      "pmcid": "PMC11292867",
+      "title": "",
+      "label": "closed-loop_insulin",
+      "layer": "core",
+      "pdf_file": "12902_2024_Article_1652.pdf"
+    },
+    "PMC10493474": {
+      "pmcid": "PMC10493474",
+      "title": "",
+      "label": "imrt_optimization",
+      "layer": "extended",
+      "pdf_file": "TCA-14-2642.pdf"
+    },
+    "PMC6561428": {
+      "pmcid": "PMC6561428",
+      "title": "",
+      "label": "closed-loop_insulin",
+      "layer": "core",
+      "pdf_file": "bmjopen-2018-027856.pdf"
+    },
+    "PMC11466402": {
+      "pmcid": "PMC11466402",
+      "title": "",
+      "label": "adaptive_dosing",
+      "layer": "core",
+      "pdf_file": "pone.0311484.pdf"
+    },
+    "PMC12122129": {
+      "pmcid": "PMC12122129",
+      "title": "",
+      "label": "adaptive_dosing",
+      "layer": "core",
+      "pdf_file": "BCP-91-1865.pdf"
+    },
+    "PMC7840704": {
+      "pmcid": "PMC7840704",
+      "title": "",
+      "label": "feedback_physiological",
+      "layer": "extended",
+      "pdf_file": "fpsyt-11-569864.pdf"
+    },
+    "PMC11339407": {
+      "pmcid": "PMC11339407",
+      "title": "",
+      "label": "optimal_dosing",
+      "layer": "core",
+      "pdf_file": "ERJ-00404-2024.pdf"
+    },
+    "PMC12742169": {
+      "pmcid": "PMC12742169",
+      "title": "",
+      "label": "adaptive_dosing",
+      "layer": "core",
+      "pdf_file": "bmjgast-12-1.pdf"
+    },
+    "PMC4692529": {
+      "pmcid": "PMC4692529",
+      "title": "",
+      "label": "optimal_dosing",
+      "layer": "core",
+      "pdf_file": "pone.0145318.pdf"
+    },
+    "PMC8363503": {
+      "pmcid": "PMC8363503",
+      "title": "",
+      "label": "closed-loop_insulin",
+      "layer": "core",
+      "pdf_file": "41591_2021_Article_1453.pdf"
+    },
+    "PMC9842495": {
+      "pmcid": "PMC9842495",
+      "title": "",
+      "label": "adaptive_trial",
+      "layer": "core",
+      "pdf_file": "13063_2022_Article_7025.pdf"
+    },
+    "PMC4609090": {
+      "pmcid": "PMC4609090",
+      "title": "",
+      "label": "adaptive_trial",
+      "layer": "core",
+      "pdf_file": "13012_2015_Article_333.pdf"
+    },
+    "PMC12801964": {
+      "pmcid": "PMC12801964",
+      "title": "",
+      "label": "rl_glucose",
+      "layer": "extended",
+      "pdf_file": "12911_2025_Article_3309.pdf"
+    },
+    "PMC8652580": {
+      "pmcid": "PMC8652580",
+      "title": "",
+      "label": "mpc_chemo",
+      "layer": "core",
+      "pdf_file": "N/A"
+    },
+    "PMC11292573": {
+      "pmcid": "PMC11292573",
+      "title": "",
+      "label": "optimal_dosing",
+      "layer": "core",
+      "pdf_file": "N/A"
+    },
+    "PMC7932937": {
+      "pmcid": "PMC7932937",
+      "title": "",
+      "label": "pkpd_modeling",
+      "layer": "core",
+      "pdf_file": "40262_2020_Article_946.pdf"
+    },
+    "PMC5753844": {
+      "pmcid": "PMC5753844",
+      "title": "",
+      "label": "adaptive_trial",
+      "layer": "core",
+      "pdf_file": "10.1177_0962280215606155.pdf"
+    },
+    "PMC6729066": {
+      "pmcid": "PMC6729066",
+      "title": "",
+      "label": "mpc_chemo",
+      "layer": "core",
+      "pdf_file": "12885_2019_Article_6099.pdf"
+    },
+    "PMC8266944": {
+      "pmcid": "PMC8266944",
+      "title": "",
+      "label": "adaptive_dosing",
+      "layer": "core",
+      "pdf_file": "13300_2021_Article_1078.pdf"
+    },
+    "PMC12574440": {
+      "pmcid": "PMC12574440",
+      "title": "",
+      "label": "closed-loop_insulin",
+      "layer": "core",
+      "pdf_file": "bmjopen-15-10.pdf"
+    },
+    "PMC5035370": {
+      "pmcid": "PMC5035370",
+      "title": "",
+      "label": "optimal_dosing",
+      "layer": "core",
+      "pdf_file": "dia.2016.0128.pdf"
+    },
+    "PMC7578131": {
+      "pmcid": "PMC7578131",
+      "title": "",
+      "label": "pkpd_modeling",
+      "layer": "core",
+      "pdf_file": "40273_2020_Article_944.pdf"
+    },
+    "PMC5248649": {
+      "pmcid": "PMC5248649",
+      "title": "",
+      "label": "artificial_pancreas",
+      "layer": "extended",
+      "pdf_file": "DME-34-262.pdf"
+    },
+    "PMC11241942": {
+      "pmcid": "PMC11241942",
+      "title": "",
+      "label": "mpc_chemo",
+      "layer": "core",
+      "pdf_file": "13048_2024_Article_1468.pdf"
+    },
+    "PMC3496732": {
+      "pmcid": "PMC3496732",
+      "title": "",
+      "label": "artificial_pancreas",
+      "layer": "extended",
+      "pdf_file": "pone.0048811.pdf"
+    },
+    "PMC9303654": {
+      "pmcid": "PMC9303654",
+      "title": "",
+      "label": "adaptive_trial",
+      "layer": "core",
+      "pdf_file": "SIM-41-877.pdf"
+    },
+    "PMC8600696": {
+      "pmcid": "PMC8600696",
+      "title": "",
+      "label": "artificial_pancreas",
+      "layer": "extended",
+      "pdf_file": "12885_2021_Article_8966.pdf"
+    },
+    "PMC12272518": {
+      "pmcid": "PMC12272518",
+      "title": "",
+      "label": "adaptive_dosing",
+      "layer": "core",
+      "pdf_file": "BCP-91-1865.pdf"
+    },
+    "PMC4222486": {
+      "pmcid": "PMC4222486",
+      "title": "",
+      "label": "kalman_eeg",
+      "layer": "accent",
+      "pdf_file": "1743-0003-10-109.pdf"
+    },
+    "PMC8541813": {
+      "pmcid": "PMC8541813",
+      "title": "",
+      "label": "adaptive_trial",
+      "layer": "core",
+      "pdf_file": "13063_2021_Article_5700.pdf"
+    },
+    "PMC6858613": {
+      "pmcid": "PMC6858613",
+      "title": "",
+      "label": "rl_glucose",
+      "layer": "extended",
+      "pdf_file": "mhealth_v7i11e14452.pdf"
+    },
+    "PMC10579102": {
+      "pmcid": "PMC10579102",
+      "title": "",
+      "label": "rl_glucose",
+      "layer": "extended",
+      "pdf_file": "41591_2023_Article_2552.pdf"
+    },
+    "PMC11940839": {
+      "pmcid": "PMC11940839",
+      "title": "",
+      "label": "adaptive_dosing",
+      "layer": "core",
+      "pdf_file": "cancers-17-01038.pdf"
+    },
+    "PMC5714048": {
+      "pmcid": "PMC5714048",
+      "title": "",
+      "label": "imrt_optimization",
+      "layer": "extended",
+      "pdf_file": "ACM2-14-176.pdf"
+    },
+    "PMC6221103": {
+      "pmcid": "PMC6221103",
+      "title": "",
+      "label": "adaptive_trial",
+      "layer": "core",
+      "pdf_file": "SIM-37-3709.pdf"
+    },
+    "PMC10882371": {
+      "pmcid": "PMC10882371",
+      "title": "",
+      "label": "closed-loop_insulin",
+      "layer": "core",
+      "pdf_file": "bmjopen-2023-078171.pdf"
+    },
+    "PMC5690098": {
+      "pmcid": "PMC5690098",
+      "title": "",
+      "label": "imrt_optimization",
+      "layer": "extended",
+      "pdf_file": "ACM2-16-241.pdf"
+    },
+    "PMC8069034": {
+      "pmcid": "PMC8069034",
+      "title": "",
+      "label": "pkpd_modeling",
+      "layer": "core",
+      "pdf_file": "pharmaceutics-13-00519.pdf"
+    },
+    "PMC7618672": {
+      "pmcid": "PMC7618672",
+      "title": "",
+      "label": "closed-loop_insulin",
+      "layer": "core",
+      "pdf_file": "EMS211980.pdf"
+    },
+    "PMC8982306": {
+      "pmcid": "PMC8982306",
+      "title": "",
+      "label": "closed-loop_insulin",
+      "layer": "core",
+      "pdf_file": "12884_2022_Article_4543.pdf"
+    },
+    "PMC8216535": {
+      "pmcid": "PMC8216535",
+      "title": "",
+      "label": "adaptive_dosing",
+      "layer": "core",
+      "pdf_file": "pmed.1003658.pdf"
+    },
+    "PMC7353769": {
+      "pmcid": "PMC7353769",
+      "title": "",
+      "label": "adaptive_trial",
+      "layer": "core",
+      "pdf_file": "13722_2020_Article_199.pdf"
+    },
+    "PMC7793822": {
+      "pmcid": "PMC7793822",
+      "title": "",
+      "label": "pkpd_modeling",
+      "layer": "core",
+      "pdf_file": "fphar-11-591854.pdf"
+    },
+    "PMC12816607": {
+      "pmcid": "PMC12816607",
+      "title": "",
+      "label": "wearable_signal",
+      "layer": "accent",
+      "pdf_file": "41467_2025_Article_67316.pdf"
+    },
+    "PMC11622436": {
+      "pmcid": "PMC11622436",
+      "title": "",
+      "label": "optimal_dosing",
+      "layer": "core",
+      "pdf_file": "rccm.202401-0165OC.pdf"
+    },
+    "PMC10621790": {
+      "pmcid": "PMC10621790",
+      "title": "",
+      "label": "optimal_dosing",
+      "layer": "core",
+      "pdf_file": "fphar-14-1270443.pdf"
+    },
+    "PMC5490215": {
+      "pmcid": "PMC5490215",
+      "title": "",
+      "label": "mpc_chemo",
+      "layer": "core",
+      "pdf_file": "12885_2017_Article_3445.pdf"
+    },
+    "PMC6009467": {
+      "pmcid": "PMC6009467",
+      "title": "",
+      "label": "closed-loop_insulin",
+      "layer": "core",
+      "pdf_file": "bmjopen-2017-020274.pdf"
+    },
+    "PMC12838616": {
+      "pmcid": "PMC12838616",
+      "title": "",
+      "label": "rl_glucose",
+      "layer": "extended",
+      "pdf_file": "biosensors-16-00047.pdf"
+    },
+    "PMC9443636": {
+      "pmcid": "PMC9443636",
+      "title": "",
+      "label": "adaptive_dosing",
+      "layer": "core",
+      "pdf_file": "13054_2022_Article_4098.pdf"
+    },
+    "PMC11259905": {
+      "pmcid": "PMC11259905",
+      "title": "",
+      "label": "artificial_pancreas",
+      "layer": "extended",
+      "pdf_file": "N/A"
+    },
+    "PMC5811797": {
+      "pmcid": "PMC5811797",
+      "title": "",
+      "label": "pkpd_modeling",
+      "layer": "core",
+      "pdf_file": "JCPH-58-240.pdf"
+    },
+    "PMC6894475": {
+      "pmcid": "PMC6894475",
+      "title": "",
+      "label": "adaptive_trial",
+      "layer": "core",
+      "pdf_file": "13012_2019_Article_948.pdf"
+    },
+    "PMC12928687": {
+      "pmcid": "PMC12928687",
+      "title": "",
+      "label": "artificial_pancreas",
+      "layer": "extended",
+      "pdf_file": "resprot-v15-e84607.pdf"
+    },
+    "PMC7470506": {
+      "pmcid": "PMC7470506",
+      "title": "",
+      "label": "feedback_physiological",
+      "layer": "extended",
+      "pdf_file": "bmjopen-2020-042145.pdf"
+    },
+    "PMC11320540": {
+      "pmcid": "PMC11320540",
+      "title": "",
+      "label": "imrt_optimization",
+      "layer": "extended",
+      "pdf_file": "qims-14-08-5789.pdf"
+    },
+    "PMC12603884": {
+      "pmcid": "PMC12603884",
+      "title": "",
+      "label": "pkpd_modeling",
+      "layer": "core",
+      "pdf_file": "PAN-35-1053.pdf"
+    },
+    "PMC6726216": {
+      "pmcid": "PMC6726216",
+      "title": "",
+      "label": "mpc_chemo",
+      "layer": "core",
+      "pdf_file": "pone.0221336.pdf"
+    },
+    "PMC6479804": {
+      "pmcid": "PMC6479804",
+      "title": "",
+      "label": "kalman_ecg",
+      "layer": "accent",
+      "pdf_file": "sensors-19-01617.pdf"
+    },
+    "PMC6417075": {
+      "pmcid": "PMC6417075",
+      "title": "",
+      "label": "adaptive_trial",
+      "layer": "core",
+      "pdf_file": "13012_2019_Article_873.pdf"
+    },
+    "PMC12216833": {
+      "pmcid": "PMC12216833",
+      "title": "",
+      "label": "wearable_signal",
+      "layer": "accent",
+      "pdf_file": "41467_2025_Article_60854.pdf"
+    },
+    "PMC4617442": {
+      "pmcid": "PMC4617442",
+      "title": "",
+      "label": "mpc_chemo",
+      "layer": "core",
+      "pdf_file": "13063_2015_Article_970.pdf"
+    },
+    "PMC11369390": {
+      "pmcid": "PMC11369390",
+      "title": "",
+      "label": "imrt_optimization",
+      "layer": "extended",
+      "pdf_file": "main.pdf"
+    },
+    "PMC5814509": {
+      "pmcid": "PMC5814509",
+      "title": "",
+      "label": "pkpd_modeling",
+      "layer": "core",
+      "pdf_file": "40262_2017_Article_559.pdf"
+    },
+    "PMC6325982": {
+      "pmcid": "PMC6325982",
+      "title": "",
+      "label": "pkpd_modeling",
+      "layer": "core",
+      "pdf_file": "40262_2018_Article_662.pdf"
+    },
+    "PMC6937062": {
+      "pmcid": "PMC6937062",
+      "title": "",
+      "label": "mpc_chemo",
+      "layer": "core",
+      "pdf_file": "bmjopen-2019-034708.pdf"
+    },
+    "PMC3002358": {
+      "pmcid": "PMC3002358",
+      "title": "",
+      "label": "mpc_chemo",
+      "layer": "core",
+      "pdf_file": "1471-2407-10-673.pdf"
+    },
+    "PMC9911317": {
+      "pmcid": "PMC9911317",
+      "title": "",
+      "label": "closed-loop_insulin",
+      "layer": "core",
+      "pdf_file": "dc220308.pdf"
+    },
+    "PMC12898571": {
+      "pmcid": "PMC12898571",
+      "title": "",
+      "label": "feedback_physiological",
+      "layer": "extended",
+      "pdf_file": "jcm-15-01256.pdf"
+    },
+    "PMC7118863": {
+      "pmcid": "PMC7118863",
+      "title": "",
+      "label": "mpc_chemo",
+      "layer": "core",
+      "pdf_file": "13063_2020_Article_4224.pdf"
+    },
+    "PMC6133081": {
+      "pmcid": "PMC6133081",
+      "title": "",
+      "label": "pkpd_modeling",
+      "layer": "core",
+      "pdf_file": "13318_2018_Article_472.pdf"
+    },
+    "PMC13019998": {
+      "pmcid": "PMC13019998",
+      "title": "",
+      "label": "adaptive_trial",
+      "layer": "core",
+      "pdf_file": "13063_2026_Article_9543.pdf"
+    },
+    "PMC7439928": {
+      "pmcid": "PMC7439928",
+      "title": "",
+      "label": "optimal_dosing",
+      "layer": "core",
+      "pdf_file": "hcg-13-e002602.pdf"
+    },
+    "PMC11529615": {
+      "pmcid": "PMC11529615",
+      "title": "",
+      "label": "pkpd_modeling",
+      "layer": "core",
+      "pdf_file": "bmjopen-14-10.pdf"
+    },
+    "PMC2645399": {
+      "pmcid": "PMC2645399",
+      "title": "",
+      "label": "kalman_ecg",
+      "layer": "accent",
+      "pdf_file": "1475-925X-7-29.pdf"
+    },
+    "PMC10803438": {
+      "pmcid": "PMC10803438",
+      "title": "",
+      "label": "optimal_dosing",
+      "layer": "core",
+      "pdf_file": "fpsyt-14-1278823.pdf"
+    }
+  }
+}

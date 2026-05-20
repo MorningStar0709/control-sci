@@ -542,7 +542,7 @@ def parse_args():
     parser.add_argument(
         "--api-key",
         default=None,
-        help="API 密钥，默认从 OPENAI_API_KEY 环境变量读取",
+        help="API 密钥，默认按 provider 从环境变量读取；DeepSeek 支持 DEEPSEEK_API_KEY/OPENAI_API_KEY",
     )
     parser.add_argument(
         "--base-url",

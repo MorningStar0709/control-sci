@@ -1,0 +1,657 @@
+{
+  "model": "deepseek-v4-flash",
+  "judge_model": "qwen3.5:9b",
+  "judge_family": "Qwen",
+  "judge_size": "中",
+  "scoring_mode": "sample",
+  "total_questions": 80,
+  "overall_score": 0.4619,
+  "dimension_scores": {
+    "A": 0.49,
+    "B": 0.395,
+    "C": 0.485,
+    "D": 0.4775
+  },
+  "records": [
+    {
+      "id": "CS-EVO-00071",
+      "dimension": "A",
+      "difficulty_level": "L1",
+      "score": 0.3,
+      "reason": "模型答案未能直接回答题目中关于特定算法名称及目标函数的询问，而是以该名称非标准为由进行推测并给出了通用框架，导致核心信息缺失。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00847",
+      "dimension": "A",
+      "difficulty_level": "L1",
+      "score": 0.0,
+      "reason": "模型未能识别出题目考察的具体知识点（收缩理论中的 ReLU 和饱和函数），且回答内容仅为模糊的猜测和无关的模型背景分析，未给出任何正确的数学定义或函数名称。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00303",
+      "dimension": "A",
+      "difficulty_level": "L2",
+      "score": 0.6,
+      "reason": "模型答案正确解释了鲁棒正不变集的核心思想，但在数学定义部分未完整给出集合Φ需满足的紧致性及不变性条件，且定义的是一般非线性系统而非题目暗示的线性系统，导致定义不完整。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00772",
+      "dimension": "A",
+      "difficulty_level": "L3",
+      "score": 0.6,
+      "reason": "模型答案正确指出了带宽由滤波器决定并给出了部分设计原则，但未能提供题目要求的完整数学表达式（如参考模型、虚拟系统与执行器带宽之间的不等式关系），且回答在“折衷原则”处中断，导致信息不完整。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00952",
+      "dimension": "A",
+      "difficulty_level": "L3",
+      "score": 0.5,
+      "reason": "模型答案正确指出了指数稳定性所需的三个核心李雅普诺夫不等式（正定、负定差分、局部利普希茨），但第四个条件（通常指全局利普希茨性或关于常数 a 的指数衰减不等式）表述不完整且被截断，导致未能完整回答题目要求的四个条件。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00607",
+      "dimension": "B",
+      "difficulty_level": "L2",
+      "score": 0.0,
+      "reason": "模型答案未提供任何推导过程或结论，仅重复了题目已知条件，导致无法完成证明任务。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00509",
+      "dimension": "B",
+      "difficulty_level": "L2",
+      "score": 0.5,
+      "reason": "模型正确完成了第一个样本的计算，但在第二个样本的计算过程中截断，导致无法得出最终结果。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00540",
+      "dimension": "B",
+      "difficulty_level": "L3",
+      "score": 0.3,
+      "reason": "模型答案在推导过程中出现截断，未能完成自适应律的推导并给出最终表达式，仅提供了部分动力学方程背景。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00362",
+      "dimension": "B",
+      "difficulty_level": "L3",
+      "score": 0.8,
+      "reason": "模型正确识别了题目参数和计算目标，但在具体数值计算过程中出现了明显的算术错误，导致最终结果与标准答案偏差较大。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00790",
+      "dimension": "B",
+      "difficulty_level": "L4",
+      "score": 0.5,
+      "reason": "模型答案在推导过程中出现公式截断且未给出最终传递函数和稳定性结论，仅完成了部分参数分析。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00251",
+      "dimension": "C",
+      "difficulty_level": "L2",
+      "score": 0.5,
+      "reason": "模型答案正确判断了结论不成立并给出了部分理由，但内容在'实际参数'处中断，未完整阐述计算过程和最终结论，导致回答不完整。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00005",
+      "dimension": "C",
+      "difficulty_level": "L2",
+      "score": 0.3,
+      "reason": "模型答案未能完整给出触发条件表达式，且对噪声导致误行为的数学机理分析缺失，仅提供了部分公式片段。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00231",
+      "dimension": "C",
+      "difficulty_level": "L3",
+      "score": 1.0,
+      "reason": "模型答案准确运用了线性化方法和 Hartman-Grobman 定理，逻辑严密且结论正确，完全符合标准答案的核心要点。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00778",
+      "dimension": "C",
+      "difficulty_level": "L3",
+      "score": 0.6,
+      "reason": "模型答案正确指出了结论不再成立并解释了阻尼消失的原因，但回答未完整，且使用了'通常不再成立'这一略显模糊的表述，不如标准答案直接肯定。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00590",
+      "dimension": "C",
+      "difficulty_level": "L4",
+      "score": 0.6,
+      "reason": "模型答案正确指出了常数时延条件无法直接保证时变时延稳定性，但回答在关键解释部分被截断，未完整阐述敏感性来源及修正方法。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00431",
+      "dimension": "D",
+      "difficulty_level": "L2",
+      "score": 0.6,
+      "reason": "模型答案在建模部分引入了多输入多输出及加权矩阵结构，体现了对干扰抑制指标γ的考虑，但在控制方法选择理由、具体参数设计步骤（如LMI推导过程）以及验证指标方面内容缺失，导致方案不完整。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00931",
+      "dimension": "D",
+      "difficulty_level": "L2",
+      "score": 0.3,
+      "reason": "模型答案未能完成计算过程，仅重复了题目已知条件并中断，未给出最终的 K 值或设计结论。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00817",
+      "dimension": "D",
+      "difficulty_level": "L3",
+      "score": 0.6,
+      "reason": "方案涵盖了建模、控制结构和参数估计等核心要素，但在控制器参数整定步骤的具体可执行性描述上缺失，且遗憾上界的验证指标体系未展开，导致部分评分要点未完全满足。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00278",
+      "dimension": "D",
+      "difficulty_level": "L3",
+      "score": 0.4,
+      "reason": "模型答案未能完成闭环传递函数推导、参数计算及 Kv 求解，仅停留在对教材图的不确定猜测阶段，导致方案不可行。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00174",
+      "dimension": "D",
+      "difficulty_level": "L4",
+      "score": 0.4,
+      "reason": "模型答案在环境建模部分中断，未提供完整的控制器结构、训练目标函数及验证指标，导致方案无法完整评估。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00825",
+      "dimension": "A",
+      "difficulty_level": "L1",
+      "score": 1.0,
+      "reason": "模型答案准确且简洁地复述了定理7.2的核心内容，与参考答案在数学含义上完全等价。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00782",
+      "dimension": "A",
+      "difficulty_level": "L1",
+      "score": 0.95,
+      "reason": "模型答案不仅给出了标准答案中的表达式，还补充了直接传输矩阵 D 的通用情况，推导过程清晰且准确，仅在题目未明确要求推导过程的情况下略有冗余，但整体质量极高。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00569",
+      "dimension": "A",
+      "difficulty_level": "L2",
+      "score": 0.95,
+      "reason": "模型答案准确给出了判据和数学条件，推导逻辑清晰，仅在解释部分末尾截断导致内容不完整，但核心知识点完全正确。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00860",
+      "dimension": "A",
+      "difficulty_level": "L3",
+      "score": 0.6,
+      "reason": "模型答案正确描述了GP-MPC的二次型代价函数结构，但表达式在末尾被截断且未明确定义参考轨迹与预测轨迹的具体符号对应关系，导致完整性不足。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00704",
+      "dimension": "A",
+      "difficulty_level": "L4",
+      "score": 0.3,
+      "reason": "模型答案未能完整给出CFH-Hard的定义（仅给出名称和要素，缺少核心判定条件），且对‘根本性影响’的阐述完全缺失，仅提供了部分形式化定义的开头。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00368",
+      "dimension": "B",
+      "difficulty_level": "L2",
+      "score": 0.5,
+      "reason": "模型正确识别了系统为 SISO 并给出了正确的传递函数结果，但未能完成题目要求的能控性分解步骤，且对 B 矩阵维度的标注不完整。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00026",
+      "dimension": "B",
+      "difficulty_level": "L2",
+      "score": 0.0,
+      "reason": "模型答案未提供完整的推导过程和最终的K值，仅重复了问题描述并中断。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00629",
+      "dimension": "B",
+      "difficulty_level": "L3",
+      "score": 0.5,
+      "reason": "模型正确推导了观测器矩阵及其特征多项式，但在计算特征多项式系数时出现错误，导致无法得出正确结果。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00796",
+      "dimension": "B",
+      "difficulty_level": "L3",
+      "score": 0.5,
+      "reason": "模型答案正确推导了传递函数表达式，但在计算幅值和相角的具体数值步骤中缺失，导致未完整回答题目第二问。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00920",
+      "dimension": "B",
+      "difficulty_level": "L4",
+      "score": 0.6,
+      "reason": "模型答案正确推导了梯度的分子部分和符号，但分母表达式被截断导致数学公式不完整，无法构成最终结果。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00340",
+      "dimension": "C",
+      "difficulty_level": "L2",
+      "score": 0.0,
+      "reason": "模型答案未能正确识别Kessler-Sørensen噪声模型的具体形式，且给出的SDE方程与题目描述的漂移项结构（涉及tan函数）完全不符，导致无法进行后续证明或推导。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00433",
+      "dimension": "C",
+      "difficulty_level": "L2",
+      "score": 0.6,
+      "reason": "模型答案给出了无穷远处的非奇异条件，但遗漏了标准答案中关于逆矩阵必须为正则传递矩阵（proper）这一关键约束，导致条件不完整。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00838",
+      "dimension": "C",
+      "difficulty_level": "L3",
+      "score": 0.6,
+      "reason": "模型答案正确指出了时齐性被破坏导致结论不成立，但缺乏对补偿测度强度变化这一核心数学理由的阐述，且未明确给出最终结论。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00113",
+      "dimension": "C",
+      "difficulty_level": "L3",
+      "score": 0.6,
+      "reason": "模型正确判断了结论，但回答在数学推导部分被截断，未能完整解释原因。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00842",
+      "dimension": "C",
+      "difficulty_level": "L4",
+      "score": 0.6,
+      "reason": "模型答案正确指出了传输次数减少的结论，但未能完成对敏感性来源的完整分析且回答中断，导致内容不完整。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00356",
+      "dimension": "D",
+      "difficulty_level": "L2",
+      "score": 0.6,
+      "reason": "模型选择理由充分且架构设计合理，但参数整定步骤缺失且验证指标体系未展开，导致方案不完整。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00814",
+      "dimension": "D",
+      "difficulty_level": "L2",
+      "score": 0.4,
+      "reason": "模型答案在控制律和参数选取部分严重缺失且逻辑混乱，仅给出了思路开头，未能完成题目要求的完整方案设计。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00755",
+      "dimension": "D",
+      "difficulty_level": "L3",
+      "score": 0.65,
+      "reason": "模型部分完整描述了攻击动态，但控制律设计部分在提供的文本中截断，导致无法评估自适应增益更新律、反馈线性化补偿及完整的参数设计方法，且未展示验证方案，仅能根据现有内容给予部分分数。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00353",
+      "dimension": "D",
+      "difficulty_level": "L3",
+      "score": 0.1,
+      "reason": "模型答案在计算闭环传递函数时出现严重公式错误（将开环传递函数误写为闭环），且内容在关键步骤中断裂，无法完成后续的参数设计与指标验证。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00086",
+      "dimension": "D",
+      "difficulty_level": "L4",
+      "score": 0.3,
+      "reason": "模型答案仅提供了系统建模的开头部分，严重缺失控制器设计、参数设计步骤、验证指标以及针对题目特定约束（有限时间收敛、能量限制、鲁棒性）的解决方案，无法构成完整方案。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00380",
+      "dimension": "A",
+      "difficulty_level": "L1",
+      "score": 0.5,
+      "reason": "模型答案正确识别了问题背景并给出了价值函数的标准定义，但回答在公式呈现处被截断，未能完整输出最终公式。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00001",
+      "dimension": "A",
+      "difficulty_level": "L1",
+      "score": 0.0,
+      "reason": "parse_failed",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00559",
+      "dimension": "A",
+      "difficulty_level": "L1",
+      "score": 0.5,
+      "reason": "模型答案正确给出了定义的前置条件（概率空间、滤子），但在核心定义部分（条件期望为零）处截断，未能完整回答题目要求。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00575",
+      "dimension": "A",
+      "difficulty_level": "L1",
+      "score": 0.5,
+      "reason": "模型答案正确定义了系统和矩阵，但输出在数学表达式处被截断，导致无法完整呈现判据。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00198",
+      "dimension": "A",
+      "difficulty_level": "L2",
+      "score": 0.3,
+      "reason": "模型答案未能完成题目要求的数学表达式推导，且内容截断，仅给出了标准问题的背景而非针对题目特定约束形式的解答。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00650",
+      "dimension": "A",
+      "difficulty_level": "L2",
+      "score": 0.6,
+      "reason": "模型答案正确解释了动作采样的数学原理和符号含义，但未能完整写出最终的采样公式且输出内容被截断，导致答案不完整。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00815",
+      "dimension": "A",
+      "difficulty_level": "L3",
+      "score": 0.5,
+      "reason": "模型正确推导了稳态误差公式但未能完成计算并给出最终数值结果，且未回答题目关于 Kv 定义的具体要求。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00539",
+      "dimension": "A",
+      "difficulty_level": "L3",
+      "score": 0.6,
+      "reason": "模型答案给出了正确的目标函数形式但表达式未完整闭合且缺少参考状态项的明确定义，导致答案不完整。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00504",
+      "dimension": "A",
+      "difficulty_level": "L3",
+      "score": 0.5,
+      "reason": "模型答案正确定义了先验和后验误差的概念，但未能完成题目要求的写出具体关系式，且回答在数学表达式处中断，属于部分作答。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00841",
+      "dimension": "A",
+      "difficulty_level": "L4",
+      "score": 0.0,
+      "reason": "模型答案未提供具体的数学表达式，仅表示缺乏引用，属于未作答。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00619",
+      "dimension": "B",
+      "difficulty_level": "L2",
+      "score": 0.0,
+      "reason": "模型未能识别题目中的数学推导要求，仅进行了无关的上下文猜测而未给出任何数值结果或推导过程。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00440",
+      "dimension": "B",
+      "difficulty_level": "L2",
+      "score": 0.3,
+      "reason": "模型答案未能完成归纳步骤的推导，且因题目未提供具体公式而仅给出一般化框架，导致证明不完整且未包含关键约束条件的具体利用方式。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00525",
+      "dimension": "B",
+      "difficulty_level": "L2",
+      "score": 0.5,
+      "reason": "模型答案正确列出了方程和变量设定，但在展开计算和求解系数方程组时内容中断，未能给出最终结果。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00153",
+      "dimension": "B",
+      "difficulty_level": "L3",
+      "score": 0.5,
+      "reason": "模型答案正确列出了问题描述和哈密顿函数，但推导过程被截断且未给出最终解析表达式和计算结果，仅凭标准答案中的结论无法判断其推导是否完整正确，故给予部分分数。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00612",
+      "dimension": "B",
+      "difficulty_level": "L3",
+      "score": 0.8,
+      "reason": "模型正确列出了公式并代入数值，但计算过程不完整且未给出最终结果，导致答案缺失。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00803",
+      "dimension": "B",
+      "difficulty_level": "L3",
+      "score": 0.3,
+      "reason": "模型答案在第二问中断裂且第三问完全缺失，仅第一问给出了正确思路但表述不完整，整体未能完成题目要求。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00115",
+      "dimension": "B",
+      "difficulty_level": "L3",
+      "score": 0.2,
+      "reason": "模型答案未完整写出推导步骤，且分解结果中的项（如 φ 和 σ_t^f）与题目给定的目标表达式不完全匹配，仅给出了开头部分。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00515",
+      "dimension": "B",
+      "difficulty_level": "L4",
+      "score": 0.0,
+      "reason": "模型未能识别题目隐含的数据（或指出数据缺失），仅提供了理论公式而未完成具体的数值估算任务。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00641",
+      "dimension": "B",
+      "difficulty_level": "L4",
+      "score": 0.1,
+      "reason": "模型未能完成证明推导，仅停留在对题目背景的猜测和解释，且回答未完结。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00032",
+      "dimension": "B",
+      "difficulty_level": "L4",
+      "score": 1.0,
+      "reason": "模型答案完全正确，计算出的动作值函数与最优动作均与参考答案一致。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00615",
+      "dimension": "C",
+      "difficulty_level": "L2",
+      "score": 0.5,
+      "reason": "模型答案推导了前半部分公式但未能完成最终计算步骤，导致结果缺失。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00739",
+      "dimension": "C",
+      "difficulty_level": "L2",
+      "score": 0.6,
+      "reason": "模型答案正确指出了稳定性不再成立，但回答在关键原因分析处中断，未能完整解释非正值 K₂ 对阻尼项和扰动抑制的具体影响。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00769",
+      "dimension": "C",
+      "difficulty_level": "L2",
+      "score": 0.3,
+      "reason": "模型答案仅完成了系统建模部分，未给出参数估计结果的具体数值对比及灵敏度分析的完整结论，导致无法回答题目核心问题。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00191",
+      "dimension": "C",
+      "difficulty_level": "L2",
+      "score": 0.6,
+      "reason": "模型正确回答了核心问题并给出了部分原因，但答案在公式书写处截断且未完整写出应使用的黎卡提微分方程，导致回答不完整。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00075",
+      "dimension": "C",
+      "difficulty_level": "L2",
+      "score": 0.5,
+      "reason": "模型正确分析了输入尺寸变化对Flatten层神经元数量的影响，但未能完成具体数值计算且未回答输出层形状是否变化的问题。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00527",
+      "dimension": "C",
+      "difficulty_level": "L3",
+      "score": 0.6,
+      "reason": "模型答案正确指出了系统不稳定，但分析内容不完整且未给出最终结论，仅提供了部分非线性特性的描述。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00442",
+      "dimension": "C",
+      "difficulty_level": "L3",
+      "score": 0.3,
+      "reason": "模型答案在关键结论处中断，未能回答关于解的存在性是否成立及敏感性来源的核心问题。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00201",
+      "dimension": "C",
+      "difficulty_level": "L3",
+      "score": 0.0,
+      "reason": "模型答案未提供实质性分析，仅重复问题并中断，未能回答是否成立及原因。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00760",
+      "dimension": "C",
+      "difficulty_level": "L4",
+      "score": 0.6,
+      "reason": "模型答案正确指出了自适应补偿机理，但未能完整给出标准答案中关于扰动上界与增益的具体数学约束条件，且回答被截断。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00383",
+      "dimension": "C",
+      "difficulty_level": "L4",
+      "score": 0.3,
+      "reason": "模型答案在分析过程中突然中断，未能完成对适用性判断的完整论述及敏感性来源的总结，导致回答不完整。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00010",
+      "dimension": "D",
+      "difficulty_level": "L2",
+      "score": 0.3,
+      "reason": "模型答案仅重复了题目要求和部分背景概念，完全缺失了建模细节、控制器设计、参数设计步骤及验证方法等核心内容。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00102",
+      "dimension": "D",
+      "difficulty_level": "L2",
+      "score": 0.4,
+      "reason": "方案仅完成了建模部分的开头，未提供控制器设计、参数调节及验证指标等关键内容，导致方案不完整。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00834",
+      "dimension": "D",
+      "difficulty_level": "L2",
+      "score": 0.6,
+      "reason": "模型答案在建模和控制方法选择上正确，但在计算步骤、具体求解过程及验证指标部分内容缺失，导致方案不完整。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00745",
+      "dimension": "D",
+      "difficulty_level": "L2",
+      "score": 0.8,
+      "reason": "模型阶数与结构选择正确，但参数整定步骤缺失且未完整提出验证指标体系，导致部分得分。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00438",
+      "dimension": "D",
+      "difficulty_level": "L3",
+      "score": 0.6,
+      "reason": "模型答案仅完成了问题陈述和初步分析，未提供具体的控制器设计公式、参数选择步骤及验证指标，属于未完成作答。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00541",
+      "dimension": "D",
+      "difficulty_level": "L3",
+      "score": 0.4,
+      "reason": "模型答案仅完成了建模部分，严重缺失控制方法选择理由、参数设计步骤、成本函数定义、约束处理及验证指标等核心内容，无法构成完整的控制器设计方案。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00493",
+      "dimension": "D",
+      "difficulty_level": "L3",
+      "score": 0.8,
+      "reason": "方案核心思路正确且参数计算合理，但模型答案在输出中缺失了题目要求的‘建模方法说明’、‘控制器设计理由’、‘参数计算步骤’及‘验证指标’等完整论述部分，导致内容不完整。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00918",
+      "dimension": "D",
+      "difficulty_level": "L4",
+      "score": 0.3,
+      "reason": "模型答案内容严重截断，仅提供了问题描述的前半部分，完全缺失了建模方法、设计步骤、参数选择依据及验证方法等核心内容，无法进行有效评分。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00067",
+      "dimension": "D",
+      "difficulty_level": "L4",
+      "score": 0.6,
+      "reason": "模型答案在建模部分较为完整，但在控制器设计理由阐述、具体参数设计步骤及验证指标方面内容缺失，导致无法完整满足题目要求。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00868",
+      "dimension": "D",
+      "difficulty_level": "L4",
+      "score": 0.4,
+      "reason": "模型答案未能利用题目提供的标准答案中的具体方程和约束条件，而是以‘缺少系统形式’为由进行假设，导致方案不完整且未满足工程约束的具体量化要求。",
+      "issues": []
+    }
+  ]
+}

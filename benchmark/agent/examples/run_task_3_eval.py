@@ -8,7 +8,6 @@ ROOT = Path(__file__).resolve().parents[3]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from benchmark.agent.agent import PYTHON, PIPELINE_STEPS
 from benchmark.agent.log_schema import LogStep, ExecutionLog
 
 LOGS_DIR = Path(__file__).resolve().parent / "logs"
@@ -16,8 +15,8 @@ LOGS_DIR.mkdir(parents=True, exist_ok=True)
 
 
 EVAL_MODELS = [
-    {"model": "deepseek-v4-flash", "base_url": "https://api.deepseek.com", "api_key_env": "OPENAI_API_KEY"},
-    {"model": "deepseek-v4-pro", "base_url": "https://api.deepseek.com", "api_key_env": "OPENAI_API_KEY"},
+    {"model": "deepseek-v4-flash", "base_url": "https://api.deepseek.com", "api_key_env": "DEEPSEEK_API_KEY|OPENAI_API_KEY"},
+    {"model": "deepseek-v4-pro", "base_url": "https://api.deepseek.com", "api_key_env": "DEEPSEEK_API_KEY|OPENAI_API_KEY"},
     {"model": "mimo-v2-flash", "base_url": "https://api.xiaomimimo.com/v1", "api_key_env": "MIMO_API_KEY"},
     {"model": "mimo-v2-pro", "base_url": "https://api.xiaomimimo.com/v1", "api_key_env": "MIMO_API_KEY"},
     {"model": "mimo-v2.5", "base_url": "https://api.xiaomimimo.com/v1", "api_key_env": "MIMO_API_KEY"},
@@ -29,6 +28,18 @@ EVAL_MODELS = [
 
 BENCHMARK_PATH = str(ROOT / "benchmark" / "dataset" / "core.json")
 OUTPUT_DIR = str(ROOT / "benchmark" / "eval" / "reports")
+PYTHON = sys.executable
+PIPELINE_STEPS = [
+    {"name": "模型评测", "desc": "对公开 benchmark/dataset/core.json 执行多模型评测"}
+]
+
+
+def first_env(env_spec):
+    for env_name in env_spec.split("|"):
+        value = os.environ.get(env_name.strip(), "")
+        if value:
+            return value
+    return ""
 
 
 def main():
@@ -38,7 +49,7 @@ def main():
     print("ControlSci Agent — Task 3: 多模型评测")
     print("=" * 60)
 
-    eval_step = PIPELINE_STEPS[4]
+    eval_step = PIPELINE_STEPS[0]
     print(f"\n评测步骤: {eval_step['name']} — {eval_step['desc']}")
 
     print(f"\nBenchmark 路径: {BENCHMARK_PATH}")
@@ -48,14 +59,14 @@ def main():
     t0 = time.time()
     eval_commands = []
 
-    judge_api_key = os.environ.get("OPENAI_API_KEY", "")
+    judge_api_key = first_env("DEEPSEEK_API_KEY|OPENAI_API_KEY")
 
     for m in EVAL_MODELS:
-        api_key = os.environ.get(m["api_key_env"], "(未设置)")
+        api_key = first_env(m["api_key_env"]) or "(未设置)"
         key_set = api_key and api_key != "(未设置)"
 
-        masked_target_key = f"${m['api_key_env']}" if key_set else "(未设置)"
-        masked_judge_key = "$OPENAI_API_KEY" if judge_api_key else "(未设置)"
+        masked_target_key = f"${m['api_key_env'].replace('|', '/')}" if key_set else "(未设置)"
+        masked_judge_key = "$DEEPSEEK_API_KEY/$OPENAI_API_KEY" if judge_api_key else "(未设置)"
 
         cmd_parts = [
             PYTHON, "benchmark/eval/evaluate.py",

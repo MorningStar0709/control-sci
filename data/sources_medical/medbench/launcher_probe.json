@@ -1,0 +1,49 @@
+{
+  "meta": {
+    "title": "MedBench 自评测报告",
+    "generated_at": "2026-05-11T13:38:03",
+    "elapsed_seconds": 4.8,
+    "source": "MedBench_LLM.zip",
+    "index_source": "data/sources_medical/index/",
+    "progress_source": "data\\sources_medical\\medbench\\launcher_probe.json.progress.jsonl",
+    "status_source": "data\\sources_medical\\medbench\\launcher_probe.json.status.json",
+    "note": "此为自评测，非 MedBench 官方评测。正式评测由组委会执行。"
+  },
+  "statistics": {
+    "total_questions": 1,
+    "total_subsets": 1,
+    "overall_avg_hits": 5.0,
+    "overall_coverage": 1.0,
+    "subsets": {
+      "CMB-Clin-extended": {
+        "total": 1,
+        "with_retrieval": 1,
+        "avg_hits": 5.0,
+        "coverage": 1.0
+      }
+    }
+  },
+  "per_question": [
+    {
+      "query_id": "MB-CMB-Clin-extended-77",
+      "subset": "CMB-Clin-extended",
+      "question": "## 任务类型：复杂医学推理--临床问诊\n任务目标：依据患者的基本信息，分析该患者最可能的诊断及依据，并提出需立即完善的检查。\n\n## 输出要求\n- 输出格式应严格保持如下示例格式：\n诊断：疾病名称\n诊断依据：详细说明诊断的依据，包括症状、体征、实验室检查或影像学特征等。\n需立即完善的检查：列出需要立即完善的检查项目。\n\n## 题目和问题\n患者男性，53岁，主因“难治性高血压14年”就诊。患者39岁时发现高血压，41岁因高血压导致蛛网膜下腔出血，行右前交通动脉瘤夹闭术；1年后因血压235/130mmHg（1mmHg=0.133kPa）控制不佳入院心内科，予四联降压药（硝苯地平控释片80mg、阿罗洛尔30mg、替米沙坦80mg、吲达帕胺1.5mg，均每日口服）效果不佳，加用多沙唑嗪4mg/d、螺内酯60mg/d后血压降至160/100mmHg，住院期间发现双侧肾上腺占位，转入泌尿外科后行左侧肾上腺切除术，术后服一种降压药即可使血压降至正常。术后7年，患者血压再次升高，达220/130mmHg，予四联降压药治疗效果仍不佳；此次就诊前四年，口服三联降压药时血压波动于160~230/100~130mmHg，偶尔出现低钾，最低3.06mmol/L，无乏力、头痛、视力障碍等不适。患者无高血压家族史，先后两次结婚，育有一子一女，子女身体均健且青春发育期无性早熟等异常。\n体格检查：血压230/130mmHg，体重指数24kg/m²，无明显向心性肥胖、满月脸、水牛背等表现；心肺听诊无异常，腹软，肝脾不大，未触及包块；肩胛区、胸骨旁、腋下及腹部未闻及血管杂音，四肢脉搏搏动对称一致，上下肢血压无明显差异，双下肢无浮肿。\n辅助检查：激素水平测定示血促肾上腺皮质激素（ACTH）节律存在，8:00ACTH17.78pg/ml，16:00ACTH13.65pg/ml，24:00ACTH11.91pg/ml；血皮质醇节律存在，8:00皮质醇354.47nmol/L，16:00皮质醇202.44nmol/L，24:00皮质醇143.63nmol/L；1mg地塞米松抑制试验后早晨8:00皮质醇254.6nmol/L；24h尿游离皮质醇383.14nmol/24h。肾素-血管紧张素-醛固酮系统检查4次均未见异常，醛固酮144.3pg/ml（立位正常范围34.7~275pg/ml），肾素活性立位1.49ng/（ml・h）（正常范围0.93~6.56ng/（ml・h）），ARR96.8，血管紧张素Ⅱ44.25pg/ml（立位正常范围55.3~115.3pg/ml）；尿VMA24.3μmol/24h（正常范围0~68.6μmol/24h）。血钾共查5次，其中两次分别为3.06mmol/L和3.16mmol/L；24h尿钾分别为32.29mmol/L和25.32mmol/L。空腹血糖查4次，两次异常分别为6.44mmol/L及7.07mmol/L；甲状腺功能正常，血PTH37.14pg/ml（正常范围15~65pg/ml），睾酮2.14ng/ml（正常范围1.88~6.84ng/ml）。影像学检查：2021年12月29日肾上腺CT示左肾上腺术后改变，右侧肾上腺多发团簇样低密度影，最大层面范围约28mm×51mm×44mm，CT值12HU。\n请分析该患者最可能的诊断及依据，并提出需立即完善的检查。\n",
+      "answer_gt": "",
+      "generated_answer": "",
+      "retrieval_count": 5,
+      "retrieval_labels": [
+        "_front_matter_other",
+        "_results_other",
+        "population",
+        "discussion",
+        "_methods_other"
+      ],
+      "retrieval_pmcids": [
+        "PMC7414682",
+        "PMC6133081",
+        "PMC6097773"
+      ],
+      "context_chunks_used": 0
+    }
+  ]
+}

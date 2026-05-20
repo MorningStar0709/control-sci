@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><title>ControlSci E3b Demo — Local Training Screenshot</title>
+<style>
+body { background: #1e1e1e; color: #d4d4d4; font-family: 'Consolas', 'Cascadia Code', 'Microsoft YaHei Mono', monospace; font-size: 14px; line-height: 1.6; padding: 24px; max-width: 900px; margin: auto; white-space: pre-wrap; }
+.hl { color: #4ec9b0; font-weight: bold; }
+.g { color: #6a9955; }
+.r { color: #ce9178; }
+.b { color: #569cd6; }
+.y { color: #dcdcaa; }
+.sep { color: #808080; }
+</style></head>
+<body>
+  <span class='sep'>====================================================================</span>
+  <span class='hl'>  ControlSci Dataset Demo  —  E3b 本地训练截图</span>
+  <span class='sep'>====================================================================</span>
+  <span class='b'>  示例题: 4 维度 (A/B/C/D)  |  Leaderboard: Top 5 / 9 模型</span>
+
+  <span class='sep'>────────────────────────────────────────────────────────────────────</span>
+  <span class='y'>  4 维示例题展示</span>
+  <span class='sep'>────────────────────────────────────────────────────────────────────</span>
+
+  [<span class='hl'>A</span>] <span class='r'>CS-EVO-00071</span>  (L1, optimal)
+      <span class='b'>Q:</span> 什么是RUDER_MBOT_RL算法？请写出其核心控制目标函数。
+      <span class='g'>A:</span> RUDER_MBOT_RL是一种基于强化学习的移动机器人控制算法，其核心控制目标函数为 J(π) = E[∑_{t=0}^{T} γ^t r(s_t, a_t)
+
+  [<span class='hl'>B</span>] <span class='r'>CS-EVO-00638</span>  (L3, robust)
+      <span class='b'>Q:</span> 设n=1，且所有自由矩阵为单位矩阵，计算Ξ₀的具体标量表达式。
+      <span class='g'>A:</span> 当n=1时，Ξ₀ = (L₂ᵀ P L₂ - L₁ᵀ P L₁) + (L₂-L₁)ᵀ (R₂-R₁)(L₂-L₁)。代入P=1, R₁=R₂=1得Ξ₀ = 0
+
+  [<span class='hl'>C</span>] <span class='r'>CS-EVO-00251</span>  (L2, classical)
+      <span class='b'>Q:</span> 若实际系统最高极点频率是估计值的2倍，而设计时使用了估计值，原结论「高频极点不影响系统响应」是否仍然成立？
+      <span class='g'>A:</span> 不成立。ρ/pz_max_actual = 5，不满足10倍条件。
+
+  [<span class='hl'>D</span>] <span class='r'>CS-EVO-00270</span>  (L3, optimal, mpc)
+      <span class='b'>Q:</span> 请设计一个基于参数二次规划的显式模型预测控制器，给出反馈控制律u⁰(x)和验证方法。
+      <span class='g'>A:</span> u⁰(x)分段仿射：x≤0时u=2-x, 0≤x≤2时u=2-x/2, x≥2时u=x/2。验证含约束满意度+闭环性能。
+
+  <span class='sep'>────────────────────────────────────────────────────────────────────</span>
+  <span class='y'>  Leaderboard Top 5</span>
+  <span class='sep'>────────────────────────────────────────────────────────────────────</span>
+  <span class='b'>Rank   Model                  Total    A        B        C        D       </span>
+  <span class='sep'>------------------------------------------------------------------</span>
+  1      MiMo-v2-flash          64.7     61.0     60.6     63.6     73.6    
+  2      DeepSeek-v4-flash      63.2     63.4     63.1     71.4     55.0    
+  3      Qwen3.5-9B             62.5     56.9     61.0     66.2     65.9    
+  4      DeepSeek-v4-pro        61.9     62.7     59.0     74.2     51.4    
+  5      MiniMax-M2.5-highspeed 60.2     63.8     51.9     62.4     62.6    
+
+  <span class='sep'>====================================================================</span>
+  <span class='hl'>  Cell 6: 微调 Demo — Qwen2.5-1.5B-Instruct on RTX 5090</span>
+  <span class='sep'>====================================================================</span>
+
+  [1/5] 加载数据集...
+  <span class='g'>  ✅ 数据集: 10 样本</span>
+
+  [2/5] 加载分词器...
+  <span class='g'>  ✅ 分词器: vocab_size=151643</span>
+
+  [3/5] 加载模型 (fp16)...
+  <span class='g'>  ✅ 模型: 1.5B 参数, device=cuda:0</span>
+  <span class='g'>  ✅ GPU: NVIDIA GeForce RTX 5090 Laptop GPU (25.7 GB)</span>
+
+  [4/5] 开始训练...
+  <span class='hl'>  Loss: 2.2482 → 2.0522  (Δ=-0.1960, ↓)</span>
+  <span class='g'>  ✅ 训练完成</span>
+
+  [5/5] 结果摘要
+  <span class='b'>  ⏱ 全流程耗时: 7.3s</span>
+  <span class='b'>  🖥 GPU: NVIDIA GeForce RTX 5090 Laptop GPU</span>
+  <span class='b'>  📊 纯训练: 1.8s</span>
+
+  <span class='sep'>====================================================================</span>
+  <span class='hl'>  ✅ E3b 本地训练截图 — load_dataset → trainer.train() 零适配完成</span>
+  <span class='sep'>====================================================================</span>
+</body></html>

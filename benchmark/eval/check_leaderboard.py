@@ -1,13 +1,15 @@
 """Verify leaderboard data integrity.
 
 Usage:
-    conda run --no-capture-output -n myenv python benchmark/eval/check_leaderboard.py
+    conda run --no-capture-output -n myenv python benchmark/eval/check_leaderboard.py [path/to/leaderboard.json]
 """
 import json, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-LEADERBOARD_PATH = ROOT / "benchmark" / "eval" / "reports" / "leaderboard.json"
+LEADERBOARD_PATH = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "benchmark" / "eval" / "results" / "leaderboard.json"
+if not LEADERBOARD_PATH.is_absolute():
+    LEADERBOARD_PATH = ROOT / LEADERBOARD_PATH
 
 if not LEADERBOARD_PATH.exists():
     print(f"Leaderboard not found: {LEADERBOARD_PATH}")
@@ -37,13 +39,13 @@ for i, m in enumerate(sorted(models, key=lambda x: -x.get("overall_score", 0)), 
     print(f"| {i} | {name} | {overall:.4f} | {a} | {b} | {c} | {d} | {n} | {ok} |")
     
     if not isinstance(overall, (int, float)) or overall < 0 or overall > 1:
-        errors.append(f"  ❌ {name}: overall_score={overall} out of range [0,1]")
+        errors.append(f"  [FAIL] {name}: overall_score={overall} out of range [0,1]")
 
 print()
 if errors:
     for e in errors:
         print(e)
-    print(f"\n❌ {len(errors)} error(s) found")
+    print(f"\n[FAIL] {len(errors)} error(s) found")
     sys.exit(1)
 else:
-    print(f"✅ All {len(models)} models valid, scores in [0,1] range")
+    print(f"[OK] All {len(models)} models valid, scores in [0,1] range")

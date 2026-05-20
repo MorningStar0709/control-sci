@@ -39,6 +39,7 @@ import subprocess
 import sys
 import textwrap
 import time
+import uuid
 from dataclasses import dataclass, field
 from datetime import datetime
 from pathlib import Path
@@ -255,7 +256,7 @@ FEW_SHOT_EXAMPLES = """
       "step": 1,
       "intent_id": "benchmark_build",
       "description": "基于已解析语料 chunk 使用三 Provider 生成 500 题评测数据集",
-      "parameters": {"source": "corpus/chunks/", "target_size": 500, "output": "benchmark/dataset/core.json"}
+      "parameters": {"source": "corpus/", "target_size": 500, "output": "benchmark/dataset/core.json"}
     },
     {
       "step": 2,
@@ -647,6 +648,8 @@ def _conda_python(args: List[str]) -> List[str]:
     """规则 10.6.1: Windows conda run --no-capture-output 避免 GBK 编码崩溃。
     模块级缓存 conda 可用性探测结果，避免每次调用都启动 subprocess（~0.5s/次）。"""
     global _CONDA_PROBED
+    if os.environ.get("CONDA_DEFAULT_ENV") == "myenv":
+        return [sys.executable] + args
     if _CONDA_PROBED is None:
         try:
             subprocess.run(["conda", "run", "-n", "myenv", "python", "--version"],
@@ -869,6 +872,9 @@ class Executor:
         source = params.get("source", "data/sources_flywheel/")
         output_dir = params.get("output_dir", "data/sources_flywheel/md/")
         lang = params.get("lang", "ch")
+        parser_backend = params.get("parser_backend", params.get("backend", "local"))
+        data_class = params.get("data_class", "private_enterprise")
+        allow_cloud_upload = bool(params.get("allow_cloud_upload", False))
 
         script_path = ROOT / "tools" / "mineru_to_md.py"
 
@@ -877,33 +883,45 @@ class Executor:
             "--input-dir", str(source),
             "--output-dir", str(output_dir),
             "--lang", str(lang),
+            "--backend", str(parser_backend),
+            "--data-class", str(data_class),
             "--skip-existing",
             "--stats",
         ])
-        logger.info("  → mineru_parse: MinerU API 解析 PDF, src=%s, output=%s", source, output_dir)
+        if allow_cloud_upload:
+            cmd.append("--allow-cloud-upload")
+        logger.info("  → mineru_parse: backend=%s, data_class=%s, src=%s, output=%s", parser_backend, data_class, source, output_dir)
         logger.info("  → cmd: %s", _safe_cmd(cmd))
         return _run_subprocess(cmd, timeout=3600)
 
     def _exec_corpus_parse(self, params: dict, resolved=None) -> Tuple[int, str, str]:
-        source = params.get("source", "corpus/")
+        source = params.get("source", "data/sources/")
         recursive = params.get("recursive", True)
-        output_dir = params.get("output_dir", "data/processed/")
+        output_dir = params.get("output_dir", "data/processed/md/")
         max_files = params.get("max_files", 0)
+        parser_backend = params.get("parser_backend", params.get("backend", "local"))
+        data_class = params.get("data_class", "private_enterprise")
+        allow_cloud_upload = bool(params.get("allow_cloud_upload", False))
 
         cmd = _conda_python([
-            "benchmark/pipeline/build_benchmark.py",
-            "--corpus", str(source),
-            "--provider", "deepseek",
-            "--output", str(output_dir),
+            str(ROOT / "tools" / "mineru_to_md.py"),
+            "--input-dir", str(source),
+            "--output-dir", str(output_dir),
+            "--backend", str(parser_backend),
+            "--data-class", str(data_class),
+            "--skip-existing",
+            "--stats",
         ])
+
         if recursive:
             cmd.append("--recursive")
         if max_files > 0:
-            cmd.append("--limit")
-            cmd.append(str(max_files))
+            cmd.extend(["--max-files", str(max_files)])
+        if allow_cloud_upload:
+            cmd.append("--allow-cloud-upload")
 
-        logger.info("  → corpus_parse: MinerU 解析 + chunk 生成, src=%s, output=%s, recursive=%s, max=%s",
-                     source, output_dir, recursive, max_files or "all")
+        logger.info("  → corpus_parse: MinerU 文档解析, src=%s, output=%s, backend=%s, recursive=%s, max=%s",
+                     source, output_dir, parser_backend, recursive, max_files or "all")
         logger.info("  → cmd: %s", _safe_cmd(cmd))
         return _run_subprocess(cmd, timeout=7200)
 
@@ -1035,25 +1053,40 @@ class Executor:
             return 1, "", error_msg
 
     def _exec_benchmark_build(self, params: dict, resolved=None) -> Tuple[int, str, str]:
-        source = params.get("source", "corpus/chunks/")
-        target_size = params.get("target_size", 500)
-        providers = params.get("providers", ["deepseek", "mimo", "minimax"])
+        source = params.get("source", "corpus/")
+        target_size = params.get("limit", params.get("target_size", 500))
+        provider = params.get("provider", "")
+        providers = params.get("providers", ["deepseek"])
         output = params.get("output", "benchmark/dataset/core.json")
+        review_output = params.get("manual_review_output")
+        seed = params.get("seed", 42)
+        mock = bool(params.get("mock", False))
+        dry_run = bool(params.get("dry_run", False))
 
-        if resolved and resolved.provider == "ollama" and "ollama" not in providers:
-            providers = list(providers) + ["ollama"]
+        if provider:
+            selected_provider = str(provider)
+        elif isinstance(providers, list) and providers:
+            selected_provider = str(providers[0])
+        else:
+            selected_provider = "deepseek"
 
-        provider_str = ",".join(providers)
         cmd = _conda_python([
             "benchmark/pipeline/build_benchmark.py",
             "--corpus", str(source),
-            "--provider", provider_str,
+            "--provider", selected_provider,
             "--limit", str(target_size),
             "--output", str(output),
+            "--seed", str(seed),
         ])
+        if review_output:
+            cmd.extend(["--manual-review-output", str(review_output)])
+        if mock:
+            cmd.append("--mock")
+        if dry_run:
+            cmd.append("--dry-run")
 
-        logger.info("  → benchmark_build: 构建 %d 题评测数据集, providers=%s, output=%s",
-                     target_size, provider_str, output)
+        logger.info("  → benchmark_build: 构建 %d 题评测数据集, provider=%s, output=%s, seed=%s",
+                     target_size, selected_provider, output, seed)
         logger.info("  → cmd: %s", _safe_cmd(cmd))
         return _run_subprocess(cmd, timeout=14400)
 
@@ -1086,7 +1119,7 @@ class Executor:
         max_questions = params.get("max_questions", 0)
 
         target_base_url, target_api_key_env = self._resolve_target(model)
-        target_api_key = os.environ.get(target_api_key_env, "") if target_api_key_env else ""
+        target_api_key = self._get_api_key(target_api_key_env) if target_api_key_env else ""
 
         if resolved and resolved.provider == "ollama":
             judge_model = "qwen3.5:9b"
@@ -1128,10 +1161,18 @@ class Executor:
         if "mimo" in m:
             return "https://api.xiaomimimo.com/v1", "MIMO_API_KEY"
         if "deepseek" in m:
-            return "https://api.deepseek.com", "OPENAI_API_KEY"
+            return "https://api.deepseek.com", "DEEPSEEK_API_KEY|OPENAI_API_KEY"
         if ":" in model:
             return "http://localhost:11434/v1", ""
         return None, "OPENAI_API_KEY"
+
+    @staticmethod
+    def _get_api_key(env_spec: str) -> str:
+        for env_name in env_spec.split("|"):
+            value = os.environ.get(env_name.strip(), "")
+            if value:
+                return value
+        return ""
 
     def _exec_multi_judge_compare(self, params: dict, resolved=None) -> Tuple[int, str, str]:
         models = params.get("models", ["deepseek-v4-flash", "mimo-v2-flash", "qwen3.5:9b"])
@@ -1139,6 +1180,7 @@ class Executor:
         local_judge = params.get("local_judge", "qwen3.5:9b")
         dataset = params.get("dataset", "benchmark/dataset/core.json")
         output = params.get("output", "benchmark/eval/results/judge_comparison.json")
+        max_questions = params.get("max_questions", params.get("limit", 0))
 
         output_path = Path(output)
         output_dir = output_path.parent
@@ -1170,6 +1212,8 @@ class Executor:
                 ])
                 if run_cfg.get("judge_api_key"):
                     cmd.extend(["--judge-api-key", run_cfg["judge_api_key"]])
+                if max_questions:
+                    cmd.extend(["--limit", str(max_questions)])
 
                 logger.info("  → multi_judge_compare [%s/%s]: judge=%s",
                              run_cfg["label"], model, run_cfg["judge_model"])
@@ -1236,6 +1280,9 @@ class Executor:
         input_dir = params.get("input_dir", "benchmark/agent/test_materials/")
         output_dir = params.get("output_dir", "benchmark/agent/test_materials/md/")
         lang = params.get("lang", "ch")
+        parser_backend = params.get("parser_backend", params.get("backend", "local"))
+        data_class = params.get("data_class", "private_enterprise")
+        allow_cloud_upload = bool(params.get("allow_cloud_upload", False))
 
         script_path = ROOT / "tools" / "mineru_to_md.py"
         abs_input_dir = ROOT / input_dir
@@ -1254,9 +1301,13 @@ class Executor:
                 *resolved_files,
                 "--output-dir", str(abs_output),
                 "--lang", str(lang),
+                "--backend", str(parser_backend),
+                "--data-class", str(data_class),
                 "--skip-existing",
                 "--stats",
             ])
+            if allow_cloud_upload:
+                cmd.append("--allow-cloud-upload")
             logger.info("  → multi_format_parse: %d files resolved to %s", len(files), input_dir)
         else:
             cmd = _conda_python([
@@ -1265,49 +1316,57 @@ class Executor:
                 "--recursive",
                 "--output-dir", str(abs_output),
                 "--lang", str(lang),
+                "--backend", str(parser_backend),
+                "--data-class", str(data_class),
                 "--skip-existing",
                 "--stats",
             ])
+            if allow_cloud_upload:
+                cmd.append("--allow-cloud-upload")
             logger.info("  → multi_format_parse: dir=%s via mineru_to_md.py", input_dir)
 
         logger.info("  → cmd: %s", _safe_cmd(cmd))
         return _run_subprocess(cmd, timeout=3600)
 
     def _exec_local_finetune(self, params: dict, resolved=None) -> Tuple[int, str, str]:
-        dataset = params.get("dataset", "finetune/data/")
-        base_model = params.get("base_model", "qwen3.5:9b")
-        epochs = params.get("epochs", 3)
-        lora_rank = params.get("lora_rank", 16)
-        output_dir = params.get("output_dir", "finetune/output/")
+        config = params.get("config", "finetune/config/qlora_config.yaml")
+        dry_run = bool(params.get("dry_run", False))
+        resume = bool(params.get("resume", False))
+        force = bool(params.get("force", False))
 
         cmd = _conda_python([
-            "finetune/train_qlora.py",
-            "--dataset", str(dataset),
-            "--base-model", base_model,
-            "--epochs", str(epochs),
-            "--lora-rank", str(lora_rank),
-            "--output-dir", str(output_dir),
+            "finetune/scripts/train_qlora.py",
+            "--config", str(config),
         ])
+        if dry_run:
+            cmd.append("--dry-run")
+        if resume:
+            cmd.append("--resume")
+        if force:
+            cmd.append("--force")
 
-        logger.info("  → local_finetune: QLoRA %s, epochs=%d, rank=%d", base_model, epochs, lora_rank)
+        logger.info("  → local_finetune: QLoRA config=%s, dry_run=%s", config, dry_run)
         logger.info("  → cmd: %s", _safe_cmd(cmd))
         return _run_subprocess(cmd, timeout=28800)
 
     def _exec_reproduce_all(self, params: dict, resolved=None) -> Tuple[int, str, str]:
         steps_param = params.get("steps", [])
+        profile = str(params.get("profile", "smoke") or "smoke").lower()
+        if profile not in ("smoke", "report"):
+            profile = "smoke"
         local_mode = params.get("local_mode", self._local_mode)
         skip_existing = params.get("skip_existing", True)
         output_dir = params.get("output_dir", "benchmark/reproduce/")
 
         ps1_path = ROOT / "run_agent.ps1"
         if ps1_path.exists():
-            logger.info("  → reproduce_all: 执行 run_agent.ps1, skip_existing=%s, local=%s",
-                         skip_existing, local_mode)
+            logger.info("  → reproduce_all: 执行 run_agent.ps1, profile=%s, skip_existing=%s, local=%s",
+                         profile, skip_existing, local_mode)
             env_extra = {
                 "AGENT_LOCAL_MODE": "1" if local_mode else "0",
                 "AGENT_SKIP_EXISTING": "1" if skip_existing else "0",
             }
-            cmd = ["powershell", "-ExecutionPolicy", "Bypass", "-File", str(ps1_path)]
+            cmd = ["powershell", "-ExecutionPolicy", "Bypass", "-File", str(ps1_path), "-Profile", profile]
             return _run_subprocess(cmd, timeout=86400, env_extra=env_extra)
 
         status_msg = json.dumps({
@@ -1329,17 +1388,41 @@ class Executor:
         return _run_subprocess(cmd, timeout=60, env_extra={"AGENT_REPRODUCE_MSG": status_msg})
 
     def _exec_medical_rag(self, params: dict, resolved=None) -> Tuple[int, str, str]:
+        profile = str(params.get("profile", "smoke") or "smoke").lower()
+        if profile not in ("smoke", "report"):
+            profile = "smoke"
         input_dir = params.get("input_dir", str(ROOT / "data" / "sources_medical"))
         output_dir = params.get("output_dir", str(ROOT / "benchmark" / "eval" / "results" / "medical"))
         skip_train = params.get("skip_train", False)
         skip_hybrid = params.get("skip_hybrid", False)
         skip_viz = params.get("skip_viz", False)
+        chunks_dir = params.get("chunks_dir", "")
+        index_dir = params.get("index_dir", "")
+        qa_output = params.get("qa_output", "")
+        viz_output = params.get("viz_output", "")
+        max_chunks = int(params.get("max_chunks", 0) or 0)
+        n_queries = int(params.get("n_queries", 0) or 0)
+        top_k_judge = int(params.get("top_k_judge", 0) or 0)
+        ollama_models = str(params.get("ollama_models", "") or "")
+        qa_limit_queries = int(params.get("qa_limit_queries", 0) or 0)
+        skip_query_gen = params.get("skip_query_gen", None)
+        skip_api_judge = bool(params.get("skip_api_judge", False))
+        skip_ollama_judge = bool(params.get("skip_ollama_judge", False))
+        qa_allow_empty = bool(params.get("qa_allow_empty", False))
         if isinstance(skip_train, str):
             skip_train = skip_train.lower() in ("true", "1", "yes")
         if isinstance(skip_hybrid, str):
             skip_hybrid = skip_hybrid.lower() in ("true", "1", "yes")
         if isinstance(skip_viz, str):
             skip_viz = skip_viz.lower() in ("true", "1", "yes")
+        if isinstance(skip_query_gen, str):
+            skip_query_gen = skip_query_gen.lower() in ("true", "1", "yes")
+        if isinstance(skip_api_judge, str):
+            skip_api_judge = skip_api_judge.lower() in ("true", "1", "yes")
+        if isinstance(skip_ollama_judge, str):
+            skip_ollama_judge = skip_ollama_judge.lower() in ("true", "1", "yes")
+        if isinstance(qa_allow_empty, str):
+            qa_allow_empty = qa_allow_empty.lower() in ("true", "1", "yes")
 
         handler_path = ROOT / "benchmark" / "agent" / "medical_rag_handler.py"
         if not handler_path.exists():
@@ -1354,9 +1437,38 @@ class Executor:
 
         cmd = _conda_python([
             str(handler_path),
+            "--profile", profile,
             "--input", input_dir,
             "--output", output_dir,
         ])
+        if chunks_dir:
+            cmd.extend(["--chunks-dir", str(chunks_dir)])
+        if index_dir:
+            cmd.extend(["--index-dir", str(index_dir)])
+        if qa_output:
+            cmd.extend(["--qa-output", str(qa_output)])
+        if viz_output:
+            cmd.extend(["--viz-output", str(viz_output)])
+        if max_chunks > 0:
+            cmd.extend(["--max-chunks", str(max_chunks)])
+        if n_queries > 0:
+            cmd.extend(["--n-queries", str(n_queries)])
+        if top_k_judge > 0:
+            cmd.extend(["--top-k-judge", str(top_k_judge)])
+        if ollama_models:
+            cmd.extend(["--ollama-models", ollama_models])
+        if qa_limit_queries > 0:
+            cmd.extend(["--qa-limit-queries", str(qa_limit_queries)])
+        if skip_query_gen is True:
+            cmd.append("--skip-query-gen")
+        elif skip_query_gen is False:
+            cmd.append("--no-skip-query-gen")
+        if skip_api_judge:
+            cmd.append("--skip-api-judge")
+        if skip_ollama_judge:
+            cmd.append("--skip-ollama-judge")
+        if qa_allow_empty:
+            cmd.append("--qa-allow-empty")
         if skip_train:
             cmd.append("--skip-train")
         if skip_hybrid:
@@ -1364,8 +1476,8 @@ class Executor:
         if skip_viz:
             cmd.append("--skip-viz")
 
-        logger.info("  → medical_rag: 医疗RAG全流程, input=%s, output=%s, skip_train=%s, skip_hybrid=%s, skip_viz=%s",
-                     input_dir, output_dir, skip_train, skip_hybrid, skip_viz)
+        logger.info("  → medical_rag: 医疗RAG全流程, profile=%s, input=%s, output=%s, skip_train=%s, skip_hybrid=%s, skip_viz=%s",
+                     profile, input_dir, output_dir, skip_train, skip_hybrid, skip_viz)
         logger.info("  → cmd: %s", _safe_cmd(cmd))
         return _run_subprocess(cmd, timeout=54000, env_extra={"_MRAG_CONDA_WRAPPED": "1"})
 
@@ -1402,12 +1514,12 @@ class ControlSciAgentCLI:
             return self._env_checked
         warnings = []
         checks = [
-            ("OPENAI_API_KEY", "DeepSeek API"),
+            ("DEEPSEEK_API_KEY|OPENAI_API_KEY", "DeepSeek API"),
             ("MIMO_API_KEY", "MiMo API"),
         ]
-        for var, name in checks:
-            if not os.environ.get(var):
-                warnings.append(f"{name} Key 未设置 (环境变量 {var})")
+        for var_spec, name in checks:
+            if not any(os.environ.get(var.strip()) for var in var_spec.split("|")):
+                warnings.append(f"{name} Key 未设置 (环境变量 {var_spec.replace('|', '/')})")
 
         ollama_host = os.environ.get("OLLAMA_HOST", "http://localhost:11434")
         try:
@@ -1421,12 +1533,12 @@ class ControlSciAgentCLI:
         return warnings
 
     def run(self, user_input: str = None, intent_list: List[str] = None,
-            intent_params: dict = None) -> ExecutionLog:
+            intent_params: dict = None, expand_deps: bool = True) -> ExecutionLog:
         env_warnings = self._check_env()
         for w in env_warnings:
             logger.warning("⚠ %s", w)
 
-        task_id = datetime.now().strftime("agent-%Y%m%d-%H%M%S")
+        task_id = f"{datetime.now().strftime('agent-%Y%m%d-%H%M%S-%f')}-{uuid.uuid4().hex[:8]}"
         task_name = user_input[:80] if user_input else (
             ",".join(intent_list) if intent_list else "agent-task"
         )
@@ -1440,6 +1552,8 @@ class ControlSciAgentCLI:
             logger.info("🔮 Intent Router 正在将自然语言拆解为执行计划...")
             try:
                 plan = self._router.plan(user_input)
+                if expand_deps:
+                    plan = self._expand_plan_dependencies(plan)
             except Exception as e:
                 logger.error("❌ Intent Router 失败: %s", e)
                 self._execution_log.final_status = "failed"
@@ -1447,6 +1561,8 @@ class ControlSciAgentCLI:
                 return self._execution_log
         elif intent_list:
             plan = self._intent_list_to_plan(intent_list, intent_params)
+            if expand_deps:
+                plan = self._expand_plan_dependencies(plan)
         else:
             logger.error("必须提供 user_input 或 intent_list")
             self._execution_log.final_status = "failed"
@@ -1627,7 +1743,8 @@ class ControlSciAgentCLI:
         return improved, reason
 
     def _intent_list_to_plan(self, intent_ids: List[str],
-                              intent_params: dict = None) -> List[PlanStep]:
+                              intent_params: dict = None,
+                              log_params: bool = True) -> List[PlanStep]:
         plan = []
         for idx, pid in enumerate(intent_ids, 1):
             pid = pid.strip()
@@ -1640,8 +1757,9 @@ class ControlSciAgentCLI:
                 raw = intent_params[pid]
                 if isinstance(raw, dict):
                     params = dict(raw)
-                    logger.info("  📝 [%s] 使用自定义参数: %s", pid,
-                                 json.dumps(params, ensure_ascii=False))
+                    if log_params:
+                        logger.info("  📝 [%s] 使用自定义参数: %s", pid,
+                                     json.dumps(params, ensure_ascii=False))
                 else:
                     logger.warning("  ⚠️ [%s] intent_params 值不是 dict (type=%s), 已跳过",
                                    pid, type(raw).__name__)
@@ -1657,14 +1775,49 @@ class ControlSciAgentCLI:
             ))
         return plan
 
+    def _expand_plan_dependencies(self, plan: List[PlanStep]) -> List[PlanStep]:
+        requested_params = {step.intent_id: step.parameters for step in plan}
+        expanded_ids: List[str] = []
+        visiting: set[str] = set()
+
+        def visit(intent_id: str):
+            if intent_id in expanded_ids:
+                return
+            if intent_id in visiting:
+                raise ValueError(f"Intent dependency cycle detected at {intent_id}")
+            intent_info = self._registry.get(intent_id)
+            if intent_info is None:
+                raise ValueError(f"Unknown intent_id in dependency graph: {intent_id}")
+            visiting.add(intent_id)
+            for dep in intent_info.get("depends_on", []):
+                visit(dep)
+            visiting.remove(intent_id)
+            expanded_ids.append(intent_id)
+
+        for step in plan:
+            visit(step.intent_id)
+
+        expanded = self._intent_list_to_plan(
+            expanded_ids,
+            {pid: requested_params[pid] for pid in requested_params},
+            log_params=False,
+        )
+        if [s.intent_id for s in expanded] != [s.intent_id for s in plan]:
+            logger.info("  🧭 已补齐依赖 DAG: %s", " → ".join(s.intent_id for s in expanded))
+        return expanded
+
     def save_log(self, path: str = None):
         if self._execution_log is None:
             logger.warning("无执行日志可保存")
             return ""
         path = path or str(_get_logs_dir() / f"{self._execution_log.task_id}.json")
-        self._execution_log.save(path)
-        logger.info("执行日志已保存: %s", path)
-        return path
+        try:
+            self._execution_log.save(path)
+            logger.info("执行日志已保存: %s", path)
+            return path
+        except Exception as e:
+            logger.error("执行日志保存失败（不覆盖主任务状态）: %s", e)
+            return ""
 
     def print_summary(self):
         if self._execution_log is None:
@@ -1744,6 +1897,10 @@ def build_parser() -> argparse.ArgumentParser:
         help='per-intent 自定义参数 JSON，如 \'{"cross_modal_audit":{"max_images":10}}\'',
     )
     parser.add_argument(
+        "--no-expand-deps", action="store_true",
+        help="不自动补齐 intent 依赖；用于已有产物驱动的复现入口。",
+    )
+    parser.add_argument(
         "--list-intents", action="store_true",
         help="列出全部可用能力并退出",
     )
@@ -1784,7 +1941,10 @@ def main():
     intent_params = None
     if args.intent_params:
         try:
-            intent_params = json.loads(args.intent_params)
+            raw_intent_params = args.intent_params
+            if raw_intent_params.startswith("@"):
+                raw_intent_params = Path(raw_intent_params[1:]).read_text(encoding="utf-8")
+            intent_params = json.loads(raw_intent_params)
             if not isinstance(intent_params, dict):
                 logger.error("--intent-params 必须是 JSON 对象: {%s...}", str(args.intent_params)[:60])
                 return 1
@@ -1804,6 +1964,7 @@ def main():
             user_input=args.input,
             intent_list=intent_list,
             intent_params=intent_params,
+            expand_deps=not args.no_expand_deps,
         )
     except KeyboardInterrupt:
         logger.warning("用户中断执行")

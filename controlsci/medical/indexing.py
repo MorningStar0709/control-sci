@@ -13,13 +13,22 @@
 """
 
 import argparse
+import hashlib
 import json
 import pickle
 import sys
 import time
+from datetime import datetime, timezone
 from pathlib import Path
 
 from controlsci.core.paths import PROJECT_ROOT
+from controlsci.medical.embedding_providers import (
+    OLLAMA_DEFAULT_MODEL,
+    embed_texts,
+    provider_slug,
+    read_index_metadata,
+    write_index_metadata,
+)
 
 
 def _lazy_import_faiss():
@@ -59,13 +68,27 @@ def _load_chunk_texts(chunks):
     return texts
 
 
-def build_dense_index(texts, output_path, cache_path=None):
-    faiss = _lazy_import_faiss()
-    from benchmark.eval.chunk_embedding_analysis import get_embeddings
+def _file_sha256(path):
+    h = hashlib.sha256()
+    with open(path, "rb") as f:
+        for chunk in iter(lambda: f.read(1024 * 1024), b""):
+            h.update(chunk)
+    return h.hexdigest()
 
-    print(f"[Dense] 获取 {len(texts)} 条嵌入向量...", flush=True)
+
+def build_dense_index(texts, output_path, cache_path=None, embedding_provider="ollama", embedding_model=OLLAMA_DEFAULT_MODEL, batch_size=16):
+    faiss = _lazy_import_faiss()
+
+    print(f"[Dense] 获取 {len(texts)} 条嵌入向量: {embedding_provider}:{embedding_model}", flush=True)
     t0 = time.time()
-    embeddings = get_embeddings(texts, progress_label="medical_embed", cache_path=cache_path)
+    embeddings = embed_texts(
+        texts,
+        embedding_provider,
+        embedding_model,
+        batch_size=batch_size,
+        progress_label="medical_embed",
+        cache_path=cache_path,
+    )
     elapsed = time.time() - t0
     print(f"[Dense] 嵌入完成: {embeddings.shape}, 耗时 {elapsed:.1f}s", flush=True)
 
@@ -99,9 +122,19 @@ def build_sparse_index(texts, output_path):
     return bm25, tokenized
 
 
-def build_hybrid_index(manifest_path, output_dir, cache_path=None):
+def build_hybrid_index(
+    manifest_path,
+    output_dir,
+    cache_path=None,
+    embedding_provider="ollama",
+    embedding_model=OLLAMA_DEFAULT_MODEL,
+    batch_size=16,
+    max_chunks=0,
+):
     manifest = load_manifest(manifest_path)
     chunks = manifest["chunks"]
+    if max_chunks and max_chunks > 0:
+        chunks = chunks[:max_chunks]
     texts = _load_chunk_texts(chunks)
 
     if not texts or all(not t.strip() for t in texts):
@@ -112,26 +145,49 @@ def build_hybrid_index(manifest_path, output_dir, cache_path=None):
     dense_path = Path(output_dir) / "medical.index"
     sparse_path = Path(output_dir) / "bm25.pkl"
 
-    build_dense_index(texts, dense_path, cache_path=cache_path)
+    _, embeddings = build_dense_index(
+        texts,
+        dense_path,
+        cache_path=cache_path,
+        embedding_provider=embedding_provider,
+        embedding_model=embedding_model,
+        batch_size=batch_size,
+    )
     build_sparse_index(texts, sparse_path)
+    meta = {
+        "index_id": Path(output_dir).name,
+        "created_at": datetime.now(timezone.utc).isoformat(),
+        "embedding_provider": embedding_provider,
+        "embedding_model": embedding_model,
+        "embedding_dim": int(embeddings.shape[1]),
+        "chunk_count": len(chunks),
+        "manifest_path": str(Path(manifest_path)),
+        "manifest_sha256": _file_sha256(manifest_path),
+        "dense_index": str(dense_path),
+        "embedding_cache": str(cache_path) if cache_path else "",
+        "bm25_index": str(sparse_path),
+    }
+    write_index_metadata(Path(output_dir) / "index_meta.json", meta)
 
-    print("[Hybrid] 索引构建完成 ✓", flush=True)
+    print("[Hybrid] 索引构建完成 OK", flush=True)
 
 
 def search_hybrid(query, index_dir, manifest, k=5, rrf_k=60, texts_override=None):
     faiss = _lazy_import_faiss()
     import numpy as np
-    from benchmark.eval.chunk_embedding_analysis import get_embeddings
 
     index_dir = Path(index_dir)
     dense_path = index_dir / "medical.index"
     sparse_path = index_dir / "bm25.pkl"
+    meta = read_index_metadata(index_dir)
+    embedding_provider = meta.get("embedding_provider", "ollama")
+    embedding_model = meta.get("embedding_model", OLLAMA_DEFAULT_MODEL)
 
     if not dense_path.exists() or not sparse_path.exists():
         raise FileNotFoundError(f"索引文件缺失: dense={dense_path.exists()}, sparse={sparse_path.exists()}")
 
     index = faiss.read_index(str(dense_path))
-    q_emb = get_embeddings([query])
+    q_emb = embed_texts([query], embedding_provider, embedding_model, batch_size=1, progress_label="query_embed")
     q_emb_norm = q_emb.copy()
     faiss.normalize_L2(q_emb_norm)
     dense_scores, dense_indices = index.search(q_emb_norm, k * 2)
@@ -170,7 +226,7 @@ def main():
     parser = argparse.ArgumentParser(description="构建 Hybrid 医疗文献检索索引 (FAISS + BM25 + RRF)")
     parser.add_argument(
         "--manifest",
-        default=str(PROJECT_ROOT / "data" / "sources_medical" / "md" / "chunks" / "chunks_manifest.json"),
+        default=str(PROJECT_ROOT / "data" / "sources_medical" / "chunks" / "chunks_manifest.json"),
         help="chunks manifest JSON 路径",
     )
     parser.add_argument(
@@ -180,9 +236,13 @@ def main():
     )
     parser.add_argument(
         "--embed-cache",
-        default=str(PROJECT_ROOT / "data" / "sources_medical" / "index" / "embeddings_cache.npy"),
+        default=None,
         help="嵌入缓存文件路径",
     )
+    parser.add_argument("--embedding-provider", default="ollama", choices=["ollama", "hf", "hf_local", "transformers"], help="嵌入 provider")
+    parser.add_argument("--embedding-model", default=OLLAMA_DEFAULT_MODEL, help="嵌入模型名或本地 HuggingFace 路径")
+    parser.add_argument("--batch-size", type=int, default=16, help="嵌入 batch size")
+    parser.add_argument("--max-chunks", type=int, default=0, help="Limit indexed chunks for smoke tests (0 = all)")
     parser.add_argument(
         "--query",
         default=None,
@@ -202,7 +262,20 @@ def main():
         print("请先完成任务 2: 医疗章节本体切片")
         sys.exit(1)
 
-    build_hybrid_index(manifest_path, args.output, cache_path=args.embed_cache)
+    cache_path = args.embed_cache
+    if cache_path is None:
+        slug = provider_slug(args.embedding_provider, args.embedding_model)
+        cache_path = str(Path(args.output) / f"embeddings_{slug}.npy")
+
+    build_hybrid_index(
+        manifest_path,
+        args.output,
+        cache_path=cache_path,
+        embedding_provider=args.embedding_provider,
+        embedding_model=args.embedding_model,
+        batch_size=args.batch_size,
+        max_chunks=args.max_chunks,
+    )
 
     if args.query:
         print(f"\n[测试检索] query={args.query!r}, k={args.k}", flush=True)

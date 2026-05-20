@@ -1,0 +1,191 @@
+{
+  "summary": {
+    "total_unique": 330,
+    "answered": 330,
+    "pending": 0,
+    "errors": 0,
+    "insufficient": 280,
+    "insufficient_rate": 0.8485,
+    "avg_answer_len": 300.2
+  },
+  "subsets": [
+    {
+      "subset": "MedDiag",
+      "total": 30,
+      "answered": 30,
+      "pending": 0,
+      "errors": 0,
+      "insufficient": 28,
+      "insufficient_rate": 0.9333,
+      "avg_answer_len": 390.3,
+      "format_flags": {
+        "has_diagnosis_word": 30
+      }
+    },
+    {
+      "subset": "MedExam",
+      "total": 150,
+      "answered": 150,
+      "pending": 0,
+      "errors": 0,
+      "insufficient": 135,
+      "insufficient_rate": 0.9,
+      "avg_answer_len": 133.1,
+      "format_flags": {
+        "single_choice_only": 11
+      }
+    },
+    {
+      "subset": "MedLitQA",
+      "total": 30,
+      "answered": 30,
+      "pending": 0,
+      "errors": 0,
+      "insufficient": 29,
+      "insufficient_rate": 0.9667,
+      "avg_answer_len": 565.9,
+      "format_flags": {
+        "chinese_answer": 30
+      }
+    },
+    {
+      "subset": "MedReportQC",
+      "total": 30,
+      "answered": 30,
+      "pending": 0,
+      "errors": 0,
+      "insufficient": 13,
+      "insufficient_rate": 0.4333,
+      "avg_answer_len": 472.6,
+      "format_flags": {
+        "json_like": 14
+      }
+    },
+    {
+      "subset": "MedRxPlan",
+      "total": 30,
+      "answered": 30,
+      "pending": 0,
+      "errors": 0,
+      "insufficient": 25,
+      "insufficient_rate": 0.8333,
+      "avg_answer_len": 554.9,
+      "format_flags": {
+        "mentions_medication": 30
+      }
+    },
+    {
+      "subset": "MedSummary",
+      "total": 30,
+      "answered": 30,
+      "pending": 0,
+      "errors": 0,
+      "insufficient": 22,
+      "insufficient_rate": 0.7333,
+      "avg_answer_len": 252.6,
+      "format_flags": {
+        "summary_like": 8
+      }
+    },
+    {
+      "subset": "MedTreat",
+      "total": 30,
+      "answered": 30,
+      "pending": 0,
+      "errors": 0,
+      "insufficient": 28,
+      "insufficient_rate": 0.9333,
+      "avg_answer_len": 400.2,
+      "format_flags": {
+        "has_diagnosis_word": 30
+      }
+    }
+  ],
+  "top_retrieval_labels": [
+    [
+      "population",
+      206
+    ],
+    [
+      "secondary_outcome",
+      151
+    ],
+    [
+      "_results_other",
+      119
+    ],
+    [
+      "references",
+      112
+    ],
+    [
+      "_introduction_other",
+      93
+    ],
+    [
+      "intervention",
+      77
+    ],
+    [
+      "_population_other",
+      75
+    ],
+    [
+      "_inclusion_criteria_other",
+      51
+    ],
+    [
+      "outcome_measures",
+      45
+    ],
+    [
+      "introduction",
+      44
+    ],
+    [
+      "inclusion_criteria",
+      38
+    ],
+    [
+      "_intervention_other",
+      32
+    ],
+    [
+      "data_collection",
+      31
+    ],
+    [
+      "supplementary",
+      29
+    ],
+    [
+      "_randomization_other",
+      28
+    ],
+    [
+      "_front_matter_other",
+      27
+    ],
+    [
+      "exclusion_criteria",
+      26
+    ],
+    [
+      "_methods_other",
+      25
+    ],
+    [
+      "results",
+      24
+    ],
+    [
+      "other",
+      24
+    ]
+  ],
+  "meta": {
+    "progress_source": "data/sources_medical/medbench/medbench_core_subsets_v2.json.progress.jsonl",
+    "lines": 660,
+    "malformed": 0
+  }
+}

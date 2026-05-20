@@ -123,6 +123,9 @@ if ($Help) {
 }
 
 $ErrorActionPreference = "Stop"
+$env:PYTHONUTF8 = "1"
+$env:PYTHONIOENCODING = "utf-8"
+[Console]::OutputEncoding = [System.Text.UTF8Encoding]::new($false)
 $ROOT = $PSScriptRoot
 $PYTHON = "conda"
 $ENV_FLAGS = @("run", "--no-capture-output", "-n", "myenv", "python")
@@ -137,7 +140,7 @@ $METADATA_JSON  = Join-Path $ROOT "corpus\metadata.json"
 $START_TIME = Get-Date
 
 $PROVIDER_ENV_MAP = @{
-    "deepseek" = "OPENAI_API_KEY"
+    "deepseek" = "DEEPSEEK_API_KEY|OPENAI_API_KEY"
     "mimo"     = "MIMO_API_KEY"
     "minimax"  = "MINIMAX_API_KEY"
 }
@@ -161,6 +164,15 @@ function Write-Ok   { param([string]$Msg) Write-Host "  [OK] $Msg" -ForegroundCo
 function Write-Warn { param([string]$Msg) Write-Host "  [WARN] $Msg" -ForegroundColor Yellow }
 function Write-Err  { param([string]$Msg) Write-Host "  [ERROR] $Msg" -ForegroundColor Red }
 function Write-Info { param([string]$Msg) if (-not $Quiet) { Write-Host "  [INFO] $Msg" -ForegroundColor Gray } }
+
+function Get-EnvFirst {
+    param([string]$EnvSpec)
+    foreach ($name in ($EnvSpec -split "\|")) {
+        $value = [Environment]::GetEnvironmentVariable($name.Trim())
+        if ($value) { return $value }
+    }
+    return ""
+}
 
 function Invoke-Step {
     param(
@@ -215,8 +227,9 @@ function Test-File {
 }
 
 # ============================================================
-# Dynamic step count
+# Step counts
 # ============================================================
+$TOTAL_PHASES = 7
 $TOTAL_STEPS = 1  # Phase 1 always runs
 if (-not $SkipMetadata)  { $TOTAL_STEPS++ }
 if (-not $SkipBenchmark) { $TOTAL_STEPS++ }
@@ -255,7 +268,7 @@ if ($DryRun)       { Write-Warn "DRY-RUN mode: printing plan only, not executing
 # ============================================================
 $step = 0
 $step++
-Write-Step -Number $step -Total $TOTAL_STEPS -Msg "Phase 1: Pre-flight Checks"
+Write-Step -Number $step -Total $TOTAL_PHASES -Msg "Phase 1: Pre-flight Checks"
 
 $prechecks = @(
     @{Path="$ROOT\pipeline\build_metadata_light.py";    Label="Metadata builder"},
@@ -287,7 +300,7 @@ if (-not $allOk -and -not $DryRun) {
 # Phase 2: Metadata rebuild
 # ============================================================
 $step++
-Write-Step -Number $step -Total $TOTAL_STEPS -Msg "Phase 2: Metadata Rebuild -> corpus/metadata.json"
+Write-Step -Number $step -Total $TOTAL_PHASES -Msg "Phase 2: Metadata Rebuild -> corpus/metadata.json"
 
 if ($SkipMetadata) {
     Write-Info "Skipped (--SkipMetadata)"
@@ -309,7 +322,7 @@ if ($SkipMetadata) {
 # Phase 3: Question generation
 # ============================================================
 $step++
-Write-Step -Number $step -Total $TOTAL_STEPS -Msg "Phase 3: Question Generation -> benchmark/dataset/benchmark.json"
+Write-Step -Number $step -Total $TOTAL_PHASES -Msg "Phase 3: Question Generation -> benchmark/dataset/benchmark.json"
 
 if ($SkipBenchmark) {
     Write-Info "Skipped (--SkipBenchmark)"
@@ -323,7 +336,7 @@ if ($SkipBenchmark) {
     } else {
         $envVarName = $PROVIDER_ENV_MAP[$ModelProvider]
         Write-Warn "API mode: will call $ModelProvider to generate $Limit questions."
-        Write-Warn "Ensure env var is set: `$$envVarName"
+        Write-Warn "Ensure env var is set: $($envVarName -replace '\|', '/')"
         $buildArgList += @("--provider", $ModelProvider)
     }
     $buildArgList += @("--limit", $Limit, "--output", $BENCHMARK_JSON, "--manual-review-output", $REVIEW_JSON)
@@ -350,7 +363,7 @@ if ($SkipBenchmark) {
 # Phase 4a: Arbitration
 # ============================================================
 $step++
-Write-Step -Number $step -Total $TOTAL_STEPS -Msg "Phase 4a: Arbitration -- resolve needs_review"
+Write-Step -Number $step -Total $TOTAL_PHASES -Msg "Phase 4a: Arbitration -- resolve needs_review"
 
 if ($SkipArbitrate) {
     Write-Info "Skipped (--SkipArbitrate)"
@@ -373,7 +386,7 @@ if ($SkipArbitrate) {
 # Phase 4b: Split (core.json + full.json)
 # ============================================================
 $step++
-Write-Step -Number $step -Total $TOTAL_STEPS -Msg "Phase 4b: Split -> core.json (500) + full.json"
+Write-Step -Number $step -Total $TOTAL_PHASES -Msg "Phase 4b: Split -> core.json (500) + full.json"
 
 if ($SkipSplit) {
     Write-Info "Skipped (--SkipSplit)"
@@ -403,7 +416,7 @@ if ($SkipSplit) {
 # Phase 4c: Quality validation
 # ============================================================
 $step++
-Write-Step -Number $step -Total $TOTAL_STEPS -Msg "Phase 4c: Quality Validation"
+Write-Step -Number $step -Total $TOTAL_PHASES -Msg "Phase 4c: Quality Validation"
 
 if ($SkipValidate) {
     Write-Info "Skipped (--SkipValidate)"
@@ -417,7 +430,7 @@ if ($SkipValidate) {
 # Optional: HF Export
 # ============================================================
 $step++
-Write-Step -Number $step -Total $TOTAL_STEPS -Msg "Optional: HF JSONL Export"
+Write-Step -Number $step -Total $TOTAL_PHASES -Msg "Optional: HF JSONL Export"
 
 if ($SkipExport) {
     Write-Info "Skipped (--SkipExport)"

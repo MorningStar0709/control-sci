@@ -1,0 +1,36 @@
+{
+  "model": "qwen3-embedding:4b",
+  "categories": [
+    "PID Control",
+    "Estimation & Localization",
+    "Navigation & Guidance",
+    "Control Theory",
+    "Digital Control",
+    "Intelligent Control",
+    "Optimal Control",
+    "Modern Control",
+    "Linear Systems",
+    "Classical Control",
+    "Active Disturbance Rejection",
+    "Adaptive Control",
+    "Nonlinear Control",
+    "Robust Control"
+  ],
+  "empty_cats": [],
+  "chunk_counts": {
+    "PID Control": 1469,
+    "Estimation & Localization": 1493,
+    "Navigation & Guidance": 2409,
+    "Control Theory": 11079,
+    "Digital Control": 2669,
+    "Intelligent Control": 4917,
+    "Optimal Control": 6598,
+    "Modern Control": 5222,
+    "Linear Systems": 655,
+    "Classical Control": 2957,
+    "Active Disturbance Rejection": 1113,
+    "Adaptive Control": 3526,
+    "Nonlinear Control": 3187,
+    "Robust Control": 2918
+  }
+}

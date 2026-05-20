@@ -1,0 +1,451 @@
+{
+  "generated_at": "2026-05-08",
+  "total_cooccurrence": 4958,
+  "sample_size": 30,
+  "samples": [
+    {
+      "index": 0,
+      "chunk_id": "先进PID控制MATLAB仿真_chunk_597",
+      "filename": "先进PID控制MATLAB仿真",
+      "subdomains": [
+        "数字控制",
+        "控制理论"
+      ],
+      "image_path": "data\\processed\\先进PID控制MATLAB仿真\\image\\518ffb7b737113056cad58371e906be9fa010ac00faec8a585fd333ebce5cd19.jpg",
+      "image_hash": "518ffb7b737113056cad58371e906be9fa010ac00faec8a585fd333ebce5cd19.jpg",
+      "total_images": 1,
+      "formula_count": 26,
+      "formulas_preview": "block: $\\theta_ {\\mathrm{d}} = \\arcsin \\left(\\frac {\\cos \\phi \\left(\\cos \\phi \\cdot u _ {1 x} + \\sin \\phi \\cdot u _ {1 y}\\right)}{u _ {1 z}}\\right) \\tag {15.20}$\nblock: $\\frac {\\cos \\phi \\left(\\cos \\phi \\cdot \\left(u _ {1 x} + \\varepsilon_ {1 x}\\right) + \\sin \\phi \\cdot \\left(u _ {1 y} + \\varepsilon",
+      "text_preview": "取 $X = \\frac{\\cos\\phi(\\cos\\phi\\cdot u_{1x} + \\sin\\phi\\cdot u_{1y})}{u_{1z}}$ ，解决的方法为：当 $X > 1$ 时，取 $\\sin \\theta_{\\mathrm{d}} = 1$ ，即 $\\theta_{\\mathrm{d}} = \\frac{\\pi}{2}$ ；当 $X < -1$ 时，取 $\\sin \\theta_{\\mathrm{d}} = -1$ ，即 $\\theta_{\\mathrm{d}} = -\\frac{\\pi}{2}$ ；当 $|X|\\leqslant 1$ 时，有 $\\sin \\theta_{\\mathrm{d}} = X$ ，即\n\n$$\\theta_ {\\mathrm{d}} = \\arcsin \\left(\\frac {\\cos \\phi \\left(\\cos \\phi \\cdot u _ {1 x} + \\sin \\phi \\cdot u _ {1 y}\\right)}{u _ {1 z}}\\right) \\tag {15.20}$$\n\n此时，为了使式（15.19）成立，式（15."
+    },
+    {
+      "index": 1,
+      "chunk_id": "2207.11129_Design_of_Sliding_Mode_PID_Controller_with_Improved_reaching_chunk_106",
+      "filename": "2207.11129_Design_of_Sliding_Mode_PID_Controller_with_Improved_reaching",
+      "subdomains": [
+        "PID控制",
+        "非线性控制"
+      ],
+      "image_path": "data\\processed\\2207.11129_Design_of_Sliding_Mode_PID_Controller_with_Improved_reaching\\image\\daa840c4c4350ca54ee9f3b95dfd94afa2bc53ce19fc01249bb1a7576a1af9d6.jpg",
+      "image_hash": "daa840c4c4350ca54ee9f3b95dfd94afa2bc53ce19fc01249bb1a7576a1af9d6.jpg",
+      "total_images": 1,
+      "formula_count": 6,
+      "formulas_preview": "block: $A = \\pi r ^ {2} \\tag {5.1}\\tan \\theta = ^ {r} / _ {h} = ^ {R} / _ {H} \\tag {5.2}r = R * h / _ {H} \\tag {5.3}$\nblock: $F _ {i n} - F _ {o u t} = A \\frac {d h}{d t} \\tag {5.4}F _ {o u t} = k \\sqrt {h} \\quad \\text { where, k = discharge coefficient } \\tag {5.5}$\nblock: $F _ {i n} - k \\sqrt {h} ",
+      "text_preview": "$$A = \\pi r ^ {2} \\tag {5.1}\\tan \\theta = ^ {r} / _ {h} = ^ {R} / _ {H} \\tag {5.2}r = R * h / _ {H} \\tag {5.3}$$\n\nAccording to the law of conservation of mass,\n\nInflow rate – outflow rate = Accumulation.\n\n$$F _ {i n} - F _ {o u t} = A \\frac {d h}{d t} \\tag {5.4}F _ {o u t} = k \\sqrt {h} \\quad \\text { where, k = discharge coefficient } \\tag {5.5}$$\n\nTherefore,\n\n$$F _ {i n} - k \\sqrt {h} = A \\frac {d h}{d t} \\quad \\text { where, } A = \\pi * R ^ {2} * h ^ {2} / H ^ {2} \\tag {5.6}$$\n\nRate of change"
+    },
+    {
+      "index": 2,
+      "chunk_id": "先进PID控制MATLAB仿真_chunk_407",
+      "filename": "先进PID控制MATLAB仿真",
+      "subdomains": [
+        "数字控制",
+        "控制理论"
+      ],
+      "image_path": "data\\processed\\先进PID控制MATLAB仿真\\image\\c76beffd01fb472a61e416c8bea0e7a9f0bf2d3aaf9c17f687ee915d42810495.jpg",
+      "image_hash": "c76beffd01fb472a61e416c8bea0e7a9f0bf2d3aaf9c17f687ee915d42810495.jpg",
+      "total_images": 5,
+      "formula_count": 11,
+      "formulas_preview": "block: $G _ {\\mathrm{p}} (s) = \\frac {1 3 3}{s ^ {2} + 2 5 s}$\nblock: $y (k) = - \\operatorname{den} (2) y (k - 1) - \\operatorname{den} (3) y (k - 2) + \\operatorname{num} (2) u (k - 1) + \\operatorname{num} (3) u (k - 2)$\ninline: $y_{\\mathrm{d}}(k)=1.0$\ninline: $k_{p}$\ninline: $k_{i}$\ninline: $k_{p}$\n",
+      "text_preview": "# 8.4.2 仿真实例\n\n被控对象为\n\n$$G _ {\\mathrm{p}} (s) = \\frac {1 3 3}{s ^ {2} + 2 5 s}$$\n\n![](image/c76beffd01fb472a61e416c8bea0e7a9f0bf2d3aaf9c17f687ee915d42810495.jpg)\n\n<details>\n<summary>flowchart</summary>\n\n```mermaid\ngraph TD\n    A[\"入口\"] --> B[\"取当前采样值\"]\n    B --> C[\"e(k)=y_d(k)-y(k)\"]\n    C --> D[\"ec(k)=e(k)-e(k-1)\"]\n    D --> E[\"e(k-1)=e(k)\"]\n    E --> F[\"e(k),ec(k)模糊化\"]\n    F --> G[\"模糊整定Δk_p, Δk_i, Δk_d\"]\n    G --> H[\"计算当前k_p, k_i, k_d\"]\n    H --> I[\"PID控制器输出\"]\n    I --> J[\"返回\"]\n```\n</details>\n\n图 8"
+    },
+    {
+      "index": 3,
+      "chunk_id": "控制之美_chunk_110",
+      "filename": "控制之美",
+      "subdomains": [
+        "控制理论",
+        "经典控制"
+      ],
+      "image_path": "data\\processed\\控制之美\\image\\b1b3ab1b12e9228f4b01963fd4a1c4968890c20e11e8e25e4ff1007ae6c6421d.jpg",
+      "image_hash": "b1b3ab1b12e9228f4b01963fd4a1c4968890c20e11e8e25e4ff1007ae6c6421d.jpg",
+      "total_images": 2,
+      "formula_count": 3,
+      "formulas_preview": "inline: $\\left.\\frac{\\mathrm{d}x(t)}{\\mathrm{d}t}\\right|_{t=0}=0$\ninline: $x(t)$\ninline: $x(t)$",
+      "text_preview": "# 6.1.1 稳定性的直观理解\n\n对于稳定性而言,相信各位读者在日常生活中都会有自己的见解,例如保持收支平衡是一种稳定,保持工作与生活平衡是一种稳定,保持饮食与运动平衡也是一种稳定,稳定就是要保持平衡。如图6.1.1(a)所示,假设在一条轨道上选取三个位置A、B和C。其中A点和C点的区别在于,A点是光滑的轨道而C点则带有摩擦。如果时间零点t=0时刻,在A、B、C这三个位置上分别放置一个小球,它们都是可以保持静止不动的。用数学语言来表示就是 $\\left.\\frac{\\mathrm{d}x(t)}{\\mathrm{d}t}\\right|_{t=0}=0$ ,其中 $x(t)$ 是小球的位移,定义向右为正方向,此刻 $x(t)$ 对时间的导数为0,说明未来它不会随时间变化。根据第3章的介绍,A、B和C都是这个小球系统的平衡点。\n\n下面考虑当小球偏离了平衡点后发生的情况。如图 6.1.1(b) 所示, 首先看 A 点, 如果小球的初始位置偏离了平衡点 A, 它的运动轨迹会是一条正弦曲线, 始终围绕 A 点左右循环往复运动, 其幅度不会增加也不会减小。其次看 B 点, 假设小球的初始位置在"
+    },
+    {
+      "index": 4,
+      "chunk_id": "2206.06553_Safe_Output_Feedback_Motion_Planning_from_Images_via_Learned_chunk_038",
+      "filename": "2206.06553_Safe_Output_Feedback_Motion_Planning_from_Images_via_Learned",
+      "subdomains": [
+        "导航制导与控制",
+        "非线性控制"
+      ],
+      "image_path": "data\\processed\\2206.06553_Safe_Output_Feedback_Motion_Planning_from_Images_via_Learned\\image\\6bc5fb8376590a6b6518949331be5b48fba6f7f3ba1fa716bd0ea745c1eb720b.jpg",
+      "image_hash": "6bc5fb8376590a6b6518949331be5b48fba6f7f3ba1fa716bd0ea745c1eb720b.jpg",
+      "total_images": 1,
+      "formula_count": 3,
+      "formulas_preview": "inline: $D _ { r } \\subseteq { \\mathcal { X } }$\ninline: $D _ { r }$\ninline: $D _ { x }$",
+      "text_preview": "# A Trusted domain visualizations\n\n![](image/6bc5fb8376590a6b6518949331be5b48fba6f7f3ba1fa716bd0ea745c1eb720b.jpg)\n\n<details>\n<summary>text_image</summary>\n\nstates in perception dataset\nD_p\nD_r = (C_r D_p) × ℝ\nC_r = [1 0]\n0 0\nx_2\nx_1\n</details>\n\nFig. 9. An example of how $D _ { r } \\subseteq { \\mathcal { X } }$ is constructed.\n\nIn Fig. 9, we visualize for a toy example how we construct $D _ { r }$ , which is a critical set upon which we define the trusted domain $D _ { x }$ ."
+    },
+    {
+      "index": 5,
+      "chunk_id": "2401.06650_LMI_based_robust_model_predictive_control_for_a_quarter_car_chunk_045",
+      "filename": "2401.06650_LMI_based_robust_model_predictive_control_for_a_quarter_car",
+      "subdomains": [
+        "鲁棒控制",
+        "最优控制"
+      ],
+      "image_path": "data\\processed\\2401.06650_LMI_based_robust_model_predictive_control_for_a_quarter_car\\image\\0233ad43d86bf2df69ff29b5f66490c1f50656c0b6bda81d907e56a85aff69f6.jpg",
+      "image_hash": "0233ad43d86bf2df69ff29b5f66490c1f50656c0b6bda81d907e56a85aff69f6.jpg",
+      "total_images": 1,
+      "formula_count": 4,
+      "formulas_preview": "inline: $( \\Delta l _ { s } )$\ninline: $\\Delta \\theta _ { S L } = 9 0 ^ { \\circ }$\ninline: $H _ { \\infty }$\ninline: $( T _ { S L } )$",
+      "text_preview": "| Time (s) | Passive (z_s / m/s²) | H∞ (z_s / m/s²) | RMPC (z_s / m/s²) | Passive (Δl_t / cm) | H∞ (Δl_t / cm) | RMPC (Δl_t / cm) | Passive (Δl_s / cm) | H∞ (Δl_s / cm) | RMPC (Δl_s / cm) | Passive (Δθ_SL / deg) | H∞ (Δθ_SL / deg) | RMPC (Δθ_SL / deg) |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| 0.0 | -1.5 | -1.0 | -0.5 | 0.2 | 0.1 | 0.0 | 0.3 | 0.2 | 0.1 | 85 | 75 | 80 |\n| 0.5 | 2.5 | 1.8 | 1.2 | -0.4 | -0.3 | -0.2 | -1.2 | -1.1 | -1.0 | 110 | 95 | 85 |\n|"
+    },
+    {
+      "index": 6,
+      "chunk_id": "2206.06553_Safe_Output_Feedback_Motion_Planning_from_Images_via_Learned_chunk_032",
+      "filename": "2206.06553_Safe_Output_Feedback_Motion_Planning_from_Images_via_Learned",
+      "subdomains": [
+        "导航制导与控制",
+        "非线性控制"
+      ],
+      "image_path": "data\\processed\\2206.06553_Safe_Output_Feedback_Motion_Planning_from_Images_via_Learned\\image\\27aa72c74d6566c98a1f22d82882686c4385d8ae5348622b7cb76e13cc04d6e4.jpg",
+      "image_hash": "27aa72c74d6566c98a1f22d82882686c4385d8ae5348622b7cb76e13cc04d6e4.jpg",
+      "total_images": 1,
+      "formula_count": 36,
+      "formulas_preview": "inline: $\\varOmega _ { e } ( t )$\ninline: $\\varOmega _ { e } ( t )$\ninline: $| \\hat { \\phi } _ { i } ( T ) - \\phi _ { i } ( T ) | \\leq 0 . 1$\ninline: $\\{ \\phi _ { i } \\} _ { i = 1 } ^ { 3 }$\ninline: $j$\ninline: $\\dot { j }$\ninline: $\\{ \\phi _ { i } \\} _ { i = 1 } ^ { 3 }$\ninline: $x = [ \\phi _ { 1 }",
+      "text_preview": "![](image/27aa72c74d6566c98a1f22d82882686c4385d8ae5348622b7cb76e13cc04d6e4.jpg)  \nFig. 8. 7DOF arm. State estimate error, overlaid with $\\varOmega _ { e } ( t )$ (in gray). Runtime observations are shown (bottom). A): when using CORRT, the state estimate error remains in $\\varOmega _ { e } ( t )$ and achieves $| \\hat { \\phi } _ { i } ( T ) - \\phi _ { i } ( T ) | \\leq 0 . 1$ . B3 fails to meet this requirement. B) B1 also fails the 0.1 requirement.\n\nWe assume that the joint angles and velocities"
+    },
+    {
+      "index": 7,
+      "chunk_id": "2305.17836_Data_driven_Optimal_Filtering_for_Linear_Systems_with_Unknow_chunk_059",
+      "filename": "2305.17836_Data_driven_Optimal_Filtering_for_Linear_Systems_with_Unknow",
+      "subdomains": [
+        "最优控制",
+        "估计与定位"
+      ],
+      "image_path": "data\\processed\\2305.17836_Data_driven_Optimal_Filtering_for_Linear_Systems_with_Unknow\\image\\781eaabb83438459c90dd34ae504ffdd1eaf619cd9ed436af94456429138feec.jpg",
+      "image_hash": "781eaabb83438459c90dd34ae504ffdd1eaf619cd9ed436af94456429138feec.jpg",
+      "total_images": 1,
+      "formula_count": 16,
+      "formulas_preview": "block: $\\begin{array}{l} J (L (\\eta)) - J (L _ {0}) \\leq \\| \\nabla J (L _ {0}) \\| _ {F} ^ {2} \\left[ \\frac {1}{2} (\\gamma + 1) ^ {2} \\ell (\\alpha) \\eta^ {2} + (\\gamma - 1) \\eta \\right] \\\\ \\leq c _ {1} (\\alpha) [ J (L _ {0}) - J (L ^ {*}) ] \\left[ \\frac {1}{2} (\\gamma + 1) ^ {2} \\ell (\\alpha) \\eta^ {",
+      "text_preview": "# E.4 Proof of Proposition 2: Linear decay in cost value\n\nProof. Suppose $L _ { 0 } \\neq L ^ { * }$ and let $L ( \\eta ) : = L _ { 0 } - \\eta E$ . Note that E may not be necessarily in the direction of decay in $J ( L )$ , however, we can argue the following:\n\nChoose $\\beta = \\alpha$ in Lemma 5 and note that ηβ as defined in (29) will be lower bounded as $\\eta _ { \\beta } \\geq \\bar { \\eta } _ { 0 }$ , and thus $\\bar { \\eta } _ { 0 }$ is feasible. Recall that $L ( \\eta ) \\in \\mathbf { \\mathcal { S"
+    },
+    {
+      "index": 8,
+      "chunk_id": "2603.22710_Optimal_filtering_for_a_giant_cavity_in_waveguide_QED_system_chunk_027",
+      "filename": "2603.22710_Optimal_filtering_for_a_giant_cavity_in_waveguide_QED_system",
+      "subdomains": [
+        "估计与定位",
+        "最优控制"
+      ],
+      "image_path": "data\\processed\\2603.22710_Optimal_filtering_for_a_giant_cavity_in_waveguide_QED_system\\image\\3a2e54d8e3173e0ccf1c3cd99f59d276420c89da888fc32800a0c41dabffe314.jpg",
+      "image_hash": "3a2e54d8e3173e0ccf1c3cd99f59d276420c89da888fc32800a0c41dabffe314.jpg",
+      "total_images": 4,
+      "formula_count": 8,
+      "formulas_preview": "inline: $t = 0 ,$\ninline: $t = 0 . 0 1 T _ { f }$\ninline: $t = 0 . 5 T _ { f }$\ninline: $t = T _ { f }$\ninline: $t = 0 ,$\ninline: $t = 0 . 0 1 T _ { f }$\ninline: $t = 0 . 5 T _ { f }$\ninline: $t = T _ { f }$",
+      "text_preview": "Fig. 3. Schematic of Wigner functions for coherent states in different moments. Figures (a)-(d) depict the evolution of the coherent state in the original system: (a) at $t = 0 ,$ , (b) at $t = 0 . 0 1 T _ { f }$ , (c) at $t = 0 . 5 T _ { f }$ , and (d) at $t = T _ { f }$ . Figures (e)-(h) illustrate the corresponding evolution of the coherent state in the filter system: (e) at $t = 0 ,$ , (f) at $t = 0 . 0 1 T _ { f }$ , (g) at $t = 0 . 5 T _ { f }$ and (h) at $t = T _ { f }$ .\n\n![](image/3a2e5"
+    },
+    {
+      "index": 9,
+      "chunk_id": "2307.01927_Safe_Connectivity_Maintenance_of_Underactuated_Multi_Agent_N_chunk_016",
+      "filename": "2307.01927_Safe_Connectivity_Maintenance_of_Underactuated_Multi_Agent_N",
+      "subdomains": [
+        "导航制导与控制"
+      ],
+      "image_path": "data\\processed\\2307.01927_Safe_Connectivity_Maintenance_of_Underactuated_Multi_Agent_N\\image\\35557a4a4fea7d389c1e09ca8ac93bd8bf7c746f4c9134a2aad4d61ebc866888.jpg",
+      "image_hash": "35557a4a4fea7d389c1e09ca8ac93bd8bf7c746f4c9134a2aad4d61ebc866888.jpg",
+      "total_images": 1,
+      "formula_count": 11,
+      "formulas_preview": "inline: $\\psi \\left( \\left| \\left| \\pmb { q } _ { i j } \\right| \\right| _ { 2 } \\right)$\ninline: $\\begin{array} { r l r } { \\left| \\left| \\pmb { q } _ { i j } \\right| \\right| _ { 2 } \\to 0 \\psi \\left( \\left| \\left| \\pmb { q } _ { i j } \\right| \\right| _ { 2 } \\right) } & { { } = } & { \\mathrm { ~ \\o",
+      "text_preview": "The function α can be thought of as a monotonically increasing safety activation function taking values between [0, 1] depending on its argument’s (unbounded) magnitude. From the definition of $\\psi \\left( \\left| \\left| \\pmb { q } _ { i j } \\right| \\right| _ { 2 } \\right)$ （号 in Eq. (6), lim $\\begin{array} { r l r } { \\left| \\left| \\pmb { q } _ { i j } \\right| \\right| _ { 2 } \\to 0 \\psi \\left( \\left| \\left| \\pmb { q } _ { i j } \\right| \\right| _ { 2 } \\right) } & { { } = } & { \\mathrm { ~ \\overs"
+    },
+    {
+      "index": 10,
+      "chunk_id": "2207.09090_Actor_Critic_based_Improper_Reinforcement_Learning_chunk_045",
+      "filename": "2207.09090_Actor_Critic_based_Improper_Reinforcement_Learning",
+      "subdomains": [
+        "智能控制",
+        "最优控制"
+      ],
+      "image_path": "data\\processed\\2207.09090_Actor_Critic_based_Improper_Reinforcement_Learning\\image\\ef6763851205e7aada677d37e0bcd2b0cdc2ea794f65c94285b285f2286f7ffd.jpg",
+      "image_hash": "ef6763851205e7aada677d37e0bcd2b0cdc2ea794f65c94285b285f2286f7ffd.jpg",
+      "total_images": 1,
+      "formula_count": 15,
+      "formulas_preview": "block: $Q _ {i} (t + 1) = \\left(Q _ {i} (t) - D _ {i} (t)\\right) ^ {+} + A _ {i} (t + 1), i \\in \\{1, 2 \\}. \\tag {6}$\ninline: $A _ { i } ( t ) , i \\in \\{ 1 , 2 \\} , t \\in \\mathbb { N }$\ninline: $t ,$\ninline: $Q _ { i } ( t ) \\in \\mathbb { Z } _ { + } . \\mathrm { ~ A ~ }$\ninline: $\\mathbf { D } ( t ) ",
+      "text_preview": "# E. The Constrained Queuing Example\n\nThe system, shown in Fig. 5, comprises two queues fed by independent, stochastic arrival processes $A _ { i } ( t ) , i \\in \\{ 1 , 2 \\} , t \\in \\mathbb { N }$ . The length of Queue i, measured at the beginning of time slot $t ,$ is denoted by $Q _ { i } ( t ) \\in \\mathbb { Z } _ { + } . \\mathrm { ~ A ~ }$ common server serves both queues and can drain at most one packet from the system in a time slot2. The server, therefore, needs to decide which of the two"
+    },
+    {
+      "index": 11,
+      "chunk_id": "Computer_Controlled_Systems_Astrom_chunk_106",
+      "filename": "Computer_Controlled_Systems_Astrom",
+      "subdomains": [
+        "自适应控制"
+      ],
+      "image_path": "data\\processed\\Computer_Controlled_Systems_Astrom\\image\\08ae074471347c3555e1c22293fc82e9cba5878eaae65412361ae2f40a4d1874.jpg",
+      "image_hash": "08ae074471347c3555e1c22293fc82e9cba5878eaae65412361ae2f40a4d1874.jpg",
+      "total_images": 1,
+      "formula_count": 13,
+      "formulas_preview": "block: $\\frac {d x (t)}{d t} = A x (t) + B u (t - \\tau) \\tag {2.8}$\nblock: $x (k h + h) = e ^ {A h} x (k h) + \\int_ {k h} ^ {k h + h} e ^ {A (k h + h - s ^ {\\prime})} B u (s ^ {\\prime} - \\tau) d s ^ {\\prime} \\tag {2.9}$\nblock: $\\begin{array}{l} \\int_ {k h} ^ {k h + h} e ^ {A (k h + h - s ^ {\\prime})",
+      "text_preview": "# Sampling a System with Time Delay\n\nTime delays are common in mathematical models of industrial processes. The theory of continuous-time systems with time delays is complicated because the systems are infinite-dimensional.\n\nIt is, however, easy to sample systems with time delays because the control signal is constant between sampling instants, which makes the sampled-data system finite-dimensional. Let the system be described by\n\n$$\\frac {d x (t)}{d t} = A x (t) + B u (t - \\tau) \\tag {2.8}$$\n\nI"
+    },
+    {
+      "index": 12,
+      "chunk_id": "2507.06492_Dual_State_space_Fidelity_Blade_D_STAB_A_Novel_Stealthy_Cybe_chunk_020",
+      "filename": "2507.06492_Dual_State_space_Fidelity_Blade_D_STAB_A_Novel_Stealthy_Cybe",
+      "subdomains": [
+        "控制理论",
+        "估计与定位"
+      ],
+      "image_path": "data\\processed\\2507.06492_Dual_State_space_Fidelity_Blade_D_STAB_A_Novel_Stealthy_Cybe\\image\\e8088892ef4a8a422274845e015ccd348e21bdd8b168fd293e7944bef954da6d.jpg",
+      "image_hash": "e8088892ef4a8a422274845e015ccd348e21bdd8b168fd293e7944bef954da6d.jpg",
+      "total_images": 2,
+      "formula_count": 11,
+      "formulas_preview": "inline: $S o C _ { s u r f } ( k | t ) - S o C _ { \\mathsf { b } u l k } ( k | t ) \\geq \\gamma _ { 1 } S o C _ { \\mathsf { b } u l k } ( k | t ) + \\gamma _ { 2 }$\ninline: $S o C _ { s u r f } ( k | t )$\ninline: $S o C _ { \\mathrm b u l k } ( k | t )$\ninline: $\\gamma _ { 1 }$\ninline: $\\gamma _ { 2 } ",
+      "text_preview": "# C. Numerical Results and Analysis\n\nFor the high-fidelity model, we reference the Single Particle Model (SPM) used in [14]. Readers are encouraged to explore the corresponding GitHub repository [18] for details on hyperparameter settings. To ensure consistency in the underlying physical processes, we identify key parameters for the Rint model (including battery capacity, OCV function, and internal resistance) based on data generated by the SPM model. This step is crucial for aligning the low-fi"
+    },
+    {
+      "index": 13,
+      "chunk_id": "Belanger_Control_Engineering_chunk_273",
+      "filename": "Belanger_Control_Engineering",
+      "subdomains": [
+        "未分类"
+      ],
+      "image_path": "data\\processed\\Belanger_Control_Engineering\\image\\aa29cc08c02609c1bcfeb57e569fc16656c9410247464407c4b2e3f24508f790.jpg",
+      "image_hash": "aa29cc08c02609c1bcfeb57e569fc16656c9410247464407c4b2e3f24508f790.jpg",
+      "total_images": 1,
+      "formula_count": 20,
+      "formulas_preview": "block: $- 9 0 ^ {\\circ} + 9 0 ^ {\\circ} - 3 (1 8 0 ^ {\\circ} - \\theta) = - 1 8 0 ^ {\\circ} + 3 \\theta .$\nblock: $\\left| L ^ {\\prime} (j \\sqrt {3}) \\right| = \\frac {| - 3 + 1 |}{(3 + 1) ^ {3 / 2}} = \\frac {1}{4}.$\ninline: $D$\ninline: $0 < \\omega < 1$\ninline: $L'(s) = (s^2 + 1) / (s - 1)^3$\ninline: $\\",
+      "text_preview": "# Solution\n\nFigure 5.22 shows the pole-zero plot and the $D$ -contour. For $0 < \\omega < 1$ , the phase of $L'(s) = (s^2 + 1) / (s - 1)^3$ is\n\n$$- 9 0 ^ {\\circ} + 9 0 ^ {\\circ} - 3 (1 8 0 ^ {\\circ} - \\theta) = - 1 8 0 ^ {\\circ} + 3 \\theta .$$\n\nAs $\\omega$ approaches 1 from below, the magnitude approaches zero and the phase $-45^{\\circ}$ ( $\\theta \\to 45^{\\circ}$ ). The Nyquist locus crosses the origin (odd multiplicity); the magnitude grows, then tends to zero with a phase of $90^{\\circ}$ as $\\o"
+    },
+    {
+      "index": 14,
+      "chunk_id": "2603.27159_Online_Learning_of_Kalman_Filtering_From_Output_to_State_Est_chunk_047",
+      "filename": "2603.27159_Online_Learning_of_Kalman_Filtering_From_Output_to_State_Est",
+      "subdomains": [
+        "估计与定位",
+        "线性系统"
+      ],
+      "image_path": "data\\processed\\2603.27159_Online_Learning_of_Kalman_Filtering_From_Output_to_State_Est\\image\\5e414a075062bc7d23855b9ac9da0edefc26b39a01276328bc79785c7643a201.jpg",
+      "image_hash": "5e414a075062bc7d23855b9ac9da0edefc26b39a01276328bc79785c7643a201.jpg",
+      "total_images": 2,
+      "formula_count": 18,
+      "formulas_preview": "inline: $A , B , C$\ninline: $u _ { t } = K C y _ { t }$\ninline: $A + B K C$\ninline: $\\begin{array} { r } { \\eta _ { j } = \\frac { 1 } { j } } \\end{array}$\ninline: $j \\geq 1$\ninline: $\\eta _ { 0 } = 0$\ninline: $h = \\lfloor \\log T \\rfloor$\ninline: $\\tau = \\lfloor { \\sqrt { T } } \\rfloor$",
+      "text_preview": "Given the above system matrices $A , B , C$ , we find an output feedback control $u _ { t } = K C y _ { t }$ such that the closed-loop system $A + B K C$ is stable, and apply Algorithm 2 to the closed-loop system for the problem of learning Kalman filtering for state estimation (see also our discussions in Section 6). We set the step sizes $\\begin{array} { r } { \\eta _ { j } = \\frac { 1 } { j } } \\end{array}$ for all $j \\geq 1$ with $\\eta _ { 0 } = 0$ and set the truncated filter length $h = \\lf"
+    },
+    {
+      "index": 15,
+      "chunk_id": "2207.08730_A_framework_for_online_stabilizing_reinforcement_learning_chunk_024",
+      "filename": "2207.08730_A_framework_for_online_stabilizing_reinforcement_learning",
+      "subdomains": [
+        "控制理论",
+        "智能控制"
+      ],
+      "image_path": "data\\processed\\2207.08730_A_framework_for_online_stabilizing_reinforcement_learning\\image\\f64539f9d358b668d1e850738f3046cbf4dddba4a8008113bb0963c7a72eeaf0.jpg",
+      "image_hash": "f64539f9d358b668d1e850738f3046cbf4dddba4a8008113bb0963c7a72eeaf0.jpg",
+      "total_images": 1,
+      "formula_count": 11,
+      "formulas_preview": "block: $\\begin{array}{l l} w ^ {*} \\leftarrow & \\underset {w \\in \\mathbb {W}} {\\arg \\min} \\left(\\hat {J} ^ {w} (x _ {k - 1}) - r _ {\\text { prev }} - \\hat {J} ^ {w _ {\\text { prev }}} (x _ {k})\\right) ^ {2} \\\\ & \\text { s.t. } \\quad \\begin{array}{c} \\hat {J} ^ {w} (x _ {k}) - \\hat {J} ^ {w _ {\\text ",
+      "text_preview": "$$\n\\begin{array}{l l} w ^ {*} \\leftarrow & \\underset {w \\in \\mathbb {W}} {\\arg \\min} \\left(\\hat {J} ^ {w} (x _ {k - 1}) - r _ {\\text { prev }} - \\hat {J} ^ {w _ {\\text { prev }}} (x _ {k})\\right) ^ {2} \\\\ & \\text { s.t. } \\quad \\begin{array}{c} \\hat {J} ^ {w} (x _ {k}) - \\hat {J} ^ {w _ {\\text { prev }}} (x _ {\\text { prev }}) \\leq - \\bar {\\nu} \\delta , \\\\ \\hat {\\alpha} _ {\\text { low }} (\\| x _ {k} \\|) \\leq \\hat {J} ^ {w} (x _ {k}) \\leq \\hat {\\alpha} _ {\\text { up }} (\\| x _ {k} \\|); \\end{array"
+    },
+    {
+      "index": 16,
+      "chunk_id": "自动控制原理_胡寿松_chunk_641",
+      "filename": "自动控制原理_胡寿松",
+      "subdomains": [
+        "现代控制",
+        "控制理论"
+      ],
+      "image_path": "data\\processed\\自动控制原理_胡寿松\\image\\7f317bf5b4a0fcd7a5b64e3682b49a198df42d9f0549472ec037e4a2dcefa305.jpg",
+      "image_hash": "7f317bf5b4a0fcd7a5b64e3682b49a198df42d9f0549472ec037e4a2dcefa305.jpg",
+      "total_images": 1,
+      "formula_count": 23,
+      "formulas_preview": "block: $\\boldsymbol {\\alpha} ^ {T} \\boldsymbol {S} = \\boldsymbol {\\alpha} ^ {T} [ \\boldsymbol {B} \\quad \\boldsymbol {A B} \\quad \\dots \\quad \\boldsymbol {A} ^ {n - 1} \\boldsymbol {B} ] = \\boldsymbol {0}$\nblock: $\\boldsymbol {\\alpha} ^ {\\mathrm{T}} \\boldsymbol {A} ^ {i} \\boldsymbol {B} = \\mathbf {0}; ",
+      "text_preview": "由于 $\\alpha \\neq 0$ ，所以式(9-107)意味着 $S$ 为行线性相关，即 $\\operatorname{rank} S < n$ ，这显然和已知 $\\operatorname{rank} S = n$ 相矛盾。因而反设不成立，系统应为完全可控。\n\n必要性:已知系统完全可控,欲证 $\\operatorname{rank}S = n$ 。\n\n采用反证法。反设 $\\operatorname{rank} S < n$ ，这意味着 $S$ 为线性相关，因此必存在一个非零 $n$ 维常数向量 $\\alpha$ 使\n\n$$\\boldsymbol {\\alpha} ^ {T} \\boldsymbol {S} = \\boldsymbol {\\alpha} ^ {T} [ \\boldsymbol {B} \\quad \\boldsymbol {A B} \\quad \\dots \\quad \\boldsymbol {A} ^ {n - 1} \\boldsymbol {B} ] = \\boldsymbol {0}$$\n\n成立。考虑到问题的一般性，由上式可导出\n\n$$\\boldsymbol {"
+    },
+    {
+      "index": 17,
+      "chunk_id": "控制理论导论_郭雷_chunk_394",
+      "filename": "控制理论导论_郭雷",
+      "subdomains": [
+        "鲁棒控制"
+      ],
+      "image_path": "data\\processed\\控制理论导论_郭雷\\image\\44756835ba59b677651467b4f31484f7569c59a75d09b2ea7610bcc3209dd617.jpg",
+      "image_hash": "44756835ba59b677651467b4f31484f7569c59a75d09b2ea7610bcc3209dd617.jpg",
+      "total_images": 1,
+      "formula_count": 41,
+      "formulas_preview": "block: $\\Sigma_ {\\theta} = \\left\\{z \\in \\mathbb {C} \\mid z \\neq 0, | \\arg z | < \\theta \\right\\}.$\nblock: $\\Sigma_ {\\delta_ {0} + \\pi / 2} (\\omega) \\stackrel {{\\mathrm{def}}} {{=}} \\left\\{\\lambda = \\omega + r e ^ {i \\varphi} \\mid r > 0, | \\varphi | < \\delta_ {0} + \\pi / 2 \\right\\};$\nblock: $\\| R (\\la",
+      "text_preview": "# 解析半群\n\n下面我们假定 $X$ 是复Banach空间.\n\n定义5.3.6 对于 $0 < \\theta < \\pi$ ，设 $\\Sigma_{\\theta}$ 表示复平面上的扇形部分：\n\n$$\\Sigma_ {\\theta} = \\left\\{z \\in \\mathbb {C} \\mid z \\neq 0, | \\arg z | < \\theta \\right\\}.$$\n\n$X$ 上的解析半群是指 $X$ 中满足下列条件的一族有界线性算子 $\\{T(z) \\mid z \\in \\Sigma_{\\theta} \\cup \\{0\\}\\}$ :\n\n(1) $T(z_{1} + z_{2}) = T(z_{1})T(z_{2}),\\forall z_{1},z_{2}\\in \\Sigma_{\\theta};$   \n(2) $T(0) = I, \\lim_{z \\in \\Sigma_{\\theta}, z \\to 0} T(z)x = x, \\forall x \\in X;$\n\n(3) $T(z)$ 在 $\\Sigma_{\\theta}$ 中是解析的.\n\n从定义5.3.6可知 $\\{T("
+    },
+    {
+      "index": 18,
+      "chunk_id": "2401.06650_LMI_based_robust_model_predictive_control_for_a_quarter_car_chunk_002",
+      "filename": "2401.06650_LMI_based_robust_model_predictive_control_for_a_quarter_car",
+      "subdomains": [
+        "鲁棒控制",
+        "最优控制"
+      ],
+      "image_path": "data\\processed\\2401.06650_LMI_based_robust_model_predictive_control_for_a_quarter_car\\image\\17a5bed64bb9c8151b105aeaffc9cf87ba9296941c0eb9a4d381a0dbf47b8f5b.jpg",
+      "image_hash": "17a5bed64bb9c8151b105aeaffc9cf87ba9296941c0eb9a4d381a0dbf47b8f5b.jpg",
+      "total_images": 2,
+      "formula_count": 4,
+      "formulas_preview": "inline: $T _ { S L } = 0$\ninline: $\\theta _ { S L } ^ { ( n e ) } - \\theta _ { S L } ^ { ( s e ) } =$\ninline: $\\Delta \\theta _ { S L } ^ { ( n e ) } = 9 0 ^ { \\circ }$\ninline: $\\theta _ { S L } ^ { ( s e ) } = \\Delta \\theta _ { S L } )$",
+      "text_preview": "![](image/17a5bed64bb9c8151b105aeaffc9cf87ba9296941c0eb9a4d381a0dbf47b8f5b.jpg)\n\n<details>\n<summary>text_image</summary>\n\nx\ny\nm_s g\nz\nchassis\nF\nθ_SL\nT_SL\nG\nC\nD\nwheel\nI\nm_u g\nA\nE\nB\nθ_LW\nF_{tz}\nH\nF_{ty}\n</details>\n\n![](image/78a1b0bc76c6ecf0f53cbc274a136dfd0c197e31ee72ac4c3a9da81edf7ab702.jpg)\n\n<details>\n<summary>text_image</summary>\n\nstatic equilibrium state:\nT_SL = 0 N·m\nF\nθ_SL^(se)\nG\nnominal equilibrium state:\nθ_SL^(ne) - θ_SL^(se) = 90 deg\nF\nθ_SL^(ne)\n</details>\n\nFig. 1. SAVGS application to a"
+    },
+    {
+      "index": 19,
+      "chunk_id": "智能控制_chunk_226",
+      "filename": "智能控制",
+      "subdomains": [
+        "PID控制",
+        "现代控制"
+      ],
+      "image_path": "data\\processed\\智能控制\\image\\0fcaba78b4844e9d6ce4161068fdbbbe0795e9620e8853d2dd407dda08ed5b50.jpg",
+      "image_hash": "0fcaba78b4844e9d6ce4161068fdbbbe0795e9620e8853d2dd407dda08ed5b50.jpg",
+      "total_images": 4,
+      "formula_count": 5,
+      "formulas_preview": "inline: $k_{\\mathrm{i}}$\ninline: $k_{p}$\ninline: $k_{i}$\ninline: $k_{p}$\ninline: $k_{i}$",
+      "text_preview": "图4-25 $k_{\\mathrm{i}}$ 的隶属函数\n\n(7) If (e is P) and (ec is N) then (kp is P)(ki is Z) (1)   \n(8) If (e is P) and (ec is Z) then (kp is P)(ki is Z) (1)   \n(9) If (e is P) and (ec is P) then (kp is P)(ki is Z) (1)\n\n另外,针对模糊推理系统 fuzzpid.fis, 运行 fuzzy 命令可进行规则库和隶属函数的编辑, 如图 4-26 所示, 运行命令 ruleview 可实现模糊系统的动态仿真, 如图 4-27 所示。\n\n![](image/0fcaba78b4844e9d6ce4161068fdbbbe0795e9620e8853d2dd407dda08ed5b50.jpg)\n\n<details>\n<summary>flowchart</summary>\n\n```mermaid\ngraph LR\n    A[\"e(3)\"] --> C[\"fuzzpid (Mamdani) 9 ru"
+    },
+    {
+      "index": 20,
+      "chunk_id": "2401.03363_Data_driven_Dynamic_Event_triggered_Control_chunk_023",
+      "filename": "2401.03363_Data_driven_Dynamic_Event_triggered_Control",
+      "subdomains": [
+        "数字控制",
+        "线性系统"
+      ],
+      "image_path": "data\\processed\\2401.03363_Data_driven_Dynamic_Event_triggered_Control\\image\\d2c6f783decaf21de7826c8039188a6bd8aff2dbefa576746b2f36d0c057f75b.jpg",
+      "image_hash": "d2c6f783decaf21de7826c8039188a6bd8aff2dbefa576746b2f36d0c057f75b.jpg",
+      "total_images": 4,
+      "formula_count": 9,
+      "formulas_preview": "inline: $\\theta = 0 . 3 .$\ninline: $\\bar { f } _ { u } = 1 0 0$\ninline: $\\theta = 0 . 4 .$\ninline: $\\theta = 0 . 6 .$\ninline: $\\theta = 0 . 8 .$\ninline: $\\bar { f } _ { l } = 1 0 0$\ninline: ${ \\mathcal U } _ { 0 } y { \\mathcal P } ~ = ~ { \\mathcal U } _ { 0 } y ( \\chi _ { 0 } y ) ^ { - 1 } ~ = ~ K$\n",
+      "text_preview": "![](image/d2c6f783decaf21de7826c8039188a6bd8aff2dbefa576746b2f36d0c057f75b.jpg)\n\n<details>\n<summary>line</summary>\n\n| time [s] | x1(t) | x2(t) | x3(t) |\n| --- | --- | --- | --- |\n| 0 | 8 | -8 | -8 |\n| 1 | 0 | 0 | 0 |\n| 2 | -2 | 2 | -2 |\n| 3 | 0 | 0 | 0 |\n| 4 | 0 | 0 | 0 |\n| 5 | 0 | 0 | 0 |\n</details>\n\n(c) $\\theta = 0 . 3 .$\n\nFig. 4. The evolution of each component of the system state x(t) under fixed $\\bar { f } _ { u } = 1 0 0$ and different θ in the presence of uniform quantization.   \n![](ima"
+    },
+    {
+      "index": 21,
+      "chunk_id": "控制之美_chunk_035",
+      "filename": "控制之美",
+      "subdomains": [
+        "控制理论",
+        "经典控制"
+      ],
+      "image_path": "data\\processed\\控制之美\\image\\73fa721198bdc59dfacbaefd2cddb3b548bb69890f4695cbf808781635917c33.jpg",
+      "image_hash": "73fa721198bdc59dfacbaefd2cddb3b548bb69890f4695cbf808781635917c33.jpg",
+      "total_images": 2,
+      "formula_count": 22,
+      "formulas_preview": "block: $\\begin{array}{r l} & {\\text {电感电压:} e _ {\\mathrm{L}} (t) = L \\frac {\\mathrm{d} i (t)}{\\mathrm{d} t}} \\\\ & {\\text {电容电压:} e _ {\\mathrm{C}} (t) = \\frac {1}{C} \\int_ {0} ^ {t} i (t) \\mathrm{d} t} \\\\ & {\\text {电阻电压:} e _ {\\mathrm{R}} (t) = i (t) R} \\end{array} \\tag {2.1.15}$\nblock: $e _ {\\mathrm",
+      "text_preview": "# 例 2.1.2 电路系统。\n\n图 2.1.8 所示为典型的电路网络系统,包含了电源 $e(t)$ 、电感 L、电容 C 和电阻 R。对于电路系统的数学建模,可以使用基尔霍夫电压定律(Kirchhoff's Voltage Law):沿着闭合回路的所有电动势的代数和等于所有电压降的代数和。\n\n具体步骤为沿着电流的参考方向(方向可以任意选定, 此例中选择顺时针方向), 给每一个元器件上的电压标明正负号, 在元器件内, 电流从正极向负极流动, 如图 2.1.8 所示。根据各个元器件特性, 它们的电压分别为\n\n$$\n\\begin{array}{r l} & {\\text {电感电压:} e _ {\\mathrm{L}} (t) = L \\frac {\\mathrm{d} i (t)}{\\mathrm{d} t}} \\\\ & {\\text {电容电压:} e _ {\\mathrm{C}} (t) = \\frac {1}{C} \\int_ {0} ^ {t} i (t) \\mathrm{d} t} \\\\ & {\\text {电阻电压:} e _ {\\mathrm{R}} (t) = i (t)"
+    },
+    {
+      "index": 22,
+      "chunk_id": "2302.09743_Adaptive_control_of_dynamic_networks_chunk_016",
+      "filename": "2302.09743_Adaptive_control_of_dynamic_networks",
+      "subdomains": [
+        "自适应控制"
+      ],
+      "image_path": "data\\processed\\2302.09743_Adaptive_control_of_dynamic_networks\\image\\afc4fa9dae42ff44c473b9f6d9c3db6e2c76729a21f05ff2d0a98306b610437d.jpg",
+      "image_hash": "afc4fa9dae42ff44c473b9f6d9c3db6e2c76729a21f05ff2d0a98306b610437d.jpg",
+      "total_images": 1,
+      "formula_count": 6,
+      "formulas_preview": "inline: $\\mathrm { G } _ { 1 }$\ninline: $\\mathbf { V } _ { 1 }$\ninline: $\\mathbf { V } 2 \\cdot$\ninline: $\\mathrm { G } _ { 2 } ,$\ninline: ${ \\bf V } _ { 3 }$\ninline: $\\mathrm { v } _ { 4 } ,$",
+      "text_preview": "# A. Motivation and two guiding principles\n\nAdaptive control of a dynamic network requires recomput ing the MDS for current temporal subgraph as the network structures evolve, but the new MDS may differ significantly from the previous MDS. Importantly, a temporal subgraph usu ally contains multiple MDSs [51], [52], each having different driver nodes (Figure 2). Therefore, we can select similar MDSs across adjacent temporal subgraphs to minimize ECC. For instance, Figure 3A shows a simple dynamic"
+    },
+    {
+      "index": 23,
+      "chunk_id": "非线性系统_Khalil_chunk_089",
+      "filename": "非线性系统_Khalil",
+      "subdomains": [
+        "PID控制",
+        "自抗扰控制"
+      ],
+      "image_path": "data\\processed\\非线性系统_Khalil\\image\\3cf6332d185a3dacdc0e3c484efb3be03a461c91ff353f8c55b6e182c8e9e349.jpg",
+      "image_hash": "3cf6332d185a3dacdc0e3c484efb3be03a461c91ff353f8c55b6e182c8e9e349.jpg",
+      "total_images": 1,
+      "formula_count": 60,
+      "formulas_preview": "block: $\\| y (t) - z (t) \\| \\leqslant \\gamma + \\mu (t - t _ {0}) + \\int_ {t _ {0}} ^ {t} L [ \\gamma + \\mu (s - t _ {0}) ] \\exp [ L (t - s) ] d s$\nblock: $\\begin{array}{l} \\left\\| y (t) - z (t) \\right\\| \\leqslant \\gamma + \\mu \\left(t - t _ {0}\\right) - \\gamma - \\mu \\left(t - t _ {0}\\right) + \\gamma \\",
+      "text_preview": "其中 $\\gamma = \\| y_0 - z_0\\|$ 。对函数 $\\| y(t) - z(t)\\|$ 应用Gronwall-Bellman不等式（见引理A.1），得到\n\n$$\\| y (t) - z (t) \\| \\leqslant \\gamma + \\mu (t - t _ {0}) + \\int_ {t _ {0}} ^ {t} L [ \\gamma + \\mu (s - t _ {0}) ] \\exp [ L (t - s) ] d s$$\n\n对右边进行分步积分,得\n\n$$\n\\begin{array}{l} \\left\\| y (t) - z (t) \\right\\| \\leqslant \\gamma + \\mu \\left(t - t _ {0}\\right) - \\gamma - \\mu \\left(t - t _ {0}\\right) + \\gamma \\exp \\left[ L \\left(t - t _ {0}\\right) \\right] \\\\ + \\int_ {t _ {0}} ^ {t} \\mu \\exp [ L (t - s) ] d s \\\\ = \\gam"
+    },
+    {
+      "index": 24,
+      "chunk_id": "Essentials_of_Robust_Control_Zhou_Doyle_chunk_458",
+      "filename": "Essentials_of_Robust_Control_Zhou_Doyle",
+      "subdomains": [
+        "控制理论",
+        "现代控制"
+      ],
+      "image_path": "data\\processed\\Essentials_of_Robust_Control_Zhou_Doyle\\image\\c75222d8bc57feaeab6d92616ef51476cea0f62352bac9b44b88772c41fe3306.jpg",
+      "image_hash": "c75222d8bc57feaeab6d92616ef51476cea0f62352bac9b44b88772c41fe3306.jpg",
+      "total_images": 1,
+      "formula_count": 10,
+      "formulas_preview": "inline: $G ( s )$\ninline: $\\eta ( G )$\ninline: $\\eta _ { 0 } ( G )$\ninline: $G ( s )$\ninline: $\\operatorname { w n o } ( g h ) = \\operatorname { w n o } ( g ) + \\operatorname { w n o } ( h ) ,$\ninline: $( g ) = \\eta ( g ^ { - 1 } ) - \\eta ( g )$\ninline: $( g ^ { \\sim } ) = - \\mathrm { w n o } ( g ) ",
+      "text_preview": "# 17.2 ν-Gap Metric\n\nThe shortfall of the gap metric is that it is not easily related to the frequency response of the system. On the other hand, the ν-gap metric to be introduced in this section has a clear frequency domain interpolation and can, in general, be computed from frequency response. The presentation given in this section, Sections 17.3, 17.4, and 17.5 are based on Vinnicombe [1993a, 1993b], to which readers are referred for further detailed discussions.\n\nTo define the new metric, we"
+    },
+    {
+      "index": 25,
+      "chunk_id": "非线性系统_Khalil_chunk_413",
+      "filename": "非线性系统_Khalil",
+      "subdomains": [
+        "PID控制",
+        "自抗扰控制"
+      ],
+      "image_path": "data\\processed\\非线性系统_Khalil\\image\\60e5c30df7cd873071e228034a659f9e45914ce66ce26b1957d05daab4ce2ea4.jpg",
+      "image_hash": "60e5c30df7cd873071e228034a659f9e45914ce66ce26b1957d05daab4ce2ea4.jpg",
+      "total_images": 4,
+      "formula_count": 17,
+      "formulas_preview": "block: $\\Omega_ {\\varepsilon} = \\left\\{V _ {1} (\\eta) \\leqslant \\frac {4 \\| P _ {0} B _ {0} \\| _ {2} ^ {2} \\varepsilon^ {2} \\| P _ {0} \\| _ {2}}{\\theta_ {1} ^ {2}}, | s | \\leqslant \\varepsilon \\right\\}$\nblock: $\\dot {x} _ {0} = x _ {1}\\dot {x} _ {1} = x _ {2}\\dot {x} _ {2} = - \\left(g _ {0} / \\ell\\r",
+      "text_preview": "$$\\Omega_ {\\varepsilon} = \\left\\{V _ {1} (\\eta) \\leqslant \\frac {4 \\| P _ {0} B _ {0} \\| _ {2} ^ {2} \\varepsilon^ {2} \\| P _ {0} \\| _ {2}}{\\theta_ {1} ^ {2}}, | s | \\leqslant \\varepsilon \\right\\}$$\n\n在 $\\Omega_{\\varepsilon}$ 内，系统\n\n$$\\dot {x} _ {0} = x _ {1}\\dot {x} _ {1} = x _ {2}\\dot {x} _ {2} = - \\left(g _ {0} / \\ell\\right) \\sin \\left(x _ {1} + \\delta_ {1}\\right) - \\left(k _ {0} / m\\right) x _ {2} - \\left(k / m \\ell^ {2} \\varepsilon\\right) \\left(a _ {0} x _ {0} + a _ {1} x _ {1} + x _ {2}\\right"
+    },
+    {
+      "index": 26,
+      "chunk_id": "Ogata_Modern_Control_5th_chunk_464",
+      "filename": "Ogata_Modern_Control_5th",
+      "subdomains": [
+        "未分类"
+      ],
+      "image_path": "data\\processed\\Ogata_Modern_Control_5th\\image\\fc176a60d7f27da8736325d8deb39d5e93cb75c2150aef141d9cb5e71022d242.jpg",
+      "image_hash": "fc176a60d7f27da8736325d8deb39d5e93cb75c2150aef141d9cb5e71022d242.jpg",
+      "total_images": 2,
+      "formula_count": 7,
+      "formulas_preview": "inline: $G ( s ) H ( s )$\ninline: $N = Z = 0$\ninline: $G ( s ) H ( s )$\ninline: $- 1 + j 0$\ninline: $- 1 + j 0$\ninline: $G ( s ) H ( s )$\ninline: $- 1 + j 0$",
+      "text_preview": "The Nyquist plots of the open-loop transfer function with a small value of K and a large value of K are shown in Figure 7–54.The number of poles of $G ( s ) H ( s )$ in the right-half s plane is zero.\n\n![](image/fc176a60d7f27da8736325d8deb39d5e93cb75c2150aef141d9cb5e71022d242.jpg)\n\n<details>\n<summary>text_image</summary>\n\nIm\nω = 0-\nGH Plane\nP = 0\nN = 0\nZ = 0\nω = ∞\n-1\nω = -∞\n(Stable)\nω = 0+\nRe\n</details>\n\nSmall K\n\n![](image/d4696f3d366b225d4286f04803beea74e097567283a1f847c4a84836962ca073.jpg)\n\n<d"
+    },
+    {
+      "index": 27,
+      "chunk_id": "非线性系统_Khalil_chunk_056",
+      "filename": "非线性系统_Khalil",
+      "subdomains": [
+        "PID控制",
+        "自抗扰控制"
+      ],
+      "image_path": "data\\processed\\非线性系统_Khalil\\image\\41b4b7dcf4675286033a395fd3b2300c7192d74d35567b7e7f953e8346cb9d24.jpg",
+      "image_hash": "41b4b7dcf4675286033a395fd3b2300c7192d74d35567b7e7f953e8346cb9d24.jpg",
+      "total_images": 2,
+      "formula_count": 38,
+      "formulas_preview": "block: $\\left[ \\begin{array}{c c} {0} & {1} \\\\ {- \\mu^ {2}} & {0} \\end{array} \\right], \\quad \\left[ \\begin{array}{c c} {\\mu} & {1} \\\\ {- \\mu^ {2}} & {\\mu} \\end{array} \\right], \\quad \\left[ \\begin{array}{c c} {\\mu} & {1} \\\\ {0} & {\\mu} \\end{array} \\right], \\quad \\left[ \\begin{array}{c c} {\\mu} & {1} ",
+      "text_preview": "$\\mu$ 是扰动参数。当 $\\mu$ 为正时，被扰动系统的平衡点是一个非稳定焦点，当 $\\mu$ 为负时则是一个稳定焦点。无论 $\\mu$ 多么小，只要不是零，上述结论都是成立的。因为定性地讲，稳定焦点和非稳定焦点的相图与中心的相图是不同的，我们知道有扰动时中心平衡点是不存在的。结点、焦点和鞍点平衡点称为结构稳定的，因为在无穷小的扰动下仍保持其特性不变①，而中心平衡点不是结构稳定的。出现两种不同的情况是由于 $A$ 的特征值的位置不同，特征值在虚轴上对扰动很敏感，这就引入了双曲平衡点的定义：如果 $A$ 没有实部为零的特征值，那么原点 $x = 0$ 就称为 $\\dot{x} = Ax$ 的一个双曲平衡点②。\n\n当 A 有多重非零实特征值时,无穷小的扰动会产生一对复特征值,因此稳定(或非稳定)结点会继续保持为稳定(或非稳定)结点,或者变为稳定(或非稳定)焦点。\n\n当 $A$ 有零特征值时, 人们希望扰动使特征值偏离零点, 从而导致相图发生较大变化。然而已经证明, 一个特征值为零和两个特征值都为零的情况极不相同 $(A \\neq 0)$ 。在第一种情况中, 零特征值的扰动会得到一个实特"
+    },
+    {
+      "index": 28,
+      "chunk_id": "2411.07055_Reconstruction_of_neuromorphic_dynamics_from_a_single_scalar_chunk_021",
+      "filename": "2411.07055_Reconstruction_of_neuromorphic_dynamics_from_a_single_scalar",
+      "subdomains": [
+        "智能控制",
+        "估计与定位"
+      ],
+      "image_path": "data\\processed\\2411.07055_Reconstruction_of_neuromorphic_dynamics_from_a_single_scalar\\image\\5ca7e9c47eda55f8e3f6305ed182ce88040639becbbbf2e14d9db0067975c026.jpg",
+      "image_hash": "5ca7e9c47eda55f8e3f6305ed182ce88040639becbbbf2e14d9db0067975c026.jpg",
+      "total_images": 10,
+      "formula_count": 5,
+      "formulas_preview": "inline: $u ( n )$\ninline: $t _ { 0 } + n \\Delta t .$\ninline: $\\Delta t$\ninline: $F ( \\cdot )$\ninline: $u ( n )$",
+      "text_preview": "# A. Structure of the neural network map\n\nAssume that there is a time series $u ( n )$ of state-space vectors of a dynamical system sampled at time moments $t _ { 0 } + n \\Delta t .$ where $\\Delta t$ is a step of time discretization. We want to create a model for this dynamical system and for this purpose we find a function $F ( \\cdot )$ that maps $u ( n )$ to\n\n![](image/5ca7e9c47eda55f8e3f6305ed182ce88040639becbbbf2e14d9db0067975c026.jpg)\n\n<details>\n<summary>line</summary>\n\n| Point | Value |\n|"
+    },
+    {
+      "index": 29,
+      "chunk_id": "2303.01379_Planning_and_Control_of_Uncertain_Cooperative_Mobile_Manipul_chunk_126",
+      "filename": "2303.01379_Planning_and_Control_of_Uncertain_Cooperative_Mobile_Manipul",
+      "subdomains": [
+        "智能控制",
+        "导航制导与控制"
+      ],
+      "image_path": "data\\processed\\2303.01379_Planning_and_Control_of_Uncertain_Cooperative_Mobile_Manipul\\image\\c791a17a6864bf5f3fdeb645e608e96b5c9b53b8d5ac3ceec58d1f96ff1fa2d5.jpg",
+      "image_hash": "c791a17a6864bf5f3fdeb645e608e96b5c9b53b8d5ac3ceec58d1f96ff1fa2d5.jpg",
+      "total_images": 3,
+      "formula_count": 13,
+      "formulas_preview": "block: $B _ {i} \\ddot {q} _ {i} + C _ {q _ {i}} \\dot {q} _ {i} + g _ {q _ {i}} = - J _ {h _ {i}} ^ {\\top} f _ {C _ {i}} + \\tau_ {i} \\tag {2.69}$\ninline: $N \\in \\mathbb { R }$\ninline: $q _ { i } , \\dot { q } _ { i } \\in \\mathbb { R } ^ { n _ { i } }$\ninline: $n _ { i } \\geq 3 , \\forall i \\in \\mathcal",
+      "text_preview": "# 2.3.1 System Model\n\nWe provide here the model of the coupled system, which is slightly different with respect to that of Section 2.2.1 to account for the rolling contact constraints. As before, we consider $N \\in \\mathbb { R }$ robotic agents grasping a rigid object in 3D space, with generalized variables $q _ { i } , \\dot { q } _ { i } \\in \\mathbb { R } ^ { n _ { i } }$ . We relax the assumption of fully actuated agents by requiring $n _ { i } \\geq 3 , \\forall i \\in \\mathcal { N }$ . Each age"
+    }
+  ]
+}

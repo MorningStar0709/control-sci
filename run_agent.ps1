@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     ControlSci 终极一键复现 / Ultimate One-Click Reproduction
     语料 Markdown -> 500 题 Benchmark -> 9 模型评测 -> 排行榜 -> 深度分析 -> QLoRA 微调
@@ -19,11 +19,14 @@
 .PARAMETER TargetModels
     目标模型列表，逗号分隔。默认: deepseek,minimax,mimo。
 
+.PARAMETER Profile
+    运行策略。smoke 为最小真实闭环，report 为完整报告级复现。
+
 .PARAMETER Limit
-    题目生成上限。默认 500。评测阶段默认 0 (=全部)。
+    题目生成上限。默认随 Profile：smoke=10, report=500。
 
 .PARAMETER EvalLimit
-    评测题目上限。默认 0 (=全部)。与 Limit 独立。
+    评测题目上限。默认随 Profile：smoke=10, report=0 (=全部)。
 
 .PARAMETER Input
     core.json 路径。默认: benchmark/dataset/core.json。
@@ -68,13 +71,13 @@
     .\run_agent.ps1 -Execute -Limit 10
 
 .EXAMPLE
-    .\run_agent.ps1 -Execute -SkipDataset -SkipQlora -SkipLocalJudge
+    .\run_agent.ps1 -Execute -Profile smoke
 
 .EXAMPLE
-    .\run_agent.ps1 -Execute -SkipDataset -TargetModels deepseek
+    .\run_agent.ps1 -Execute -Profile report -SkipDataset -TargetModels deepseek
 
 .EXAMPLE
-    .\run_agent.ps1 -Execute -BackgroundLong -Limit 500
+    .\run_agent.ps1 -Execute -Profile report -BackgroundLong -Limit 500
 
 .NOTES
     Author:  ControlSci Project
@@ -86,8 +89,10 @@
 param(
     [switch]$Execute,
     [string]$TargetModels = "deepseek,minimax,mimo",
-    [int]$Limit = 500,
-    [int]$EvalLimit = 0,
+    [ValidateSet("smoke", "report")]
+    [string]$Profile = "smoke",
+    [int]$Limit = -1,
+    [int]$EvalLimit = -1,
     [string]$Input = "",
     [string]$ResultsDir = "",
     [switch]$SkipDataset,
@@ -110,18 +115,39 @@ if ($Help) {
 $ErrorActionPreference = "Stop"
 $env:PYTHONIOENCODING = 'utf-8'
 $env:PYTHONUTF8 = '1'
+[Console]::OutputEncoding = [System.Text.UTF8Encoding]::new($false)
 $ROOT = $PSScriptRoot
 $PYTHON = "conda"
 $ENV_FLAGS = @("run", "--no-capture-output", "-n", "myenv", "python")
 
-if (-not $Input)     { $Input     = Join-Path $ROOT "benchmark\dataset\core.json" }
-if (-not $ResultsDir) { $ResultsDir = Join-Path $ROOT "benchmark\eval\results" }
+$defaultInput = -not $Input
+$defaultResultsDir = -not $ResultsDir
 
-$BENCHMARK_JSON = Join-Path $ROOT "benchmark\dataset\benchmark.json"
-$REVIEW_JSON    = Join-Path $ROOT "benchmark\dataset\manual_review.json"
-$CORE_JSON      = Join-Path $ROOT "benchmark\dataset\core.json"
-$FULL_JSON      = Join-Path $ROOT "benchmark\dataset\full.json"
-$MERGED_JSON    = Join-Path $ROOT "benchmark\dataset\merged.json"
+if ($Limit -lt 0) {
+    $Limit = if ($Profile -eq "smoke") { 10 } else { 500 }
+}
+if ($EvalLimit -lt 0) {
+    $EvalLimit = if ($Profile -eq "smoke") { 10 } else { 0 }
+}
+
+if ($defaultInput) {
+    $Input = Join-Path $ROOT "benchmark\dataset\core.json"
+}
+if ($defaultResultsDir) {
+    $ResultsDir = Join-Path $ROOT "benchmark\eval\results"
+}
+
+$EffectiveSkipDataset = [bool]($SkipDataset -or $Profile -eq "smoke")
+$EffectiveSkipAnalysis = [bool]($SkipAnalysis -or $Profile -eq "smoke")
+$EffectiveSkipQlora = [bool]($SkipQlora -or $Profile -eq "smoke")
+$EffectiveSkipLocalJudge = [bool]($SkipLocalJudge -or $Profile -eq "smoke")
+
+$DATASET_DIR    = Join-Path $ROOT "benchmark\dataset"
+$BENCHMARK_JSON = Join-Path $DATASET_DIR "benchmark.json"
+$REVIEW_JSON    = Join-Path $DATASET_DIR "manual_review.json"
+$CORE_JSON      = if ($Profile -eq "smoke" -and $defaultInput) { $Input } else { Join-Path $DATASET_DIR "core.json" }
+$FULL_JSON      = Join-Path $DATASET_DIR "full.json"
+$MERGED_JSON    = Join-Path $DATASET_DIR "merged.json"
 $METADATA_JSON  = Join-Path $ROOT "corpus\metadata.json"
 
 $ANALYZE_OUT    = Join-Path $ROOT "analyze\outputs"
@@ -131,7 +157,7 @@ $QLORA_FINAL    = Join-Path $ROOT "finetune\output\qlora-final"
 $START_TIME = Get-Date
 
 $MODEL_DEFS = @{
-    "deepseek" = @{Name="DeepSeek";  Model="deepseek-v4-flash";      BaseUrl="https://api.deepseek.com";            KeyEnv="OPENAI_API_KEY"}
+    "deepseek" = @{Name="DeepSeek";  Model="deepseek-v4-flash";      BaseUrl="https://api.deepseek.com";            KeyEnv="DEEPSEEK_API_KEY|OPENAI_API_KEY"}
     "minimax"  = @{Name="MiniMax";   Model="MiniMax-M2.7-highspeed"; BaseUrl="https://api.minimaxi.com/anthropic";  KeyEnv="MINIMAX_API_KEY"}
     "mimo"     = @{Name="MiMo";      Model="mimo-v2.5";              BaseUrl="https://api.xiaomimimo.com/v1";       KeyEnv="MIMO_API_KEY"}
 }
@@ -172,6 +198,15 @@ function Test-File {
     }
     Write-Warn "$Label missing: $Path"
     return $false
+}
+
+function Get-EnvFirst {
+    param([string]$EnvSpec)
+    foreach ($name in ($EnvSpec -split "\|")) {
+        $value = [Environment]::GetEnvironmentVariable($name.Trim())
+        if ($value) { return $value }
+    }
+    return ""
 }
 
 function Invoke-Step {
@@ -236,7 +271,6 @@ function Invoke-Background {
         }
     }
     $displayCmdStr = $displayArgs -join " "
-    $cmdStr = $ArgList -join " "
     if (-not $Execute) {
         Write-Host "  [DRY-RUN] BACKGROUND: conda run --no-capture-output -n myenv python $displayCmdStr" -ForegroundColor DarkGray
         Write-Host "  [DRY-RUN]   log: $LogFile" -ForegroundColor DarkGray
@@ -248,18 +282,12 @@ function Invoke-Background {
     $logDir = Split-Path $LogFile -Parent
     if (-not (Test-Path $logDir)) { New-Item -ItemType Directory -Path $logDir -Force | Out-Null }
 
-    $psArgs = @(
-        '-NoProfile', '-ExecutionPolicy', 'Bypass', '-Command',
-        @"
-Set-Location '$ROOT';
-`$env:PYTHONIOENCODING='utf-8';
-`$env:CONDA_NO_PLUGINS='true';
-conda run --no-capture-output -n myenv python $($ArgList -join ' ')
-"@
-    )
+    $env:PYTHONIOENCODING = "utf-8"
+    $env:CONDA_NO_PLUGINS = "true"
 
-    $p = Start-Process -FilePath 'powershell' `
-        -ArgumentList $psArgs `
+    $p = Start-Process -FilePath $PYTHON `
+        -ArgumentList ($ENV_FLAGS + $ArgList) `
+        -WorkingDirectory $ROOT `
         -WindowStyle Hidden `
         -RedirectStandardOutput $LogFile `
         -RedirectStandardError $ErrFile `
@@ -277,16 +305,16 @@ $script:STEP = 0
 $TOTAL_STEPS = 0
 
 # Phase A: always runs unless skipped (5 sub-steps)
-if (-not $SkipDataset)     { $TOTAL_STEPS += 5 }
+if (-not $EffectiveSkipDataset)     { $TOTAL_STEPS += 5 }
 # Phase B: eval + leaderboard (2 sub-steps)
 if (-not $SkipEval)        { $TOTAL_STEPS++ }
 if (-not $SkipLeaderboard -and -not $SkipEval) { $TOTAL_STEPS++ }
 # Phase C: analysis (1 step)
-if (-not $SkipAnalysis)    { $TOTAL_STEPS++ }
+if (-not $EffectiveSkipAnalysis)    { $TOTAL_STEPS++ }
 # Phase D: QLoRA training + eval (2 steps)
-if (-not $SkipQlora)       { $TOTAL_STEPS += 2 }
+if (-not $EffectiveSkipQlora)       { $TOTAL_STEPS += 2 }
 # Phase E: local judge (1 step)
-if (-not $SkipLocalJudge)  { $TOTAL_STEPS++ }
+if (-not $EffectiveSkipLocalJudge)  { $TOTAL_STEPS++ }
 
 function Next-Step {
     $script:STEP++
@@ -313,15 +341,17 @@ if ($Execute) {
 }
 Write-Host "  Limit (generation): $Limit questions"
 Write-Host "  Eval Limit:         $(if ($EvalLimit -eq 0) { 'ALL' } else { $EvalLimit })"
+Write-Host "  Profile:            $Profile"
 Write-Host "  Target Models:      $TargetModels"
+Write-Host "  Results Dir:        $ResultsDir"
 Write-Host "  Total Steps:        $TOTAL_STEPS"
 Write-Host "  Background Long:    $(if ($BackgroundLong) { 'YES' } else { 'NO (synchronous)' })"
 Write-Host ""
-Write-Host "  Phase A: Dataset   $(if ($SkipDataset) { '[SKIP]' } else { '[RUN]' })" -ForegroundColor $(if ($SkipDataset) { 'DarkGray' } else { 'White' })
+Write-Host "  Phase A: Dataset   $(if ($EffectiveSkipDataset) { '[SKIP]' } else { '[RUN]' })" -ForegroundColor $(if ($EffectiveSkipDataset) { 'DarkGray' } else { 'White' })
 Write-Host "  Phase B: Eval      $(if ($SkipEval) { '[SKIP]' } else { '[RUN]' })" -ForegroundColor $(if ($SkipEval) { 'DarkGray' } else { 'White' })
-Write-Host "  Phase C: Analysis  $(if ($SkipAnalysis) { '[SKIP]' } else { '[RUN]' })" -ForegroundColor $(if ($SkipAnalysis) { 'DarkGray' } else { 'White' })
-Write-Host "  Phase D: QLoRA     $(if ($SkipQlora) { '[SKIP]' } else { '[RUN]' })" -ForegroundColor $(if ($SkipQlora) { 'DarkGray' } else { 'White' })
-Write-Host "  Phase E: LocalJudge$(if ($SkipLocalJudge) { '[SKIP]' } else { '[RUN]' })" -ForegroundColor $(if ($SkipLocalJudge) { 'DarkGray' } else { 'White' })
+Write-Host "  Phase C: Analysis  $(if ($EffectiveSkipAnalysis) { '[SKIP]' } else { '[RUN]' })" -ForegroundColor $(if ($EffectiveSkipAnalysis) { 'DarkGray' } else { 'White' })
+Write-Host "  Phase D: QLoRA     $(if ($EffectiveSkipQlora) { '[SKIP]' } else { '[RUN]' })" -ForegroundColor $(if ($EffectiveSkipQlora) { 'DarkGray' } else { 'White' })
+Write-Host "  Phase E: LocalJudge$(if ($EffectiveSkipLocalJudge) { '[SKIP]' } else { '[RUN]' })" -ForegroundColor $(if ($EffectiveSkipLocalJudge) { 'DarkGray' } else { 'White' })
 
 # ============================================================
 # Pre-flight: Environment Check (always runs, regardless of Skip* flags)
@@ -341,7 +371,7 @@ if ($Execute) {
 # ============================================================
 # Phase A: Dataset Creation
 # ============================================================
-if (-not $SkipDataset) {
+if (-not $EffectiveSkipDataset) {
 
     # --- A0: Prerequisite Checks ---
     $n = Next-Step
@@ -454,7 +484,7 @@ if (-not $SkipDataset) {
 
     Write-Info "Phase A elapsed: $(Get-Elapsed)"
 } else {
-    Write-Info "Phase A skipped (SkipDataset)"
+    Write-Info "Phase A skipped (SkipDataset/Profile=smoke)"
 }
 
 # ============================================================
@@ -474,18 +504,21 @@ if (-not $SkipEval) {
             Write-Warn "Unknown model: $m (skipping)"
             continue
         }
-        $key = [Environment]::GetEnvironmentVariable($def.KeyEnv)
+        $key = Get-EnvFirst $def.KeyEnv
         if (-not $key) {
-            Write-Warn "$($def.Name) ($($def.KeyEnv)) API key not set — skipping"
+            Write-Warn "$($def.Name) ($($def.KeyEnv -replace '\|', '/')) API key not set — skipping"
             continue
         }
-        $masked = $key.Substring(0, [Math]::Min(8, $key.Length)) + "***"
-        Write-Ok "$($def.Name): $masked"
+        Write-Ok "$($def.Name): API key set"
         $activeModels += $def
     }
 
     if ($activeModels.Count -eq 0) {
-        Write-Err "No active models with valid API keys. Set env vars and retry."
+        if ($Execute) {
+            Write-Err "No active models with valid API keys. Set env vars and retry."
+        } else {
+            Write-Warn "No active models with valid API keys. Dry-run will still validate the public pipeline plan."
+        }
         if ($Execute) { exit 1 }
     }
 
@@ -494,21 +527,21 @@ if (-not $SkipEval) {
         Write-Info "DryRun: would evaluate $($activeModels.Count) model(s)"
     }
 
-    $evalInput = if (Test-Path $CORE_JSON) { $CORE_JSON } else { $BENCHMARK_JSON }
+    $evalInput = if (Test-Path $Input) { $Input } elseif (Test-Path $CORE_JSON) { $CORE_JSON } else { $BENCHMARK_JSON }
 
     # Use DeepSeek as default judge
     $judgeModel = "deepseek-v4-flash"
     $judgeBaseUrl = "https://api.deepseek.com"
-    $judgeApiKey = [Environment]::GetEnvironmentVariable("OPENAI_API_KEY")
+    $judgeApiKey = Get-EnvFirst "DEEPSEEK_API_KEY|OPENAI_API_KEY"
     if (-not $judgeApiKey -and $activeModels.Count -gt 0) {
-        Write-Warn "OPENAI_API_KEY not set — judge unavailable. Falling back to $($activeModels[0].Name) API key."
-        $judgeApiKey = [Environment]::GetEnvironmentVariable($activeModels[0].KeyEnv)
+        Write-Warn "DEEPSEEK_API_KEY/OPENAI_API_KEY not set — judge unavailable. Falling back to $($activeModels[0].Name) API key."
+        $judgeApiKey = Get-EnvFirst $activeModels[0].KeyEnv
     }
 
     $evalOk = $true
     foreach ($def in $activeModels) {
         $evalOutput = Join-Path $ResultsDir "eval_$($def.Name.ToLower()).json"
-        $targetKey = [Environment]::GetEnvironmentVariable($def.KeyEnv)
+        $targetKey = Get-EnvFirst $def.KeyEnv
 
         $evalArgs = @(
             "benchmark\eval\evaluate.py",
@@ -574,7 +607,7 @@ if (-not $SkipEval) {
 # ============================================================
 # Phase C: Comprehensive Analysis
 # ============================================================
-if (-not $SkipAnalysis) {
+if (-not $EffectiveSkipAnalysis) {
     $n = Next-Step
     Write-Step -Number $n -Total $TOTAL_STEPS -Msg "Phase C: Comprehensive Analysis (7 dimensions + charts)"
 
@@ -590,13 +623,13 @@ if (-not $SkipAnalysis) {
 
     Write-Info "Phase C elapsed: $(Get-Elapsed)"
 } else {
-    Write-Info "Phase C skipped (SkipAnalysis)"
+    Write-Info "Phase C skipped (SkipAnalysis/Profile=smoke)"
 }
 
 # ============================================================
 # Phase D: QLoRA Fine-tuning
 # ============================================================
-if (-not $SkipQlora) {
+if (-not $EffectiveSkipQlora) {
 
     # --- D1: QLoRA Training ---
     $n = Next-Step
@@ -645,13 +678,13 @@ if (-not $SkipQlora) {
 
     Write-Info "Phase D elapsed: $(Get-Elapsed)"
 } else {
-    Write-Info "Phase D skipped (SkipQlora)"
+    Write-Info "Phase D skipped (SkipQlora/Profile=smoke)"
 }
 
 # ============================================================
 # Phase E: Local Judge (Ollama 35B)
 # ============================================================
-if (-not $SkipLocalJudge) {
+if (-not $EffectiveSkipLocalJudge) {
     $n = Next-Step
     Write-Step -Number $n -Total $TOTAL_STEPS -Msg "Phase E: Local Judge Evaluation (Ollama qwen3.5:35b)"
 
@@ -707,7 +740,7 @@ if (-not $SkipLocalJudge) {
 
     Write-Info "Phase E elapsed: $(Get-Elapsed)"
 } else {
-    Write-Info "Phase E skipped (SkipLocalJudge)"
+    Write-Info "Phase E skipped (SkipLocalJudge/Profile=smoke)"
 }
 
 # ============================================================
@@ -720,6 +753,7 @@ Write-Host "  Pipeline Complete" -ForegroundColor Green
 Write-Host ("=" * 60) -ForegroundColor Cyan
 Write-Host "  Elapsed:        $totalTime"
 Write-Host "  Mode:           $(if ($Execute) { 'EXECUTE' } else { 'DRY-RUN' })"
+Write-Host "  Profile:        $Profile"
 Write-Host "  Limit (gen):    $Limit"
 Write-Host "  Eval Limit:     $(if ($EvalLimit -eq 0) { 'ALL' } else { $EvalLimit })"
 
@@ -737,7 +771,8 @@ foreach ($f in $phaseA_files) {
         $sz = [math]::Round((Get-Item $f.Path).Length / 1KB, 1)
         Write-Host "    [OK] $($f.Label) ($sz KB)" -ForegroundColor Green
     } else {
-        Write-Host "    [$($SkipDataset -or -not $Execute ? 'DRY' : 'MISS')] $($f.Label)" -ForegroundColor $(if ($SkipDataset) { "DarkGray" } else { "Yellow" })
+        $label = if ($EffectiveSkipDataset -or -not $Execute) { "DRY" } else { "MISS" }
+        Write-Host "    [$label] $($f.Label)" -ForegroundColor $(if ($EffectiveSkipDataset -or -not $Execute) { "DarkGray" } else { "Yellow" })
     }
 }
 
@@ -758,27 +793,35 @@ foreach ($m in $targetList) {
 $leaderJson = Join-Path $ResultsDir "leaderboard.json"
 $leaderHtml = Join-Path $ResultsDir "leaderboard.html"
 if (Test-Path $leaderJson) { Write-Host "    [OK] leaderboard.json" -ForegroundColor Green }
-else { Write-Host "    [$($SkipEval -or $SkipLeaderboard -or -not $Execute ? 'DRY' : 'MISS')] leaderboard.json" -ForegroundColor $(if ($SkipEval) { "DarkGray" } else { "Yellow" }) }
+else {
+    $label = if ($SkipEval -or $SkipLeaderboard -or -not $Execute) { "DRY" } else { "MISS" }
+    Write-Host "    [$label] leaderboard.json" -ForegroundColor $(if ($SkipEval) { "DarkGray" } else { "Yellow" })
+}
 if (Test-Path $leaderHtml) { Write-Host "    [OK] leaderboard.html" -ForegroundColor Green }
-else { Write-Host "    [$($SkipEval -or $SkipLeaderboard -or -not $Execute ? 'DRY' : 'MISS')] leaderboard.html" -ForegroundColor $(if ($SkipEval) { "DarkGray" } else { "Yellow" }) }
+else {
+    $label = if ($SkipEval -or $SkipLeaderboard -or -not $Execute) { "DRY" } else { "MISS" }
+    Write-Host "    [$label] leaderboard.html" -ForegroundColor $(if ($SkipEval) { "DarkGray" } else { "Yellow" })
+}
 
 Write-Host ""
 Write-Host "  Phase C — Analysis ($ANALYZE_OUT):" -ForegroundColor White
 if (Test-Path (Join-Path $ANALYZE_OUT "summary_all.json")) {
-    Write-Host "    [OK] 7 analysis JSONs + charts" -ForegroundColor Green
+    $label = if ($EffectiveSkipAnalysis -and $Profile -eq "smoke") { "SKIP" } else { "OK" }
+    Write-Host "    [$label] 7 analysis JSONs + charts" -ForegroundColor $(if ($label -eq "SKIP") { "DarkGray" } else { "Green" })
 } else {
-    $label = if ($SkipAnalysis -or -not $Execute) { "DRY" } else { "MISS" }
-    Write-Host "    [$label] analysis outputs" -ForegroundColor $(if ($SkipAnalysis) { "DarkGray" } else { "Yellow" })
+    $label = if ($EffectiveSkipAnalysis -or -not $Execute) { "DRY" } else { "MISS" }
+    Write-Host "    [$label] analysis outputs" -ForegroundColor $(if ($EffectiveSkipAnalysis -or -not $Execute) { "DarkGray" } else { "Yellow" })
 }
 
 Write-Host ""
 Write-Host "  Phase D — QLoRA ($QLORA_FINAL):" -ForegroundColor White
 if (Test-Path (Join-Path $QLORA_FINAL "adapter_config.json")) {
     $adapterSize = [math]::Round((Get-ChildItem $QLORA_FINAL -Recurse | Measure-Object -Property Length -Sum).Sum / 1MB, 1)
-    Write-Host "    [OK] QLoRA adapter ($adapterSize MB)" -ForegroundColor Green
+    $label = if ($EffectiveSkipQlora -and $Profile -eq "smoke") { "SKIP" } else { "OK" }
+    Write-Host "    [$label] QLoRA adapter ($adapterSize MB)" -ForegroundColor $(if ($label -eq "SKIP") { "DarkGray" } else { "Green" })
 } else {
-    $label = if ($SkipQlora -or -not $Execute) { "DRY" } else { "MISS" }
-    Write-Host "    [$label] qlora-final adapter" -ForegroundColor $(if ($SkipQlora) { "DarkGray" } else { "Yellow" })
+    $label = if ($EffectiveSkipQlora -or -not $Execute) { "DRY" } else { "MISS" }
+    Write-Host "    [$label] qlora-final adapter" -ForegroundColor $(if ($EffectiveSkipQlora -or -not $Execute) { "DarkGray" } else { "Yellow" })
 }
 
 Write-Host ""
@@ -788,19 +831,19 @@ if (Test-Path $localJudgeOut) {
     $sz = [math]::Round((Get-Item $localJudgeOut).Length / 1KB, 1)
     Write-Host "    [OK] ollama_judge_35b.json ($sz KB)" -ForegroundColor Green
 } else {
-    $label = if ($SkipLocalJudge -or -not $Execute) { "DRY" } else { "MISS" }
-    Write-Host "    [$label] ollama_judge_35b.json" -ForegroundColor $(if ($SkipLocalJudge) { "DarkGray" } else { "Yellow" })
+    $label = if ($EffectiveSkipLocalJudge -or -not $Execute) { "DRY" } else { "MISS" }
+    Write-Host "    [$label] ollama_judge_35b.json" -ForegroundColor $(if ($EffectiveSkipLocalJudge -or -not $Execute) { "DarkGray" } else { "Yellow" })
 }
 
 # Background process summary
 if ($BackgroundLong) {
     Write-Host ""
     Write-Host "  Background Processes:" -ForegroundColor Magenta
-    if (-not $SkipQlora) {
+    if (-not $EffectiveSkipQlora) {
         Write-Host "    QLoRA Training:  $qloraLog" -ForegroundColor Gray
         Write-Host "    QLoRA Eval:      $evalLog" -ForegroundColor Gray
     }
-    if (-not $SkipLocalJudge -and $ollamaAvailable) {
+    if (-not $EffectiveSkipLocalJudge -and $ollamaAvailable) {
         Write-Host "    35B Judge:       $localJudgeLog" -ForegroundColor Gray
     }
 }
@@ -808,13 +851,13 @@ if ($BackgroundLong) {
 if (-not $Execute) {
     Write-Host ""
     Write-Host "  This was a DRY-RUN. To execute:" -ForegroundColor Yellow
-    Write-Host "    .\run_agent.ps1 -Execute -Limit 10" -ForegroundColor Yellow
+    Write-Host "    .\run_agent.ps1 -Execute -Profile smoke" -ForegroundColor Yellow
     Write-Host ""
     Write-Host "  Minimal validation:" -ForegroundColor Gray
-    Write-Host "    .\run_agent.ps1 -Execute -Limit 10 -SkipQlora -SkipLocalJudge" -ForegroundColor Gray
+    Write-Host "    .\run_agent.ps1 -Execute -Profile smoke -TargetModels deepseek" -ForegroundColor Gray
     Write-Host ""
     Write-Host "  Full pipeline (500 Qs, all phases):" -ForegroundColor Gray
-    Write-Host "    .\run_agent.ps1 -Execute -Limit 0" -ForegroundColor Gray
+    Write-Host "    .\run_agent.ps1 -Execute -Profile report" -ForegroundColor Gray
     Write-Host ""
     Write-Host "  Eval only (existing dataset):" -ForegroundColor Gray
     Write-Host "    .\run_agent.ps1 -Execute -SkipDataset -SkipAnalysis -SkipQlora -SkipLocalJudge" -ForegroundColor Gray
@@ -823,7 +866,7 @@ if (-not $Execute) {
     Write-Host "    .\run_agent.ps1 -Execute -SkipAnalysis -SkipQlora -SkipLocalJudge" -ForegroundColor Gray
     Write-Host ""
     Write-Host "  Background QLoRA + 35B (overnight):" -ForegroundColor Gray
-    Write-Host "    .\run_agent.ps1 -Execute -SkipDataset -SkipEval -SkipAnalysis -BackgroundLong" -ForegroundColor Gray
+    Write-Host "    .\run_agent.ps1 -Execute -Profile report -SkipDataset -SkipEval -SkipAnalysis -BackgroundLong" -ForegroundColor Gray
 }
 
 exit 0

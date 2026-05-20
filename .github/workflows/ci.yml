@@ -21,7 +21,29 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install openai httpx anthropic
+          pip install openai httpx anthropic fastapi pydantic typer rich python-multipart
+          pip install -e .
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install pnpm
+        run: npm install -g pnpm@11
+
+      - name: Syntax check (ControlMind core)
+        run: |
+          python -m compileall -q controlsci
+          python -m py_compile cloud_demo_standalone/app.py
+          python - <<'PY'
+          from controlsci.api.settings import get_settings
+          from controlsci.api.runtime import RuntimeConfig, normalize_runtime
+          s = get_settings()
+          assert s.api_port
+          assert normalize_runtime(RuntimeConfig()).privacy_policy == "local_only"
+          print("core import smoke ok")
+          PY
 
       - name: Syntax check (benchmark/eval)
         run: |
@@ -79,3 +101,15 @@ jobs:
 
       - name: Reference evaluation (sample)
         run: python benchmark/eval/evaluate.py --mode reference --input benchmark/dataset/sample_questions.json --output /tmp/sample_report.json
+
+      - name: Build Starboard frontend
+        working-directory: starboard
+        run: |
+          pnpm install --frozen-lockfile
+          pnpm build
+
+      - name: Build cloud demo frontend
+        working-directory: cloud_demo_standalone/web
+        run: |
+          pnpm install --frozen-lockfile
+          pnpm build

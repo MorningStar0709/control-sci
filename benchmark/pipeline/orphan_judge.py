@@ -15,8 +15,11 @@ random.Random(42).shuffle(orphans)
 
 # ── API setup ──
 from openai import OpenAI, DefaultHttpxClient
+api_key = os.environ.get("DEEPSEEK_API_KEY") or os.environ.get("OPENAI_API_KEY")
+if not api_key:
+    raise SystemExit("DEEPSEEK_API_KEY/OPENAI_API_KEY is required for orphan_judge.py")
 client = OpenAI(
-    api_key=os.environ.get("OPENAI_API_KEY"),
+    api_key=api_key,
     base_url="https://api.deepseek.com",
     timeout=60,
     max_retries=1,

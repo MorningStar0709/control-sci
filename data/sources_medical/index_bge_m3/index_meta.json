@@ -1,0 +1,17 @@
+{
+  "index_id": "index_bge_m3",
+  "created_at": "2026-05-15T01:55:57.169485+00:00",
+  "embedding_provider": "hf",
+  "embedding_model": "BAAI/bge-m3",
+  "embedding_dim": 1024,
+  "chunk_count": 3348,
+  "manifest_path": "data\\sources_medical\\chunks\\chunks_manifest.json",
+  "manifest_sha256": "c41f89d265c4901f3f10b6b98b489104bda870dccf800132a049e84e5eda6d4e",
+  "current_manifest_sha256": "872637e65388561953d02e3d15f8d8529cc181a954ae4cc83ae7dbb6aa55dc04",
+  "chunk_content_fingerprint": "1b0605310ca21a621a7bfd220efe99b5aa24c38c60cffb0b78bb995a71c34f3a",
+  "manifest_recovery_status": "path-normalized",
+  "manifest_recovery_note": "The restored canonical manifest keeps the same 3348 chunk ids and chunk texts as the audited recovery candidates; only filepath strings were normalized to data/sources_medical/chunks/.",
+  "dense_index": "data\\sources_medical\\index_bge_m3\\medical.index",
+  "embedding_cache": "data\\sources_medical\\index_bge_m3\\embeddings_hf_baai_bge-m3.npy",
+  "bm25_index": "data\\sources_medical\\index_bge_m3\\bm25.pkl"
+}

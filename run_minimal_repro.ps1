@@ -16,10 +16,14 @@ param(
     [int]$Limit = 10,
     [string]$ResultsDir = "",
     [int]$ApiPort = 18001,
-    [switch]$SkipApiSearch
+    [switch]$SkipApiSearch,
+    [switch]$DryRun
 )
 
 $ErrorActionPreference = "Stop"
+$env:PYTHONUTF8 = "1"
+$env:PYTHONIOENCODING = "utf-8"
+[Console]::OutputEncoding = [System.Text.UTF8Encoding]::new($false)
 $ROOT = $PSScriptRoot
 if (-not $ResultsDir) {
     $ResultsDir = Join-Path $ROOT "benchmark\eval\results\minimal_repro"
@@ -43,6 +47,18 @@ function Run($desc, [scriptblock]$body) {
 Push-Location $ROOT
 try {
     New-Item -ItemType Directory -Path $ResultsDir -Force | Out-Null
+
+    if ($DryRun) {
+        Step "Dry-run plan"
+        Write-Host "  Would run run_evaluation.ps1 -Execute -Limit $Limit -BalancedMini -ResultsDir $ResultsDir"
+        Write-Host "  Would run agent_cli.py --dry-run --intents reproduce_all"
+        Write-Host "  Would validate agent capabilities"
+        Write-Host "  Would run controlsci.medical.kb_quality --dry-run"
+        if (-not $SkipApiSearch) {
+            Write-Host "  Would start Medical RAG API on port $ApiPort and run reviewer demo"
+        }
+        exit 0
+    }
 
     Run "Balanced mini evaluation + leaderboard" {
         .\run_evaluation.ps1 -Execute -Limit $Limit -BalancedMini -ResultsDir $ResultsDir

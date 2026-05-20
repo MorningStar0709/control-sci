@@ -1,0 +1,41 @@
+{
+  "analysis": "2c-1_four_dimension_pca",
+  "n_questions": 500,
+  "dimension_counts": {
+    "A": 125,
+    "B": 125,
+    "C": 125,
+    "D": 125
+  },
+  "pca_variance_explained": [
+    0.0802,
+    0.0395
+  ],
+  "centroid_2d": {
+    "A": [
+      -0.1805,
+      0.0168
+    ],
+    "B": [
+      -0.0423,
+      -0.0179
+    ],
+    "C": [
+      -0.1245,
+      -0.0458
+    ],
+    "D": [
+      0.3473,
+      0.0469
+    ]
+  },
+  "centroid_distances": {
+    "A-B": 0.1426,
+    "A-C": 0.084,
+    "A-D": 0.5287,
+    "B-C": 0.0869,
+    "B-D": 0.395,
+    "C-D": 0.4809
+  },
+  "interpretation": "四维在嵌入空间中部分重叠（尤其 A/B），反映 L1→L2 的科学发现连续谱；C/D 维度有独立聚集趋势，说明 sensitivity 和 design 有独特语义特征。"
+}

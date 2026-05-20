@@ -1,0 +1,926 @@
+{
+  "analysis": "2c-3_failure_embedding_clustering",
+  "n_low_score_total": 332,
+  "n_clustered": 50,
+  "k_optimal": 6,
+  "silhouette_score": 0.0335,
+  "clusters": [
+    {
+      "cluster_id": 5,
+      "size": 1,
+      "avg_score": 0.0,
+      "dimension_distribution": {
+        "B": 1
+      },
+      "members": [
+        {
+          "id": "CS-EVO-00894",
+          "dimension": "B",
+          "n_models_failed": 7,
+          "avg_score": 0.0,
+          "models": [
+            "deepseek-v4-flash",
+            "mimo-v2-pro",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": 3,
+      "size": 17,
+      "avg_score": 0.006,
+      "dimension_distribution": {
+        "A": 13,
+        "B": 3,
+        "C": 1
+      },
+      "members": [
+        {
+          "id": "CS-EVO-00011",
+          "dimension": "A",
+          "n_models_failed": 9,
+          "avg_score": 0.0,
+          "models": [
+            "deepseek-v4-flash",
+            "deepseek-v4-pro",
+            "mimo-v2-flash",
+            "mimo-v2-pro",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        },
+        {
+          "id": "CS-EVO-00245",
+          "dimension": "A",
+          "n_models_failed": 9,
+          "avg_score": 0.0,
+          "models": [
+            "deepseek-v4-flash",
+            "deepseek-v4-pro",
+            "mimo-v2-flash",
+            "mimo-v2-pro",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        },
+        {
+          "id": "CS-EVO-00611",
+          "dimension": "A",
+          "n_models_failed": 9,
+          "avg_score": 0.0,
+          "models": [
+            "deepseek-v4-flash",
+            "deepseek-v4-pro",
+            "mimo-v2-flash",
+            "mimo-v2-pro",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        },
+        {
+          "id": "CS-EVO-00841",
+          "dimension": "A",
+          "n_models_failed": 9,
+          "avg_score": 0.0,
+          "models": [
+            "deepseek-v4-flash",
+            "deepseek-v4-pro",
+            "mimo-v2-flash",
+            "mimo-v2-pro",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        },
+        {
+          "id": "CS-EVO-00018",
+          "dimension": "A",
+          "n_models_failed": 9,
+          "avg_score": 0.0,
+          "models": [
+            "deepseek-v4-flash",
+            "deepseek-v4-pro",
+            "mimo-v2-flash",
+            "mimo-v2-pro",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        },
+        {
+          "id": "CS-EVO-00208",
+          "dimension": "A",
+          "n_models_failed": 9,
+          "avg_score": 0.0,
+          "models": [
+            "deepseek-v4-flash",
+            "deepseek-v4-pro",
+            "mimo-v2-flash",
+            "mimo-v2-pro",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        },
+        {
+          "id": "CS-EVO-00675",
+          "dimension": "A",
+          "n_models_failed": 9,
+          "avg_score": 0.0,
+          "models": [
+            "deepseek-v4-flash",
+            "deepseek-v4-pro",
+            "mimo-v2-flash",
+            "mimo-v2-pro",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        },
+        {
+          "id": "CS-EVO-00419",
+          "dimension": "A",
+          "n_models_failed": 9,
+          "avg_score": 0.0,
+          "models": [
+            "deepseek-v4-flash",
+            "deepseek-v4-pro",
+            "mimo-v2-flash",
+            "mimo-v2-pro",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        },
+        {
+          "id": "CS-EVO-00723",
+          "dimension": "A",
+          "n_models_failed": 9,
+          "avg_score": 0.0,
+          "models": [
+            "deepseek-v4-flash",
+            "deepseek-v4-pro",
+            "mimo-v2-flash",
+            "mimo-v2-pro",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        },
+        {
+          "id": "CS-EVO-00546",
+          "dimension": "A",
+          "n_models_failed": 9,
+          "avg_score": 0.0,
+          "models": [
+            "deepseek-v4-flash",
+            "deepseek-v4-pro",
+            "mimo-v2-flash",
+            "mimo-v2-pro",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        },
+        {
+          "id": "CS-EVO-00454",
+          "dimension": "A",
+          "n_models_failed": 9,
+          "avg_score": 0.0,
+          "models": [
+            "deepseek-v4-flash",
+            "deepseek-v4-pro",
+            "mimo-v2-flash",
+            "mimo-v2-pro",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        },
+        {
+          "id": "CS-EVO-00638",
+          "dimension": "B",
+          "n_models_failed": 9,
+          "avg_score": 0.0,
+          "models": [
+            "deepseek-v4-flash",
+            "deepseek-v4-pro",
+            "mimo-v2-flash",
+            "mimo-v2-pro",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        },
+        {
+          "id": "CS-EVO-00754",
+          "dimension": "B",
+          "n_models_failed": 9,
+          "avg_score": 0.0667,
+          "models": [
+            "deepseek-v4-flash",
+            "deepseek-v4-pro",
+            "mimo-v2-flash",
+            "mimo-v2-pro",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        },
+        {
+          "id": "CS-EVO-00687",
+          "dimension": "A",
+          "n_models_failed": 8,
+          "avg_score": 0.0,
+          "models": [
+            "deepseek-v4-flash",
+            "deepseek-v4-pro",
+            "mimo-v2-flash",
+            "mimo-v2-pro",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed"
+          ]
+        },
+        {
+          "id": "CS-EVO-00410",
+          "dimension": "A",
+          "n_models_failed": 7,
+          "avg_score": 0.0,
+          "models": [
+            "deepseek-v4-flash",
+            "deepseek-v4-pro",
+            "mimo-v2-flash",
+            "mimo-v2-pro",
+            "mimo-v2.5-pro",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed"
+          ]
+        },
+        {
+          "id": "CS-EVO-00398",
+          "dimension": "B",
+          "n_models_failed": 7,
+          "avg_score": 0.0,
+          "models": [
+            "deepseek-v4-flash",
+            "deepseek-v4-pro",
+            "mimo-v2-flash",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        },
+        {
+          "id": "CS-EVO-00104",
+          "dimension": "C",
+          "n_models_failed": 7,
+          "avg_score": 0.0357,
+          "models": [
+            "deepseek-v4-flash",
+            "mimo-v2-pro",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": 4,
+      "size": 5,
+      "avg_score": 0.01,
+      "dimension_distribution": {
+        "A": 3,
+        "B": 1,
+        "C": 1
+      },
+      "members": [
+        {
+          "id": "CS-EVO-00198",
+          "dimension": "A",
+          "n_models_failed": 9,
+          "avg_score": 0.0,
+          "models": [
+            "deepseek-v4-flash",
+            "deepseek-v4-pro",
+            "mimo-v2-flash",
+            "mimo-v2-pro",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        },
+        {
+          "id": "CS-EVO-00426",
+          "dimension": "A",
+          "n_models_failed": 9,
+          "avg_score": 0.0,
+          "models": [
+            "deepseek-v4-flash",
+            "deepseek-v4-pro",
+            "mimo-v2-flash",
+            "mimo-v2-pro",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        },
+        {
+          "id": "CS-EVO-00898",
+          "dimension": "B",
+          "n_models_failed": 8,
+          "avg_score": 0.05,
+          "models": [
+            "deepseek-v4-pro",
+            "mimo-v2-flash",
+            "mimo-v2-pro",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        },
+        {
+          "id": "CS-EVO-00926",
+          "dimension": "C",
+          "n_models_failed": 7,
+          "avg_score": 0.0,
+          "models": [
+            "deepseek-v4-flash",
+            "mimo-v2-pro",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        },
+        {
+          "id": "CS-EVO-00640",
+          "dimension": "A",
+          "n_models_failed": 6,
+          "avg_score": 0.0,
+          "models": [
+            "deepseek-v4-flash",
+            "deepseek-v4-pro",
+            "mimo-v2-flash",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": 1,
+      "size": 6,
+      "avg_score": 0.0131,
+      "dimension_distribution": {
+        "A": 3,
+        "B": 3
+      },
+      "members": [
+        {
+          "id": "CS-EVO-00090",
+          "dimension": "A",
+          "n_models_failed": 9,
+          "avg_score": 0.0,
+          "models": [
+            "deepseek-v4-flash",
+            "deepseek-v4-pro",
+            "mimo-v2-flash",
+            "mimo-v2-pro",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        },
+        {
+          "id": "CS-EVO-00802",
+          "dimension": "A",
+          "n_models_failed": 9,
+          "avg_score": 0.0,
+          "models": [
+            "deepseek-v4-flash",
+            "deepseek-v4-pro",
+            "mimo-v2-flash",
+            "mimo-v2-pro",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        },
+        {
+          "id": "CS-EVO-00708",
+          "dimension": "B",
+          "n_models_failed": 9,
+          "avg_score": 0.0,
+          "models": [
+            "deepseek-v4-flash",
+            "deepseek-v4-pro",
+            "mimo-v2-flash",
+            "mimo-v2-pro",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        },
+        {
+          "id": "CS-EVO-00087",
+          "dimension": "A",
+          "n_models_failed": 8,
+          "avg_score": 0.0,
+          "models": [
+            "deepseek-v4-flash",
+            "mimo-v2-flash",
+            "mimo-v2-pro",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        },
+        {
+          "id": "CS-EVO-00108",
+          "dimension": "B",
+          "n_models_failed": 8,
+          "avg_score": 0.05,
+          "models": [
+            "deepseek-v4-flash",
+            "deepseek-v4-pro",
+            "mimo-v2-flash",
+            "mimo-v2-pro",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed"
+          ]
+        },
+        {
+          "id": "CS-EVO-00722",
+          "dimension": "B",
+          "n_models_failed": 7,
+          "avg_score": 0.0286,
+          "models": [
+            "deepseek-v4-flash",
+            "deepseek-v4-pro",
+            "mimo-v2-flash",
+            "mimo-v2-pro",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "qwen3.5:9b"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": 0,
+      "size": 9,
+      "avg_score": 0.0206,
+      "dimension_distribution": {
+        "A": 6,
+        "B": 2,
+        "C": 1
+      },
+      "members": [
+        {
+          "id": "CS-EVO-00704",
+          "dimension": "A",
+          "n_models_failed": 9,
+          "avg_score": 0.0,
+          "models": [
+            "deepseek-v4-flash",
+            "deepseek-v4-pro",
+            "mimo-v2-flash",
+            "mimo-v2-pro",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        },
+        {
+          "id": "CS-EVO-00603",
+          "dimension": "A",
+          "n_models_failed": 9,
+          "avg_score": 0.0,
+          "models": [
+            "deepseek-v4-flash",
+            "deepseek-v4-pro",
+            "mimo-v2-flash",
+            "mimo-v2-pro",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        },
+        {
+          "id": "CS-EVO-00107",
+          "dimension": "A",
+          "n_models_failed": 9,
+          "avg_score": 0.0,
+          "models": [
+            "deepseek-v4-flash",
+            "deepseek-v4-pro",
+            "mimo-v2-flash",
+            "mimo-v2-pro",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        },
+        {
+          "id": "CS-EVO-00504",
+          "dimension": "A",
+          "n_models_failed": 8,
+          "avg_score": 0.0,
+          "models": [
+            "deepseek-v4-flash",
+            "deepseek-v4-pro",
+            "mimo-v2-flash",
+            "mimo-v2-pro",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed"
+          ]
+        },
+        {
+          "id": "CS-EVO-00380",
+          "dimension": "A",
+          "n_models_failed": 8,
+          "avg_score": 0.0,
+          "models": [
+            "deepseek-v4-flash",
+            "deepseek-v4-pro",
+            "mimo-v2-flash",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        },
+        {
+          "id": "CS-EVO-00518",
+          "dimension": "C",
+          "n_models_failed": 7,
+          "avg_score": 0.0714,
+          "models": [
+            "deepseek-v4-flash",
+            "mimo-v2-pro",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        },
+        {
+          "id": "CS-EVO-00462",
+          "dimension": "B",
+          "n_models_failed": 7,
+          "avg_score": 0.0,
+          "models": [
+            "deepseek-v4-flash",
+            "deepseek-v4-pro",
+            "mimo-v2-flash",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        },
+        {
+          "id": "CS-EVO-00229",
+          "dimension": "B",
+          "n_models_failed": 7,
+          "avg_score": 0.1143,
+          "models": [
+            "deepseek-v4-pro",
+            "mimo-v2-flash",
+            "mimo-v2-pro",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "qwen3.5:9b"
+          ]
+        },
+        {
+          "id": "CS-EVO-00097",
+          "dimension": "A",
+          "n_models_failed": 7,
+          "avg_score": 0.0,
+          "models": [
+            "mimo-v2-flash",
+            "mimo-v2-pro",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_id": 2,
+      "size": 12,
+      "avg_score": 0.0619,
+      "dimension_distribution": {
+        "A": 1,
+        "B": 11
+      },
+      "members": [
+        {
+          "id": "CS-EVO-00835",
+          "dimension": "A",
+          "n_models_failed": 9,
+          "avg_score": 0.0,
+          "models": [
+            "deepseek-v4-flash",
+            "deepseek-v4-pro",
+            "mimo-v2-flash",
+            "mimo-v2-pro",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        },
+        {
+          "id": "CS-EVO-00619",
+          "dimension": "B",
+          "n_models_failed": 9,
+          "avg_score": 0.0667,
+          "models": [
+            "deepseek-v4-flash",
+            "deepseek-v4-pro",
+            "mimo-v2-flash",
+            "mimo-v2-pro",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        },
+        {
+          "id": "CS-EVO-00813",
+          "dimension": "B",
+          "n_models_failed": 9,
+          "avg_score": 0.0889,
+          "models": [
+            "deepseek-v4-flash",
+            "deepseek-v4-pro",
+            "mimo-v2-flash",
+            "mimo-v2-pro",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        },
+        {
+          "id": "CS-EVO-00867",
+          "dimension": "B",
+          "n_models_failed": 9,
+          "avg_score": 0.0667,
+          "models": [
+            "deepseek-v4-flash",
+            "deepseek-v4-pro",
+            "mimo-v2-flash",
+            "mimo-v2-pro",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        },
+        {
+          "id": "CS-EVO-00800",
+          "dimension": "B",
+          "n_models_failed": 9,
+          "avg_score": 0.0667,
+          "models": [
+            "deepseek-v4-flash",
+            "deepseek-v4-pro",
+            "mimo-v2-flash",
+            "mimo-v2-pro",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        },
+        {
+          "id": "CS-EVO-00786",
+          "dimension": "B",
+          "n_models_failed": 9,
+          "avg_score": 0.0667,
+          "models": [
+            "deepseek-v4-flash",
+            "deepseek-v4-pro",
+            "mimo-v2-flash",
+            "mimo-v2-pro",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        },
+        {
+          "id": "CS-EVO-00016",
+          "dimension": "B",
+          "n_models_failed": 9,
+          "avg_score": 0.0444,
+          "models": [
+            "deepseek-v4-flash",
+            "deepseek-v4-pro",
+            "mimo-v2-flash",
+            "mimo-v2-pro",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        },
+        {
+          "id": "CS-EVO-00401",
+          "dimension": "B",
+          "n_models_failed": 7,
+          "avg_score": 0.0571,
+          "models": [
+            "deepseek-v4-flash",
+            "deepseek-v4-pro",
+            "mimo-v2-flash",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        },
+        {
+          "id": "CS-EVO-00385",
+          "dimension": "B",
+          "n_models_failed": 7,
+          "avg_score": 0.1143,
+          "models": [
+            "deepseek-v4-flash",
+            "deepseek-v4-pro",
+            "mimo-v2-flash",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        },
+        {
+          "id": "CS-EVO-00959",
+          "dimension": "B",
+          "n_models_failed": 7,
+          "avg_score": 0.0857,
+          "models": [
+            "deepseek-v4-flash",
+            "deepseek-v4-pro",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        },
+        {
+          "id": "CS-EVO-00341",
+          "dimension": "B",
+          "n_models_failed": 7,
+          "avg_score": 0.0571,
+          "models": [
+            "deepseek-v4-flash",
+            "deepseek-v4-pro",
+            "mimo-v2-flash",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed"
+          ]
+        },
+        {
+          "id": "CS-EVO-00368",
+          "dimension": "B",
+          "n_models_failed": 7,
+          "avg_score": 0.0286,
+          "models": [
+            "mimo-v2-flash",
+            "mimo-v2-pro",
+            "mimo-v2.5-pro",
+            "mimo-v2.5",
+            "MiniMax-M2.5-highspeed",
+            "MiniMax-M2.7-highspeed",
+            "qwen3.5:9b"
+          ]
+        }
+      ]
+    }
+  ],
+  "top3_blind_spots": [
+    {
+      "cluster_id": 5,
+      "avg_score": 0.0,
+      "n_questions": 1,
+      "dominant_dimension": "B",
+      "sample_ids": [
+        "CS-EVO-00894"
+      ]
+    },
+    {
+      "cluster_id": 3,
+      "avg_score": 0.006,
+      "n_questions": 17,
+      "dominant_dimension": "A",
+      "sample_ids": [
+        "CS-EVO-00011",
+        "CS-EVO-00245",
+        "CS-EVO-00611",
+        "CS-EVO-00841",
+        "CS-EVO-00018"
+      ]
+    },
+    {
+      "cluster_id": 4,
+      "avg_score": 0.01,
+      "n_questions": 5,
+      "dominant_dimension": "A",
+      "sample_ids": [
+        "CS-EVO-00198",
+        "CS-EVO-00426",
+        "CS-EVO-00898",
+        "CS-EVO-00926",
+        "CS-EVO-00640"
+      ]
+    }
+  ],
+  "interpretation": "低分题在嵌入空间中自然聚为 6 簇 (silhouette=0.034)。均分最低的簇即为跨模型的「知识盲区」，可针对性扩充训练数据或改进 prompt。"
+}

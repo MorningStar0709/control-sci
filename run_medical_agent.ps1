@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
     Medical Data Agent 一键复现 / One-Click Reproduction
     医疗 RAG 全流程: 切片→索引→检索→自评测→QA格式化→可视化
@@ -8,7 +8,7 @@
       Step 1 -- 医疗章节本体切片 (层级语义树)
       Step 2 -- QLoRA 医疗 4B 微调 (可选)
       Step 3 -- Hybrid 索引构建 (FAISS Dense + BM25 Sparse)
-      Step 4-5 -- 知识库自评测 (14 源评分矩阵)
+      Step 4-5 -- 知识库自评测 (smoke 默认轻量 Judge；report 为 14 源评分矩阵)
       Step 6 -- 跨文献证据合成 + QA 格式化
       Step 7 -- 可视化 (可选)
 
@@ -25,6 +25,9 @@
 
 .PARAMETER SkipViz
     跳过可视化图表生成。
+
+.PARAMETER Profile
+    运行策略: smoke 为高可用最小真实测试，report 为报告级完整评估。
 
 .PARAMETER Help
     显示完整帮助信息。
@@ -53,6 +56,8 @@ param(
     [switch]$Quiet,
     [switch]$SkipTrain,
     [switch]$SkipViz,
+    [ValidateSet("smoke", "report")]
+    [string]$Profile = "smoke",
     [switch]$Help
 )
 
@@ -64,6 +69,7 @@ if ($Help) {
 $ErrorActionPreference = "Stop"
 $env:PYTHONIOENCODING = 'utf-8'
 $env:PYTHONUTF8 = '1'
+[Console]::OutputEncoding = [System.Text.UTF8Encoding]::new($false)
 $ROOT = (Resolve-Path $PSScriptRoot).Path
 $PYTHON = "conda"
 $ENV_FLAGS = @("run", "--no-capture-output", "-n", "myenv", "python")
@@ -157,6 +163,7 @@ if ($Execute) {
 }
 Write-Host "  Skip QLoRA:  $(if ($SkipTrain) { 'YES' } else { 'NO' })"
 Write-Host "  Skip Viz:    $(if ($SkipViz) { 'YES' } else { 'NO' })"
+Write-Host "  Profile:     $Profile"
 Write-Host "  Root:        $ROOT"
 Write-Host ""
 
@@ -183,7 +190,10 @@ if (-not (Test-Dir -Path $MD_DIR -Label "MD directory")) { $allOk = $false }
 if (Test-File -Path $MANIFEST_PATH -Label "chunks manifest") {
     try {
         $manifestData = Get-Content $MANIFEST_PATH -Encoding UTF8 | ConvertFrom-Json
-        Write-Ok "chunks: $($manifestData.metadata.total_chunks) chunks, $($manifestData.metadata.train_count) train / $($manifestData.metadata.eval_count) eval"
+        $totalChunks = if ($manifestData.metadata.total_chunks) { $manifestData.metadata.total_chunks } else { $manifestData.total_chunks }
+        $trainChunks = if ($manifestData.metadata.train_count) { $manifestData.metadata.train_count } else { $manifestData.train_chunks }
+        $evalChunks = if ($manifestData.metadata.eval_count) { $manifestData.metadata.eval_count } else { $manifestData.eval_chunks }
+        Write-Ok "chunks: $totalChunks chunks, $trainChunks train / $evalChunks eval"
     } catch {
         Write-Warn "chunks manifest JSON 解析失败: $_"
         $allOk = $false
@@ -191,35 +201,32 @@ if (Test-File -Path $MANIFEST_PATH -Label "chunks manifest") {
 } else { $allOk = $false }
 
 # Medical data: index
-Test-File -Path (Join-Path $INDEX_DIR "medical.index") -Label "FAISS index"
-Test-File -Path (Join-Path $INDEX_DIR "bm25.pkl") -Label "BM25 index"
+$null = Test-File -Path (Join-Path $INDEX_DIR "medical.index") -Label "FAISS index"
+$null = Test-File -Path (Join-Path $INDEX_DIR "bm25.pkl") -Label "BM25 index"
 
 # QLoRA adapter
 if (-not $SkipTrain) {
-    Test-File -Path $QLORA_ADAPTER -Label "QLoRA adapter"
+    $null = Test-File -Path $QLORA_ADAPTER -Label "QLoRA adapter"
 }
 
 # API Keys
-$dsKey = $env:OPENAI_API_KEY
+$dsKey = if ($env:DEEPSEEK_API_KEY) { $env:DEEPSEEK_API_KEY } else { $env:OPENAI_API_KEY }
 if ($dsKey) {
-    $masked = $dsKey.Substring(0, [Math]::Min(8, $dsKey.Length)) + "***"
-    Write-Ok "OPENAI_API_KEY: $masked (DeepSeek Judge)"
+    Write-Ok "DEEPSEEK_API_KEY/OPENAI_API_KEY: set (DeepSeek Judge)"
 } else {
-    Write-Warn "OPENAI_API_KEY not set (required for Judge scoring)"
+    Write-Warn "DEEPSEEK_API_KEY/OPENAI_API_KEY not set (required for Judge scoring)"
 }
 
 $mimoKey = $env:MIMO_API_KEY
 if ($mimoKey) {
-    $masked = $mimoKey.Substring(0, [Math]::Min(8, $mimoKey.Length)) + "***"
-    Write-Ok "MIMO_API_KEY: $masked"
+    Write-Ok "MIMO_API_KEY: set"
 } else {
     Write-Info "MIMO_API_KEY not set (optional)"
 }
 
 $minimaxKey = $env:MINIMAX_API_KEY
 if ($minimaxKey) {
-    $masked = $minimaxKey.Substring(0, [Math]::Min(8, $minimaxKey.Length)) + "***"
-    Write-Ok "MINIMAX_API_KEY: $masked"
+    Write-Ok "MINIMAX_API_KEY: set"
 } else {
     Write-Info "MINIMAX_API_KEY not set (optional)"
 }
@@ -278,13 +285,14 @@ Write-Step -Number 1 -Total 7 -Msg "Medical RAG Pipeline: 切片 → 微调 → 
 
 Write-Info "Delegating to agent_cli.py --intents medical_rag"
 
-$medicalParams = @{}
+$medicalParams = @{ profile = $Profile }
 if ($SkipTrain) { $medicalParams["skip_train"] = $true }
 if ($SkipViz)   { $medicalParams["skip_viz"]   = $true }
 
 $agentArgs = @(
     $AGENT_CLI,
-    "--intents", "medical_rag"
+    "--intents", "medical_rag",
+    "--no-expand-deps"
 )
 if ($medicalParams.Count -gt 0) {
     $wrapped = @{ medical_rag = $medicalParams }
@@ -320,7 +328,11 @@ if ($Execute) {
     Write-Host "    1. 医疗章节本体切片 (层级语义树)" -ForegroundColor DarkGray
     Write-Host "    2. QLoRA 微调 $(if ($SkipTrain) { '[SKIP]' } else { '' })" -ForegroundColor DarkGray
     Write-Host "    3. Hybrid 索引构建 (FAISS + BM25)" -ForegroundColor DarkGray
-    Write-Host "    4. 知识库自评测 (14 源评分矩阵)" -ForegroundColor DarkGray
+    if ($Profile -eq "smoke") {
+        Write-Host "    4. 知识库自评测 (smoke: 1 query / 1 local judge)" -ForegroundColor DarkGray
+    } else {
+        Write-Host "    4. 知识库自评测 (report: 14 源评分矩阵)" -ForegroundColor DarkGray
+    }
     Write-Host "    5. QA 格式化 (官方格式封装)" -ForegroundColor DarkGray
     Write-Host "    6. 可视化 $(if ($SkipViz) { '[SKIP]' } else { '' })" -ForegroundColor DarkGray
     $pipelineOk = $true
@@ -340,6 +352,7 @@ if ($pipelineOk) {
 Write-Host ("=" * 60) -ForegroundColor Cyan
 Write-Host "  Elapsed:    $totalTime"
 Write-Host "  Mode:       $(if ($Execute) { 'EXECUTE' } else { 'DRY-RUN' })"
+Write-Host "  Profile:    $Profile"
 Write-Host "  Skip Train: $(if ($SkipTrain) { 'YES' } else { 'NO' })"
 Write-Host "  Skip Viz:   $(if ($SkipViz) { 'YES' } else { 'NO' })"
 Write-Host ""
@@ -385,7 +398,10 @@ if (-not $Execute) {
     Write-Host "    .\run_medical_agent.ps1 -Execute" -ForegroundColor Yellow
     Write-Host ""
     Write-Host "  Skip training (existing adapter):" -ForegroundColor Gray
-    Write-Host "    .\run_medical_agent.ps1 -Execute -SkipTrain -SkipViz" -ForegroundColor Gray
+    Write-Host "    .\run_medical_agent.ps1 -Execute -SkipTrain -SkipViz -Profile smoke" -ForegroundColor Gray
+    Write-Host ""
+    Write-Host "  Report-level full evaluation:" -ForegroundColor Gray
+    Write-Host "    .\run_medical_agent.ps1 -Execute -Profile report" -ForegroundColor Gray
     Write-Host ""
     Write-Host "  Or call handler directly:" -ForegroundColor Gray
     Write-Host "    conda run --no-capture-output -n myenv python benchmark/agent/agent_cli.py --intents medical_rag" -ForegroundColor Gray

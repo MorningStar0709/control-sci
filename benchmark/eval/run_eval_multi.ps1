@@ -4,7 +4,8 @@
 
 param(
     [string]$models = "deepseek-v4-flash",
-    [string]$input = "benchmark/dataset/core.json",
+    [Alias("input")]
+    [string]$benchmark_input = "benchmark/dataset/core.json",
     [string]$api_key = "",
     [string]$target_api_key = "",
     [string]$judge_api_key = "",
@@ -14,6 +15,7 @@ param(
     [string]$judge_model = "deepseek-v4-flash",
     [int]$limit = 0,
     [string]$output_dir = "benchmark/eval/reports",
+    [switch]$dry_run,
     [switch]$resume,
     [switch]$retry_failed,
     [int]$retries = 3,
@@ -22,6 +24,24 @@ param(
 
 if (-not (Test-Path $output_dir)) {
     New-Item -ItemType Directory -Path $output_dir -Force | Out-Null
+}
+
+function Get-MaskedArgs {
+    param([string[]]$ArgsList)
+    $maskNext = $false
+    $masked = @()
+    foreach ($arg in $ArgsList) {
+        if ($maskNext) {
+            $masked += "***"
+            $maskNext = $false
+        } elseif ($arg -in @("--api-key", "--target-api-key", "--judge-api-key", "--hf-token")) {
+            $masked += $arg
+            $maskNext = $true
+        } else {
+            $masked += $arg
+        }
+    }
+    return $masked
 }
 
 $modelList = $models -split ","
@@ -36,7 +56,7 @@ foreach ($model in $modelList) {
     $evaluateArgs = @(
         "run", "--no-capture-output", "-n", "myenv", "python", "benchmark/eval/evaluate.py"
         "--mode", "model"
-        "--input", $input
+        "--input", $benchmark_input
         "--output", $outputFile
         "--target-model", $model
         "--judge-model", $judge_model
@@ -54,7 +74,12 @@ foreach ($model in $modelList) {
     if ($resume) { $evaluateArgs += "--resume" }
     if ($retry_failed) { $evaluateArgs += "--retry-failed" }
 
-    Write-Host "Running: conda $evaluateArgs" -ForegroundColor Yellow
+    $displayArgs = Get-MaskedArgs -ArgsList $evaluateArgs
+    Write-Host "Running: conda $($displayArgs -join ' ')" -ForegroundColor Yellow
+    if ($dry_run) {
+        Write-Host "Dry-run: command not executed; output would be $outputFile" -ForegroundColor DarkGray
+        continue
+    }
     & "conda" $evaluateArgs
 
     if ($LASTEXITCODE -eq 0) {

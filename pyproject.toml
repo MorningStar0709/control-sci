@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "controlmind"
+version = "0.1.0"
+description = "ControlMind scientific document evaluation and medical RAG toolkit."
+requires-python = ">=3.10"
+dependencies = [
+  "typer>=0.12.0",
+  "rich>=13.0.0",
+  "pydantic>=2.0.0",
+  "httpx>=0.27.0",
+  "fastapi>=0.110.0",
+  "uvicorn>=0.27.0",
+  "numpy>=1.24.0",
+]
+
+[project.optional-dependencies]
+rag = [
+  "faiss-cpu>=1.8.0",
+  "rank-bm25>=0.2.2",
+  "torch>=2.0.0",
+  "transformers>=4.36.0",
+  "scikit-learn>=1.3.0",
+]
+
+[project.scripts]
+controlmind = "controlsci.cli.app:main"
+
+[tool.setuptools.packages.find]
+include = ["controlsci*"]

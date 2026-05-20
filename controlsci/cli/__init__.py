@@ -1,0 +1,2 @@
+"""ControlMind product CLI."""
+

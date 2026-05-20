@@ -13,6 +13,8 @@ def resolve_api_key(base_url, explicit_key=None, fallback_key=None):
         return os.environ.get("MINIMAX_API_KEY") or fallback_key
     if "xiaomimimo.com" in base:
         return os.environ.get("MIMO_API_KEY") or fallback_key
+    if "deepseek.com" in base:
+        return fallback_key or os.environ.get("DEEPSEEK_API_KEY") or os.environ.get("OPENAI_API_KEY")
     return fallback_key or os.environ.get("OPENAI_API_KEY")
 
 
@@ -99,8 +101,8 @@ def create_client(api_key=None, base_url="https://api.deepseek.com", model="deep
     from openai import OpenAI, DefaultHttpxClient
 
     if api_key is None:
-        api_key = os.environ.get("OPENAI_API_KEY", "")
+        api_key = resolve_api_key(base_url)
     if not api_key:
-        raise ValueError("API key is required. Set via --api-key or OPENAI_API_KEY env var.")
+        raise ValueError("API key is required. Set via --api-key or provider env var (DEEPSEEK_API_KEY/OPENAI_API_KEY for DeepSeek).")
     client = OpenAI(api_key=api_key, base_url=base_url, timeout=120, max_retries=0, http_client=DefaultHttpxClient(proxy=None))
     return client, model, "openai"

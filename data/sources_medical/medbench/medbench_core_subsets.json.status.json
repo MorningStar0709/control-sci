@@ -1,0 +1,19 @@
+{
+  "state": "running",
+  "pid": 19648,
+  "model": "qwen3.5:35b",
+  "total_questions": 330,
+  "completed": 210,
+  "skipped_by_resume": 210,
+  "failed": 0,
+  "current_index": 46,
+  "current_query_id": "MB-MedExam-14",
+  "current_subset": "MedExam",
+  "current_question": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。\n\n## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。\n\n## 任务示例：题目：\n男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切",
+  "elapsed_seconds": 196.1,
+  "eta_seconds": null,
+  "eta": null,
+  "progress_path": "data\\sources_medical\\medbench\\medbench_core_subsets.json.progress.jsonl",
+  "output_path": "data\\sources_medical\\medbench\\medbench_core_subsets.json",
+  "updated_at": "2026-05-11T13:57:00"
+}

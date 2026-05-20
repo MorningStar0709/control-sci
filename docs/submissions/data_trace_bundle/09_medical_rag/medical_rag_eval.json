@@ -1,0 +1,1974 @@
+{
+  "generated_at": "2026-05-15T12:47:35+0800",
+  "manifest": "<PROJECT_ROOT>\\data\\sources_medical\\chunks\\chunks_manifest.json",
+  "k": 3,
+  "with_synthesis": false,
+  "synthesis_model": null,
+  "case_set": "en",
+  "trace_jsonl": null,
+  "cases": [
+    {
+      "case_id": "primary_endpoint_safety",
+      "query": "primary endpoint adverse events",
+      "target_labels": [
+        "primary_outcome",
+        "secondary_outcome",
+        "outcome_measures",
+        "adverse_events"
+      ],
+      "target_terms": [
+        "primary endpoint",
+        "adverse event",
+        "adverse events"
+      ],
+      "focus": "Endpoint and safety retrieval"
+    },
+    {
+      "case_id": "survival_endpoint",
+      "query": "overall survival progression free survival",
+      "target_labels": [
+        "primary_outcome",
+        "secondary_outcome",
+        "outcome_measures",
+        "statistical_analysis"
+      ],
+      "target_terms": [
+        "overall survival",
+        "progression-free survival",
+        "progression free survival"
+      ],
+      "focus": "Survival endpoint retrieval"
+    },
+    {
+      "case_id": "eligibility",
+      "query": "inclusion criteria randomized controlled trial",
+      "target_labels": [
+        "population",
+        "_methods_other",
+        "_randomization_other"
+      ],
+      "target_terms": [
+        "inclusion criteria",
+        "exclusion criteria",
+        "eligible"
+      ],
+      "focus": "Eligibility criteria retrieval"
+    },
+    {
+      "case_id": "safety_sae",
+      "query": "safety endpoint serious adverse event",
+      "target_labels": [
+        "adverse_events",
+        "secondary_outcome",
+        "_data_collection_other"
+      ],
+      "target_terms": [
+        "serious adverse event",
+        "safety",
+        "sae"
+      ],
+      "focus": "Safety event retrieval"
+    },
+    {
+      "case_id": "closed_loop_diabetes",
+      "query": "closed loop insulin hypoglycaemia primary endpoint",
+      "target_labels": [
+        "primary_outcome",
+        "outcome_measures",
+        "_methods_other"
+      ],
+      "target_terms": [
+        "closed-loop",
+        "hypoglycaemia",
+        "hypoglycemia",
+        "primary endpoint"
+      ],
+      "focus": "Domain-specific endpoint retrieval"
+    },
+    {
+      "case_id": "chemo_toxicity",
+      "query": "chemotherapy dose reduction treatment delay adverse events",
+      "target_labels": [
+        "intervention",
+        "secondary_outcome",
+        "adverse_events"
+      ],
+      "target_terms": [
+        "dose reduction",
+        "treatment delay",
+        "adverse events",
+        "toxicit"
+      ],
+      "focus": "Intervention and toxicity retrieval"
+    },
+    {
+      "case_id": "kaplan_meier",
+      "query": "Kaplan Meier survival curve median overall survival",
+      "target_labels": [
+        "statistical_analysis",
+        "_statistical_analysis_other",
+        "outcome_measures"
+      ],
+      "target_terms": [
+        "kaplan",
+        "median overall survival",
+        "survival"
+      ],
+      "focus": "Statistical method retrieval"
+    },
+    {
+      "case_id": "itt_population",
+      "query": "statistical analysis intention to treat population",
+      "target_labels": [
+        "statistical_analysis",
+        "_statistical_analysis_other",
+        "population"
+      ],
+      "target_terms": [
+        "intention-to-treat",
+        "intention to treat",
+        "statistical analysis"
+      ],
+      "focus": "Analysis population retrieval"
+    }
+  ],
+  "indexes": [
+    {
+      "label": "medical_qwen3_embedding_4b",
+      "index_dir": "<PROJECT_ROOT>\\data\\sources_medical\\index",
+      "embedding_provider": "ollama",
+      "embedding_model": "qwen3-embedding:4b",
+      "embedding_dim": 2560,
+      "query_embed_seconds": 3.562
+    },
+    {
+      "label": "index_bge_small",
+      "index_dir": "<PROJECT_ROOT>\\data\\sources_medical\\index_bge_small",
+      "embedding_provider": "hf",
+      "embedding_model": "BAAI/bge-small-en-v1.5",
+      "embedding_dim": 384,
+      "query_embed_seconds": 9.291
+    },
+    {
+      "label": "index_bge_m3",
+      "index_dir": "<PROJECT_ROOT>\\data\\sources_medical\\index_bge_m3",
+      "embedding_provider": "hf",
+      "embedding_model": "BAAI/bge-m3",
+      "embedding_dim": 1024,
+      "query_embed_seconds": 3.302
+    }
+  ],
+  "results": {
+    "medical_qwen3_embedding_4b": {
+      "primary_endpoint_safety": {
+        "case": {
+          "case_id": "primary_endpoint_safety",
+          "query": "primary endpoint adverse events",
+          "target_labels": [
+            "primary_outcome",
+            "secondary_outcome",
+            "outcome_measures",
+            "adverse_events"
+          ],
+          "target_terms": [
+            "primary endpoint",
+            "adverse event",
+            "adverse events"
+          ],
+          "focus": "Endpoint and safety retrieval"
+        },
+        "search_query": "primary endpoint adverse events",
+        "search_queries": [
+          "primary endpoint adverse events"
+        ],
+        "query_language": "en",
+        "query_rewrites": [],
+        "rewrite_method": "identity",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": true,
+          "first_label_hit_rank": 1,
+          "matched_terms": [
+            "primary endpoint"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 741,
+            "chunk_id": "PMC12574440_chunk_034",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "outcome_measures",
+            "medical_parent": "methods",
+            "source_section": "Other secondary efficacy endpoints",
+            "source_file": "data/sources_medical/chunks/train/PMC12574440_chunk_034.md",
+            "preview": "# Other secondary efficacy endpoints"
+          },
+          {
+            "rank": 2,
+            "manifest_index": 3032,
+            "chunk_id": "PMC8600696_chunk_007",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "_introduction_other",
+            "medical_parent": "introduction",
+            "source_section": "Endpoints",
+            "source_file": "data/sources_medical/chunks/train/PMC8600696_chunk_007.md",
+            "preview": "# Endpoints  The primary endpoint is overall survival after R0/R1 resection (OS-res) (only patients with R0/R1 resection).  Secondary efficacy endpoints are OS of the entire patients cohort, R0/R1 resection rate and prog"
+          },
+          {
+            "rank": 3,
+            "manifest_index": 1124,
+            "chunk_id": "PMC3002358_chunk_012",
+            "score": 0.016129,
+            "mode": "hybrid",
+            "medical_label": "primary_outcome",
+            "medical_parent": "outcome_measures",
+            "source_section": "Primary outcome measures",
+            "source_file": "data/sources_medical/chunks/train/PMC3002358_chunk_012.md",
+            "preview": "# Primary outcome measures"
+          }
+        ]
+      },
+      "survival_endpoint": {
+        "case": {
+          "case_id": "survival_endpoint",
+          "query": "overall survival progression free survival",
+          "target_labels": [
+            "primary_outcome",
+            "secondary_outcome",
+            "outcome_measures",
+            "statistical_analysis"
+          ],
+          "target_terms": [
+            "overall survival",
+            "progression-free survival",
+            "progression free survival"
+          ],
+          "focus": "Survival endpoint retrieval"
+        },
+        "search_query": "overall survival progression free survival",
+        "search_queries": [
+          "overall survival progression free survival"
+        ],
+        "query_language": "en",
+        "query_rewrites": [],
+        "rewrite_method": "identity",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": true,
+          "first_label_hit_rank": 1,
+          "matched_terms": [
+            "overall survival",
+            "progression-free survival"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 254,
+            "chunk_id": "PMC10882371_chunk_024",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "outcome_measures",
+            "medical_parent": "methods",
+            "source_section": "Tertiary outcome measures",
+            "source_file": "data/sources_medical/chunks/train/PMC10882371_chunk_024.md",
+            "preview": "# Tertiary outcome measures"
+          },
+          {
+            "rank": 2,
+            "manifest_index": 2320,
+            "chunk_id": "PMC6937062_chunk_006",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "introduction",
+            "medical_parent": null,
+            "source_section": "Background",
+            "source_file": "data/sources_medical/chunks/train/PMC6937062_chunk_006.md",
+            "preview": "# Background  Prostate cancer (PC) is the most common male cancer in the UK and the second highest cause of male cancer death.1 In large part, PC is a slowly progressive disease and when detected at an early stage is man"
+          },
+          {
+            "rank": 3,
+            "manifest_index": 994,
+            "chunk_id": "PMC12928687_chunk_024",
+            "score": 0.016129,
+            "mode": "hybrid",
+            "medical_label": "_statistical_analysis_other",
+            "medical_parent": "statistical_analysis",
+            "source_section": "Secondary End Points",
+            "source_file": "data/sources_medical/chunks/train/PMC12928687_chunk_024.md",
+            "preview": "# Secondary End Points  Twelve- and 24-month overall survival as well as distant progression-free survival will be evaluated by Kaplan-Meier analysis. All other secondary end points will be descriptively summarized."
+          }
+        ]
+      },
+      "eligibility": {
+        "case": {
+          "case_id": "eligibility",
+          "query": "inclusion criteria randomized controlled trial",
+          "target_labels": [
+            "population",
+            "_methods_other",
+            "_randomization_other"
+          ],
+          "target_terms": [
+            "inclusion criteria",
+            "exclusion criteria",
+            "eligible"
+          ],
+          "focus": "Eligibility criteria retrieval"
+        },
+        "search_query": "inclusion criteria randomized controlled trial",
+        "search_queries": [
+          "inclusion criteria randomized controlled trial"
+        ],
+        "query_language": "en",
+        "query_rewrites": [],
+        "rewrite_method": "identity",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": true,
+          "first_label_hit_rank": 1,
+          "matched_terms": [
+            "exclusion criteria"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 2080,
+            "chunk_id": "PMC6561428_chunk_012",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "_randomization_other",
+            "medical_parent": "randomization",
+            "source_section": "Box 1 Inclusion and exclusion criteria",
+            "source_file": "data/sources_medical/chunks/train/PMC6561428_chunk_012.md",
+            "preview": "# Box 1 Inclusion and exclusion criteria"
+          },
+          {
+            "rank": 2,
+            "manifest_index": 1763,
+            "chunk_id": "PMC6091910_chunk_007",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "methods",
+            "medical_parent": null,
+            "source_section": "Methods",
+            "source_file": "data/sources_medical/chunks/train/PMC6091910_chunk_007.md",
+            "preview": "# Methods  This is a multicentre, unblinded, parallel, randomised controlled phase III home trial, conducted by five tertiary paediatric diabetes centres in Australia. The trial has been approved. Ethics approval for the"
+          },
+          {
+            "rank": 3,
+            "manifest_index": 2368,
+            "chunk_id": "PMC7118863_chunk_013",
+            "score": 0.016129,
+            "mode": "hybrid",
+            "medical_label": "inclusion_criteria",
+            "medical_parent": "population",
+            "source_section": "Eligibility criteria",
+            "source_file": "data/sources_medical/chunks/train/PMC7118863_chunk_013.md",
+            "preview": "# Eligibility criteria  The randomization process in C–RCTs consists of two levels: first, the clusters where the randomization takes place, here: the hospitals; then, the individual participants, here: cancer patients."
+          }
+        ]
+      },
+      "safety_sae": {
+        "case": {
+          "case_id": "safety_sae",
+          "query": "safety endpoint serious adverse event",
+          "target_labels": [
+            "adverse_events",
+            "secondary_outcome",
+            "_data_collection_other"
+          ],
+          "target_terms": [
+            "serious adverse event",
+            "safety",
+            "sae"
+          ],
+          "focus": "Safety event retrieval"
+        },
+        "search_query": "safety endpoint serious adverse event",
+        "search_queries": [
+          "safety endpoint serious adverse event"
+        ],
+        "query_language": "en",
+        "query_rewrites": [],
+        "rewrite_method": "identity",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": false,
+          "first_label_hit_rank": null,
+          "matched_terms": [
+            "safety"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 2587,
+            "chunk_id": "PMC7470506_chunk_024",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "ethical_approval",
+            "medical_parent": "methods",
+            "source_section": "SAFETY, ETHICS AND DISSEMINATION",
+            "source_file": "data/sources_medical/chunks/train/PMC7470506_chunk_024.md",
+            "preview": "# SAFETY, ETHICS AND DISSEMINATION"
+          },
+          {
+            "rank": 2,
+            "manifest_index": 566,
+            "chunk_id": "PMC11929207_chunk_028",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "front_matter",
+            "medical_parent": null,
+            "source_section": "Abbreviations",
+            "source_file": "data/sources_medical/chunks/train/PMC11929207_chunk_028.md",
+            "preview": "# Abbreviations  AE Adverse Event    DSMB Data Safety Monitoring Board    ECOFF Epidemiological cut-of breakpoints    ECMO Extracorporeal Membrane Oxygenation    EDC Electronic Data Capture    HRQoL Health-related Qualit"
+          },
+          {
+            "rank": 3,
+            "manifest_index": 436,
+            "chunk_id": "PMC11466402_chunk_015",
+            "score": 0.016129,
+            "mode": "hybrid",
+            "medical_label": "intervention",
+            "medical_parent": "methods",
+            "source_section": "Extension Regimen Determination",
+            "source_file": "data/sources_medical/chunks/train/PMC11466402_chunk_015.md",
+            "preview": "# Extension Regimen Determination"
+          }
+        ]
+      },
+      "closed_loop_diabetes": {
+        "case": {
+          "case_id": "closed_loop_diabetes",
+          "query": "closed loop insulin hypoglycaemia primary endpoint",
+          "target_labels": [
+            "primary_outcome",
+            "outcome_measures",
+            "_methods_other"
+          ],
+          "target_terms": [
+            "closed-loop",
+            "hypoglycaemia",
+            "hypoglycemia",
+            "primary endpoint"
+          ],
+          "focus": "Domain-specific endpoint retrieval"
+        },
+        "search_query": "closed loop insulin hypoglycaemia primary endpoint",
+        "search_queries": [
+          "closed loop insulin hypoglycaemia primary endpoint"
+        ],
+        "query_language": "en",
+        "query_rewrites": [],
+        "rewrite_method": "identity",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": true,
+          "first_label_hit_rank": 3,
+          "matched_terms": [
+            "closed-loop"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 2674,
+            "chunk_id": "PMC7618672_chunk_005",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "front_matter",
+            "medical_parent": null,
+            "source_section": "Keywords",
+            "source_file": "data/sources_medical/chunks/train/PMC7618672_chunk_005.md",
+            "preview": "# Keywords  Type 1 diabetes; hybrid closed-loop; insulin pump; continuous glucose monitor; children; adolescents; newly-diagnosed; insulin variability"
+          },
+          {
+            "rank": 2,
+            "manifest_index": 2685,
+            "chunk_id": "PMC7618672_chunk_016",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "conclusion",
+            "medical_parent": null,
+            "source_section": "Conclusions",
+            "source_file": "data/sources_medical/chunks/eval/PMC7618672_chunk_016.md",
+            "preview": "# Conclusions  In conclusion, over the first 48 months after diagnosis of type 1 diabetes, insulin requirements in children and adolescents more than double with closed loop insulin delivery. Over time, a greater proport"
+          },
+          {
+            "rank": 3,
+            "manifest_index": 3099,
+            "chunk_id": "PMC8982306_chunk_025",
+            "score": 0.016129,
+            "mode": "hybrid",
+            "medical_label": "outcome_measures",
+            "medical_parent": "methods",
+            "source_section": "Maternal Glycaemic outcomes",
+            "source_file": "data/sources_medical/chunks/train/PMC8982306_chunk_025.md",
+            "preview": "# Maternal Glycaemic outcomes"
+          }
+        ]
+      },
+      "chemo_toxicity": {
+        "case": {
+          "case_id": "chemo_toxicity",
+          "query": "chemotherapy dose reduction treatment delay adverse events",
+          "target_labels": [
+            "intervention",
+            "secondary_outcome",
+            "adverse_events"
+          ],
+          "target_terms": [
+            "dose reduction",
+            "treatment delay",
+            "adverse events",
+            "toxicit"
+          ],
+          "focus": "Intervention and toxicity retrieval"
+        },
+        "search_query": "chemotherapy dose reduction treatment delay adverse events",
+        "search_queries": [
+          "chemotherapy dose reduction treatment delay adverse events"
+        ],
+        "query_language": "en",
+        "query_rewrites": [],
+        "rewrite_method": "identity",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": true,
+          "first_label_hit_rank": 1,
+          "matched_terms": [
+            "adverse events",
+            "dose reduction",
+            "toxicit",
+            "treatment delay"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 1515,
+            "chunk_id": "PMC5490215_chunk_019",
+            "score": 0.032522,
+            "mode": "hybrid",
+            "medical_label": "secondary_outcome",
+            "medical_parent": "outcome_measures",
+            "source_section": "Secondary outcomes",
+            "source_file": "data/sources_medical/chunks/train/PMC5490215_chunk_019.md",
+            "preview": "# Secondary outcomes  Secondary endpoints include adverse events (registered for every chemotherapy cycle after CTC criteria version 4.0), dose reductions, treatment delays (which follow the standardized guidelines of th"
+          },
+          {
+            "rank": 2,
+            "manifest_index": 1512,
+            "chunk_id": "PMC5490215_chunk_016",
+            "score": 0.03101,
+            "mode": "hybrid",
+            "medical_label": "intervention",
+            "medical_parent": "methods",
+            "source_section": "The oncological treatment",
+            "source_file": "data/sources_medical/chunks/train/PMC5490215_chunk_016.md",
+            "preview": "# The oncological treatment  The standard adjuvant chemotherapy is outlined in Table 2. The standard dose is based on body surface area (BSA), with a possible 25% primary dose reduction in frail patients."
+          },
+          {
+            "rank": 3,
+            "manifest_index": 3040,
+            "chunk_id": "PMC8600696_chunk_015",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "intervention",
+            "medical_parent": "methods",
+            "source_section": "Dose modifications and prerequisites for the start of a new cycle",
+            "source_file": "data/sources_medical/chunks/train/PMC8600696_chunk_015.md",
+            "preview": "# Dose modifications and prerequisites for the start of a new cycle  Doses will be reduced for haematological and nonhaematological toxicities. In case of concurrent toxicities, all dose modifications should be based on "
+          }
+        ]
+      },
+      "kaplan_meier": {
+        "case": {
+          "case_id": "kaplan_meier",
+          "query": "Kaplan Meier survival curve median overall survival",
+          "target_labels": [
+            "statistical_analysis",
+            "_statistical_analysis_other",
+            "outcome_measures"
+          ],
+          "target_terms": [
+            "kaplan",
+            "median overall survival",
+            "survival"
+          ],
+          "focus": "Statistical method retrieval"
+        },
+        "search_query": "Kaplan Meier survival curve median overall survival",
+        "search_queries": [
+          "Kaplan Meier survival curve median overall survival"
+        ],
+        "query_language": "en",
+        "query_rewrites": [],
+        "rewrite_method": "identity",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": true,
+          "first_label_hit_rank": 1,
+          "matched_terms": [
+            "kaplan",
+            "survival"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 994,
+            "chunk_id": "PMC12928687_chunk_024",
+            "score": 0.031545,
+            "mode": "hybrid",
+            "medical_label": "_statistical_analysis_other",
+            "medical_parent": "statistical_analysis",
+            "source_section": "Secondary End Points",
+            "source_file": "data/sources_medical/chunks/train/PMC12928687_chunk_024.md",
+            "preview": "# Secondary End Points  Twelve- and 24-month overall survival as well as distant progression-free survival will be evaluated by Kaplan-Meier analysis. All other secondary end points will be descriptively summarized."
+          },
+          {
+            "rank": 2,
+            "manifest_index": 2139,
+            "chunk_id": "PMC6726216_chunk_018",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "adverse_events",
+            "medical_parent": "results",
+            "source_section": "Training set: Probability density function / mortality fraction",
+            "source_file": "data/sources_medical/chunks/train/PMC6726216_chunk_018.md",
+            "preview": "# Training set: Probability density function / mortality fraction  For the participants in NSABP B15, observed survival at each yearly interval following diagnosis was used to generate a survival curve for the group as a"
+          },
+          {
+            "rank": 3,
+            "manifest_index": 2135,
+            "chunk_id": "PMC6726216_chunk_014",
+            "score": 0.016129,
+            "mode": "hybrid",
+            "medical_label": "_methods_other",
+            "medical_parent": "methods",
+            "source_section": "Training set: Mortality prediction",
+            "source_file": "data/sources_medical/chunks/train/PMC6726216_chunk_014.md",
+            "preview": "# Training set: Mortality prediction  Based on patient age, tumor diameter (cm), number of positive nodes, ER status, PR status, hormone therapy, and chemotherapy type, CancerMath predicts the chance of an individual sur"
+          }
+        ]
+      },
+      "itt_population": {
+        "case": {
+          "case_id": "itt_population",
+          "query": "statistical analysis intention to treat population",
+          "target_labels": [
+            "statistical_analysis",
+            "_statistical_analysis_other",
+            "population"
+          ],
+          "target_terms": [
+            "intention-to-treat",
+            "intention to treat",
+            "statistical analysis"
+          ],
+          "focus": "Analysis population retrieval"
+        },
+        "search_query": "statistical analysis intention to treat population",
+        "search_queries": [
+          "statistical analysis intention to treat population"
+        ],
+        "query_language": "en",
+        "query_rewrites": [],
+        "rewrite_method": "identity",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": true,
+          "first_label_hit_rank": 1,
+          "matched_terms": [
+            "statistical analysis"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 556,
+            "chunk_id": "PMC11929207_chunk_018",
+            "score": 0.031514,
+            "mode": "hybrid",
+            "medical_label": "statistical_analysis",
+            "medical_parent": "methods",
+            "source_section": "Statistical analysis",
+            "source_file": "data/sources_medical/chunks/train/PMC11929207_chunk_018.md",
+            "preview": "# Statistical analysis  In general, p-values < 0.05 are considered to indicate statistical signifcance (2-tailed test). Te p-values for the secondary endpoints will be presented but considered descriptive and hypothesis "
+          },
+          {
+            "rank": 2,
+            "manifest_index": 738,
+            "chunk_id": "PMC12574440_chunk_031",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "statistical_analysis",
+            "medical_parent": "methods",
+            "source_section": "Statistical analysis",
+            "source_file": "data/sources_medical/chunks/train/PMC12574440_chunk_031.md",
+            "preview": "# Statistical analysis  All randomised participants with/without protocol violation and including dropouts and withdrawals will be included in the analysis according to intention-totreat principle."
+          },
+          {
+            "rank": 3,
+            "manifest_index": 814,
+            "chunk_id": "PMC12742169_chunk_024",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "statistical_analysis",
+            "medical_parent": "methods",
+            "source_section": "Statistical analysis plan",
+            "source_file": "data/sources_medical/chunks/train/PMC12742169_chunk_024.md",
+            "preview": "# Statistical analysis plan  Descriptive statistics will be calculated as percentages for discrete variables, and median with IQR or mean with SE of the mean for continuous variables, as appropriate.  Continuous outcome "
+          }
+        ]
+      }
+    },
+    "index_bge_small": {
+      "primary_endpoint_safety": {
+        "case": {
+          "case_id": "primary_endpoint_safety",
+          "query": "primary endpoint adverse events",
+          "target_labels": [
+            "primary_outcome",
+            "secondary_outcome",
+            "outcome_measures",
+            "adverse_events"
+          ],
+          "target_terms": [
+            "primary endpoint",
+            "adverse event",
+            "adverse events"
+          ],
+          "focus": "Endpoint and safety retrieval"
+        },
+        "search_query": "primary endpoint adverse events",
+        "search_queries": [
+          "primary endpoint adverse events"
+        ],
+        "query_language": "en",
+        "query_rewrites": [],
+        "rewrite_method": "identity",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": true,
+          "first_label_hit_rank": 1,
+          "matched_terms": [
+            "primary endpoint"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 558,
+            "chunk_id": "PMC11929207_chunk_020",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "primary_outcome",
+            "medical_parent": "outcome_measures",
+            "source_section": "Primary endpoint",
+            "source_file": "data/sources_medical/chunks/train/PMC11929207_chunk_020.md",
+            "preview": "# Primary endpoint  Te primary endpoint, 28-day mortality, will be analyzed using a mixed-efects binary logistic regression [31]. Tis regression will include treatment efect and source of sepsis as fxed efects and site a"
+          },
+          {
+            "rank": 2,
+            "manifest_index": 3032,
+            "chunk_id": "PMC8600696_chunk_007",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "_introduction_other",
+            "medical_parent": "introduction",
+            "source_section": "Endpoints",
+            "source_file": "data/sources_medical/chunks/train/PMC8600696_chunk_007.md",
+            "preview": "# Endpoints  The primary endpoint is overall survival after R0/R1 resection (OS-res) (only patients with R0/R1 resection).  Secondary efficacy endpoints are OS of the entire patients cohort, R0/R1 resection rate and prog"
+          },
+          {
+            "rank": 3,
+            "manifest_index": 553,
+            "chunk_id": "PMC11929207_chunk_015",
+            "score": 0.016129,
+            "mode": "hybrid",
+            "medical_label": "primary_outcome",
+            "medical_parent": "outcome_measures",
+            "source_section": "Primary endpoint",
+            "source_file": "data/sources_medical/chunks/train/PMC11929207_chunk_015.md",
+            "preview": "# Primary endpoint  Te primary endpoint is all cause 28-day mortality as registered in the electronic medical records.  Table 1 Maximum dosages control arm   <table><tr><td></td><td>Loading dosea</td><td>Daily dose</td><"
+          }
+        ]
+      },
+      "survival_endpoint": {
+        "case": {
+          "case_id": "survival_endpoint",
+          "query": "overall survival progression free survival",
+          "target_labels": [
+            "primary_outcome",
+            "secondary_outcome",
+            "outcome_measures",
+            "statistical_analysis"
+          ],
+          "target_terms": [
+            "overall survival",
+            "progression-free survival",
+            "progression free survival"
+          ],
+          "focus": "Survival endpoint retrieval"
+        },
+        "search_query": "overall survival progression free survival",
+        "search_queries": [
+          "overall survival progression free survival"
+        ],
+        "query_language": "en",
+        "query_rewrites": [],
+        "rewrite_method": "identity",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": false,
+          "first_label_hit_rank": null,
+          "matched_terms": [
+            "overall survival",
+            "progression-free survival"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 994,
+            "chunk_id": "PMC12928687_chunk_024",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "_statistical_analysis_other",
+            "medical_parent": "statistical_analysis",
+            "source_section": "Secondary End Points",
+            "source_file": "data/sources_medical/chunks/train/PMC12928687_chunk_024.md",
+            "preview": "# Secondary End Points  Twelve- and 24-month overall survival as well as distant progression-free survival will be evaluated by Kaplan-Meier analysis. All other secondary end points will be descriptively summarized."
+          },
+          {
+            "rank": 2,
+            "manifest_index": 2320,
+            "chunk_id": "PMC6937062_chunk_006",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "introduction",
+            "medical_parent": null,
+            "source_section": "Background",
+            "source_file": "data/sources_medical/chunks/train/PMC6937062_chunk_006.md",
+            "preview": "# Background  Prostate cancer (PC) is the most common male cancer in the UK and the second highest cause of male cancer death.1 In large part, PC is a slowly progressive disease and when detected at an early stage is man"
+          },
+          {
+            "rank": 3,
+            "manifest_index": 2139,
+            "chunk_id": "PMC6726216_chunk_018",
+            "score": 0.016129,
+            "mode": "hybrid",
+            "medical_label": "adverse_events",
+            "medical_parent": "results",
+            "source_section": "Training set: Probability density function / mortality fraction",
+            "source_file": "data/sources_medical/chunks/train/PMC6726216_chunk_018.md",
+            "preview": "# Training set: Probability density function / mortality fraction  For the participants in NSABP B15, observed survival at each yearly interval following diagnosis was used to generate a survival curve for the group as a"
+          }
+        ]
+      },
+      "eligibility": {
+        "case": {
+          "case_id": "eligibility",
+          "query": "inclusion criteria randomized controlled trial",
+          "target_labels": [
+            "population",
+            "_methods_other",
+            "_randomization_other"
+          ],
+          "target_terms": [
+            "inclusion criteria",
+            "exclusion criteria",
+            "eligible"
+          ],
+          "focus": "Eligibility criteria retrieval"
+        },
+        "search_query": "inclusion criteria randomized controlled trial",
+        "search_queries": [
+          "inclusion criteria randomized controlled trial"
+        ],
+        "query_language": "en",
+        "query_rewrites": [],
+        "rewrite_method": "identity",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": true,
+          "first_label_hit_rank": 1,
+          "matched_terms": [
+            "eligible",
+            "exclusion criteria"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 954,
+            "chunk_id": "PMC12898571_chunk_006",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "population",
+            "medical_parent": "methods",
+            "source_section": "2.2. Participants and Sample Size",
+            "source_file": "data/sources_medical/chunks/train/PMC12898571_chunk_006.md",
+            "preview": "# 2.2. Participants and Sample Size  The following inclusion and exclusion criteria were applied to select eligible participants for the study."
+          },
+          {
+            "rank": 2,
+            "manifest_index": 1763,
+            "chunk_id": "PMC6091910_chunk_007",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "methods",
+            "medical_parent": null,
+            "source_section": "Methods",
+            "source_file": "data/sources_medical/chunks/train/PMC6091910_chunk_007.md",
+            "preview": "# Methods  This is a multicentre, unblinded, parallel, randomised controlled phase III home trial, conducted by five tertiary paediatric diabetes centres in Australia. The trial has been approved. Ethics approval for the"
+          },
+          {
+            "rank": 3,
+            "manifest_index": 3154,
+            "chunk_id": "PMC9303654_chunk_025",
+            "score": 0.016129,
+            "mode": "hybrid",
+            "medical_label": "references",
+            "medical_parent": null,
+            "source_section": "REFERENCES",
+            "source_file": "data/sources_medical/chunks/eval/PMC9303654_chunk_025.md",
+            "preview": "# REFERENCES  1. Spiegelhalter DJ, Freedman LS, Parmar MKB. Bayesian approaches to randomized trials. J R Stat Soc A Stat Soc. 1994;157(3):357-387.    2. Bauer P, Bretz F, Dragalin V, König F, Wassmer G. Twenty-five year"
+          }
+        ]
+      },
+      "safety_sae": {
+        "case": {
+          "case_id": "safety_sae",
+          "query": "safety endpoint serious adverse event",
+          "target_labels": [
+            "adverse_events",
+            "secondary_outcome",
+            "_data_collection_other"
+          ],
+          "target_terms": [
+            "serious adverse event",
+            "safety",
+            "sae"
+          ],
+          "focus": "Safety event retrieval"
+        },
+        "search_query": "safety endpoint serious adverse event",
+        "search_queries": [
+          "safety endpoint serious adverse event"
+        ],
+        "query_language": "en",
+        "query_rewrites": [],
+        "rewrite_method": "identity",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": true,
+          "first_label_hit_rank": 1,
+          "matched_terms": [
+            "sae",
+            "safety",
+            "serious adverse event"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 2291,
+            "chunk_id": "PMC6921499_chunk_024",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "_data_collection_other",
+            "medical_parent": "data_collection",
+            "source_section": "Safety monitoring",
+            "source_file": "data/sources_medical/chunks/train/PMC6921499_chunk_024.md",
+            "preview": "# Safety monitoring  In this population and within this clinical context, events that can be considered serious adverse events (SAEs), suspected unexpected serious adverse reactions (SUSA Rs) or serious adverse device ev"
+          },
+          {
+            "rank": 2,
+            "manifest_index": 566,
+            "chunk_id": "PMC11929207_chunk_028",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "front_matter",
+            "medical_parent": null,
+            "source_section": "Abbreviations",
+            "source_file": "data/sources_medical/chunks/train/PMC11929207_chunk_028.md",
+            "preview": "# Abbreviations  AE Adverse Event    DSMB Data Safety Monitoring Board    ECOFF Epidemiological cut-of breakpoints    ECMO Extracorporeal Membrane Oxygenation    EDC Electronic Data Capture    HRQoL Health-related Qualit"
+          },
+          {
+            "rank": 3,
+            "manifest_index": 1770,
+            "chunk_id": "PMC6091910_chunk_014",
+            "score": 0.016129,
+            "mode": "hybrid",
+            "medical_label": "_randomization_other",
+            "medical_parent": "randomization",
+            "source_section": "Data management and monitoring",
+            "source_file": "data/sources_medical/chunks/train/PMC6091910_chunk_014.md",
+            "preview": "# Data management and monitoring  Once enrolled, participants will be allocated a unique identifying number. A centralised database, managed at Princess Margaret Hospital, will collate all data input from study visits, q"
+          }
+        ]
+      },
+      "closed_loop_diabetes": {
+        "case": {
+          "case_id": "closed_loop_diabetes",
+          "query": "closed loop insulin hypoglycaemia primary endpoint",
+          "target_labels": [
+            "primary_outcome",
+            "outcome_measures",
+            "_methods_other"
+          ],
+          "target_terms": [
+            "closed-loop",
+            "hypoglycaemia",
+            "hypoglycemia",
+            "primary endpoint"
+          ],
+          "focus": "Domain-specific endpoint retrieval"
+        },
+        "search_query": "closed loop insulin hypoglycaemia primary endpoint",
+        "search_queries": [
+          "closed loop insulin hypoglycaemia primary endpoint"
+        ],
+        "query_language": "en",
+        "query_rewrites": [],
+        "rewrite_method": "identity",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 3,
+          "label_hit_at_k": false,
+          "first_label_hit_rank": null,
+          "matched_terms": [
+            "closed-loop",
+            "hypoglycemia"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 2073,
+            "chunk_id": "PMC6561428_chunk_005",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "introduction",
+            "medical_parent": null,
+            "source_section": "Introduction",
+            "source_file": "data/sources_medical/chunks/train/PMC6561428_chunk_005.md",
+            "preview": "# Introduction  Type 1 diabetes is characterised by a deficiency of insulin caused by immunologically mediated damage to pancreatic beta cells, leading to raised blood glucose levels. Diabetes is one of the most common m"
+          },
+          {
+            "rank": 2,
+            "manifest_index": 2685,
+            "chunk_id": "PMC7618672_chunk_016",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "conclusion",
+            "medical_parent": null,
+            "source_section": "Conclusions",
+            "source_file": "data/sources_medical/chunks/eval/PMC7618672_chunk_016.md",
+            "preview": "# Conclusions  In conclusion, over the first 48 months after diagnosis of type 1 diabetes, insulin requirements in children and adolescents more than double with closed loop insulin delivery. Over time, a greater proport"
+          },
+          {
+            "rank": 3,
+            "manifest_index": 2936,
+            "chunk_id": "PMC8363503_chunk_006",
+            "score": 0.016129,
+            "mode": "hybrid",
+            "medical_label": "discussion",
+            "medical_parent": null,
+            "source_section": "Discussion",
+            "source_file": "data/sources_medical/chunks/train/PMC8363503_chunk_006.md",
+            "preview": "# Discussion  This study provides evidence that fully closed-loop insulin delivery can improve glucose control and reduce hypoglycemia compared to standard insulin therapy in adults with type 2 diabetes and ESRD requirin"
+          }
+        ]
+      },
+      "chemo_toxicity": {
+        "case": {
+          "case_id": "chemo_toxicity",
+          "query": "chemotherapy dose reduction treatment delay adverse events",
+          "target_labels": [
+            "intervention",
+            "secondary_outcome",
+            "adverse_events"
+          ],
+          "target_terms": [
+            "dose reduction",
+            "treatment delay",
+            "adverse events",
+            "toxicit"
+          ],
+          "focus": "Intervention and toxicity retrieval"
+        },
+        "search_query": "chemotherapy dose reduction treatment delay adverse events",
+        "search_queries": [
+          "chemotherapy dose reduction treatment delay adverse events"
+        ],
+        "query_language": "en",
+        "query_rewrites": [],
+        "rewrite_method": "identity",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": true,
+          "first_label_hit_rank": 1,
+          "matched_terms": [
+            "adverse events",
+            "dose reduction",
+            "toxicit",
+            "treatment delay"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 3040,
+            "chunk_id": "PMC8600696_chunk_015",
+            "score": 0.032787,
+            "mode": "hybrid",
+            "medical_label": "intervention",
+            "medical_parent": "methods",
+            "source_section": "Dose modifications and prerequisites for the start of a new cycle",
+            "source_file": "data/sources_medical/chunks/train/PMC8600696_chunk_015.md",
+            "preview": "# Dose modifications and prerequisites for the start of a new cycle  Doses will be reduced for haematological and nonhaematological toxicities. In case of concurrent toxicities, all dose modifications should be based on "
+          },
+          {
+            "rank": 2,
+            "manifest_index": 3196,
+            "chunk_id": "PMC9502603_chunk_003",
+            "score": 0.032002,
+            "mode": "hybrid",
+            "medical_label": "front_matter",
+            "medical_parent": null,
+            "source_section": "Abstract",
+            "source_file": "data/sources_medical/chunks/train/PMC9502603_chunk_003.md",
+            "preview": "# Abstract  Background: Adverse events of chemotherapy may be caused by pharmacodynamics or psychological factors such as negative expectations, which constitute nocebo efects. In a randomized controlled trial, we examin"
+          },
+          {
+            "rank": 3,
+            "manifest_index": 1515,
+            "chunk_id": "PMC5490215_chunk_019",
+            "score": 0.016129,
+            "mode": "hybrid",
+            "medical_label": "secondary_outcome",
+            "medical_parent": "outcome_measures",
+            "source_section": "Secondary outcomes",
+            "source_file": "data/sources_medical/chunks/train/PMC5490215_chunk_019.md",
+            "preview": "# Secondary outcomes  Secondary endpoints include adverse events (registered for every chemotherapy cycle after CTC criteria version 4.0), dose reductions, treatment delays (which follow the standardized guidelines of th"
+          }
+        ]
+      },
+      "kaplan_meier": {
+        "case": {
+          "case_id": "kaplan_meier",
+          "query": "Kaplan Meier survival curve median overall survival",
+          "target_labels": [
+            "statistical_analysis",
+            "_statistical_analysis_other",
+            "outcome_measures"
+          ],
+          "target_terms": [
+            "kaplan",
+            "median overall survival",
+            "survival"
+          ],
+          "focus": "Statistical method retrieval"
+        },
+        "search_query": "Kaplan Meier survival curve median overall survival",
+        "search_queries": [
+          "Kaplan Meier survival curve median overall survival"
+        ],
+        "query_language": "en",
+        "query_rewrites": [],
+        "rewrite_method": "identity",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": true,
+          "first_label_hit_rank": 2,
+          "matched_terms": [
+            "kaplan",
+            "survival"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 2139,
+            "chunk_id": "PMC6726216_chunk_018",
+            "score": 0.032787,
+            "mode": "hybrid",
+            "medical_label": "adverse_events",
+            "medical_parent": "results",
+            "source_section": "Training set: Probability density function / mortality fraction",
+            "source_file": "data/sources_medical/chunks/train/PMC6726216_chunk_018.md",
+            "preview": "# Training set: Probability density function / mortality fraction  For the participants in NSABP B15, observed survival at each yearly interval following diagnosis was used to generate a survival curve for the group as a"
+          },
+          {
+            "rank": 2,
+            "manifest_index": 994,
+            "chunk_id": "PMC12928687_chunk_024",
+            "score": 0.031281,
+            "mode": "hybrid",
+            "medical_label": "_statistical_analysis_other",
+            "medical_parent": "statistical_analysis",
+            "source_section": "Secondary End Points",
+            "source_file": "data/sources_medical/chunks/train/PMC12928687_chunk_024.md",
+            "preview": "# Secondary End Points  Twelve- and 24-month overall survival as well as distant progression-free survival will be evaluated by Kaplan-Meier analysis. All other secondary end points will be descriptively summarized."
+          },
+          {
+            "rank": 3,
+            "manifest_index": 2142,
+            "chunk_id": "PMC6726216_chunk_021",
+            "score": 0.031258,
+            "mode": "hybrid",
+            "medical_label": "_adverse_events_other",
+            "medical_parent": "adverse_events",
+            "source_section": "Validation set",
+            "source_file": "data/sources_medical/chunks/eval/PMC6726216_chunk_021.md",
+            "preview": "<table><tr><td>Time</td><td>N</td><td>Observed survival (95% CI)</td><td>Predicted, Adjusted (95% CI)</td><td>p-value</td></tr><tr><td>1</td><td>662</td><td>0.975 (0.963–0.987)</td><td>0.963 (0.949–0.977)</td><td>0.193</"
+          }
+        ]
+      },
+      "itt_population": {
+        "case": {
+          "case_id": "itt_population",
+          "query": "statistical analysis intention to treat population",
+          "target_labels": [
+            "statistical_analysis",
+            "_statistical_analysis_other",
+            "population"
+          ],
+          "target_terms": [
+            "intention-to-treat",
+            "intention to treat",
+            "statistical analysis"
+          ],
+          "focus": "Analysis population retrieval"
+        },
+        "search_query": "statistical analysis intention to treat population",
+        "search_queries": [
+          "statistical analysis intention to treat population"
+        ],
+        "query_language": "en",
+        "query_rewrites": [],
+        "rewrite_method": "identity",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": true,
+          "first_label_hit_rank": 1,
+          "matched_terms": [
+            "statistical analysis"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 556,
+            "chunk_id": "PMC11929207_chunk_018",
+            "score": 0.031754,
+            "mode": "hybrid",
+            "medical_label": "statistical_analysis",
+            "medical_parent": "methods",
+            "source_section": "Statistical analysis",
+            "source_file": "data/sources_medical/chunks/train/PMC11929207_chunk_018.md",
+            "preview": "# Statistical analysis  In general, p-values < 0.05 are considered to indicate statistical signifcance (2-tailed test). Te p-values for the secondary endpoints will be presented but considered descriptive and hypothesis "
+          },
+          {
+            "rank": 2,
+            "manifest_index": 2096,
+            "chunk_id": "PMC6561428_chunk_028",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "statistical_analysis",
+            "medical_parent": "methods",
+            "source_section": "Statistical analysis",
+            "source_file": "data/sources_medical/chunks/train/PMC6561428_chunk_028.md",
+            "preview": "# Statistical analysis"
+          },
+          {
+            "rank": 3,
+            "manifest_index": 814,
+            "chunk_id": "PMC12742169_chunk_024",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "statistical_analysis",
+            "medical_parent": "methods",
+            "source_section": "Statistical analysis plan",
+            "source_file": "data/sources_medical/chunks/train/PMC12742169_chunk_024.md",
+            "preview": "# Statistical analysis plan  Descriptive statistics will be calculated as percentages for discrete variables, and median with IQR or mean with SE of the mean for continuous variables, as appropriate.  Continuous outcome "
+          }
+        ]
+      }
+    },
+    "index_bge_m3": {
+      "primary_endpoint_safety": {
+        "case": {
+          "case_id": "primary_endpoint_safety",
+          "query": "primary endpoint adverse events",
+          "target_labels": [
+            "primary_outcome",
+            "secondary_outcome",
+            "outcome_measures",
+            "adverse_events"
+          ],
+          "target_terms": [
+            "primary endpoint",
+            "adverse event",
+            "adverse events"
+          ],
+          "focus": "Endpoint and safety retrieval"
+        },
+        "search_query": "primary endpoint adverse events",
+        "search_queries": [
+          "primary endpoint adverse events"
+        ],
+        "query_language": "en",
+        "query_rewrites": [],
+        "rewrite_method": "identity",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": true,
+          "first_label_hit_rank": 3,
+          "matched_terms": [
+            "primary endpoint"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 3032,
+            "chunk_id": "PMC8600696_chunk_007",
+            "score": 0.032018,
+            "mode": "hybrid",
+            "medical_label": "_introduction_other",
+            "medical_parent": "introduction",
+            "source_section": "Endpoints",
+            "source_file": "data/sources_medical/chunks/train/PMC8600696_chunk_007.md",
+            "preview": "# Endpoints  The primary endpoint is overall survival after R0/R1 resection (OS-res) (only patients with R0/R1 resection).  Secondary efficacy endpoints are OS of the entire patients cohort, R0/R1 resection rate and prog"
+          },
+          {
+            "rank": 2,
+            "manifest_index": 490,
+            "chunk_id": "PMC11529615_chunk_019",
+            "score": 0.031258,
+            "mode": "hybrid",
+            "medical_label": "exploratory_outcome",
+            "medical_parent": "outcome_measures",
+            "source_section": "Box 1 Summary of the primary, secondary, technical and exploratory endpoints",
+            "source_file": "data/sources_medical/chunks/train/PMC11529615_chunk_019.md",
+            "preview": "# Box 1 Summary of the primary, secondary, technical and exploratory endpoints  Primary endpoint  Incidence of thrombocytopenia.  A platelet count below 75% of the patient’s baseline value, at any time during the follow-"
+          },
+          {
+            "rank": 3,
+            "manifest_index": 558,
+            "chunk_id": "PMC11929207_chunk_020",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "primary_outcome",
+            "medical_parent": "outcome_measures",
+            "source_section": "Primary endpoint",
+            "source_file": "data/sources_medical/chunks/train/PMC11929207_chunk_020.md",
+            "preview": "# Primary endpoint  Te primary endpoint, 28-day mortality, will be analyzed using a mixed-efects binary logistic regression [31]. Tis regression will include treatment efect and source of sepsis as fxed efects and site a"
+          }
+        ]
+      },
+      "survival_endpoint": {
+        "case": {
+          "case_id": "survival_endpoint",
+          "query": "overall survival progression free survival",
+          "target_labels": [
+            "primary_outcome",
+            "secondary_outcome",
+            "outcome_measures",
+            "statistical_analysis"
+          ],
+          "target_terms": [
+            "overall survival",
+            "progression-free survival",
+            "progression free survival"
+          ],
+          "focus": "Survival endpoint retrieval"
+        },
+        "search_query": "overall survival progression free survival",
+        "search_queries": [
+          "overall survival progression free survival"
+        ],
+        "query_language": "en",
+        "query_rewrites": [],
+        "rewrite_method": "identity",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": true,
+          "first_label_hit_rank": 1,
+          "matched_terms": []
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 2340,
+            "chunk_id": "PMC6937062_chunk_026",
+            "score": 0.031281,
+            "mode": "hybrid",
+            "medical_label": "outcome_measures",
+            "medical_parent": "methods",
+            "source_section": "Clinical outcome measures",
+            "source_file": "data/sources_medical/chunks/train/PMC6937062_chunk_026.md",
+            "preview": "# Clinical outcome measures  1. Time to PSA progression; Confirmed rising PSA more than 12 weeks after randomisation. (Where there has been a decline in PSA from baseline, progression will be a 25% or greater increase, a"
+          },
+          {
+            "rank": 2,
+            "manifest_index": 2345,
+            "chunk_id": "PMC6937062_chunk_031",
+            "score": 0.031258,
+            "mode": "hybrid",
+            "medical_label": "statistical_analysis",
+            "medical_parent": "methods",
+            "source_section": "Data analysis plan",
+            "source_file": "data/sources_medical/chunks/train/PMC6937062_chunk_031.md",
+            "preview": "# Data analysis plan  Analyses will be conducted on an intention-to-treat basis, with sensitivity analyses used to investigate the impact of non-compliance to allocated arm. Given the feasibility status of this study, al"
+          },
+          {
+            "rank": 3,
+            "manifest_index": 2142,
+            "chunk_id": "PMC6726216_chunk_021",
+            "score": 0.03125,
+            "mode": "hybrid",
+            "medical_label": "_adverse_events_other",
+            "medical_parent": "adverse_events",
+            "source_section": "Validation set",
+            "source_file": "data/sources_medical/chunks/eval/PMC6726216_chunk_021.md",
+            "preview": "<table><tr><td>Time</td><td>N</td><td>Observed survival (95% CI)</td><td>Predicted, Adjusted (95% CI)</td><td>p-value</td></tr><tr><td>1</td><td>662</td><td>0.975 (0.963–0.987)</td><td>0.963 (0.949–0.977)</td><td>0.193</"
+          }
+        ]
+      },
+      "eligibility": {
+        "case": {
+          "case_id": "eligibility",
+          "query": "inclusion criteria randomized controlled trial",
+          "target_labels": [
+            "population",
+            "_methods_other",
+            "_randomization_other"
+          ],
+          "target_terms": [
+            "inclusion criteria",
+            "exclusion criteria",
+            "eligible"
+          ],
+          "focus": "Eligibility criteria retrieval"
+        },
+        "search_query": "inclusion criteria randomized controlled trial",
+        "search_queries": [
+          "inclusion criteria randomized controlled trial"
+        ],
+        "query_language": "en",
+        "query_rewrites": [],
+        "rewrite_method": "identity",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": true,
+          "first_label_hit_rank": 1,
+          "matched_terms": [
+            "eligible",
+            "exclusion criteria",
+            "inclusion criteria"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 715,
+            "chunk_id": "PMC12574440_chunk_008",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "_methods_other",
+            "medical_parent": "methods",
+            "source_section": "Inclusion criteria",
+            "source_file": "data/sources_medical/chunks/train/PMC12574440_chunk_008.md",
+            "preview": "# Inclusion criteria  1. The participant has CFRD requiring insulin therapy for >3 months.    2. The participant is 16 years of age or older.    3. Baseline time in target glucose range <80% during the run-in period.    "
+          },
+          {
+            "rank": 2,
+            "manifest_index": 1763,
+            "chunk_id": "PMC6091910_chunk_007",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "methods",
+            "medical_parent": null,
+            "source_section": "Methods",
+            "source_file": "data/sources_medical/chunks/train/PMC6091910_chunk_007.md",
+            "preview": "# Methods  This is a multicentre, unblinded, parallel, randomised controlled phase III home trial, conducted by five tertiary paediatric diabetes centres in Australia. The trial has been approved. Ethics approval for the"
+          },
+          {
+            "rank": 3,
+            "manifest_index": 954,
+            "chunk_id": "PMC12898571_chunk_006",
+            "score": 0.016129,
+            "mode": "hybrid",
+            "medical_label": "population",
+            "medical_parent": "methods",
+            "source_section": "2.2. Participants and Sample Size",
+            "source_file": "data/sources_medical/chunks/train/PMC12898571_chunk_006.md",
+            "preview": "# 2.2. Participants and Sample Size  The following inclusion and exclusion criteria were applied to select eligible participants for the study."
+          }
+        ]
+      },
+      "safety_sae": {
+        "case": {
+          "case_id": "safety_sae",
+          "query": "safety endpoint serious adverse event",
+          "target_labels": [
+            "adverse_events",
+            "secondary_outcome",
+            "_data_collection_other"
+          ],
+          "target_terms": [
+            "serious adverse event",
+            "safety",
+            "sae"
+          ],
+          "focus": "Safety event retrieval"
+        },
+        "search_query": "safety endpoint serious adverse event",
+        "search_queries": [
+          "safety endpoint serious adverse event"
+        ],
+        "query_language": "en",
+        "query_rewrites": [],
+        "rewrite_method": "identity",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": true,
+          "first_label_hit_rank": 1,
+          "matched_terms": [
+            "sae",
+            "safety",
+            "serious adverse event"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 2291,
+            "chunk_id": "PMC6921499_chunk_024",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "_data_collection_other",
+            "medical_parent": "data_collection",
+            "source_section": "Safety monitoring",
+            "source_file": "data/sources_medical/chunks/train/PMC6921499_chunk_024.md",
+            "preview": "# Safety monitoring  In this population and within this clinical context, events that can be considered serious adverse events (SAEs), suspected unexpected serious adverse reactions (SUSA Rs) or serious adverse device ev"
+          },
+          {
+            "rank": 2,
+            "manifest_index": 566,
+            "chunk_id": "PMC11929207_chunk_028",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "front_matter",
+            "medical_parent": null,
+            "source_section": "Abbreviations",
+            "source_file": "data/sources_medical/chunks/train/PMC11929207_chunk_028.md",
+            "preview": "# Abbreviations  AE Adverse Event    DSMB Data Safety Monitoring Board    ECOFF Epidemiological cut-of breakpoints    ECMO Extracorporeal Membrane Oxygenation    EDC Electronic Data Capture    HRQoL Health-related Qualit"
+          },
+          {
+            "rank": 3,
+            "manifest_index": 3032,
+            "chunk_id": "PMC8600696_chunk_007",
+            "score": 0.016129,
+            "mode": "hybrid",
+            "medical_label": "_introduction_other",
+            "medical_parent": "introduction",
+            "source_section": "Endpoints",
+            "source_file": "data/sources_medical/chunks/train/PMC8600696_chunk_007.md",
+            "preview": "# Endpoints  The primary endpoint is overall survival after R0/R1 resection (OS-res) (only patients with R0/R1 resection).  Secondary efficacy endpoints are OS of the entire patients cohort, R0/R1 resection rate and prog"
+          }
+        ]
+      },
+      "closed_loop_diabetes": {
+        "case": {
+          "case_id": "closed_loop_diabetes",
+          "query": "closed loop insulin hypoglycaemia primary endpoint",
+          "target_labels": [
+            "primary_outcome",
+            "outcome_measures",
+            "_methods_other"
+          ],
+          "target_terms": [
+            "closed-loop",
+            "hypoglycaemia",
+            "hypoglycemia",
+            "primary endpoint"
+          ],
+          "focus": "Domain-specific endpoint retrieval"
+        },
+        "search_query": "closed loop insulin hypoglycaemia primary endpoint",
+        "search_queries": [
+          "closed loop insulin hypoglycaemia primary endpoint"
+        ],
+        "query_language": "en",
+        "query_rewrites": [],
+        "rewrite_method": "identity",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": true,
+          "first_label_hit_rank": 1,
+          "matched_terms": [
+            "closed-loop",
+            "hypoglycaemia"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 2071,
+            "chunk_id": "PMC6561428_chunk_003",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "_methods_other",
+            "medical_parent": "methods",
+            "source_section": "Abstrac t",
+            "source_file": "data/sources_medical/chunks/train/PMC6561428_chunk_003.md",
+            "preview": "# Abstrac t  Introduction Closed-loop systems titrate insulin based on sensor glucose levels, providing novel means to reduce the risk of hypoglycaemia while improving glycaemic control. We will assess effectiveness of 6"
+          },
+          {
+            "rank": 2,
+            "manifest_index": 2685,
+            "chunk_id": "PMC7618672_chunk_016",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "conclusion",
+            "medical_parent": null,
+            "source_section": "Conclusions",
+            "source_file": "data/sources_medical/chunks/eval/PMC7618672_chunk_016.md",
+            "preview": "# Conclusions  In conclusion, over the first 48 months after diagnosis of type 1 diabetes, insulin requirements in children and adolescents more than double with closed loop insulin delivery. Over time, a greater proport"
+          },
+          {
+            "rank": 3,
+            "manifest_index": 1706,
+            "chunk_id": "PMC6009467_chunk_002",
+            "score": 0.016129,
+            "mode": "hybrid",
+            "medical_label": "_methods_other",
+            "medical_parent": "methods",
+            "source_section": "Abstrac t",
+            "source_file": "data/sources_medical/chunks/train/PMC6009467_chunk_002.md",
+            "preview": "# Abstrac t  Introduction Manual determination of insulin dosing largely fails to optimise glucose control in type 1 diabetes. Automated insulin delivery via closed-loop systems has improved glucose control in short-term"
+          }
+        ]
+      },
+      "chemo_toxicity": {
+        "case": {
+          "case_id": "chemo_toxicity",
+          "query": "chemotherapy dose reduction treatment delay adverse events",
+          "target_labels": [
+            "intervention",
+            "secondary_outcome",
+            "adverse_events"
+          ],
+          "target_terms": [
+            "dose reduction",
+            "treatment delay",
+            "adverse events",
+            "toxicit"
+          ],
+          "focus": "Intervention and toxicity retrieval"
+        },
+        "search_query": "chemotherapy dose reduction treatment delay adverse events",
+        "search_queries": [
+          "chemotherapy dose reduction treatment delay adverse events"
+        ],
+        "query_language": "en",
+        "query_rewrites": [],
+        "rewrite_method": "identity",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": true,
+          "first_label_hit_rank": 1,
+          "matched_terms": [
+            "adverse events",
+            "dose reduction",
+            "toxicit",
+            "treatment delay"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 1515,
+            "chunk_id": "PMC5490215_chunk_019",
+            "score": 0.032522,
+            "mode": "hybrid",
+            "medical_label": "secondary_outcome",
+            "medical_parent": "outcome_measures",
+            "source_section": "Secondary outcomes",
+            "source_file": "data/sources_medical/chunks/train/PMC5490215_chunk_019.md",
+            "preview": "# Secondary outcomes  Secondary endpoints include adverse events (registered for every chemotherapy cycle after CTC criteria version 4.0), dose reductions, treatment delays (which follow the standardized guidelines of th"
+          },
+          {
+            "rank": 2,
+            "manifest_index": 3040,
+            "chunk_id": "PMC8600696_chunk_015",
+            "score": 0.032266,
+            "mode": "hybrid",
+            "medical_label": "intervention",
+            "medical_parent": "methods",
+            "source_section": "Dose modifications and prerequisites for the start of a new cycle",
+            "source_file": "data/sources_medical/chunks/train/PMC8600696_chunk_015.md",
+            "preview": "# Dose modifications and prerequisites for the start of a new cycle  Doses will be reduced for haematological and nonhaematological toxicities. In case of concurrent toxicities, all dose modifications should be based on "
+          },
+          {
+            "rank": 3,
+            "manifest_index": 3196,
+            "chunk_id": "PMC9502603_chunk_003",
+            "score": 0.032002,
+            "mode": "hybrid",
+            "medical_label": "front_matter",
+            "medical_parent": null,
+            "source_section": "Abstract",
+            "source_file": "data/sources_medical/chunks/train/PMC9502603_chunk_003.md",
+            "preview": "# Abstract  Background: Adverse events of chemotherapy may be caused by pharmacodynamics or psychological factors such as negative expectations, which constitute nocebo efects. In a randomized controlled trial, we examin"
+          }
+        ]
+      },
+      "kaplan_meier": {
+        "case": {
+          "case_id": "kaplan_meier",
+          "query": "Kaplan Meier survival curve median overall survival",
+          "target_labels": [
+            "statistical_analysis",
+            "_statistical_analysis_other",
+            "outcome_measures"
+          ],
+          "target_terms": [
+            "kaplan",
+            "median overall survival",
+            "survival"
+          ],
+          "focus": "Statistical method retrieval"
+        },
+        "search_query": "Kaplan Meier survival curve median overall survival",
+        "search_queries": [
+          "Kaplan Meier survival curve median overall survival"
+        ],
+        "query_language": "en",
+        "query_rewrites": [],
+        "rewrite_method": "identity",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": true,
+          "first_label_hit_rank": 2,
+          "matched_terms": [
+            "kaplan",
+            "survival"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 2139,
+            "chunk_id": "PMC6726216_chunk_018",
+            "score": 0.032266,
+            "mode": "hybrid",
+            "medical_label": "adverse_events",
+            "medical_parent": "results",
+            "source_section": "Training set: Probability density function / mortality fraction",
+            "source_file": "data/sources_medical/chunks/train/PMC6726216_chunk_018.md",
+            "preview": "# Training set: Probability density function / mortality fraction  For the participants in NSABP B15, observed survival at each yearly interval following diagnosis was used to generate a survival curve for the group as a"
+          },
+          {
+            "rank": 2,
+            "manifest_index": 994,
+            "chunk_id": "PMC12928687_chunk_024",
+            "score": 0.031545,
+            "mode": "hybrid",
+            "medical_label": "_statistical_analysis_other",
+            "medical_parent": "statistical_analysis",
+            "source_section": "Secondary End Points",
+            "source_file": "data/sources_medical/chunks/train/PMC12928687_chunk_024.md",
+            "preview": "# Secondary End Points  Twelve- and 24-month overall survival as well as distant progression-free survival will be evaluated by Kaplan-Meier analysis. All other secondary end points will be descriptively summarized."
+          },
+          {
+            "rank": 3,
+            "manifest_index": 2141,
+            "chunk_id": "PMC6726216_chunk_020",
+            "score": 0.031514,
+            "mode": "hybrid",
+            "medical_label": "_adverse_events_other",
+            "medical_parent": "adverse_events",
+            "source_section": "Validation set",
+            "source_file": "data/sources_medical/chunks/eval/PMC6726216_chunk_020.md",
+            "preview": "<table><tr><td>Category</td><td>Treatment</td><td>N</td><td>Observed survival</td><td>Predicted survival (CancerMath)</td><td>Multiplier correction</td><td>Predicted survival (Final)</td></tr><tr><td>20–39 ER(-)/PR(-)</t"
+          }
+        ]
+      },
+      "itt_population": {
+        "case": {
+          "case_id": "itt_population",
+          "query": "statistical analysis intention to treat population",
+          "target_labels": [
+            "statistical_analysis",
+            "_statistical_analysis_other",
+            "population"
+          ],
+          "target_terms": [
+            "intention-to-treat",
+            "intention to treat",
+            "statistical analysis"
+          ],
+          "focus": "Analysis population retrieval"
+        },
+        "search_query": "statistical analysis intention to treat population",
+        "search_queries": [
+          "statistical analysis intention to treat population"
+        ],
+        "query_language": "en",
+        "query_rewrites": [],
+        "rewrite_method": "identity",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": true,
+          "first_label_hit_rank": 1,
+          "matched_terms": [
+            "statistical analysis"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 556,
+            "chunk_id": "PMC11929207_chunk_018",
+            "score": 0.031514,
+            "mode": "hybrid",
+            "medical_label": "statistical_analysis",
+            "medical_parent": "methods",
+            "source_section": "Statistical analysis",
+            "source_file": "data/sources_medical/chunks/train/PMC11929207_chunk_018.md",
+            "preview": "# Statistical analysis  In general, p-values < 0.05 are considered to indicate statistical signifcance (2-tailed test). Te p-values for the secondary endpoints will be presented but considered descriptive and hypothesis "
+          },
+          {
+            "rank": 2,
+            "manifest_index": 738,
+            "chunk_id": "PMC12574440_chunk_031",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "statistical_analysis",
+            "medical_parent": "methods",
+            "source_section": "Statistical analysis",
+            "source_file": "data/sources_medical/chunks/train/PMC12574440_chunk_031.md",
+            "preview": "# Statistical analysis  All randomised participants with/without protocol violation and including dropouts and withdrawals will be included in the analysis according to intention-totreat principle."
+          },
+          {
+            "rank": 3,
+            "manifest_index": 814,
+            "chunk_id": "PMC12742169_chunk_024",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "statistical_analysis",
+            "medical_parent": "methods",
+            "source_section": "Statistical analysis plan",
+            "source_file": "data/sources_medical/chunks/train/PMC12742169_chunk_024.md",
+            "preview": "# Statistical analysis plan  Descriptive statistics will be calculated as percentages for discrete variables, and median with IQR or mean with SE of the mean for continuous variables, as appropriate.  Continuous outcome "
+          }
+        ]
+      }
+    }
+  },
+  "summary": {
+    "medical_qwen3_embedding_4b": {
+      "cases": 8,
+      "hit_at_k": 8,
+      "hit_rate": 1.0,
+      "label_hit_at_k": 7,
+      "label_hit_rate": 0.875,
+      "mean_first_hit_rank": 1.0,
+      "mean_citation_coverage": null,
+      "query_languages": [
+        "en"
+      ],
+      "bridged_cases": 0,
+      "multi_query_cases": 0
+    },
+    "index_bge_small": {
+      "cases": 8,
+      "hit_at_k": 8,
+      "hit_rate": 1.0,
+      "label_hit_at_k": 6,
+      "label_hit_rate": 0.75,
+      "mean_first_hit_rank": 1.25,
+      "mean_citation_coverage": null,
+      "query_languages": [
+        "en"
+      ],
+      "bridged_cases": 0,
+      "multi_query_cases": 0
+    },
+    "index_bge_m3": {
+      "cases": 8,
+      "hit_at_k": 8,
+      "hit_rate": 1.0,
+      "label_hit_at_k": 8,
+      "label_hit_rate": 1.0,
+      "mean_first_hit_rank": 1.0,
+      "mean_citation_coverage": null,
+      "query_languages": [
+        "en"
+      ],
+      "bridged_cases": 0,
+      "multi_query_cases": 0
+    }
+  }
+}

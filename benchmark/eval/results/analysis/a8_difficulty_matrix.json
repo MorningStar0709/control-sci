@@ -1,0 +1,212 @@
+{
+  "analysis": "A8_difficulty_matrix",
+  "n_models": 9,
+  "n_per_model": 500,
+  "difficulty_matrix": {
+    "models": [
+      "MiMo-v2-flash",
+      "DS-v4-flash",
+      "Qwen3.5:9b",
+      "DS-v4-pro",
+      "MM-m2.5",
+      "MM-m2.7",
+      "MiMo-v2.5-pro",
+      "MiMo-v2-pro",
+      "MiMo-v2.5"
+    ],
+    "difficulty_levels": [
+      "L1",
+      "L2",
+      "L3",
+      "L4"
+    ],
+    "values": [
+      [
+        0.62,
+        0.7009,
+        0.6471,
+        0.5973
+      ],
+      [
+        0.6875,
+        0.6685,
+        0.6396,
+        0.5697
+      ],
+      [
+        0.6,
+        0.6613,
+        0.6501,
+        0.5647
+      ],
+      [
+        0.645,
+        0.6618,
+        0.6328,
+        0.549
+      ],
+      [
+        0.62,
+        0.6359,
+        0.6244,
+        0.5344
+      ],
+      [
+        0.595,
+        0.6016,
+        0.6014,
+        0.5062
+      ],
+      [
+        0.66,
+        0.5612,
+        0.547,
+        0.473
+      ],
+      [
+        0.7325,
+        0.5293,
+        0.4963,
+        0.458
+      ],
+      [
+        0.645,
+        0.4833,
+        0.4334,
+        0.3432
+      ]
+    ]
+  },
+  "item_difficulty_bins": {
+    "very_hard (0.0-0.2)": 80,
+    "hard (0.2-0.4)": 75,
+    "medium (0.4-0.6)": 111,
+    "easy (0.6-0.8)": 76,
+    "very_easy (0.8-1.0)": 158
+  },
+  "mean_item_difficulty": 0.5767,
+  "decay_details": [
+    {
+      "model": "mimo-v2-flash",
+      "name": "MiMo-v2-flash",
+      "L1": 0.6199999999999999,
+      "L2": 0.7009150326797386,
+      "L3": 0.6470552147239264,
+      "L4": 0.5972916666666666,
+      "absolute_decay": 0.0227,
+      "relative_decay": 0.0366,
+      "decay_per_step": 0.0076
+    },
+    {
+      "model": "deepseek-v4-flash",
+      "name": "DS-v4-flash",
+      "L1": 0.6875,
+      "L2": 0.6684967320261438,
+      "L3": 0.6395705521472392,
+      "L4": 0.5697222222222221,
+      "absolute_decay": 0.1178,
+      "relative_decay": 0.1713,
+      "decay_per_step": 0.0393
+    },
+    {
+      "model": "qwen3.5:9b",
+      "name": "Qwen3.5:9b",
+      "L1": 0.6,
+      "L2": 0.6613071895424837,
+      "L3": 0.650122699386503,
+      "L4": 0.5647222222222221,
+      "absolute_decay": 0.0353,
+      "relative_decay": 0.0588,
+      "decay_per_step": 0.0118
+    },
+    {
+      "model": "deepseek-v4-pro",
+      "name": "DS-v4-pro",
+      "L1": 0.6449999999999999,
+      "L2": 0.6617647058823529,
+      "L3": 0.632760736196319,
+      "L4": 0.5490277777777778,
+      "absolute_decay": 0.096,
+      "relative_decay": 0.1488,
+      "decay_per_step": 0.032
+    },
+    {
+      "model": "minimax-m2.5",
+      "name": "MM-m2.5",
+      "L1": 0.62,
+      "L2": 0.6358823529411765,
+      "L3": 0.6244171779141104,
+      "L4": 0.5343749999999999,
+      "absolute_decay": 0.0856,
+      "relative_decay": 0.1381,
+      "decay_per_step": 0.0285
+    },
+    {
+      "model": "minimax-m2.7",
+      "name": "MM-m2.7",
+      "L1": 0.595,
+      "L2": 0.6015686274509804,
+      "L3": 0.6014110429447853,
+      "L4": 0.5061805555555555,
+      "absolute_decay": 0.0888,
+      "relative_decay": 0.1493,
+      "decay_per_step": 0.0296
+    },
+    {
+      "model": "mimo-v2.5-pro",
+      "name": "MiMo-v2.5-pro",
+      "L1": 0.6599999999999999,
+      "L2": 0.5611764705882353,
+      "L3": 0.5469938650306748,
+      "L4": 0.4729861111111112,
+      "absolute_decay": 0.187,
+      "relative_decay": 0.2834,
+      "decay_per_step": 0.0623
+    },
+    {
+      "model": "mimo-v2-pro",
+      "name": "MiMo-v2-pro",
+      "L1": 0.7324999999999999,
+      "L2": 0.5292810457516339,
+      "L3": 0.4962576687116564,
+      "L4": 0.45798611111111104,
+      "absolute_decay": 0.2745,
+      "relative_decay": 0.3748,
+      "decay_per_step": 0.0915
+    },
+    {
+      "model": "mimo-v2.5",
+      "name": "MiMo-v2.5",
+      "L1": 0.6449999999999999,
+      "L2": 0.4832679738562091,
+      "L3": 0.4333742331288344,
+      "L4": 0.34319444444444447,
+      "absolute_decay": 0.3018,
+      "relative_decay": 0.4679,
+      "decay_per_step": 0.1006
+    }
+  ],
+  "most_stable": {
+    "model": "mimo-v2-flash",
+    "name": "MiMo-v2-flash",
+    "L1": 0.6199999999999999,
+    "L2": 0.7009150326797386,
+    "L3": 0.6470552147239264,
+    "L4": 0.5972916666666666,
+    "absolute_decay": 0.0227,
+    "relative_decay": 0.0366,
+    "decay_per_step": 0.0076
+  },
+  "most_sensitive": {
+    "model": "mimo-v2.5",
+    "name": "MiMo-v2.5",
+    "L1": 0.6449999999999999,
+    "L2": 0.4832679738562091,
+    "L3": 0.4333742331288344,
+    "L4": 0.34319444444444447,
+    "absolute_decay": 0.3018,
+    "relative_decay": 0.4679,
+    "decay_per_step": 0.1006
+  },
+  "interpretation": "Item difficulty (p-value) 表示所有模型在该题上的平均得分。<0.2 为非常困难，>0.8 为非常容易。Decay 越大表示模型对难度变化越敏感。"
+}

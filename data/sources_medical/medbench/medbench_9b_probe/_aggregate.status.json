@@ -1,0 +1,11 @@
+{
+    "updated_at":  "2026-05-11T14:39:20",
+    "elapsed_seconds":  133.1,
+    "model":  "qwen3.5:9b",
+    "completed_subsets":  6,
+    "state":  "completed",
+    "total_subsets":  6,
+    "output_dir":  "data\\sources_medical\\medbench\\medbench_9b_probe",
+    "failed_subsets":  0
+}
+

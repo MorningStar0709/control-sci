@@ -1,4 +1,4 @@
-# ControlSci Demo CLI
+# ControlMind Demo CLI
 
 三赛道快速验证入口 —— 评委可在 3 分钟内通过 CLI 查看所有赛道的关键样例。
 

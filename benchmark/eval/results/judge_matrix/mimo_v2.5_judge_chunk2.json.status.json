@@ -1,0 +1,17 @@
+{
+  "model": "deepseek-v4-flash",
+  "judge_model": "mimo-v2.5",
+  "status": "completed",
+  "completed": 125,
+  "total": 125,
+  "percent": 100.0,
+  "remaining": 0,
+  "session_completed": 2,
+  "elapsed_sec": 7.14,
+  "rate_q_per_min": 16.8132,
+  "eta_min": null,
+  "eta_at": "2026-05-09 00:06:13",
+  "last_id": "CS-EVO-00374",
+  "consecutive_failures": 0,
+  "updated_at": "2026-05-09 00:06:13"
+}

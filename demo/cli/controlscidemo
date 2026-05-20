@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-ControlSci Demo CLI --- 三赛道快速验证入口
+ControlMind Demo CLI --- 三赛道快速验证入口
 
 用法:
   python demo/cli/controlscidemo track1 --quick        # Track1 快速演示 (3-5 题)
@@ -27,13 +27,13 @@ except AttributeError:
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 
-CASES_DIR = PROJECT_ROOT / "docs" / "submissions"
+CASES_DIR = PROJECT_ROOT / "docs" / "submissions" / "shared"
 TRACK1_CASES = CASES_DIR / "track1_sci_align_20_cases.md"
 TRACK2_CASES = CASES_DIR / "track2_agent_20_cases.md"
 TRACK3_CASES = CASES_DIR / "track3_medical_rag_20_cases.md"
 
 QUICK_COUNT = 5
-KNOWN_PATH_PREFIXES = ("benchmark", "corpus", "data", "docs", "demo")
+KNOWN_PATH_PREFIXES = ("benchmark", "corpus", "data", "docs", "demo", "_scratch")
 KNOWN_SEARCH_DIRS = (
     PROJECT_ROOT / "benchmark" / "agent" / "logs",
     PROJECT_ROOT / "benchmark" / "agent" / "examples" / "logs",
@@ -191,7 +191,7 @@ def extract_candidate_paths(text: str) -> list[str]:
     candidates.extend(item for item in re.findall(r"`([^`]+)`", text) if is_path_like(strip_code_path(item)))
     candidates.extend(
         re.findall(
-            r"(?<![\w/\\.-])((?:benchmark|corpus|data|docs|demo)[/\\][^\s`，。；;、)）]+)",
+            r"(?<![\w/\\.-])((?:benchmark|corpus|data|docs|demo|_scratch)[/\\][^\s`，。；;、)）]+)",
             text,
         )
     )
@@ -385,7 +385,7 @@ def print_case_track3(case: dict, idx: int, total: int):
 
 def run_track1(case_file: Path, quick: bool, sample_count: int | None):
     print(f"\n{sep('═')}")
-    print(f"  {header('Track1')} — {bold('ControlSci Sci-Align')} (科学数据对齐与跨模态评测)")
+    print(f"  {header('Track1')} — {bold('ControlMind Sci-Align')} (科学数据对齐与跨模态评测)")
     print(f"  {dim(f'数据源: {case_file}')}")
     print(f"{sep('═')}")
 
@@ -415,7 +415,7 @@ def run_track1(case_file: Path, quick: bool, sample_count: int | None):
 
 def run_track2(case_file: Path, quick: bool, sample_count: int | None):
     print(f"\n{sep('═')}")
-    print(f"  {header('Track2')} — {bold('ControlSci Data Agent')} (智能体与数据工程)")
+    print(f"  {header('Track2')} — {bold('ControlMind Data Agent')} (智能体与数据工程)")
     print(f"  {dim(f'数据源: {case_file}')}")
     print(f"{sep('═')}")
 
@@ -471,7 +471,7 @@ def run_track3(case_file: Path, quick: bool, sample_count: int | None):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="ControlSci Demo CLI — 三赛道快速验证入口",
+        description="ControlMind Demo CLI — 三赛道快速验证入口",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 示例:
@@ -508,7 +508,7 @@ def main():
     quick = args.quick and sample_count is None
 
     now_str = time.strftime("%Y-%m-%d %H:%M:%S")
-    print(f"\n{bold('ControlSci Demo CLI')}")
+    print(f"\n{bold('ControlMind Demo CLI')}")
     print(f"{dim(f'项目根目录: {PROJECT_ROOT}')}")
     print(f"{dim(f'时间: {now_str}')}")
 

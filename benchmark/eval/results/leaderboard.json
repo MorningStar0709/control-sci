@@ -1,0 +1,62 @@
+{
+  "models": [
+    {
+      "model": "deepseek-v4-flash",
+      "overall_score": 0.7552,
+      "total_questions": 96,
+      "dimension_scores": {
+        "A": 0.7767,
+        "B": 0.7194
+      },
+      "source_file": "ollama_chunk_0_report.json",
+      "complete": false,
+      "failure_summary": {
+        "LLM judge response parse failure": 1
+      }
+    },
+    {
+      "model": "deepseek-v4-flash",
+      "overall_score": 0.7372,
+      "total_questions": 76,
+      "dimension_scores": {
+        "C": 0.75,
+        "D": 0.6114
+      },
+      "source_file": "ollama_chunk_1_report.json",
+      "complete": false,
+      "failure_summary": {
+        "judge parse failure": 2
+      }
+    },
+    {
+      "model": "deepseek-v4-flash",
+      "overall_score": 0.6431,
+      "total_questions": 500,
+      "dimension_scores": {
+        "A": 0.7104,
+        "B": 0.5984,
+        "C": 0.622,
+        "D": 0.6414
+      },
+      "source_file": "ollama_judge_report.json",
+      "complete": true,
+      "failure_summary": {
+        "LLM judge response parse failure": 25,
+        "judge parse failure": 20
+      }
+    },
+    {
+      "model": "deepseek-v4-flash",
+      "overall_score": 0.3,
+      "total_questions": 1,
+      "dimension_scores": {
+        "A": 0.3
+      },
+      "source_file": "ollama_judge_35b_report.json",
+      "complete": true,
+      "failure_summary": {}
+    }
+  ],
+  "model_count": 4,
+  "source_dir": "benchmark\\eval\\results"
+}

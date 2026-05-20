@@ -1,0 +1,49 @@
+============================================================
+  MedBench VLM 最终审计
+============================================================
+
+[meta]
+  model: qwen3.5:35b
+  elapsed: 2655s (44.3 min)
+  generated: 2026-05-13T13:06:56
+
+[statistics]
+  total_questions: 300
+  total_subsets: 10
+  overall_avg_hits: 5.0
+  overall_coverage: 1.0
+  overall_answered: 300
+  overall_errors: 0
+  overall_evidence_insufficient: 13
+  overall_ei_rate: 0.0433
+
+[per_question]
+  total entries: 300
+  answered: 300/300
+  errors:   0
+  evidence_insufficient: 13
+
+[subsets]
+  MedClass        total= 30  ans= 30  ei= 4  err=0
+  MedCourse       total= 30  ans= 30  ei= 1  err=0
+  MedDetect       total= 30  ans= 30  ei= 0  err=0
+  MedDiffDx       total= 30  ans= 30  ei= 0  err=0
+  MedGen          total= 30  ans= 30  ei= 0  err=0
+  MedOCR          total= 30  ans= 30  ei= 0  err=0
+  MedQC           total= 30  ans= 30  ei= 0  err=0
+  MedSeqIm        total= 30  ans= 30  ei= 2  err=0
+  MedTherapy      total= 30  ans= 30  ei= 2  err=0
+  MedVQA          total= 30  ans= 30  ei= 4  err=0
+
+[progress.jsonl] 866 lines, 303 unique, 563 dupes
+
+[sample] MB-VLM-MedClass-0000-5d0941afb1: 基于提供的医学影像和临床信息，分析如下：
+
+1.  **影像分析**：腹部CT横断面显示，在胰腺钩突/胰头区域可见一个边界相对清晰的**囊性低密度病灶**（呈水样密度），内部可见分隔或囊壁结构。该病灶与周围实质性的胰腺组织（如左侧脾脏、右侧肝脏）密度差异明显。
+2.  **临床关联**：患者为60岁男性，出现上腹部胀痛及黄疸，提示胰头占位性病变压迫胆管。
+3.  **鉴别诊断**：
+    *  
+
+============================================================
+  AUDIT PASSED (0 errors)
+============================================================

@@ -1,0 +1,18 @@
+{
+  "model": "deepseek-v4-flash",
+  "judge_model": "qwen3.5:35b",
+  "status": "completed",
+  "completed": 1,
+  "total": 1,
+  "percent": 100.0,
+  "remaining": 0,
+  "session_completed": 1,
+  "elapsed_sec": 44.28,
+  "rate_q_per_min": 1.3551,
+  "eta_min": 0.0,
+  "eta_at": "2026-05-08 18:06:16",
+  "last_id": "CS-EVO-00071",
+  "consecutive_failures": 0,
+  "updated_at": "2026-05-08 18:06:16",
+  "progress_log": "ollama_judge_35b_report.json.progress.jsonl"
+}

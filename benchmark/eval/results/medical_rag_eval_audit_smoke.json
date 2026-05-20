@@ -1,0 +1,235 @@
+{
+  "generated_at": "2026-05-16T12:47:47+0800",
+  "manifest": "data\\sources_medical\\chunks\\chunks_manifest.json",
+  "k": 3,
+  "with_synthesis": true,
+  "synthesis_model": "qwen3.5:9b",
+  "case_set": "zh_ask",
+  "trace_jsonl": "benchmark\\eval\\results\\medical_rag_eval_audit_smoke_traces.jsonl",
+  "cases": [
+    {
+      "case_id": "zh_primary_endpoint_safety",
+      "query": "主要终点和安全性证据",
+      "target_labels": [
+        "primary_outcome",
+        "secondary_outcome",
+        "outcome_measures",
+        "adverse_events"
+      ],
+      "target_terms": [
+        "primary endpoint",
+        "adverse event",
+        "adverse events",
+        "safety"
+      ],
+      "focus": "中文 Ask: 主要终点与安全性"
+    }
+  ],
+  "indexes": [
+    {
+      "label": "index_bge_m3",
+      "index_dir": "data\\sources_medical\\index_bge_m3",
+      "embedding_provider": "hf",
+      "embedding_model": "BAAI/bge-m3",
+      "embedding_dim": 1024,
+      "query_embed_seconds": 0.0
+    }
+  ],
+  "results": {
+    "index_bge_m3": {
+      "zh_primary_endpoint_safety": {
+        "case": {
+          "case_id": "zh_primary_endpoint_safety",
+          "query": "主要终点和安全性证据",
+          "target_labels": [
+            "primary_outcome",
+            "secondary_outcome",
+            "outcome_measures",
+            "adverse_events"
+          ],
+          "target_terms": [
+            "primary endpoint",
+            "adverse event",
+            "adverse events",
+            "safety"
+          ],
+          "focus": "中文 Ask: 主要终点与安全性"
+        },
+        "search_query": "primary endpoint outcome safety adverse events",
+        "search_queries": [
+          "primary endpoint outcome safety adverse events"
+        ],
+        "query_language": "zh",
+        "query_rewrites": [
+          {
+            "source": "主要终点",
+            "rewrite": "primary endpoint"
+          },
+          {
+            "source": "终点",
+            "rewrite": "endpoint outcome"
+          },
+          {
+            "source": "安全性",
+            "rewrite": "safety adverse events"
+          }
+        ],
+        "rewrite_method": "rule_based_medical_terms",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": true,
+          "first_label_hit_rank": 2,
+          "matched_terms": [
+            "primary endpoint"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 3032,
+            "chunk_id": "PMC8600696_chunk_007",
+            "score": 0.032522,
+            "mode": "hybrid",
+            "medical_label": "_introduction_other",
+            "medical_parent": "introduction",
+            "source_section": "Endpoints",
+            "source_file": "data/sources_medical/chunks/train/PMC8600696_chunk_007.md",
+            "preview": "# Endpoints  The primary endpoint is overall survival after R0/R1 resection (OS-res) (only patients with R0/R1 resection).  Secondary efficacy endpoints are OS of the entire patients cohort, R0/R1 resection rate and prog",
+            "multi_query_count": 1
+          },
+          {
+            "rank": 2,
+            "manifest_index": 3165,
+            "chunk_id": "PMC9443636_chunk_010",
+            "score": 0.030536,
+            "mode": "hybrid",
+            "medical_label": "outcome_measures",
+            "medical_parent": "methods",
+            "source_section": "Outcomes",
+            "source_file": "data/sources_medical/chunks/train/PMC9443636_chunk_010.md",
+            "preview": "# Outcomes  All outcome defnitions were prespecifed and described in detail in the published study protocol [17]. Te primary endpoint was PK target attainment (TA), during the frst 24 h following randomisation for the pr",
+            "multi_query_count": 1
+          },
+          {
+            "rank": 3,
+            "manifest_index": 1124,
+            "chunk_id": "PMC3002358_chunk_012",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "primary_outcome",
+            "medical_parent": "outcome_measures",
+            "source_section": "Primary outcome measures",
+            "source_file": "data/sources_medical/chunks/train/PMC3002358_chunk_012.md",
+            "preview": "# Primary outcome measures",
+            "multi_query_count": 1
+          }
+        ],
+        "synthesis": {
+          "model": "qwen3.5:9b",
+          "rag_mode": "evidence_structured",
+          "question_type": "safety_judgement",
+          "answer_strategy": [
+            "结论",
+            "安全性发现",
+            "适用边界",
+            "安全声明"
+          ],
+          "evidence_cards_count": 3,
+          "evidence_card_roles": [
+            "endpoint",
+            "endpoint_definition"
+          ],
+          "direct_source_cards": 1,
+          "reasoning_steps": 4,
+          "answer": "根据提供的证据，主要终点（Primary Endpoint）的定义因研究而异：在 [PMC8600696_chunk_007] 中，主要终点为 R0/R1 切除后的总生存期（OS-res）；在 [PMC9443636_chunk_010] 中，主要终点为随机化后前 24 小时的主要抗生素药代动力学（PK）目标达成率（TA）。安全性证据方面，[PMC8600696_chunk_007] 定义了次要安全性终点为不良事件（AE）的类型、频率和严重程度（依据 NCI CTCAE v5.0）以及围手术期并发症和死亡率；[PMC9443636_chunk_010] 则对基于累积剂量亚组（低剂量、标准剂量、高剂量）进行了预定义的安全性分析，重点关注死亡率和肾衰竭。",
+          "citations": [
+            "PMC8600696_chunk_007",
+            "PMC9443636_chunk_010"
+          ],
+          "reasoning_trace": [
+            {
+              "step": "识别问题类型为安全性判断，需检索主要终点定义及安全性终点定义。",
+              "citations": [
+                "PMC8600696_chunk_007",
+                "PMC9443636_chunk_010"
+              ],
+              "status": "supported"
+            },
+            {
+              "step": "从 [PMC8600696_chunk_007] 提取主要终点（OS-res）及安全性终点（AE, 围手术期并发症）定义。",
+              "citations": [
+                "PMC8600696_chunk_007"
+              ],
+              "status": "supported"
+            },
+            {
+              "step": "从 [PMC9443636_chunk_010] 提取主要终点（PK TA）及安全性分析（剂量亚组，死亡率，肾衰竭）定义。",
+              "citations": [
+                "PMC9443636_chunk_010"
+              ],
+              "status": "supported"
+            },
+            {
+              "step": "综合证据，区分不同研究中的终点定义，并陈述安全性发现的适用边界（如剂量亚组）。",
+              "citations": [
+                "PMC8600696_chunk_007",
+                "PMC9443636_chunk_010"
+              ],
+              "status": "supported"
+            }
+          ],
+          "claim_count": 4,
+          "supported_claims": 4,
+          "unsupported_claims": 0,
+          "citation_coverage": 1.0,
+          "confidence": "high",
+          "abstain": false,
+          "abstain_reason": "",
+          "evidence_sufficiency": {
+            "sufficient": true,
+            "query_terms": [],
+            "matched_terms": [],
+            "matched_term_count": 0,
+            "top_rrf_score": 0.032522,
+            "evidence_count": 3
+          },
+          "answer_audit": {
+            "status": "passed",
+            "passed": [
+              "所有 claim 引用均来自本轮检索来源",
+              "命中 1 张直接来源卡",
+              "claim-level 支撑检查通过",
+              "未发现个人诊疗建议"
+            ],
+            "issues": [],
+            "direct_source_cards": [
+              "E3"
+            ],
+            "question_type": "safety_judgement"
+          }
+        }
+      }
+    }
+  },
+  "summary": {
+    "index_bge_m3": {
+      "cases": 1,
+      "hit_at_k": 1,
+      "hit_rate": 1.0,
+      "label_hit_at_k": 1,
+      "label_hit_rate": 1.0,
+      "mean_first_hit_rank": 1.0,
+      "mean_citation_coverage": 1.0,
+      "query_languages": [
+        "zh"
+      ],
+      "bridged_cases": 1,
+      "multi_query_cases": 0,
+      "structured_rag_cases": 1,
+      "mechanism_cases": 0,
+      "answer_audit_passed_cases": 1
+    }
+  }
+}

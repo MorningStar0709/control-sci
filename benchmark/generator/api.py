@@ -25,7 +25,7 @@ PROVIDER_CONFIG = {
 }
 
 PROVIDER_ENV_MAP = {
-    "deepseek": "OPENAI_API_KEY",
+    "deepseek": "DEEPSEEK_API_KEY|OPENAI_API_KEY",
     "minimax": "MINIMAX_API_KEY",
     "mimo": "MIMO_API_KEY",
 }

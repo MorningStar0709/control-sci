@@ -1,0 +1,19 @@
+{
+  "target_model": "deepseek-v4-flash",
+  "judge_model": "qwen3.5:9b",
+  "base_report": "benchmark\\eval\\results\\ollama_judge_report.json",
+  "total": 500,
+  "done": 59,
+  "chunks": [
+    {
+      "file": "ollama_chunk_0.json",
+      "questions": 220,
+      "output": "ollama_chunk_0_report.json"
+    },
+    {
+      "file": "ollama_chunk_1.json",
+      "questions": 221,
+      "output": "ollama_chunk_1_report.json"
+    }
+  ]
+}

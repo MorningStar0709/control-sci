@@ -144,7 +144,8 @@ def _is_meaningful_query(question_text):
 
 
 def build_qa_pairs(kb_report_path=REPORT_PATH, manifest_path=MANIFEST_PATH,
-                   index_dir=INDEX_DIR, k=DEFAULT_TOP_K, dry_run=False, api_timeout=60):
+                   index_dir=INDEX_DIR, k=DEFAULT_TOP_K, dry_run=False,
+                   api_timeout=60, limit_queries=0):
     with open(kb_report_path, "r", encoding="utf-8") as f:
         report = json.load(f)
 
@@ -162,6 +163,9 @@ def build_qa_pairs(kb_report_path=REPORT_PATH, manifest_path=MANIFEST_PATH,
 
     qa_pairs = []
     meaningful_count = 0
+
+    if limit_queries and limit_queries > 0:
+        queries = queries[:limit_queries]
 
     for qi, query in enumerate(queries):
         question = query.get("question", "").strip()
@@ -348,6 +352,8 @@ def main():
     parser.add_argument("--k", type=int, default=DEFAULT_TOP_K, help="每查询检索 top-k (默认 5)")
     parser.add_argument("--dry-run", action="store_true", help="跳过 API 调用，仅测试流程")
     parser.add_argument("--api-timeout", type=int, default=60, help="API 调用超时秒数 (默认 60)")
+    parser.add_argument("--limit-queries", type=int, default=0, help="Limit report queries for smoke tests (0 = all)")
+    parser.add_argument("--allow-empty", action="store_true", help="Exit 0 when no QA pairs are produced.")
     args = parser.parse_args()
 
     qa_pairs = build_qa_pairs(
@@ -357,13 +363,15 @@ def main():
         k=args.k,
         dry_run=args.dry_run,
         api_timeout=args.api_timeout,
+        limit_queries=args.limit_queries,
     )
 
     if qa_pairs:
         save_output(qa_pairs, output_dir=args.output)
     else:
         print("[警告] 无 QA 对产出")
-        sys.exit(1)
+        if not args.allow_empty:
+            sys.exit(1)
 
 
 if __name__ == "__main__":

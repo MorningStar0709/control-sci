@@ -1,0 +1,465 @@
+{
+  "sample_n": 50,
+  "valid_n": 50,
+  "seed": 42,
+  "scores": {
+    "clarity": 3.72,
+    "correctness": 3.76,
+    "difficulty_alignment": 4.02,
+    "dimension_fit": 4.26,
+    "overall": 3.94,
+    "valid_n": 50
+  },
+  "details": [
+    {
+      "clarity": 4,
+      "correctness": 5,
+      "difficulty_alignment": 5,
+      "dimension_fit": 5,
+      "reason": "评测题表述清晰，推导过程逻辑严谨，正确指出了初始假设的矛盾并给出了修正后的正确推导，难度与L3匹配，维度C（稳定性判据）契合良好。",
+      "id": "CS-EVO-00242",
+      "dimension": "C"
+    },
+    {
+      "clarity": 5,
+      "correctness": 5,
+      "difficulty_alignment": 5,
+      "dimension_fit": 5,
+      "reason": "定义清晰准确，完全符合L1难度要求，且与鲁棒性维度高度契合。",
+      "id": "CS-EVO-00293",
+      "dimension": "A"
+    },
+    {
+      "clarity": 4,
+      "correctness": 4,
+      "difficulty_alignment": 5,
+      "dimension_fit": 5,
+      "reason": "定义基本正确，但未明确说明齐次度d与权重(r1,...,rn)需与向量场的齐次结构一致，且未提及V̇(x)的负定性需在系统轨迹上成立，清晰度略有不足。",
+      "id": "CS-EVO-00939",
+      "dimension": "A"
+    },
+    {
+      "clarity": 2,
+      "correctness": 2,
+      "difficulty_alignment": 2,
+      "dimension_fit": 2,
+      "reason": "答案过于笼统，缺乏具体建模方程、控制器设计细节、参数选择的具体数值依据及验证指标的量化分析，未体现L3级别所需的深度和精确性。",
+      "id": "CS-EVO-00450",
+      "dimension": "D"
+    },
+    {
+      "clarity": 5,
+      "correctness": 5,
+      "difficulty_alignment": 5,
+      "dimension_fit": 5,
+      "reason": "问题描述清晰，答案计算正确，难度与L2匹配，维度B（策略优化与熵正则化）契合良好。",
+      "id": "CS-EVO-00049",
+      "dimension": "B"
+    },
+    {
+      "clarity": 2,
+      "correctness": 1,
+      "difficulty_alignment": 2,
+      "dimension_fit": 2,
+      "reason": "答案表述混乱，关键符号未定义，计算过程不完整且最终表达式被截断，无法验证正确性，与L3难度要求的严谨推导不符，维度B的评测要求也未体现。",
+      "id": "CS-EVO-00638",
+      "dimension": "B"
+    },
+    {
+      "clarity": 3,
+      "correctness": 4,
+      "difficulty_alignment": 4,
+      "dimension_fit": 4,
+      "reason": "公式基本正确，但符号表示略显复杂，且未明确说明积分变量与测度的对应关系，清晰度略有不足。",
+      "id": "CS-EVO-00603",
+      "dimension": "A"
+    },
+    {
+      "clarity": 5,
+      "correctness": 5,
+      "difficulty_alignment": 5,
+      "dimension_fit": 5,
+      "reason": "答案表述清晰准确，完整展示了完成平方的推导步骤、最优控制律及最小损失函数，且与L2难度和A维度高度匹配。",
+      "id": "CS-EVO-00753",
+      "dimension": "A"
+    },
+    {
+      "clarity": 4,
+      "correctness": 4,
+      "difficulty_alignment": 4,
+      "dimension_fit": 4,
+      "reason": "答案结构完整，建模、方法选择、设计步骤和验证指标清晰，但缺少对参数不确定性具体处理（如LMI推导细节）和γ取值方法的说明，略有不足。",
+      "id": "CS-EVO-00431",
+      "dimension": "D"
+    },
+    {
+      "clarity": 3,
+      "correctness": 2,
+      "difficulty_alignment": 3,
+      "dimension_fit": 3,
+      "reason": "答案中传递函数形式错误（应为(s+z)/(s+p)而非Kc(s+z)/(s+p)），且对零点极点与Kv关系的描述不准确（实际是z/p影响低频增益提升而非直接等于Kv的乘法因子），同时部分表述（如‘零点在左，极点在右’）与标准滞后补偿器特性矛盾，需修正。",
+      "id": "CS-EVO-00345",
+      "dimension": "A"
+    },
+    {
+      "clarity": 5,
+      "correctness": 5,
+      "difficulty_alignment": 5,
+      "dimension_fit": 5,
+      "reason": "答案清晰准确地分析了λ符号变化对矩阵正定性的影响，逻辑严密，与L2难度和C维度高度契合。",
+      "id": "CS-EVO-00720",
+      "dimension": "C"
+    },
+    {
+      "clarity": 2,
+      "correctness": 1,
+      "difficulty_alignment": 2,
+      "dimension_fit": 2,
+      "reason": "答案中引用了未定义的公式编号（37、38），未说明隐式表示的具体形式，稳定性约束的嵌入方式模糊，且未提供任何实际验证步骤或数值结果，导致清晰度、正确性和难度匹配均不达标。",
+      "id": "CS-EVO-00866",
+      "dimension": "D"
+    },
+    {
+      "clarity": 4,
+      "correctness": 5,
+      "difficulty_alignment": 5,
+      "dimension_fit": 5,
+      "reason": "答案表述清晰准确，正确给出了定理8.4的充分必要条件并解释了物理意义，难度与L3匹配，维度C（控制理论）契合，但清晰度因未明确说明定理8.4的出处（如教材或文献）而略有不足。",
+      "id": "CS-EVO-00404",
+      "dimension": "C"
+    },
+    {
+      "clarity": 3,
+      "correctness": 2,
+      "difficulty_alignment": 3,
+      "dimension_fit": 3,
+      "reason": "答案仅列出了部分条件（正定性、连续可微性、对零点的条件），但未完整包含定理8中通常要求的径向无界性、负定性或负半定性导数条件等关键性质，且未明确说明Lyapunov函数需满足的导数不等式，因此正确性不足；清晰度一般，但未完整覆盖评测要求。建议补充完整条件。",
+      "id": "CS-EVO-00228",
+      "dimension": "A"
+    },
+    {
+      "clarity": 2,
+      "correctness": 1,
+      "difficulty_alignment": 2,
+      "dimension_fit": 3,
+      "reason": "答案中的线性矩阵不等式条件存在明显错误：矩阵块维度不匹配（左侧矩阵的(1,1)块中(A^TPA-P+Q)⊗I与(B^TPB)⊗L_k^T L_k维度不一致，无法直接相加），且缺少R矩阵的体现，未正确反映LQ性能中的控制代价项；同时条件形式与标准离散时间LQ事件触发控制文献中的LMI形式差异较大，缺乏对切换拓扑下共同Lyapunov函数或驻留时间等常见处理方式的说明，导致正确性严重不足；清晰度因符号混乱和结构错误而较低；难度虽标注为L3但条件过于简略且错误，未体现L3应有的严谨性；维度契合度尚可，但整体质量差。",
+      "id": "CS-EVO-00553",
+      "dimension": "C"
+    },
+    {
+      "clarity": 2,
+      "correctness": 1,
+      "difficulty_alignment": 2,
+      "dimension_fit": 2,
+      "reason": "问题描述不完整，答案部分被截断，且递归关系中的大O符号使用不规范（如O_T(ϵ)含义不明确），导致清晰度和正确性严重不足；难度和维度因信息缺失难以准确评估。",
+      "id": "CS-EVO-00284",
+      "dimension": "B"
+    },
+    {
+      "clarity": 4,
+      "correctness": 5,
+      "difficulty_alignment": 5,
+      "dimension_fit": 5,
+      "reason": "定义式表述清晰准确，符号说明完整，符合L1难度要求，且紧密对应教材中线性时不变系统最优控制问题的维度。",
+      "id": "CS-EVO-01027",
+      "dimension": "A"
+    },
+    {
+      "clarity": 3,
+      "correctness": 3,
+      "difficulty_alignment": 3,
+      "dimension_fit": 4,
+      "reason": "定义部分基本正确但不够严谨，缺少对图拓扑或通信条件的明确提及；数学定义未给出具体公式；假设条件中仅提到可镇定和可检测，但未说明这些条件与系统矩阵（如A、B₂、C₂）的对应关系，且未涉及图连通性等关键假设，因此清晰度和正确性均有欠缺；难度与L3基本匹配；维度A（理论分析）契合度较好。",
+      "id": "CS-EVO-00746",
+      "dimension": "A"
+    },
+    {
+      "clarity": 5,
+      "correctness": 5,
+      "difficulty_alignment": 5,
+      "dimension_fit": 5,
+      "reason": "答案表述清晰准确，完全符合L2难度对基本概念和数学条件的要求，且与A维度（系统稳定性分析）高度契合。",
+      "id": "CS-EVO-00569",
+      "dimension": "A"
+    },
+    {
+      "clarity": 4,
+      "correctness": 5,
+      "difficulty_alignment": 5,
+      "dimension_fit": 5,
+      "reason": "表达式和物理意义正确清晰，但未明确说明积分型性能指标的一般形式（如J=∫L dt），且未区分最小时间控制与最小时间积分型指标的关系，略有简化，但整体符合L1难度要求。",
+      "id": "CS-EVO-00677",
+      "dimension": "A"
+    },
+    {
+      "clarity": 4,
+      "correctness": 5,
+      "difficulty_alignment": 5,
+      "dimension_fit": 5,
+      "reason": "定义表述清晰准确，数学符号使用规范，完全符合L3难度和自适应控制维度要求，但可补充连续时间形式或解释其物理意义以提升清晰度。",
+      "id": "CS-EVO-00286",
+      "dimension": "A"
+    },
+    {
+      "clarity": 4,
+      "correctness": 5,
+      "difficulty_alignment": 5,
+      "dimension_fit": 5,
+      "reason": "答案清晰区分了线性限制与无限制两种情况，正确分析了独立性假设与不相关假设的差异，难度与L3匹配，维度契合C（概念理解）。",
+      "id": "CS-EVO-00181",
+      "dimension": "C"
+    },
+    {
+      "clarity": 4,
+      "correctness": 5,
+      "difficulty_alignment": 4,
+      "dimension_fit": 5,
+      "reason": "答案清晰解释了标量加权与对角加权在MIMO系统不确定性建模中的本质区别，逻辑正确且紧扣问题，但未完整展示原题中不等式推导的细节，略微影响清晰度。",
+      "id": "CS-EVO-00507",
+      "dimension": "C"
+    },
+    {
+      "clarity": 5,
+      "correctness": 5,
+      "difficulty_alignment": 5,
+      "dimension_fit": 5,
+      "reason": "问题与答案均清晰准确，数学表达式正确，难度符合L1要求，且完全契合预测器评估指标这一维度。",
+      "id": "CS-EVO-00205",
+      "dimension": "A"
+    },
+    {
+      "clarity": 4,
+      "correctness": 4,
+      "difficulty_alignment": 4,
+      "dimension_fit": 5,
+      "reason": "答案清晰解释了状态选择对传输次数的影响，逻辑合理，但未提供具体数值对比或更深入的理论依据，略有不足。",
+      "id": "CS-EVO-00842",
+      "dimension": "C"
+    },
+    {
+      "clarity": 4,
+      "correctness": 4,
+      "difficulty_alignment": 5,
+      "dimension_fit": 5,
+      "reason": "答案基本正确，但未明确说明劳斯表构造中可能出现的特殊情况（如全零行或首列零元素）及其处理，且‘若第一列元素符号改变的次数等于特征方程具有正实部根的个数’表述不够严谨，应为‘第一列元素符号改变的次数等于特征方程具有正实部根的个数，且系统不稳定’；整体清晰度较好，难度与L1匹配，维度契合度高。",
+      "id": "CS-EVO-00869",
+      "dimension": "A"
+    },
+    {
+      "clarity": 4,
+      "correctness": 5,
+      "difficulty_alignment": 5,
+      "dimension_fit": 5,
+      "reason": "答案清晰准确，正确分析了坡度引入的重力扰动及P+前馈控制的局限性，难度与L2匹配，维度契合C（控制）要求。",
+      "id": "CS-EVO-00876",
+      "dimension": "C"
+    },
+    {
+      "clarity": 5,
+      "correctness": 5,
+      "difficulty_alignment": 5,
+      "dimension_fit": 5,
+      "reason": "答案清晰准确地分析了马尔可夫性缺失对推导的影响，逻辑严谨，与L3难度和C维度高度契合。",
+      "id": "CS-EVO-00113",
+      "dimension": "C"
+    },
+    {
+      "clarity": 3,
+      "correctness": 2,
+      "difficulty_alignment": 3,
+      "dimension_fit": 4,
+      "reason": "答案中方程符号和矩阵定义基本正确，但存在排版错误（如\bol未闭合），且代数黎卡提方程通常写作连续时间形式A^T P + P A - P B R^{-1} B^T P + Q = 0，此处符号顺序和正负号与标准形式不一致，可能引起混淆。",
+      "id": "CS-EVO-00192",
+      "dimension": "C"
+    },
+    {
+      "clarity": 4,
+      "correctness": 5,
+      "difficulty_alignment": 4,
+      "dimension_fit": 5,
+      "reason": "评测题表述清晰，计算过程正确，难度与L3匹配，维度B（博弈与策略）契合，但部分符号说明可更详细以提升清晰度。",
+      "id": "CS-EVO-00098",
+      "dimension": "B"
+    },
+    {
+      "clarity": 4,
+      "correctness": 4,
+      "difficulty_alignment": 5,
+      "dimension_fit": 5,
+      "reason": "答案基本正确，但对称关系描述有误：Nichols图中G(jω)与1/G(jω)的对称是关于0dB线（幅值轴）的镜像对称，而非原点中心对称；相位关系应为∠(1/G(jω)) = -∠G(jω)，答案未明确提及相位对称，且‘skew symmetrical’表述不准确。",
+      "id": "CS-EVO-00822",
+      "dimension": "A"
+    },
+    {
+      "clarity": 5,
+      "correctness": 5,
+      "difficulty_alignment": 5,
+      "dimension_fit": 5,
+      "reason": "推导过程清晰完整，从闭环稳定性条件到LQR最优控制律的求解步骤正确，答案与教材中SAC与LQR结合的理论一致，难度和维度均符合要求。",
+      "id": "CS-EVO-00026",
+      "dimension": "B"
+    },
+    {
+      "clarity": 4,
+      "correctness": 5,
+      "difficulty_alignment": 5,
+      "dimension_fit": 5,
+      "reason": "答案清晰准确，关键步骤完整，难度与L3匹配，维度C（凸分析与共轭函数）契合良好。",
+      "id": "CS-EVO-00887",
+      "dimension": "C"
+    },
+    {
+      "clarity": 4,
+      "correctness": 4,
+      "difficulty_alignment": 4,
+      "dimension_fit": 5,
+      "reason": "解答步骤清晰，计算过程正确，但未明确说明数据来源（如稳态值1.700是否准确），且阻尼比计算中近似值0.5与精确值0.503的表述稍显不一致。",
+      "id": "CS-EVO-00515",
+      "dimension": "B"
+    },
+    {
+      "clarity": 3,
+      "correctness": 2,
+      "difficulty_alignment": 2,
+      "dimension_fit": 3,
+      "reason": "答案对LQR基本流程有描述，但未给出具体设计步骤（如如何通过Q/R选择满足约束的定量分析），未提供仿真验证结果，且对无限时域LQR与有限时间约束（5秒内进入误差带）的匹配性缺乏论证，正确性和难度匹配不足。",
+      "id": "CS-EVO-00510",
+      "dimension": "D"
+    },
+    {
+      "clarity": 2,
+      "correctness": 1,
+      "difficulty_alignment": 2,
+      "dimension_fit": 2,
+      "reason": "答案内容不完整，关键部分被截断，无法评估完整控制方案；建模方法引用教材公式但未给出具体表达式，控制方法选择理由过于简略，参数设计步骤缺失关键细节，且未提供验证指标，整体清晰度和正确性严重不足。",
+      "id": "CS-EVO-00742",
+      "dimension": "D"
+    },
+    {
+      "clarity": 3,
+      "correctness": 2,
+      "difficulty_alignment": 4,
+      "dimension_fit": 4,
+      "reason": "定义中混淆了‘安全属性’与‘攻击属性’，且形式化表述不严谨（如TaskAgents未定义），但整体方向与L4难度和MAS控制安全维度基本匹配。",
+      "id": "CS-EVO-00704",
+      "dimension": "A"
+    },
+    {
+      "clarity": 3,
+      "correctness": 2,
+      "difficulty_alignment": 3,
+      "dimension_fit": 3,
+      "reason": "答案在控制器设计理由部分被截断，未完整给出参数设计步骤和验证指标，且对改进LNN如何保证M̂正定及M̂-2Ĉ斜对称的说明不够具体，存在逻辑不完整；整体结构基本符合要求但细节缺失。",
+      "id": "CS-EVO-00157",
+      "dimension": "D"
+    },
+    {
+      "clarity": 4,
+      "correctness": 3,
+      "difficulty_alignment": 4,
+      "dimension_fit": 4,
+      "reason": "答案结构清晰，但状态空间模型中B_i矩阵维度不匹配（应为[0; I]×Δt），且LQR目标函数中c(k)与差分隐私的关联未明确说明，权重选型部分缺少对ε-差分隐私约束（ε≤0.5）的直接验证指标。",
+      "id": "CS-EVO-00824",
+      "dimension": "D"
+    },
+    {
+      "clarity": 4,
+      "correctness": 5,
+      "difficulty_alignment": 5,
+      "dimension_fit": 5,
+      "reason": "答案清晰解释了非线性系统无法用线性模型描述的核心原因，并正确指出了数值积分的必要性，但可进一步强调叠加原理失效这一关键点以提升清晰度。",
+      "id": "CS-EVO-00932",
+      "dimension": "A"
+    },
+    {
+      "clarity": 4,
+      "correctness": 5,
+      "difficulty_alignment": 4,
+      "dimension_fit": 5,
+      "reason": "答案清晰且正确，证明步骤逻辑完整，物理解释准确，但清晰度上可进一步补充多变量系统情况说明，难度与L3匹配，维度契合C（控制理论）。",
+      "id": "CS-EVO-00349",
+      "dimension": "C"
+    },
+    {
+      "clarity": 5,
+      "correctness": 5,
+      "difficulty_alignment": 5,
+      "dimension_fit": 5,
+      "reason": "解答清晰、正确，部分分式展开与对角标准形推导准确，难度和维度均符合要求。",
+      "id": "CS-EVO-00206",
+      "dimension": "B"
+    },
+    {
+      "clarity": 4,
+      "correctness": 5,
+      "difficulty_alignment": 5,
+      "dimension_fit": 5,
+      "reason": "答案清晰准确，数学定义正确，难度与L1匹配，且完全符合评测维度要求。",
+      "id": "CS-EVO-00847",
+      "dimension": "A"
+    },
+    {
+      "clarity": 4,
+      "correctness": 5,
+      "difficulty_alignment": 5,
+      "dimension_fit": 5,
+      "reason": "答案表述清晰准确，正确解释了Radon-Nikodym导数在支撑集上的取值及正交性原理，难度与L3匹配，维度A（分析）契合。",
+      "id": "CS-EVO-00481",
+      "dimension": "A"
+    },
+    {
+      "clarity": 2,
+      "correctness": 1,
+      "difficulty_alignment": 2,
+      "dimension_fit": 2,
+      "reason": "答案表述混乱，存在关键公式错误（如Hamiltonian中缺少拉格朗日乘子项、凸共轭推导错误），未完成控制器设计步骤，且未提供参数设计及验证指标，与L3难度要求的完整方案差距较大。",
+      "id": "CS-EVO-00642",
+      "dimension": "D"
+    },
+    {
+      "clarity": 3,
+      "correctness": 3,
+      "difficulty_alignment": 2,
+      "dimension_fit": 3,
+      "reason": "答案对建模和控制器设计有基本描述，但LQR性能指标中错误地将座椅位移和速度的平方项用于最小化加速度（应使用加速度或状态加权），且未明确说明如何通过权重调整满足悬架行程和力约束，缺乏参数整定的具体依据和鲁棒性验证的量化方法，整体深度未达到L3要求的详细工程分析水平。",
+      "id": "CS-EVO-00905",
+      "dimension": "D"
+    },
+    {
+      "clarity": 4,
+      "correctness": 4,
+      "difficulty_alignment": 4,
+      "dimension_fit": 5,
+      "reason": "答案整体清晰，推导正确，但未明确说明d为常数时2n²d²的阶为O(n²)的细节，且对‘渐近阶相同’的论证略显简略。",
+      "id": "CS-EVO-00176",
+      "dimension": "B"
+    },
+    {
+      "clarity": 4,
+      "correctness": 5,
+      "difficulty_alignment": 4,
+      "dimension_fit": 5,
+      "reason": "评测题表述清晰，参数代入和计算过程正确，难度与L2匹配，维度B（计算与应用）契合良好，但答案中最后一句‘故最终结果E^{P^{η}}[R_{t∧τ_n}^{(η,u)}] = 3 +’未完整写出数值，略有瑕疵。",
+      "id": "CS-EVO-00166",
+      "dimension": "B"
+    },
+    {
+      "clarity": 4,
+      "correctness": 4,
+      "difficulty_alignment": 5,
+      "dimension_fit": 5,
+      "reason": "定义清晰且正确，但未明确说明均值场状态μ的演化方程具体形式（如Fokker-Planck方程仅适用于连续时间扩散过程），略有模糊；难度与L1匹配，维度契合。",
+      "id": "CS-EVO-00081",
+      "dimension": "A"
+    },
+    {
+      "clarity": 4,
+      "correctness": 3,
+      "difficulty_alignment": 4,
+      "dimension_fit": 4,
+      "reason": "答案推导过程基本清晰，但存在关键错误：开环传递函数中133的乘法位置有误，正确应为L(s)=133*(10+0.5s)/(s^2+25s)，导致闭环特征方程错误；此外未按题目要求考虑微分器近似为比例增益b0=1的环节，且未说明式(4.2)中R和a0的作用，稳定性分析虽结果可能正确但基于错误推导，整体正确性不足。",
+      "id": "CS-EVO-00790",
+      "dimension": "B"
+    }
+  ]
+}

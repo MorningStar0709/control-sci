@@ -1,0 +1,13 @@
+{
+  "state": "completed",
+  "pid": 20328,
+  "model": "qwen3.5:35b",
+  "total_questions": 2,
+  "completed": 2,
+  "skipped_by_resume": 2,
+  "failed": 0,
+  "elapsed_seconds": 39.4,
+  "progress_path": "data\\sources_medical\\medbench\\two_phase_probe.json.progress.jsonl",
+  "output_path": "data\\sources_medical\\medbench\\two_phase_probe.json",
+  "updated_at": "2026-05-11T13:48:10"
+}

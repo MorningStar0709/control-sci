@@ -144,25 +144,58 @@ def _fail_step(step_name, reason):
 
 def main():
     parser = argparse.ArgumentParser(description="Medical RAG 全流程编排器")
+    parser.add_argument("--profile", choices=["smoke", "report"], default="smoke",
+                        help="运行策略: smoke=高可用最小真实测试; report=报告级全流程")
     parser.add_argument("--input", default=str(ROOT / "data" / "sources_medical"),
                         help="医疗文献数据根目录 (含 md/ source_list.json 等)")
     parser.add_argument("--output", default=str(ROOT / "benchmark" / "eval" / "results" / "medical"),
                         help="评估结果输出目录")
+    parser.add_argument("--chunks-dir", default="",
+                        help="Chunk manifest/output directory. Defaults to <input>/chunks.")
+    parser.add_argument("--index-dir", default="",
+                        help="Hybrid index directory. Defaults to <input>/index.")
+    parser.add_argument("--qa-output", default="",
+                        help="QA formatter output directory. Defaults to <input>/qa.")
+    parser.add_argument("--viz-output", default=str(ROOT / "docs" / "assets" / "medical"),
+                        help="Visualization output directory.")
     parser.add_argument("--skip-train", action="store_true", help="跳过 QLoRA 微调")
     parser.add_argument("--skip-hybrid", action="store_true",
                         help="跳过 Hybrid 索引构建 (当已有索引文件时使用)")
     parser.add_argument("--skip-viz", action="store_true", help="跳过可视化")
     parser.add_argument("--allow-skips", action="store_true",
                         help="允许必需脚本缺失或必需步骤跳过时仍以 0 退出，仅用于探索性演示。")
+    parser.add_argument("--max-chunks", type=int, default=0, help="Limit indexed chunks for high-availability smoke tests.")
+    parser.add_argument("--n-queries", type=int, default=0, help="KB quality query count. 0 means profile default.")
+    parser.add_argument("--top-k-judge", type=int, default=0, help="KB quality judge top-k. 0 means profile default.")
+    parser.add_argument("--ollama-models", default="", help="Comma-separated Ollama judge models. Empty means profile default.")
+    parser.add_argument("--qa-limit-queries", type=int, default=0, help="QA formatter query limit.")
+    parser.add_argument("--qa-allow-empty", action="store_true", help="Allow no QA pairs in high-availability smoke tests.")
+    parser.add_argument("--skip-query-gen", action=argparse.BooleanOptionalAction, default=None,
+                        help="Use section titles instead of LLM-generated KB queries.")
+    parser.add_argument("--skip-api-judge", action="store_true", help="Skip API judges in KB quality.")
+    parser.add_argument("--skip-ollama-judge", action="store_true", help="Skip Ollama judges in KB quality.")
     args = parser.parse_args()
 
-    input_dir = Path(args.input)
-    output_dir = Path(args.output)
+    smoke_mode = args.profile == "smoke"
+    skip_train = args.skip_train or smoke_mode
+    skip_viz = args.skip_viz or smoke_mode
+    max_chunks = args.max_chunks if args.max_chunks > 0 else (3 if smoke_mode else 0)
+    n_queries = args.n_queries if args.n_queries > 0 else (1 if smoke_mode else 25)
+    top_k_judge = args.top_k_judge if args.top_k_judge > 0 else (1 if smoke_mode else 3)
+    qa_limit_queries = args.qa_limit_queries if args.qa_limit_queries > 0 else (1 if smoke_mode else 0)
+    qa_allow_empty = args.qa_allow_empty or smoke_mode
+    skip_query_gen = (args.skip_query_gen if args.skip_query_gen is not None else smoke_mode)
+    skip_api_judge = args.skip_api_judge or smoke_mode
+
+    input_dir = Path(args.input).resolve()
+    output_dir = Path(args.output).resolve()
     output_dir.mkdir(parents=True, exist_ok=True)
 
     md_dir = input_dir / "md"
-    chunks_dir = input_dir / "chunks"
-    index_dir = input_dir / "index"
+    chunks_dir = Path(args.chunks_dir).resolve() if args.chunks_dir else input_dir / "chunks"
+    index_dir = Path(args.index_dir).resolve() if args.index_dir else input_dir / "index"
+    qa_output = Path(args.qa_output).resolve() if args.qa_output else input_dir / "qa"
+    viz_output = Path(args.viz_output).resolve()
     source_list = input_dir / "source_list.json"
     manifest_path = chunks_dir / "chunks_manifest.json"
 
@@ -174,6 +207,7 @@ def main():
 
     summary = {
         "pipeline": "medical_rag",
+        "profile": args.profile,
         "started_at": datetime.now().isoformat(),
         "steps": [],
     }
@@ -184,8 +218,9 @@ def main():
         "import json, os, sys;"
         "cfg = json.loads(os.environ['_MRAG_STEP1_CFG']);"
         "sys.path.insert(0, cfg['root']);"
+        "from pathlib import Path;"
         "from pipeline.chunk_corpus import build_chunks;"
-        "build_chunks(cfg['md_dir'], medical_mode=True, chunks_dir=cfg['chunks_dir'])"
+        "build_chunks(Path(cfg['md_dir']), medical_mode=True, chunks_dir=Path(cfg['chunks_dir']))"
     )
     step1_env = {
         "_MRAG_STEP1_CFG": json.dumps({
@@ -199,7 +234,7 @@ def main():
 
     # ── Step 2: QLoRA 微调 ──
     step2a_ok = True
-    if step1_ok and not args.skip_train:
+    if step1_ok and not skip_train:
         ok, result = _run_step("Step2a-instructions", _run_py([
             "-m", "controlsci.medical.instructions",
             "--md-dir", str(md_dir),
@@ -246,9 +281,12 @@ def main():
             if args.skip_hybrid:
                 summary["steps"].append(_skip_step("Step3-hybrid-index", "--skip-hybrid: 使用已有索引"))
             else:
-                ok, result = _run_step("Step3-hybrid-index", _run_py([
+                index_cmd = [
                     "-m", "controlsci.medical.indexing", "--manifest", str(manifest_path), "--output", str(index_dir),
-                ]), timeout=3600)
+                ]
+                if max_chunks > 0:
+                    index_cmd.extend(["--max-chunks", str(max_chunks)])
+                ok, result = _run_step("Step3-hybrid-index", _run_py(index_cmd), timeout=3600)
                 summary["steps"].append(result)
         else:
             summary["steps"].append(_fail_step("Step3-hybrid-index", f"manifest 不存在: {manifest_path}"))
@@ -257,36 +295,52 @@ def main():
 
     # ── Step 4-5: 知识库自评测 ──
     if step1_ok:
-        ok, result = _run_step("Step4-5-eval-kb", _run_py([
-            "-m", "controlsci.medical.kb_quality", "--manifest", str(manifest_path),
+        kb_cmd = [
+            "-m", "controlsci.medical.kb_quality", "--profile", args.profile, "--manifest", str(manifest_path),
             "--index-dir", str(index_dir), "--output", str(output_dir / "kb_quality_report.json"),
-        ]))
+            "--n-queries", str(n_queries),
+            "--top-k-judge", str(top_k_judge),
+        ]
+        if args.ollama_models:
+            kb_cmd.extend(["--ollama-models", args.ollama_models])
+        if skip_query_gen:
+            kb_cmd.append("--skip-query-gen")
+        if skip_api_judge:
+            kb_cmd.append("--skip-api")
+        if args.skip_ollama_judge:
+            kb_cmd.append("--skip-ollama")
+        ok, result = _run_step("Step4-5-eval-kb", _run_py(kb_cmd))
         summary["steps"].append(result)
     else:
         summary["steps"].append(_skip_step("Step4-5-eval-kb", "Step1 切片失败，跳过知识库自评测"))
 
     # ── Step 6: 跨文献证据合成 + QA 格式化 ──
     if step1_ok:
-        ok, result = _run_step("Step6-qa-format", _run_py([
+        qa_cmd = [
             "-m", "controlsci.medical.qa_formatter", "--index-dir", str(index_dir),
-            "--manifest", str(manifest_path), "--output", str(input_dir / "qa"),
-        ]))
+            "--manifest", str(manifest_path), "--output", str(qa_output),
+            "--kb-report", str(output_dir / "kb_quality_report.json"),
+            "--limit-queries", str(qa_limit_queries),
+        ]
+        if qa_allow_empty:
+            qa_cmd.append("--allow-empty")
+        ok, result = _run_step("Step6-qa-format", _run_py(qa_cmd))
         summary["steps"].append(result)
     else:
         summary["steps"].append(_skip_step("Step6-qa-format", "Step1 切片失败，跳过 QA 格式化"))
 
     # ── Step 7: 可视化 ──
-    if not args.skip_viz:
+    if not skip_viz:
         if step1_ok:
             ok, result = _run_step("Step7-viz", _run_py([
                 "-m", "controlsci.medical.visualization", "--report", str(output_dir / "kb_quality_report.json"),
-                "--output", str(ROOT / "docs" / "assets" / "medical"),
+                "--output", str(viz_output),
             ]))
             summary["steps"].append(result)
         else:
             summary["steps"].append(_skip_step("Step7-viz", "Step1 切片失败，跳过可视化"))
     else:
-        summary["steps"].append(_skip_step("Step7-viz", "--skip-viz"))
+        summary["steps"].append(_skip_step("Step7-viz", "--skip-viz/profile=smoke"))
 
     # ── 汇总 ──
     total = len(summary["steps"])

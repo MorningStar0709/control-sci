@@ -616,6 +616,8 @@ def run_test():
 
 
 def main():
+    global OUTPUT_DIR, CHECKPOINT_FILE, RESULTS_LOG, REPORT_FILE
+
     parser = argparse.ArgumentParser(
         description="跨模态对齐质量审计引擎 — 科学文档图片 × LaTeX 公式一致性审计"
     )
@@ -624,7 +626,13 @@ def main():
     parser.add_argument("--resume", action="store_true", help="从 checkpoint 断点续跑")
     parser.add_argument("--max-items", type=int, default=None, help="最大审计项数（调试用）")
     parser.add_argument("--provider", default=None, help="mimo | minimax（覆盖环境变量 VISION_PROVIDER）")
+    parser.add_argument("--output-dir", default=str(OUTPUT_DIR), help="审计结果输出目录")
     args = parser.parse_args()
+
+    OUTPUT_DIR = Path(args.output_dir)
+    CHECKPOINT_FILE = OUTPUT_DIR / "visual_audit_checkpoint.json"
+    RESULTS_LOG = OUTPUT_DIR / "visual_audit_results.jsonl"
+    REPORT_FILE = OUTPUT_DIR / "visual_audit_report.json"
 
     if args.provider:
         os.environ["VISION_PROVIDER"] = args.provider

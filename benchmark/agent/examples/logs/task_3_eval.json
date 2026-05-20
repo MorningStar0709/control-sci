@@ -8,7 +8,7 @@
       "step_id": 5,
       "step_name": "模型评测",
       "tool": "evaluate.py",
-      "input_summary": "待评测 9 模型, benchmark=D:\\WorkPlace\\AI\\MinerU\\benchmark\\dataset\\core.json",
+      "input_summary": "待评测 9 模型, benchmark=<project-root>/benchmark/dataset/core.json",
       "output_summary": "评测进行中，9 模型后台运行中，最慢预计 23:13 完成",
       "status": "skipped",
       "duration_ms": 0,
