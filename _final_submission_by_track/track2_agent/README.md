@@ -15,8 +15,10 @@
 | 数据溯源 | [shared/DATA-TRACE.md](shared/DATA-TRACE.md) |
 | 证据包 | [data_trace_bundle/](data_trace_bundle/) |
 | 图表资产 | [assets/task2/](assets/task2/) |
-| 演示 PPT | [bonus/](bonus/) |
+| 演示 PPT 与视频 | [bonus/](bonus/) |
 | 可选 npm 启动壳 | [npm/controlmind/](npm/controlmind/) |
+
+> 演示视频（约 114 MB）因超过 GitHub 单文件 100 MB 限制，未上传至 GitHub 仓库。PPT 已在 bonus/ 中。
 
 ## 公开入口
 
