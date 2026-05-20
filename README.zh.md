@@ -140,15 +140,25 @@ controlmind track3 eval --case-set zh_ask
 ## 仓库结构
 
 ```text
-benchmark/                   赛道一评测 & 赛道二 Agent 代码
-benchmark/dataset/           Core/full/schema JSON、多模态索引
-benchmark/eval/              评测、排行榜 & 医学 RAG 执行脚本
-controlsci/                  Python 包（controlmind CLI）
-data/sources_medical/        赛道三医学语料、chunk、FAISS/BM25 索引
-docs/submissions/            技术报告、证据包、DATA-TRACE
-starboard/                   本地 & 云端 Demo 前端（Next.js）
-tools/                       MinerU 工具 & 分析脚本
-npm/controlmind/             可选 Node.js CLI 启动壳
+源码 & CLI
+  controlsci/                  Python 包（controlmind CLI）
+  benchmark/                   评测引擎、Agent 编排、数据集
+  benchmark/dataset/           Core/full/schema JSON、多模态索引
+  benchmark/eval/              评测、排行榜 & 医学 RAG 执行脚本
+  tools/                       MinerU 工具 & 分析脚本
+  npm/controlmind/             可选 Node.js CLI 启动壳
+
+数据 & 语料
+  corpus/chunks/               来自 362 篇文档的 28,514 个结构化 chunk
+  data/sources_medical/        医学文献、chunk、FAISS/BM25 索引
+  data/sources_flywheel/       Agent 飞轮抓取论文 & 解析结果
+
+报告 & 管线
+  docs/submissions/            技术报告、DATA-TRACE、证据包
+  _final_submission_by_track/  按赛道拆分的最终提交包
+  pipeline/                    语料构建管线脚本
+  notebooks/                   Colab Demo & E3b 训练截图
+  starboard/                   本地 & 云端 Demo 前端（Next.js）
 ```
 
 ---

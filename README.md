@@ -121,15 +121,25 @@ Every quantitative claim in the reports points back to source files, commands, o
 ## Repository Map
 
 ```text
-benchmark/                   Sci-Align benchmark & Data Agent code
-benchmark/dataset/           Core/full/schema JSON, multimodal index
-benchmark/eval/              Evaluation, leaderboard & medical RAG scripts
-controlsci/                  Python package (controlmind CLI)
-data/sources_medical/        Medical corpus, chunks, FAISS/BM25 indexes
-docs/submissions/            Technical reports, evidence bundle, DATA-TRACE
-starboard/                   Local & cloud demo frontend (Next.js)
-tools/                       MinerU utilities & analysis scripts
-npm/controlmind/             Optional Node.js CLI launcher
+Source & CLI
+  controlsci/                  Python package (controlmind CLI)
+  benchmark/                   Benchmark engine, Agent orchestration, datasets
+  benchmark/dataset/           Core/full/schema JSON, multimodal index
+  benchmark/eval/              Evaluation, leaderboard & medical RAG scripts
+  tools/                       MinerU utilities & analysis scripts
+  npm/controlmind/             Optional Node.js CLI launcher
+
+Data & Corpus
+  corpus/chunks/               28,514 structured chunks from 362 documents
+  data/sources_medical/        Medical corpus, chunks, FAISS/BM25 indexes
+  data/sources_flywheel/       Agent flywheel papers & parse results
+
+Reports & Pipeline
+  docs/submissions/            Technical reports, DATA-TRACE, evidence bundle
+  _final_submission_by_track/  Per-track final submission packages
+  pipeline/                    Corpus construction pipeline scripts
+  notebooks/                   Colab demo & E3b training screenshot
+  starboard/                   Local & cloud demo frontend (Next.js)
 ```
 
 ---
