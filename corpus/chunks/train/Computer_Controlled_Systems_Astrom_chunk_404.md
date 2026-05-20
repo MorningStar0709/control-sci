@@ -1,0 +1,3 @@
+# 6.6 Design of Simple Loops
+
+If a top-down approach is used, the design procedure will end in the design of simple loops containing one or several controls, or measurements. If a bottom-up approach is used, the design will start with the design of simple loops. Therefore, the design of simple loops is an important step in both approaches. The design of simple loops is also one area in which there is substantial theory available, which will be described in detail in the book. To give some perspective, an overview of design methods for simple loops is given in this section. The prototype problems of controller and servo design will be discussed.

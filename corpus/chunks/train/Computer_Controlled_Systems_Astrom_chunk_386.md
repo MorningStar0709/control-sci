@@ -1,0 +1,3 @@
+# Example 6.4 Flow control
+
+When controlling a valve, it is possible to control the valve position, the flow, or both. It is simplest and cheapest to control the valve position. Because flow is, in general, a nonlinear function of the valve opening, this leads to a system in which the relationship between the control variable (valve position) and the physical variable (flow) is very nonlinear. The relationship will also change with such variables as changing pressure and wear of the valve. These difficulties are avoided if both valve position and flow are controlled. A system for flow control is, however, more complicated because it requires a flow meter.

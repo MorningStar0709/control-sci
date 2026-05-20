@@ -1,0 +1,7 @@
+The behavior is well predicted by the averaging analysis. Notice the difference in convergence rates. Initially, when $\bar{\theta} = 0$ , the rates of changes are given by
+
+$$\dot {\theta} _ {\mathrm{MIT}} = \gamma k _ {0} ^ {2} \operatorname{avg} \left\{\left(G _ {m} u _ {c}\right) ^ {2} \right\}\dot {\theta} _ {\mathrm{SPR}} = \gamma k _ {0} \operatorname{avg} \left\{u _ {c} \left(G _ {m} u _ {c}\right) \right\}$$
+
+These expressions clearly show that the initial rates decrease with increasing frequency because $|G_{m}(i\omega)|$ decreases with frequency. For the SPR rule the rate decreases even more because of the phase lag between $u_{c}$ and $G_{m}u_{c}$ . ☐
+
+In conclusion, we find that averaging analysis gives useful insights. It shows that analysis of the ideal case can be quite misleading. Even in the simple case of adjustment of a feedforward gain, unmodeled dynamics together with high-frequency excitation signals may lead to instability of the equilibrium. The equilibrium analysis also makes interesting contributions to the comparison of the MIT and SPR rules. First, the equilibrium of the MIT rule has a good physical interpretation as the parameter that minimizes the mean square error. Second, the apparent advantage of the SPR rule that very high adaptation gains can be used vanishes. In practical situations, there are always unmodeled dynamics. In the presence of unmodeled dynamics the gain must be kept small to maintain stability.

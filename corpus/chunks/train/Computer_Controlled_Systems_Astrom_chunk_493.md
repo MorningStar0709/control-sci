@@ -1,0 +1,3 @@
+# Step Invariance
+
+Another way to generate approximations is to use the ideas developed in Chapter 2. In this way it is possible to obtain approximations that give correct values at the sampling instants for special classes of input signals. For example, if the input signal is constant over the sampling intervals, Table 2.1 or Eq. (2.30) give an appropriate pulse-transfer function $H(z)$ for a given transfer function $G(s)$ . Because this relation gives the correct values of the output when the input signal is a piecewise constant signal that changes at the sampling instants, it is called step invariance.

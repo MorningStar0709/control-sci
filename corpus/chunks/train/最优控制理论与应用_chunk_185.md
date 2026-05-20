@@ -1,0 +1,5 @@
+$$
+\left\{ \begin{array}{l} \frac {\partial H \left(\boldsymbol {x} ^ {*} , \boldsymbol {u} , \boldsymbol {v} ^ {*} , \boldsymbol {\lambda} , t\right)}{\partial \boldsymbol {u}} \Bigg | _ {\boldsymbol {u} ^ {*}} = 0 \\ \frac {\partial H \left(\boldsymbol {x} ^ {*} , \boldsymbol {u} ^ {*} , \boldsymbol {v} , \boldsymbol {\lambda} , t\right)}{\partial \boldsymbol {v}} \Bigg | _ {\boldsymbol {v} ^ {*}} = 0 \\ \frac {\partial^ {2} H \left(\boldsymbol {x} ^ {*} , \boldsymbol {u} , \boldsymbol {v} ^ {*} , \boldsymbol {\lambda} , t\right)}{\partial \boldsymbol {u} ^ {2}} \Bigg | _ {\boldsymbol {u} ^ {*}} \geqslant 0 \\ \frac {\partial^ {2} H \left(\boldsymbol {x} ^ {*} , \boldsymbol {u} ^ {*} , \boldsymbol {v} , \boldsymbol {\lambda} , t\right)}{\partial \boldsymbol {v} ^ {2}} \Bigg | _ {\boldsymbol {v} ^ {*}} \leqslant 0 \end{array} \right. \tag {10-56}
+$$
+
+上面所证明的双方极值原理是先假设存在最优策略所满足的鞍点条件式(10-21)，然后将鞍点条件拆成两个不等式(10-30)和(10-39)，利用极小值原理和极大值原理得到两个最优解所满足的必要条件，再将它们结合起来得到极大极小解(最优策略)的必要条件。下面来讨论在什么情况下这些必要条件也是充分条件。

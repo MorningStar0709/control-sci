@@ -1,0 +1,3 @@
+# 5.8 STANDARD INPUT FUNCTIONS
+
+The previous sections have presented various standard modeling forms for dynamic systems. In all cases the dynamic system consists of a differential equation(s) with one or more input and output variables. The subsequent chapters emphasize obtaining the output or system response to a desired input function. System performance (such as response speed and damping attributes) is often characterized by the system’s dynamic response to any number of standard input functions. We can think of these standard input functions as “test input signals” for evaluating the system’s dynamic response. Many standard input functions have a basis in the realistic or expected input to a dynamic system.

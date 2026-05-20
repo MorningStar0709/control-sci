@@ -1,0 +1,9 @@
+# 12.7 Conclusions
+
+In this chapter optimal-control problems are solved for systems described by input-output models. The results given are limited to single-input-single-output systems. A canonical model for the system, Eq. (12.5), is derived first. This model is characterized by three polynomials, A, B, and C. The underlying continuous-time model may be described as a combination of a time delay and a system with rational transfer functions. The disturbances are characterized as filtered white noise. There are many physical systems that can be described by such models.
+
+Optimal-control problems characterized by quadratic loss functions are solved for the system. A special case where the loss function simply is the variance of the output is considered first. The general problem, in which there is also a penalty on the control variable, is then treated. Both these problems are closely related to the prediction problem for a random process with rational spectral density. This problem is also solved. Practical aspects, such as selection of the sampling period, are also discussed.
+
+The solutions to the optimal-control problems give design tools. The solutions also give insight into the character of the optimal solutions. In particular, they tell that the optimal regulator always cancels stable process zeros that are also zeros for the process disturbances. Stable process poles are canceled only if they are not excited by disturbances. The results also give insight into the relationships between the different design methods. For instance, the LQG-solutions can be interpreted as pole-placement regulators, where the process poles and the observer poles are chosen in special ways.
+
+Calculation of the optimal solution is expressed in terms of two polynomial operations, spectral factorization and solution of Diophantine equations.

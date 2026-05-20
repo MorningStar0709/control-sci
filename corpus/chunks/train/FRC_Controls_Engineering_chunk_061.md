@@ -1,0 +1,13 @@
+# 0.2 Structure of this book
+
+This book consists of five parts and a collection of appendices that address the four tasks a controls engineer carries out: derive a model of the system (kinematics), design a controller for the model (control theory), design an observer to estimate the current state of the model (localization), and plan how the controller is going to drive the model to a desired state (motion planning).
+
+Part I “Fundamentals of control theory” introduces the basics of control theory and teaches the fundamentals of PID controller design.
+
+Part II “Modern control theory” first provides a crash course in the geometric intuition behind linear algebra and covers enough of the mechanics of evaluating matrix algebra for the reader to follow along in later chapters. It covers state-space representation, controllability, and observability. The intuition gained in part I and the notation of linear algebra are used to model and control linear multiple-input, multiple-output (MIMO) systems and covers discretization, LQR controller design, LQE observer design, and feedforwards. Then, these concepts are applied to design and implement controllers for real systems. The examples from part IV are converted to state-space representation, implemented, and tested with a discrete controller.
+
+Part II also introduces the basics of nonlinear control system analysis with Lyapunov functions. It presents an example of a nonlinear controller for a unicycle-like vehicle as well as how to apply it to a two-wheeled vehicle. Since nonlinear control isn’t the focus of this book, we mention other books and resources for further reading.
+
+Part III “Estimation and localization” introduces the field of stochastic control theory. The Luenberger observer and the probability theory behind the Kalman filter is taught with several examples of creative applications of Kalman filter theory.
+
+Part IV “System modeling” introduces the basic calculus and physics concepts required to derive the models used in the previous chapters. It walks through the derivations for several common FRC subsystems. Then, methods for system identification are discussed for empirically measuring model parameters.

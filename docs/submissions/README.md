@@ -9,7 +9,7 @@
 | 快速验证指南 | [quickstart.md](quickstart.md) |
 | 云端 Demo | [https://demo.askiler.com/](https://demo.askiler.com/) |
 | 前端访问码 | `ControlMind@2026` |
-| GitHub | [MorningStar0709/ControlMind](https://github.com/MorningStar0709/ControlMind) |
+| GitHub | [MorningStar0709/control-sci](https://github.com/MorningStar0709/control-sci) |
 | HuggingFace 数据集 | [MorningStar0709/control-sci-corpus](https://huggingface.co/datasets/MorningStar0709/control-sci-corpus) |
 
 ## 三份主报告

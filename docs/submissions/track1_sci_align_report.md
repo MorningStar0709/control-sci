@@ -1067,7 +1067,7 @@ controlmind wrapper-doctor
 | 资产 | 平台 | 链接 |
 |:---|:---|:---|
 | 数据集 | HuggingFace | `MorningStar0709/control-sci-corpus`（CC-BY-4.0） |
-| 代码仓库 | GitHub | `MorningStar0709/ControlMind`（含数据构建、评测脚本、CLI 与报告材料） |
+| 代码仓库 | GitHub | `MorningStar0709/control-sci`（含数据构建、评测脚本、CLI 与报告材料） |
 | mineru-to-md Skill | GitHub | 自研技能随仓库开源，用于 MinerU 批量解析、断点续跑与质量审计 |
 | searching-arxiv-papers Skill | GitHub | 自研技能随仓库开源，用于 arXiv 批量检索、下载与元数据提取 |
 | 验收入口 | CLI / Demo | `run_reviewer_demo.ps1`、`controlmind track1 validate`、云端 Demo 与本地 Demo |

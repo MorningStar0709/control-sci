@@ -1,0 +1,11 @@
+# Transform Methods
+
+During and after World War II, a lot of activity was devoted to analysis of radar systems. These systems are naturally sampled because a position measurement is obtained once per antenna revolution. One problem was to find ways to describe these new systems. Because transform theory had been so useful for continuous-time systems, it was natural to try to develop a similar theory for sampled systems. The first steps in this direction were taken by Hurewicz (1947). He introduced the transform of a sequence $f(kh)$ , defined by
+
+$$\mathcal {Z} \{f (k h) \} = \sum_ {k = 0} ^ {\infty} z ^ {- k} f (k h)$$
+
+This transform is similar to the generating function, which had been used so successfully in many branches of applied mathematics. The transform was later defined as the z-transform by Ragazzini and Zadeh (1952). Transform theory was developed independently in the Soviet Union, in the United States, and in Great Britain. Tsypkin (1949) and Tsypkin (1950) called the transform the discrete Laplace transform and developed a systematic theory for pulse-controlled systems based on the transform. The transform method was also independently developed by Barker (1952) in England.
+
+In the United States the transform was further developed in a Ph.D. dissertation by Jury at Columbia University. Jury developed tools both for analysis and design. He also showed that sampled systems could be better than their continuous-time equivalents. (See Example 1.3 in Sec. 1.3.) Jury also emphasized that it was possible to obtain a closed-loop system that exactly achieved steady state in finite time. In later works he also showed that sampling can cause cancellation of poles and zeros. A closer investigation of this property later gave rise to the notions of observability and reachability.
+
+The z-transform theory leads to comparatively simple results. A limitation of the theory, however, is that it tells what happens to the system only at the sampling instants. The behavior between the sampling instants is not just an academic question, because it was found that systems could exhibit hidden oscillations. These oscillations are zero at the sampling instants, but very noticeable in between.

@@ -1,0 +1,5 @@
+# 2.4 Stability
+
+for all x in $\mathbb { X } _ { f }$ rather than for all $x \in \mathcal { X } _ { N }$ . We therefore also address the problem of establishing asymptotic or exponential stability of the origin even if property (2.16) holds only for x in $\mathbb { X } _ { f }$ .
+
+We now address a point that we have glossed over. The solution to an optimization problem is not necessarily unique. Thus $\mathbf { u } ^ { 0 } ( x )$ and $\kappa _ { N } ( x )$ may be set valued; any point in the set $\mathbf { u } ^ { 0 } ( x )$ is a solution of $\mathbb { P } _ { N } ( x )$ . Similarly $\mathbf { x } ^ { 0 } ( x )$ is set valued. Uniqueness may be obtained by choosing that element in the set $\mathbf { u } ^ { 0 } ( x )$ that has least norm. To avoid expressions such as “let u be any element of the minimizing set $\mathbf { u } ^ { 0 } ( x )$ ,” we shall, in the sequel, use $\mathbf { u } ^ { 0 } ( x )$ to denote any sequence in the set of minimizing sequences and use $\kappa _ { N } ( { \boldsymbol { x } } )$ to denote $u ^ { 0 } ( 0 ; x )$ , the first element of this sequence.

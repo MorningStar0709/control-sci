@@ -1,0 +1,3 @@
+Nyquist Stability Criterion. The foregoing analysis, utilizing the encirclement of the $- 1 + j 0$ point by the $G ( j \omega ) H ( j \omega )$ locus, is summarized in the following Nyquist stability criterion:
+
+Nyquist stability criterion [ for a special case when $G ( s ) H ( s )$ has neither poles nor zeros on the jv axis]: In the system shown in Figure 7–44, if the open-loop transfer function $G ( s ) H ( s )$ has k poles in the right-half s plane and $\operatorname * { l i m } _ { s  \infty } G ( s ) H ( s ) = { \mathrm { c o n s t a n t } }$ Sq , then for stability, the $G ( j \omega ) H ( j \omega )$ locus, as v varies from $- \infty$ to $\infty ,$ must encircle the $- 1 + j 0$ point k times in the counterclockwise direction.

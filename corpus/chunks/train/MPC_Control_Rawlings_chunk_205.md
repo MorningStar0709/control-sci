@@ -1,0 +1,11 @@
+# Proof.
+
+(a) That $( x , \mathbf { u } ) \mapsto V _ { N } ( x , \mathbf { u } )$ is continuous follows from continuity of $\ell ( \cdot )$ and $V _ { f } ( \cdot )$ in Assumption 2.2, and the continuity of $( x , \mathbf { u } ) \mapsto \phi ( j ; x , \mathbf { u } )$ for each $j \in \mathbb { I } _ { 0 : N - 1 }$ , established in Proposition 2.1.
+
+(b) We have to show that for each $\boldsymbol { x } \in \mathcal { X } _ { N }$ , the set $\mathcal { U } _ { N } ( x )$ is closed and bounded. It is clearly bounded since $\mathcal { U } _ { N } ( x ) \subseteq \mathbb { U } ^ { N }$ , which is compact (bounded and closed) by Assumption 2.3. By Proposition 2.1, the function $\phi ( j ; \cdot \cdot )$ is continuous for any $j \in \mathbb { I } _ { 0 : N }$ . Since U, X and $\mathbb { X } _ { f }$ are all closed, any sequence $\left\{ \left( x _ { i } , \mathbf { u } _ { i } \right) \right\}$ in $\mathbb { Z } _ { N }$ , defined in (2.7), that converges to, say, (x, ¯ u¯) satisfies $\phi ( j ; \bar { x } , \bar { \mathbf { u } } ) \in \mathbb { X }$ for all $j \in \mathbb { I } _ { 0 : N - 1 } , \phi ( N ; \bar { x } , \bar { \mathbf { u } } ) \in \mathbb { X } _ { f }$ and $\bar { \mathbf { u } } \in \mathbb { U } ^ { N }$ . Hence $( \bar { x } , \bar { \mathbf { u } } ) \in \mathbb { Z } _ { N }$ so that $\mathbb { Z } _ { N }$ is closed. It follows that ${ \mathcal U } _ { N } ( x ) = \{ { \bf u } \ | \ ( x , { \bf u } ) \in { \mathbb Z } _ { N } \}$ is closed and, therefore, compact for all $\boldsymbol { x } \in \mathcal { X } _ { N }$ .
+
+(c) Since $V _ { N } ( x , \cdot )$ is continuous and $\mathcal { U } _ { N } ( x )$ is compact, by Weierstrass’s theorem (Proposition A.7) a solution to $\mathbb { P } _ { N } ( x )$ exists for each $x \in$ $x _ { N }$ .
+
+Although the function $( x , \mathbf { u } ) \mapsto V _ { N } ( x , \mathbf { u } )$ is continuous, the function $x \mapsto V _ { N } ^ { 0 } ( x )$ is not necessarily continuous; we discuss this possibility and its implications later. For each $\boldsymbol { x } \in \mathcal { X } _ { N }$ , the solution of $\mathbb { P } _ { N } ( x )$ is
+
+$$\mathbf {u} ^ {0} (x) = \arg \min _ {\mathbf {u}} \left\{V _ {N} (x, \mathbf {u}) \mid \mathbf {u} \in \mathcal {U} _ {N} (x) \right\}$$

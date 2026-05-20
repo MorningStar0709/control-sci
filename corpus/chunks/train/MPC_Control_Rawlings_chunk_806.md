@@ -1,0 +1,3 @@
+Using a horizon N = 1, eliminate the state x(1) and write out the MPC QP for the input u(0) in the form given above for $Q = R = I$ and zero terminal penalty. Find an initial condition $x _ { 0 }$ such that the MPC constraint matrix D and vector d are identical to those given in the previous part. Is this $x _ { 0 } \in \mathcal { X } _ { N } ?$
+
+Are the rows of the matrix of active constraints linearly independent in this MPC QP on the set $\mathcal { X } _ { N } ?$ Are the MPC control law $\kappa _ { N } ( x )$ and optimal value function $V _ { N } ^ { 0 } ( x )$ Lipschitz continuous on the set $x _ { N }$ for this system? Explain the reason if these two answers differ.

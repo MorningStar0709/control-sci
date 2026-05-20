@@ -1,0 +1,137 @@
+[
+  {
+    "question": "本文提出的鲁棒自适应MPC方法中，使用了哪种模型作为预测模型？",
+    "answer": "MuJoCo数字孪生模型。",
+    "dimension": "A",
+    "difficulty": 2,
+    "paper_id": "2605.02370",
+    "question_id": "FW-2605.02370-001",
+    "source": "flywheel"
+  },
+  {
+    "question": "在MPC的Phase 1中，约束(6)的几何意义是什么？",
+    "answer": "确保在预定抓取时间窗口之前，钩子的位置保持在一个以参考点为中心、半径为ρ_con的球体之外，从而避免提前抓取有效载荷。",
+    "dimension": "A",
+    "difficulty": 3,
+    "paper_id": "2605.02370",
+    "question_id": "FW-2605.02370-002",
+    "source": "flywheel"
+  },
+  {
+    "question": "本文提出的方法如何同时处理参数不确定性和外部扰动？",
+    "answer": "通过集成零阶鲁棒优化（zoRO）进行不确定性传播，并利用扩展卡尔曼滤波器（EKF）进行在线参数估计，从而在保证鲁棒约束满足的同时提高性能。",
+    "dimension": "D",
+    "difficulty": 4,
+    "paper_id": "2605.02370",
+    "question_id": "FW-2605.02370-003",
+    "source": "flywheel"
+  },
+  {
+    "question": "在本文提出的混合控制框架中，离散变量σ(t)的作用是什么？请结合文中的描述简要说明。",
+    "answer": "离散变量σ(t)用于编码机器人当前时刻正在满足哪些任务相关约束，实现局部可行性分析，从而在CBF-QP控制器中搜索可行任务执行，并改善输入约束下的控制性能。",
+    "dimension": "A",
+    "difficulty": 2,
+    "paper_id": "2605.03662",
+    "question_id": "FW-2605.03662-001",
+    "source": "flywheel"
+  },
+  {
+    "question": "文中通过同胚变换τ将非凸工作空间W映射到圆盘D后，定义了变换后的STL谓词函数h_T(q)。请写出h_T(q)的表达式，并解释其如何确保谓词满足的等价性。",
+    "answer": "h_T(q)定义为：h_T(q) = -min_{q̃∈∂H_T} ||q - q̃|| (q∉H_T) 或 +min_{q̃∈∂H_T} ||q - q̃|| (q∈H_T)，其中H_T = {q∈D | h(τ^{-1}(q)) ≥ 0}。由于τ是同胚，h(p)≥0当且仅当h_T(q)≥0，因此确保在圆盘上满足h_T≥0等价于在原工作空间满足谓词。",
+    "dimension": "B",
+    "difficulty": 3,
+    "paper_id": "2605.03662",
+    "question_id": "FW-2605.03662-002",
+    "source": "flywheel"
+  },
+  {
+    "question": "文中如何通过可行性感知的混合控制处理多个重叠STL任务？请从约束矩阵表述、局部可行性分析和输入饱和三个方面进行阐述。",
+    "answer": "文中通过引入离散变量区分当前执行的任务，将STL-CBF约束分开处理并用约束矩阵表述。在CBF-QP控制器中，通过局部可行性分析检测互斥的任务，并提供一个决策机制来搜索可行的任务执行顺序。在输入饱和下，该机制通过调整任务激活或松弛约束来改善性能，与约束松弛方法相比，能更有效地处理输入限制。",
+    "dimension": "D",
+    "difficulty": 4,
+    "paper_id": "2605.03662",
+    "question_id": "FW-2605.03662-003",
+    "source": "flywheel"
+  },
+  {
+    "question": "在本文提出的双屏障CBF安全过滤器中，同时执行哪两个安全约束？为什么需要同时考虑这两者？",
+    "answer": "第一个约束是避免已知障碍物（障碍物安全距离），第二个约束是禁止进入未探索区域（前沿安全距离）。同时考虑两者是因为机器人在增量构建的地图中探索时，未映射区域存在不可量化的碰撞风险，只考虑障碍物避免可能导致机器人冒险进入未知空间，而只考虑前沿约束可能过于保守。",
+    "dimension": "A",
+    "difficulty": 2,
+    "paper_id": "2605.05182",
+    "question_id": "FW-2605.05182-001",
+    "source": "flywheel"
+  },
+  {
+    "question": "对于tanh屏障函数，CBF条件推导出的半空间约束形式是怎样的？请给出g_i和b_i的表达式并简要解释推导过程。",
+    "answer": "对于tanh屏障函数h_i(x)=tanh(a_i(φ_i(x)-d_i))，其时间导数为h_i_dot = a_i (1 - h_i^2) ∇φ_i^T u。CBF条件h_i_dot ≥ -γ_i h_i转化为g_i^T u ≥ b_i，其中g_i = a_i (1 - h_i^2) ∇φ_i，b_i = -γ_i h_i。由于h_i = tanh(a_i(φ_i-d_i))，因此g_i和b_i可进一步用φ_i表示。推导基于链式法则和tanh的导数性质。",
+    "dimension": "B",
+    "difficulty": 3,
+    "paper_id": "2605.05182",
+    "question_id": "FW-2605.05182-002",
+    "source": "flywheel"
+  },
+  {
+    "question": "在文中的KKT情况分析中，当只有一个约束被违反（例如障碍物约束）时，安全速度如何计算？如果此时另一个约束也被违反，应如何处理？",
+    "answer": "当只有一个约束被违反时，安全速度通过该约束的投影公式计算：u_safe = u_des + (b_i - g_i^T u_des) / ‖g_i‖^2 * g_i。然后验证另一个约束是否满足。如果满足，则接受；如果不满足，则进入双约束同时激活的情况（Case 4），需要求解2x2线性系统得到拉格朗日乘子，再计算u_safe。",
+    "dimension": "C",
+    "difficulty": 4,
+    "paper_id": "2605.05182",
+    "question_id": "FW-2605.05182-003",
+    "source": "flywheel"
+  },
+  {
+    "question": "根据论文定义，什么是最大控制不变子集（Maximal Controlled Invariant Subset）？请写出其数学定义。",
+    "answer": "最大控制不变子集是指给定一个集合P1 ⊆ X，在动力学(1)下，P2 ⊆ P1是P1的最大控制不变子集，如果对于每个x ∈ P2，存在一个控制策略π: W → U使得对所有t ∈ W有φ_f^π(t, x) ∈ P1。数学上定义为P2 = {x ∈ P1 | ∃π: W→U, φ_f^π(t,x)∈P1, ∀t∈W}。",
+    "dimension": "A",
+    "difficulty": 3,
+    "paper_id": "2605.05575",
+    "question_id": "FW-2605.05575-001",
+    "source": "flywheel"
+  },
+  {
+    "question": "论文提出的MPC-MCI优化问题中，除了动力学约束和状态/输入约束外，还包含哪两个关键约束？请写出它们的数学表达式。",
+    "answer": "还包含距离约束和终端CBF约束。距离约束：d(x_{t+k|t}) ≥ 0, k∈{0,1,…,N-1}。终端CBF约束：h(x_{t+N|t}) ≥ 0。",
+    "dimension": "B",
+    "difficulty": 3,
+    "paper_id": "2605.05575",
+    "question_id": "FW-2605.05575-002",
+    "source": "flywheel"
+  },
+  {
+    "question": "与NMPC-DCBF相比，论文提出的MPC-MCI在可行性和保守性方面有哪些优势？其递归可行性是如何证明的？",
+    "answer": "优势：MPC-MCI通过终端CBF约束保证状态位于最大控制不变子集X_safe*内，而不是保守的已知安全集X_safe，从而减少保守性并扩大可行域。递归可行性证明：若初始状态x0∈X_safe（控制不变集），则存在控制序列使所有预测状态保持在X_safe内，满足距离约束和终端约束，因此初始可行；对于后续时刻，利用控制不变性构造新控制序列，保证递归可行性。数值实验显示不可行点减少1.7至2.7倍。",
+    "dimension": "D",
+    "difficulty": 4,
+    "paper_id": "2605.05575",
+    "question_id": "FW-2605.05575-003",
+    "source": "flywheel"
+  },
+  {
+    "question": "RBPF更新过程中两个主要的随机变换是什么？",
+    "answer": "Bayesian update（贝叶斯更新）和resampling step（重采样步骤）。",
+    "dimension": "A",
+    "difficulty": 2,
+    "paper_id": "2605.06630",
+    "question_id": "FW-2605.06630-001",
+    "source": "flywheel"
+  },
+  {
+    "question": "请写出RBPF中贝叶斯更新后粒子权重的更新公式（即公式(1)）。",
+    "answer": "ω_k^{♯(i)} = (ω_{k-1}^{(i)} p(y_k | x̂_k^{♯(i)})) / (∑_{j=1}^N ω_{k-1}^{(j)} p(y_k | x̂_k^{♯(j)}))",
+    "dimension": "B",
+    "difficulty": 3,
+    "paper_id": "2605.06630",
+    "question_id": "FW-2605.06630-002",
+    "source": "flywheel"
+  },
+  {
+    "question": "在对抗环境中，Lyapunov稳定的轨迹为何会泄露意图？本文如何通过PCBF框架解决这一问题？",
+    "answer": "Lyapunov稳定轨迹的收缩动力学使得外部观察者的贝叶斯后验集中在潜在意图参数上，导致意图泄露。本文通过将隐私约束转化为基于RBPF信念状态的PCBF条件，在控制输入选择中同时满足跟踪误差边界和隐私泄漏下界，并通过PCBF的一步概率条件提供有限时域内的隐私保证。",
+    "dimension": "D",
+    "difficulty": 4,
+    "paper_id": "2605.06630",
+    "question_id": "FW-2605.06630-003",
+    "source": "flywheel"
+  }
+]

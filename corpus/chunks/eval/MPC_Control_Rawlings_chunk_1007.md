@@ -1,0 +1,13 @@
+Definition C.24 (Inner semicontinuous function). A set-valued function $U : \mathbb { R } ^ { n }  \mathbb { R } ^ { m }$ is said to be inner semicontinuous (isc) at x if, for every open set S such that $U ( x ) \cap S \neq \emptyset$ , there exists a $\delta > 0$ such that $U ( x ^ { \prime } ) \cap S \neq \emptyset$ for all $\boldsymbol { x } ^ { \prime } \in \boldsymbol { x } \oplus \delta \mathcal { B } .$ . The set-valued function $U : \mathbb { R } ^ { n }  \mathbb { R } ^ { m }$ is inner semicontinuous if it is inner semicontinuous at each $\boldsymbol { x } \in \mathbb { R } ^ { n }$ .
+
+These definitions are illustrated in Figure C.11. Roughly speaking, a set-valued function that is outer semicontinuous at x cannot explode as x changes to $x ^ { \prime }$ arbitrarily close to x; similarly, a set-valued function that is inner semicontinuous at x cannot collapse as x changes to $x ^ { \prime }$ arbitrarily close to x.
+
+Definition C.25 (Continuous function). A set-valued function is continuous (at x) if it is both outer and inner continuous (at x).
+
+If we return to Figure C.10(a) we see that $S _ { 1 } \cap U ( x _ { 1 } ) = \emptyset$ but $S _ { 1 } \cap$ $U ( x ) \neq \emptyset$ for x infinitesimally less than $x _ { 1 }$ so that $U ( \cdot )$ is not outer semicontinuous at $x _ { 1 }$ . For all $S _ { 2 }$ such that $S _ { 2 } \cap U ( x _ { 1 } ) \neq \emptyset$ , however, $S _ { 2 } \cap U ( x ) \neq \emptyset$ for all x in a sufficiently small neighborhood of $x _ { 1 }$ so that $U ( \cdot )$ is inner semicontinuous at $x _ { 1 }$ . If we turn to Figure C.10(b) we see that $S _ { 1 } \cap U ( x _ { 1 } ) \neq \emptyset$ but $S _ { 1 } \cap U ( x ) = \emptyset$ for x infinitesimally greater than $x _ { 1 }$ so that in this case U(·) is not inner semicontinuous at $x _ { 1 }$ . For all $S _ { 3 }$ such that $S _ { 3 } \cap U ( x _ { 1 } ) = \emptyset$ , however, $S _ { 3 } \cap U ( x ) = \emptyset$ for all $_ x$ in a sufficiently small neighborhood of $x _ { 1 }$ so that $U ( \cdot )$ is outer semicontinuous at $x _ { 1 }$ .
+
+The definitions of outer and inner semicontinuity may be interpreted in terms of infinite sequences (Rockafellar and Wets, 1998, p. 152), (Polak, 1997, pp. 677-678).
+
+Theorem C.26 (Equivalent conditions for outer and inner semicontinuity).
+
+(a) A set-valued function $U : \mathbb { R } ^ { n }  \mathbb { R } ^ { m }$ is outer semicontinuous at x if and only if for every infinite sequence $\{ x _ { i } \}$ converging to x, any accumulation point5 u of any sequence $\{ u _ { i } \}$ , satisfying $u _ { i } \in U ( x _ { i } )$ for all i, lies in $U ( x ) ~ ( u \in U ( x ) )$ .

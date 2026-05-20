@@ -1,0 +1,13 @@
+where $F _ { f }$ is the total friction force, $F _ { \mathrm { s t } }$ is the static friction (or “stiction”) force near zero velocity, $F _ { C }$ is the Coulomb $( ^ { 6 6 } \mathrm { d r y ^ { 3 3 } } )$ friction force, c is a velocity coefficient, b is the viscous friction coefficient, and ẋ is the relative velocity between the sliding mass and the surface. Let the friction model parameters be $F _ { \mathrm { s t } } = 1 0 \mathrm { N } , F _ { C } = 7 \mathrm { N } , b = 7 0 \mathrm { N } \mathrm { - s } / \mathrm { m }$ . Use MATLAB to plot the total friction force vs. relative velocity for $- 0 . 0 5 \leq \dot { x } \leq 0 . 0 5$ m/s for three values of velocity coefficient: $c = 0 . 0 0 1 , 0 . 0 0 2$ , and 0.005 m/s. Describe the friction force at very small relative velocities and at the (relatively) high velocity of ±0.05 m/s. In addition, explain how varying the velocity coefficient c alters the so-called “Stribeck friction effect” when relative velocity is very small.
+
+2.20 The damping force for shock absorbers for heavy trucks often exhibits a nonlinear relationship with the relative velocity between the piston and cylinder of the damper. A typical damper force relationship is
+
+$$F _ {d} = \frac {4 5 0 0 \dot {x}}{\sqrt {\dot {x} ^ {2} + v ^ {2}}}$$
+
+where $F _ { d }$ is the damper force (in N), ẋ is the relative velocity between the piston and the cylinder (in m/s), and $\nu = 0 . 2 \mathrm { m / s }$ . Use MATLAB to plot the damper force vs. relative velocity for $- 1 . 5 \leq \dot { x } \leq 1 . 5$ m/s. Describe the nature of the damper force for “small” and “large” values of relative velocities.
+
+2.21 The nonlinear damping force for automotive shock absorbers often exhibit a larger force during the extension stroke $( \dot { x } > 0 )$ compared to the compression stroke $( \dot { x } < 0 )$ for the same magnitude in relative velocity ẋ . Therefore, the nonlinear damper model from Problem 2.20 is modified
+
+$$F _ {d} = \frac {3 3 8 9 (\dot {x} - v _ {1})}{\sqrt {(\dot {x} - v _ {1}) ^ {2} + v _ {2} ^ {2}}} + 1 0 2 0. 8 4 \mathrm{N}$$
+
+where $F _ { d }$ is the damper force (in N), ẋ is the relative velocity between the piston and the cylinder (in m/s), $\nu _ { 1 } { = } 0 . 0 6 \mathrm { m } / \mathrm { s }$ , and $\nu _ { 2 } = 0 . 1 9 \mathrm { m } / \mathrm { s }$ . Write a MATLAB M-file to plot the damper force vs. relative velocity for $- 1 . 5 \leq \dot { x } \leq 1 . 5$ m/s. Does this damper model accurately represent the friction force when $\dot { x } \approx 0 ?$ Describe the nature of the damper force for “small” and “large” ranges for relative velocities.

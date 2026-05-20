@@ -1,0 +1,3 @@
+<table><tr><td> $G^{\sim}(s)$ </td><td>shorthand for  $G^{T}(-s)$ </td></tr><tr><td> $\left[\begin{matrix}A & B \\ \hline C & D\end{matrix}\right]$ </td><td>shorthand for state space realization  $C(sI - A)^{-1}B + D$ </td></tr><tr><td> $\eta(G(s))$ </td><td>number of right-half plane poles</td></tr><tr><td> $\eta_{0}(G(s))$ </td><td>number of imaginary axis poles</td></tr><tr><td> $wno(G)$ </td><td>winding number</td></tr></table>
+
+<table><tr><td>$ \mathcal{F}_{\ell}(M,Q) $</td><td>lower LFT</td></tr><tr><td>$ \mathcal{F}_{u}(M,Q) $</td><td>upper LFT</td></tr><tr><td>$ M \star N $</td><td>star product</td></tr></table>

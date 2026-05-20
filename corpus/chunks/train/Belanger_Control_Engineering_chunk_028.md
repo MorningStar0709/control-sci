@@ -1,0 +1,9 @@
+The system is linear if the functions $\mathbf{f}(\cdot)$ and $\mathbf{h}(\cdot)$ are expressed as linear functions of x and u (but not t). Linear expressions are expressed compactly using matrices and vectors. This leads to the following equations:
+
+$$\dot {\mathbf {x}} = A (t) \mathbf {x} + B (t) \mathbf {u} \tag {2.10}\mathbf {y} = C (t) \mathbf {x} + D (t) \mathbf {u}. \tag {2.11}$$
+
+If the matrices are constant, the system is time-invariant.
+
+The state variables $\mathbf{x}$ have an important property. A key result from the theory of differential equations is that, given $\mathbf{u}(t)$ for $t > t_0$ and given an $n$ -vector $\mathbf{x}_0$ , then, for $t \geq t_0$ , there may exist a unique solution $\mathbf{x}(t)$ of Equations 2.7 with the property that $\mathbf{x}(t_0) = \mathbf{x}_0$ . These existence and uniqueness results require only mild conditions on the functions $f_1(\cdot), f_2(\cdot), \ldots, f_n(\cdot)$ . A consequence of this result is that, given the state at some time $t_0$ and the future inputs $\mathbf{u}(t), t > t_0$ , the future evolution of the state variables is uniquely determined. Since the outputs $\mathbf{y}(t)$ are algebraically (i.e., instantaneously) related to $\mathbf{x}(t)$ and $\mathbf{u}(t)$ , future output evolution is also determined by $\mathbf{x}(t_0)$ and future inputs. For example, the motion of the mass of Figure 2.1 for $t > 0$ is uniquely determined by the force $F(t), t > 0$ , and by the position, and velocity at $t = 0$ , i.e., by the initial conditions.
+
+The state summarizes the influence of the past on the future. The mass of Figure 2.1 may have moved in many different ways prior to $t = 0$ , but as far as its future motion is concerned, the only thing that matters about the past is its end result, position and velocity, at $t = 0$ .

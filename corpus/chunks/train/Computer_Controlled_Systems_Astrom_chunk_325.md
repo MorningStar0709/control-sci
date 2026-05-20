@@ -1,0 +1,3 @@
+# Selection of Sampling Interval
+
+The choice of sampling interval was discussed in Sec. 4.3 for the pole-placement design based on state feedback. The same arguments can be used for the method given in this chapter. This means that the sampling interval should be chosen in relation to the desired closed-loop behavior. Notice, however, that all closed-loop poles must be taken into consideration. This is further discussed in the following sections. The simple rule of thumb to have 4 to 10 samples per rise time of the closed-loop system or 15 to 45 samples per period may be inadequate for high-order systems where the rise time to command signals and disturbances may be very different.

@@ -1,0 +1,3 @@
+# Intersample Variation of the Output Variance
+
+The minimum-variance control law minimizes the variance of the output at the sampling instants. However, the main objective may be to minimize the continuous-time loss function of (12.7). This may be achieved by first sampling the continuous-time loss function and to minimize the corresponding discrete-time loss function as was discussed in Section 11.1. This results in a complicated design procedure. The minimum-variance control laws are in many cases a sufficiently good approximation. It is useful to investigate the intersample variation of the loss function. This analysis is similar to the analysis of intersample ripple for deterministic systems of Sec. 3.5. An example is used to illustrate the idea.

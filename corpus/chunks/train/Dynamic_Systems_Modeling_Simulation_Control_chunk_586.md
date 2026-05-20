@@ -1,0 +1,3 @@
+After the user clicks the cross-hair target on a desired loci branch, MATLAB returns the associated value of gain K and all n closed-loop roots. For example, if the user executes the MATLAB commands shown above and clicks the cross-hair target on –0.5, the command rlocfind returns $K _ { P } = 1 . 2 5$ and the associated closed-loop roots $s _ { 1 } = - 2 . 5$ and $s _ { 2 } = - 0 . 5$ (the desired root from the cross-hair target).
+
+The following examples illustrate the construction and use of the root-locus plot. Although this textbook does not emphasize sketching the root locus, the preliminary steps for sketching the root locus are presented and the corresponding root locus is created using MATLAB.

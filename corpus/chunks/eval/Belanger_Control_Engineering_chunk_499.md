@@ -1,0 +1,3 @@
+# Example 8.7
+
+The most common problem definition is probably the one illustrated in Figure 8.13. The transmissions of interest are the sensitivity $S(s)$ , the set point-to-input transmission $U(s)$ , and the transmission of the system connected to the uncertainty matrix $\Delta$ (from $\mathbf{r}$ to $\mathbf{q}$ , with the $\Delta$ -block removed). Weight functions $W_{1}(s)$ and $W_{2}(s)$ are assigned to $S$ and $U$ , respectively. Define an input vector $\mathbf{w}$ and an output vector $\mathbf{z}$ such that all transmissions of interest are present in the matrix transmission from $\mathbf{w}$ to $\mathbf{z}$ .

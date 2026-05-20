@@ -1,0 +1,3 @@
+# Conclusions
+
+The field of extremum control is far from mature. One crucial point is the modeling of the processes and the nonlinearities. It is generally very difficult to analyze nonlinear control problems and to derive optimal controllers, especially if there are stochastic disturbances acting on the system. The extremum control problem also has connections with the dual control problem discussed in Chapter 7. Extremum-seeking methods combined with adaptive control are of great practical interest, since even small improvements in the performance can lead to large savings in raw material and energy consumption. There are commercial extremum controllers.

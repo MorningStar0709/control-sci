@@ -1,0 +1,3 @@
+for all $x \in \mathcal { X } _ { N } ^ { c }$ . Since $\mathcal { X } _ { N } ^ { c }$ is compact, there exists a finite $\beta$ such that $V _ { f } ( x _ { N } ^ { \beta } ( N ; x ) ) \le a$ for all $x \in \mathcal { X } _ { N } ^ { c }$ . Hence, there exists a finite $\beta > 1$ such that ${ x _ { N } ^ { \beta } } ( N ; x ) \in \mathbb { X } _ { f }$ for all $\boldsymbol { x } \in \mathcal { X } _ { N } ^ { c }$ .
+
+Suppose then that $\beta$ is sufficiently large to ensure ${ x _ { N } ^ { \beta } } ( N ; x ) \in \mathbb { X } _ { f }$ for all $x \in \mathcal { X } _ { N } ^ { c }$ . Then the origin is asymptotically or exponentially stable for $x ^ { + } = f ( x , \kappa _ { N } ^ { \beta } ( x ) )$ with a region of attraction $\mathcal { X } _ { N } ^ { c }$ .

@@ -1,0 +1,3 @@
+# 3.7 Notes
+
+There is now a considerable volume of research on robust MPC; for a review of the literature up to 2000 see Mayne, Rawlings, Rao, and Scokaert (2000). Early literature examines robustness of nominal MPC under perturbations in Scokaert, Rawlings, and Meadows (1997), and robustness under model uncertainty in De Nicolao, Magni, and Scattolini (1996), and Magni and Sepulchre (1997). Sufficient conditions for robust stability of nominal MPC with modeling error are provided in Santos and Biegler (1999). Teel (2004) provides an excellent discussion of the interplay between nominal robustness and continuity of the Lyapunov function, and also presents some illuminating examples of nonrobust MPC.

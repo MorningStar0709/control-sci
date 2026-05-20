@@ -1,0 +1,13 @@
+# Simulation
+
+Simulation is a good way to investigate the behavior of dynamic systems—for example, the intersample behavior of computer-controlled systems. Computer simulation is a very good tool, but it should be remembered that simulation and analysis have to be used together. When making simulations, it is not always possible to investigate all combinations that are unfavorable, for instance, from the point of view of stability, observability, or reachability. These cases can be found through analysis.
+
+It is important that the simulation program be so simple to use that the person primarily interested in the results can be involved in the simulation and in the evaluation of the simulation results.
+
+In the beginning of the 1960s, several digital simulation packages were developed. These packages were basically a digital implementation of analog simulation. The programming was done using block diagrams and fixed-operation modules. Later programs were developed in which the models were given directly as equations.
+
+It is important to have good user-machine communication for simulations; the user should be able to change parameters and modify the model easily. Most simulation programs are interactive, which means that the user interacts with the computer and decides the next step based on the results obtained so far. One way to implement interaction is to let the computer ask questions and the user select from predefined answers. This is called menu-driven interaction. Another possibility is command-driven interaction, which is like a high-level problem-solving language in which the user can choose freely from all commands available in the system. This is also a more flexible way of communicating with the computer, and it is very efficient for the experienced user, whereas a menu-driven program is easier to use for an inexperienced user.
+
+In a simulation package, it is also important to have a flexible way of presenting the results, which are often curves. Finally, to be able to solve the type of problems of interest in this book, it is important to be able to mix continuous- and discrete-time systems.
+
+Examples of simulation packages are MATLAB® with SIMULINK®, MATRIXX®, and Simnon®. Because these packages are readily available we will not describe any of them in detail. However, we urge the reader to use simulation to get a good feel for the behavior of the computer-controlled systems that are described in the text. For the figures in the book we have used MATLAB® with SIMULINK®. Macros for these figures are available through anonymous ftp; see the Preface of the book.

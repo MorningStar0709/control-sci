@@ -1,0 +1,9 @@
+# Concurrent, or Real-Time, Programming
+
+It is natural to think about control loops as concurrent activities that are running in parallel. However, the digital computer operates sequentially in time. Ordinary programming languages can represent only sequential activities. Thus a key problem is to map a number of parallel concurrent activities into a sequential program. This may be done manually, as shown in Fig. 9.20. There are also special-purpose software--real-time operating systems--that make it possible to schedule tasks without making a strict sequential program. It is outside the scope of this book to discuss concurrent programs in detail. The basic ideas are given, together with a few examples.
+
+The notions of process and task are fundamental concepts in real-time programming. They represent activities that may be thought of as running in parallel in time. Using these notions, it is possible to think of the computer running several activities in parallel. Hence, a real-time activity may be structured in the same way as a sequential activity is structured, using the notion of procedure or subroutine. The real-time operating system will organize the execution of the processes so that the desired result is obtained. To do this, a priority is associated with each process. Processes may also be scheduled to run periodically or in response to events such as interrupts or completion of other tasks.
+
+The problem of shared variables and resources is one of the key problems in real-time programming. If different processes are using the same data, it is necessary to make sure that one process does not try to use data being modified by another process. If two processes may use the same resource, it is necessary to make sure that the system does not deadlock in a situation where both processes are waiting for each other.
+
+Timing is a third problem. Computing power must be sufficient to allow all activities to be completed in the required time.

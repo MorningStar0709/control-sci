@@ -1,0 +1,7 @@
+# 1.3 Computer-Control Theory
+
+Using computers to implement controllers has substantial advantages. Many of the difficulties with analog implementation can be avoided. For example, there are no problems with accuracy or drift of the components. It is very easy to have sophisticated calculations in the control law, and it is easy to include logic and nonlinear functions. Tables can be used to store data in order to accumulate knowledge about the properties of the system. It is also possible to have effective user interfaces.
+
+A schematic diagram of a computer-controlled system is shown in Fig. 1.1. The system contains essentially five parts: the process, the A-D and D-A converters, the control algorithm, and the clock. Its operation is controlled by the clock. The times when the measured signals are converted to digital form are called the sampling instants; the time between successive samplings is called the sampling period and is denoted by h. Periodic sampling is normally used, but there are, of course, many other possibilities. For example, it is possible to sample when the output signals have changed by a certain amount. It is also possible to use different sampling periods for different loops in a system. This is called multirate sampling.
+
+In this section we will give examples that illustrate the differences and the similarities of analog and computer-controlled systems. It will be shown that essential new phenomena that require theoretical attention do indeed occur.

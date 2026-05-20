@@ -1,0 +1,3 @@
+# How to Choose Representations
+
+The selection of representations is crucial when implementing a control law using a digital signal processor or with custom VLSI. It is less crucial for implementations using microcomputers with floating-point hardware. The companion forms should be avoided, because so much is gained by using series or parallel forms. Each block should be implemented on Jordan form. This is particularly important for high-order compensators and short sampling periods. For low-order controllers implemented with floating-point hardware and with poles well inside the stability area, the choice of realization is less crucial. It is, however, good practice to hedge against possible numerical problems.

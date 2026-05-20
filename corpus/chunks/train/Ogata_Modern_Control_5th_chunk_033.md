@@ -1,0 +1,9 @@
+# 2–1 INTRODUCTION
+
+In studying control systems the reader must be able to model dynamic systems in mathematical terms and analyze their dynamic characteristics.A mathematical model of a dynamic system is defined as a set of equations that represents the dynamics of the system accurately, or at least fairly well. Note that a mathematical model is not unique to a given system.A system may be represented in many different ways and, therefore, may have many mathematical models, depending on one’s perspective.
+
+The dynamics of many systems, whether they are mechanical, electrical, thermal, economic, biological, and so on, may be described in terms of differential equations. Such differential equations may be obtained by using physical laws governing a particular system—for example, Newton’s laws for mechanical systems and Kirchhoff’s laws for electrical systems. We must always keep in mind that deriving reasonable mathematical models is the most important part of the entire analysis of control systems.
+
+Throughout this book we assume that the principle of causality applies to the systems considered. This means that the current output of the system (the output at time t=0) depends on the past input (the input for $t < 0 )$ but does not depend on the future input (the input for $t > 0 )$ .
+
+Mathematical Models. Mathematical models may assume many different forms. Depending on the particular system and the particular circumstances, one mathematical model may be better suited than other models. For example, in optimal control problems, it is advantageous to use state-space representations. On the other hand, for the transient-response or frequency-response analysis of single-input, single-output, linear, time-invariant systems, the transfer-function representation may be more convenient than any other. Once a mathematical model of a system is obtained, various analytical and computer tools can be used for analysis and synthesis purposes.

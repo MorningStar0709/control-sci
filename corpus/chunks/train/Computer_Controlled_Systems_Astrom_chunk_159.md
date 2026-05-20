@@ -1,0 +1,3 @@
+# 3.1 Introduction
+
+Previous chapters have shown how continuous-time systems are transformed when sampled. In this chapter we will develop the key tools for analyzing discrete-time systems. Stability, sensitivity, and robustness are introduced in Secs. 3.2 and 3.3. The concepts of controllability, reachability, and observability, which are useful for understanding discrete-time systems, are discussed in Sec. 3.4. Simple feedback loops and their properties are treated in Sec. 3.5. Simulation is used throughout the text because it is a very important tool for the analysis of sampled-data systems—for instance, in investigating intersample behavior.

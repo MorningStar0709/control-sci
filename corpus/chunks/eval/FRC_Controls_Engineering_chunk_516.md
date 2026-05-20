@@ -1,0 +1,7 @@
+# E. Classical control theory
+
+This appendix is provided for those who are curious about a lower-level interpretation of control systems. It describes what a transfer function is and shows how they can be used to analyze dynamical systems. Emphasis is placed on the geometric intuition of this analysis rather than the frequency domain math. Many tools exclusive to classical control theory (root locus, Bode plots, Nyquist plots, etc.) aren’t useful for or relevant to the examples presented in the main chapters, so they would only complicate the learning process.
+
+With classical control theory’s geometric interpretation, one can perform stability and robustness analyses and design reasonable controllers for systems on the back of a napkin. However, computing power is much more plentiful nowadays; we should take advantage of the modern tools this enables to better express the controls designer’s intent (for example, via optimal control criteria rather than frequency response characteristics).
+
+Classical control theory should only be used when the controls designer cares about directly shaping the frequency response of a system. Electrical engineers do this a lot, but all the other university controls students have been forced to learn it too regardless of its utility in other disciplines.

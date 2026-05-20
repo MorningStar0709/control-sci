@@ -1,0 +1,11 @@
+$$
+\left| \begin{array}{c c c c} 1 & 1 & 1 & \mathbf {I} \\ \lambda_ {i} & \lambda_ {j} & \lambda_ {k} & \mathbf {A} \\ \lambda_ {i} ^ {2} & \lambda_ {j} ^ {2} & \lambda_ {k} ^ {2} & \mathbf {A} ^ {2} \\ \lambda_ {i} ^ {3} & \lambda_ {j} ^ {3} & \lambda_ {k} ^ {3} & \mathbf {A} ^ {3} \end{array} \right| = (\mathbf {A} - \lambda_ {k} \mathbf {I}) (\mathbf {A} - \lambda_ {j} \mathbf {I}) (\mathbf {A} - \lambda_ {i} \mathbf {I}) (\lambda_ {k} - \lambda_ {j}) (\lambda_ {k} - \lambda_ {i}) (\lambda_ {j} - \lambda_ {i})
+$$
+
+we obtain
+
+$$
+\begin{array}{l} \Delta = f (\mathbf {A}) \left[ \left(\lambda_ {4} - \lambda_ {3}\right) \left(\lambda_ {4} - \lambda_ {2}\right) \left(\lambda_ {4} - \lambda_ {1}\right) \left(\lambda_ {3} - \lambda_ {2}\right) \left(\lambda_ {3} - \lambda_ {1}\right) \left(\lambda_ {2} - \lambda_ {1}\right) \right] \\ - f \left(\lambda_ {4}\right) \left[ \left(\mathbf {A} - \lambda_ {3} \mathbf {I}\right) \left(\mathbf {A} - \lambda_ {2} \mathbf {I}\right) \left(\mathbf {A} - \lambda_ {1} \mathbf {I}\right) \left(\lambda_ {3} - \lambda_ {2}\right) \left(\lambda_ {3} - \lambda_ {1}\right) \left(\lambda_ {2} - \lambda_ {1}\right) \right] \\ + f \left(\lambda_ {3}\right) \left[ \left(\mathbf {A} - \lambda_ {4} \mathbf {I}\right) \left(\mathbf {A} - \lambda_ {2} \mathbf {I}\right) \left(\mathbf {A} - \lambda_ {1} \mathbf {I}\right) \left(\lambda_ {4} - \lambda_ {2}\right) \left(\lambda_ {4} - \lambda_ {1}\right) \left(\lambda_ {2} - \lambda_ {1}\right) \right] \\ - f \left(\lambda_ {2}\right) \left[ \left(\mathbf {A} - \lambda_ {4} \mathbf {I}\right) \left(\mathbf {A} - \lambda_ {3} \mathbf {I}\right) \left(\mathbf {A} - \lambda_ {1} \mathbf {I}\right) \left(\lambda_ {4} - \lambda_ {3}\right) \left(\lambda_ {4} - \lambda_ {1}\right) \left(\lambda_ {3} - \lambda_ {1}\right) \right] \\ + f \left(\lambda_ {1}\right) \left[ \left(\mathbf {A} - \lambda_ {4} \mathbf {I}\right) \left(\mathbf {A} - \lambda_ {3} \mathbf {I}\right) \left(\mathbf {A} - \lambda_ {2} \mathbf {I}\right) \left(\lambda_ {4} - \lambda_ {3}\right) \left(\lambda_ {4} - \lambda_ {2}\right) \left(\lambda_ {3} - \lambda_ {2}\right) \right] \\ = \mathbf {0} \\ \end{array}
+$$
+
+Solving this last equation for f(A), we obtain

@@ -1,0 +1,3 @@
+where x is the position vector, a the acceleration vector, and v the velocity vector, represent the equations that describe the behavior of the target. The equations by which the estimates are propagated are identical, except that the w’s are set to zero and estimated values are used for all other quantities (except the $\tau ^ { \prime } \mathbf { s } .$ , which are assumed known). It is understood that a, v, and $F _ { n }$ are the magnitudes of a, v, and ${ \bf F } _ { n }$ , and $F _ { v }$ and ${ \bf F } _ { n }$ are determined from the relations
+
+$$F _ {v} = (1 / v) (\mathbf {a} \cdot \mathbf {v}), \tag {4.96a}\mathbf {F} _ {n} = \mathbf {a} - F _ {v} \mathbf {e} _ {v}. \tag {4.96b}$$

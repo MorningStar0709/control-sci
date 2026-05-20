@@ -1,0 +1,258 @@
+{
+  "meta": {
+    "timestamp": "2026-05-17T15:26:19+0800",
+    "script": "_tools/bench_hf_embedding_throughput.py",
+    "gpu": "RTX 5090 24GB",
+    "chunk_count_for_estimate": 3348,
+    "sample_texts": [
+      "The primary endpoint was change in HbA1c from baseline to week 26.",
+      "Patients were randomized 1:1 to receive closed-loop insulin delivery or standard care.",
+      "Adverse events included hypoglycemia (12.3%), hyperglycemia (8.7%), and infusion site reactions.",
+      "Kaplan-Meier analysis showed a significant difference in progression-free survival (HR 0.72, 95% CI 0.58-0.89, p=0.003).",
+      "The MPC algorithm adjusted insulin infusion rates based on continuous glucose monitor readings every 5 minutes.",
+      "Subgroup analysis revealed greater treatment effect in patients with baseline HbA1c > 8.5%.",
+      "Pharmacokinetic parameters: Cmax 245 ng/mL, Tmax 2.1 h, AUC0-24 1840 ng·h/mL, t1/2 8.7 h.",
+      "Inclusion criteria: age >=18, histologically confirmed diagnosis, ECOG 0-2, adequate organ function.",
+      "The adaptive trial design used Bayesian response-adaptive randomization with a non-informative prior.",
+      "Safety outcomes: grade 3-4 neutropenia (22%), febrile neutropenia (8%), thrombocytopenia (15%)."
+    ],
+    "batch_sizes": [
+      1,
+      5,
+      10,
+      25
+    ],
+    "warm_runs_per_batch": 3,
+    "load_time_excluded_from_warm_throughput": true
+  },
+  "models": [
+    {
+      "label": "BGE Small",
+      "provider": "hf_local",
+      "model": "BAAI/bge-small-en-v1.5",
+      "device": "cuda",
+      "max_length": 512,
+      "load_s": 1.515,
+      "batch_runs": {
+        "batch_1": {
+          "cold_or_first_s": 0.190566,
+          "runs": [
+            {
+              "run": 0,
+              "elapsed_s": 0.005216,
+              "texts": 1,
+              "per_text_ms": 5.216,
+              "dim": 384
+            },
+            {
+              "run": 1,
+              "elapsed_s": 0.004261,
+              "texts": 1,
+              "per_text_ms": 4.261,
+              "dim": 384
+            },
+            {
+              "run": 2,
+              "elapsed_s": 0.004099,
+              "texts": 1,
+              "per_text_ms": 4.099,
+              "dim": 384
+            }
+          ]
+        },
+        "batch_5": {
+          "cold_or_first_s": 0.04812,
+          "runs": [
+            {
+              "run": 0,
+              "elapsed_s": 0.006896,
+              "texts": 5,
+              "per_text_ms": 1.379,
+              "dim": 384
+            },
+            {
+              "run": 1,
+              "elapsed_s": 0.006544,
+              "texts": 5,
+              "per_text_ms": 1.309,
+              "dim": 384
+            },
+            {
+              "run": 2,
+              "elapsed_s": 0.006264,
+              "texts": 5,
+              "per_text_ms": 1.253,
+              "dim": 384
+            }
+          ]
+        },
+        "batch_10": {
+          "cold_or_first_s": 0.007678,
+          "runs": [
+            {
+              "run": 0,
+              "elapsed_s": 0.007402,
+              "texts": 10,
+              "per_text_ms": 0.74,
+              "dim": 384
+            },
+            {
+              "run": 1,
+              "elapsed_s": 0.00665,
+              "texts": 10,
+              "per_text_ms": 0.665,
+              "dim": 384
+            },
+            {
+              "run": 2,
+              "elapsed_s": 0.012577,
+              "texts": 10,
+              "per_text_ms": 1.258,
+              "dim": 384
+            }
+          ]
+        },
+        "batch_25": {
+          "cold_or_first_s": 0.008623,
+          "runs": [
+            {
+              "run": 0,
+              "elapsed_s": 0.008063,
+              "texts": 25,
+              "per_text_ms": 0.323,
+              "dim": 384
+            },
+            {
+              "run": 1,
+              "elapsed_s": 0.006755,
+              "texts": 25,
+              "per_text_ms": 0.27,
+              "dim": 384
+            },
+            {
+              "run": 2,
+              "elapsed_s": 0.007726,
+              "texts": 25,
+              "per_text_ms": 0.309,
+              "dim": 384
+            }
+          ]
+        }
+      }
+    },
+    {
+      "label": "BGE M3",
+      "provider": "hf_local",
+      "model": "BAAI/bge-m3",
+      "device": "cuda",
+      "max_length": 8192,
+      "load_s": 3.932,
+      "batch_runs": {
+        "batch_1": {
+          "cold_or_first_s": 0.051481,
+          "runs": [
+            {
+              "run": 0,
+              "elapsed_s": 0.008164,
+              "texts": 1,
+              "per_text_ms": 8.164,
+              "dim": 1024
+            },
+            {
+              "run": 1,
+              "elapsed_s": 0.007901,
+              "texts": 1,
+              "per_text_ms": 7.901,
+              "dim": 1024
+            },
+            {
+              "run": 2,
+              "elapsed_s": 0.007875,
+              "texts": 1,
+              "per_text_ms": 7.875,
+              "dim": 1024
+            }
+          ]
+        },
+        "batch_5": {
+          "cold_or_first_s": 0.012839,
+          "runs": [
+            {
+              "run": 0,
+              "elapsed_s": 0.012217,
+              "texts": 5,
+              "per_text_ms": 2.443,
+              "dim": 1024
+            },
+            {
+              "run": 1,
+              "elapsed_s": 0.012989,
+              "texts": 5,
+              "per_text_ms": 2.598,
+              "dim": 1024
+            },
+            {
+              "run": 2,
+              "elapsed_s": 0.013707,
+              "texts": 5,
+              "per_text_ms": 2.741,
+              "dim": 1024
+            }
+          ]
+        },
+        "batch_10": {
+          "cold_or_first_s": 0.021017,
+          "runs": [
+            {
+              "run": 0,
+              "elapsed_s": 0.020454,
+              "texts": 10,
+              "per_text_ms": 2.045,
+              "dim": 1024
+            },
+            {
+              "run": 1,
+              "elapsed_s": 0.021009,
+              "texts": 10,
+              "per_text_ms": 2.101,
+              "dim": 1024
+            },
+            {
+              "run": 2,
+              "elapsed_s": 0.020494,
+              "texts": 10,
+              "per_text_ms": 2.049,
+              "dim": 1024
+            }
+          ]
+        },
+        "batch_25": {
+          "cold_or_first_s": 0.037637,
+          "runs": [
+            {
+              "run": 0,
+              "elapsed_s": 0.038762,
+              "texts": 25,
+              "per_text_ms": 1.55,
+              "dim": 1024
+            },
+            {
+              "run": 1,
+              "elapsed_s": 0.04024,
+              "texts": 25,
+              "per_text_ms": 1.61,
+              "dim": 1024
+            },
+            {
+              "run": 2,
+              "elapsed_s": 0.038869,
+              "texts": 25,
+              "per_text_ms": 1.555,
+              "dim": 1024
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

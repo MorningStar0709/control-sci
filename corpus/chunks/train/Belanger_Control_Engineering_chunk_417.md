@@ -1,0 +1,3 @@
+# ◆ ◆ ◆ REMARK
+
+This procedure can be extended to cases where $y_{d}$ and w are representable by nondecreasing complex exponentials. Integrators work with dc signals because, if a dc steady state exists, all integrator inputs must be zero (any other constant value would give rise to a ramp, and a dc steady state would not exist). To apply to other signals, we replace the integrators by all-pole blocks with poles corresponding to the exponents of the complex exponentials. For instance, to obtain zero sinusoidal steady-state error at some frequency $\omega_{0}$ , the integrator should be replaced by $1/(s^{2} + \omega_{0}^{2})$ . In essence, the model of the disturbance is included in the system. This arrangement is known as the internal model principle [5].

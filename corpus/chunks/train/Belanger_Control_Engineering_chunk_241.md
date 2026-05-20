@@ -1,0 +1,9 @@
+# 5.1 INTRODUCTION
+
+In Chapter 4, we explored the factors that limit performance. In so doing, we saw that it is possible to choose the sensitivity S (or the complementary sensitivity T), subject to certain constraints, and derive the compensator F that realizes the chosen S (or T). The compensator generally turns out to be at least as complex as the plant model unless a rather special S or T is selected.
+
+The implementation by computer algorithm of a compensator of relatively high order is not too difficult. There was a time, however, when all controllers were electric or pneumatic analog devices. Those controllers were limited to a few off-the-shelf mathematical structures with at most three adjustable parameters. In the vast majority of cases, an analog controller with a special-purpose mathematical structure was too expensive to contemplate.
+
+As a result of technological limitations, the controller structure was fixed, and there evolved a body of design methods based on the use of the controller $F(s)$ as the design parameter, as opposed to working directly with T or S. This body of knowledge is known as classical control design. It is based on a complex plane and frequency-domain analysis, largely because these lent themselves to the use of graphical methods.
+
+In Chapter 4, stability was studied from the viewpoint of the design parameter S or T. Since stability is paramount in any control system, the first order of business in this chapter is to rephrase the stability conditions in terms of the loop gain, which is now the design parameter. That will take the form of conditions on pole-zero cancellations, followed by the Routh, Root Locus, and Nyquist criteria. The latter will be used to study robustness with respect to loop gain variations. The Kharitonov polynomials will be introduced to study stability when system parameters are allowed to vary.

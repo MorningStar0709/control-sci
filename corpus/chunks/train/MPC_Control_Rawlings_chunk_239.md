@@ -1,0 +1,13 @@
+# Theorem 2.24 (MPC stability).
+
+(a) Suppose that Assumptions 2.2, 2.3, 2.12, 2.13, and 2.16(a) are satisfied and that $\mathcal { X } _ { N } = \mathbb { X } _ { f } = \mathbb { R } ^ { n }$ so that $V _ { f } ( \cdot )$ is a global CLF. Then the origin is globally asymptotically stable for $x ^ { + } = f ( x , \kappa _ { N } ( x ) )$ . If, in addition, Assumption 2.16(b) is satisfied, then the origin is globally exponentially stable.
+
+(b) Suppose that Assumptions 2.2, 2.3, 2.12, 2.13, and 2.16(a) are satisfied and that $\mathbb { X } _ { f }$ contains the origin in its interior. Then the origin is asymptotically stable with a region of attraction $x _ { N }$ for the system $x ^ { + } = f ( x , \kappa _ { N } ( x ) )$ . If, in addition, Assumption 2.16(b) is satisfied and $x _ { N }$ is bounded, then the origin is exponentially stable with a region of attraction $x _ { N }$ for the system $x ^ { + } = f ( x , \kappa _ { N } ( x ) ) .$ ; if $x _ { N }$ is unbounded, then the origin is exponentially stable with a region of attraction that is any sublevel set of $V _ { N } ^ { 0 } ( \cdot )$ .
+
+(c) Suppose that Assumptions 2.2, 2.3, 2.12, 2.13, and 2.23 are satisfied and that $\ell ( \cdot )$ satisfies $\ell ( x , u ) \geq \alpha _ { 1 } ( | x | )$ for all $x \in \mathcal { X } _ { N }$ , all $u \in \mathbb { V }$ , where $\alpha _ { 1 } ( \cdot )$ is a $\mathcal { K } _ { \infty }$ function. Then the origin is asymptotically stable with a region of attraction $x _ { N }$ for the system $x ^ { + } = f ( x , \kappa _ { N } ( x ) )$ ). If \`(·) satisfies $\ell ( x , u ) \geq c _ { 1 } | x | ^ { a }$ for all $x \in \mathcal { X } _ { N }$ , all $u \in \mathbb { V }$ , and Assumption 2.23 is satisfied with $\alpha ( r ) = c _ { 2 } r ^ { a }$ for some $c _ { 1 } > 0 , c _ { 2 } > 0$ and $a > 0$ , then the origin is exponentially stable with a region of attraction $x _ { N }$ for the system $x ^ { + } = f ( x , \kappa _ { N } ( x ) )$ .
+
+(d) Suppose that Assumptions 2.2, 2.3, 2.12, and 2.13 are satisfied, that \`(·) satisfies $\ell ( x , u ) \geq c _ { 1 } | x | ^ { a } + c _ { 1 } | u | ^ { a }$ , and that Assumption 2.23 is satisfied with $\alpha ( r ) = c _ { 2 } r ^ { a }$ for some $c _ { 1 } > 0 , c _ { 2 } > 0$ , and $\alpha > 0$ . Then $| \kappa _ { N } ( x ) | \le c | x |$ for all $\boldsymbol { x } \in \mathcal { X } _ { N }$ where $c = ( c _ { 2 } / c _ { 1 } ) ^ { 1 / a }$ .
+
+Proof.
+
+(a) Since $\mathbb { X } _ { f } = \mathbb { R } ^ { n }$ , Lemmas 2.14 and 2.15 ensure the existence of ${ \mathcal K } _ { \infty }$ functions $\alpha _ { 1 } ( \cdot )$ and $\alpha _ { 2 } ( \cdot )$ such that the value function $V _ { N } ^ { 0 } ( \cdot )$ satisfies

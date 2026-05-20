@@ -1,180 +1,147 @@
 # ControlMind
 
-ControlMind is a MinerU-based scientific document intelligence project for the 2026 MinerU Data Intelligence Challenge. It connects three independent tracks into one auditable chain: scientific corpus construction, autonomous data processing, and source-grounded RAG.
+**A MinerU-powered scientific document intelligence system: 500-question cross-modal benchmark, 14-intent data agent, and local-first medical RAG — all from raw PDFs.**
 
-[Chinese version](README.zh.md)
+[Chinese version](README.zh.md) | [CC-BY-4.0](LICENSE)
 
 ```text
-Track 1: Sci-Align dataset and benchmark
-Track 2: Data Agent execution protocol
-Track 3: Medical literature RAG
+Track 1  Sci-Align  —  4-dimension control-science evaluation benchmark
+Track 2  Data Agent —  14-intent autonomous corpus agent with 4-path scheduling
+Track 3  Medical RAG —  local-first evidence-grounded clinical literature Q&A
 ```
 
-The project uses MinerU to turn scientific PDFs into structured text, formulas, tables, figures, chunks, indexes, benchmark questions, Agent traces, and RAG evidence cards.
+---
 
-## Public Entry Points
+![System Architecture](docs/submissions/shared/assets/task2/system_architecture.png)
 
-| Item | Link |
-|:---|:---|
-| Cloud demo | [https://demo.askiler.com/](https://demo.askiler.com/) |
-| Demo access code | `ControlMind@2026` |
-| GitHub | [MorningStar0709/ControlMind](https://github.com/MorningStar0709/ControlMind) |
-| HuggingFace dataset | [MorningStar0709/control-sci-corpus](https://huggingface.co/datasets/MorningStar0709/control-sci-corpus) |
-| Submission quickstart | [docs/submissions/quickstart.md](docs/submissions/quickstart.md) |
-| Submission README | [docs/submissions/README.md](docs/submissions/README.md) |
-| Data trace | [docs/submissions/shared/DATA-TRACE.md](docs/submissions/shared/DATA-TRACE.md) |
-| Reproducibility | [REPRODUCIBILITY.md](REPRODUCIBILITY.md) |
+*ControlMind system architecture: a single RTX 5090 runs the full pipeline — MinerU parsing, tri-engine inference (API / Ollama / vLLM), and multi-index RAG.*
 
-## What Is Included
+---
 
-| Track | Main artifact | Start here |
+## What This Project Does
+
+| Track | What You Get | One Command |
 |:---|:---|:---|
-| Track 1: Sci-Align | 500-question control-science benchmark with AI-ready schema | [track1_sci_align_report.md](docs/submissions/track1_sci_align_report.md) |
-| Track 2: Data Agent | 14-intent Agent protocol with scheduling, logs, fallback, replay, and validation | [track2_agent_report.md](docs/submissions/track2_agent_report.md) |
-| Track 3: Medical RAG | Source-grounded medical literature RAG with Chinese Ask, claim support, refusal boundary, and local deployment | [track3_medical_rag_report.md](docs/submissions/track3_medical_rag_report.md) |
+| **Sci-Align** | A 500-question 4-dimension benchmark (A: Concept Recall, B: Multi-step Reasoning, C: Condition Sensitivity, D: Open Design) with 9-model leaderboard and full source traceability. Loadable via `load_dataset()`. | `load_dataset("MorningStar0709/control-sci-corpus")` |
+| **Data Agent** | A 14-intent autonomous agent that searches arXiv, parses PDFs with MinerU, audits cross-modal alignment, builds benchmarks, evaluates models, and self-corrects on failure — with unified logging and checkpoint recovery. | `controlmind track2 validate --artifact all` |
+| **Medical RAG** | A local-first evidence Q&A system over 97 parsed PMC papers, with IMRAD-aware chunking, hybrid FAISS+BM25 retrieval, Chinese-to-English query bridging, visual injection, and safety-refusal boundaries. | `controlmind track3 eval --case-set zh_ask` |
 
-Representative sample packs:
-
-- [Track 1 20 cases](docs/submissions/shared/track1_sci_align_20_cases.md)
-- [Track 2 20 cases](docs/submissions/shared/track2_agent_20_cases.md)
-- [Track 3 20 cases](docs/submissions/shared/track3_medical_rag_20_cases.md)
-
-## Key Results
-
-| Area | Result |
-|:---|:---|
-| Scientific corpus | 362 control-science documents, 253,012 LaTeX formulas, 28K-level chunks |
-| Track 1 benchmark | 500 balanced questions, A/B/C/D = 125 each, 9-model leaderboard |
-| Cross-modal traceability | 500/500 questions linked to source chunks; image/formula statistics preserved |
-| Track 2 Agent | 14 intents, ResourceScheduler, LogStep schema, artifact validation, 391-second flywheel replay |
-| Track 3 Medical RAG | 97 parsed PMC papers, 3,348 medical chunks, FAISS/BM25/vision indexes |
-| Chinese Ask | BGE-M3 fixed trace with full claim support and citation coverage in saved evaluation |
-| Local-first boundary | Medical chunks, indexes, QLoRA data, and RAG context stay local by default |
-
-All quantitative claims in the submission reports point back to files, commands, or hashes in [DATA-TRACE.md](docs/submissions/shared/DATA-TRACE.md).
+---
 
 ## Quick Start
 
-Use an existing `myenv` environment when available.
-
-```powershell
-conda run -n myenv python demo/cli/controlscidemo all --quick
-```
-
-Run per-track quick views:
-
-```powershell
-conda run -n myenv python demo/cli/controlscidemo track1 --quick
-conda run -n myenv python demo/cli/controlscidemo track2 --quick
-conda run -n myenv python demo/cli/controlscidemo track3 --quick
-```
-
-Run reviewer-oriented minimal verification:
-
-```powershell
-.\run_reviewer_demo.ps1 -Track All -SkipApiHealth
-```
-
-Run JSON-oriented checks. Use `--output` when saving files on Windows; it lets the Python CLI write UTF-8 JSON directly and avoids shell redirection encoding issues.
-
-```powershell
-conda run --no-capture-output -n myenv python -m controlsci.cli doctor --output _scratch/doctor.json
-conda run --no-capture-output -n myenv python -m controlsci.cli track2 validate --artifact all --output _scratch/track2_validate.json
-conda run --no-capture-output -n myenv python -m controlsci.cli track3 eval --case-set zh_ask --output _scratch/track3_eval_zh_ask.json
-```
-
-Install the public CLI wrapper locally:
-
-```powershell
+```bash
+pip install -r requirements.txt
 pip install -e .
 controlmind doctor
-controlmind track2 validate --artifact all
-controlmind track3 eval --case-set zh_ask
 ```
 
-Optional Node.js launcher:
-
-```powershell
-npm install -g ./npm/controlmind
-controlmind wrapper-doctor
-controlmind track2 validate --artifact all
-```
-
-The npm package is only a thin launcher. It locates the repository, selects `CONTROLMIND_PYTHON`, `conda run -n myenv python`, or system Python, and forwards commands to `python -m controlsci.cli`.
-
-## Load The Sci-Align Dataset
+Load the Sci-Align benchmark dataset:
 
 ```python
 from datasets import load_dataset
 
 core = load_dataset("MorningStar0709/control-sci-corpus", "core", split="train")
-print(len(core))
+print(len(core))       # 500
 print(core[0]["question"])
-
-full = load_dataset("json", data_files="benchmark/dataset/full.json", field="questions", split="train")
 ```
 
-Local JSON files:
+Run per-track quick checks:
 
-```text
-benchmark/dataset/core.json
-benchmark/dataset/full.json
-benchmark/dataset/schema.json
+```bash
+controlmind track1 validate --sample 4
+controlmind track2 validate --artifact all
+controlmind track3 eval --case-set zh_ask
 ```
 
-Dataset documentation:
+> **Windows users:** prepend `conda run -n myenv python -m controlsci.cli` if not using `pip install -e .`. PowerShell scripts (`run_reviewer_demo.ps1`, `run_frontend.ps1`) are also provided.
 
-- [benchmark/dataset/README.md](benchmark/dataset/README.md)
-- [HuggingFace dataset card](https://huggingface.co/datasets/MorningStar0709/control-sci-corpus)
+---
 
-## Local Demo And Deployment
+## Key Results
 
-Start the local frontend/backend workbench:
+| Metric | Value |
+|:---|---:|
+| Documents parsed | 362 (23 textbooks + 339 arXiv papers) |
+| Structured chunks | 28,514 |
+| LaTeX formulas extracted | 253,012 |
+| Image-formula co-occurrence pairs | 4,996 (9,207 audit judgments) |
+| Benchmark questions | 500 (A/B/C/D = 125 each, 14 sub-domains) |
+| Models evaluated | 9 |
+| PMC medical papers | 97 parsed, 3,348 medical chunks |
+| QLoRA fine-tuning | 4B/9B variants, perplexity-probed |
 
-```powershell
-.\run_frontend.ps1 -StartBackend
-```
+---
 
-Run the RAG API-backed reviewer check after the local API is available:
+## Leaderboard — ControlSci Sci-Align Benchmark
 
-```powershell
-.\run_reviewer_demo.ps1 -Track All -ApiPort 17001
-```
+| Rank | Model | Overall | A: Concept | B: Reasoning | C: Sensitivity | D: Design |
+|:---:|:---|:---:|:---:|:---:|:---:|:---:|
+| 1 | **MiMo-v2-flash** | **0.647** | 0.610 | 0.606 | 0.636 | 0.736 |
+| 2 | DeepSeek-v4-flash | 0.632 | 0.634 | 0.631 | 0.714 | 0.550 |
+| 3 | Qwen3.5-9B | 0.625 | 0.569 | 0.610 | 0.662 | 0.659 |
+| 4 | DeepSeek-v4-pro | 0.619 | 0.627 | 0.590 | 0.742 | 0.514 |
+| 5 | MiniMax-M2.5-highspeed | 0.602 | 0.638 | 0.519 | 0.624 | 0.626 |
+| 6 | MiniMax-M2.7-highspeed | 0.574 | 0.605 | 0.485 | 0.612 | 0.593 |
+| 7 | MiMo-v2.5-pro | 0.539 | 0.595 | 0.523 | 0.602 | 0.436 |
+| 8 | MiMo-v2-pro | 0.514 | 0.638 | 0.490 | 0.560 | 0.369 |
+| 9 | MiMo-v2.5 | 0.440 | 0.608 | 0.466 | 0.528 | 0.156 |
 
-Track-specific deployment notes:
+All scores verified by LLM-as-Judge with cross-validation. Full results and analysis in [`benchmark/eval/results/`](benchmark/eval/results/).
 
-- [Track 2 Agent deploy notes](docs/submissions/shared/track2_agent_deploy.md)
-- [Track 3 Medical RAG deploy notes](docs/submissions/shared/track3_medical_deploy.md)
-- [Cloud demo boundary](docs/submissions/shared/public_cloud_boundary.md)
+![Leaderboard](docs/submissions/shared/assets/task1/track1_leaderboard_scores.png)
 
-The public cloud demo is for public or sanitized examples. Private documents, medical chunks, indexes, model adapters, and RAG contexts are handled through local/private paths.
+---
 
-## Reproducibility Boundary
+## Reports
 
-The recommended verification path uses packaged public artifacts and local indexes. arXiv/PMC online downloading remains available as a corpus expansion capability, but it is intentionally not a prerequisite for minimal validation because public services may apply rate limits, browser checks, or short-lived cookies. Local run outputs should go under `_scratch/`; that directory is ignored and can be deleted or regenerated without affecting the audited source data.
+Each track has a companion technical report with detailed methodology, experiments, and traceable evidence:
 
-For the full layered policy, see [REPRODUCIBILITY.md](REPRODUCIBILITY.md). In short: smoke checks and minimal real-chain validation are designed for a public checkout; report-level conclusions are auditable through `docs/submissions/data_trace_bundle/`; full-scale rebuilds may require GPU, network access, and external model/API credentials.
+| Track | Report | Key Evidence |
+|:---|:---|:---|
+| Track 1 Sci-Align | [track1_sci_align_report.md](docs/submissions/track1_sci_align_report.md) | 500-question schema, 9-model leaderboard, QLoRA results |
+| Track 2 Data Agent | [track2_agent_report.md](docs/submissions/track2_agent_report.md) | 14-intent protocol, dry-run logs, failure recovery cases |
+| Track 3 Medical RAG | [track3_medical_rag_report.md](docs/submissions/track3_medical_rag_report.md) | 97 PMC papers, Chinese Ask traces, MedBench comparison |
+
+Every quantitative claim in the reports points back to source files, commands, or hashes in [`DATA-TRACE.md`](docs/submissions/shared/DATA-TRACE.md).
+
+---
+
+## Public Entry Points
+
+| Item | Link |
+|:---|:---|
+| Cloud Demo | [demo.askiler.com](https://demo.askiler.com/) (code: `ControlMind@2026`) |
+| HuggingFace Dataset | [MorningStar0709/control-sci-corpus](https://huggingface.co/datasets/MorningStar0709/control-sci-corpus) |
+| Reproducibility Guide | [REPRODUCIBILITY.md](REPRODUCIBILITY.md) |
+| Evidence Bundle | [docs/submissions/data_trace_bundle/](docs/submissions/data_trace_bundle/) |
+
+---
 
 ## Repository Map
 
 ```text
-benchmark/                    Track 1 benchmark and Track 2 Agent artifacts
-benchmark/dataset/            ControlSci core/full/schema JSON files
-benchmark/eval/               evaluation, leaderboard, medical RAG eval scripts
-controlsci/                   Python package and controlmind CLI
-npm/controlmind/              optional Node.js launcher for the Python CLI
-data/sources_medical/         Track 3 medical corpus, chunks, indexes, vision artifacts
-docs/submissions/             public submission reports, quickstart, evidence bundle
-starboard/                    local/cloud demo frontend
-tools/                        MinerU and utility scripts
+benchmark/                   Sci-Align benchmark & Data Agent code
+benchmark/dataset/           Core/full/schema JSON, multimodal index
+benchmark/eval/              Evaluation, leaderboard & medical RAG scripts
+controlsci/                  Python package (controlmind CLI)
+data/sources_medical/        Medical corpus, chunks, FAISS/BM25 indexes
+docs/submissions/            Technical reports, evidence bundle, DATA-TRACE
+starboard/                   Local & cloud demo frontend (Next.js)
+tools/                       MinerU utilities & analysis scripts
+npm/controlmind/             Optional Node.js CLI launcher
 ```
 
-## License And Data Boundary
+---
 
-- The ControlSci dataset is released under **CC-BY-4.0**. See [LICENSE](LICENSE).
-- Public PMC/arXiv/source documents retain their original licenses and attribution requirements.
-- Patient-level private data is not included in this repository or submission package.
-- Cloud demo inputs are limited to public or sanitized materials; private RAG assets are local-first.
+## License & Data Boundary
+
+- This project is released under **CC-BY-4.0**. See [LICENSE](LICENSE).
+- Public PMC/arXiv source documents retain their original licenses and attribution.
+- Patient-level private data is **not** included.
+- Cloud demo inputs are limited to public or sanitized materials; medical chunks, indexes, and RAG contexts are local-first by default.
+
+---
 
 ## Citation
 
@@ -183,7 +150,7 @@ tools/                        MinerU and utility scripts
   title        = {ControlMind: MinerU-based Scientific Document Intelligence for Sci-Align, Data Agent, and Medical RAG},
   author       = {MorningStar},
   year         = {2026},
-  howpublished = {\url{https://github.com/MorningStar0709/ControlMind}},
-  note         = {ControlSci dataset released under CC-BY-4.0}
+  howpublished = {\url{https://github.com/MorningStar0709/control-sci}},
+  note         = {ControlSci benchmark released under CC-BY-4.0}
 }
 ```

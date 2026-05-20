@@ -1,0 +1,3 @@
+# 5.7 BLOCK DIAGRAMS
+
+Block diagrams are standard pictorial or graphical representations of interconnected systems. Each dynamic system that has an I/O relationship is a “block,” which is usually a single transfer function. Other types of blocks include multiplying factors (“gains”), time differentiation, and integration with time (“integrators”). Blocks are connected by signal paths, and these paths represent the flow of input and output signals and computations. Signal flow into a block represents a math operation, usually multiplication. Simulink is based on block diagrams, which are constructed by connecting the icons for various types of blocks in the Simulink environment (discussed in Chapter 6 and Appendix C).

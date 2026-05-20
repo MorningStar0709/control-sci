@@ -1,0 +1,3 @@
+$$
+\begin{array}{l} \delta J = \frac {\partial}{\partial \varepsilon} \int_ {t _ {0}} ^ {t _ {f}} L (x + \varepsilon \delta x, \dot {x} + \varepsilon \delta \dot {x}, t) d t | _ {\varepsilon = 0} \\ = \int_ {t _ {0}} ^ {t _ {f}} \left[ \frac {\partial L}{\partial x} \frac {\partial (x + \varepsilon \delta x)}{\partial \varepsilon} + \frac {\partial L}{\partial \dot {x}} \frac {\partial (\dot {x} + \varepsilon \delta \dot {x})}{\partial \varepsilon} \right] \Bigg | _ {\varepsilon = 0} d t \\ = \int_ {t _ {0}} ^ {t _ {f}} \left(\frac {\partial L}{\partial x} \delta x + \frac {\partial L}{\partial \dot {x}} \delta \dot {x}\right) d t \\ \end{array}
+$$

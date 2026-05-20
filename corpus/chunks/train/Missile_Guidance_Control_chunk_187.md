@@ -1,0 +1,3 @@
+The synthetic stability loop improves the high-frequency poles of the autopilot if the airframe is stable, and enables the autopilot to tolerate some instability (i.e., positive $M _ { \alpha } )$ of the airframe.
+Furthermore, the synthetic stability loop in Figure 3.36 effectively feeds incremental pitch angle back to the fin servos, thereby moving the autopilot closed-loop poles, corresponding to the bare airframe poles given by the transfer function $G _ { p r }$ (see Section 3.2.1), further from the origin of the complex plane.
+Summarized below are the design methods for a band-switched pitch autopilot.

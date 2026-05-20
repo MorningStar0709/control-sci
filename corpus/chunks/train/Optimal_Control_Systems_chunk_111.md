@@ -1,0 +1,7 @@
+$$
+\begin{array}{l} \mathcal {L} ^ {\delta} = \mathcal {L} ^ {\delta} (\mathbf {x} ^ {*} (t) + \delta \mathbf {x} (t), \dot {\mathbf {x}} ^ {*} (t) + \delta \dot {\mathbf {x}} (t), \mathbf {u} ^ {*} (t) + \delta \mathbf {u} (t), \boldsymbol {\lambda} (t), t) \\ = V \left(\mathbf {x} ^ {*} (t) + \delta \mathbf {x} (t), \mathbf {u} ^ {*} (t) + \delta \mathbf {u} (t), t\right) \\ + \left(\frac {\partial S}{\partial \mathbf {x}}\right) _ {*} ^ {\prime} [ \dot {\mathbf {x}} ^ {*} (t) + \delta \dot {\mathbf {x}} (t) ] + \left(\frac {\partial S}{\partial t}\right) _ {*} \\ + \boldsymbol {\lambda} ^ {\prime} (t) [ \mathbf {f} (\mathbf {x} ^ {*} (t) + \delta \mathbf {x} (t), \mathbf {u} ^ {*} (t) + \delta \mathbf {u} (t), t) \\ \left. - \left\{\dot {\mathbf {x}} ^ {*} (t) + \delta \dot {\mathbf {x}} (t) \right\} \right]. \tag {2.7.13} \\ \end{array}
+$$
+
+With these, the augmented performance index at the optimal and any other condition becomes
+
+$$J _ {a} (\mathbf {u} ^ {*} (t)) = \int_ {t _ {0}} ^ {t _ {f}} \mathcal {L} (\mathbf {x} ^ {*} (t), \dot {\mathbf {x}} ^ {*} (t), \mathbf {u} ^ {*} (t), \boldsymbol {\lambda} (t), t) d t = \int_ {t _ {0}} ^ {t _ {f}} \mathcal {L} d tJ _ {a} (\mathbf {u} (t)) = \int_ {t _ {0}} ^ {t _ {f} + \delta t _ {f}} \mathcal {L} ^ {\delta} d t = \int_ {t _ {0}} ^ {t _ {f}} \mathcal {L} ^ {\delta} d t + \int_ {t _ {f}} ^ {t _ {f} + \delta t _ {f}} \mathcal {L} ^ {\delta} d t. \tag {2.7.14}$$

@@ -1,0 +1,11 @@
+As stated above, classical servomechanism theory has been used extensively to design both hydraulic and electric seeker servos that are compatible with requirements for gyro-stabilization and fast response.
+Pitch, yaw, and roll autopilots have been designed to meet problems of Mach variation, altitude variation, induced roll moments, instrumentation lags, body-bending modes, guidance response, and stability.
+Although classical theory presently is most applicable to autopilots and airframe stability, research efforts are continually made to apply modern control and estimation theory to conventional as well as adaptive autopilot design.
+Modern advanced guidance and control systems having superior performance have been designed with on-line Kalman filter estimation for filtering noisy radar data and with optimal control gains expressed in closed form.
+Synthesis of sampled data homing and command guidance systems are being used extensively today.
+For example, a vital point in the development of advanced homing guidance and control systems is to optimize the performance of the missile under design for various intercept situations and target maneuvers.
+Furthermore, trends in operational requirements indicate that future air-to-air or air-to ground missiles will have to have a high probability of kill under total sphere launch engagement conditions and a launch and leave capability (such as the AGM-154 Joint Standoff Weapon (JSOW)) when employed against a wide variety of highly maneuverable intelligent targets.
+In order to satisfy these requirements, future air-to-air missiles will require complex guidance algorithms.
+Additionally, in order to implement these complex guidance algorithms, more information about the missile and target dynamic states will have to be accurately measured or estimated on board the missile.
+The very nature of this problem lends itself to the use of modern control theory to derive the advanced guidance laws and modern estimation theory to develop techniques to process the available information and estimate the unavailable information.
+The key to a successful problem formulation is a translation of the mission requirements into a mathematical performance index (P.I.).

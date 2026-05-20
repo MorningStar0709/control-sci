@@ -1,0 +1,13 @@
+Proof. The polyhedron Z admits the representation $\mathcal { Z } = \{ ( x , u ) \mid \langle m ^ { j } , u \rangle -$ $\langle n ^ { j } , x \rangle - p ^ { j } \leq 0 , ~ j \in \mathcal { I } \}$ for some $m ^ { j } \in \mathbb { R } ^ { m } , n ^ { j } \in \mathbb { R } ^ { n }$ and $p ^ { j } \in \mathbb { R } , j \in$ $\mathcal { I } : = \{ 1 , \ldots , J \}$ . Define D to be the collection of all index sets $I \subseteq { \mathcal { I } }$ such that $\textstyle { \sum _ { j \in I } \lambda ^ { j } m ^ { j } \neq 0 , \forall \lambda \in \Lambda _ { I } }$ in which, for a particular index set $I , \Lambda _ { I }$ is defined to be $\Lambda _ { I } : = \{ \lambda \mid \lambda ^ { j } \geq 0 , \textstyle \sum _ { i \in I } \lambda ^ { j } = 1 \}$ . Because D is a finite set, there exists a $\delta > 0$ such that for all $I \in \mathcal { D }$ , all $\lambda \in \Lambda _ { I } , | \sum _ { i \in I } \lambda ^ { j } m ^ { j } | > \delta$ . Let $\psi ( \cdot )$ be defined by $\psi ( x , u ) : = \operatorname* { m a x } \{ \langle m ^ { j } , u \rangle - \langle n ^ { j } , x \rangle - p ^ { j } , 0 \mid j \in \mathcal { I } \}$ so that $( x , u ) \in \mathcal { Z } \mathrm { ~ ( o r ~ } u \in \mathcal { U } ( x ) \mathrm { ) ~ }$ if and only if $\psi ( x , u ) = 0$ . We now claim that, for every $( x , u ) \in \mathcal { X } \times \mathbb { R } ^ { m }$ such that $\psi ( x , u ) > 0$ and every $g \in \partial _ { u } \psi ( x , u )$ , the subgradient of $\psi$ with respect to u at $( x , u )$ , we have $| g | > \delta$ . Assuming for the moment that the claim is true, the proof of the Corollary may be completed with the aid of Theorem C.31. Assume, as stated in the Corollary, that $x , x ^ { \prime } \in { \mathcal { X } }$ and $u \in \mathcal { U } ( x )$ ; the theorem asserts
+
+$$d (u, \mathcal {U} (x ^ {\prime})) \leq (1 / \delta) \psi (x ^ {\prime}, u), \forall x ^ {\prime} \in \mathcal {X}$$
+
+But $\psi ( x , u ) = 0$ (since $u \in \mathcal { U } ( x ) )$ so that
+
+$$d (u, \mathcal {U} (x ^ {\prime})) \leq (1 / \delta) [ \psi (x ^ {\prime}, u) - \psi (x, u) ] \leq (c / \delta) | x ^ {\prime} - x |$$
+
+where c is the Lipschitz constant for $x \mapsto \psi ( x , u ) ~ ( \psi ( \cdot )$ is piecewise affine and continuous). This proves the Corollary with $K = c / \delta$ .
+
+It remains to confirm the claim. Take any $( x , u ) \in \mathcal { X } \times \mathbb { R } ^ { m }$ such that $\psi ( x , u ) > 0$ . Then max ${ } _ { j } \{ \langle m ^ { j } , u \rangle - \langle n ^ { j } , x \rangle - p ^ { j } , 0 \mid j \in \mathcal { I } \} > 0$ . Let
+
+$I ^ { 0 } ( x , u )$ denote the active constraint set (the set of those constraints at which the maximum is achieved). Then

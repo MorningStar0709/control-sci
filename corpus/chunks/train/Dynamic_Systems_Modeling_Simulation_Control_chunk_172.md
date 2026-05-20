@@ -1,0 +1,9 @@
+# 4.3 PNEUMATIC SYSTEMS
+
+This section presents brief descriptions of the fundamental relationships that govern pneumatic systems where a gas (often air) is the working fluid. In the previous section, we noted that very large pressure changes (on the order of 20 MPa) produced a 2% increase in the density of typical hydraulic oils. While pneumatic systems involve much lower operating pressures when compared to hydraulic systems, they nearly always involve compressible gases where the density changes significantly with pressure. Consequently, pneumatic systems are less “stiff” when compared to hydraulic systems, and, therefore, exhibit a slower response to changes in the operating state. Another difference between hydraulic and pneumatic systems involves the inclusion of thermodynamic effects. Although temperature changes can affect the properties of liquids (such as viscosity and bulk modulus), these effects are small compared to the pressure variations and hence were not considered in the development of hydraulic system models. Pneumatic systems, on the other hand, exhibit a functional relationship between pressure, temperature, and density as demonstrated by the ideal gas law:
+
+$$P = \rho R T \tag {4.56}$$
+
+where P is the absolute pressure, ?? is the gas density, R is the gas constant, and T is the absolute temperature (in kelvin, K). Including thermodynamic effects complicates the analysis of pneumatic systems immensely.
+
+The fundamental variables of a pneumatic system are pressure P and mass-flow rate w. Because gases are highly compressible, we cannot simply relate mass-flow rate to volumetric-flow rate. Furthermore, unlike gases, liquids “fill” a vessel with a recognizable liquid height. Hence we use mass-flow rate w for pneumatic systems instead of volumetric-flow rate Q.

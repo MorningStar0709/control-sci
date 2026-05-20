@@ -1,0 +1,8 @@
+\left[ \begin{array}{c} A _ {1} \\ A _ {2} \\ B _ {1} \\ B _ {2} \end{array} \right] = \frac {1}{2} \left[ \begin{array}{c} - \frac {K _ {a , l i n} K _ {v , a n g}}{K _ {a , l i n} K _ {a , a n g}} - \frac {K _ {v , l i n} K _ {a , a n g}}{K _ {a , l i n} K _ {a , a n g}} \\ \frac {K _ {a , l i n} K _ {v , a n g}}{K _ {a , l i n} K _ {a , a n g}} - \frac {K _ {v , l i n} K _ {a , a n g}}{K _ {a , l i n} K _ {a , a n g}} \\ \frac {K _ {a , l i n}}{K _ {a , l i n} K _ {a , a n g}} + \frac {K _ {a , a n g}}{K _ {a , l i n} K _ {a , a n g}} \\ \frac {K _ {a , a n g}}{K _ {a , l i n} K _ {a , a n g}} - \frac {K _ {a , l i n}}{K _ {a , l i n} K _ {a , a n g}} \end{array} \right]
+
+\left[ \begin{array}{l} A _ {1} \\ A _ {2} \\ B _ {1} \\ B _ {2} \end{array} \right] = \frac {1}{2} \left[ \begin{array}{l} - \frac {K _ {v , a n g}}{K _ {a , a n g}} - \frac {K _ {v , l i n}}{K _ {a , l i n}} \\ \frac {K _ {v , a n g}}{K _ {a , a n g}} - \frac {K _ {v , l i n}}{K _ {a , l i n}} \\ \frac {1}{K _ {a , a n g}} + \frac {1}{K _ {a , l i n}} \\ \frac {1}{K _ {a , l i n}} - \frac {1}{K _ {a , a n g}} \end{array} \right]
+
+\left[ \begin{array}{c} A _ {1} \\ A _ {2} \\ B _ {1} \\ B _ {2} \end{array} \right] = \frac {1}{2} \left[ \begin{array}{c} - \left(\frac {K _ {v , l i n}}{K _ {a , l i n}} + \frac {K _ {v , a n g}}{K _ {a , a n g}}\right) \\ - \left(\frac {K _ {v , l i n}}{K _ {a , l i n}} - \frac {K _ {v , a n g}}{K _ {a , a n g}}\right) \\ \frac {1}{K _ {a , l i n}} + \frac {1}{K _ {a , a n g}} \\ \frac {1}{K _ {a , l i n}} - \frac {1}{K _ {a , a n g}} \end{array} \right]
+$$
+
+To summarize,

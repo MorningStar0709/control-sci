@@ -1,0 +1,5 @@
+# More Complicated Control Loops
+
+The principles used in the program in Listing 9.7 may be extended to more complicated control systems with several loops having different sampling periods. A computer code, which may be represented by Fig. 9.20, is then obtained. The program P0 in Fig. 9.20 runs at the sampling rate given by the clock. The programs P1, P2, and P3 run each every third clock pulse. In order to obtain the representation in Fig. 9.20, it is necessary that the time required to execute each path be shorter than the shortest sampling period in the system. This is easy to do for systems with long sampling periods. For systems with fast sampling, it may be necessary to split up the computations in a tedious, unnatural, and error-prone fashion.
+
+It is comparatively easy to debug the program shown in Fig. 9.20 if there are few paths and if the procedures are simple. The difficulty in debugging grows rapidly with increasing system complexity. New ideas and concepts are needed to handle such problems in a convenient way.

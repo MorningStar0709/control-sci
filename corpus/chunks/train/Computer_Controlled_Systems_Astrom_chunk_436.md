@@ -1,0 +1,5 @@
+# 7.5 Designing Controllers with Predictive First-Order Hold
+
+Design of computer-controlled systems based on a first-order hold was discussed in Chapters 4 and 5. In this section it will be shown that the methods used in these chapters can easily be generalized to deal with systems where the D-A conversion is based on a predictive first-order hold.
+
+The reason for using other hold devices is that the control signal changes stepwise, which implies that high-frequency signals are injected into the process. This is not a serious drawback for processes that attenuate high-frequencies effectively. It can, however, he a severe drawback for systems with poorly damped oscillatory poles. For hydraulic systems it may also create severe hydraulic transients. The remedy is to replace the first-order hold by a hold circuit that gives smooth control signals. A simple fix is to introduce a smoothing filter after the D-A converter, as was discussed in Sec. 7.4. Another possibility is to use the predictive first-order hold. This device, which was discussed in Sec. 7.3, generates an output that is piecewise linear.

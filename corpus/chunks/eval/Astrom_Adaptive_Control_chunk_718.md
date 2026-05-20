@@ -1,0 +1,3 @@
+# Adaptive Feedforward
+
+In many applications it is possible to measure some of the disturbances acting on the process. Feedforward control is very useful when there are measurable disturbances. With feedforward it is possible to decrease the influence of disturbances substantially. However, feedforward control, being an open-loop compensation, requires good models of process dynamics. Identification and adaptation therefore appear to be prerequisites for effective use of feedforward compensation. Until now, very little research and development have been done on adaptive feedforward, even if it was used in the early applications of self-tuning regulators.

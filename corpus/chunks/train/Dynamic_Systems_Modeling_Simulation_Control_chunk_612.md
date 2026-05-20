@@ -1,0 +1,3 @@
+where phase margin $\phi _ { \mathrm { p m } }$ is expressed in degrees. Hence, a phase margin of ${ { 6 0 } ^ { \circ } }$ corresponds approximately to a closed-loop damping ratio $\zeta = 0 . 6$ . Of course, if the closed-loop system exhibits dominant second-order roots, then we can relate the damping ratio (and undamped natural frequency $\omega _ { n } )$ to time-response performance criteria such as maximum overshoot and peak time (see Table 7.4).
+
+Gain margin indicates how much additional gain is acceptable before driving the system unstable. A good rule-of-thumb is that a gain margin should be at least a factor of 2 (or 6 dB) in order to accommodate uncertainties in the system model.

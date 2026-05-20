@@ -1,0 +1,9 @@
+# Extremum Control of Static Systems
+
+The first extremum control systems were based on analog implementation. One way to perform the optimization is the so-called perturbation method. The basic idea is to add a known time-varying signal to the input of the nonlinearity, then observe the effect on the output and make a correlation between these two signals. Depending on the phase between the two signals, the direction toward the extremum can be determined. The perturbation method has been used for extremum control of chemical reactors, combustion engines, and gas furnaces, for instance.
+
+Extremum control of static systems as in Eq. (13.2) is in essence a problem of numerical optimization. With the analog implementations the possible methods were severely restricted. When a digital computer is available, standard algorithms for function minimization can be used. Usually, it is possible only to measure the function values, not its derivative. The function minimization then has to be done by using numerically computed derivatives. Some methods use only function comparisons. These methods can be used even for minimization of nonsmooth functions.
+
+Performance measurements are typically corrupted by noise. It is then necessary to average out the influence of the noise. This implies that the gain in the optimization algorithm should go to zero. However, if the extremum is changing with time, the gain should not go to zero. This is the same compromise as is discussed in connection with tuning and adaptive control.
+
+Most schemes for extremum control of static systems do not build up any information about the nonlinearity. The “states” of the algorithms are essentially the current estimate of the optimum point and some previous measurements. By using a model and system identification it is possible to utilize the measurements of the system better and to follow time variations in the process.

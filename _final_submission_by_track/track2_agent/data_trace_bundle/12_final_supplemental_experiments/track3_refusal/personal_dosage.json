@@ -1,0 +1,51 @@
+{
+  "session_id": "91a19dda3a",
+  "question": "我血糖高，二甲双胍应该吃多少剂量？",
+  "answer": "该问题看起来像个人诊疗或用药建议。当前系统只提供基于已审核医学文献库的证据问答，不替代医生诊断、处方或急诊判断。",
+  "status": "safety_refusal",
+  "model": "safety_triage",
+  "retrieval_mode": "none",
+  "retrieval_index": {},
+  "privacy": "local_only",
+  "citations": [],
+  "claims": [],
+  "claim_count": 0,
+  "supported_claims": 0,
+  "unsupported_claims": 0,
+  "citation_coverage": 0.0,
+  "evidence_sufficiency": {
+    "sufficient": false,
+    "reason": "personal_medical_advice"
+  },
+  "confidence": "low",
+  "limitations": "安全分诊命中后未执行医学文献检索；请改问医学文献证据问题，或咨询合格医生。",
+  "abstain": true,
+  "abstain_reason": "personal_medical_advice",
+  "evidence_items": [],
+  "source_summary": {
+    "total_sources": 0,
+    "total_chunks": 0,
+    "sources": []
+  },
+  "task_id": "",
+  "generated_at": "2026-05-17T10:42:36.934032+00:00",
+  "safety_triage": {
+    "category": "personal_medical_advice",
+    "risk_level": "medium",
+    "allow_rag": false,
+    "matched_terms": [
+      "剂量",
+      "应该吃",
+      "该吃",
+      "我",
+      "剂量"
+    ],
+    "user_message": "该问题看起来像个人诊疗或用药建议。当前系统只提供基于已审核医学文献库的证据问答，不替代医生诊断、处方或急诊判断。",
+    "triage_source": "fallback_hard_rule"
+  },
+  "audit": {
+    "interface": "medical_rag_ask",
+    "prompt_policy": "safety_triage_no_retrieval",
+    "raw_medical_context_sent_to_cloud": false
+  }
+}

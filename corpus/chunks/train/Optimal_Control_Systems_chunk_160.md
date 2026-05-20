@@ -1,0 +1,3 @@
+# 3.2.1 Symmetric Property of the Riccati Coefficient Matrix
+
+Here, we first show an important property of the Riccati matrix $\mathbf{P}(t)$ . The fact that the nxn matrix $\mathbf{P}(t)$ is symmetric for all $t \in [t_{0}, t_{f}]$ , i.e., $\mathbf{P}(t) = \mathbf{P}'(t)$ can be easily shown as follows. First of all, let us note that from the formulation of the problem itself, the matrices $\mathbf{F}(t_{f})$ , $\mathbf{Q}(t)$ , and $\mathbf{R}(t)$ are symmetric and therefore, the matrix $\mathbf{B}(t)\mathbf{R}^{-1}(t)\mathbf{B}'(t)$ is also symmetric. Now transposing both sides of the matrix DRE (3.2.18), we notice that both $\mathbf{P}(t)$ and $\mathbf{P}'(t)$ are solutions of the same differential equation and that both satisfy the same final condition (3.2.19).

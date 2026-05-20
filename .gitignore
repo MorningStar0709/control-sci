@@ -55,7 +55,6 @@ docs/*
 # --- PPT 内部素材 ---
 _ppt_materials/
 _ppt_materials_tracks/
-_final_submission_by_track/
 
 # --- 运行时 & 衍生产物 ---
 benchmark/eval/reports/
@@ -86,7 +85,6 @@ data/processed/
 
 # --- MinerU 解析产物（可重建，量大） ---
 corpus/processed/
-corpus/chunks/
 data/sources_medical/chunks/
 data/sources_medical/pdf/
 
@@ -133,6 +131,8 @@ data/sources_medical/medbench/*.zip
 
 # --- Pipeline 临时文件 ---
 pipeline/_bat_tmp/
+pipeline/*.checkpoint.json
+pipeline/*.checkpoint.*.json
 
 # --- OS ---
 .DS_Store
@@ -142,6 +142,10 @@ Thumbs.db
 # Keep these after broad allow-list rules such as !docs/submissions/**.
 docs/submissions/data_trace_bundle/09_medical_rag_large/
 docs/submissions/data_trace_bundle/10_charts_large/
-_final_submission_by_track/
 _ppt_materials_tracks/
 build/
+
+# --- Submission package: exclude rebuildable binary caches ---
+_final_submission_by_track/**/embeddings_cache.npy
+_final_submission_by_track/**/medical.index
+_final_submission_by_track/**/bm25.pkl

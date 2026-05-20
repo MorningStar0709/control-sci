@@ -1,0 +1,3 @@
+# Initialization
+
+Because a controller is a dynamic system, it is important to set the controller state appropriately when the controller is switched on. If this is not done, there may be large switching transients. In conventional PI-controllers, the controller has one state only—namely, the integrator. It is customary to initialize such a controller by operating it in manual control until the process output comes close to its desired value. For an algorithm with an explicit observer, the controller state may be initialized by keeping the control signal fixed for the time required for the observer to settle. A controller with antiwindup may also be initialized by running it in manual mode during a period that corresponds to the settling time of the observer.

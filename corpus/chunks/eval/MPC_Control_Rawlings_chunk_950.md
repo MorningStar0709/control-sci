@@ -1,0 +1,9 @@
+An alternative definition of global asymptotic stability of A for $x ^ { + } ~ = ~ f ( x , w ) , ~ w ~ \in ~ \mathbb { W }$ , if A is compact, is the existence of a $\mathcal { K L }$ function $\beta ( \cdot )$ such that for each $x \in \mathbb { R } ^ { n }$ , each $\phi \in S ( x )$ satisfies $| \phi ( i ) | _ { \mathcal { A } } \leq \beta ( | x | _ { \mathcal { A } } , i )$ for all $i \in \mathbb { I } _ { \geq 0 }$ . To cope with disturbances we require a modified definition of a Lyapunov function.
+
+Definition B.22 (Lyapunov function (disturbances)). A function $V : \mathbb { R } ^ { n } $ $\mathbb { R } _ { \geq 0 }$ is said to be a Lyapunov function for the system $x ^ { + } = f ( x , w )$ , $w \in \mathbb { W }$ (or for $x ^ { + } \in F ( x ) )$ ) and set A if there exist functions $\alpha _ { i } \in \mathcal K _ { \infty }$ , $i = 1 , 2$ and $\alpha _ { 3 } \in \mathcal { P D }$ such that for any $\boldsymbol { x } \in \mathbb { R } ^ { n }$ ,
+
+$$V (x) \geq \alpha_ {1} (| x | _ {\mathcal {A}}) \tag {B.8}V (x) \leq \alpha_ {2} (| x | _ {\mathcal {A}}) \tag {B.9}\sup _ {z \in F (x)} V (z) - V (x) \leq - \alpha_ {3} (| x | _ {\mathcal {A}}) \tag {B.10}$$
+
+Inequality B.10 ensures $V ( f ( x , w ) ) - V ( x ) \leq - \alpha _ { 3 } ( | x | _ { \mathcal { A } } )$ for all $w \in$ W. The existence of a Lyapunov function for the system $x ^ { + } \in F ( x )$ and set A is a sufficient condition for A to be globally asymptotically stable for $x ^ { + } \in F ( x )$ as shown in the next result.
+
+Theorem B.23 (Lyapunov function for GAS (disturbances)). Suppose $V ( \cdot )$ is a Lyapunov function $f o r x ^ { + } = f ( x , w ) , w \in \mathbb { W } \ ( o r f o r x ^ { + } \in F ( x ) )$ and set A with $\alpha _ { 3 } ( \cdot ) ~ a ~ \mathcal { K } _ { \infty }$ function. Then A is globally asymptotically stable for $x ^ { + } = f ( x , w ) , w \in \mathbb { W } ( o r f o r x ^ { + } \in F ( x ) ) .$

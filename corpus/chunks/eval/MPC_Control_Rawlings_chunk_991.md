@@ -1,0 +1,3 @@
+For each $i \in { \mathcal { I } }$ let $g _ { i } ( u ) : = \langle a _ { i } , u \rangle - b _ { i }$ and for each $i \in { \mathcal { F } }$ , let $h _ { i } ( u ) : =$ $\langle c _ { i } , u \rangle - d _ { i }$ so that $\nabla g ( u _ { i } ) ~ = ~ a _ { i }$ and $\nabla h _ { i } ~ = ~ c _ { i }$ . It follows from the characterization of $\hat { N } _ { U } ( u )$ that u is optimal for mi $ { \mathrm { n } } _ { u } \{ f ( u ) \mid u \in U \}$ if and only if there exist multipliers $\lambda _ { i } \ge 0 , i \in \mathcal { I } ^ { 0 } ( u )$ and $\mu _ { i } \in \mathbb { R } , i \in \mathcal { F }$ such that
+
+$$\nabla f (u) + \sum_ {i \in \mathcal {I} ^ {0} (u)} \mu_ {i} \nabla g _ {i} (u) + \sum_ {i \in \mathcal {E}} h _ {i} (u) = 0 \tag {C.21}$$

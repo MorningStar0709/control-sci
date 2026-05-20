@@ -1,0 +1,7 @@
+# The Ziegler-Nichols Closed-Loop Method
+
+Ziegler and Nichols have devised a very simple heuristic method for determining the parameters of a PID controller based on the critical gain and the critical period. The controller settings are given in Table 8.2. These parameters give a closed-loop system with quite low damping. Systems with better damping can be obtained by slight modifications of the numbers in the table. A modified method of this type is ideally matched to the determination of $K_{u}$ and $T_{u}$ by the relay method. This gives the relay auto-tuner shown in Fig. 8.5. When tuning is demanded, the switch is set to T, which means that relay feedback is activated and the PID regulator is disconnected. When a stable limit cycle is established, the PID parameters are computed, and the PID controller is then connected to the process. Naturally, the method will not work for all systems. First, there will not be unique limit cycle oscillations for an arbitrary transfer function. Second, PID control is not appropriate for all processes. Relay auto-tuning has empirically been found to work well for a large class of systems encountered in process control.
+
+Table 8.2 Regulator parameters obtained by the Ziegler-Nichols closed-loop method. 
+
+<table><tr><td>Controller</td><td> $K_{v}$ </td><td> $T_{i}$ </td><td> $T_{d}$ </td></tr><tr><td>P</td><td> $0.5K_{u}$ </td><td></td><td></td></tr><tr><td>PI</td><td> $0.4K_{u}$ </td><td> $0.8T_{u}$ </td><td></td></tr><tr><td>PID</td><td> $0.6K_{u}$ </td><td> $0.5T_{u}$ </td><td> $0.12T_{u}$ </td></tr></table>

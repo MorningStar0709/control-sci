@@ -1,0 +1,3 @@
+# Performance Specifications and Limitations
+
+In this chapter, we consider further the feedback system properties and discuss how to achieve desired performance using feedback control. We also consider the mathematical formulations of optimal $\mathcal { H } _ { 2 }$ and $\mathcal { H } _ { \infty }$ control problems. A key step in the optimal control design is the selection of weighting functions. We shall give some guidelines to such selection process using some SISO examples. We shall also discuss in some detail the design limitations imposed by bandwidth constraints, the open-loop right-half plane zeros, and the open-loop right-half plane poles using Bode’s gain and phase relation, Bode’s sensitivity integral relation, and the Poisson integral formula.

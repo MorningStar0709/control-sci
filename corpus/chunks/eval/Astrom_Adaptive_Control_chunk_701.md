@@ -1,0 +1,3 @@
+# 11.9 OPERATIONAL ISSUES
+
+Simple controllers typically have two operating modes, manual and automatic. It is also possible to change the parameters during operation. It is a nontrivial task to deal with the operation of a conventional controller. The current practice has developed over a long period of time. Adaptive controllers can operate in many more ways. It is a difficult problem to find a good solution to the operational problems. The problem will also vary widely with the application area. In this section we discuss a controller for industrial process control, which is designed to operate in many widely different environments.

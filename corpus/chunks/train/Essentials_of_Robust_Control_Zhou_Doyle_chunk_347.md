@@ -1,0 +1,9 @@
+Note that for closed-loop stability it is necessary to have $a _ { 0 } > 0$ and $a _ { 1 } > 0$ . Note also that $a _ { 0 } \approx ( 1 - k ) \alpha \beta$ and $a _ { 1 } \approx 2 ( k - 1 ) \alpha \beta$ for sufficiently large α and $\beta { \mathrm { ~ i f ~ } } k \neq 1$ . It is easy to see that for sufficiently large α and $\beta$ (or $q$ and $\sigma )$ , the system is unstable for arbitrarily small perturbations in $k$ in either direction. Thus, by choice of $q$ and $\sigma ,$ , the gain margins may be made arbitrarily small.
+
+It is interesting to note that the margins deteriorate as control weight $( 1 / q )$ gets small (large $q )$ and/or system driving noise gets large (large $\sigma )$ . In modern control folklore, these have often been considered ad hoc means of improving sensitivity.
+
+It is also important to recognize that vanishing margins are not only associated with open-loop unstable systems. It is easy to construct minimum phase, open-loop stable counterexamples for which the margins are arbitrarily small.
+
+The point of this example is that $\mathcal { H } _ { 2 } ~ \left( \mathrm { L Q G } \right)$ solutions, unlike LQR solutions, provide no global system-independent guaranteed robustness properties. Like their more classical colleagues, modern LQG designers are obliged to test their margins for each specific design.
+
+It may, however, be possible to improve the robustness of a given design by relaxing the optimality of the filter with respect to error properties. A successful approach in this direction is the so called LQG loop transfer recovery (LQG/LTR) design technique. The idea is to design a filtering gain, $L _ { 2 } .$ , in such way so that the LQG (or $\mathcal { H } _ { 2 } )$ control law will approximate the loop properties of the regular LQR control. This will not be explored further here; interested readers may consult related references.

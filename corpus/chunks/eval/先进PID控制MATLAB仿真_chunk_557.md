@@ -1,0 +1,5 @@
+$$\dot {V} = \dot {\boldsymbol {e}} ^ {\mathrm{T}} \boldsymbol {D} _ {x} \ddot {\boldsymbol {e}} + \dot {\boldsymbol {e}} ^ {\mathrm{T}} \boldsymbol {C} _ {x} \dot {\boldsymbol {e}} + \dot {\boldsymbol {e}} ^ {\mathrm{T}} \boldsymbol {K} _ {\mathrm{p}} \boldsymbol {e} = \dot {\boldsymbol {e}} ^ {\mathrm{T}} \left(\boldsymbol {D} _ {x} \ddot {\boldsymbol {e}} + \boldsymbol {C} _ {x} \dot {\boldsymbol {e}} + \boldsymbol {K} _ {\mathrm{p}} \boldsymbol {e}\right) = - \dot {\boldsymbol {e}} ^ {\mathrm{T}} \boldsymbol {K} _ {\mathrm{d}} \dot {\boldsymbol {e}} \leqslant 0$$
+
+由于 $\dot{V}$ 是半负定的，且 $K_{\mathrm{d}}$ 为正定，则当 $\dot{V} \equiv 0$ 时，有 $\dot{e} \equiv 0$ ，从而 $\ddot{e} \equiv 0$ 。代入式（14.12）中，有 $K_{\mathrm{p}} e \equiv 0$ ，再由 $K_{\mathrm{p}}$ 的可逆性知 $e \equiv 0$ 。由LaSalle定理[2]知， $(e, \dot{e}) = (0, 0)$ 是受控机械手全局渐进稳定的平衡点，即从任意初始条件 $(x_0, \dot{x}_0)$ 出发，均有 $t \to \infty$ 时， $x \to x_{\mathrm{d}}$ ， $\dot{x} \to \dot{x}_{\mathrm{d}}$ 。
+
+![](image/df3fb141c7813d8a210fe69afd1b2cbc06591cb4032770f7c1b985941e8484a3.jpg)

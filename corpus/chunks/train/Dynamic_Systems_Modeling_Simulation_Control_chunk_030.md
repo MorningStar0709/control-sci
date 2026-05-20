@@ -1,0 +1,3 @@
+# Distributed vs. Lumped Systems
+
+A distributed system requires an infinite number of “internal” variables, and, therefore, the system is governed by partial differential equations (PDEs). A lumped system involves a finite number of “internal” variables, and, therefore, the system is governed by ODEs. For example, if we want to model a hydraulic piston, we would “lump” all pressure distributions in a cylinder chamber into one single pressure term. Therefore, we would have one ODE for the time derivative of pressure (dP∕dt or Ṗ ) for each “lump” of fluid in a particular chamber. In this textbook we work exclusively with lumped systems and ODEs.

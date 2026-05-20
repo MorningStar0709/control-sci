@@ -1,0 +1,11 @@
+# Example 9.6 Effects of D-A quantization for the double integrator
+
+Figure 9.17 shows a simulation of the double integrator with a D-A converter with quantization level 0.01. The quantization causes a limit-cycle oscillation. The process output is, however, much more sinusoidal than with A-D quantization. The reason for this is that the nonlinearity is just before the process that attenuates high frequencies. As before, the describing function predicts an oscillation with the period 39 s whereas the actual period is 39 s. The amplitude of the oscillation in the process output can be estimated by evaluating the magnitude of the pulse-transfer function of the controller at the period of oscillation. The controller gain is approximately 0.12. With $\delta = 0.01$ , the amplitude of the output can be estimated to 0.04 and the measured amplitude is about 0.03. See Fig. 9.17.
+
+Notice that the oscillations due to the quantization in the D-A converter can be avoided if the output of the D-A converter is fed back into the control law in the same way as was done to avoid windup.
+
+By using the insight obtained from the examples, some recommendation on the selection of resolution of the converters can now be given.
+
+The resolution of the A-D converter must be chosen so that it gives the desired precision in the process output. One should investigate whether quantization can give rise to limit-cycle oscillations. The magnitude of the ripple in the control signal caused by the A-D quantization should be investigated. This can be estimated simply from Eq. (9.15). If the ripple in the control signal is too large, better resolution of the A-D converter is required.
+
+To determine the required resolution of the D-A converter, the frequency of a possible limit cycle is first determined. If there is a limit-cycle oscillation, the amplitude can be estimated crudely from the process gain at the oscillation frequency, or more accurately using the theory of relay oscillations quoted in the References. The estimates obtained in this way will typically give the order of magnitude. It is recommended to use simulation to get more accurate results. The procedure is illustrated by an example.

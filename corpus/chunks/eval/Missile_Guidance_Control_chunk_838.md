@@ -1,0 +1,3 @@
+# Dark Star:
+
+The Dark Star is a low-observable UAV, intended to operate in high-threat environments at altitudes in excess of 45,000 ft for at least 8 hours, 575 miles from the base. Navigation is via GPS/INS. Cruise speed is 300 mph with a flight endurance of 12 hours. The vehicle flies autonomously from takeoff to landing, providing near real-time imagery information for tactical and theater commanders. Furthermore, the vehicle was designed to monitor a mission area of 18,500 square miles using a recon/optical EO camera or an SAR, transmitting primarily fixed-frame images while in flight. This program was terminated in January 1999.

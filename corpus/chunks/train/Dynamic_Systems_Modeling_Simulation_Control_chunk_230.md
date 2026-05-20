@@ -1,0 +1,11 @@
+# 5.4 LINEARIZATION
+
+Most real-world dynamic systems are nonlinear; that is, they are modeled by nonlinear differential equations. There is no general, unifying theory for obtaining the solution of a nonlinear system, and in most cases we must rely on numerical integration schemes to obtain the system response. On the other hand, a wealth of analysis tools exists for obtaining the solution of a linear system. Furthermore, there are many control system design techniques that can be applied only to linear system dynamics. Therefore, it is desirable to have a linear system model for analysis and design purposes.
+
+Linearization is a method for converting a nonlinear equation (or model) into a linear model. Linearization relies on a Taylor series expansion about a nominal (or reference) operating point, where only the first-order terms are retained. Because second- and higher-order terms are neglected in the Taylor-series expansion, the resulting linear model is accurate only if the system’s state does not deviate too far from the nominal operating point. Linearization relies on three basic steps:
+
+1. Choose (or solve for) the nominal operating point (or states) about which to linearize the system. The operating point may be given, or it may be an equilibrium point that can be obtained from the governing nonlinear model. In many cases, the nominal operating point will be a static state. We use $x ^ { * }$ and $u ^ { * }$ to denote the nominal state and input variables, respectively.   
+2. Redefine the nonlinear modeling equations in terms of the nominal variables and the perturbation variables (or deviations) with respect to the nominal values. We use the convention $\delta x = x - x ^ { * }$ for the perturbation (deviation) from the nominal state $x ^ { * }$ and $\delta u = u - u ^ { * }$ for the perturbation from nominal input $u ^ { * }$ .   
+3. Expand the nonlinear modeling equations in a Taylor series about the nominal operating point and retain only the first-order (linear) terms. The resulting linearized model will be in terms of the perturbation variables ??x and ??u.
+
+As previously stated, the linearized model is reasonably accurate and representative of the (true) nonlinear model as long as the dynamic variables do not deviate “too far” from the operating point (e.g., ??x remains “small” at all times).

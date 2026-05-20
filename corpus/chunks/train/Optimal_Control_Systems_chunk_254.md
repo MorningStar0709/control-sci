@@ -1,0 +1,3 @@
+# Discrete-Time Optimal Control Systems
+
+In previous chapters, the optimal control of continuous-time systems has been presented. In this chapter, the optimal control of discrete-time systems is presented. We start with the basic calculus of variations and then touch upon all the topics discussed in the previous chapters with respect to the continuous-time systems such as open-loop optimal control, linear quadratic regulator system, tracking system, etc. It is suggested that the student reviews the material in Appendices A and B given at the end of the book. This chapter is inspired by $[84, 89, 120]^{1}$ .

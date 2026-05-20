@@ -1,0 +1,3 @@
+# Goals
+
+Before going into the details, it is useful to state the goals. The main purpose is to develop a formalism for manipulating the system descriptions. The formalism will have many properties in common with the transform methods for linear time-invariant systems. Each A-D and D-A converter is associated with a sampling operation. Because sampling can be described as an amplitude modulation, the time-varying parts will be associated with these operations. The system can then be separated into different parts: Some parts are ordinary linear time-invariant systems that can be handled by the ordinary transform methods; the other parts consist of the samplers that are intrinsically time-varying.

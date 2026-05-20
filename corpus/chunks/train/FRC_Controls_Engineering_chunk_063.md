@@ -1,0 +1,7 @@
+# 0.3 Ethos of this book
+
+This book is intended as both a tutorial for new students and as a reference manual for more experienced readers who need to review a thing or two. While it isn’t comprehen sive, the reader will hopefully learn enough to either implement the concepts presented themselves or know where to look for more information.
+
+Some parts are mathematically rigorous, but I believe in giving students a solid theoretical foundation with emphasis on intuition so they can apply it to new problems. To achieve deep understanding of the topics in this book, math is unavoidable. With that said, I try to provide practical and intuitive explanations whenever possible.
+
+Most teaching resources separate linear and nonlinear control with the latter being reserved for a different course. Here, they are introduced together because the concepts of nonlinear control apply often, and it isn’t that much of a leap (if Lyapunov stability isn’t included). The control and estimation chapters cover relevant tools for dealing with nonlinearities like linearization when appropriate.

@@ -1,0 +1,264 @@
+{
+  "analysis": "A2_doc_similarity",
+  "n_docs": 362,
+  "similarity_stats": {
+    "textbook_textbook": {
+      "mean": 0.8022,
+      "std": 0.0769,
+      "n": 253
+    },
+    "arxiv_arxiv": {
+      "mean": 0.5872,
+      "std": 0.0921,
+      "n": 57291
+    },
+    "cross_type": {
+      "mean": 0.6214,
+      "std": 0.0848,
+      "n": 7797
+    }
+  },
+  "top20_pairs": [
+    {
+      "rank": 1,
+      "doc_a": "2308.07526_Protecting_the_Future_Grid_An_Electric_Vehicle_Robust_Mitiga",
+      "doc_a_id": "D132",
+      "doc_a_type": "arxiv",
+      "doc_a_title": "Protecting the Future Grid: An Electric Vehicle Robust Mitigation Scheme Against Load Altering Attacks on Power Grids",
+      "doc_b": "2310.14471_An_Electric_Vehicle_Control_Strategy_to_Mitigate_Load_Alteri",
+      "doc_b_id": "D149",
+      "doc_b_type": "arxiv",
+      "doc_b_title": "An Electric Vehicle Control Strategy to Mitigate Load Altering Attacks Against Power Grids",
+      "cosine_similarity": 0.9819
+    },
+    {
+      "rank": 2,
+      "doc_a": "2201.05959_Master_Equation_for_Discrete_Time_Stackelberg_Mean_Field_Gam",
+      "doc_a_id": "D03",
+      "doc_a_type": "arxiv",
+      "doc_a_title": "Master Equation for Discrete-Time Stackelberg Mean Field Games with single leader",
+      "doc_b": "2209.03186_Master_equation_of_discrete_time_Stackelberg_mean_field_game",
+      "doc_b_id": "D55",
+      "doc_b_type": "arxiv",
+      "doc_b_title": "Master equation of discrete-time Stackelberg mean field games with multiple leaders",
+      "cosine_similarity": 0.9792
+    },
+    {
+      "rank": 3,
+      "doc_a": "2306.08090_Geometric_Active_Disturbance_Rejection_Control_of_Rotorcraft",
+      "doc_a_id": "D116",
+      "doc_a_type": "arxiv",
+      "doc_a_title": "Geometric Active Disturbance Rejection Control of Rotorcraft on $SE(3)$ with Fast Finite-Time Stability",
+      "doc_b": "2307.08762_Geometric_Extended_State_Observer_on_SE3_with_Fast_Finite_Ti",
+      "doc_b_id": "D123",
+      "doc_b_type": "arxiv",
+      "doc_b_title": "Geometric Extended State Observer on SE(3) with Fast Finite-Time Stability: Theory and Validation on a Rotorcraft Aerial Vehicle",
+      "cosine_similarity": 0.9781
+    },
+    {
+      "rank": 4,
+      "doc_a": "动态系统的反馈控制_Franklin",
+      "doc_a_id": "D353",
+      "doc_a_type": "textbook",
+      "doc_a_title": "动态系统的反馈控制",
+      "doc_b": "自动控制原理_胡寿松",
+      "doc_b_id": "D359",
+      "doc_b_type": "textbook",
+      "doc_b_title": "自动控制原理",
+      "cosine_similarity": 0.9745
+    },
+    {
+      "rank": 5,
+      "doc_a": "2407.01275_Quaternion_based_Adaptive_Backstepping_Fast_Terminal_Sliding",
+      "doc_a_id": "D197",
+      "doc_a_type": "arxiv",
+      "doc_a_title": "Quaternion-based Adaptive Backstepping Fast Terminal Sliding Mode Control for Quadrotor UAVs with Finite Time Convergence",
+      "doc_b": "2407.07175_Adaptive_Backstepping_and_Non_singular_Sliding_Mode_Control",
+      "doc_b_id": "D199",
+      "doc_b_type": "arxiv",
+      "doc_b_title": "Adaptive Backstepping and Non-singular Sliding Mode Control for Quadrotor UAVs with Unknown Time-varying Uncertainties",
+      "cosine_similarity": 0.9707
+    },
+    {
+      "rank": 6,
+      "doc_a": "2412.17748_Aerial_Assistive_Payload_Transportation_Using_Quadrotor_UAVs",
+      "doc_a_id": "D227",
+      "doc_a_type": "arxiv",
+      "doc_a_title": "Aerial Assistive Payload Transportation Using Quadrotor UAVs with Nonsingular Fast Terminal SMC for Human Physical Interaction",
+      "doc_b": "2503.09930_Human_Physical_Interaction_based_on_UAV_Cooperative_Payload",
+      "doc_b_id": "D241",
+      "doc_b_type": "arxiv",
+      "doc_b_title": "Human Physical Interaction based on UAV Cooperative Payload Transportation System using Adaptive Backstepping and FNTSMC",
+      "cosine_similarity": 0.9702
+    },
+    {
+      "rank": 7,
+      "doc_a": "控制之美",
+      "doc_a_id": "D354",
+      "doc_a_type": "textbook",
+      "doc_a_title": "控制之美",
+      "doc_b": "自动控制原理_胡寿松",
+      "doc_b_id": "D359",
+      "doc_b_type": "textbook",
+      "doc_b_title": "自动控制原理",
+      "cosine_similarity": 0.9695
+    },
+    {
+      "rank": 8,
+      "doc_a": "动态系统的反馈控制_Franklin",
+      "doc_a_id": "D353",
+      "doc_a_type": "textbook",
+      "doc_a_title": "动态系统的反馈控制",
+      "doc_b": "控制之美",
+      "doc_b_id": "D354",
+      "doc_b_type": "textbook",
+      "doc_b_title": "控制之美",
+      "cosine_similarity": 0.9617
+    },
+    {
+      "rank": 9,
+      "doc_a": "2407.08178_Performance_Barrier_Event_Triggered_Control_of_a_Class_of_Re",
+      "doc_a_id": "D200",
+      "doc_a_type": "arxiv",
+      "doc_a_title": "Performance-Barrier Event-Triggered Control of a Class of Reaction-Diffusion PDEs",
+      "doc_b": "2501.00722_Performance_Barrier_Event_Triggered_PDE_Control_of_Traffic_F",
+      "doc_b_id": "D231",
+      "doc_b_type": "arxiv",
+      "doc_b_title": "Performance-Barrier Event-Triggered PDE Control of Traffic Flow",
+      "cosine_similarity": 0.9612
+    },
+    {
+      "rank": 10,
+      "doc_a": "2406.07073_Adaptive_Control_Algorithms_Analysis_and_Applications",
+      "doc_a_id": "D192",
+      "doc_a_type": "arxiv",
+      "doc_a_title": "Adaptive Control: Algorithms, Analysis and Applications",
+      "doc_b": "Astrom_Adaptive_Control",
+      "doc_b_id": "D340",
+      "doc_b_type": "textbook",
+      "doc_b_title": "Adaptive Control",
+      "cosine_similarity": 0.957
+    },
+    {
+      "rank": 11,
+      "doc_a": "2312.01313_Observer_based_Periodic_Event_triggered_and_Self_triggered_B",
+      "doc_a_id": "D155",
+      "doc_a_type": "arxiv",
+      "doc_a_title": "Observer-based Periodic Event-triggered and Self-triggered Boundary Control of a Class of Parabolic PDEs",
+      "doc_b": "2407.08178_Performance_Barrier_Event_Triggered_Control_of_a_Class_of_Re",
+      "doc_b_id": "D200",
+      "doc_b_type": "arxiv",
+      "doc_b_title": "Performance-Barrier Event-Triggered Control of a Class of Reaction-Diffusion PDEs",
+      "cosine_similarity": 0.9552
+    },
+    {
+      "rank": 12,
+      "doc_a": "Belanger_Control_Engineering",
+      "doc_a_id": "D341",
+      "doc_a_type": "textbook",
+      "doc_a_title": "Control Engineering: A Modern Approach",
+      "doc_b": "Ogata_Modern_Control_5th",
+      "doc_b_id": "D349",
+      "doc_b_type": "textbook",
+      "doc_b_title": "Modern Control Engineering (5th Edition)",
+      "cosine_similarity": 0.9543
+    },
+    {
+      "rank": 13,
+      "doc_a": "2204.00788_A_probabilistic_scheduling_algorithm_for_networked_control_s",
+      "doc_a_id": "D18",
+      "doc_a_type": "arxiv",
+      "doc_a_title": "A probabilistic scheduling algorithm for networked control systems",
+      "doc_b": "2306.15647_A_probabilistic_algorithm_for_scheduling_networked_control_s",
+      "doc_b_id": "D119",
+      "doc_b_type": "arxiv",
+      "doc_b_title": "A probabilistic algorithm for scheduling networked control systems under data losses",
+      "cosine_similarity": 0.9475
+    },
+    {
+      "rank": 14,
+      "doc_a": "2207.11129_Design_of_Sliding_Mode_PID_Controller_with_Improved_reaching",
+      "doc_a_id": "D47",
+      "doc_a_type": "arxiv",
+      "doc_a_title": "Design of Sliding Mode PID Controller with Improved reaching laws for Nonlinear Systems",
+      "doc_b": "2209.09170_Modified_PSO_based_PID_Sliding_Mode_Control_using_Improved_R",
+      "doc_b_id": "D58",
+      "doc_b_type": "arxiv",
+      "doc_b_title": "Modified PSO based PID Sliding Mode Control using Improved Reaching Law for Nonlinear systems",
+      "cosine_similarity": 0.9424
+    },
+    {
+      "rank": 15,
+      "doc_a": "Belanger_Control_Engineering",
+      "doc_a_id": "D341",
+      "doc_a_type": "textbook",
+      "doc_a_title": "Control Engineering: A Modern Approach",
+      "doc_b": "Computer_Controlled_Systems_Astrom",
+      "doc_b_id": "D342",
+      "doc_b_type": "textbook",
+      "doc_b_title": "Computer-Controlled Systems",
+      "cosine_similarity": 0.9321
+    },
+    {
+      "rank": 16,
+      "doc_a": "控制理论导论_郭雷",
+      "doc_a_id": "D355",
+      "doc_a_type": "textbook",
+      "doc_a_title": "控制理论导论",
+      "doc_b": "非线性系统_Khalil",
+      "doc_b_id": "D362",
+      "doc_b_type": "textbook",
+      "doc_b_title": "非线性系统（第三版）",
+      "cosine_similarity": 0.9296
+    },
+    {
+      "rank": 17,
+      "doc_a": "CtlBook",
+      "doc_a_id": "D343",
+      "doc_a_type": "textbook",
+      "doc_a_title": "Introduction to Applied Classical Control",
+      "doc_b": "Ogata_Modern_Control_5th",
+      "doc_b_id": "D349",
+      "doc_b_type": "textbook",
+      "doc_b_title": "Modern Control Engineering (5th Edition)",
+      "cosine_similarity": 0.928
+    },
+    {
+      "rank": 18,
+      "doc_a": "2312.01313_Observer_based_Periodic_Event_triggered_and_Self_triggered_B",
+      "doc_a_id": "D155",
+      "doc_a_type": "arxiv",
+      "doc_a_title": "Observer-based Periodic Event-triggered and Self-triggered Boundary Control of a Class of Parabolic PDEs",
+      "doc_b": "2501.00722_Performance_Barrier_Event_Triggered_PDE_Control_of_Traffic_F",
+      "doc_b_id": "D231",
+      "doc_b_type": "arxiv",
+      "doc_b_title": "Performance-Barrier Event-Triggered PDE Control of Traffic Flow",
+      "cosine_similarity": 0.9279
+    },
+    {
+      "rank": 19,
+      "doc_a": "2304.10277_Robust_nonlinear_set_point_control_with_reinforcement_learni",
+      "doc_a_id": "D108",
+      "doc_a_type": "arxiv",
+      "doc_a_title": "Robust nonlinear set-point control with reinforcement learning",
+      "doc_b": "2304.10289_Aiding_reinforcement_learning_for_set_point_control",
+      "doc_b_id": "D109",
+      "doc_b_type": "arxiv",
+      "doc_b_title": "Aiding reinforcement learning for set point control",
+      "cosine_similarity": 0.9258
+    },
+    {
+      "rank": 20,
+      "doc_a": "2202.06282_Distributed_Periodic_Event_triggered_Control_of_Nonlinear_Mu",
+      "doc_a_id": "D06",
+      "doc_a_type": "arxiv",
+      "doc_a_title": "Distributed Periodic Event-triggered Control of Nonlinear Multi-Agent Systems",
+      "doc_b": "2202.10752_Event_Triggered_Tracking_Control_of_Networked_Multi_Agent_Sy",
+      "doc_b_id": "D09",
+      "doc_b_type": "arxiv",
+      "doc_b_title": "Event-Triggered Tracking Control of Networked Multi-Agent Systems",
+      "cosine_similarity": 0.9238
+    }
+  ],
+  "interpretation": "教材-教材相似度若显著高于 arXiv-ArXiv，说明教材内容更同质化；跨类型相似度若与同类相当，说明语料主题覆盖连续。"
+}

@@ -1,0 +1,3 @@
+# Nominal Design
+
+The nominal parameter values are chosen as $\zeta = 0.7$ , $\omega = 1.5$ , $\zeta_{obs} = 0.7$ , $\omega_{obs} = 3$ , and h = 0.2. These specifications imply that significant damping is introduced and that the response speed is increased compared with the open-loop system. The choice of sampling rate implies that $\omega h = 0.3$ and $\omega_{obs} h = 0.6$ . Recall the rule of thumb $0.1 \leq \omega h \leq 0.6$ . Figure 5.18 shows the output and input when the reference signal is a step at t = 0, a step disturbance at the input at t = 15, and discrete-time white measurement noise with standard deviation 0.01 at t = 30.

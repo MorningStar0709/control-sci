@@ -1,0 +1,11 @@
+The fuzing system consists of a special antenna that has a narrow fan-beam angled forward of the plane perpendicular to the longitudinal axis of the antenna and the missile. Two antennas are positioned on opposite sides of the missile to produce an almost flat cone of acceptance with fuzing initiated when the cone intercepts a source of energy. The fuze operates either on illuminator-derived signals reflected from the target or by comparison of signal levels received from jammers aboard the target. Since the strength of the source may vary over wide limits, means must be incorporated into the system to adjust the sensitivity of the detector in order that the energy source will initiate action when it is closest to the peak of the antenna beam. The means chosen consist of a broad-beam antenna system, which detects the source, adjusts the system sensitivity, and provides a signal for a differential detector used to trigger the fuze.
+
+Each antenna is connected to an amplifier to increase the signal level to a value sufficient to operate a differential detector. To maintain signal level, the gain of the amplifiers is controlled by an AGC (automatic gain control) loop functioning from the broad-beam antenna signal, which will be larger than the narrow-beam in all directions except when the target is precisely in the narrow beam. This mechanization provides the required relationship between the two antennas over all possible directions. Provisions are usually made to prevent fuzing on direct illuminator radiation into the fuze antennas by using a rear signal of the guidance receiver to convert the fuze channel signals into a Doppler frequency spectrum. Illuminator leakage into the fuze channels is converted to a zero-frequency Doppler band signal.
+
+Fuzing can also be represented in terms of the active radar fuze power by using a form of the radar range equation and the target radar cross-section (RCS). The fuze power received $( P _ { f z } )$ in dB is calculated by the following equation:
+
+$$P _ {f z} = \sigma_ {m g k} - 4 R _ {m g k} - K _ {f u z}, \tag {4.169}$$
+
+where
+
+$$\sigma_ {m g k} = R C S \text { at target glitter point [dB], }R _ {m g k} = \text { Range from missile to target glitter point } [ \mathrm{dB} ],K _ {f u z} = \text { Fuze sensitivity factor } [ \mathrm{dB} ].$$

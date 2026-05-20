@@ -1,0 +1,3 @@
+# 1.3 Optimal Control
+
+The problems arising in optimal control are classified based on the structure of the performance index J [67]. If the PI (1.3.9) contains the terminal cost function $S(\mathbf{x}(t), \mathbf{u}(t), t)$ only, it is called the Mayer problem, if the PI (1.3.9) has only the integral cost term, it is called the Lagrange problem, and the problem is of the Bolza type if the PI contains both the terminal cost term and the integral cost term as in (1.3.9). There are many other forms of cost functions depending on our performance specifications. However, the above mentioned performance indices (with quadratic forms) lead to some very elegant results in optimal control systems.

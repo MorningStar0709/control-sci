@@ -1,0 +1,5 @@
+Hence, if the hypotheses of Proposition 2.19 are satisfied, Theorems B.11 and B.13 in Appendix B may be used to establish asymptotic stability of the origin in $x _ { N }$ . Sufficient conditions for the boundedness of $x _ { N }$ are provided by the next result. Recall $f _ { \mathbb { Z } } ^ { - 1 } ( \cdot )$ is given in Definition 2.9.
+
+Proposition 2.20 (Boundedness of $x _ { j } )$ . If either X is bounded or $\mathbb { X } _ { f }$ is bounded and $f _ { \mathbb { Z } } ^ { - 1 } ( \cdot )$ is bounded on bounded sets, then, for all $j \in \mathbb { I } _ { \geq 0 }$ , $\chi _ { j }$ is bounded.
+
+Proof. That $x _ { N }$ is bounded if X is bounded follows immediately from the fact that, by definition, $\mathcal { X } _ { N } \subseteq \mathbb { X } .$ . Assume then that $\mathbb { X } _ { f }$ is bounded and $f _ { \mathbb { Z } } ^ { - 1 } ( \cdot )$ is bounded on bounded sets. Then the set $\overset { \_ } { \mathcal { Z } _ { 1 } } = f _ { \mathbb { Z } } ^ { - 1 } ( \mathbb { X } _ { f } )$ is

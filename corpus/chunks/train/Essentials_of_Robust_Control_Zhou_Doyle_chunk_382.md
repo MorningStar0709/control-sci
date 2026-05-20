@@ -1,0 +1,3 @@
+# Relax (A1)
+
+If assumption (A1) is violated, then it is obvious that no admissible controllers exist. Suppose (A1) is relaxed to allow unstabilizable and/or undetectable modes on the $j \omega$ axis and internal stability is also relaxed to also allow closed-loop $j \omega$ axis poles, but $( \mathrm { A 2 } ) { - } ( \mathrm { A 4 } )$ is still satisfied. It can be easily shown that under these conditions the closed-loop $\mathcal { H } _ { \infty }$ norm cannot be made finite and, in particular, that the unstabilizable and/or undetectable modes on the $j \omega$ axis must show up as poles in the closed-loop system.

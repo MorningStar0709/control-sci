@@ -1,0 +1,3 @@
+# Computational Tools
+
+Computer tools for analysis, design, and simulation are indispensable tools when working with computer-controlled systems. The methods for analysis and design presented in this book can be performed very conveniently using MATLAB®. Many of the exercises also cover this. Simulation of the system can similarly be done with Simnon® or SIMULINK®. There are 30 figures that illustrate various aspects of analysis and design that have been performed using MATLAB®, and 73 figures from simulations using SIMULINK®. Macros and m-files are available from anonymous FTP from ftp.control.1th.se, directory/pub/books/ccs. Other tools such as Simnon® and Xmath® can be used also.

@@ -1,0 +1,7 @@
+# Example 3.6 cont.
+
+Solving, using the techniques in Chapter 2:
+
+$$
+\begin{array}{l} E O M \\ J _ {1}: \quad J _ {1} \hat {\theta} _ {1} + K (\theta_ {1} - \hat {\theta} _ {2}) = \tau_ {(4)} \\ \hat {J} _ {2}: \quad \hat {J} _ {2} \stackrel {\circ} {\hat {\Theta}} _ {2} + K (\hat {\Theta} _ {2} - \theta_ {1}) + \hat {B} (\stackrel {\circ} {\hat {\Theta}} _ {2}) = 0 \\ \begin{array}{l}{\mathrm{Laplace}}\\{\mathrm {J _ {1}}: \quad \Theta_ {1} (s) (J _ {1} s ^ {2} + K) + \hat {\Theta} _ {2} (s) (- K) = \tau_ {1} (s)}\\{\mathrm {J _ {2}}: \quad \hat {\Theta} _ {2} (s) (\hat {J} _ {2} s ^ {2} + \hat {B} s + K) + \Theta_ {1} (s) (- K) = 0}\\{\mathrm{Elim} \quad \Theta_ {1} (s)}\\{\rightarrow \quad \Theta_ {1} (s) = \frac {1}{K} \frac {\hat {\Theta} _ {2} (s)}{(J _ {2} s ^ {2} + \hat {B} s + K)}}\\{\rightarrow \quad \frac {\hat {\Theta} _ {2} (s)}{K} (J _ {1} \hat {J} _ {2} s ^ {4} + J _ {1} \hat {B} s ^ {3} + J _ {1} K s ^ {2} + \hat {J} _ {2} K s ^ {2} + K \hat {B} s + K ^ {2}) - \hat {\Theta} _ {2} (s) (\frac {k ^ {2}}{K}) = 2 a)}\end{array} \\ \frac {\hat {G} _ {2} (s)}{\tau_ {(s)}} = \frac {K}{J _ {1} \hat {J} _ {2} s ^ {4} + J _ {1} \hat {B} s ^ {3} + (J _ {1} + \hat {J} _ {2}) K s ^ {2} + K \hat {B} s} \\ \frac {\theta_ {2} (s)}{\hat {L} (s)} = \frac {\frac {K n}{J _ {1} f _ {2}} R _ {\mathrm{conerts}} \hat {\theta} _ {2} \rightarrow \theta_ {2}}{s ^ {4} + \frac {\hat {3} s ^ {3}}{f _ {2}} + \frac {(J _ {1} + f _ {2}) K}{J _ {1} f _ {2}} s ^ {2} + \frac {K \hat {B}}{J _ {1} f _ {2}} s} \\ \end{array}
+$$

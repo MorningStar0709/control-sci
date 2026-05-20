@@ -1,0 +1,3 @@
+# Minimum-Degree Solution
+
+In the control problem it is natural to select the solution of (5.4) that gives a causal controller of lowest order. It is natural to assume that the process model is causal. This means that $\deg B \leq \deg A$ . Because the controller is also causal we have $\deg S \leq \deg R$ . We will thus find the solution where the degree of S is as low as possible. According to Corollary 5.1 we have $\deg S < \deg A$ . If $\deg A = n$ we find that the minimum-degree solution corresponds to $\deg S = \deg R = \deg T = \deg A_{o} = n - 1$ and $\deg A_{c} = n$ . If we in addition require that the controller should have integral action we find that the controller must be of degree n.

@@ -1,0 +1,7 @@
+# Comments
+
+1. In designing regulator systems, note that if the dominant controller poles are placed far to the left of the jv axis, the elements of the state feedback gain matrix K will become large. Large gain values will make the actuator output become large, so that saturation may take place. Then the designed system will not behave as designed.   
+2. Also, by placing the observer poles far to the left of the jv axis, the observer controller becomes unstable, although the closed-loop system is stable.An unstable observer controller is not acceptable.   
+3. If the observer controller becomes unstable, move the observer poles to the right in the left-half s plane until the observer controller becomes stable.Also, the desired closed-loop pole locations may need to be modified.   
+4. Note that if the observer poles are placed far to the left of the jv axis, the bandwidth of the observer will increase and will cause noise problems. If there is a serious noise problem, the observer poles should not be placed too far to the left of the jv axis.The general requirement is that the bandwidth should be sufficiently low so that the sensor noise will not become a problem.   
+5. The bandwidth of the system with the minimum-order observer is higher than that of the system with the full-order observer, provided that the multiple observer poles are placed at the same place for both observers. If the sensor noise is a serious problem, use of a full-order observer is recomnended.

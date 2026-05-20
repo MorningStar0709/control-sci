@@ -1,0 +1,3 @@
+# A.2 Vector Spaces
+
+The Euclidean space $\mathbb { R } ^ { n }$ is an example of a vector space that satisfies a set of axioms the most significant being: if x and z are two elements of a vector space V , then $\alpha x + \beta z$ is also an element of V for all $\alpha , \beta \in \mathbb { R }$ . This definition presumes addition of two elements of V and multiplication of any element of V by a scalar are defined. Similarly, $S \subset \mathcal { V }$ is a linear subspace1 of V if any two elements of x and z of S satisfy $\alpha x + \beta z \in S$ for all $\alpha , \beta \in \mathbb { R }$ . Thus, in $\mathbb { R } ^ { 3 }$ , the origin, a line or a plane passing through the origin, the whole set $\mathbb { R } ^ { 3 }$ , and even the empty set are all subspaces.

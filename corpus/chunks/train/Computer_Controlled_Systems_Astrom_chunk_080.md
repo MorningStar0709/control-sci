@@ -1,0 +1,3 @@
+# Difference Equations
+
+The first germs of a theory for sampled systems appeared in connection with analyses of specific control systems. The behavior of the chopper-bar galvanometer, investigated in Oldenburg and Sartorius (1948), was one of the earliest contributions to the theory. It was shown that many properties could be understood by analyzing a linear time-invariant difference equation. The difference equation replaced the differential equations in continuous-time theory. For example, stability could be investigated by the Schur-Cohn method, which is equivalent to the Routh-Hurwitz criterion.

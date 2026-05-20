@@ -1,0 +1,7 @@
+$$\text { Rolling Moment } (L): \quad L = C _ {l} q S l, \tag {3.23a}\text { Pitching Moment } (M): \quad M = C _ {m} q S l, \tag {3.23b}\text { Yawing Moment } (N): \quad N = C _ {n} q S l, \tag {3.23c}$$
+
+where $C _ { l } , C _ { m }$ , and $C _ { n }$ are the aerodynamic moment coefficients in roll, pitch, and yaw, respectively. Note that in missiles, the reference area S is usually taken as the maximum cross-sectional area, and the characteristic length l is taken as the mean diameter, whereas in aircraft [2], [6],
+
+$$L = C _ {l} q S b, \tag {3.24a}M = C _ {m} q S c, \tag {3.24b}N = C _ {n} q S b, \tag {3.24c}$$
+
+where b is the wingspan, c is the aerodynamic chord, and S is the wing planform area used to nondimensionalize the aerodynamic forces. In general, and as stated earlier, the standard six-degree-of-freedom aerodynamic coefficients $C _ { L } , C _ { D } , C _ { Y } , C _ { l } , C _ { m }$ , and $C _ { n }$ are primarily a function of center-of-gravity location, altitude, Mach number, $R e y n o l d s ^ { * }$ number, angle of attack (α), and sideslip angle $( \beta )$ , and are secondary functions of the time rate of change of angle of attack and sideslip, and the angular velocity of the missile. (The pitching moment coefficient $C _ { m }$ is independent of the Reynolds number). We will now develop the aerodynamic moments and their associated coefficients in terms of measured quantities.

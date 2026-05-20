@@ -1,0 +1,5 @@
+# Multivariable Adaptive Control
+
+In this book we have focused on single-input, single-output systems, mainly to keep the presentation simple, but there has also been much research on multivariable adaptive control. Many of the results can be extended, but there is one large difficulty. For single-input, single-output systems it is possible to find a good canonical form to represent the systems in which the only parameter is the order of the system. For multivariable systems it is necessary also to know the Kronecker indices to obtain a canonical form. This is difficult both in theory and in practice. For special systems such as those found in robotics, a suitable structure can often be found by using prior knowledge of the system.
+
+Most adaptive control systems used so far are single-loop control. Coupled systems can be obtained by interconnection via the feedforward connection. Interesting phenomena can occur when such regulators are used on multivariable systems; analysis of the behavior of such systems is a fascinating problem.

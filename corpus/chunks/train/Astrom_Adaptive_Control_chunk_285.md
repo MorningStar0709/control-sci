@@ -1,0 +1,3 @@
+# 5.4 LYAPUNOV THEORY
+
+There is no guarantee that an adaptive controller based on the MIT rule will give a stable closed-loop system. It is clearly desirable to see whether there are other methods for designing adaptive controllers that can guarantee the stability of the system. As a first step in this direction we now present the Lyapunov stability theory. For the benefit of students who are encountering Lyapunov theory for the first time, we first prove a stability theory for time-invariant systems. We then state a more powerful theorem for time-varying systems, which can be used to design adaptive controllers.

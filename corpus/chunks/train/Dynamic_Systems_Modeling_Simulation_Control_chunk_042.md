@@ -1,0 +1,5 @@
+# 2.1 INTRODUCTION
+
+The objective of this and the next two chapters is to develop the mathematical models of physical engineering systems. This chapter introduces the fundamental techniques for deriving the modeling equations for mechanical systems. These systems are composed of inertia, stiffness, and friction elements. Our mathematical models of mechanical systems are developed by applying Newton’s laws of motion, which govern the interaction between force, mass, and acceleration. We utilize a lumped-system approach, and, therefore, the mathematical model consists of ordinary differential equations (ODEs). Mechanical systems with translational motion and rotational motion about a fixed axis are treated in this chapter.
+
+The reader should keep in mind that the overall goal of this chapter is to derive the mathematical models that govern the behavior of mechanical systems. We do not (yet) attempt to obtain the mechanical system’s response to force or motion inputs. Obtaining the system’s response to known inputs is discussed in Chapters 6–9.

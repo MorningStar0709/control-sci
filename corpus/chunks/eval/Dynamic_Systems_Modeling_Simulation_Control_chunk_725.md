@@ -1,0 +1,5 @@
+# B.1 INTRODUCTION
+
+MATLAB is a computing environment and computer language for numerical calculations, simulation, and visualization. Developed by MathWorks, MATLAB has become a universal computing platform for engineering calculations in industry and academia. In addition to being a programming language, MATLAB consists of software programs or M-files that can be used to perform particular functions, such as solving ordinary differential equations, curve-fitting, and statistics. Toolboxes are collections of M-files; one example is the Control System Toolbox. The user may write his or her own specialized MATLAB M-file to perform the desired calculations, and this user-defined M-file can access and use MATLAB’s existing built-in functions and M-files as well.
+
+This appendix provides a very basic introduction to MATLAB usage, its commands, and programming. While MATLAB is used in all areas of science and engineering, this appendix will only emphasize the commands that apply to solving problems involving dynamic systems and control.

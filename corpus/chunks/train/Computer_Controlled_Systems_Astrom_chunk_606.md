@@ -1,0 +1,3 @@
+# 10.3 Piecewise Deterministic Disturbances
+
+The classical disturbance models discussed in Sec. 3.5 are useful for analyzing the effects of disturbances on a system. Possible improvements by using local feedback and feedforward can also be investigated using these models. The disturbance models discussed are, however, not suitable for investigating disturbance reduction by prediction. Fundamentally different models are required to formulate a sensible prediction problem. This leads to introduction of the piecewise deterministic disturbances. Alternative models, which also permit formulation of a prediction problem, are discussed in Secs. 10.4 and 10.5.

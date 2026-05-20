@@ -1,0 +1,7 @@
+# 9.4 Nonlinear Actuators
+
+The design methods of Chapters 4, 5, and 8 are all based on the assumption that the process can be described by a linear model. Although linear theory has a wide applicability, there are often some nonlinearities that must be taken into account. For example, it frequently happens that the actuators are nonlinear, as is shown in Fig. 9.3. Valves are commonly used as actuators in process-control systems. This corresponds to a nonlinearity of the saturation type where the limits correspond to a fully open or closed valve. The system shown in Fig. 9.3 can be described linearly when the valve does not saturate. The nonlinearity is thus important when large changes are made. There may be difficulties with the control system during startup and shutdown, as well as during large changes, if the nonlinearities are not considered. A typical example is integrator windup. Other typical nonlinearities in practical systems are rate limitations, hysteresis, and backlash.
+
+The rational way to deal with the saturation is to develop a design theory that takes the nonlinearity into account. This can be done using optimal-control theory. However, such a design method is quite complicated. The corresponding control law is also complex. Therefore, it is practical to use simple heuristic methods.
+
+Difficulties occur because the controller is a dynamic system. When the control variable saturates, it is necessary to make sure that the state of the controller behaves properly. Different ways of achieving this are discussed in what follows.

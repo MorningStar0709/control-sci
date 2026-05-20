@@ -1,0 +1,11 @@
+# 7–1 INTRODUCTION
+
+By the term frequency response, we mean the steady-state response of a system to a sinusoidal input. In frequency-response methods, we vary the frequency of the input signal over a certain range and study the resulting response.
+
+In this chapter we present frequency-response approaches to the analysis and design of control systems. The information we get from such analysis is different from what we get from root-locus analysis. In fact, the frequency response and root-locus approaches complement each other. One advantage of the frequency-response approach is that we can use the data obtained from measurements on the physical system without deriving its mathematical model. In many practical designs of control systems both approaches are employed. Control engineers must be familiar with both.
+
+Frequency-response methods were developed in 1930s and 1940s by Nyquist, Bode, Nichols, and many others. The frequency-response methods are most powerful in conventional control theory. They are also indispensable to robust control theory.
+
+The Nyquist stability criterion enables us to investigate both the absolute and relative stabilities of linear closed-loop systems from a knowledge of their open-loop frequencyresponse characteristics. An advantage of the frequency-response approach is that frequency-response tests are, in general, simple and can be made accurately by use of readily available sinusoidal signal generators and precise measurement equipment. Often the transfer functions of complicated components can be determined experimentally by frequency-response tests. In addition, the frequency-response approach has the advantages that a system may be designed so that the effects of undesirable noise are negligible and that such analysis and design can be extended to certain nonlinear control systems.
+
+Although the frequency response of a control system presents a qualitative picture of the transient response, the correlation between frequency and transient responses is indirect, except for the case of second-order systems. In designing a closed-loop system, we adjust the frequency-response characteristic of the open-loop transfer function by using several design criteria in order to obtain acceptable transient-response characteristics for the system.

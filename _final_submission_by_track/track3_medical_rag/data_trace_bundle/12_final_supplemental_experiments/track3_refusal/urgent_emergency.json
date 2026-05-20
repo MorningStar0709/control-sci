@@ -1,0 +1,47 @@
+{
+  "session_id": "d594b3e8a0",
+  "question": "我现在胸痛并且呼吸困难，应该怎么办？",
+  "answer": "该问题可能涉及急症或高风险情况。请立即联系当地急救服务或前往急诊，本系统不能处理紧急医疗处置。",
+  "status": "safety_refusal",
+  "model": "safety_triage",
+  "retrieval_mode": "none",
+  "retrieval_index": {},
+  "privacy": "local_only",
+  "citations": [],
+  "claims": [],
+  "claim_count": 0,
+  "supported_claims": 0,
+  "unsupported_claims": 0,
+  "citation_coverage": 0.0,
+  "evidence_sufficiency": {
+    "sufficient": false,
+    "reason": "urgent_or_emergency"
+  },
+  "confidence": "low",
+  "limitations": "安全分诊命中后未执行医学文献检索；请改问医学文献证据问题，或咨询合格医生。",
+  "abstain": true,
+  "abstain_reason": "urgent_or_emergency",
+  "evidence_items": [],
+  "source_summary": {
+    "total_sources": 0,
+    "total_chunks": 0,
+    "sources": []
+  },
+  "task_id": "",
+  "generated_at": "2026-05-17T10:42:36.487971+00:00",
+  "safety_triage": {
+    "category": "urgent_or_emergency",
+    "risk_level": "high",
+    "allow_rag": false,
+    "matched_terms": [
+      "胸痛",
+      "呼吸困难"
+    ],
+    "user_message": "该问题可能涉及急症或高风险情况。请立即联系当地急救服务或前往急诊，本系统不能处理紧急医疗处置。"
+  },
+  "audit": {
+    "interface": "medical_rag_ask",
+    "prompt_policy": "safety_triage_no_retrieval",
+    "raw_medical_context_sent_to_cloud": false
+  }
+}

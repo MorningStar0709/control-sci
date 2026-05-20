@@ -1,0 +1,148 @@
+{
+  "generated_at": "2026-05-15T10:57:02+0800",
+  "manifest": "<PROJECT_ROOT>\\data\\sources_medical\\chunks\\chunks_manifest.json",
+  "k": 3,
+  "with_synthesis": true,
+  "synthesis_model": "qwen3.5:9b",
+  "cases": [
+    {
+      "case_id": "primary_endpoint_safety",
+      "query": "primary endpoint adverse events",
+      "target_labels": [
+        "primary_outcome",
+        "secondary_outcome",
+        "outcome_measures",
+        "adverse_events"
+      ],
+      "target_terms": [
+        "primary endpoint",
+        "adverse event",
+        "adverse events"
+      ],
+      "focus": "Endpoint and safety retrieval"
+    }
+  ],
+  "indexes": [
+    {
+      "label": "index_bge_small",
+      "index_dir": "<PROJECT_ROOT>\\data\\sources_medical\\index_bge_small",
+      "embedding_provider": "hf",
+      "embedding_model": "BAAI/bge-small-en-v1.5",
+      "embedding_dim": 384,
+      "query_embed_seconds": 8.488
+    }
+  ],
+  "results": {
+    "index_bge_small": {
+      "primary_endpoint_safety": {
+        "case": {
+          "case_id": "primary_endpoint_safety",
+          "query": "primary endpoint adverse events",
+          "target_labels": [
+            "primary_outcome",
+            "secondary_outcome",
+            "outcome_measures",
+            "adverse_events"
+          ],
+          "target_terms": [
+            "primary endpoint",
+            "adverse event",
+            "adverse events"
+          ],
+          "focus": "Endpoint and safety retrieval"
+        },
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": true,
+          "first_label_hit_rank": 1,
+          "matched_terms": [
+            "primary endpoint"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 558,
+            "chunk_id": "PMC11929207_chunk_020",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "primary_outcome",
+            "medical_parent": "outcome_measures",
+            "source_section": "Primary endpoint",
+            "source_file": "data/sources_medical/chunks/train/PMC11929207_chunk_020.md",
+            "preview": "# Primary endpoint  Te primary endpoint, 28-day mortality, will be analyzed using a mixed-efects binary logistic regression [31]. Tis regression will include treatment efect and source of sepsis as fxed efects and site a"
+          },
+          {
+            "rank": 2,
+            "manifest_index": 3032,
+            "chunk_id": "PMC8600696_chunk_007",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "_introduction_other",
+            "medical_parent": "introduction",
+            "source_section": "Endpoints",
+            "source_file": "data/sources_medical/chunks/train/PMC8600696_chunk_007.md",
+            "preview": "# Endpoints  The primary endpoint is overall survival after R0/R1 resection (OS-res) (only patients with R0/R1 resection).  Secondary efficacy endpoints are OS of the entire patients cohort, R0/R1 resection rate and prog"
+          },
+          {
+            "rank": 3,
+            "manifest_index": 553,
+            "chunk_id": "PMC11929207_chunk_015",
+            "score": 0.016129,
+            "mode": "hybrid",
+            "medical_label": "primary_outcome",
+            "medical_parent": "outcome_measures",
+            "source_section": "Primary endpoint",
+            "source_file": "data/sources_medical/chunks/train/PMC11929207_chunk_015.md",
+            "preview": "# Primary endpoint  Te primary endpoint is all cause 28-day mortality as registered in the electronic medical records.  Table 1 Maximum dosages control arm   <table><tr><td></td><td>Loading dosea</td><td>Daily dose</td><"
+          }
+        ],
+        "synthesis": {
+          "model": "qwen3.5:9b",
+          "answer": "根据提供的证据，主要终点（primary endpoint）在不同研究中定义不同：一项研究将其定义为全因 28 天死亡率，另一项研究将其定义为 R0/R1 切除后的总生存期（OS-res）。",
+          "citations": [
+            "PMC11929207_chunk_015",
+            "PMC8600696_chunk_007"
+          ],
+          "claim_count": 2,
+          "supported_claims": 2,
+          "unsupported_claims": 0,
+          "citation_coverage": 1.0,
+          "confidence": "high",
+          "abstain": false,
+          "abstain_reason": "",
+          "evidence_sufficiency": {
+            "sufficient": true,
+            "query_terms": [
+              "adverse",
+              "endpoint",
+              "events",
+              "primary"
+            ],
+            "matched_terms": [
+              "adverse",
+              "endpoint",
+              "events",
+              "primary"
+            ],
+            "matched_term_count": 4,
+            "top_rrf_score": 0.016393,
+            "evidence_count": 3
+          }
+        }
+      }
+    }
+  },
+  "summary": {
+    "index_bge_small": {
+      "cases": 1,
+      "hit_at_k": 1,
+      "hit_rate": 1.0,
+      "label_hit_at_k": 1,
+      "label_hit_rate": 1.0,
+      "mean_first_hit_rank": 1.0,
+      "mean_citation_coverage": 1.0
+    }
+  }
+}

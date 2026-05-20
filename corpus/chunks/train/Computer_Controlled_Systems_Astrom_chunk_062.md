@@ -1,0 +1,3 @@
+# Presampling Filters or Antialiasing Filters
+
+To avoid the difficulties illustrated in Fig. 1.10, it is essential that all signal components with frequencies higher than the Nyquist frequency are removed before a signal is sampled. By doing this the signals sampled will not change much over a sampling interval and the difficulties illustrated in the previous examples are avoided. The filters that reduce the high-frequency components of the signals are called antialiasing filters. These filters are an important component of computer-controlled systems. The proper selection of sampling periods and antialiasing filters are important aspects of the design of computer-controlled systems.

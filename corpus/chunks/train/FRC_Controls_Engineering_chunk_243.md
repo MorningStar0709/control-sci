@@ -1,0 +1,3 @@
+where $\begin{array} { r } { v \ = \ \frac { v _ { l } + v _ { r } } { 2 } , c = \cos \theta , s \ = \ \sin \theta , C _ { 1 } = \ - \frac { G _ { l } ^ { 2 } K _ { t } } { K _ { v } R r ^ { 2 } } , C _ { 2 } = \ \frac { G _ { l } K _ { t } } { R r } , C _ { 3 } = } \end{array}$ vl+vr2 , c = cos θ, s = sin θ, C1 = − G2l KtKv Rr2 , , C $- \frac { G _ { r } ^ { 2 } K _ { t } } { K _ { v } R r ^ { 2 } }$ , and $\begin{array} { r } { C _ { 4 } = \frac { G _ { r } K _ { t } } { R r } } \end{array}$ . The constants $C _ { 1 }$ through $C _ { 4 }$ are from the derivation in vsection 12.6.
+
+We can also use this in an extended Kalman filter as is since the measurement model $( \mathbf { y } = \mathbf { C } \mathbf { x } + \mathbf { D } \mathbf { u } )$ is linear.

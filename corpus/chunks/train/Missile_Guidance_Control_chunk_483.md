@@ -1,0 +1,3 @@
+Programming. The air-to-ground attack component has been structured into twelve segments comprising both main loop and timeslice tasks. The main loop routines provide a set of ballistic values to be used by the timeslice routines. Ballistic values (i.e., time-of-fall and bomb range) are computed by the main loop trajectory integration routine, or these values may be entered manually. The timeslice routines update (extrapolate) ballistic values to the current release conditions, issue the weapon release command, and compute values for display to the pilot.
+
+Figure 5.28 illustrates the overall weapon delivery concept.

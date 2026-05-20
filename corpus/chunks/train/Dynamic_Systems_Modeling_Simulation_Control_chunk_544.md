@@ -1,0 +1,3 @@
+# On–Off Controllers
+
+As the name implies, on–off (or relay) controllers use the feedback error signal to determine an “on” or “off” command for the control signal. For example, a thermostat either turns the furnace on or off based on the difference between the desired temperature setting and the sensed room temperature. While on–off controllers use very simple control rules, they are nonlinear devices; hence, feedback control systems that use on–off controllers are nonlinear systems that cannot be analyzed using the methods we develop in this chapter. For this reason, on–off controllers are not emphasized in this chapter. The following example demonstrates the basic operating concept of an on–off controller.

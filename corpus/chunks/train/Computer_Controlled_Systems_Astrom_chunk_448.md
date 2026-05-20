@@ -1,0 +1,6 @@
+# Practical Samplers
+
+In practice, a sampler is not implemented, as shown in Fig. 7.15. They are today made using semiconductor technology, but the circuits can still be described by Eq. (7.24). To avoid difficulties with noise and ground loops, it is important to have the computer galvanically isolated from the process signals. This can be achieved using the flying capacitor technique, which combines electrical insulation with sample-and-hold action in an elegant way. A capacitor is charged to the input voltage when it is connected to the input line. When the capacitor is connected to the D-A converter it holds its voltage. Electrical isolation is obtained because the capacitor is connected either to the process or to the D-A converter of the control computer. In practice it is common to charge the capacitor via an operational amplifier. The flying capacitor circuit can also be described by Eq. (7.24).
+
+![](image/02d58074c73562b15dd20ddbb4add3696df9ec8c032e73d6200aab53db8e2540.jpg)  
+Figure 7.17 Simulation of a sample-and-hold circuit. The pulse width $\tau$ is 0.2 s and the time constant is $RC = 0.01$ s. (a) The continuous-time signal (dashed) and the output of the sample-and-hold circuit (solid); (h) the current $i(t)$ in the sample-and-hold circuit; (c) the modulation function $m(t)$ .

@@ -1,0 +1,3 @@
+# 1.4 Problems
+
+Problem 1.1 We shall solve an easy problem first. When you read a paper or a book, you often come across a statement like this “It is easy ...”. What the author really meant was one of the following: (a) it is really easy; (b) it seems to be easy; (c) it is easy for an expert; (d) the author does not know how to show it but he or she thinks it is correct. Now prove that when I say “It is easy” in this book, I mean it is really easy. (Hint: If you can prove it after you read the whole book, ask your boss for a promotion. If you cannot prove it after you read the whole book, trash the book and write a book yourself. Remember use something like “it is easy ...” if you are not sure what you are talking about.)

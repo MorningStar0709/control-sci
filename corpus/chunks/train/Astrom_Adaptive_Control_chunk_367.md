@@ -1,0 +1,3 @@
+# Summary
+
+The examples given should give some of the flavor of nonlinear adaptive control. The results obtained depend on clever changes of coordinates. A reasonable characterization of the class of systems in which the methods apply is not available. Nevertheless, we can make some interesting observations from the examples. First, we can notice that the adaptive control laws that are obtained differ significantly from those obtained from the certainty equivalence principle. In the nonlinear approaches the control law and the rule for updating the parameters are obtained simultaneously. An estimate of the rate of change of the parameters appears in the feedback law. Many problems remain to be solved.

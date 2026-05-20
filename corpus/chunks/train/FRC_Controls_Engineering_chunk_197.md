@@ -1,0 +1,3 @@
+<table><tr><td>Symbol</td><td>Name</td><td>Rows × Columns</td></tr><tr><td>A</td><td>system matrix</td><td>states × states</td></tr><tr><td>B</td><td>input matrix</td><td>states × inputs</td></tr><tr><td>C</td><td>output matrix</td><td>outputs × states</td></tr><tr><td>D</td><td>feedthrough matrix</td><td>outputs × inputs</td></tr><tr><td>K</td><td>controller gain matrix</td><td>inputs × states</td></tr><tr><td>r</td><td>reference vector</td><td>states × 1</td></tr><tr><td>x</td><td>state vector</td><td>states × 1</td></tr><tr><td>u</td><td>input vector</td><td>inputs × 1</td></tr><tr><td>y</td><td>output vector</td><td>outputs × 1</td></tr></table>
+
+Table 7.4: Controller matrix dimensions

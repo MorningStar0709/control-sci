@@ -1,0 +1,5 @@
+# 9.8 Programming
+
+Practically all discrete-time controllers are implemented in a real-time operating system. In some systems the different parts of the algorithms may be distributed among different processors. The communication can then introduce time-varying delays (jitter) in the sampling period. Programming is an important aspect of the implementation of a control system, both with respect to the efficiency of the system and the time required for the implementation.
+
+The effort required and the approaches used depend on the available software and the nature of the control problem. The code is typically written in C or C++. Ada, which was developed by the U.S. Department of Defense for computer-control applications, is the first language designed and developed for real-time applications. The character and the difficulty of the programming depend very much on the application. The requirements on operator communications are critical. The code required for operator communication is often much larger than the pure control code. A few examples illustrate this.

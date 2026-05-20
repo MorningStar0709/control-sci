@@ -1,0 +1,9 @@
+We know from Section 7.4 that $V _ { j } ^ { 0 } ( \cdot )$ is continuous, strictly convex and piecewise quadratic, and that $\kappa _ { j } ( \cdot )$ is continuous and piecewise affine on a polytopic partition ${ \mathcal P } _ { \mathcal X _ { j } }$ of $\chi _ { j }$ . Hence the function $( x , u ) \mapsto$ $V ( x , u ) : = \ell ( x , u ) + V _ { i } ^ { 0 } ( A x + B u )$ is continuous, strictly convex and piecewise quadratic on a polytopic partition ${ \mathcal { P } } _ { \mathbb { Z } _ { j + 1 } }$ of the polytope $\mathbb { Z } _ { j + 1 }$ defined by
+
+$$\mathbb {Z} _ {j + 1} := \{(x, u) \mid x \in \mathbb {X}, u \in \mathbb {U}, A x + B u \in \mathcal {X} _ {j} \}$$
+
+The polytopic partition ${ \mathcal { P } } _ { \mathbb { Z } _ { j + 1 } }$ of $\mathbb { Z } _ { j + 1 }$ may be computed as follows: if X is a constituent polytope of $\chi _ { j }$ , then, from (7.19), the corresponding constituent polytope of ${ \mathcal { P } } _ { \mathbb { Z } _ { j + 1 } }$ is the polytope Z defined by
+
+$$Z := \{z = (x, u) \mid x \in \mathbb {X}, u \in \mathbb {U}, A x + B u \in X \}$$
+
+Thus Z is defined by a set of linear inequalities; also $\ell ( x , u ) + V _ { i } ^ { 0 } ( f ( x , u ) )$ is quadratic on Z. Thus the techniques of Section 7.5 can be employed for its solution, yielding the piecewise quadratic value function $V _ { j + 1 } ^ { 0 } ( \cdot )$ , the piecewise affine control law $\kappa _ { j + 1 } ( \cdot )$ , and the polytopic partition $\mathcal P _ { X _ { j + 1 } }$ on which $V _ { j + 1 } ^ { 0 } ( \cdot )$ and $\kappa _ { j + 1 } ( \cdot )$ are defined. Each problem (7.18) is much simpler than the problem considered in Section 7.4 since m, the dimension of u, is much less than Nm, the dimension of u. Thus, the DP solution is preferable to the direct method described in Section 7.4.

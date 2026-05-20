@@ -1,0 +1,3 @@
+# EXAMPLE 1.13 Novatune
+
+The first general-purpose adaptive system was Novatune, announced by the Swedish company Asea in 1982. The system can be regarded as a software-configured toolbox for solving control problems. It broke with conventional process control by using a general-purpose discrete-time pulse transfer function as the building block. The system also has elements for conventional PI and PID control, lead-lag filter, logic, sequencing, and three modules for adaptive control. It has been used to implement control systems for a wide range of process control problems. The advantage of the system is that the control system designer has a simple means of introducing adaptation. The adaptive controller is now incorporated in ABB Master (see Chapter 12).

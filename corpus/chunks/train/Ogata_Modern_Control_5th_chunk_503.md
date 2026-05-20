@@ -1,0 +1,9 @@
+# 7–10 CONTROL SYSTEMS DESIGN BY FREQUENCY-RESPONSE APPROACH
+
+In Chapter 6 we presented root-locus analysis and design. The root-locus method was shown to be very useful to reshape the transient-response characteristics of closedloop control systems. The root-locus approach gives us direct information on the transient response of the closed-loop system.The frequency-response approach, on the other hand, gives us this information only indirectly. However, as we shall see in the remaining three sections of this chapter, the frequency-response approach is very useful in designing control systems.
+
+For any design problem, the designer will do well to use both approaches to the design and choose the compensator that most closely produces the desired closed-loop response.
+
+In most control systems design, transient-response performance is usually very important. In the frequency-response approach, we specify the transient-response performance in an indirect manner.That is, the transient-response performance is specified in terms of the phase margin, gain margin, resonant peak magnitude (they give a rough estimate of the system damping); the gain crossover frequency, resonant frequency, bandwidth (they give a rough estimate of the speed of transient response); and static error constants (they give the steady-state accuracy). Although the correlation between the transient response and frequency response is indirect, the frequency-domain specifications can be easily met in the Bode diagram approach.
+
+After the open loop has been designed, the closed-loop poles and zeros can be determined. Then, the transient-response characteristics must be checked to see whether the designed system satisfies the requirements in the time domain. If it does not, then the compensator must be modified and the analysis repeated until a satisfactory result is obtained.

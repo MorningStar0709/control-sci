@@ -1,0 +1,11 @@
+# 6.3 Principles of Structuring
+
+As mentioned earlier, real control problems are large and poorly defined, and control theory deals with small well-defined problems. According to the dictionary, structuring can mean to construct a systematic framework for something. In this context, however, structuring is used to describe the process of bridging the gap between the real problems and the problems that control theory can handle.
+
+The problems associated with structuring are very important for control-system design. Unfortunately, these problems cannot yet be put into a complete systematic framework. For this reason they are often avoided both in textbooks and in research. As an analogy, structuring can be said to have the same relation to control-system design as grammar has to composition. It is clearly impossible to write well without knowing grammar. It is also clear that a grammatically flawless essay is not necessarily a good essay. Structuring of control systems must be based on the scientific principles given by control theory. However, structuring also contains elements of creativity, ingenuity, and art. Perhaps the best way to introduce structuring is to teach it as a craft.
+
+The problem of structuring occurs in many disciplines. Formal approaches have also been developed. The terminology used here is borrowed from the fields of computer science and problem solving, where structuring of large programs has been the subject of much work. There are two major approaches, called top-down and bottom-up.
+
+The top-down approach starts with the problem definition. The problem is then divided into successively smaller pieces, adding more and more details. The procedure stops when all pieces correspond to well-known problems. It is a characteristic of the top-down approach that many details are left out in the beginning. More and more details are added as the problem is subdivided. The buzz word successive refinement is therefore often associated with the top-down approach.
+
+The bottom-up approach starts instead with the small pieces, which represent known solutions for subproblems. These are then combined into larger and larger pieces, until a solution to the large problem is obtained.

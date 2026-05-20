@@ -1,0 +1,3 @@
+# 3.1 INTRODUCTION
+
+The subject of this chapter is the theory of linear, time-invariant (LTI) systems. Part of the motivation for the study of this theory is the fact that, in the neighborhood of a constant equilibrium point, systems are adequately modeled by linear, time-invariant systems. The major motivation, however, is simply that LTI systems are the only ones for which we have a nearly complete, practical theory. That is why nonlinearities are often ignored in the design phase, when an LTI approximation is used to obtain a control law; the nonlinearities are restored in the simulation phase, when the control law is tested and tuned. It is perhaps surprising that, in most cases, LTI approximations can yield both meaningful insights and useful control laws.

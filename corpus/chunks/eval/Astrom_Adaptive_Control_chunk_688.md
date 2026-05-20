@@ -1,0 +1,3 @@
+# Computational Delay
+
+The updating of the estimated parameters and the design are done at each sampling instant. The timing of computations of the controller was discussed in Section 11.2. We pointed out that it is important to have as short a computational delay as possible. The dual time scale of the adaptive control problem implies that the process parameters are assumed to vary slowly. This means that the parameter estimates from the previous sampling instant can be used for calculating the control signal. There will thus be no extra time delay due to the adaptation, provided that the parameter update and the controller design are done after the control signal is sent out to the process.

@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0",
+  "task_id": "controlsci-arbitrate-001",
+  "task_name": "质量仲裁与数据集构建",
+  "steps": [
+    {
+      "schema_version": "1.0",
+      "step_id": 301,
+      "step_name": "质量仲裁(题目加载)",
+      "tool": "build_benchmark.py",
+      "input_summary": "待处理 360 题",
+      "output_summary": "input_items=360, output_items=360",
+      "status": "success",
+      "duration_ms": 210,
+      "timestamp": "2026-05-05 18:23:47",
+      "error": null
+    },
+    {
+      "schema_version": "1.0",
+      "step_id": 302,
+      "step_name": "质量仲裁(Embedding 快速通道)",
+      "tool": "qwen3-embedding:4b",
+      "input_summary": "待处理 360 题",
+      "output_summary": "input_items=360, passed=48, rejected=12, pending=300",
+      "status": "success",
+      "duration_ms": 1890,
+      "timestamp": "2026-05-05 18:23:47",
+      "error": null
+    },
+    {
+      "schema_version": "1.0",
+      "step_id": 303,
+      "step_name": "质量仲裁(LLM 第一轮仲裁)",
+      "tool": "deepseek-v4-flash",
+      "input_summary": "待处理 300 题",
+      "output_summary": "input_items=300, passed=192, rejected=75, failed=3, pending_rollover=30",
+      "status": "success",
+      "duration_ms": 142000,
+      "timestamp": "2026-05-05 18:23:47",
+      "error": null
+    },
+    {
+      "schema_version": "1.0",
+      "step_id": 304,
+      "step_name": "质量仲裁(LLM 第二轮仲裁)",
+      "tool": "deepseek-v4-flash",
+      "input_summary": "待处理 75 题",
+      "output_summary": "input_items=75, passed=0, rejected=75",
+      "status": "success",
+      "duration_ms": 38000,
+      "timestamp": "2026-05-05 18:23:47",
+      "error": null
+    },
+    {
+      "schema_version": "1.0",
+      "step_id": 305,
+      "step_name": "质量仲裁(孤儿回收)",
+      "tool": "deepseek-v4-flash (orphan_judge)",
+      "input_summary": "待处理 185 题",
+      "output_summary": "input_items=185, passed=114, rejected=71",
+      "status": "success",
+      "duration_ms": 540000,
+      "timestamp": "2026-05-05 18:23:47",
+      "error": null
+    },
+    {
+      "schema_version": "1.0",
+      "step_id": 306,
+      "step_name": "质量仲裁(最终合并)",
+      "tool": "build_benchmark.py",
+      "input_summary": "待处理 ? 题",
+      "output_summary": "merged_total=1109, core=500, full=889",
+      "status": "success",
+      "duration_ms": 310,
+      "timestamp": "2026-05-05 18:23:47",
+      "error": null
+    }
+  ],
+  "total_duration_ms": 302,
+  "final_status": "completed",
+  "created_at": "2026-05-05 18:23:47"
+}

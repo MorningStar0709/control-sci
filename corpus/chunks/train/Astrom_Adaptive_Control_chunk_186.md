@@ -1,0 +1,3 @@
+# 3.6 DISTURBANCES WITH KNOWN CHARACTERISTICS
+
+So far, we have concentrated on servo problems that are common in aerospace and mechatronics. In process control, regulation problems are more common. It is then important to consider attenuation of disturbances that act on the process. The disturbance may enter the process in many different ways. For simplicity we will assume that it enters at the process input as shown in Figure 3.2. This assumption is not very restrictive. If the disturbance is denoted by v, the system is then described by Eq. (3.1). We will first use an example to illustrate that load disturbances will cause problems.

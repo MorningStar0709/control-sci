@@ -1,0 +1,5 @@
+The second term can be simplified by substituting it with the function $v ( \tau ) = k T +$ $T - \tau$ . Note that $d \tau = - d v$ .
+
+$$\mathbf {x} _ {k + 1} = e ^ {\mathbf {A} T} \mathbf {x} _ {k} - \left(\int_ {v (k T)} ^ {v ((k + 1) T)} e ^ {\mathbf {A} v} d v\right) \mathbf {B u} _ {k}\mathbf {x} _ {k + 1} = e ^ {\mathbf {A} T} \mathbf {x} _ {k} - \left(\int_ {T} ^ {0} e ^ {\mathbf {A} v} d v\right) \mathbf {B} \mathbf {u} _ {k}\mathbf {x} _ {k + 1} = e ^ {\mathbf {A} T} \mathbf {x} _ {k} + \left(\int_ {0} ^ {T} e ^ {\mathbf {A} v} d v\right) \mathbf {B u} _ {k}\mathbf {x} _ {k + 1} = e ^ {\mathbf {A} T} \mathbf {x} _ {k} + \mathbf {A} ^ {- 1} e ^ {\mathbf {A} v} | _ {0} ^ {T} \mathbf {B u} _ {k}\mathbf {x} _ {k + 1} = e ^ {\mathbf {A} T} \mathbf {x} _ {k} + \mathbf {A} ^ {- 1} (e ^ {\mathbf {A} T} - e ^ {\mathbf {A} 0}) \mathbf {B u} _ {k}\mathbf {x} _ {k + 1} = e ^ {\mathbf {A} T} \mathbf {x} _ {k} + \mathbf {A} ^ {- 1} (e ^ {\mathbf {A} T} - \mathbf {I}) \mathbf {B u} _ {k}$$
+
+which is an exact solution to the discretization problem.

@@ -1,0 +1,3 @@
+第 14 章 滑模控制一节参考了 Utkin[198], Slotine and Li[180], DeCarlo, Zak and Matthews [52] 以及 Young, Utkin and Ozguner[215] 的综述论文。滑模控制器的连续逼近基于文献[55]。李雅普诺夫再设计一节参考了 Corless and Leitmann[45], Barmish, Corless and Leitmann [19] 以及 Spong and Vidyasagar[185] 的第 10 章。关于李雅普诺夫再设计在有不确定项的非线性系统控制中的应用研究还可以参考 Corless[44]。14.2.1 节中的鲁棒稳定性设计称为最小 - 最大控制, 14.2.2 节中非线性阻尼参考了 Krstic, Kanellakopolous and Kokotovic[108] 的 2.5 节。反步部分也参考了同一个文献[108], 并借鉴了 Qu[153] 以及 Slotine and Hedrick [179]。文献[108]包含了反步设计过程的全面讨论, 包括反步在非线性系统自适应控制中的应用。其他递归方法还包括奇异扰动系统[105] 的前向, 交叉[153],[172] 和混合控制。基于无源控制的内容依据的是 Sepulchre, Jankovic and Kokotovic[172] 以及 van der Schaft[199]。这种方法在物理系统中的广泛应用可参阅文献[120] 和文献[146]。高增益观测器一节参考了 Esfandiari and Khalil[56] 以及 Atassi and Khalil[16]。
+
+本书编写过程中偶尔引用的其他文献也一并列在参考文献中。

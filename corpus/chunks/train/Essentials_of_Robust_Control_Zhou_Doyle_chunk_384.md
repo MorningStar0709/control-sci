@@ -1,0 +1,3 @@
+# Relax (A2)
+
+In the cases that either $D _ { 1 2 }$ is not full column rank or that $D _ { 2 1 }$ is not full row rank, improper controllers can give a bounded $\mathcal { H } _ { \infty }$ norm for $T _ { z w }$ , although the controllers will not be admissible by our definition. Such singular filtering and control problems have been well-studied in $\mathcal { H } _ { 2 }$ theory and many of the same techniques go over to the $\mathcal { H } _ { \infty }$ case (e.g., Willems [1981] and Willems, Kitapci, and Silverman [1986]). A complete solution to the singular problem can be found in Stroorvogel [1992].

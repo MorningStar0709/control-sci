@@ -1,0 +1,125 @@
+```mermaid
+graph TD
+    A["δ"] --> B["模型 [Aₘ Bₘ"]]
+    B --> C["Cₘ"]
+    C --> D["yₘ"]
+    D --> E["Σ"]
+    E --> F["u"]
+    F --> G["被控对象 [AB/C0"]]
+    G --> H["y"]
+    H --> I["Σ"]
+    I --> J["e"]
+    E --> K["K"]
+    K --> L["Σ"]
+    L --> M["+"]
+    M --> N["Σ"]
+    N --> O["+"]
+    O --> P["Σ"]
+    P --> Q["+"]
+    Q --> R["Σ"]
+    R --> S["+"]
+    S --> T["Σ"]
+    T --> U["+"]
+    U --> V["Σ"]
+    V --> W["+"]
+    W --> X["Σ"]
+    X --> Y["+"]
+    Y --> Z["Σ"]
+    Z --> AA["+"]
+    AA --> AB["Σ"]
+    AB --> AC["+"]
+    AC --> AD["Σ"]
+    AD --> AE["+"]
+    AE --> AF["Σ"]
+    AF --> AG["+"]
+    AG --> AH["Σ"]
+    AH --> AI["+"]
+    AI --> AJ["Σ"]
+    AJ --> AK["+"]
+    AK --> AL["Σ"]
+    AL --> AM["+"]
+    AM --> AN["Σ"]
+    AN --> AO["+"]
+    AO --> AP["Σ"]
+    AP --> AQ["+"]
+    AQ --> AR["Σ"]
+    AR --> AS["+"]
+    AS --> AT["Σ"]
+    AT --> AU["+"]
+    AU --> AV["Σ"]
+    AV --> AW["+"]
+    AW --> AX["Σ"]
+    AX --> AY["+"]
+    AY --> AZ["Σ"]
+    AZ --> BA["+"]
+    BA --> BB["Σ"]
+    BB --> BC["+"]
+    BC --> BD["Σ"]
+    BD --> BE["+"]
+    BE --> BF["Σ"]
+    BF --> BG["+"]
+    BG --> BH["Σ"]
+    BH --> BI["+"]
+    BI --> BJ["Σ"]
+    BJ --> BK["+"]
+    BK --> BL["Σ"]
+    BL --> BM["+"]
+    BM --> BN["Σ"]
+    BN --> BO["+"]
+    BO --> BP["Σ"]
+    BP --> BQ["+"]
+    BQ --> BR["Σ"]
+    BR --> BS["+"]
+    BS --> BT["Σ"]
+    BT --> BU["+"]
+    BU --> BV["Σ"]
+    BV --> BW["+"]
+    BW --> BX["Σ"]
+    BX --> BY["+"]
+    BY --> BZ["Σ"]
+    BZ --> CA["+"]
+    CA --> CB["Σ"]
+    CB --> CC["+"]
+    CC --> CD["Σ"]
+    CD --> CE["+"]
+    CE --> CF["Σ"]
+    CF --> CG["+"]
+    CG --> CH["Σ"]
+    CH --> CI["+"]
+    CI --> CJ["Σ"]
+    CJ --> CK["+"]
+    CK --> CL["Σ"]
+    CL --> CM["+"]
+    CM --> CN["Σ"]
+    CN --> CO["+"]
+    CO --> CP["Σ"]
+    CP --> CQ["+"]
+    CQ --> CR["Σ"]
+    CR --> CS["+"]
+    CS --> CT["Σ"]
+    CT --> CU["+"]
+    CU --> CV["Σ"]
+    CV --> CW["+"]
+    CW --> CX["Σ"]
+```
+</details>
+
+图 7.67 模型跟随设计的框图
+
+考虑如下描述的被控对象：
+
+$$\dot {x} = A x + B u \tag {7.223}y = C x \tag {7.224}$$
+
+期望模型由下式给出：
+
+$$\dot {z} = \boldsymbol {A} _ {\mathrm{m}} z + \boldsymbol {B} _ {\mathrm{m}} \delta (t) \tag {7.225}y _ {\mathrm{m}} = C _ {\mathrm{m}} z \tag {7.226}$$
+
+其中： $A_{m}$ 为 $n_{m} \times m_{m}$ 矩阵。此时，由脉冲 $\delta(t)$ ，或本质上只是初始条件来驱动模型。假设 u，y 和 $y_{m}$ 维数相同。令
+
+$$x = M z + \delta x \tag {7.227}u = N z + \delta u \tag {7.228}y = y _ {\mathrm{m}} + \delta y \tag {7.229}$$
+
+其中：M 和 N 为常矩阵。我们希望通过快速地 $\delta y \rightarrow 0$ 使得 $y \rightarrow y_{m}$ 。如果将式(7.227)和式(7.228)代入式(7.223)与式(7.224)中，那么可以得到
+
+$$\boldsymbol {M} \dot {\boldsymbol {z}} + \delta \dot {\boldsymbol {x}} = \boldsymbol {A} (\boldsymbol {M} \boldsymbol {z} + \delta \boldsymbol {x}) + \boldsymbol {B} (\boldsymbol {N} \boldsymbol {z} + \delta \boldsymbol {u}) \tag {7.230}y = y _ {\mathrm{m}} + \delta y = C (M z + \delta x) \tag {7.231}$$
+
+将上式改写为

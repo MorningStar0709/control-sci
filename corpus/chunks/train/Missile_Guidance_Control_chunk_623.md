@@ -1,0 +1,7 @@
+Consequently, the missile will fly a gravity turn when (6.207) is satisfied. All the quantities required to determine the direction of $\mathbf { V } _ { A }$ are usually calculated in standard missile simulations. Therefore, the thrust attitude $\hat { \delta }$ may be commanded as
+
+$$\hat {\delta} = \mathbf {V} _ {A} / V _ {A}. \tag {6.209}$$
+
+When a unity control system (i.e., equivalent to a point mass missile) is assumed, it follows that $\widehat { \delta } = \widehat { \xi }$ .
+
+Note that when a simulation is performed, the simulation will calculate the missile angular velocity $\pmb { \omega } = \hat { \pmb { \xi } } \times ( d \hat { \pmb { \xi } } / d t )$ . This quantity may be approximated with simple functions and incorporated in a missile pitch programmer. Steering commands from the missile programmer then cause the missile to pitch over to approximate the desired gravity turn. Furthermore, note that when $\mathbf { W } \approx 0$ , the initial value of $\hat { \xi } = \hat { \delta }$ is arbitrary. When the initial value $\hat { \xi } = \hat { \xi } _ { o }$ is chosen, the resulting gravity turn is specified. In general, it is necessary to make several flights using different values for $\hat { \xi } _ { o }$ , in order to obtain the desired end conditions. These variations can be made even when $\mathbf { W } \neq 0$ , since wind velocities are normally small enough to be neglected.

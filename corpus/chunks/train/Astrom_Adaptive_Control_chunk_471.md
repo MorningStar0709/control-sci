@@ -1,0 +1,9 @@
+# 6.9 ROBUST ADAPTIVE CONTROLLERS
+
+In the previous sections we showed that both continuous-time and discrete-time adaptive controllers perform well in idealized cases. For the discrete-time self-tuning regulator, Assumptions A1-A4 in Theorem 6.7 were necessary to prove convergence and stability. The examples indicate that the MRAS algorithm in Eqs. (6.57) is incapable of dealing with unmodeled dynamics and disturbances. The insight given by the analysis also suggests various improvements of the algorithms. In this section, different ways to improve the robustness properties are discussed.
+
+The first and most obvious observation is that the underlying controller structure must be appropriate. A pure proportional feedback is not appropriate, since the controller gain should be reduced at high frequencies to maintain robustness. Notice that a digital control law with appropriate prefiltering gives a very effective reduction of gain at frequencies higher than the Nyquist frequency associated with the sampling. However, any use of filtering in this way requires prior information about the unmodeled dynamics.
+
+The examples also show that Theorem 6.7, although it is of significant theoretical interest, has limited practical value. The theorem clearly will not hold if Assumption A2 is violated. This assumption will not hold in a practical case, in which there are always unmodeled dynamics. It is also not realistic to neglect disturbances. This raises the possibility that global stability can be established only under unrealistic assumptions.
+
+Theorem 6.7 also gives poor guidelines for the choice of controller complexity. To satisfy Assumption A2, it seems logical to increase the controller complexity. However, this will impose additional requirements on the input signal to maintain persistency of excitation.

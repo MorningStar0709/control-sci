@@ -1,0 +1,3 @@
+# Smith-Predictor
+
+The Smith-predictor is a special method of dealing with systems with time delays. A block diagram of the controller is shown in Fig. 5.29. The controller consists of a feedback controller $G_{r}$ and a loop around it that contains a process model. The controller $G_{r}$ is designed as if the time delay T in the process was absent and the feedback around the controller ensures that the system with the time delay will be well behaved. The Smith-predictor can give a very good response to command signals. The limitations inherent with time delays of course cannot be avoided. We will illustrate the properties of the Smith-predictor with an example.

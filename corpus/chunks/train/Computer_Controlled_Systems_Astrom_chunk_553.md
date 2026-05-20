@@ -1,0 +1,3 @@
+# 9.6 Numerics
+
+When implementing a computer-control system it is necessary to answer questions such as: How accurate should the converters be? What precision is required in the computations? Should computations be made in fixed-point or floating-point arithmetic? To answer these questions, it is necessary to understand the effects of the limitations and to estimate their consequences for the closed-loop system. This is not a trivial question, because the answer depends on a complex interaction of the feedback, the algorithm, and the sampling rate. Fortunately, only crude estimates have to be done. For instance, should the resolution be 10 or 12 bits and should the word length be 24 or 32 hits? Such questions may be answered using simplified analysis.

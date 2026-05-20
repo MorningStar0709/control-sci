@@ -1,0 +1,3 @@
+# Example 4.11 Output feedback with integral action of the double integrator
+
+Consider the double-integrator plant. Assume that the feedback vector L is determined as in Examples 4.2 and 4.4 with the closed-loop natural frequency $\omega = 1$ , the damping $\zeta = 0.7$ , and h = 0.44. This gives $L = [0.73, 1.21]$ . The initial value of the state is $x(0) = [1\ 1]^{T}$ . The controller and the observer are implemented as in (4.44). The three observer poles are placed in z = 0.75. Figure 4.10 shows the behavior of the system. The response is now slower and more oscillatory than without the estimated disturbance as in Fig. 4.7. It is, however, clearly seen that the controller now has integral action and can eliminate constant input-load disturbances.

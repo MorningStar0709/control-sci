@@ -1,0 +1,3 @@
+# 2.6 Input-Output Models
+
+A dynamic system can be described using either internal models or external models. Internal models—for instance, the state-space models discussed in Sec. 2.3—describe all internal couplings among the system variables. The external models give only the relationship between the input and the output of the system. In this section, it is first shown that the input-output relationship for a general linear system can be expressed by a pulse-response function. It is then shown that shift-operator calculus can be used to derive input-output relationships directly, which leads to characterization of the input-output behavior in terms of pulse-transfer operators.

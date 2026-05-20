@@ -1,0 +1,5 @@
+$$
+\begin{array}{l} x ^ {T} (N) Q _ {0} x (N) = x ^ {T} (0) S (0) x (0) + \sum_ {k = 0} ^ {N - 1} \left[ (\Phi x (k) + \Gamma u (k)) ^ {T} S (k + 1) v (k) \right. \\ \left. + v ^ {T} (k) S (k + 1) \left(\Phi x (k) + \Gamma u (k)\right) + v ^ {T} (k) S (k + 1) v (k) \right] \\ + \sum_ {k = 0} ^ {N - 1} \left[ u ^ {T} (k) \left(\Gamma^ {T} S (k + 1) \Gamma + Q _ {2}\right) u (k) \right. \\ + u ^ {T} (k) \left(\Gamma^ {T} S (k + 1) \Phi + Q _ {1 2} ^ {T}\right) x (k) \\ + x ^ {T} (k) \left(\Phi^ {T} S (k + 1) \Gamma + Q _ {1 2}\right) u (k) \\ + x ^ {T} (k) L ^ {T} (k) \left(\Gamma^ {T} S (k + 1) \Gamma + Q _ {2}\right) L (k) x (k) - x ^ {T} (k) Q _ {1} x (k) \\ \left. - u ^ {T} (k) Q _ {2} u (k) - u (k) ^ {T} Q _ {1 2} ^ {T} x (k) - x ^ {T} (k) Q _ {1 2} u (k) \right] \\ \end{array}
+$$
+
+where the terms $u^{T}Q_{2}u$ , $u(k)^{T}Q_{12}x(k)$ , and $x^{T}(k)Q_{12}u(k)$ have been added and subtracted in the last sum. Rearrangement of the terms using (11.19) gives (11.22). To show the second equality use (11.24) and insert that in (11.22). Rearrangement of the terms gives (11.23) and completes the proof.

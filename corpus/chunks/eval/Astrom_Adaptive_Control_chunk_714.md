@@ -1,0 +1,3 @@
+# Feasibility Studies
+
+A number of feasibility studies have been performed to evaluate the usefulness of adaptive control. They cover a wide range of control problems, such as autopilots for missiles, ships, and aircraft; engine control; motion control; machine tools; industrial robots; power systems; distillation columns; chemical reactors; pH control; furnaces; heating; and ventilation. There are also applications in the biomedical area. The feasibility studies have shown that there are cases in which adaptive control is very useful and others in which the benefits are marginal. Some industrial products also use adaptive techniques. There are both general-purpose controllers and controllers for special applications.

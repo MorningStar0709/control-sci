@@ -1,0 +1,3 @@
+Hence, control design may be regarded as a process of choosing a controller K such that certain weighted signals are made small in some sense. There are many different ways to define the smallness of a signal or transfer matrix, as we have discussed in the last chapter. Different definitions lead to different control synthesis methods, and some are much harder than others. A control engineer should make a judgment of the mathematical complexity versus engineering requirements.
+
+Next, we introduce two classes of performance formulations: $\mathcal { H } _ { 2 }$ and $\mathcal { H } _ { \infty }$ criteria. For the simplicity of presentation, we shall assume that $d _ { i } = 0$ and $n = 0$ .

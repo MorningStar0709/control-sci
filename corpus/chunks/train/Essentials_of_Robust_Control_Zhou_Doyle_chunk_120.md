@@ -1,0 +1,3 @@
+# Internal Stability
+
+This chapter introduces the feedback structure and discusses its stability and various stability tests. The arrangement of this chapter is as follows: Section 5.1 discusses the necessity for introducing feedback structure and describes the general feedback configuration. Section 5.2 defines the well-posedness of the feedback loop. Section 5.3 introduces the notion of internal stability and various stability tests. Section 5.4 introduces the stable coprime factorizations of rational matrices. The stability conditions in terms of various coprime factorizations are also considered in this section.

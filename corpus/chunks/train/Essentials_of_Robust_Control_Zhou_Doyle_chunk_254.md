@@ -1,0 +1,11 @@
+However, the analysis is not so simple for systems with multiple sources of model uncertainties, including the robust performance problem for systems with unstructured uncertainty. As we shown in Chapter 9, if a system is built from components that are themselves uncertain, then, in general, the uncertainty in the system level is structured, involving typically a large number of real parameters. The stability analysis involving real parameters is much more difficult and will be discussed in Chapter 18. Here we shall simply cover the real parametric uncertainty with norm-bounded dynamical uncertainty. Moreover, the interconnection model M can always be chosen so that $\Delta ( s )$ is block diagonal, and, by absorbing any weights, $\| \Delta \| _ { \infty } < 1$ . Thus we shall assume that $\Delta ( s )$ takes the form of
+
+<table><tr><td>Input Assumptions</td><td>Performance Specifications</td><td>Perturbation Assumptions</td><td>Analysis Tests</td><td>Synthesis Methods</td></tr><tr><td> $E(w(t)w(\tau)^*) = \delta(t - \tau)I$ </td><td> $E(z(t)^*z(t)) \leq 1$ </td><td rowspan="2"> $\Delta = 0$ </td><td rowspan="2"> $\|M_{22}\|_2 \leq 1$ </td><td rowspan="2">LQGWiener-Hopf $\mathcal{H}_2$ </td></tr><tr><td> $w = U_0\delta(t)$  $E(U_0U_0^*) = I$ </td><td> $E(\|z\|_2^2) \leq 1$ </td></tr><tr><td> $\|w\|_2 \leq 1$ </td><td> $\|z\|_2 \leq 1$ </td><td> $\Delta = 0$ </td><td> $\|M_{22}\|_\infty \leq 1$ </td><td rowspan="2">Singular Value Loop Shaping $\mathcal{H}_\infty$ </td></tr><tr><td> $\|w\|_2 \leq 1$ </td><td>Internal Stability</td><td> $\| \Delta \|_\infty < 1$ </td><td> $\|M_{11}\|_\infty \leq 1$ </td></tr></table>
+
+Table 10.1: General analysis for single source of uncertainty
+
+$$\Delta (s) = \{\mathrm{diag} [ \delta_ {1} I _ {r _ {1}}, \ldots , \delta_ {s} I _ {r _ {S}}, \Delta_ {1}, \ldots , \Delta_ {F} ]: \delta_ {i} (s) \in \mathcal {R H} _ {\infty}, \Delta_ {j} \in \mathcal {R H} _ {\infty} \}$$
+
+with $\| \delta _ { i } \| _ { \infty } < 1$ and $\| \Delta _ { j } \| _ { \infty } < 1$ . Then the system is robustly stable iff the interconnected system in Figure 10.4 is stable.
+
+The results of Table 10.1 can be applied to analysis of the system’s robust stability in two ways:

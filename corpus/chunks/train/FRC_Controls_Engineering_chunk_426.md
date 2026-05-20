@@ -1,0 +1,7 @@
+# 15.2 2-DOF motion profiles
+
+In FRC, point-to-point movements with two degrees of freedom (2 DOFs) are almost always within the context of drivetrains where the two degrees of freedom are the x and y axes.
+
+A path is a set of (x, y) points for the drivetrain to follow. A drivetrain trajectory is a path that includes both the states (e.g., position and velocity) and control inputs (e.g., voltage) of the drivetrain as functions of time.
+
+Currently, the most common form of multidimensional trajectory planning in FRC is based on polynomial splines.

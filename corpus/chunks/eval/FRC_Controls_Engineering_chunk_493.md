@@ -1,0 +1,5 @@
+Figures B.3 and B.5 show a delayed drivetrain velocity system and delayed flywheel system respectively. Figures B.4 and B.6 show that compensating the controller gain significantly reduces the feedback gain, resulting in an almost open-loop response with poor disturbance rejection. Fixing the source of the delay is always preferred for systems with fast dynamics and long delays.
+
+Since we are computing the control based on future states and the state exponentially converges to zero over time, the control action we apply at the current timestep also converges to zero for longer delays. During startup, the inputs we use to predict the future state are zero because there’s initially no input history. This means the initial inputs are larger to give the system a kick in the right direction. As the input delay buffer fills up, the controller gain converges to a smaller steady-state value. If one uses the steady-state controller gain during startup, the transient response may be slow.
+
+We’ll show how to derive this controller gain compensation for continuous and discrete systems.

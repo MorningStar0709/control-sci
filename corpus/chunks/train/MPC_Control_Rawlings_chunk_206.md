@@ -1,0 +1,7 @@
+If $\begin{array} { l l l } { \mathbf { u } ^ { 0 } ( x ) } & { = } & { \left\{ u ^ { 0 } ( 0 ; x ) , u ^ { 0 } ( 1 ; x ) , \ldots , u ^ { 0 } ( N - 1 ; x ) \right\} } \end{array}$ is unique for each $\boldsymbol { x } \in \mathcal { X } _ { N }$ , then $\mathbf { u } ^ { 0 } : \mathbb { R } ^ { n }  \mathbb { R } ^ { N m }$ is a function; otherwise it is a set-valued function.1 In MPC, the control applied to the plant is the first element $u ^ { 0 } ( 0 ; x )$ of the optimal control sequence. At the next sampling instant, the procedure is repeated for the successor state. Although MPC computes $\mathbf { u } ^ { 0 } ( x )$ only for specific values of the state x, it could, in principle, be used to compute $\mathbf { u } ^ { 0 } ( x )$ and, hence, $u ^ { 0 } ( 0 ; x )$ for every x for which $\mathbb { P } _ { N } ( x )$ is feasible, yielding the implicit MPC control law $\kappa _ { N } ( \cdot )$ defined by
+
+$$\kappa_ {N} (x) := u ^ {0} (0; x), \qquad x \in \mathcal {X} _ {N}$$
+
+MPC does not require determination of the control law $\kappa _ { N } ( \cdot )$ , a task that is usually intractable when constraints or nonlinearities are present; it is this fact that makes MPC so useful.
+
+If, at a given state x, the solution of $\mathbb { P } _ { N } ( x )$ is not unique, then $\kappa _ { N } ( \cdot ) = u ^ { 0 } ( 0 ; \cdot )$ is set valued and the model predictive controller selects one element from the set $\kappa _ { N } ( x )$ .

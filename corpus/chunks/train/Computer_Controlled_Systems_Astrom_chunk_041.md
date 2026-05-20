@@ -1,0 +1,7 @@
+# Minicomputer Period
+
+There was substantial development of digital computer technology in the 1960s. The requirements on a process-control computer were neatly matched with progress in integrated-circuit technology. The computers became smaller, faster, more reliable, and cheaper. The term minicomputer was coined for the new computers that emerged. It was possible to design efficient process-control systems by using minicomputers.
+
+The development of minicomputer technology combined with the increasing knowledge gained about process control with computers during the pioneering and DDC periods caused a rapid increase in applications of computer control. Special process-control computers were announced by several manufacturers. A typical process computer of the period had a word length of 16 bits. The primary memory was 8–124 k words. A disk drive was commonly used as a secondary memory. The CDC 1700 was a typical computer of this period, with an addition time of $2 \mu s$ and a multiplication time of $7 \mu s$ . The MTBF for a central processing unit was about 20,000 h.
+
+An important factor in the rapid increase of computer control in this period was that digital computer control now came in a smaller “unit.” It was thus possible to use computer control for smaller projects and for smaller problems. Because of minicomputers, the number of process computers grew from about 5000 in 1970 to about 50,000 in 1975.

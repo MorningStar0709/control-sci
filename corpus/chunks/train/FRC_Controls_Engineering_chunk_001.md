@@ -1,0 +1,11 @@
+# Controls Engineering in the FIRST Robotics Competition
+
+Tyler Veness
+
+Copyright © 2017-2026 Tyler Veness
+
+HTTPS://GITHUB.COM/CALCMOGUL/CONTROLS-ENGINEERING-IN-FRC
+
+Licensed under the Creative Commons Attribution-ShareAlike 4.0 International License (the “License”). You may not use this file except in compliance with the License. You may obtain a copy of the License at https://creativecommons.org/licenses/by-sa/ 4.0/. Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an “AS IS” BASIS, WITHOUT WARRANTIES OR CONDI-TIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+
+Generated from commit 72941c1 made on April 26, 2026. The latest version can be downloaded from https://file.tavsys.net/control/controls-engineering-in-frc.pdf.

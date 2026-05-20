@@ -1,0 +1,5 @@
+# Example 6.9 Constraint control
+
+When designing systems, it is frequently necessary to consider several operating conditions. This means that constraints for safety or economical conditions may need to be considered. It may also be necessary to consider constraints during start-up and shutdown. The control during these situations is usually done with logical controllers. Today the logical control and the analog control are often done within the same equipment, programmable logic control (PLC) systems. This means that there are good possibilities to integrate different functions of the control system.
+
+The choice of a control principle is an important issue. A good control principle can often simplify the control problem. The selection often involves technical and economical trade-offs. The selection of a control principle is often based on investigations of models of the process. The models used for this purpose are typically internal models derived from physical principles. It is therefore difficult to define general rules for finding control principles.

@@ -1,0 +1,3 @@
+The importance of the Riccati equation, which has been studied in the last two centuries by an extensive number of scientists and engineers, need not be overstressed. The matrix Riccati equation, which is a generalization in matrix form of the original scalar equation, plays a very important role in a range of control and systems theory areas such as linear quadratic optimal control, stability, stochastic filtering and control, synthesis of passive networks, differential games and more recently, $H_{\infty}$ -control and robust stabilization and control.
+
+Did Riccati ever imagine that his equation, proposed more than a quarter millennium ago, would play such an important and ubiquitous role in modern control engineering and other related fields?

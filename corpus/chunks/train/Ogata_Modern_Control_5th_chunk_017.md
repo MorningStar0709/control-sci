@@ -1,0 +1,11 @@
+Modern control theory is based on time-domain analysis of differential equation systems. Modern control theory made the design of control systems simpler because the theory is based on a model of an actual control system. However, the system’s stability is sensitive to the error between the actual system and its model. This means that when the designed controller based on a model is applied to the actual system, the system may not be stable. To avoid this situation, we design the control system by first setting up the range of possible errors and then designing the controller in such a way that, if the error of the system stays within the assumed range, the designed control system will stay stable. The design method based on this principle is called robust control theory. This theory incorporates both the frequencyresponse approach and the time-domain approach. The theory is mathematically very complex.
+
+Because this theory requires mathematical background at the graduate level, inclusion of robust control theory in this book is limited to introductory aspects only. The reader interested in details of robust control theory should take a graduate-level control course at an established college or university.
+
+Definitions. Before we can discuss control systems, some basic terminologies must be defined.
+
+Controlled Variable and Control Signal or Manipulated Variable. The controlled variable is the quantity or condition that is measured and controlled. The control signal or manipulated variable is the quantity or condition that is varied by the controller so as to affect the value of the controlled variable. Normally, the controlled variable is the output of the system. Control means measuring the value of the controlled variable of the system and applying the control signal to the system to correct or limit deviation of the measured value from a desired value.
+
+In studying control engineering, we need to define additional terms that are necessary to describe control systems.
+
+Plants. A plant may be a piece of equipment, perhaps just a set of machine parts functioning together, the purpose of which is to perform a particular operation. In this book, we shall call any physical object to be controlled (such as a mechanical device, a heating furnace, a chemical reactor, or a spacecraft) a plant.

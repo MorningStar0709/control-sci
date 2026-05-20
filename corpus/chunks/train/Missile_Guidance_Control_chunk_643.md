@@ -1,0 +1,11 @@
+where $\zeta$ is the damping ration, $\omega _ { n }$ is the undamped natural frequency, and $K _ { m a x }$ are inputs that describe the rate and proportional autopilot gains effective in this region and the physical limit on thrust vector deflection. (Note that care should be used in selecting the value of $K _ { m a x }$ depending on the rollout required during launch recovery.) The vertical attitude command is represented by $\theta _ { c } = 9 0 ^ { \circ } - \alpha _ { X }$ and $\psi _ { c } = 0$ and nominally (with $\theta = 9 0 ^ { \circ } - \alpha _ { X } , d \theta / d t = 0 , \psi = 0 , d \psi / d t = 0$ at ignition), the missile will maintain a vertical attitude and zero attitude rate until the start of guidance control.
+
+After the start of guidance control $( t = t _ { c } )$ the autopilot is neglected and the command rates simply integrated to give θ and $\psi$ as follows:
+
+$$\theta = \theta_ {c} (t _ {c}) + \int_ {t _ {c}} ^ {t} \left(\frac {d \theta_ {c}}{d t}\right) d t, \quad \theta_ {c} (t _ {c}) = 9 0 - \alpha_ {X}, \tag {6.227a}\psi = \psi_ {c} (t _ {c}) + \int_ {t _ {c}} ^ {t} \left(\frac {d \psi_ {c}}{d t}\right) d t, \quad \psi_ {c} (t _ {c}) = 0. \tag {6.227b}$$
+
+The missile does not instantaneously obtain $\theta = \theta _ { c } , ( d \theta / d t ) = ( d \theta _ { c } / d t ) , \psi = \psi _ { c }$ , $( d \psi _ { c } / d t ) = ( d \psi _ { c } / d t )$ , at $t = t _ { C }$ , but assuming that the missile will have nearly completely recovered from launch at $t _ { c }$ , this same approximation is made in all cases and should not introduce serious error.
+
+In terms of the values at the current time t , the missile position (R), velocity $( \mathbf { V } )$ , guidance velocity-to-be-gained $( \mathbf { V } _ { g } )$ , pitch angle (θ), and yaw angle $( \psi )$ , the differential equations of motion (for the powered phase of the missile) can be written in the form
+
+$$\frac {d ^ {2} \mathbf {R}}{d t ^ {2}} = \frac {d \mathbf {V}}{d t} = \mathbf {a} _ {T} + \mathbf {g}, \tag {6.228a}\frac {d \mathbf {V} _ {g}}{d t} = f (t, \mathbf {a} _ {T}, \mathbf {V} _ {g}), \tag {6.228b}\frac {d \theta}{d t} = \frac {d \theta_ {c}}{d t}, \tag {6.228c}\frac {d \psi}{d t} = \frac {d \psi_ {c}}{d t}. \tag {6.228d}$$

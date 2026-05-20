@@ -1,0 +1,7 @@
+# Separation and Certainty Equivalence
+
+The optimal one-step controller of Eq. (7.15) cannot be obtained by using the certainty equivalence principle, but the estimation and the control problems can be separated. As was mentioned in Section 7.1, most adaptive controllers are based on the hypothesis that the certainty equivalence principle can be used. The derivations in this section show that the separation principle also can be used in the considered problem. However, the uncertainties must also be used in the computation of the control signal. It is thus of interest to investigate whether there are classes of systems for which the certainty equivalence and separation principles hold.
+
+One case in which the certainty equivalence principle holds is the celebrated linear quadratic Gaussian case for known systems. For adaptive controllers there are very few cases to which the certainty equivalence principle is applicable. One exception is when the unknown parameters are stochastic variables that are independent between different sampling intervals. The certainty equivalence principle also holds for the stochastic linear quadratic problem for mulation, when the process noise is white but not necessarily Gaussian and when the measurement noise is additive but not necessarily white.
+
+The separation principle is valid for much more general cases. The cautious controller and the dual controller derived in this section are obtained by using separation.

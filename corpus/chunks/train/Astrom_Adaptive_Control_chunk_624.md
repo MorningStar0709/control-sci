@@ -1,0 +1,7 @@
+# Summary
+
+Variable-structure systems are related to the self-oscillating adaptive systems (SOAS). In variable-structure systems we want the system to get into a sliding mode to obtain insensitivity to parameter variations. The control signal of variable-structure systems will chatter in the sliding mode. The chatter can be avoided by smoothing the relay characteristics. The amplitude of the control signal is determined by the magnitude of the state variables or the error. With this modification the variable-structure system can be regarded as an SOAS in which the relay amplitude depends on the states. The switching condition is a linear function of the error in the SOAS, while in variable-structure systems it is a nonlinear function of the states.
+
+The theory on VSS can be extended to controllers, in which the feedback is done from a reduced number of state variables. However, the conditions will become more complex than those discussed in this section. There will be more constraining conditions on the choice of the switching plane. Since the conditions for the existence of a sliding mode depend on the process and the switching plane, there have been attempts to make adaptive VSS by adaptation on $\sigma(x)$ .
+
+One main drawback of variable-structure systems is the problem of choosing the switching plane. It also requires measurement of all state variables. Another drawback is the chatter in the control signal in the sliding mode.

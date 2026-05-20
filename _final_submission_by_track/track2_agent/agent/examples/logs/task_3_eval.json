@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "task_id": "controlsci-eval-001",
+  "task_name": "多模型评测执行",
+  "steps": [
+    {
+      "schema_version": "1.0",
+      "step_id": 5,
+      "step_name": "模型评测",
+      "tool": "evaluate.py",
+      "input_summary": "待评测 9 模型, benchmark=<project-root>/benchmark/dataset/core.json",
+      "output_summary": "评测进行中，9 模型后台运行中，最慢预计 23:13 完成",
+      "status": "skipped",
+      "duration_ms": 0,
+      "timestamp": "2026-05-05 18:23:48",
+      "error": null
+    }
+  ],
+  "total_duration_ms": 2,
+  "final_status": "partial",
+  "created_at": "2026-05-05 18:23:48"
+}

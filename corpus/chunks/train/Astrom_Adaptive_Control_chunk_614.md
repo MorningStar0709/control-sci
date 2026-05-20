@@ -1,0 +1,3 @@
+the response speed. To speed up the response, we can introduce the up-logic for the gain. Figure 10.12 shows a simulation in which $d_{1} = 0.5$ , $d_{2} = 0.1$ , and $e_{l} = 0.1$ . The error signal is decreased, but there is still an oscillation. The behavior of the closed-loop system can be sensitive to the choice of the parameters in the gain changer. Too large a value of $d_{1}$ will cause the error to be larger than $e_{0}$ , and there will be no decrease in d nor in the amplitude of the error. The oscillation can be quenched by adding a dither signal at the input of the process.
+
+The examples show how the properties of the SOAS can be changed by using lead filters, gain changers, and dither signals.

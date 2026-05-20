@@ -1,0 +1,8 @@
+Figure 3.38 illustrates an adaptive roll autopilot, which is quite similar to a conventional roll autopilot. The function of the added adaptive loop is to maintain constant the gain product $K _ { m } \ K _ { \delta } \ ( K _ { m }$ is the gain setting constant) by holding constant the gaincrossover frequency (i.e., the frequency of the unity loop gain) in the main autopilot loop.
+
+Note that in Figure 3.38, a dither oscillator with an appropriate fixed frequency below 12 cps inserts a small sine-wave dither into the main loop. As a result, the dither propagates around the main roll loop, causing only a minimal disturbance (e.g., about $0 . 1 ^ { \circ }$ peak angle per surface). The peak roll rates at the dither frequency are never large enough to affect guidance. Moreover, the dither output signal is processed in the adaptive elements, which adjusts the gain $K _ { m }$ until the in-phase component of the dither output signal is minus one-half the dither input signal. It can be shown that this results in unity gain of the main loop at the dither frequency; that is, the gain-crossover frequency and the product $K _ { m } K _ { \delta }$ are constant. In designing an adaptive roll autopilot, the designer must make certain that the system is not sensitive to phase changes in the main roll loop and is not sensitive to noise, partly because the dither processing involves cross-correlation of the dither output and input signals. Initial performance after launch is improved if the carrier (or parent) aircraft makes an approximate initial gain setting.
+
+![](image/08771a88db5e08334fd921840cd7de1775e361c2f5c7b816d0f3b9b3d32eb7bf.jpg)
+
+<details>
+<summary>flowchart</summary>

@@ -1,0 +1,3 @@
+# Summary
+
+A discrete-time system and the feedforward gain example have been discussed in this section. The examples show that adaptive controllers can have rather strange properties. The phenomena could be explained by using simple mathematics, but there will be difficulties in the general cases. It is therefore appropriate to consider some simplified situations in the coming sections. First, indirect and direct self-tuning regulators are discussed under idealized assumptions. Second, the adaptive control problem is divided into two parts with different time scales, and averaging techniques are used to analyze properties of the closed-loop systems.

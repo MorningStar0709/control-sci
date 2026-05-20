@@ -1,0 +1,5 @@
+where x and y are the variables, and $( a , b )$ is the point about which the series is expanded. The coefficients in (6.210) are usually obtained by a technique known as targeting. Specifically, targeting is the utilization of a simulation to define and verify any empirical constants that may be required by the guidance equations. For many problems, efficient use of the simulation to obtain the empirical constants requires the use of auxiliary computer programs. The word targeting is sometimes applied to operations carried out at the operational site that utilize the empirical constants obtained by the process defined above as targeting. Another technique frequently used for obtaining and/or generating the coefficients (i.e., the $\alpha _ { i j } \mathrm { ^ { * } s ) }$ is the method of least squares (or curve fitting). For more information in delta guidance, the reader is referred to [9].
+
+Finally, two other guidance techniques, the Q-guidance and cross-product steering, have been discussed in Section 6.5.2.
+
+It is appropriate at this point to list some (note that this list is by no means complete) of the ballistic missile error sources. These are:

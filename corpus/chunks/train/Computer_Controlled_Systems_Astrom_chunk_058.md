@@ -1,0 +1,12 @@
+# Example 1.3 Disk drive with deadbeat control
+
+Consider the disk drive in the previous example. Figure 1.9 shows the behavior of a computer-controlled system with a very long sampling interval $h = 1.4 / \omega_0$ . For comparison we have also shown the arm position, its velocity, and the control signal for the continuous controller used in Example 1.2. Notice the excellent behavior of the computer-controlled system. It settles much quicker than the continuous-time system even if control signals of the same magnitude are used. The $5\%$ settling time is $2.34 / \omega_0$ , which is much shorter than the settling time $5.5 / \omega_0$ of the continuous system. The output also reaches the desired position without overshoot and it remains constant when it has achieved its desired value, which happens in finite time. This behavior cannot be obtained with continuous-time systems because the solutions to such systems are sums of functions that are products of polynomials and exponential functions. The behavior obtained can be also described in the following way: The arm accelerates with constant acceleration until is is halfway to the desired position and it then decelerates with constant retardation. The control strategy used has the same form as the control strategy in Example 1.2, that is,
+
+![](image/8741af894dc4145f3edea11bb4b8b26ce30a840bbeadd7c8863d2a3c8001cb3e.jpg)  
+Figure 1.9 Simulation of the disk arm servo with deadbeat control (solid). The sampling period is $h = 1.4/\omega_{0}$ . The analog controller from Example 1.2 is also shown (dashed).
+
+$$u (t _ {k}) = t _ {0} u _ {c} (t _ {k}) + t _ {1} u _ {c} (t _ {k - 1}) - s _ {0} y (t _ {k}) - s _ {1} y (t _ {k - 1}) - r _ {1} u (t _ {k - 1}) \tag {1.5}$$
+
+The parameter values are different. When controlling the disk drive, the system can be implemented in such a way that sampling is initiated when the command signal is changed. In this way it is possible to avoid the extra time delay that occurs due to the lack of synchronization of sampling and command signal changes illustrated in Fig. 1.4.
+
+The example shows that control strategies with different behavior can be obtained with computer control. In the particular example the response time can be reduced by a factor of 2. The control strategy in Example 1.3 is called deadbeat control because the system is at rest when the desired position is reached. Such a control scheme cannot be obtained with a continuous-time controller.

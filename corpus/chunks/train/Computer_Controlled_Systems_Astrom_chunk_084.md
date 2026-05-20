@@ -1,0 +1,5 @@
+# State-Space Theory
+
+A very important event in the late 1950s was the development of state-space theory. The major inspiration came from mathematics and the theory of ordinary differential equations and from mathematicians such as Lefschetz, Pontryagin, and Bellman. Kalman deserves major credit for the state-space approach to control theory. He formulated many of the basic concepts and solved many of the important problems.
+
+Several of the fundamental concepts grew out of an analysis of the problem of whether it would be possible to get systems in which the variables achieved steady state in finite time. The analysis of this problem led to the notions of reachability and observability. Kalman's work also led to a much simpler formulation of the analysis of sampled systems: The basic equations could be derived simply by starting with the differential equations and integrating them under the assumption that the control signal is constant over the sampling period. The discrete-time representation is then obtained by only considering the system at the sampling points. This leads to a very simple state-space representation of sampled-data systems.

@@ -1,0 +1,5 @@
+# 10.2.4 Range Saturation
+
+One way this scheme can fail is if an optimium exists outside the range of parameters that you specify. In this case, the algorithm is likely to nd a value at the extreme of its search range. If the algorithm reports a value at the extreme of its range, this fact is annouced for you in the output and it is then a good idea to run the simulation again, centering on the extreme of the output range. The algorithm will indicate that its best weighted performance score was found at the edge of its box by printing, for example, kp min. This would mean that the value of $K _ { P }$ which yielded the best value was at the edge of the search space.
+
+Figure 10.2 shows a two-dimensional example in which the search has saturated its range at $P _ { 1 m a x }$ and $P _ { 2 m i n }$ . The actual best design is outside the search range and the search only found the closest point it could. Clearly we should move the search range to the lower right and run again. Note that we have made an assumption about the cost function in doing this, what is that assumption?

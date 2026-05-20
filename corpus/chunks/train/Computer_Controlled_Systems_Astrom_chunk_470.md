@@ -1,0 +1,3 @@
+# A Formalism
+
+It is now straightforward to develop a formalism for dealing with sampled systems. First, a system is represented by a block diagram. Each A-D converter is represented as an ideal sampler. Each D-A converter is represented as a hold circuit having the transfer function (7.27). Linear continuous-time blocks are represented by their transfer functions, and linear calculations in the computer, by their pulse-transfer functions. The paths between the samplers can be reduced using ordinary rules for linear time-invariant systems. The equations describing the system are then written down. Theorems 7.2 and 7.3 are then used to rewrite the equations. The procedure is illustrated by two examples.

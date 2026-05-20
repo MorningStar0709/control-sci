@@ -1,0 +1,5 @@
+# 16.5 State machine validation with safe sets
+
+Configuration spaces can also be used for state machine validation. The states of all the mechanisms, including solenoid actuation states, would be axes in a configuration space. A state machine unit test would define a valid path through the configuration space, send the desired events to the state machine, then ensure the robot took the correct path in response to each event for all iterations.
+
+This page intentionally left blank

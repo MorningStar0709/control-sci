@@ -1,0 +1,3 @@
+The treatment of state-space models in Sec. 2.3 covers the multivariable case. The discussion of input-output models is, however, restricted to single-input-single-output systems. Extensions to the multivariable case are possible, but are not used in this book because they require the mathematics of polynomial matrices.
+
+In order to design computer-controlled systems, it is important to understand how poles and zeros of continuous-time and discrete-time models are related. This is treated in Sec. 2.8. The selection of sampling period is discussed in Sec. 2.9. Rules of thumb based on the appearances of transient responses are given in terms of samples per rise time.

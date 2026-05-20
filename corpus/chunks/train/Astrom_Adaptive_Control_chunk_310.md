@@ -1,0 +1,5 @@
+# 5.6 BOUNDED-INPUT, BOUNDED-OUTPUT STABILITY
+
+Systems can be described from two points of view: the internal or state space view or the external or input-output view. The state space approach is based on a detailed description of the inner structure of the system. In the input-output approach, a system is considered to be a black box that transforms inputs to outputs. In Section 5.5 we approached stability from the state space view. In this section we develop stability theory from the input-output view. In the next section the results are applied to design of adaptive controllers.
+
+We start with a brief presentation of the operator view of dynamical systems. This leads naturally to the concept of bounded-input, bounded-output (BIBO) stability. The fundamental results like the small gain theorem and the passivity theorem are then presented. In Section 5.5 we found that the notion of positive real was essential. This notion, which is closely related to passivity, will also be discussed.

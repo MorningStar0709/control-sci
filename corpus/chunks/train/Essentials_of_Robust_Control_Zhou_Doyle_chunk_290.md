@@ -1,0 +1,3 @@
+With either K or D fixed, the global optimum in the other variable may be found using the $\mu$ and $\mathcal { H } _ { \infty }$ solutions. Although the joint optimization of $D$ and K is not convex and the global convergence is not guaranteed, many designs have shown that this approach works very well (see, e.g., Balas [1990]). In fact, this is probably the most effective design methodology available today for dealing with such complicated problems. Detailed treatment of $\mu$ analysis is given in Packard and Doyle [1993]. The rest of this book will focus on the $\mathcal { H } _ { \infty }$ optimization, which is a fundamental tool for $\mu$ synthesis.
+
+Related MATLAB Commands: musynfit, musynflp, muftbtch, dkit

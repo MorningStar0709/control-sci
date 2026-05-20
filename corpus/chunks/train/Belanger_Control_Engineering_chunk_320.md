@@ -1,0 +1,3 @@
+The stability margins monitor the Nyquist plot at two points: the point where $|L(j\omega)| = 1 = 0$ db (the crossover frequency) and the point where $\neq L(j\omega) = 180^{\circ}$ . As Figure 6.14 shows, it is possible for those two points to be acceptably far from the critical point while the locus comes dangerously close to $(-1, 0)$ . Such a situation would probably be viewed by a practitioner as pathological; it happens, but not too often. Still, this serves to show that good stability margins do not necessarily guarantee good stability properties.
+
+![](image/050db0098f4b48b180ff917c722e17068e79a369ed33069230cd187c0c9a9512.jpg)

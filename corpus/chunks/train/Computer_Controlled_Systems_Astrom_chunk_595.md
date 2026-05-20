@@ -1,0 +1,3 @@
+There are many standard texts on numerical analysis, Björk, Dahlqvist, and Andersson (1974) and Golub and Van Loan (1989) are good sources. Accuracy aspects in connection with control are found, for example, in Williamson (1991) and Gevers and Li (1993).
+
+Concurrent programming is discussed in Brinch-Hansen (1973), Barnes (1982), Burns and Wellings (1990), and Burns and Davies (1993). Much useful information is also given in material from vendors of computer-control systems. The $\delta$ -operator is an old idea. See Tschauner (1963a, 1963b). The $\delta$ -operator has been given much attention because of its numerical properties. See Gawthrop (1980), Middleton and Goodwin (1987, 1989), and Gevers and Li (1993).

@@ -1,0 +1,3 @@
+# Example 9.7 Choosing resolution in D-A and A-D converters
+
+Consider the double integrator that we have investigated. Assume that the process output is in the range $[-1,1]$ , that the range of the control signal is $[-0.04,0.04]$ , and that it is desired to control the output with a precision of 1%. If we let each converter contribute 0.5%, the A-D converter must have a resolution of at least 0.005, which is equivalent to 9 bits. Because the gain of the process at the limit cycle is about 15, the resolution of the D-A converter must be better than 0.00033. With the given signal range, this corresponds to 1 part in 240, or 8 bits.

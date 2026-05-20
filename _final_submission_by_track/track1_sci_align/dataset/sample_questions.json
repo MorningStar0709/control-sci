@@ -1,0 +1,58 @@
+{
+  "meta": {
+    "project": "ControlSci — 控制科学结构化语料库与 Sci-Align 跨模态对齐评测基准",
+    "version": "1.0-sample",
+    "updated": "2026-05-03",
+    "total_questions": 3,
+    "dimensions": {"A": 1, "B": 1, "D": 1},
+    "source": "Hand-authored sample questions from Phase 4 schema specification"
+  },
+  "questions": [
+    {
+      "id": "CS-EVO-00001",
+      "dimension": "A",
+      "difficulty_level": "L1",
+      "control_category": ["classical"],
+      "question": "什么是PID控制器的传递函数？请写出标准形式并说明各参数的作用。",
+      "answer": "PID控制器传递函数为 C(s)=Kp+Ki/s+Kd*s，其中Kp为比例增益，Ki为积分增益，Kd为微分增益。",
+      "reasoning_steps": ["PID包含比例、积分、微分三个环节", "三项在频域中分别对应Kp、Ki/s、Kd*s", "三项求和得到控制器传递函数"],
+      "source_ref": "Ogata_Modern_Control_5th_chunk_120",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "auto_passed"
+    },
+    {
+      "id": "CS-EVO-00004",
+      "dimension": "B",
+      "difficulty_level": "L2",
+      "control_category": ["classical"],
+      "question": "给定开环传递函数 G(s)=K/[s(s+2)(s+5)]，用Routh-Hurwitz判据求闭环稳定的K范围。",
+      "answer": "闭环特征方程为 s^3+7s^2+10s+K=0，Routh表要求 K>0 且 70-K>0，因此 0<K<70。",
+      "reasoning_steps": ["写出闭环特征方程", "展开多项式", "构造三阶Routh表", "由首列同号得到K范围"],
+      "source_ref": "Ogata_Modern_Control_5th_chunk_245",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "auto_passed"
+    },
+    {
+      "id": "CS-EVO-00003",
+      "dimension": "D",
+      "difficulty_level": "L2",
+      "control_category": ["security"],
+      "question": "设计一个针对工业控制系统(ICS)的入侵检测系统方案，说明检测方法和部署策略。",
+      "answer": "方案采用基于模型和基于异常的双引擎检测架构。模型引擎基于物理方程构建系统状态观测器，异常引擎基于ICS网络流量特征。部署采用分布式传感器+集中式分析。",
+      "reasoning_steps": ["明确ICS安全目标：可用性优先", "设计物理模型检测引擎：状态观测器+残差分析", "设计网络异常检测引擎：流量基线+协议合规", "双层架构实现低误报率"],
+      "source_ref": "ICS_Security_Design",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": {
+        "r1": {"criterion": "检测方法合理性", "weight": 0.4},
+        "r2": {"criterion": "部署策略完整性", "weight": 0.3},
+        "r3": {"criterion": "安全目标对齐", "weight": 0.3}
+      },
+      "consistency_status": "auto_passed"
+    }
+  ]
+}

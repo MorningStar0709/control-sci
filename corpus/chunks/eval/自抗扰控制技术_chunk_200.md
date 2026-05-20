@@ -1,0 +1,5 @@
+$$
+\left\{ \begin{array}{l} \mathrm{fh} ^ {\prime} = - r _ {0} ^ {\prime 2} (v _ {1} ^ {\prime} - v _ {0}) + 2 r _ {0} ^ {\prime} v _ {2} ^ {\prime} \\ \frac {\mathrm{d} v _ {1} ^ {\prime}}{\mathrm{d} \tau} = v _ {2} ^ {\prime} \\ \frac {\mathrm{d} v _ {2} ^ {\prime}}{\mathrm{d} \tau} = \mathrm{fh} ^ {\prime} \\ e ^ {\prime} = z _ {1} ^ {\prime} - y \\ \frac {\mathrm{d} z _ {1} ^ {\prime}}{\mathrm{d} \tau} = (z _ {2} ^ {\prime} - \beta_ {0 1} ^ {\prime} e ^ {\prime}) \\ \frac {\mathrm{d} z _ {2} ^ {\prime}}{\mathrm{d} \tau} = (z _ {3} ^ {\prime} - \beta_ {0 2} ^ {\prime} e ^ {\prime} + b _ {0} u ^ {\prime}) \\ \frac {\mathrm{d} z _ {3} ^ {\prime}}{\mathrm{d} \tau} = (- \beta_ {0 3} ^ {\prime} e ^ {\prime}) \\ e _ {1} ^ {\prime} = v _ {1} ^ {\prime} - z _ {1} ^ {\prime}, e _ {2} ^ {\prime} = v _ {2} ^ {\prime} - z _ {2} ^ {\prime} \\ u ^ {\prime} = \frac {\beta_ {1} ^ {\prime} e _ {1} ^ {\prime} + \beta_ {2} ^ {\prime} e _ {2} ^ {\prime} - z _ {3} ^ {\prime}}{b _ {0}} \end{array} \right. \tag {5.6.13}
+$$
+
+去掉各变量的“ $^{1}$ ”并把变量 $\tau$ 符号换成符号t，那么式(5.6.11)又回到标准方程(5.6.6)了。这里式(5.6.13)是与式(5.6.4)完全一致。于是新旧时间尺度之间控制器参数的转换关系就是式(5.6.12)确定的关系。

@@ -1,0 +1,3 @@
+# General-Purpose Toolboxes for Adaptive Control
+
+There is often a need to use more elaborate control algorithms than the standard PID controllers. It is then necessary to estimate higher-order models and to have the possibility to use different design algorithms. To cover these situations, general toolboxes for adaptive control have been developed. The adaptive algorithms are usually modules or blocks in more general packages for direct digital control (DDC). Asea Brown Boveri presented a general-purpose adaptive controller in 1982. First Control Systems in Sweden introduced an adaptive controller in 1986. It is also possible to implement adaptive control in modern distributed control systems.

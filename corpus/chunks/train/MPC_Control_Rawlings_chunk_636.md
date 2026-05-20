@@ -1,0 +1,3 @@
+# 5.6.5 Choosing Z and V
+
+Because the sets $\mathbb { \Sigma } _ { x }$ and $S _ { d } ( z )$ cannot be easily computed, a pragmatic approach is required for choosing $\mathbb { Z }$ and $\mathbb { V } .$ . One simple, if conservative, possibility is to set $\mathbb { Z } = \alpha \mathbb { X }$ and $\mathbb { V } = \beta \mathbb { U }$ where α and $\beta$ lie in $( 0 , 1 )$ . The tuning parameters α and $\beta$ may be adjusted using data obtained by Monte Carlo simulation or from operation. If constraints are violated in the simulation, or in operation, α and $\beta$ may be reduced; if the constraints are too conservative, α and $\beta$ may be increased.

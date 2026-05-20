@@ -1,0 +1,3 @@
+# Operational Experiences
+
+Early versions of the autopilot were field-tested in 1973, and the product was announced in 1979. The product is used in various kinds of ships. One installation, in a ferry that navigates between Stockholm and Helsinki, has been in continuous operation since 1980. It uses adaptive control all the time. The ability to cope with large variations in speed has been found to be very useful, and the turning radius feature is particularly useful for navigation in archipelagos, where a lot of maneuvering is necessary. Figure 1.24 indicates the improvements in course-keeping that can be obtained through adaptation. The decreased drag with the data shown in the figure corresponds to a reduction in fuel consumption of 2.7%.

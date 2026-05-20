@@ -1,0 +1,11 @@
+Weapon Ballistics. The weapon ballistics data consist of coefficient of drag $C _ { D }$ , weapon weight (a constant), and weapon frontal area. The frontal area is a constant value dependent upon the selected weapon. Frontal area, weight, and weight variation are stored as constants in the operational flight program (OFP). Coefficients of drag are stored in three ways, depending on weapon: (1) a curve relating the coefficient of drag $C _ { D }$ to Mach number, (2) a step function relating $C _ { D }$ to time, wherein $C _ { D }$ changes at specific time events and is constant between, or (3) a combination of 1 and 2. The functional relationship of $C _ { D }$ versus Mach number is determined by a curve fit to a set of empirical data points. This curve fit consists of four second-order polynomials of the form (see also Section 3.1):
+
+$$C _ {D} = K _ {0} + K _ {1} M + K _ {2} M ^ {2}, \tag {5.57}$$
+
+where
+
+$$K _ {0} K _ {1}, K _ {2} = \text { curve fit coefficients },M = \text { Mach number }.$$
+
+This technique is illustrated in Figure 5.27 for an Mk 82 weapon. Note that the coefficients of the curve fit and the values of the Mach numbers separating the four polynomials vary for each weapon. The values of these coefficients, time events, and constants are inputs.
+
+Atmospheric Equations. The atmosphere algorithm predicts the air density and speed of sound at weapon location throughout its trajectory. Inputs include measured air data at aircraft, weapon speed, and weapon altitude for each trajectory integration. The atmosphere equations are separated into two groups: (1) initialization equations, and (2) prediction equations. The initialization equations compute the parameters of the nonstandard atmosphere based on the current aircraft location. These computations lie outside the integration loop and are performed at a slow rate. The prediction equations use the parameters computed by the initialization equations, weapon speed, and weapon altitude to compute the air density and the Mach number at each trajectory integration level. These computations lie inside the integration loop and are performed once for each point in the trajectory integration (for more details on the standard atmosphere, see Appendix D).

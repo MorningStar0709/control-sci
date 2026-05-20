@@ -1,0 +1,5 @@
+The derivative has its largest value $f' = 2.2 \cdot 10^{6}$ for pH = 7. It decreases rapidly for larger and smaller values of pH. For pH = 4 and 10 we have $f' = 4.3 \cdot 10^{3}$ . The gain can thus vary by several orders of magnitude. ☐
+
+Figure 9.9 shows that the pH of a strong acid that is almost neutralized may change very rapidly if only a small amount of base is added. The reason for this is that strong acids and bases are completely dissociated. A weak acid is not completely dissociated, so it can absorb hydrogen ions by converting them to undissociated acid. It can also create hydrogen ions by dissociating acid molecules. This means that a weak acid or a weak base has an ability to resist changes in pH. This property is called buffering. The titration curve of a solution that contains weak acids or bases will therefore be less steep than the titration curves of strong acids or bases.
+
+Example 9.7 shows that there will be a severe nonlinearity in the system due to the titration curve. An additional example illustrates the difficulties in controlling such a system.

@@ -1,0 +1,9 @@
+# Real-Time Operating Systems
+
+For problems with only two processes, it is not difficult to write an operating system that administrates the processes. Such a system may typically be written in less than 100 lines of assembly code.
+
+The simple operating system may be extended to several processes. It is, however, a major task to make a program that can handle more complex situations. Such an operating system, which is also called a real-time operating system, may occupy anything from a few kilobytes to 20 kilobytes of code.
+
+The real-time operating systems allow definition of tasks, or processes, in a high-level language such as Pascal, Modula 2, C, or C++. It is also possible to run processes at regular intervals or in given relationships to other tasks. Processes may also be introduced, started, and removed on-line. Priorities between different tasks may be introduced and modified. The introduction of real-time operating systems was one of the major innovations when process-control computers were introduced in the mid-1960s. Examples of such operating systems are RSX from Digital Equipment Corporation, VxWorks® from Wind River Systems, pSOS® from Integrated Systems, and QNX® from QNX Software Systems. Processes, or tasks, have also been introduced into simple languages such as BASIC.
+
+Real-time operating systems are large general-purpose programs, which are often written in assembly code. They are difficult to maintain and modify. There has been a need to have real-time operating systems that can be tailored to specific applications. Computer languages with facilities for real-time programming have therefore been developed. Concurrent Pascal and Modula-2 are such languages. The language Ada is a standard tool for implementing computer-control systems in military systems.

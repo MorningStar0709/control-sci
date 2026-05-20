@@ -1,0 +1,3 @@
+# Exercise 5.7: Linear combination of sets; $\pmb { \lambda } _ { 1 } \mathbb { W }$ ⊕ $\lambda _ { 2 } \mathbb { W } = ( \lambda _ { 1 } + \lambda _ { 2 } )$ W
+
+If W is a convex set, show that $\lambda _ { 1 } \mathbb { W } \oplus \lambda _ { 2 } \mathbb { W } = ( \lambda _ { 1 } + \lambda _ { 2 } ) \mathbb { W }$ for any $\lambda _ { 1 } , \lambda _ { 2 } \in \mathbb { R } _ { \ge 0 }$ . Hence show W ⊕ λW ⊕ $\lambda ^ { 2 } \mathbb { W } \oplus \mathbf { \lambda } \cdot \mathbf { \sigma } \cdot \mathbf { \sigma } = ( 1 - \lambda ) ^ { - 1 } \mathbb { W } \operatorname { i f } \lambda \in [ 0 , 1 )$ .

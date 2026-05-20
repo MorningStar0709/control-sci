@@ -1,0 +1,6 @@
+For example, and as mentioned above, if IR homing missiles are expected to approach the target (e.g., aircraft) from the rear only, the launch warning system will be installed in the tail of the aircraft.
+Therefore, a warning that a missile is actually approaching the aircraft can be provided by an active missile approach device that uses an active transmitter and receiver to track the missile.
+Note that the warning device must discriminate between actual target and background clutter;
+therefore, the system must be so designed as to ensure a low level of false alarm.
+
+A recent development in IR sensors is the AN/AAQ-24(V ) directed infrared counter-measures (DIRCM). This sensor is designed to detect and track an incoming IR missile fired at an aircraft, and to focus high-power arc-lamp countermeasures at the missile seeker to confuse it. It is the optical assemblies that transmit the highpowered arc-lamp beam with its IR countermeasures. An industrial team consisting of Northrop Grumman and BAE Systems jointly developed DIRCM for the U.S. Special Operations Command and for the U.K. Ministry of Defence to protect aircraft and helicopters from shoulder-fired heat-seeking missiles, such as the Stinger (FIM-92). Figure 3.32 illustrates a generic IR seeker.

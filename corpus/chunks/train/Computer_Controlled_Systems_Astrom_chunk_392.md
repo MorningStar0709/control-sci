@@ -1,0 +1,3 @@
+# Choice of Control Variables
+
+After the control principle has been chosen, the next logical step is to choose the control variables. The choice of control variables can often be limited for various practical reasons. Because the selection of control principle tells what physical variables should be controlled, it is natural to choose control variables that have a close relation to the variables given by the control principle. Because mathematical models are needed for the selection of control principles, these models also can be used for controllability studies when choosing control variables.

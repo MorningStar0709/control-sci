@@ -1,0 +1,7 @@
+# 7.4 SECOND-ORDER SYSTEM RESPONSE
+
+Recall from our previous chapters on system modeling that a mechanical system with a single inertia element will be modeled by a single second-order differential equation, which arises from applying force = mass × acceleration. An electrical system with two energy-storage elements (inductor or capacitor) will generally result in a second-order system model. If these systems have linear stiffness and friction laws (mechanical systems) or linear electrical element laws, the respective second-order models will be linear. Some complex, nonlinear, higher-order systems, such as aircraft pitch and yaw dynamics, have dominant modes of motion that can be approximated by linearized second-order models. Table 7.3 summarizes several examples of systems represented by second-order I/O equations.
+
+We can obtain the response of a linear second-order system using the methods outlined in the earlier sections of this chapter. However, just as in the case of first-order systems, we can predict the behavior of a second-order system based on a few key parameters. For first-order systems, the key parameter is a single time constant ??, which determines the rate of exponential rise or decay, and the magnitude of the initial response to an impulse input. For second-order systems, the behavior of the transient response depends on two parameters, and knowledge of these two parameters allows us to quickly sketch the second-order system response.
+
+Table 7.3 Examples of Engineering Systems Modeled by a Second-Order Input-Output Equation

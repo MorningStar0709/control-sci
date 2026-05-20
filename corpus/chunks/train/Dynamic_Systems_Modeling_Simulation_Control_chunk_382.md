@@ -1,0 +1,3 @@
+1. Complex roots that lie on a semicircle have the same undamped natural frequency $\omega _ { n }$ . Increasing the radius of the semicircle increases $\omega _ { n }$ .   
+2. Complex roots that lie on a radial line from the origin have the same damping ratio ??. As the radial line approaches the negative real axis, the angle ?? becomes smaller and the damping ratio increases, where $\zeta  1$ as ?? → 0. As the radial line approaches the imaginary axis, the angle ?? becomes larger and damping ratio decreases, where $\zeta \to 0$ as $\theta \to 9 0 ^ { \circ }$ .   
+3. Complex roots that lie on a horizontal line have the same damped frequency $\omega _ { d } .$ . As the horizontal line moves away from the real axis, $\omega _ { d }$ increases.

@@ -1,0 +1,9 @@
+# 16.4 Waypoint traversal
+
+Once we have a sequence of waypoints, there are a few options for traversing them:
+
+1. Generate trajectories for each DOF and time-synchronize them. This ensures the mechanism follows the “diagonal lines” in the path above. The upside of this approach is it can yield the fastest (time-optimal) coordinated movements possible. The downside is that the motion planning is “open loop” – if one of the DOFs lags behind its trajectory, it’s possible that the system may still end up in an invalid state. In practice, we include some buffer around our references to ensure that tracking error doesn’t immediately lead to violated constraints. We are making our trajectories more robust to uncertainty.
+
+2. Perform movements sequentially. That is, move from x to a, and only start moving toward b once the path from the current system state to b is a straight line that is collision-free. This gives robustness to control error, but may result in unnecessary stops or jerky movement compared to the optimized, open-loop trajectory.
+
+This planning approach generalizes to an arbitrary number of DOFs and is essentially how industrial 7-DOF arms are operated.

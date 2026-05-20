@@ -1,0 +1,3 @@
+# Numerical Analysis
+
+The theory of sampled-data analysis is closely related to numerical analysis. Integrals are evaluated numerically by approximating them with sums. Many optimization problems can be described in terms of difference equations. Ordinary differential equations are integrated by approximating them by difference equations. For instance, step-length adjustment in integration routines can be regarded as a sampled-data control problem. A large body of theory is available that is related to computer-controlled systems. Difference equations are an important element of this theory, too.

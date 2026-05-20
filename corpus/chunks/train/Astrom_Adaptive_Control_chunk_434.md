@@ -1,0 +1,3 @@
+A significant advantage of averaging theory is that it reduces the dimensions of the problem. The theorems require that the adaptation gain be small, but experience has shown that averaging often gives a good approximation, even for large adaptation gains.
+
+When the averaging equations are obtained, analysis proceeds in the conventional manner by investigation of the equilibria of the averaged equations and linearization at the equilibria to determine the local behavior. Notice that the averaged equations may possess equilibria (i.e., solutions to $\text{avg}\{\varphi e\} = 0$ ) even if the exact equations do not have an equilibrium. This corresponds to the case in which the true parameters are meandering in the neighborhood of the equilibrium to the averaged equation.

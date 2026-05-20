@@ -1,0 +1,11 @@
+for all $( x , t ) \in F$ . We now make use of the fact that if $t \mapsto h ( t )$ is measurable, its integral $t \mapsto H ( t ) \overset { \Delta } { = } \int _ { t _ { 0 } } ^ { t } h ( s )$ ds is absolutely continuous and, therefore, has a derivative almost everywhere. Where H(·) is differentiable, its derivative is equal to h(·). Consequently, if $f ( \cdot )$ satisfies the Caratheodory conditions, then the solution of (A.14), i.e., a function $\phi ( \cdot )$ satisfying (A.14) everywhere does not satisfy (A.12) everywhere but only almost everywhere, at the points where $\phi ( \cdot )$ is differentiable. In view of this, we may speak either of a solution of (A.14) or of a solution of (A.12) provided we interpret the latter as an absolutely continuous function which satisfies (A.12)) almost everywhere. The appropriate generalization of Peano’s existence theorem is the following result due to Caratheodory:
+
+Theorem A.31 (Existence of solution to differential equations). $I f D$ is an open set in $\mathbb { R } ^ { n } \times \mathbb { R }$ and $f ( \cdot )$ satisfies the Caratheodory conditions on D, then, for any $( x _ { 0 } , t _ { 0 } )$ in D, there exists a solution of (A.14) or (A.12) passing through $( x _ { 0 } , t _ { 0 } )$ .
+
+Two other classical theorems on ordinary differential equations that are relevant are:
+
+Theorem A.32 (Maximal interval of existence). If D is an open set in $\mathbb { R } ^ { n } \times \mathbb { R } , f ( . )$ satisfies the Caratheodory conditions on D, and $\phi ( \cdot )$ is a solution of (A.10) on some interval, then there is a continuation $\phi ^ { \prime } ( \cdot )$ of $\phi ( \cdot )$ to a maximal interval $( t _ { a } , t _ { b } )$ of existence. The solution $\phi ^ { \prime } ( \cdot )$ , the continuation of $\phi ( \cdot )$ , tends to the boundary of D as $t \setminus t _ { a }$ and $t \nearrow t _ { b }$ .
+
+Theorem A.33 (Continuity of solution to differential equation). Suppose D is an open set in $\mathbb { R } ^ { n } \times \mathbb { R }$ , f satisfies the Caratheodory condition and, for each compact set U in D, there exists an integrable function $t \mapsto k _ { u } ( t )$ such that
+
+$$| f (x, t) - f (y, t) | \leq k _ {u} (t) | x - y |$$

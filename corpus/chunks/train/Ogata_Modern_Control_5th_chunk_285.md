@@ -1,0 +1,11 @@
+# 6–1 INTRODUCTION
+
+The basic characteristic of the transient response of a closed-loop system is closely related to the location of the closed-loop poles. If the system has a variable loop gain, then the location of the closed-loop poles depends on the value of the loop gain chosen. It is important, therefore, that the designer know how the closed-loop poles move in the s plane as the loop gain is varied.
+
+From the design viewpoint, in some systems simple gain adjustment may move the closed-loop poles to desired locations.Then the design problem may become the selection of an appropriate gain value. If the gain adjustment alone does not yield a desired result, addition of a compensator to the system will become necessary. (This subject is discussed in detail in Sections 6–6 through 6–9.)
+
+The closed-loop poles are the roots of the characteristic equation. Finding the roots of the characteristic equation of degree higher than 3 is laborious and will need computer solution. (MATLAB provides a simple solution to this problem.) However, just finding the roots of the characteristic equation may be of limited value, because as the gain of the open-loop transfer function varies, the characteristic equation changes and the computations must be repeated.
+
+A simple method for finding the roots of the characteristic equation has been developed by W. R. Evans and used extensively in control engineering. This method, called the root-locus method, is one in which the roots of the characteristic equation are plotted for all values of a system parameter. The roots corresponding to a particular value of this parameter can then be located on the resulting graph. Note that the parameter is usually the gain, but any other variable of the open-loop transfer function may be used. Unless otherwise stated, we shall assume that the gain of the open-loop transfer function is the parameter to be varied through all values, from zero to infinity.
+
+By using the root-locus method the designer can predict the effects on the location of the closed-loop poles of varying the gain value or adding open-loop poles and/or open-loop zeros.Therefore, it is desired that the designer have a good understanding of the method for generating the root loci of the closed-loop system, both by hand and by use of a computer software program like MATLAB.

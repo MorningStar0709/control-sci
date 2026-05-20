@@ -1,0 +1,5 @@
+# Vibrations in Multiple-DOF Systems
+
+It is important to reiterate that the transmissibility equation (9.63), Fig. 9.31, and the summaries regarding transmissibility characteristics apply only to a 1-DOF vibration isolation system that can be accurately modeled as a single mass–spring–damper system as shown in Fig. 9.30. In addition, transmissibility can be determined from the magnitude Bode diagram (of course, the Bode magnitude in decibels must be converted into an absolute-value magnitude in order to compute transmissibility).
+
+In this subsection, we discuss vibrations in mechanical systems with multiple DOF. Modal analysis using matrix methods is a classical approach for analyzing vibrations in multiple-DOF systems and this technique relies on solving the eigenvalue and eigenvector problems in order to obtain the natural frequencies and mode shapes (e.g., see Reference 4). We analyze vibrations in multiple-DOF systems by using the Bode diagram as illustrated by the following example.

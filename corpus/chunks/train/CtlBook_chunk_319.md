@@ -1,0 +1,5 @@
+# Manual Design of PID controller
+
+In this section we will design PID control gains through a manual method. Specically we will nd the values of $K _ { P } , K _ { I } , K _ { D }$ for a given plant and a set of performance specications, including control eort. Although fully hand methods are discussed in standard textbooks, our manual method uses the computer to speed Root Locus plotting and analysis. With all but the simplest plants, hand methods are not accurate enough for real design. Hand methods are still valuable to give a starting point for more accurate computer design methods discussed in the next chapter.
+
+The computer optimization method of the next chapter will eventually nd a great design (i.e. $K _ { P } , K _ { I } , K _ { D }$ values), and can take more performance criteria into account, but it will go signicantly faster with an initial starting guess. Unfortunately there is no typical range of PID parameter values which could be used as a standard starting range so to get the most utility from computer methods we should generate the rough initial design manually.

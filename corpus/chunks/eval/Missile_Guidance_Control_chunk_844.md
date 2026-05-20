@@ -1,0 +1,9 @@
+# Miniature Air Launched Decoy (MALD):
+
+DARPA (Defense Advanced Research Projects Agency) is in the process of transferring the MALD technology demonstration follow-on program to the Air Force’s lethal SEAD program office. MALD is being developed to provide Air Combat Command with the ability to achieve air superiority by confusing enemy air defense systems. The 91-in (2.31-m) decoy is designed to fly autonomously to simulate the mission profiles of typical fighter aircraft with the ability to maneuver through high-g turns, climbs, and dives. MALD is equipped with a signature augmentation subsystem, which provides active augmentation to the vehicle’s radar cross section across VHF, UHF, and microwave frequencies to replicate a tactical fighter when viewed by enemy radar systems.
+
+A MALD variant (or derivative) is a supersonic miniature air-launched interceptor (Mali) to defeat cruse missiles. It is being built by DARPA, which also sponsored MALD’s development. Mali would be cued by a surveillance aircraft, such as an E-3 AWACS, which would provide target updates while the interceptor flies supersonically toward a target that could be as far away as 200 nm (371 km). Once close to the cruise missile, Mali would activate its Stinger seeker and engage the target from the rear at subsonic speeds. (The USAF terminated the MALD program in January 2002.)
+
+Other nations are also involved in R&D of UAVs. For example, Saab Aerospace (Avionics and Dynamics Division) is conducting wind tunnel tests of a low-signature UAV designed for attack missions under the framework of Sweden’s National
+
+Aeronautics Research Program. Other areas being studied include (a) production engineering, (b) propulsion systems, (c) strength, (d) radar, and (e) IR signatures and weapons separation. Finally, NATO countries operate a number of UAVs such as the Exdrome and Hunter.

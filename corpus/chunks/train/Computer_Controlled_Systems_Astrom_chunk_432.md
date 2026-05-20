@@ -1,0 +1,3 @@
+# Example 7.2 Prefiltering
+
+The usefulness of a prefilter is illustrated in Fig. 7.13. An analog signal composed of a square wave with a superimposed sinusoidal perturbation (0.9 Hz) is shown in (a). The result of sampling the analog signal with a period of 1 Hz is shown in (c). The Nyquist frequency is 0.5 Hz. The disturbance with the frequency 0.9 Hz has the alias 0.1 Hz [see (7.10)]. This signal is clearly noticeable in the sampled signal. The output of a prefilter, a sixth-order Bessel filter with a bandwidth of 0.25 Hz, is shown in (b), and the result obtained by sampling with the prefilter is shown in (d). Thus the amplitude of the disturbance is reduced significantly by the prefilter.

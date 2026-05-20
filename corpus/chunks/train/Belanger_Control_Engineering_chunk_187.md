@@ -1,0 +1,3 @@
+# 4.3 OPEN-LOOP CONTROL
+
+Open-loop control is the simplest control structure. It is rather limited in performance and is usually reserved for special applications where feedback control is either impossible or unnecessary. Because of its simplicity, open-loop control is a good starting point for the study of control structures. If feedback control is to be appreciated, then the limitations of open-loop control must be fully understood. Furthermore, concepts such as stability conditions and performance limitations due to actuation limits and system dynamics appear in relatively simple form. Those same concepts apply to other control structures but in more complex surroundings.

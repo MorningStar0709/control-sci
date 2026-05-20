@@ -1,0 +1,5 @@
+# Nyquist and Bode Diagrams for Discrete-Time Systems
+
+Consider the continuous-time system $G(s)$ . The Nyquist curve or frequency response curve of the system is the map $G(i\omega)$ for $\omega \in [0,\infty)$ . This curve is drawn in polar coordinates (Nyquist diagram) or as amplitude and phase curves as a function of the frequency (Bode diagram). In the discrete-time case we have a similar situation. Consider a system with the pulse-transfer function $H(z)$ . The Nyquist or frequency curve is given by the map $H(e^{i\omega h})$ for $\omega h \in [0,\pi]$ , that is, up to the Nyquist frequency. Notice that it is sufficient to consider the map in the interval $\omega h \in [-\pi,\pi]$ because the function $H(e^{i\omega h})$ is periodic with period $2\pi /h$ .
+
+In the continuous-time case, the Nyquist curve $G(i\omega)$ can be interpreted as the stationary amplitude and phase when a sinusoidal signal with frequency $\omega$ is applied to the system. In the discrete-time case, higher harmonics are generated; see Example 1.4. This will make the interpretation of $H(e^{i\omega h})$ more complex as is further discussed in Chapter 7.

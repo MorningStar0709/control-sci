@@ -1,0 +1,3 @@
+However, adaptive techniques are still not widely used; the technology is not mature. Because of involvement of commercial enterprises in adaptive control, it is not always possible to find out precisely what is being done. Various ideas are hidden in proprietary information that is carefully guarded.
+
+This chapter is organized as follows. An overview of some applications is given in Section 12.2. A number of commercial products that use adaptation are presented in Sections 12.3 and 12.4. Some specific applications are presented in more detail in the sections that follow. Ship steering, automobiles, and ultrafiltration are areas given special attention.

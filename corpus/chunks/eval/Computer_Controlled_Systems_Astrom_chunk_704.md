@@ -1,0 +1,3 @@
+# 12.2 Problem Formulation
+
+It is assumed that the process to be controlled is linear and time-invariant and that it has one input u and one output y. The dynamics of the process are characterized by a combination of a time-delay and a rational-transfer function. It is also assumed that the disturbances may be described as filtered white noise. A steady-state regulation problem is considered. The criterion is based on the mean-square deviations of the control signal and the output signal. In the formal problem statement given next, it is assumed that the model and the criterion are sampled [compare with Sec. 2.3 and (11.1)].

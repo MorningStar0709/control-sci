@@ -1,0 +1,7 @@
+# Short-Sampling-Interval Modification
+
+We have shown that it is useful to transform the system to a well-conditioned form before it is implemented on a digital computer. This reduces the coefficient sensitivity of the realization. An additional modification that is useful when the sampling period is short will now be discussed. Consider the compensator described by the general-state model (9.8) and (9.9). For short sampling periods the matrix F is close to the unit matrix, that is, all the eigenvalues are close to one. Further, the matrix G is proportional to the sampling period. With a short sampling period, the matrices F and G may therefore differ by several orders of magnitude. By rewriting the state equation it is possible to obtain a representation that is better conditioned. It is convenient to rewrite equation (9.8) as
+
+$$x (k + 1) = x (k) + (F - I) x (k) + G y (k) \tag {9.21}$$
+
+where the matrix F - I is also proportional to the sampling period h. The numerical representation of F - I requires fewer decimals than the representation of F itself. The term $(F - I)x(k) + Gy(k)$ represents a correction to the state, which will be small if the sampling period is short. This representation is particularly useful in fixed-word-length computations. The state is stored in double precision. The change in the control is calculated using single-precision multiplication, and the product is then added to the state. Compare with the discussion of the scalar-product computation in Example 9.3.

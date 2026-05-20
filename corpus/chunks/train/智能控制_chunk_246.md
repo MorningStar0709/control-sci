@@ -1,0 +1,7 @@
+# 4.9.1 模糊控制发展的几个转折点
+
+自从 Zadeh 提出模糊集理论以来, 模糊控制开始了它的发展历程。从历史的发展来看, 模糊控制发展的几个转折点见表 4-13。
+
+表 4-13 模糊控制发展的转折点
+
+<table><tr><td>时间</td><td>研究人员</td><td>研究成果</td></tr><tr><td>1965</td><td>Zadeh</td><td>模糊集理论</td></tr><tr><td>1972</td><td>Zadeh</td><td>模糊控制原理</td></tr><tr><td>1973</td><td>Zadeh</td><td>复杂系统及决策过程的分析</td></tr><tr><td>1974</td><td>Mamdani等人</td><td>蒸汽机的模糊控制</td></tr><tr><td>1976</td><td>Rutherford等人</td><td>模糊算法分析</td></tr><tr><td>1977</td><td>Ostergaad</td><td>热交换器和水泥窑模糊控制</td></tr><tr><td>1977</td><td>Willaey等人</td><td>最优模糊控制</td></tr><tr><td>1979</td><td>Komolov等人</td><td>有限自动机理论</td></tr><tr><td>1980</td><td>Tong等人</td><td>污水处理过程的模糊控制</td></tr><tr><td>1980</td><td>Fukami等人</td><td>模糊条件推理</td></tr><tr><td>1983</td><td>Hirota等人</td><td>概率模糊集理论</td></tr><tr><td>1983</td><td>Takagi等人</td><td>模糊控制规则的获取</td></tr><tr><td>1983</td><td>Yasunobu等人</td><td>预测模糊控制</td></tr><tr><td>1984</td><td>Sugeno等人</td><td>汽车的停车模糊控制</td></tr><tr><td>1985</td><td>Kiszka等人</td><td>模糊系统的稳定性</td></tr><tr><td>1985</td><td>Togai等人</td><td>模糊芯片</td></tr><tr><td>1986</td><td>Yamakawa</td><td>模糊控制的硬件系统</td></tr><tr><td>1988</td><td>Dubois等人</td><td>逼近推理</td></tr><tr><td>1988</td><td>Czogala</td><td>多输入模糊控制系统</td></tr><tr><td>1991</td><td>De Neyer等人</td><td>内模模型的模糊控制</td></tr><tr><td>1992</td><td>Yager</td><td>模糊控制隶属函数的神经网络学习</td></tr><tr><td>1992</td><td>L.X.Wang</td><td>模糊万能逼近器</td></tr><tr><td>1992</td><td>L.X.Wang</td><td>模糊规则的获取</td></tr><tr><td>1993</td><td>L.X.Wang</td><td>自适应模糊控制器</td></tr></table>

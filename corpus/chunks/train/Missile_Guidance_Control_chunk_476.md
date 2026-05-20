@@ -1,0 +1,10 @@
+# 5.13 Air-to-Ground Attack Component
+
+This section supplements and summarizes the discussion of Sections 5.5, 5.6, and 5.7. Another important aspect in weapon delivery is the air-to-ground attack component. In essence, this component determines weapon trajectories, miss distance, timeto-go to weapon release, and attack steering signals. Moreover, the air-to-ground attack component provides the conditions, logic, and control functions required to deliver weapons using visual or “blind” attack techniques against planned or in-flight designated ground targets. These are implemented in a set of five separate weapon delivery modes. The computations (depending on the mode) include the following: (1) automatic ballistics, (2) course-to-release point, (3) time delay (for “under-thenose” weapon releases), (4) time-to-go, and (5) toss-maneuver maximum range. When conditions are satisfied for weapon impact on the designated target, a weapon release command is generated if pilot consent is present. These delivery computations are used to position the HUD reticle and radar antenna to the impact point of any selected weapon when the stores management set (SMS) is commanding an air-to-ground visual delivery mode. In addition, computations are included to determine miss distance, time-to-go, and attack steering signals when a computed release point delivery mode is selected. Other functions (or components) relating to weapon delivery will now be discussed.
+
+Mechanization. This component uses a trajectory integration technique as the basic mathematical tool to predict weapon impact points. The trajectory integration, which runs approximately 10 times a second, provides a reference solution that is augmented by a bomb-range extrapolation scheme, which runs 50 times a second, to provide accurate, timely impact-point prediction. With this prediction and the knowledge of target location, time-to-go and steering for weapon delivery are computed. An overview of the weapon delivery solution is found in Figure 5.26.
+
+![](image/9672956dd328979e5fb87d145358b6b381f82a75df2838260ad6bc1912a99dbf.jpg)
+
+<details>
+<summary>flowchart</summary>

@@ -1,0 +1,3 @@
+# 0.1 Prerequisites
+
+Knowledge of basic algebra and complex numbers is assumed. Some introductory physics and calculus will be taught as necessary.

@@ -1,0 +1,9 @@
+We conclude this section by noting that the optimal guidance laws produce the best missile performance, as measured by miss distance, when heavy penalties are imposed in the performance index for nonzero values of predicted miss throughout the flight relative to the penalty on control energy. However, including seeker noise in the simulations can be expected to degrade the performance of these guidance laws due to the resulting high gains. Knowledge of the present (and future) target acceleration for use by the guidance laws generally improves the missile performance. The laws based on a first-order airframe/autopilot response appear to be sensitive to errors in time-to-go estimates. More research is needed in the following areas: (1) a matrix Riccati method to numerically generate guidance gains, which will allow investigation of a broader class of performance index/constraint combinations, (2) the incorporation of very accurate time-to-go estimates in the guidance laws, and (3) accounting for the variable velocity profile of the missile during its flight. The latter two areas are expected to improve the performance of the laws based on the performance index/constraint combinations, especially those laws based on a firstorder airframe/autopilot response.
+
+Finally, the basic requirements for a high-performance missile are:
+
+1. Maneuverability in the sense of fast response to large commands.   
+2. Stability or recoverability of the missile from the effects not only of large commands, but also from large disturbances.   
+3. Insensitivity of the large signal behavior with respect to aerodynamic and environmental variation (e.g., large variation in the dynamic pressure q).   
+4. For a near-optimal design, as many state variables as it is physically possible to measure should be utilized.   
+5. Simplicity of design.

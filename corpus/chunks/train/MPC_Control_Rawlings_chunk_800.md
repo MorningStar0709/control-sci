@@ -1,0 +1,3 @@
+# Exercise 7.2: Parametric quadratic program with equality constraints
+
+Show that the solution $u ^ { 0 } ( x )$ and the value $V ^ { 0 } ( x )$ of the parametric optimization problem $V ^ { 0 } ( x ) \ = \ \mathrm { m i n } _ { u } \{ V ( x , u ) \ | \ h ( x , u ) \ = \ 0 \}$ where $V ( x , u ) : = ( 1 / 2 ) x ^ { \prime } Q x + u ^ { \prime } S x +$ $( 1 / 2 ) u ^ { \prime } R u + q ^ { \prime } x + r ^ { \prime } u + c$ and $h ( x , u ) : = M u - N x - p$ have the form $u ^ { 0 } ( x ) = K x + k$ and $V ^ { 0 } ( x ) = ( 1 / 2 ) x ^ { \prime } { \bar { Q } } x + { \bar { q } } ^ { \prime } x + s$ . Determine $\bar { Q } , \bar { q } , s , K$ and k.

@@ -1,0 +1,13 @@
+# Preface
+
+Initial Github distribution: August 2019. Updated February 2025.
+
+This book evolved from a set of course notes from teaching EE447, a 10-week course on mostly classical control in the Department of Electrical and Computer Engineering at the University of Washington. My aim in the course was to enable ECE students (mostly Seniors in the Control and Robotics or Energy Systems concentrations) to master the minimal set of concepts needed to apply classical control design methods to basic control problems and implement a computer based controller.
+
+The strategy is to focus on a minimal set of concepts, and repeated practice of related skills rather than racing through a comprehensive syllabus.
+
+Computing has been updated with python.control, replacing the open source Scilab package.
+
+Problems are provided for active learning. In teaching the course, I spend about 1/2 the contact hours on lecture, and the remainder supporting students while they work on the in-class-problems (ICPs). Then traditional homework problems and exams, done by each student individually, solidify the knowledge gained.
+
+This version takes the initial steps to integrate AI tools into control design. It seems that if they cannot already, AI tools will soon be able to write accurate system equations from schematic diagrams, greatly streamlining material in Chapters 2, and 3. It is already a fascinating challenge guring out how to equip today's students to consistently add value to AI tools. Certainly for the foreseeable future, advanced courses in control are still going to be required in order to engage in an intelligent dialog with AI on this topic.

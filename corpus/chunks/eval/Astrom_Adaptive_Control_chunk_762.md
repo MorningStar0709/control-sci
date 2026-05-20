@@ -1,0 +1,3 @@
+# Turning Controller
+
+The major concern in turning is to keep tight control of the motion of the ship, even at the expense of rudder motions. For high turning rates the dynamics of many ships are nonlinear. The normal course-keeping controller can handle small changes in heading, but it cannot handle large maneuvers because of the nonlinearities discussed previously. A special turning controller was therefore designed. The controller is a high-gain controller in which the feedback is of PID type. (Compare Fig. 1.3.) Appropriate PID parameters are determined during commissioning. The model used is nonlinear. It is designed so that the command signal is turning radius. The turning rate is thus $r = u / R$ , where $u$ is the speed of the ship and $R$ is the turning radius.

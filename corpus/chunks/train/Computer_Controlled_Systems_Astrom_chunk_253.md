@@ -1,0 +1,3 @@
+# Example 4.10 Output feedback of the double integrator
+
+Consider the double-integrator plant. Assume that the feedback vector L is determined as in Examples 4.2 and 4.4 with the closed-loop natural frequency $\omega = 1$ , the damping $\zeta = 0.7$ , and h = 0.44. This gives L = [0.73, 1.21]. First assume that the observer is designed as in Example 4.8 with the poles of the observer in z = 0.75. Figure 4.7(a) shows the true and the estimated states when the estimated states are used in the control law. Figure 4.7(b) shows the states in full lines and the estimate of the second state in dots when the reduced-order observer in Example 4.9 is used. The observer pole is in z = 0.75.

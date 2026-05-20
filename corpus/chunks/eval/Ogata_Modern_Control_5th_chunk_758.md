@@ -1,0 +1,11 @@
+Figure 10–10 shows curves $x _ { 1 }$ versus $t , x _ { 2 }$ versus $t , x _ { 3 } \left( = \mathrm { o u t p u t } y \right)$ versus $t , x _ { 4 }$ versus t, and $x _ { 5 }$ $( = \xi )$ versus t. Notice that $y ( t ) \left[ = x _ { 3 } ( t ) \right]$ has approximately 15% overshoot and the settling time is approximately 4.5 sec. $\xi ( t ) \left[ = \mathrm { \bar { \ x } } _ { 5 } ( t ) \right]$ approaches 1.1.This result can be derived as follows: Since
+
+$$\dot {\mathbf {x}} (\infty) = \mathbf {0} = \mathbf {A x} (\infty) + \mathbf {B u} (\infty)$$
+
+or
+
+$$
+\left[ \begin{array}{c} 0 \\ 0 \\ 0 \\ 0 \end{array} \right] = \left[ \begin{array}{c c c c} 0 & 1 & 0 & 0 \\ 2 0. 6 0 1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 1 \\ - 0. 4 9 0 5 & 0 & 0 & 0 \end{array} \right] \left[ \begin{array}{c} 0 \\ 0 \\ r \\ 0 \end{array} \right] + \left[ \begin{array}{c} 0 \\ - 1 \\ 0 \\ 0. 5 \end{array} \right] u (\infty)
+$$
+
+<table><tr><td>MATLAB Program 10-7</td></tr><tr><td>%**** The following program is to obtain step response % of the inverted-pendulum system just designed ****</td></tr><tr><td>A = [0 1 0 0;20.601 0 0 0;0 0 0 1;-0.4905 0 0 0];B = [0;-1;0;0.5];C = [0 0 1 0]D = [0];K = [-157.6336 -35.3733 -56.0652 -36.7466];KI = -50.9684;AA = [A - B*K B*KI;-C 0];BB = [0;0;0;0;1];CC = [C 0];DD = [0];</td></tr><tr><td>%***** To obtain response curves x1 versus t, x2 versus t,% x3 versus t, x4 versus t, and x5 versus t, separately, enter % the following command ****</td></tr><tr><td>t = 0:0.02:6;[y,x,t] = step(AA,BB,CC,DD,1,t);</td></tr><tr><td>x1 = [1 0 0 0 0]*x&#x27;;x2 = [0 1 0 0 0]*x&#x27;;x3 = [0 0 1 0 0]*x&#x27;;x4 = [0 0 0 1 0]*x&#x27;;x5 = [0 0 0 0 1]*x&#x27;;</td></tr><tr><td>subplot(3,2,1); plot(t,x1); grid title(&#x27;x1 versus t&#x27;)xlabel(&#x27;t Sec&#x27;); ylabel(&#x27;x1&#x27;)</td></tr><tr><td>subplot(3,2,2); plot(t,x2); grid title(&#x27;x2 versus t&#x27;)xlabel(&#x27;t Sec&#x27;); ylabel(&#x27;x2&#x27;)</td></tr><tr><td>subplot(3,2,3); plot(t,x3); grid title(&#x27;x3 versus t&#x27;)xlabel(&#x27;t Sec&#x27;); ylabel(&#x27;x3&#x27;)</td></tr><tr><td>subplot(3,2,4); plot(t,x4); grid title(&#x27;x4 versus t&#x27;)xlabel(&#x27;t Sec&#x27;); ylabel(&#x27;x4&#x27;)</td></tr><tr><td>subplot(3,2,5); plot(t,x5); grid title(&#x27;x5 versus t&#x27;)xlabel(&#x27;t Sec&#x27;); ylabel(&#x27;x5&#x27;)</td></tr></table>

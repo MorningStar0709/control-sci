@@ -1,0 +1,3 @@
+At constant B, A varies with $\omega_{b}$ . As $\omega_{b}$ increases, $\tan^{-1}\omega_{b}/x_{0}$ increases toward $\pi/2$ . The numerator increases, the denominator decreases, and therefore $\log A$ increases with bandwidth; thus, to keep B low over a bandwidth appreciably greater than $x_{0}$ , it is necessary to tolerate a large value outside the passband.
+
+As a rule of thumb, an RHP zero at $s = x_{0}$ restricts the system bandwidth to about $x_{0}$ rad/s. This rule, as we shall see, also holds for closed-loop control. Non-minimum-phase plants are simply difficult to control—with any control scheme.

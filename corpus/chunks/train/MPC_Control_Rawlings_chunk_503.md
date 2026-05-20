@@ -1,0 +1,3 @@
+# Solution
+
+Figure 4.14 displays the result using 5000 realizations of the sampling process to approximate the actual distribution of $D _ { s }$ . Notice that for the small sample size, we can see a slight difference between the Kolmogorov limiting distribution and the one obtained from simulation. This difference is not noticeable for samples sizes greater than $s = 1 0 0$ . From the argument scaling given in (4.41) we see that the mean of the sampling error decreases by a factor of $\sqrt { 1 0 }$ for each factor of 10 increase in sample size (on the log scale, the distribution of $D _ { s }$ is trans-

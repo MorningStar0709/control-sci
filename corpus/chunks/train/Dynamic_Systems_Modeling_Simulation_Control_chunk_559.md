@@ -1,0 +1,9 @@
+Table 10.1 Ziegler–Nichols Tuning Rules: Reaction-Curve Method
+
+<table><tr><td>Controller Type</td><td colspan="3">Gains</td></tr><tr><td>P</td><td> $K_P = \frac{1}{RT_d}$ </td><td></td><td></td></tr><tr><td>PI</td><td> $K_P = \frac{0.9}{RT_d}$ </td><td> $K_I = \frac{0.27}{RT_d^2}$ </td><td></td></tr><tr><td>PID</td><td> $K_P = \frac{1.2}{RT_d}$ </td><td> $K_I = \frac{0.6}{RT_d^2}$ </td><td> $K_D = \frac{0.6}{R}$ </td></tr></table>
+
+Table 10.2 Ziegler–Nichols Tuning Rules: Ultimate Gain Method
+
+<table><tr><td>Controller Type</td><td colspan="3">Gains</td></tr><tr><td>P</td><td colspan="3"> $K_P = 0.5K_U$ </td></tr><tr><td>PI</td><td> $K_P = 0.45K_U$ </td><td colspan="2"> $K_I = \frac{0.54K_U}{P_U}$ </td></tr><tr><td>PID</td><td> $K_P = 0.6K_U$ </td><td> $K_I = \frac{1.2K_U}{P_U}$ </td><td> $K_D = 0.075K_U P_U$ </td></tr></table>
+
+The second PID tuning method developed by Ziegler and Nichols relies on obtaining a marginally stable closed-loop response with a high gain setting. In this technique, the P-controller gain is continually increased until the closed-loop response transitions from damped sinusoidal oscillations to sustained oscillations with constant amplitude. Hence, the closed-loop system is marginally stable and on the brink of instability. Ziegler and Nichols called the P-gain setting that results in sustained oscillations the “ultimate gain” $K _ { U }$ . The period of the sustained oscillations is $P _ { U }$ (the “ultimate period”) and is used in the PID tuning rules developed by Ziegler and Nichols. Table 10.2 presents the Ziegler–Nichols tuning rules using the “ultimate-gain method” and we see that the gains rely on just two parameters: ultimate gain $K _ { U }$ and ultimate period $P _ { U }$ . Note that the ultimate period $P _ { U }$ can be obtained from closed-loop experiments conducted with the physical system.

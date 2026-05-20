@@ -1,0 +1,3 @@
+# BQM-34A Firebee:
+
+The Firebee is also a jet-powered, variable-speed, recoverable target drone. Initial development of the BQM-34A drones was in the early 1950s (IOC was circa 1951), and was used to support weapon system and RDT&E (research, development, test, and evaluation). A microprocessor flight control system provides a prelaunch and in-flight test capability. The guidance and control methods include choice of radar, radio, active seekers, and an automatic navigator. The maximum speed of the BQM-34A drone is 690 mph at 6,500 ft. Current BQM-34As have been updated with General Electric J85-100 engines, and are used for weapon system evaluation. The latest version of the Firebee is the BQM-34 M/L.

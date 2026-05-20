@@ -1,0 +1,10 @@
+# Simulink Model
+
+The complete EHA model is nonlinear and fairly complex, as indicated by Eqs. (11.34)– (11.42) and the multitude of system parameters summarized in Table 11.5. Just as we did with the pneumatic air-brake system, it is useful to identify and understand the state and input variables of the complete system before constructing the Simulink model. The mechanical modeling equation (11.34) is second-order and requires two state variables, piston position (x) and velocity (ẋ ). Cylinder pressures $P _ { 1 }$ and $P _ { 2 }$ are the two inputs to the mechanical subsystem, as the differential pressure across the piston provides the actuation force. Equations (11.35) and (11.36) show that the complete hydraulic system is composed of two first-order nonlinear ODEs with two additional state variables $P _ { 1 }$ and $P _ { 2 }$ . Piston position and velocity are required to compute the chamber volumes and time derivatives, which are both needed in the pressure-rate equations (11.35) and (11.36). Volumetric-flow rates $Q _ { 1 }$ and $Q _ { 2 }$ are also needed in the pressure-rate equations, and they are determined by the appropriate valveorifice-flow equations, Eq. (11.39) or (11.40). The orifice-flow equations depend on the supply pressure $P _ { S } ,$ , reservoir pressure $P _ { r } ,$ , cylinder pressures, and the valve area $A _ { \nu } = h | y |$ . Finally, the solenoid–valve dynamics are modeled by the linear second-order transfer function (11.41) with source voltage $e _ { \mathrm { i n } } ( t )$ as the input, and spool-valve displacement y as the output. Hence, the supply pressure $P _ { S } ,$ , reservoir pressure $P _ { r }$ , and voltage input $e _ { \mathrm { i n } } ( t )$ are the three input variables for the EHA system.
+
+Figure 11.34 shows the Simulink model of the integrated EHA system. Note that the three system inputs are the voltage input $e _ { \mathrm { i n } } ( t )$ and the supply and reservoir pressures. Spool-valve displacement y, supply and
+
+![](image/c2006d4e2ffc74f100be726045d8ff0442c6eef26d789f764dc62e5e405ffbcd.jpg)
+
+<details>
+<summary>flowchart</summary>

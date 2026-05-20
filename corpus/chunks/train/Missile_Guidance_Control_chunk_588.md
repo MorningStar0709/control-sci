@@ -1,0 +1,13 @@
+$$\partial e / \partial r = p \cos E / r ^ {2},$$
+
+where $p$ is the semilatus rectum and is given by $p = a ( 1 - e ^ { 2 } )$ . The remaining sensitivity partials, that is, $\partial t _ { f f } / \partial V _ { \theta } , \partial t _ { f f } / \partial V _ { r } , \partial a / \partial V _ { \theta } , \partial e / \partial V _ { \theta }$ , and $\partial e / \partial V _ { r }$ , will now be developed. Beginning with the equation for the free-fall time-of-flight, we have as before
+
+$$
+t _ {f f} = (\sqrt {a ^ {3} / \mu}) [ E _ {2} - E _ {1} - e (\sin E _ {2} - \sin E _ {1}) ],
+\begin{array}{l} \partial t _ {f f} / \partial V _ {\theta} = \frac {1}{2} (a ^ {3} / \mu) ^ {- 1 / 2} (3 a ^ {2} / \mu) (\partial a / \partial V _ {\theta}) [ E _ {2} - E _ {1} - e (\sin E _ {2} - \sin E _ {1}) ] \\ + (\sqrt {a ^ {3} / \mu}) \{(\partial E _ {2} / \partial V _ {\theta}) - (\partial E _ {1} / \partial V _ {\theta}) - e \cos E _ {2} (\partial E _ {2} / \partial V _ {\theta}) \\ - \sin E _ {2} (\partial e / \partial V _ {\theta}) + e \cos E _ {1} (\partial E _ {1} / \partial V _ {\theta}) + \sin E _ {1} (\partial e / \partial V _ {\theta}) \} \\ = \frac {3}{2} (a ^ {2} / \mu) (a ^ {3} / \mu) ^ {- 1 / 2} (a / a) (\partial a / \partial V _ {\theta}) [ E _ {2} - E _ {1} - e (\sin E _ {2} - \sin E _ {1}) ] \\ + (\sqrt {a ^ {3} / \mu}) \{(1 - e \cos E _ {2}) (\partial E _ {2} / \partial V _ {\theta}) - \sin E _ {2} (\partial e / \partial V _ {\theta}) \\ - \left[ \left(1 - e \cos E _ {2}\right) \left(\partial E _ {1} / \partial V _ {\theta} - \sin E _ {1} \left(\partial E _ {1} / \partial V _ {\theta}\right) \right] \right\}, \\ \end{array}
+\partial t _ {f f} / \partial V _ {\theta} = \frac {3}{2} (t _ {f f} / a) (\partial a / \partial V _ {\theta}) + (\sqrt {a ^ {3} / \mu}) \{(r _ {2} / a) (\partial E _ {2} / \partial V _ {\theta})- (r _ {1} / a) (\partial E _ {1} / \partial V _ {\theta}) - (\sin E _ {2} - \sin E _ {1}) (\partial e / \partial V _ {\theta}) \}.
+$$
+
+Similarly, the partial of $\partial t _ { f f } / \partial V _ { r }$ is formed as above:
+
+$$t _ {f f} = (\sqrt {a ^ {3} / \mu}) [ E _ {2} - E _ {1} - e (\sin E _ {2} - \sin E _ {1}) ],\partial t _ {f f} / \partial V _ {r} = \frac {1}{2} (a ^ {3} / \mu) ^ {- 1 / 2} (3 a ^ {2} / \mu) (\partial a / \partial V _ {\theta}) [ E _ {2} - E _ {1} - e (\sin E _ {2} - \sin E _ {1}) ]+ (\sqrt {a ^ {3} / \mu}) \left\{\left(\partial E _ {2} / \partial V _ {r}\right) - \left(\partial E _ {1} / \partial V _ {r}\right) - e \cos E _ {2} \left(\partial E _ {2} / \partial V _ {r}\right) \right.- \sin E _ {2} (\partial e / \partial V _ {r}) + e \cos E _ {1} (\partial E _ {1} / \partial V _ {r})+ \sin E _ {1} (\partial e / \partial V _ {r}) \}.$$

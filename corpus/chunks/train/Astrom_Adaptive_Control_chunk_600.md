@@ -1,0 +1,3 @@
+# Comparison between Robust and Adaptive Control
+
+The robust design method will generally give systems that respond more quickly when the parameters change, but it is important that the range of parameter variation be known. The adaptive controller responds more slowly but can generally handle larger parameter variations. The adaptive controller will give better responses to command signals and load variations when controller parameters have converged, provided that the model structure is sufficiently correct. The controllers designed by Horowitz's method will generally have high-loop gains, which make them more sensitive to noise.

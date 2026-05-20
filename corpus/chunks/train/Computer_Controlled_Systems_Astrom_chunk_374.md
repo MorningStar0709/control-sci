@@ -1,0 +1,3 @@
+# Process and Controller Design
+
+In the early stages of automation, the control system was always designed when the process design was completed. This still happens in many cases. Because process design is largely based on static considerations, it can lead to a process that is difficult to control. For this reason, it is very useful to consider the control design jointly with the process design. The fact that a process will be controlled automatically also gives the process designers an additional degree of freedom, which can be used to make better trade-offs. The process and the controller should therefore be designed together. An example illustrates the idea.

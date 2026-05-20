@@ -1,0 +1,3 @@
+# SUMMARY
+
+This chapter has served as a “capstone” for the textbook, where we have demonstrated the concepts of modeling, analysis, simulation, and control of dynamic systems by presenting case studies. These case studies involve integrated engineering systems with “mixed-discipline” components, such as mechanical, electrical, and fluid subsystems. The case studies illustrate the steps that are common to nearly all problems in dynamic systems: (1) developing the mathematical models, (2) predicting the system’s behavior using analytical and numerical methods, and (3) selecting the important system parameters in order to improve performance. Typically, these steps involve several iterations, becoming the design process in engineering.
