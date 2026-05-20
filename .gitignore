@@ -150,3 +150,4 @@ _final_submission_by_track/**/embeddings_cache.npy
 _final_submission_by_track/**/medical.index
 _final_submission_by_track/**/bm25.pkl
 _final_submission_by_track/**/*.mp4
+_final_submission_by_track/*.zip
