@@ -58,6 +58,16 @@ controlmind track3 eval --case-set zh_ask
 
 ---
 
+## Local Demo
+
+```powershell
+.\run_frontend.ps1 -StartBackend
+```
+
+Starts the backend API at `http://127.0.0.1:17001` and the frontend at `http://127.0.0.1:3000`. Requires Python (FastAPI) and Node.js.
+
+---
+
 ## Key Results
 
 | Metric | Value |

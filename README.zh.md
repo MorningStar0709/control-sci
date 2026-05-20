@@ -86,6 +86,16 @@ controlmind track3 eval --case-set zh_ask
 
 ---
 
+## 本地 Demo
+
+```powershell
+.\run_frontend.ps1 -StartBackend
+```
+
+启动后端 API（`http://127.0.0.1:17001`）和前端界面（`http://127.0.0.1:3000`）。需要 Python（FastAPI）和 Node.js。
+
+---
+
 ## 关键数字
 
 | 指标 | 数值 |
