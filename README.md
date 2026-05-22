@@ -12,9 +12,9 @@ Track 3  Medical RAG —  local-first evidence-grounded clinical literature Q&A
 
 ---
 
-![System Architecture](docs/submissions/shared/assets/task2/system_architecture.png)
+![System Architecture](docs/submissions/shared/assets/system_architecture.png)
 
-*ControlMind system architecture: a single RTX 5090 runs the full pipeline — MinerU parsing, tri-engine inference (API / Ollama / vLLM), and multi-index RAG.*
+*Single RTX 5090: 362 documents → 28,514 chunks → 3 tracks with full reproducibility and cross-corpus knowledge transfer.*
 
 ---
 

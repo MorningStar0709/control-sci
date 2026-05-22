@@ -22,7 +22,9 @@ ControlMind 用 MinerU 将 362 篇控制科学文献（23 本教材 + 339 篇 ar
 
 三份提交报告中的定量声明均可通过 [DATA-TRACE.md](docs/submissions/shared/DATA-TRACE.md) 回溯到源文件、命令或哈希记录。
 
-![System Architecture](docs/submissions/shared/assets/task2/system_architecture.png)
+![System Architecture](docs/submissions/shared/assets/system_architecture.png)
+
+*单张 RTX 5090：362 篇文档 → 28,514 个结构化块 → 三赛道完整闭环，跨语料知识迁移。*
 
 ---
 
