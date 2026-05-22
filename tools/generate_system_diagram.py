@@ -16,7 +16,7 @@ plt.rcParams.update({
 fig, ax = plt.subplots(1, 1, figsize=(20, 14))
 ax.set_xlim(0, 20)
 ax.set_ylim(0, 14)
-ax.set_aspect('equal')
+ax.set_aspect('auto')
 ax.axis('off')
 
 BG = '#0B1120'
@@ -183,7 +183,7 @@ for i, (label, url, color) in enumerate(links):
 ax.text(10, 1.0, 'CC-BY-4.0  |  Full Reproducibility  |  DATA-TRACE Auditable  |  Single RTX 5090',
         ha='center', va='center', fontsize=9, color=TEXT_GRAY, zorder=5)
 
-plt.tight_layout(pad=0)
-fig.savefig(OUTPUT, dpi=200, facecolor=BG, edgecolor='none', bbox_inches='tight', pad_inches=0.3)
+fig.savefig(OUTPUT, dpi=200, facecolor=BG, edgecolor='none', bbox_inches='tight', pad_inches=0.5)
 plt.close()
 print(f"Saved: {OUTPUT}")
+print(f"  dpi=200, size={OUTPUT}")
