@@ -28,9 +28,15 @@ finetune/checkpoints/
 
 # --- 大文件：衍生缓存 (>10MB) ---
 benchmark/eval/results/chunk_embedding/embeddings_cache.npy
-data/sources_medical/index/medical.index
-data/sources_medical/index/embeddings_cache.npy
-data/sources_medical/index/bm25.pkl
+data/sources_medical/index/*.index
+data/sources_medical/index/*.npy
+data/sources_medical/index/*.pkl
+data/sources_medical/index_bge_m3/*.index
+data/sources_medical/index_bge_m3/*.npy
+data/sources_medical/index_bge_m3/*.pkl
+data/sources_medical/index_bge_small/*.index
+data/sources_medical/index_bge_small/*.npy
+data/sources_medical/index_bge_small/*.pkl
 docs/submissions/data_trace_bundle/09_medical_rag_large/
 docs/submissions/data_trace_bundle/10_charts_large/
 
