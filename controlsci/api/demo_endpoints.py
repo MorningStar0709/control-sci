@@ -727,7 +727,12 @@ def _find_flywheel_markdown(paper_id: str = "") -> Path | None:
         return None
     candidates = sorted(md_root.glob("**/*.md"))
     if paper_id:
-        matched = [p for p in candidates if p.name.startswith(paper_id) or p.parent.name.startswith(paper_id)]
+        matched = [
+            p for p in candidates
+            if p.name.startswith(paper_id)
+            or p.parent.name.startswith(paper_id)
+            or any(parent.name.startswith(paper_id) for parent in p.parents if parent != md_root.parent)
+        ]
         if matched:
             return matched[0]
     return candidates[0] if candidates else None
@@ -1356,15 +1361,9 @@ def track1_examples():
 @router.post("/track1/parse")
 def track1_parse(req: Track1ParseRequest):
     pid = req.paper_id
-    flywheel_dir = ROOT / "data" / "sources_flywheel"
-    pdf_path = flywheel_dir / f"{pid}_.pdf"
-    for candidate in flywheel_dir.glob(f"{pid}*"):
-        pdf_path = candidate
-        break
-
-    markdown_dir = ROOT / "data" / "sources_flywheel" / "md" / pid
-    md_file = markdown_dir / f"{pid}.md" if markdown_dir.exists() else None
-    if md_file and md_file.exists():
+    pdf_path = _find_flywheel_pdf(pid)
+    md_file = _find_flywheel_markdown(pid)
+    if md_file:
         md_text = md_file.read_text(encoding="utf-8", errors="replace")
     else:
         md_text = ""
@@ -1396,11 +1395,11 @@ def track1_parse(req: Track1ParseRequest):
         "status": "ok",
         "paper_id": pid,
         "mode": "replay",
-        "filename": pdf_path.name if pdf_path.exists() else f"{pid}*.pdf",
-        "pdf_exists": pdf_path.exists(),
+        "filename": pdf_path.name if pdf_path else f"{pid}*.pdf",
+        "pdf_exists": bool(pdf_path),
         "md_exists": bool(md_text),
         "pipeline_steps": [
-            {"step": 1, "label": "PDF received", "status": "done", "artifact": str(pdf_path) if pdf_path.exists() else ""},
+            {"step": 1, "label": "PDF received", "status": "done" if pdf_path else "missing", "artifact": str(pdf_path) if pdf_path else ""},
             {"step": 2, "label": "文档解析", "status": "replay", "note": "使用已验证产物"},
             {"step": 3, "label": "结构化完成", "status": "done" if md_text else "replay"},
             {"step": 4, "label": "公式/图片/表格提取", "status": "replay"},
@@ -1751,16 +1750,10 @@ def runtime_resolve(req: RuntimeResolveRequest):
 
 @router.get("/track1/parsed/{paper_id}")
 def track1_parsed(paper_id: str):
-    flywheel_dir = ROOT / "data" / "sources_flywheel"
-    pdf_path = None
-    for candidate in flywheel_dir.glob(f"{paper_id}*"):
-        pdf_path = candidate
-        break
-
-    markdown_dir = ROOT / "data" / "sources_flywheel" / "md" / paper_id
-    md_file = markdown_dir / f"{paper_id}.md" if markdown_dir.exists() else None
+    pdf_path = _find_flywheel_pdf(paper_id)
+    md_file = _find_flywheel_markdown(paper_id)
     md_text = ""
-    if md_file and md_file.exists():
+    if md_file:
         md_text = md_file.read_text(encoding="utf-8", errors="replace")
 
     formulas = md_text.count("$$") // 2 + md_text.count("$ ") if md_text else 0
@@ -2549,8 +2542,8 @@ def track1_generate_questions_v2(req: GenerateQuestionsRequestV2):
             md_content = md_files[0].read_text(encoding="utf-8", errors="replace")
 
     if not md_content and req.paper_id:
-        flywheel_md = ROOT / "data" / "sources_flywheel" / "md" / req.paper_id / f"{req.paper_id}.md"
-        if flywheel_md.exists():
+        flywheel_md = _find_flywheel_markdown(req.paper_id)
+        if flywheel_md:
             md_content = flywheel_md.read_text(encoding="utf-8", errors="replace")
 
     questions = []

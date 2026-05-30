@@ -40,9 +40,10 @@ export function verifyTaskOwner(task, token) {
   return Boolean(task?.owner_token && token && task.owner_token === token);
 }
 
-export function toPublicTask(task) {
+export function toPublicTask(task, options = {}) {
   if (!task) return null;
   const { owner_token, input, ...publicTask } = task;
+  if (options.includeOwnerToken) publicTask.owner_token = owner_token;
   if (SHOW_TASK_INPUT && input !== undefined) publicTask.input = input;
   return publicTask;
 }

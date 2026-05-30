@@ -134,5 +134,5 @@ export default function handler(req, res) {
   const origin = `${proto}://${host}`;
   const task = createTask(req.body);
   runTask(task, origin, req.body);
-  res.status(202).json(toPublicTask(task));
+  res.status(202).json(toPublicTask(task, { includeOwnerToken: true }));
 }

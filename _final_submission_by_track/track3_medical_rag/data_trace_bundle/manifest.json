@@ -1,11 +1,12 @@
 {
-  "generated_at": "2026-05-31T01:57:29+08:00",
-  "generator": "final_bundle_manifest_rebuild",
+  "generated_at": "2026-05-31T03:06:54+08:00",
+  "project": "ControlSci — 2026 MinerU Challenge",
+  "generator": "manifest_rebuild_after_path_sanitize",
   "copy_mode": "track_specific_existing_files",
   "root": "data_trace_bundle",
-  "file_count": 79,
-  "total_size_bytes": 390711680,
-  "total_size_mb": 372.61,
+  "file_count": 94,
+  "total_size_bytes": 397293415,
+  "total_size_mb": 378.89,
   "files": [
     {
       "bundle_path": "01_corpus_scale/mineru_vs_pymupdf_data.json",
@@ -155,18 +156,18 @@
       "sha256": "ab3f254ac95d76d54106b2500394ff4535f028f582e14fc369f1343400e75cec"
     },
     {
-      "bundle_path": "10_charts_large/embeddings_cache.npy",
-      "source_path": "benchmark/eval/results/chunk_embedding/embeddings_cache.npy",
-      "size_bytes": 291584128,
-      "size_mb": 278.08,
-      "sha256": "5d33de7a1675391d67a0c182ea157d96d05c728f93a2638e6b2e3dcc9d17c54b"
-    },
-    {
       "bundle_path": "10_charts/manifest.json",
       "source_path": "build/submission_experiment_figures/manifest.json",
       "size_bytes": 3006,
       "size_mb": 0.0,
       "sha256": "7e9592609cdfc50e87176409d88a553bcd2134dd13bd32d17f72bd95e1a122f9"
+    },
+    {
+      "bundle_path": "10_charts_large/embeddings_cache.npy",
+      "source_path": "benchmark/eval/results/chunk_embedding/embeddings_cache.npy",
+      "size_bytes": 291584128,
+      "size_mb": 278.08,
+      "sha256": "5d33de7a1675391d67a0c182ea157d96d05c728f93a2638e6b2e3dcc9d17c54b"
     },
     {
       "bundle_path": "11_throughput/gpu_throughput.json",
@@ -290,9 +291,9 @@
     {
       "bundle_path": "12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_medbench_ei_taxonomy.json",
       "source_path": "benchmark/eval/results/track3_medbench_ei_taxonomy.json",
-      "size_bytes": 165739,
+      "size_bytes": 163807,
       "size_mb": 0.16,
-      "sha256": "afbb08968ba7b0723e5f3070015c9e40c993fd734e23a98c160b8460c30a4721"
+      "sha256": "dd9c11de9e6c56b71a5fd51ec15c9236e8c5c04e701281a583cdeb9d47816ac4"
     },
     {
       "bundle_path": "12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_privacy_boundary_audit.json",
@@ -304,9 +305,9 @@
     {
       "bundle_path": "12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_rag_pipeline_ablation.json",
       "source_path": "benchmark/eval/results/track3_rag_pipeline_ablation.json",
-      "size_bytes": 8441,
+      "size_bytes": 8395,
       "size_mb": 0.01,
-      "sha256": "00a5315dbb3ffe802bd4b98df27195113fc1a485e2af584fb70a102a4b03e058"
+      "sha256": "12e3239a6afe3eede15983e7d0b6c4874ca4096ef5053de1f2b3762f1d4dff67"
     },
     {
       "bundle_path": "12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_safety_refusal_stress.json",
@@ -559,6 +560,111 @@
       "size_bytes": 2460,
       "size_mb": 0.0,
       "sha256": "86df0af9d4bb84a860a077c37bb3ab569c14bdfe0983857f120a6f1f1ef0d427"
+    },
+    {
+      "bundle_path": "source_repo_evidence/benchmark/eval/results/medical/judge_consistency.json",
+      "source_path": "source_repo_evidence/benchmark/eval/results/medical/judge_consistency.json",
+      "size_bytes": 28794,
+      "size_mb": 0.03,
+      "sha256": "f3ca45006de404f15f40b100f4f7cbf4fee3a358e35e87a80219895153533094"
+    },
+    {
+      "bundle_path": "source_repo_evidence/benchmark/eval/results/medical/kb_quality_report.json",
+      "source_path": "source_repo_evidence/benchmark/eval/results/medical/kb_quality_report.json",
+      "size_bytes": 802579,
+      "size_mb": 0.77,
+      "sha256": "0385ff73db4ebdfb776ed4e0c1172ae7e8047217c0048e8eb6b796ca54c373a3"
+    },
+    {
+      "bundle_path": "source_repo_evidence/benchmark/eval/results/medical/reranker_qlora_report.json",
+      "source_path": "source_repo_evidence/benchmark/eval/results/medical/reranker_qlora_report.json",
+      "size_bytes": 60135,
+      "size_mb": 0.06,
+      "sha256": "8575954ae57cd764af8634cae3e29b40ca6352495530abe1ac87128d57ccd2f0"
+    },
+    {
+      "bundle_path": "source_repo_evidence/benchmark/eval/results/medical_rag_eval_zh_ask_structured.json",
+      "source_path": "source_repo_evidence/benchmark/eval/results/medical_rag_eval_zh_ask_structured.json",
+      "size_bytes": 49235,
+      "size_mb": 0.05,
+      "sha256": "161a0622df183d0080debbe069566fc0cea212fbe8e6c04532d8091fe56db286"
+    },
+    {
+      "bundle_path": "source_repo_evidence/benchmark/eval/results/medical_rag_eval_zh_ask_structured_all_indexes.json",
+      "source_path": "source_repo_evidence/benchmark/eval/results/medical_rag_eval_zh_ask_structured_all_indexes.json",
+      "size_bytes": 135525,
+      "size_mb": 0.13,
+      "sha256": "61d2a8e6364f0e17ecbacc1e0691ce08fc784f4fb848f7afcd5f410bdb242c38"
+    },
+    {
+      "bundle_path": "source_repo_evidence/benchmark/eval/results/medical_rag_zh_ask_structured_traces.jsonl",
+      "source_path": "source_repo_evidence/benchmark/eval/results/medical_rag_zh_ask_structured_traces.jsonl",
+      "size_bytes": 31584,
+      "size_mb": 0.03,
+      "sha256": "4cfaf85140dc4b65dfe117953d87be85d882a178e517353c62fbbc7a748c1915"
+    },
+    {
+      "bundle_path": "source_repo_evidence/data/sources_medical/index/index_meta.json",
+      "source_path": "source_repo_evidence/data/sources_medical/index/index_meta.json",
+      "size_bytes": 1184,
+      "size_mb": 0.0,
+      "sha256": "8509758b004b865ed45236b502f23e5ecedadb33d3c9962f2726c312082d5d0a"
+    },
+    {
+      "bundle_path": "source_repo_evidence/data/sources_medical/index/metadata.json",
+      "source_path": "source_repo_evidence/data/sources_medical/index/metadata.json",
+      "size_bytes": 1184,
+      "size_mb": 0.0,
+      "sha256": "8509758b004b865ed45236b502f23e5ecedadb33d3c9962f2726c312082d5d0a"
+    },
+    {
+      "bundle_path": "source_repo_evidence/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_path": "source_repo_evidence/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "size_bytes": 1092115,
+      "size_mb": 1.04,
+      "sha256": "6a0087565a7e6cfdf13010f4deebcccc94fd3cbe85f1ea2f3380a4c035d6e32d"
+    },
+    {
+      "bundle_path": "source_repo_evidence/data/sources_medical/medbench/medbench_full_retrieval_stats_v1.json",
+      "source_path": "source_repo_evidence/data/sources_medical/medbench/medbench_full_retrieval_stats_v1.json",
+      "size_bytes": 2599267,
+      "size_mb": 2.48,
+      "sha256": "6d81716b678e5d99281391729dd66e2fb8ac9f9ebeac126a30a306075d1b5ee0"
+    },
+    {
+      "bundle_path": "source_repo_evidence/data/sources_medical/medbench/medbench_vlm_report.json",
+      "source_path": "source_repo_evidence/data/sources_medical/medbench/medbench_vlm_report.json",
+      "size_bytes": 899758,
+      "size_mb": 0.86,
+      "sha256": "2abd47d05e3d1148350097c33f04e762269ad01e0103317efc78f022397b20e2"
+    },
+    {
+      "bundle_path": "source_repo_evidence/data/sources_medical/medbench/medbench_vlm_report_9b.json",
+      "source_path": "source_repo_evidence/data/sources_medical/medbench/medbench_vlm_report_9b.json",
+      "size_bytes": 844343,
+      "size_mb": 0.81,
+      "sha256": "2c82dacff43266d180460f28f5f7668d5a3df4b299c1bb53444c50ba8d68211f"
+    },
+    {
+      "bundle_path": "source_repo_evidence/finetune/output/eval_medical_ppl/perplexity_medical_chatml.json",
+      "source_path": "source_repo_evidence/finetune/output/eval_medical_ppl/perplexity_medical_chatml.json",
+      "size_bytes": 12596,
+      "size_mb": 0.01,
+      "sha256": "8e2939199840b432fa9d91fbd142e11b4fc12a480de73b2dcf60d81cb8f4164f"
+    },
+    {
+      "bundle_path": "source_repo_evidence/finetune/output/eval_medical_ppl/perplexity_medical_delta.json",
+      "source_path": "source_repo_evidence/finetune/output/eval_medical_ppl/perplexity_medical_delta.json",
+      "size_bytes": 12707,
+      "size_mb": 0.01,
+      "sha256": "7902ad2aeff7741c455fe0f7f1a13988a37a37712846c81893cd60f9be94cfd0"
+    },
+    {
+      "bundle_path": "source_repo_evidence/finetune/output/eval_medical_ppl/perplexity_medical_raw.json",
+      "source_path": "source_repo_evidence/finetune/output/eval_medical_ppl/perplexity_medical_raw.json",
+      "size_bytes": 12707,
+      "size_mb": 0.01,
+      "sha256": "7902ad2aeff7741c455fe0f7f1a13988a37a37712846c81893cd60f9be94cfd0"
     }
   ]
 }

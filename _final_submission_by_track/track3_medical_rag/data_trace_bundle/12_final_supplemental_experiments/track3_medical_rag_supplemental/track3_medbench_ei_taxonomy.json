@@ -10,8 +10,8 @@
   },
   "results_dir": "benchmark/eval/results",
   "llm_ei_summary": {
-    "source": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2_quality.json",
-    "detail_source": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+    "source": "data/sources_medical/medbench/medbench_core_subsets_v2_quality.json",
+    "detail_source": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
     "model": "qwen3.5:35b",
     "modality": "LLM/text",
     "total_questions": 330,
@@ -130,7 +130,7 @@
     }
   },
   "vlm_35b_ei_summary": {
-    "source": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_vlm_report.json",
+    "source": "data/sources_medical/medbench/medbench_vlm_report.json",
     "model": "qwen3.5:35b",
     "modality": "VLM/text+vision/35b",
     "total_questions": 300,
@@ -245,7 +245,7 @@
     }
   },
   "vlm_9b_ei_summary": {
-    "source": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_vlm_report_9b.json",
+    "source": "data/sources_medical/medbench/medbench_vlm_report_9b.json",
     "model": "qwen3.5:9b",
     "modality": "VLM/text+vision/9b",
     "total_questions": 300,
@@ -442,7 +442,7 @@
   "taxonomy_records": [
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0001",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedDiag-0001-133-b06d9c38e8",
@@ -473,7 +473,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0002",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedDiag-0002-128-ff5c27d5a7",
@@ -503,7 +503,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0003",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedDiag-0003-111-cac3d77764",
@@ -532,7 +532,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0004",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedDiag-0004-82-0ba06f0a3f",
@@ -561,7 +561,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0005",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedDiag-0005-92-41b072cea5",
@@ -591,7 +591,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0006",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedDiag-0006-105-1ec70ad06b",
@@ -621,7 +621,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0007",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedDiag-0007-50-9710db9529",
@@ -651,7 +651,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0008",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedDiag-0008-5-6e261aaa78",
@@ -680,7 +680,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0009",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedDiag-0009-52-5a2ce26367",
@@ -711,7 +711,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0010",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedDiag-0012-118-c4b87c05d4",
@@ -742,7 +742,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0011",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedDiag-0013-106-8d914473a7",
@@ -773,7 +773,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0012",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedDiag-0014-143-603cd1796e",
@@ -801,7 +801,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0013",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedDiag-0016-25-77619830e8",
@@ -830,7 +830,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0014",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedDiag-0017-47-33fa10d26d",
@@ -860,7 +860,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0015",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedDiag-0018-94-a73f1e077c",
@@ -891,7 +891,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0016",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedDiag-0019-6-38f5301b70",
@@ -922,7 +922,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0017",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedDiag-0020-126-aab954875a",
@@ -952,7 +952,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0018",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedDiag-0021-34-2b99b26fc1",
@@ -982,7 +982,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0019",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedDiag-0022-46-229ff7eff3",
@@ -1012,7 +1012,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0020",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedDiag-0023-21-f29e6fa0e2",
@@ -1041,7 +1041,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0021",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedDiag-0024-72-a109e3cd3d",
@@ -1072,7 +1072,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0022",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedDiag-0025-108-19dbaa48a5",
@@ -1103,7 +1103,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0023",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedDiag-0026-8-042e301c54",
@@ -1132,7 +1132,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0024",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedDiag-0027-9-e886709aa5",
@@ -1162,7 +1162,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0025",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedDiag-0028-7-10cc43a741",
@@ -1192,7 +1192,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0026",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedDiag-0029-29-73bfa58da8",
@@ -1221,7 +1221,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0027",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0030-3-ffe8e3834d",
@@ -1252,7 +1252,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0028",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0032-3-48ef3b0587",
@@ -1283,7 +1283,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0029",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0033-3-f65afc2906",
@@ -1314,7 +1314,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0030",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0034-3-618651675a",
@@ -1344,7 +1344,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0031",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0035-4-7abdcf7340",
@@ -1375,7 +1375,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0032",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0036-4-088bf8be48",
@@ -1406,7 +1406,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0033",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0037-4-c64db25152",
@@ -1437,7 +1437,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0034",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0038-4-42c337d53e",
@@ -1468,7 +1468,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0035",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0039-4-38fe7bda04",
@@ -1499,7 +1499,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0036",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0040-5-4c55927cc5",
@@ -1530,7 +1530,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0037",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0041-5-761bcbc51f",
@@ -1561,7 +1561,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0038",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0042-5-8e09691cb7",
@@ -1592,7 +1592,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0039",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0043-5-67afff13c3",
@@ -1623,7 +1623,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0040",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0044-5-f2a2b06854",
@@ -1654,7 +1654,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0041",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0045-14-5a39afded6",
@@ -1683,7 +1683,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0042",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0046-14-4b0ab6dd47",
@@ -1714,7 +1714,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0043",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0047-14-21ebe45285",
@@ -1745,7 +1745,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0044",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0048-14-a75876147a",
@@ -1776,7 +1776,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0045",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0049-14-06a5b9e649",
@@ -1807,7 +1807,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0046",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0050-15-316aaffa48",
@@ -1836,7 +1836,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0047",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0051-15-7962e96ce7",
@@ -1865,7 +1865,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0048",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0052-15-a9190d61a8",
@@ -1894,7 +1894,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0049",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0053-15-c16ec39d5a",
@@ -1923,7 +1923,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0050",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0054-15-b57a8eee6b",
@@ -1952,7 +1952,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0051",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0055-19-6af3a715f0",
@@ -1982,7 +1982,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0052",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0056-19-f60c343b14",
@@ -2013,7 +2013,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0053",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0057-19-7c87f30668",
@@ -2043,7 +2043,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0054",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0058-19-568b26bee7",
@@ -2073,7 +2073,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0055",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0059-19-01336e32c6",
@@ -2104,7 +2104,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0056",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0060-22-94841f48a7",
@@ -2133,7 +2133,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0057",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0061-22-f5dffb6c04",
@@ -2162,7 +2162,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0058",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0062-22-7ae2d4891f",
@@ -2191,7 +2191,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0059",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0065-25-8f894413d6",
@@ -2221,7 +2221,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0060",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0066-25-b458129839",
@@ -2251,7 +2251,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0061",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0067-25-2898d1256d",
@@ -2281,7 +2281,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0062",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0068-25-8aa229d440",
@@ -2311,7 +2311,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0063",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0069-25-6028a65147",
@@ -2341,7 +2341,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0064",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0070-29-a71c63d7b2",
@@ -2371,7 +2371,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0065",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0071-29-69ec886ebe",
@@ -2401,7 +2401,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0066",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0072-29-bac7d07e0d",
@@ -2431,7 +2431,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0067",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0073-29-5aedfb974a",
@@ -2461,7 +2461,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0068",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0074-29-d74ff16c82",
@@ -2492,7 +2492,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0069",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0075-32-23678f3317",
@@ -2521,7 +2521,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0070",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0080-46-7ef94b8ad3",
@@ -2552,7 +2552,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0071",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0082-46-f55a65dfb4",
@@ -2583,7 +2583,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0072",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0083-46-a2ebc94654",
@@ -2614,7 +2614,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0073",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0084-46-dca6c273c0",
@@ -2645,7 +2645,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0074",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0085-52-255c82b226",
@@ -2676,7 +2676,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0075",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0086-52-b84d498f64",
@@ -2707,7 +2707,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0076",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0087-52-ddaf40ea5f",
@@ -2738,7 +2738,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0077",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0088-52-b264da7920",
@@ -2769,7 +2769,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0078",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0089-52-c529a342af",
@@ -2800,7 +2800,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0079",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0090-61-14ae6b5501",
@@ -2831,7 +2831,7 @@
     },
     {
       "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0080",
-      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_file": "data/sources_medical/medbench/medbench_core_subsets_v2.json",
       "model": "qwen3.5:35b",
       "modality": "LLM/text",
       "query_id": "MB-MedExam-0091-61-ea85bdecbf",

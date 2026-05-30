@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-05-31T02:04:32+08:00",
+  "generated_at": "2026-05-31T03:06:54+08:00",
   "project": "ControlSci — 2026 MinerU Challenge",
-  "generator": "docs_submissions_manifest_rebuild",
+  "generator": "manifest_rebuild_after_path_sanitize",
   "copy_mode": "merged_from_final_track_bundles",
   "root": "data_trace_bundle",
   "file_count": 195,
-  "total_size_bytes": 430787050,
+  "total_size_bytes": 430785072,
   "total_size_mb": 410.83,
   "files": [
     {
@@ -648,9 +648,9 @@
     {
       "bundle_path": "12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_medbench_ei_taxonomy.json",
       "source_path": "benchmark/eval/results/track3_medbench_ei_taxonomy.json",
-      "size_bytes": 165739,
+      "size_bytes": 163807,
       "size_mb": 0.16,
-      "sha256": "afbb08968ba7b0723e5f3070015c9e40c993fd734e23a98c160b8460c30a4721"
+      "sha256": "dd9c11de9e6c56b71a5fd51ec15c9236e8c5c04e701281a583cdeb9d47816ac4"
     },
     {
       "bundle_path": "12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_privacy_boundary_audit.json",
@@ -662,9 +662,9 @@
     {
       "bundle_path": "12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_rag_pipeline_ablation.json",
       "source_path": "benchmark/eval/results/track3_rag_pipeline_ablation.json",
-      "size_bytes": 8441,
+      "size_bytes": 8395,
       "size_mb": 0.01,
-      "sha256": "00a5315dbb3ffe802bd4b98df27195113fc1a485e2af584fb70a102a4b03e058"
+      "sha256": "12e3239a6afe3eede15983e7d0b6c4874ca4096ef5053de1f2b3762f1d4dff67"
     },
     {
       "bundle_path": "12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_safety_refusal_stress.json",

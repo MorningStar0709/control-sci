@@ -114,6 +114,13 @@ export default function Track1Page({ runtimeConfig }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [persisted.uiVersion]);
 
+  useEffect(() => {
+    if ((loading === 'examples' || loading === 'upload') && !pendingTask?.id) {
+      patchPersisted({ loading: '', pendingTask: null });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   function resetAfterInput() {
     setParseResult(null);
     setQuestions(null);
@@ -174,18 +181,21 @@ export default function Track1Page({ runtimeConfig }) {
 
   async function loadExamples() {
     setLoading('examples');
-    const result = await apiGet('/api/demo/track1/examples', { timeoutMs: 12000 });
-    if (result.ok) {
-      setPapers(result.data.papers || []);
-      if (result.data.papers?.length) {
-        setSelected(result.data.papers[0].id);
-        setSource('selected');
+    try {
+      const result = await apiGet('/api/demo/track1/examples', { timeoutMs: 12000 });
+      if (result.ok) {
+        setPapers(result.data.papers || []);
+        if (result.data.papers?.length) {
+          setSelected(result.data.papers[0].id);
+          setSource('selected');
+        }
+        resetAfterInput();
+      } else {
+        setError(toFailure(result.error));
       }
-      resetAfterInput();
-    } else {
-      setError(toFailure(result.error));
+    } finally {
+      setLoading('');
     }
-    setLoading('');
   }
 
   async function runTrack1Demo() {
@@ -359,7 +369,7 @@ export default function Track1Page({ runtimeConfig }) {
               <p className="text-gray-600 text-sm">本地体验 PDF 结构化、四维出题、模型答题和评分绑定；完整实验论证保留在报告一与 DATA-TRACE。</p>
               <p className="mt-1 text-[11px] text-gray-500">工作台负责可感知的最小闭环，不复刻报告 dashboard；批量排行榜、Judge 校准与训练探针请从复核入口进入。</p>
             </div>
-            <button onClick={runTrack1Demo} disabled={loading === 'demo'} className="px-4 py-2 bg-gray-900 text-white rounded text-xs disabled:opacity-50">
+            <button type="button" onClick={runTrack1Demo} disabled={loading === 'demo'} className="px-4 py-2 bg-gray-900 text-white rounded text-xs disabled:opacity-50">
               {loading === 'demo' ? '最小复现执行中' : '运行最小复现链路'}
             </button>
           </div>
@@ -427,7 +437,7 @@ export default function Track1Page({ runtimeConfig }) {
                 复核入口：请使用顶部 / 侧栏的“来源矩阵”查看报告、DATA-TRACE、manifest 与复现命令；本页不直接打开磁盘文档。
               </div>
             </div>
-            <button onClick={continueQuestionAndScore} disabled={!inputReady || loading === 'continue'} className="w-full md:w-auto px-4 py-2 bg-sky-700 text-white rounded text-xs disabled:opacity-50">
+            <button type="button" onClick={continueQuestionAndScore} disabled={!inputReady || loading === 'continue'} className="w-full md:w-auto px-4 py-2 bg-sky-700 text-white rounded text-xs disabled:opacity-50">
               {loading === 'continue' ? '分步复核中' : '继续出题评分'}
             </button>
           </div>
@@ -458,7 +468,7 @@ export default function Track1Page({ runtimeConfig }) {
                   }}
                   className="flex-1 text-xs border rounded px-2 py-2 file:mr-2 file:px-3 file:py-1 file:text-xs file:border-0 file:bg-white file:rounded"
                 />
-                <button onClick={uploadPdf} disabled={!uploadedFile || loading === 'upload'} className="px-4 py-2 bg-gray-900 text-white text-xs rounded disabled:opacity-50">
+                <button type="button" onClick={uploadPdf} disabled={!uploadedFile || loading === 'upload'} className="px-4 py-2 bg-gray-900 text-white text-xs rounded disabled:opacity-50">
                   {loading === 'upload' ? '上传中' : '上传'}
                 </button>
               </div>
@@ -480,7 +490,7 @@ export default function Track1Page({ runtimeConfig }) {
                   placeholder="https://.../paper.pdf"
                   className="w-full border rounded px-3 py-2 text-xs"
                 />
-                <button onClick={parseOfficialUrl} disabled={!officialUrl.trim() || loading === 'official_url'} className="w-full px-4 py-2 bg-gray-900 text-white text-xs rounded disabled:opacity-50">
+                <button type="button" onClick={parseOfficialUrl} disabled={!officialUrl.trim() || loading === 'official_url'} className="w-full px-4 py-2 bg-gray-900 text-white text-xs rounded disabled:opacity-50">
                   {loading === 'official_url' ? '提交中' : '提交官方解析'}
                 </button>
               </div>
@@ -490,7 +500,7 @@ export default function Track1Page({ runtimeConfig }) {
             <div className="border rounded-lg p-4 bg-gray-50">
               <div className="flex items-center justify-between mb-3">
                 <div className="text-xs font-semibold text-gray-700">样例论文</div>
-                <button onClick={loadExamples} disabled={loading === 'examples'} className="px-3 py-1.5 border rounded text-xs hover:bg-white">
+                <button type="button" onClick={loadExamples} disabled={loading === 'examples'} className="px-3 py-1.5 border rounded text-xs hover:bg-white">
                   {loading === 'examples' ? '加载中' : '加载样例'}
                 </button>
               </div>
@@ -510,8 +520,8 @@ export default function Track1Page({ runtimeConfig }) {
           status={parseResult?.parse_ok ? 'done' : parseResult?.status === 'replay' ? 'replay' : loading === 'parse' || loading === 'demo' ? 'running' : parseSteps.length ? 'ready' : 'pending'}
           actions={
             <div className="flex gap-2">
-              <button onClick={inspectSelectedPaper} disabled={!selected || loading === 'parse'} className="px-3 py-1.5 border rounded text-xs hover:bg-white disabled:opacity-50">检查样例</button>
-              <button onClick={parseUploadedPdf} disabled={!uploadResult?.filename || loading === 'parse'} className="px-3 py-1.5 bg-gray-900 text-white rounded text-xs disabled:opacity-50">解析上传</button>
+              <button type="button" onClick={inspectSelectedPaper} disabled={!selected || loading === 'parse'} className="px-3 py-1.5 border rounded text-xs hover:bg-white disabled:opacity-50">检查样例</button>
+              <button type="button" onClick={parseUploadedPdf} disabled={!uploadResult?.filename || loading === 'parse'} className="px-3 py-1.5 bg-gray-900 text-white rounded text-xs disabled:opacity-50">解析上传</button>
             </div>
           }
         >
@@ -547,9 +557,9 @@ export default function Track1Page({ runtimeConfig }) {
           status={scoreResult ? 'done' : loading === 'questions' || loading === 'score' || loading === 'continue' || loading === 'demo' ? 'running' : questions ? 'ready' : 'pending'}
           actions={
             <div className="flex gap-2">
-              <button onClick={generateQuestions} disabled={!inputReady || loading === 'questions'} className="px-3 py-1.5 border rounded text-xs hover:bg-white disabled:opacity-50">生成题目</button>
-              <button onClick={answerAndScore} disabled={!inputReady || loading === 'score'} className="px-3 py-1.5 bg-gray-900 text-white rounded text-xs disabled:opacity-50">答题评分</button>
-              <button onClick={continueQuestionAndScore} disabled={!inputReady || loading === 'continue'} className="px-3 py-1.5 bg-sky-600 text-white rounded text-xs disabled:opacity-50">{loading === 'continue' ? '分步复核中' : '继续出题评分'}</button>
+              <button type="button" onClick={generateQuestions} disabled={!inputReady || loading === 'questions'} className="px-3 py-1.5 border rounded text-xs hover:bg-white disabled:opacity-50">生成题目</button>
+              <button type="button" onClick={answerAndScore} disabled={!inputReady || loading === 'score'} className="px-3 py-1.5 bg-gray-900 text-white rounded text-xs disabled:opacity-50">答题评分</button>
+              <button type="button" onClick={continueQuestionAndScore} disabled={!inputReady || loading === 'continue'} className="px-3 py-1.5 bg-sky-600 text-white rounded text-xs disabled:opacity-50">{loading === 'continue' ? '分步复核中' : '继续出题评分'}</button>
             </div>
           }
         >

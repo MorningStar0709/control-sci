@@ -18,7 +18,7 @@
     },
     {
       "role": "vision A/B comparison",
-      "path": "D:/WorkPlace/AI/MinerU/benchmark/eval/results/medical/vision_ab_comparison.json",
+      "path": "benchmark/eval/results/medical/vision_ab_comparison.json",
       "exists": true,
       "size_bytes": 24458
     }
@@ -172,7 +172,7 @@
   },
   "vision_ablation": {
     "status": "available",
-    "source": "D:/WorkPlace/AI/MinerU/benchmark/eval/results/medical/vision_ab_comparison.json",
+    "source": "benchmark/eval/results/medical/vision_ab_comparison.json",
     "case_count": 8,
     "combined_has_vision_cases": 8,
     "combined_has_vision_rate": 1.0,

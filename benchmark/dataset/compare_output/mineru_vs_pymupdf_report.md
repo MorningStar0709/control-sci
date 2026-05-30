@@ -9,7 +9,7 @@
 
 | 属性 | 值 |
 |------|-----|
-| PDF 路径 | `D:\WorkPlace\AI\MinerU\data\pdf\textbooks\自抗扰控制技术.pdf` |
+| PDF 路径 | `data\pdf\textbooks\自抗扰控制技术.pdf` |
 | PDF 大小 | 35.9 MB |
 | 总页数 | 381 |
 | PyMuPDF 处理耗时 | 0.134s (0.0004s/页) |
@@ -82,7 +82,7 @@ MinerU 耗时依据：实测教材~60页/min (含版面分析+公式检测+OCR)
 
 | 属性 | 值 |
 |------|-----|
-| PDF 路径 | `D:\WorkPlace\AI\MinerU\data\pdf\textbooks\自动控制原理_胡寿松.pdf` |
+| PDF 路径 | `data\pdf\textbooks\自动控制原理_胡寿松.pdf` |
 | PDF 大小 | 69.6 MB |
 | 总页数 | 635 |
 | PyMuPDF 处理耗时 | 0.217s (0.0003s/页) |
@@ -155,7 +155,7 @@ MinerU 耗时依据：实测教材~60页/min (含版面分析+公式检测+OCR)
 
 | 属性 | 值 |
 |------|-----|
-| PDF 路径 | `D:\WorkPlace\AI\MinerU\data\pdf\textbooks\非线性系统_Khalil.pdf` |
+| PDF 路径 | `data\pdf\textbooks\非线性系统_Khalil.pdf` |
 | PDF 大小 | 110.3 MB |
 | 总页数 | 530 |
 | PyMuPDF 处理耗时 | 0.253s (0.0005s/页) |
