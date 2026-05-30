@@ -1,12 +1,12 @@
 # ControlMind
 
-**A MinerU-powered scientific document intelligence system: 500-question cross-modal benchmark, 14-intent data agent, and local-first medical RAG — all from raw PDFs.**
+**A MinerU-powered scientific document intelligence system: 500-question cross-modal benchmark, 15-intent data agent, and local-first medical RAG — all from raw PDFs.**
 
-[Chinese version](README.zh.md) | [CC-BY-4.0](LICENSE)
+[Chinese version](README.zh.md) | [CC-BY-4.0](LICENSE) | [Data licenses](DATA_LICENSES.md)
 
 ```text
 Track 1  Sci-Align  —  4-dimension control-science evaluation benchmark
-Track 2  Data Agent —  14-intent autonomous corpus agent with 4-path scheduling
+Track 2  Data Agent —  15-intent autonomous corpus agent with 4-path scheduling
 Track 3  Medical RAG —  local-first evidence-grounded clinical literature Q&A
 ```
 
@@ -23,7 +23,7 @@ Track 3  Medical RAG —  local-first evidence-grounded clinical literature Q&A
 | Track | What You Get | One Command |
 |:---|:---|:---|
 | **Sci-Align** | A 500-question 4-dimension benchmark (A: Concept Recall, B: Multi-step Reasoning, C: Condition Sensitivity, D: Open Design) with 9-model leaderboard and full source traceability. Loadable via `load_dataset()`. | `load_dataset("MorningStar0709/control-sci-corpus")` |
-| **Data Agent** | A 14-intent autonomous agent that searches arXiv, parses PDFs with MinerU, audits cross-modal alignment, builds benchmarks, evaluates models, and self-corrects on failure — with unified logging and checkpoint recovery. | `controlmind track2 validate --artifact all` |
+| **Data Agent** | A 15-intent autonomous agent that searches arXiv, parses PDFs with MinerU, audits cross-modal alignment, builds benchmarks, evaluates models, and self-corrects on failure — with unified logging and checkpoint recovery. | `controlmind track2 validate --artifact all` |
 | **Medical RAG** | A local-first evidence Q&A system over 97 parsed PMC papers, with IMRAD-aware chunking, hybrid FAISS+BM25 retrieval, Chinese-to-English query bridging, visual injection, and safety-refusal boundaries. | `controlmind track3 eval --case-set zh_ask` |
 
 ---
@@ -110,7 +110,7 @@ Each track has a companion technical report with detailed methodology, experimen
 | Track | Report | Key Evidence |
 |:---|:---|:---|
 | Track 1 Sci-Align | [track1_sci_align_report.md](docs/submissions/track1_sci_align_report.md) | 500-question schema, 9-model leaderboard, QLoRA results |
-| Track 2 Data Agent | [track2_agent_report.md](docs/submissions/track2_agent_report.md) | 14-intent protocol, dry-run logs, failure recovery cases |
+| Track 2 Data Agent | [track2_agent_report.md](docs/submissions/track2_agent_report.md) | 15-intent protocol, dry-run logs, failure recovery cases |
 | Track 3 Medical RAG | [track3_medical_rag_report.md](docs/submissions/track3_medical_rag_report.md) | 97 PMC papers, Chinese Ask traces, MedBench comparison |
 
 Every quantitative claim in the reports points back to source files, commands, or hashes in [`DATA-TRACE.md`](docs/submissions/shared/DATA-TRACE.md).
@@ -157,9 +157,10 @@ Reports & Pipeline
 ## License & Data Boundary
 
 - This project is released under **CC-BY-4.0**. See [LICENSE](LICENSE).
-- Public PMC/arXiv source documents retain their original licenses and attribution.
+- Public PMC/arXiv source documents and derived artifacts retain their original licenses and attribution. See [DATA_LICENSES.md](DATA_LICENSES.md).
 - Patient-level private data is **not** included.
-- Cloud demo inputs are limited to public or sanitized materials; medical chunks, indexes, and RAG contexts are local-first by default.
+- Cloud demo inputs are limited to public or sanitized materials; medical chunks and RAG contexts are local-first by default.
+- Rebuildable binary indexes, embedding matrices, local checkpoints, credentials, dependency folders, and build outputs are excluded from Git history.
 
 ---
 

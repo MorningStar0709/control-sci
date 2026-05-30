@@ -10,7 +10,7 @@ This branch is the public/reviewer release of ControlSci. It is intentionally br
 - `benchmark/eval/`: evaluation, reporting, validation, and analysis code needed to understand or rerun the public workflows.
 - `benchmark/eval/results/`: public benchmark outputs, medical RAG results, traces, figures, and result summaries used by the reports.
 - `benchmark/dataset/`: public benchmark datasets and schemas used by the reviewer demo.
-- `data/sources_medical/`: public/open medical RAG working set, including parsed Markdown, chunks, indexes, QA artifacts, MedBench probe outputs, and source metadata.
+- `data/sources_medical/`: public/open medical RAG working set, including parsed Markdown, chunks, QA artifacts, MedBench probe outputs, and source metadata. Rebuildable binary indexes and embedding matrices are excluded from Git.
 - `demo/cli/`: lightweight terminal demo entrypoint.
 - `docs/submissions/`: final public reports, reviewer quickstart, shared diagrams, 20-case appendices, and the curated `data_trace_bundle`.
 - `tools/`, `scripts/`, `pipeline/`, and `notebooks/`: reproducibility utilities and analysis helpers.
@@ -18,7 +18,7 @@ This branch is the public/reviewer release of ControlSci. It is intentionally br
 - `starboard/`: frontend source for the local workbench, excluding dependency/build folders.
 - `cloud_demo_standalone/`: isolated cloud-demo source package, excluding runtime uploads, logs, dependency folders, and build folders.
 - Root scripts and environment files: `run_reviewer_demo.ps1`, `run_minimal_repro.ps1`, `run_agent.ps1`, `run_evaluation.ps1`, `run_medical_agent.ps1`, `run_task3_rag_flywheel.ps1`, `run_frontend.ps1`, `verify_task3_demo.ps1`, `reproduce.sh`, `Dockerfile`, `docker-compose.yml`, `pyproject.toml`, and `requirements.txt`.
-- Public repository guidance: `README.md`, `README.zh.md`, `REPRODUCIBILITY.md`, `CONTRIBUTING.md`, `SECURITY.md`, `CODE_OF_CONDUCT.md`, `CHANGELOG.md`, `LICENSE`, and `CITATION.cff`.
+- Public repository guidance: `README.md`, `README.zh.md`, `REPRODUCIBILITY.md`, `CONTRIBUTING.md`, `SECURITY.md`, `CODE_OF_CONDUCT.md`, `CHANGELOG.md`, `LICENSE`, `DATA_LICENSES.md`, and `CITATION.cff`.
 
 ## Excluded
 
@@ -31,6 +31,10 @@ This branch is the public/reviewer release of ControlSci. It is intentionally br
 ## Evidence Boundary
 
 The primary citation boundary remains `docs/submissions/data_trace_bundle/`. Files in that directory are curated copies of the scalar results, JSON summaries, representative images, medical RAG samples, and trace manifests cited by the reports. The broader release also includes the underlying public working artifacts in `benchmark/eval/results/`, `benchmark/agent/logs/`, and `data/sources_medical/` so that reproduction can stay close to the local project.
+
+## License Boundary
+
+The repository-level `LICENSE` applies to original ControlMind code, reports, schemas, scripts, and project-authored materials unless a file or directory states otherwise. Third-party PMC/arXiv/source-document derivatives retain their original licenses and attribution requirements; see `DATA_LICENSES.md`.
 
 ## Privacy Principle
 

@@ -1,12 +1,12 @@
 # ControlMind
 
-**基于 MinerU 的科学文档智能系统：500 题跨模态评测基准、14-Intent 数据智能体、本地优先的医学 RAG 管线 —— 全链路从原始 PDF 到结构化知识。**
+**基于 MinerU 的科学文档智能系统：500 题跨模态评测基准、15-Intent 数据智能体、本地优先的医学 RAG 管线 —— 全链路从原始 PDF 到结构化知识。**
 
-[English version](README.md) | [CC-BY-4.0](LICENSE)
+[English version](README.md) | [CC-BY-4.0](LICENSE) | [数据许可](DATA_LICENSES.md)
 
 ```text
 赛道一  Sci-Align  —  四维控制科学评测基准，9 模型全量排行榜
-赛道二  Data Agent —  14 Intent 自主语料智能体，四路径资源调度
+赛道二  Data Agent —  15 Intent 自主语料智能体，四路径资源调度
 赛道三  Medical RAG —  本地优先的医学证据问答，中文桥接，安全拒答
 ```
 
@@ -17,7 +17,7 @@
 ControlMind 用 MinerU 将 362 篇控制科学文献（23 本教材 + 339 篇 arXiv 论文）解析为 28,514 个结构化 chunk 和 253,012 条 LaTeX 公式，并在此基础上：
 
 - 构建了 **500 题四维评测基准**（A: 概念回溯 / B: 多步推理 / C: 条件敏感性 / D: 开放设计），覆盖 14 个控制科学子领域
-- 实现了 **14-Intent 自主数据 Agent**，从文献检索到排行榜更新全链路自动化，单 RTX 5090 全栈部署
+- 实现了 **15-Intent 自主数据 Agent**，从文献检索到排行榜更新全链路自动化，单 RTX 5090 全栈部署
 - 迁移至 **97 篇 PMC 医学文献**，构建了本地优先的中英文证据问答系统
 
 三份提交报告中的定量声明均可通过 [DATA-TRACE.md](docs/submissions/shared/DATA-TRACE.md) 回溯到源文件、命令或哈希记录。
@@ -42,7 +42,7 @@ ControlMind 用 MinerU 将 362 篇控制科学文献（23 本教材 + 339 篇 ar
 
 > 📄 [track2_agent_report.md](docs/submissions/track2_agent_report.md)
 
-**核心工作**：从 PDF 到排行榜，传统做法需要 ~558 人工工时。Agent 将这条链路抽象为 14 个可组合 intent，通过 Intent Router → ResourceScheduler → Executor → Verifier 四层架构自主执行，并以统一 LogStep 保留所有工具调用、产物和恢复路径。
+**核心工作**：从 PDF 到排行榜，传统做法需要 ~558 人工工时。Agent 将这条链路抽象为 15 个可组合 intent，通过 Intent Router → ResourceScheduler → Executor → Verifier 四层架构自主执行，并以统一 LogStep 保留所有工具调用、产物和恢复路径。
 
 **验证入口**：`controlmind track2 validate --artifact all` 检查 5 步验收 DAG、来源产物和 D 数据飞轮 391 秒 replay 日志。
 
@@ -123,7 +123,7 @@ controlmind track3 eval --case-set zh_ask
 | 3 | T1 | A/B/C/D 各 125 题均衡 | `benchmark/dataset/core.json` |
 | 4 | T1 | 500/500 source_ref 匹配 | `benchmark/dataset/multimodal_index.json` |
 | 5 | T1 | 9 模型排行榜 | `benchmark/eval/results/leaderboard_complete.json` |
-| 6 | T2 | 14 Intent 注册表 | `benchmark/agent/agent_capabilities.json` |
+| 6 | T2 | 15 Intent 注册表 | `benchmark/agent/agent_capabilities.json` |
 | 7 | T2 | 四路径调度日志 | `benchmark/agent/examples/logs/` |
 | 8 | T2 | D 数据飞轮 replay 391s | `benchmark/agent/examples/logs/task_5_transfer.json` |
 | 9 | T2 | 跨模态审计断点续跑 | `benchmark/agent/results/visual_audit_results.jsonl` |
@@ -176,9 +176,10 @@ controlmind track3 eval --case-set zh_ask
 ## 许可与数据边界
 
 - 本项目以 **CC-BY-4.0** 发布，详见 [LICENSE](LICENSE)。
-- 公开 PMC/arXiv 原文遵循其原始许可与署名要求。
+- 公开 PMC/arXiv 原文及其衍生产物遵循其原始许可与署名要求，详见 [DATA_LICENSES.md](DATA_LICENSES.md)。
 - 本仓库**不包含**患者级私有数据。
-- 云端 Demo 输入限定为公开或脱敏材料；医学 chunk、索引与 RAG 上下文默认本地优先。
+- 云端 Demo 输入限定为公开或脱敏材料；医学 chunk 与 RAG 上下文默认本地优先。
+- 可重建二进制索引、嵌入矩阵、本地 checkpoint、凭据、依赖目录和构建输出不进入 Git 历史。
 
 ---
 
