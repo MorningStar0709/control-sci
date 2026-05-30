@@ -1,0 +1,176 @@
+{
+  "model": "deepseek-v4-flash",
+  "judge_model": "qwen3.5:35b",
+  "scorer_version": "1.0.0",
+  "scoring_mode": "sample",
+  "total_questions": 20,
+  "overall_score": 0.2225,
+  "dimension_scores": {
+    "A": 0.15,
+    "B": 0.06,
+    "C": 0.51,
+    "D": 0.17
+  },
+  "records": [
+    {
+      "id": "CS-EVO-00071",
+      "dimension": "A",
+      "difficulty_level": "L1",
+      "score": 0.0,
+      "reason": "模型未能识别出题目中可能存在的特定算法名称或事实性错误，转而编造了一个不存在的算法框架并中断了回答，完全未提供题目要求的核心目标函数。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00847",
+      "dimension": "A",
+      "difficulty_level": "L1",
+      "score": 0.0,
+      "reason": "模型仅进行了问题背景的分析与猜测，未给出任何具体的函数名称或数学定义，未能回答题目核心问题。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00303",
+      "dimension": "A",
+      "difficulty_level": "L2",
+      "score": 0.4,
+      "reason": "模型虽然正确描述了鲁棒正不变集的概念，但数学定义部分在关键处中断，未能给出完整的集合定义公式。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00772",
+      "dimension": "A",
+      "difficulty_level": "L3",
+      "score": 0.35,
+      "reason": "模型未能回答题目核心要求的L1自适应控制带宽选择不等式（max|λ(A_m)| ≪ ω_e < ω_f ≤ ω_a），且回答在关键处中断，未提供完整数学表达式及符号含义。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00952",
+      "dimension": "A",
+      "difficulty_level": "L3",
+      "score": 0.0,
+      "reason": "模型回答在列出第一个条件时发生截断，未能完整输出所需的四个不等式条件。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00607",
+      "dimension": "B",
+      "difficulty_level": "L2",
+      "score": 0.0,
+      "reason": "模型答案仅复述了题目条件并中断，未进行任何推导步骤，且未给出最终结论，属于严重未完成。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00509",
+      "dimension": "B",
+      "difficulty_level": "L2",
+      "score": 0.0,
+      "reason": "模型回答在计算过程中突然中断，未能完成对第二个样本的学习及最终权值的计算。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00540",
+      "dimension": "B",
+      "difficulty_level": "L3",
+      "score": 0.0,
+      "reason": "模型回答在推导过程中突然中断，未能完成自适应更新律的推导并给出最终表达式。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00362",
+      "dimension": "B",
+      "difficulty_level": "L3",
+      "score": 0.0,
+      "reason": "模型回答在开始计算前即中断，未给出任何计算过程或最终数值结果。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00790",
+      "dimension": "B",
+      "difficulty_level": "L4",
+      "score": 0.3,
+      "reason": "模型回答在推导闭环传递函数和稳定性分析的关键步骤处中断，未能给出完整的计算过程和最终结论。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00251",
+      "dimension": "C",
+      "difficulty_level": "L2",
+      "score": 0.6,
+      "reason": "模型正确判断结论不成立并阐述了高频极点的作用，但回答在关键计算步骤处中断，未完成具体的倍数推导和最终结论的完整论述。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00005",
+      "dimension": "C",
+      "difficulty_level": "L2",
+      "score": 0.35,
+      "reason": "模型虽然给出了通用的事件触发条件形式，但未能准确回答题目关于CS-ETM的具体触发条件表达式，且回答在关键处中断，未包含对噪声导致非触发误行为的数学机理分析。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00231",
+      "dimension": "C",
+      "difficulty_level": "L3",
+      "score": 1.0,
+      "reason": "模型准确识别了系统方程变化，正确运用线性化方法和特征根分析得出不稳定结论，逻辑严密且与标准答案一致。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00778",
+      "dimension": "C",
+      "difficulty_level": "L3",
+      "score": 0.3,
+      "reason": "模型回答虽然方向正确，但内容在关键数学推导处中断（未写完），且未明确引用题目中特定的阻尼项消失导致指数收敛失效的核心逻辑，导致论证不完整。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00590",
+      "dimension": "C",
+      "difficulty_level": "L4",
+      "score": 0.3,
+      "reason": "模型回答在关键推导处中断，未给出完整结论及敏感性来源的解释，无法构成有效回答。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00431",
+      "dimension": "D",
+      "difficulty_level": "L2",
+      "score": 0.35,
+      "reason": "模型答案在关键的控制方法选择理由、参数设计步骤及验证指标部分严重缺失，仅提供了建模公式且未完整呈现，无法构成完整的控制方案设计。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00931",
+      "dimension": "D",
+      "difficulty_level": "L2",
+      "score": 0.15,
+      "reason": "模型回答仅完成了问题复述和初步分析，未能给出完整的计算步骤、确定的K值及验证方法，且回答在关键处中断，严重缺失核心内容。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00817",
+      "dimension": "D",
+      "difficulty_level": "L3",
+      "score": 0.35,
+      "reason": "模型回答在关键的控制结构、参数估计算法及遗憾验证指标体系部分严重缺失，且建模假设与题目要求的非线性时变参数场景存在偏差，导致方案不完整且不可执行。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00278",
+      "dimension": "D",
+      "difficulty_level": "L3",
+      "score": 0.0,
+      "reason": "模型回答未完成，在推导过程中中断，未能提供系统建模、参数设计及Kv计算等任何实质性内容。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00174",
+      "dimension": "D",
+      "difficulty_level": "L4",
+      "score": 0.0,
+      "reason": "模型答案在关键的动力学方程处发生截断，导致环境建模、控制器结构及训练目标函数等核心内容缺失，无法构成完整方案。",
+      "issues": []
+    }
+  ]
+}

@@ -1,0 +1,524 @@
+{
+  "analysis": "medical_perplexity_delta",
+  "base_model": "principled-intelligence/Qwen3.5-4B-text-only",
+  "qlora_adapter": "finetune\\output\\qlora-medical\\checkpoint-259",
+  "total_chunks_in_manifest": 3348,
+  "valid_chunks": 3348,
+  "both_valid_pairs": 3348,
+  "overall": {
+    "base_avg_ppl": 54.39,
+    "qlora_avg_ppl": 1083.09,
+    "delta_ppl": 1028.71,
+    "delta_percent": 1891.5,
+    "base_avg_loss": 54.3856,
+    "qlora_avg_loss": 1083.0945
+  },
+  "by_label": {
+    "_baseline_characteristics_other": {
+      "n": 6,
+      "base_avg_ppl": 7.69,
+      "qlora_avg_ppl": 5.7,
+      "delta_ppl": -1.99,
+      "delta_percent": -25.9
+    },
+    "_blinding_other": {
+      "n": 6,
+      "base_avg_ppl": 17.78,
+      "qlora_avg_ppl": 14.65,
+      "delta_ppl": -3.13,
+      "delta_percent": -17.6
+    },
+    "_conclusion_other": {
+      "n": 19,
+      "base_avg_ppl": 9.85,
+      "qlora_avg_ppl": 5.84,
+      "delta_ppl": -4.01,
+      "delta_percent": -40.7
+    },
+    "_data_collection_other": {
+      "n": 71,
+      "base_avg_ppl": 52.42,
+      "qlora_avg_ppl": 1577.89,
+      "delta_ppl": 1525.47,
+      "delta_percent": 2910.0
+    },
+    "_discussion_other": {
+      "n": 39,
+      "base_avg_ppl": 11.84,
+      "qlora_avg_ppl": 9.34,
+      "delta_ppl": -2.5,
+      "delta_percent": -21.1
+    },
+    "_ethical_approval_other": {
+      "n": 43,
+      "base_avg_ppl": 34.63,
+      "qlora_avg_ppl": 56.93,
+      "delta_ppl": 22.3,
+      "delta_percent": 64.4
+    },
+    "_exclusion_criteria_other": {
+      "n": 7,
+      "base_avg_ppl": 268.53,
+      "qlora_avg_ppl": 1192.15,
+      "delta_ppl": 923.62,
+      "delta_percent": 344.0
+    },
+    "_front_matter_other": {
+      "n": 221,
+      "base_avg_ppl": 77.93,
+      "qlora_avg_ppl": 1820.67,
+      "delta_ppl": 1742.74,
+      "delta_percent": 2236.4
+    },
+    "_inclusion_criteria_other": {
+      "n": 9,
+      "base_avg_ppl": 10.45,
+      "qlora_avg_ppl": 7.7,
+      "delta_ppl": -2.74,
+      "delta_percent": -26.2
+    },
+    "_intervention_other": {
+      "n": 88,
+      "base_avg_ppl": 46.86,
+      "qlora_avg_ppl": 187.94,
+      "delta_ppl": 141.08,
+      "delta_percent": 301.1
+    },
+    "_introduction_other": {
+      "n": 164,
+      "base_avg_ppl": 29.97,
+      "qlora_avg_ppl": 416.85,
+      "delta_ppl": 386.89,
+      "delta_percent": 1291.0
+    },
+    "_methods_other": {
+      "n": 197,
+      "base_avg_ppl": 116.24,
+      "qlora_avg_ppl": 2926.4,
+      "delta_ppl": 2810.16,
+      "delta_percent": 2417.6
+    },
+    "_outcome_measures_other": {
+      "n": 38,
+      "base_avg_ppl": 42.33,
+      "qlora_avg_ppl": 503.26,
+      "delta_ppl": 460.93,
+      "delta_percent": 1088.9
+    },
+    "_pharmacokinetics_other": {
+      "n": 32,
+      "base_avg_ppl": 7.92,
+      "qlora_avg_ppl": 5.49,
+      "delta_ppl": -2.43,
+      "delta_percent": -30.7
+    },
+    "_population_other": {
+      "n": 99,
+      "base_avg_ppl": 73.54,
+      "qlora_avg_ppl": 1552.96,
+      "delta_ppl": 1479.42,
+      "delta_percent": 2011.7
+    },
+    "_primary_results_other": {
+      "n": 5,
+      "base_avg_ppl": 7.26,
+      "qlora_avg_ppl": 5.12,
+      "delta_ppl": -2.15,
+      "delta_percent": -29.6
+    },
+    "_randomization_other": {
+      "n": 16,
+      "base_avg_ppl": 10.47,
+      "qlora_avg_ppl": 9.15,
+      "delta_ppl": -1.32,
+      "delta_percent": -12.6
+    },
+    "_references_other": {
+      "n": 53,
+      "base_avg_ppl": 6.92,
+      "qlora_avg_ppl": 6.12,
+      "delta_ppl": -0.8,
+      "delta_percent": -11.5
+    },
+    "_results_other": {
+      "n": 174,
+      "base_avg_ppl": 9.95,
+      "qlora_avg_ppl": 10.8,
+      "delta_ppl": 0.85,
+      "delta_percent": 8.6
+    },
+    "_secondary_outcome_other": {
+      "n": 16,
+      "base_avg_ppl": 16.88,
+      "qlora_avg_ppl": 12.82,
+      "delta_ppl": -4.07,
+      "delta_percent": -24.1
+    },
+    "_statistical_analysis_other": {
+      "n": 71,
+      "base_avg_ppl": 325.88,
+      "qlora_avg_ppl": 2237.22,
+      "delta_ppl": 1911.34,
+      "delta_percent": 586.5
+    },
+    "_study_design_other": {
+      "n": 30,
+      "base_avg_ppl": 10.22,
+      "qlora_avg_ppl": 8.08,
+      "delta_ppl": -2.14,
+      "delta_percent": -21.0
+    },
+    "_supplementary_other": {
+      "n": 15,
+      "base_avg_ppl": 311.83,
+      "qlora_avg_ppl": 566.88,
+      "delta_ppl": 255.06,
+      "delta_percent": 81.8
+    },
+    "adverse_events": {
+      "n": 8,
+      "base_avg_ppl": 4.23,
+      "qlora_avg_ppl": 3.22,
+      "delta_ppl": -1.01,
+      "delta_percent": -23.9
+    },
+    "baseline_characteristics": {
+      "n": 5,
+      "base_avg_ppl": 5.22,
+      "qlora_avg_ppl": 4.1,
+      "delta_ppl": -1.12,
+      "delta_percent": -21.4
+    },
+    "conclusion": {
+      "n": 53,
+      "base_avg_ppl": 14.17,
+      "qlora_avg_ppl": 9.36,
+      "delta_ppl": -4.81,
+      "delta_percent": -33.9
+    },
+    "data_collection": {
+      "n": 45,
+      "base_avg_ppl": 33.34,
+      "qlora_avg_ppl": 80.17,
+      "delta_ppl": 46.83,
+      "delta_percent": 140.5
+    },
+    "discussion": {
+      "n": 159,
+      "base_avg_ppl": 14.82,
+      "qlora_avg_ppl": 388.7,
+      "delta_ppl": 373.88,
+      "delta_percent": 2522.5
+    },
+    "ethical_approval": {
+      "n": 39,
+      "base_avg_ppl": 13.15,
+      "qlora_avg_ppl": 10.84,
+      "delta_ppl": -2.31,
+      "delta_percent": -17.6
+    },
+    "exclusion_criteria": {
+      "n": 7,
+      "base_avg_ppl": 11.87,
+      "qlora_avg_ppl": 7.64,
+      "delta_ppl": -4.23,
+      "delta_percent": -35.6
+    },
+    "front_matter": {
+      "n": 265,
+      "base_avg_ppl": 14.04,
+      "qlora_avg_ppl": 148.14,
+      "delta_ppl": 134.09,
+      "delta_percent": 954.8
+    },
+    "inclusion_criteria": {
+      "n": 21,
+      "base_avg_ppl": 25.1,
+      "qlora_avg_ppl": 33.64,
+      "delta_ppl": 8.54,
+      "delta_percent": 34.0
+    },
+    "intervention": {
+      "n": 86,
+      "base_avg_ppl": 95.87,
+      "qlora_avg_ppl": 2108.99,
+      "delta_ppl": 2013.12,
+      "delta_percent": 2099.9
+    },
+    "introduction": {
+      "n": 126,
+      "base_avg_ppl": 16.01,
+      "qlora_avg_ppl": 285.53,
+      "delta_ppl": 269.52,
+      "delta_percent": 1683.5
+    },
+    "limitations": {
+      "n": 6,
+      "base_avg_ppl": 17.14,
+      "qlora_avg_ppl": 12.2,
+      "delta_ppl": -4.94,
+      "delta_percent": -28.8
+    },
+    "methods": {
+      "n": 194,
+      "base_avg_ppl": 180.63,
+      "qlora_avg_ppl": 4181.17,
+      "delta_ppl": 4000.55,
+      "delta_percent": 2214.8
+    },
+    "other": {
+      "n": 170,
+      "base_avg_ppl": 49.23,
+      "qlora_avg_ppl": 1981.31,
+      "delta_ppl": 1932.07,
+      "delta_percent": 3924.3
+    },
+    "outcome_measures": {
+      "n": 59,
+      "base_avg_ppl": 55.67,
+      "qlora_avg_ppl": 142.51,
+      "delta_ppl": 86.85,
+      "delta_percent": 156.0
+    },
+    "pharmacokinetics": {
+      "n": 43,
+      "base_avg_ppl": 7.63,
+      "qlora_avg_ppl": 5.05,
+      "delta_ppl": -2.59,
+      "delta_percent": -33.9
+    },
+    "population": {
+      "n": 100,
+      "base_avg_ppl": 25.15,
+      "qlora_avg_ppl": 94.06,
+      "delta_ppl": 68.91,
+      "delta_percent": 274.0
+    },
+    "primary_outcome": {
+      "n": 16,
+      "base_avg_ppl": 25.48,
+      "qlora_avg_ppl": 70.7,
+      "delta_ppl": 45.22,
+      "delta_percent": 177.5
+    },
+    "randomization": {
+      "n": 28,
+      "base_avg_ppl": 13.59,
+      "qlora_avg_ppl": 9.03,
+      "delta_ppl": -4.57,
+      "delta_percent": -33.6
+    },
+    "references": {
+      "n": 208,
+      "base_avg_ppl": 5.57,
+      "qlora_avg_ppl": 4.52,
+      "delta_ppl": -1.06,
+      "delta_percent": -18.9
+    },
+    "results": {
+      "n": 101,
+      "base_avg_ppl": 94.72,
+      "qlora_avg_ppl": 5686.34,
+      "delta_ppl": 5591.63,
+      "delta_percent": 5903.5
+    },
+    "secondary_outcome": {
+      "n": 18,
+      "base_avg_ppl": 35.15,
+      "qlora_avg_ppl": 92.65,
+      "delta_ppl": 57.49,
+      "delta_percent": 163.6
+    },
+    "statistical_analysis": {
+      "n": 71,
+      "base_avg_ppl": 27.56,
+      "qlora_avg_ppl": 330.42,
+      "delta_ppl": 302.86,
+      "delta_percent": 1098.8
+    },
+    "study_design": {
+      "n": 44,
+      "base_avg_ppl": 23.12,
+      "qlora_avg_ppl": 77.82,
+      "delta_ppl": 54.69,
+      "delta_percent": 236.6
+    },
+    "supplementary": {
+      "n": 21,
+      "base_avg_ppl": 12.77,
+      "qlora_avg_ppl": 22.8,
+      "delta_ppl": 10.03,
+      "delta_percent": 78.5
+    }
+  },
+  "by_parent": {
+    "baseline_characteristics": {
+      "n": 6,
+      "base_avg_ppl": 7.69,
+      "qlora_avg_ppl": 5.7,
+      "delta_ppl": -1.99,
+      "delta_percent": -25.9
+    },
+    "blinding": {
+      "n": 6,
+      "base_avg_ppl": 17.78,
+      "qlora_avg_ppl": 14.65,
+      "delta_ppl": -3.13,
+      "delta_percent": -17.6
+    },
+    "conclusion": {
+      "n": 19,
+      "base_avg_ppl": 9.85,
+      "qlora_avg_ppl": 5.84,
+      "delta_ppl": -4.01,
+      "delta_percent": -40.7
+    },
+    "data_collection": {
+      "n": 71,
+      "base_avg_ppl": 52.42,
+      "qlora_avg_ppl": 1577.89,
+      "delta_ppl": 1525.47,
+      "delta_percent": 2910.0
+    },
+    "discussion": {
+      "n": 49,
+      "base_avg_ppl": 12.63,
+      "qlora_avg_ppl": 9.84,
+      "delta_ppl": -2.79,
+      "delta_percent": -22.1
+    },
+    "ethical_approval": {
+      "n": 43,
+      "base_avg_ppl": 34.63,
+      "qlora_avg_ppl": 56.93,
+      "delta_ppl": 22.3,
+      "delta_percent": 64.4
+    },
+    "exclusion_criteria": {
+      "n": 7,
+      "base_avg_ppl": 268.53,
+      "qlora_avg_ppl": 1192.15,
+      "delta_ppl": 923.62,
+      "delta_percent": 344.0
+    },
+    "front_matter": {
+      "n": 221,
+      "base_avg_ppl": 77.93,
+      "qlora_avg_ppl": 1820.67,
+      "delta_ppl": 1742.74,
+      "delta_percent": 2236.4
+    },
+    "inclusion_criteria": {
+      "n": 9,
+      "base_avg_ppl": 10.45,
+      "qlora_avg_ppl": 7.7,
+      "delta_ppl": -2.74,
+      "delta_percent": -26.2
+    },
+    "intervention": {
+      "n": 88,
+      "base_avg_ppl": 46.86,
+      "qlora_avg_ppl": 187.94,
+      "delta_ppl": 141.08,
+      "delta_percent": 301.1
+    },
+    "introduction": {
+      "n": 164,
+      "base_avg_ppl": 29.97,
+      "qlora_avg_ppl": 416.85,
+      "delta_ppl": 386.89,
+      "delta_percent": 1291.0
+    },
+    "methods": {
+      "n": 673,
+      "base_avg_ppl": 62.98,
+      "qlora_avg_ppl": 1198.99,
+      "delta_ppl": 1136.01,
+      "delta_percent": 1803.7
+    },
+    "outcome_measures": {
+      "n": 74,
+      "base_avg_ppl": 35.96,
+      "qlora_avg_ppl": 296.34,
+      "delta_ppl": 260.38,
+      "delta_percent": 724.1
+    },
+    "pharmacokinetics": {
+      "n": 32,
+      "base_avg_ppl": 7.92,
+      "qlora_avg_ppl": 5.49,
+      "delta_ppl": -2.43,
+      "delta_percent": -30.7
+    },
+    "population": {
+      "n": 127,
+      "base_avg_ppl": 62.13,
+      "qlora_avg_ppl": 1216.56,
+      "delta_ppl": 1154.43,
+      "delta_percent": 1858.1
+    },
+    "primary_results": {
+      "n": 5,
+      "base_avg_ppl": 7.26,
+      "qlora_avg_ppl": 5.12,
+      "delta_ppl": -2.15,
+      "delta_percent": -29.6
+    },
+    "randomization": {
+      "n": 16,
+      "base_avg_ppl": 10.47,
+      "qlora_avg_ppl": 9.15,
+      "delta_ppl": -1.32,
+      "delta_percent": -12.6
+    },
+    "references": {
+      "n": 53,
+      "base_avg_ppl": 6.92,
+      "qlora_avg_ppl": 6.12,
+      "delta_ppl": -0.8,
+      "delta_percent": -11.5
+    },
+    "results": {
+      "n": 243,
+      "base_avg_ppl": 8.91,
+      "qlora_avg_ppl": 8.96,
+      "delta_ppl": 0.05,
+      "delta_percent": 0.5
+    },
+    "root": {
+      "n": 1297,
+      "base_avg_ppl": 48.77,
+      "qlora_avg_ppl": 1435.04,
+      "delta_ppl": 1386.27,
+      "delta_percent": 2842.6
+    },
+    "secondary_outcome": {
+      "n": 16,
+      "base_avg_ppl": 16.88,
+      "qlora_avg_ppl": 12.82,
+      "delta_ppl": -4.07,
+      "delta_percent": -24.1
+    },
+    "statistical_analysis": {
+      "n": 71,
+      "base_avg_ppl": 325.88,
+      "qlora_avg_ppl": 2237.22,
+      "delta_ppl": 1911.34,
+      "delta_percent": 586.5
+    },
+    "study_design": {
+      "n": 30,
+      "base_avg_ppl": 10.22,
+      "qlora_avg_ppl": 8.08,
+      "delta_ppl": -2.14,
+      "delta_percent": -21.0
+    },
+    "supplementary": {
+      "n": 15,
+      "base_avg_ppl": 311.83,
+      "qlora_avg_ppl": 566.88,
+      "delta_ppl": 255.06,
+      "delta_percent": 81.8
+    }
+  }
+}

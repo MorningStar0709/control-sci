@@ -1,0 +1,36 @@
+{
+  "analysis": "A7_dimension_agreement",
+  "n_models": 9,
+  "n_dimensions": 4,
+  "kendall_W": 0.442,
+  "friedman_chi2": 11.93,
+  "friedman_p": 0.0076,
+  "icc_2_1": 0.1962,
+  "dimension_pairwise_spearman": {
+    "A↔B": {
+      "spearman_rho": -0.0586,
+      "p": 0.881
+    },
+    "A↔C": {
+      "spearman_rho": 0.0586,
+      "p": 0.881
+    },
+    "A↔D": {
+      "spearman_rho": -0.1423,
+      "p": 0.715
+    },
+    "B↔C": {
+      "spearman_rho": 0.8167,
+      "p": 0.0072
+    },
+    "B↔D": {
+      "spearman_rho": 0.55,
+      "p": 0.125
+    },
+    "C↔D": {
+      "spearman_rho": 0.5667,
+      "p": 0.1116
+    }
+  },
+  "interpretation": "Kendall's W 接近 1 说明模型在各维度的排名高度一致；ICC(2,1) > 0.75 表示维度评分可靠性优秀。"
+}

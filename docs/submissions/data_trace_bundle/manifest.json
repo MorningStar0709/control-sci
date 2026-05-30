@@ -1,10 +1,12 @@
 {
-  "generated_at": "2026-05-24T16:22:20",
+  "generated_at": "2026-05-31T02:04:32+08:00",
   "project": "ControlSci — 2026 MinerU Challenge",
-  "generator": "scripts/build_data_trace_bundle.py",
-  "strategy": "copy (源文件未移动)",
-  "description": "DATA-TRACE 配套数据集中导航包。所有数据均可在仓库原始位置找到。",
-  "total_size_mb": 400.96,
+  "generator": "docs_submissions_manifest_rebuild",
+  "copy_mode": "merged_from_final_track_bundles",
+  "root": "data_trace_bundle",
+  "file_count": 195,
+  "total_size_bytes": 430787050,
+  "total_size_mb": 410.83,
   "files": [
     {
       "bundle_path": "01_corpus_scale/a1_global_pca.json",
@@ -96,6 +98,13 @@
       "size_bytes": 10957,
       "size_mb": 0.01,
       "sha256": "f3bd44d43644a9855ff64c35e9818ec403134aa07ce3bf09f3ab8fa1988b0aa7"
+    },
+    {
+      "bundle_path": "03_leaderboard/leaderboard.html",
+      "source_path": "03_leaderboard/leaderboard.html",
+      "size_bytes": 2438,
+      "size_mb": 0.0,
+      "sha256": "461e0cb5bb464a466f495247def90c86ae66a0e27f9fef40b00c30b13ece0f2d"
     },
     {
       "bundle_path": "03_leaderboard/leaderboard.json",
@@ -205,9 +214,9 @@
     {
       "bundle_path": "07_flywheel/agent_capabilities.json",
       "source_path": "benchmark/agent/agent_capabilities.json",
-      "size_bytes": 43341,
+      "size_bytes": 45238,
       "size_mb": 0.04,
-      "sha256": "f46f5a7fc22a2e30a6090efa8deec032134a01e5c331e3f680f7d69c4fde0220"
+      "sha256": "20964edd569769af481e64591af52c9b06785be3a4e79cd7f2cd04e222f13dc2"
     },
     {
       "bundle_path": "07_flywheel/demo-data-flywheel.json",
@@ -254,9 +263,9 @@
     {
       "bundle_path": "09_medical_rag/medical_rag_eval.md",
       "source_path": "benchmark/eval/results/medical_rag_eval.md",
-      "size_bytes": 9580,
+      "size_bytes": 9834,
       "size_mb": 0.01,
-      "sha256": "d2f414357a30fa21f463581629e193ecb1801216f22f6a2a60cc1b6594e5d1a5"
+      "sha256": "15880cdd355df05214f00893a1c191f2d405038aefa1e7374c49f9cf2fa5443c"
     },
     {
       "bundle_path": "09_medical_rag/medical_rag_eval_synthesis_smoke.json",
@@ -275,9 +284,16 @@
     {
       "bundle_path": "09_medical_rag/medical_rag_eval_zh_ask.md",
       "source_path": "benchmark/eval/results/medical_rag_eval_zh_ask.md",
-      "size_bytes": 3373,
+      "size_bytes": 3634,
       "size_mb": 0.0,
-      "sha256": "50b621c941f124204a9f6a2c340bc3302f6ae8ce6c27a279b3c88041a6098247"
+      "sha256": "5389173d0abe23693a6dc270b12a6e4473f0c9f31c8fe63ac27228a5c30cec96"
+    },
+    {
+      "bundle_path": "09_medical_rag/medical_rag_zh_ask_structured_all_indexes_traces.jsonl",
+      "source_path": "benchmark/eval/results/medical_rag_zh_ask_structured_all_indexes_traces.jsonl",
+      "size_bytes": 91388,
+      "size_mb": 0.09,
+      "sha256": "b38a2a7656eb9b7e05eb92dee01ca51425d22e39a537a73d8e77ea56421554d3"
     },
     {
       "bundle_path": "09_medical_rag/medical_rag_zh_ask_traces.jsonl",
@@ -327,6 +343,13 @@
       "size_bytes": 330,
       "size_mb": 0.0,
       "sha256": "a5721719f20d64dd1d3ef3641ebfc476a9ef75a84247622d4448caed5f850ae5"
+    },
+    {
+      "bundle_path": "09_medical_rag/vlm_complement_30.json",
+      "source_path": "09_medical_rag/vlm_complement_30.json",
+      "size_bytes": 17883,
+      "size_mb": 0.02,
+      "sha256": "3229dfd98612d2de8e5229c259b6f1764220d0cc705fe1e99b230937dc84b05e"
     },
     {
       "bundle_path": "09_medical_rag_large/bm25.pkl",
@@ -417,7 +440,7 @@
       "source_path": "docs/evidence/final_supplemental_experiments/minimal_acceptance/SUMMARY.md",
       "size_bytes": 1135,
       "size_mb": 0.0,
-      "sha256": "5007eb08359e4610a91b429d5d35d0f1917fe28b8639872734f3219d66341bfd"
+      "sha256": "4c24199649e2762511f8814ea607863aceb2c1f5d5c056fb7030e71c7035c219"
     },
     {
       "bundle_path": "12_final_supplemental_experiments/minimal_acceptance/track1_acceptance_demo.log",
@@ -443,9 +466,9 @@
     {
       "bundle_path": "12_final_supplemental_experiments/README.md",
       "source_path": "docs/submissions/data_trace_bundle/12_final_supplemental_experiments/README.md",
-      "size_bytes": 2065,
+      "size_bytes": 1654,
       "size_mb": 0.0,
-      "sha256": "7c8185dabd6f46983c98479f1e5cb3ebd216bb540105d93c62bd303c2cededd8"
+      "sha256": "9df1361334fc247820434212e627c4a3a289844ff3ee005da3b7a59fee9c0e4a"
     },
     {
       "bundle_path": "12_final_supplemental_experiments/track1_load/local_json_load_dataset.log",
@@ -460,6 +483,118 @@
       "size_bytes": 1150,
       "size_mb": 0.0,
       "sha256": "60b1eb6d129266683c43b7125fe9527edf396dcee388c474a4a0cf9b9e127fae"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track1_sci_align_reliability/SUMMARY.md",
+      "source_path": "docs/submissions/data_trace_bundle/12_final_supplemental_experiments/track1_sci_align_reliability/SUMMARY.md",
+      "size_bytes": 2456,
+      "size_mb": 0.0,
+      "sha256": "e25d53054fd1b6b7866a33dd105a60cdbb462b48a1bd5b07ef4c26b9914e6b87"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track1_sci_align_reliability/track1_ai_ready_smoke.json",
+      "source_path": "benchmark/eval/results/track1_ai_ready_smoke.json",
+      "size_bytes": 12043,
+      "size_mb": 0.01,
+      "sha256": "52f6008e2e20f298369491b77603f14c1daeccc1a055278695205da3ea21ad90"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track1_sci_align_reliability/track1_dimension_discriminability.json",
+      "source_path": "benchmark/eval/results/track1_dimension_discriminability.json",
+      "size_bytes": 18119,
+      "size_mb": 0.02,
+      "sha256": "4fe7c1473b818540bd92b19e8e38a81106e41b40d46c200629d34d18adbd9636"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track1_sci_align_reliability/track1_export_format_compatibility.json",
+      "source_path": "benchmark/eval/results/track1_export_format_compatibility.json",
+      "size_bytes": 9149,
+      "size_mb": 0.01,
+      "sha256": "d6a4be5d3767e984cff7bcdf7ce910db85556331bebee47c27a9beffab7463a0"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track1_sci_align_reliability/track1_multimodal_error_taxonomy.json",
+      "source_path": "benchmark/eval/results/track1_multimodal_error_taxonomy.json",
+      "size_bytes": 9699,
+      "size_mb": 0.01,
+      "sha256": "ec96fbf0481aeae37c5ff210eed4bdc47fb3a73df4ee4428b513d4d33a924e90"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track1_sci_align_reliability/track1_sample_review_consistency.json",
+      "source_path": "benchmark/eval/results/track1_sample_review_consistency.json",
+      "size_bytes": 259281,
+      "size_mb": 0.25,
+      "sha256": "2e11295e28728d7b07b3ec77dd7a7b2d3fe1a29bfd291fcb9b02b38747008f14"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track1_sci_align_reliability/track1_sci_align_integrity_audit.json",
+      "source_path": "benchmark/eval/results/track1_sci_align_integrity_audit.json",
+      "size_bytes": 10830,
+      "size_mb": 0.01,
+      "sha256": "80151c635ad3684f69cb4ec8f895b6e1b3823c8d8a98ac673c1d713293141eae"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track1_sci_align_reliability/track1_supplemental_summary.json",
+      "source_path": "benchmark/eval/results/track1_supplemental_summary.json",
+      "size_bytes": 4848,
+      "size_mb": 0.0,
+      "sha256": "04192ac49d754079ceb8e756e4fc0b3f2832251a77dfa9c85f298f18d3925d24"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track1_sci_align_reliability/track1_training_utility_ablation.json",
+      "source_path": "benchmark/eval/results/track1_training_utility_ablation.json",
+      "size_bytes": 6296,
+      "size_mb": 0.01,
+      "sha256": "a3bd1d9a75512c9b31846bee0d19e360215d6fc3f340b34b8e713f9c1d659c56"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track2_agent_reliability/agent_failure_injection_matrix.json",
+      "source_path": "benchmark/eval/results/agent_failure_injection_matrix.json",
+      "size_bytes": 12319,
+      "size_mb": 0.01,
+      "sha256": "d7e110fa49e99cfd6bf4ee5ea3cbe87abec2edbe921cce1435c0c6080bfc5439"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track2_agent_reliability/agent_hard_document_stress.json",
+      "source_path": "benchmark/eval/results/agent_hard_document_stress.json",
+      "size_bytes": 13838,
+      "size_mb": 0.01,
+      "sha256": "60b93f00d517f369e0aebf621de168a8468d93674f46837938c27180ae092065"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track2_agent_reliability/agent_resource_pareto.json",
+      "source_path": "benchmark/eval/results/agent_resource_pareto.json",
+      "size_bytes": 14974,
+      "size_mb": 0.01,
+      "sha256": "add836a4e6d9b4c06d3f35d4ec9a12d18fdee12936aa59d3b75e9a4fd7ce7acf"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track2_agent_reliability/agent_router_robustness.freeze.json",
+      "source_path": "benchmark/eval/results/agent_router_robustness.freeze.json",
+      "size_bytes": 274,
+      "size_mb": 0.0,
+      "sha256": "8a93776af07ce82e1f8ee87e40b7ace98a65599fbac335b16fe7fc5898c573e8"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track2_agent_reliability/agent_router_robustness.json",
+      "source_path": "benchmark/eval/results/agent_router_robustness.json",
+      "size_bytes": 27045,
+      "size_mb": 0.03,
+      "sha256": "62af2dd0a30b76d09a437d14758e200091968707006938e2d34a0b8f272c4f96"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track2_agent_reliability/agent_source_selection_ablation.json",
+      "source_path": "benchmark/eval/results/agent_source_selection_ablation.json",
+      "size_bytes": 25930,
+      "size_mb": 0.02,
+      "sha256": "ac7dcdbac910be357135ea30d8d29b2d6a9fdeb4033dbf9362dd43dd796a8271"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track2_agent_reliability/SUMMARY.md",
+      "source_path": "docs/submissions/data_trace_bundle/12_final_supplemental_experiments/track2_agent_reliability/SUMMARY.md",
+      "size_bytes": 4068,
+      "size_mb": 0.0,
+      "sha256": "d09ac96df9fc3813d1e69032b8e9c4e8f08329b88e4a8587a6157cf29c4e626b"
     },
     {
       "bundle_path": "12_final_supplemental_experiments/track2_fallback/local_dry_run_trace.json",
@@ -495,6 +630,69 @@
       "size_bytes": 1514,
       "size_mb": 0.0,
       "sha256": "d150430b7b309ad30e7cebdc25504c94db06eeb9e542caa5825ea0c0a4598527"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_deployment_smoke_matrix.json",
+      "source_path": "benchmark/eval/results/track3_deployment_smoke_matrix.json",
+      "size_bytes": 6779,
+      "size_mb": 0.01,
+      "sha256": "9ad5b3c61dbd92cf8d75f007a660897222f955cf1a2274ca4f568058555280f5"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_evidence_card_completeness.json",
+      "source_path": "benchmark/eval/results/track3_evidence_card_completeness.json",
+      "size_bytes": 30768,
+      "size_mb": 0.03,
+      "sha256": "86ca9fd5d83dd2fa3f1347f5388b5e9f54b744e4888fceef7003e860d2c15b69"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_medbench_ei_taxonomy.json",
+      "source_path": "benchmark/eval/results/track3_medbench_ei_taxonomy.json",
+      "size_bytes": 165739,
+      "size_mb": 0.16,
+      "sha256": "afbb08968ba7b0723e5f3070015c9e40c993fd734e23a98c160b8460c30a4721"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_privacy_boundary_audit.json",
+      "source_path": "benchmark/eval/results/track3_privacy_boundary_audit.json",
+      "size_bytes": 10144,
+      "size_mb": 0.01,
+      "sha256": "28ba3a941ef989bcceb0d4039a353962d4539230228520654218d047e9b5416d"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_rag_pipeline_ablation.json",
+      "source_path": "benchmark/eval/results/track3_rag_pipeline_ablation.json",
+      "size_bytes": 8441,
+      "size_mb": 0.01,
+      "sha256": "00a5315dbb3ffe802bd4b98df27195113fc1a485e2af584fb70a102a4b03e058"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_safety_refusal_stress.json",
+      "source_path": "benchmark/eval/results/track3_safety_refusal_stress.json",
+      "size_bytes": 23258,
+      "size_mb": 0.02,
+      "sha256": "83cbc0f346acce33b23ed7088739d5f439d90af47a70005e841463767438b69f"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_semantic_chunk_quality.json",
+      "source_path": "benchmark/eval/results/track3_semantic_chunk_quality.json",
+      "size_bytes": 33934,
+      "size_mb": 0.03,
+      "sha256": "b2a6f75407b43bebec9e472757b553a4cdee1682a6679bc7e93c7220952c9921"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_supplemental_summary.json",
+      "source_path": "benchmark/eval/results/track3_supplemental_summary.json",
+      "size_bytes": 5308,
+      "size_mb": 0.01,
+      "sha256": "f2539c5f35277dad2d944dda8aafb3aeb7e9f50347cf0d2fc29b680c16e32f33"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_zh_ask_robustness.json",
+      "source_path": "benchmark/eval/results/track3_zh_ask_robustness.json",
+      "size_bytes": 41352,
+      "size_mb": 0.04,
+      "sha256": "5c30832ad94c6e7a4a6f3ce49d7a369cebe82310345f856f28aca4e0ba5aa3c0"
     },
     {
       "bundle_path": "12_final_supplemental_experiments/track3_refusal/personal_diagnosis.json",
@@ -546,11 +744,11 @@
       "sha256": "f1a6c2043f4300ab99d5e9b90a05351b6205a18af532e426149c12b590a3530f"
     },
     {
-      "bundle_path": "README.md",
-      "source_path": "docs/submissions/data_trace_bundle/README.md",
-      "size_bytes": 1844,
-      "size_mb": 0.0,
-      "sha256": "a94724c20095aca16704e3c4ae50e464a142f9ac8479af62c66084655ee713a6"
+      "bundle_path": "13_sciverse_integration/d15_sciverse_flywheel_trace.json",
+      "source_path": "benchmark/agent/logs/d15_sciverse_flywheel_trace.json",
+      "size_bytes": 14961,
+      "size_mb": 0.01,
+      "sha256": "127a4334f96c401925e12b96fce27c81f2377e45a628aea62b6edb70eaf362d0"
     },
     {
       "bundle_path": "13_sciverse_integration/medbench_sciverse_report.json",
@@ -558,6 +756,27 @@
       "size_bytes": 303194,
       "size_mb": 0.29,
       "sha256": "35c93af51457226236b52ab62fcc21a3a99b201e4a28c47c9bcd41f928cf9b99"
+    },
+    {
+      "bundle_path": "13_sciverse_integration/qlora_training/qlora_sciverse.yaml",
+      "source_path": "finetune/config/qlora_sciverse.yaml",
+      "size_bytes": 1372,
+      "size_mb": 0.0,
+      "sha256": "f6faab09d3b978b1be5c52fdf546006630d3a449e782a46085414f27339b4721"
+    },
+    {
+      "bundle_path": "13_sciverse_integration/qlora_training/train.jsonl",
+      "source_path": "finetune/data/sciverse/train.jsonl",
+      "size_bytes": 570345,
+      "size_mb": 0.54,
+      "sha256": "7dd8f11a60c1a340b1c31b1fda96bd065aabe6843d3ddae6dca1880a064e463b"
+    },
+    {
+      "bundle_path": "13_sciverse_integration/qlora_training/val.jsonl",
+      "source_path": "finetune/data/sciverse/val.jsonl",
+      "size_bytes": 97707,
+      "size_mb": 0.09,
+      "sha256": "82cf8ce39661304d05e6cf05922ef8af33632cc5d0db470626186a16963ffd3d"
     },
     {
       "bundle_path": "13_sciverse_integration/sciverse_14_subfield_coverage.json",
@@ -600,6 +819,48 @@
       "size_bytes": 28760,
       "size_mb": 0.03,
       "sha256": "788fcf8e81cfb58d957f1bae29b8586baca382e64a1d6e439da74fc7cbb4949e"
+    },
+    {
+      "bundle_path": "13_sciverse_integration/sciverse_lb_qwen3.5_35b.json",
+      "source_path": "benchmark/eval/results/sciverse_lb_qwen3.5_35b.json",
+      "size_bytes": 221930,
+      "size_mb": 0.21,
+      "sha256": "1bea4d627c7ab59237e35b9f520ed8fa5f1f00a8809435d083b3e699b5a0b91b"
+    },
+    {
+      "bundle_path": "13_sciverse_integration/sciverse_lb_qwen3.5_4b.json",
+      "source_path": "benchmark/eval/results/sciverse_lb_qwen3.5_4b.json",
+      "size_bytes": 236458,
+      "size_mb": 0.23,
+      "sha256": "68f62b2134e6236796406bf5a336edf7681f7a1dc6cbf6ac2bcbbbc59ce605c0"
+    },
+    {
+      "bundle_path": "13_sciverse_integration/sciverse_lb_qwen3.5_9b.json",
+      "source_path": "benchmark/eval/results/sciverse_lb_qwen3.5_9b.json",
+      "size_bytes": 199165,
+      "size_mb": 0.19,
+      "sha256": "d178237e7987efcbf761c9b4832d4d7862efd183ff65cb3d6acfabb9dc9222af"
+    },
+    {
+      "bundle_path": "13_sciverse_integration/sciverse_leaderboard.json",
+      "source_path": "benchmark/eval/results/sciverse_leaderboard.json",
+      "size_bytes": 1536,
+      "size_mb": 0.0,
+      "sha256": "d231243d7b2b1576225177124795032ef976afc183c2e3743e684ea510efd52f"
+    },
+    {
+      "bundle_path": "13_sciverse_integration/sciverse_medical_closure_v3.json",
+      "source_path": "benchmark/eval/results/medical/sciverse_medical_closure_v3.json",
+      "size_bytes": 506458,
+      "size_mb": 0.48,
+      "sha256": "0a557e77304337eb919b4c83884d3cb7b75cfebf50e4d07670575e96d02daafa"
+    },
+    {
+      "bundle_path": "13_sciverse_integration/sciverse_medical_expansion.json",
+      "source_path": "benchmark/eval/results/medical/sciverse_medical_expansion.json",
+      "size_bytes": 2035120,
+      "size_mb": 1.94,
+      "sha256": "93e6e199da311ecfc53882ce2d7a97af8dc9d6965bdf25c2a3ed4b25c20dffbe"
     },
     {
       "bundle_path": "13_sciverse_integration/sciverse_qlora_ppl.json",
@@ -651,276 +912,466 @@
       "sha256": "b6c6ecd55c5549c5509bf09fdb3408445aea0b350b714c13f77e7137cde57b88"
     },
     {
-      "bundle_path": "13_sciverse_integration/qlora_training/train.jsonl",
-      "source_path": "finetune/data/sciverse/train.jsonl",
-      "size_bytes": 570345,
-      "size_mb": 0.54,
-      "sha256": "7dd8f11a60c1a340b1c31b1fda96bd065aabe6843d3ddae6dca1880a064e463b"
-    },
-    {
-      "bundle_path": "13_sciverse_integration/qlora_training/val.jsonl",
-      "source_path": "finetune/data/sciverse/val.jsonl",
-      "size_bytes": 97707,
-      "size_mb": 0.09,
-      "sha256": "82cf8ce39661304d05e6cf05922ef8af33632cc5d0db470626186a16963ffd3d"
-    },
-    {
-      "bundle_path": "13_sciverse_integration/qlora_training/qlora_sciverse.yaml",
-      "source_path": "finetune/config/qlora_sciverse.yaml",
-      "size_bytes": 1372,
+      "bundle_path": "README.md",
+      "source_path": "docs/submissions/data_trace_bundle/README.md",
+      "size_bytes": 2460,
       "size_mb": 0.0,
-      "sha256": "f6faab09d3b978b1be5c52fdf546006630d3a449e782a46085414f27339b4721"
+      "sha256": "86df0af9d4bb84a860a077c37bb3ab569c14bdfe0983857f120a6f1f1ef0d427"
     },
     {
-      "bundle_path": "13_sciverse_integration/sciverse_medical_expansion.json",
-      "source_path": "benchmark/eval/results/medical/sciverse_medical_expansion.json",
-      "size_bytes": 2035120,
-      "size_mb": 1.94,
-      "sha256": "93e6e199da311ecfc53882ce2d7a97af8dc9d6965bdf25c2a3ed4b25c20dffbe"
-    },
-    {
-      "bundle_path": "13_sciverse_integration/sciverse_medical_closure_v3.json",
-      "source_path": "benchmark/eval/results/medical/sciverse_medical_closure_v3.json",
-      "size_bytes": 506458,
-      "size_mb": 0.48,
-      "sha256": "0a557e77304337eb919b4c83884d3cb7b75cfebf50e4d07670575e96d02daafa"
-    },
-    {
-      "bundle_path": "13_sciverse_integration/sciverse_leaderboard.json",
-      "source_path": "benchmark/eval/results/sciverse_leaderboard.json",
-      "size_bytes": 1536,
-      "size_mb": 0.0,
-      "sha256": "d231243d7b2b1576225177124795032ef976afc183c2e3743e684ea510efd52f"
-    },
-    {
-      "bundle_path": "13_sciverse_integration/sciverse_lb_qwen3.5_4b.json",
-      "source_path": "benchmark/eval/results/sciverse_lb_qwen3.5_4b.json",
-      "size_bytes": 236458,
-      "size_mb": 0.23,
-      "sha256": "68f62b2134e6236796406bf5a336edf7681f7a1dc6cbf6ac2bcbbbc59ce605c0"
-    },
-    {
-      "bundle_path": "13_sciverse_integration/sciverse_lb_qwen3.5_9b.json",
-      "source_path": "benchmark/eval/results/sciverse_lb_qwen3.5_9b.json",
-      "size_bytes": 199165,
-      "size_mb": 0.19,
-      "sha256": "d178237e7987efcbf761c9b4832d4d7862efd183ff65cb3d6acfabb9dc9222af"
-    },
-    {
-      "bundle_path": "13_sciverse_integration/sciverse_lb_qwen3.5_35b.json",
-      "source_path": "benchmark/eval/results/sciverse_lb_qwen3.5_35b.json",
-      "size_bytes": 221930,
-      "size_mb": 0.21,
-      "sha256": "1bea4d627c7ab59237e35b9f520ed8fa5f1f00a8809435d083b3e699b5a0b91b"
-    },
-    {
-      "bundle_path": "13_sciverse_integration/d15_sciverse_flywheel_trace.json",
-      "source_path": "benchmark/agent/logs/d15_sciverse_flywheel_trace.json",
-      "size_bytes": 14961,
-      "size_mb": 0.01,
-      "sha256": "127a4334f96c401925e12b96fce27c81f2377e45a628aea62b6edb70eaf362d0"
-    },
-    {
-      "bundle_path": "12_final_supplemental_experiments/track2_agent_reliability/agent_router_robustness.json",
-      "source_path": "benchmark/eval/results/agent_router_robustness.json",
-      "size_bytes": 27045,
-      "size_mb": 0.03,
-      "sha256": "62af2dd0a30b76d09a437d14758e200091968707006938e2d34a0b8f272c4f96"
-    },
-    {
-      "bundle_path": "12_final_supplemental_experiments/track2_agent_reliability/agent_router_robustness.freeze.json",
-      "source_path": "benchmark/eval/results/agent_router_robustness.freeze.json",
-      "size_bytes": 274,
-      "size_mb": 0.0,
-      "sha256": "8a93776af07ce82e1f8ee87e40b7ace98a65599fbac335b16fe7fc5898c573e8"
-    },
-    {
-      "bundle_path": "12_final_supplemental_experiments/track2_agent_reliability/agent_failure_injection_matrix.json",
-      "source_path": "benchmark/eval/results/agent_failure_injection_matrix.json",
-      "size_bytes": 12319,
-      "size_mb": 0.01,
-      "sha256": "d7e110fa49e99cfd6bf4ee5ea3cbe87abec2edbe921cce1435c0c6080bfc5439"
-    },
-    {
-      "bundle_path": "12_final_supplemental_experiments/track2_agent_reliability/agent_source_selection_ablation.json",
-      "source_path": "benchmark/eval/results/agent_source_selection_ablation.json",
-      "size_bytes": 25930,
+      "bundle_path": "source_repo_evidence/benchmark/agent/_verify_10_intents.py",
+      "source_path": "source_repo_evidence/benchmark/agent/_verify_10_intents.py",
+      "size_bytes": 16339,
       "size_mb": 0.02,
-      "sha256": "ac7dcdbac910be357135ea30d8d29b2d6a9fdeb4033dbf9362dd43dd796a8271"
+      "sha256": "d52f5121147a2045bc722a8c2eee9e4a4d21eb5ab2a3a4cb5499a6b540b98295"
     },
     {
-      "bundle_path": "12_final_supplemental_experiments/track2_agent_reliability/SUMMARY.md",
-      "source_path": "docs/submissions/data_trace_bundle/12_final_supplemental_experiments/track2_agent_reliability/SUMMARY.md",
-      "size_bytes": 4068,
+      "bundle_path": "source_repo_evidence/benchmark/agent/agent_report.md",
+      "source_path": "source_repo_evidence/benchmark/agent/agent_report.md",
+      "size_bytes": 62324,
+      "size_mb": 0.06,
+      "sha256": "1ddef6bd1b71bc733b175a6abafc34b97a0a34f7ef869307e05fb8bc7a0f1407"
+    },
+    {
+      "bundle_path": "source_repo_evidence/benchmark/agent/logs/demo-35b-elastic-proof.json",
+      "source_path": "source_repo_evidence/benchmark/agent/logs/demo-35b-elastic-proof.json",
+      "size_bytes": 2416,
       "size_mb": 0.0,
-      "sha256": "d09ac96df9fc3813d1e69032b8e9c4e8f08329b88e4a8587a6157cf29c4e626b"
+      "sha256": "8b61135b4c0ef83c3c4ee7009beac631de87d8fe6100c6c78384a97f743ac8ca"
     },
     {
-      "bundle_path": "12_final_supplemental_experiments/track2_agent_reliability/agent_resource_pareto.json",
-      "source_path": "benchmark/eval/results/agent_resource_pareto.json",
-      "size_bytes": 14974,
-      "size_mb": 0.01,
-      "sha256": "add836a4e6d9b4c06d3f35d4ec9a12d18fdee12936aa59d3b75e9a4fd7ce7acf"
-    },
-    {
-      "bundle_path": "12_final_supplemental_experiments/track2_agent_reliability/agent_hard_document_stress.json",
-      "source_path": "benchmark/eval/results/agent_hard_document_stress.json",
-      "size_bytes": 13838,
-      "size_mb": 0.01,
-      "sha256": "60b93f00d517f369e0aebf621de168a8468d93674f46837938c27180ae092065"
-    },
-    {
-      "bundle_path": "12_final_supplemental_experiments/track1_sci_align_reliability/track1_ai_ready_smoke.json",
-      "source_path": "benchmark/eval/results/track1_ai_ready_smoke.json",
-      "size_bytes": 12043,
-      "size_mb": 0.01,
-      "sha256": "52f6008e2e20f298369491b77603f14c1daeccc1a055278695205da3ea21ad90"
-    },
-    {
-      "bundle_path": "12_final_supplemental_experiments/track1_sci_align_reliability/track1_sci_align_integrity_audit.json",
-      "source_path": "benchmark/eval/results/track1_sci_align_integrity_audit.json",
-      "size_bytes": 10830,
-      "size_mb": 0.01,
-      "sha256": "80151c635ad3684f69cb4ec8f895b6e1b3823c8d8a98ac673c1d713293141eae"
-    },
-    {
-      "bundle_path": "12_final_supplemental_experiments/track1_sci_align_reliability/track1_multimodal_error_taxonomy.json",
-      "source_path": "benchmark/eval/results/track1_multimodal_error_taxonomy.json",
-      "size_bytes": 9699,
-      "size_mb": 0.01,
-      "sha256": "ec96fbf0481aeae37c5ff210eed4bdc47fb3a73df4ee4428b513d4d33a924e90"
-    },
-    {
-      "bundle_path": "12_final_supplemental_experiments/track1_sci_align_reliability/track1_dimension_discriminability.json",
-      "source_path": "benchmark/eval/results/track1_dimension_discriminability.json",
-      "size_bytes": 18119,
-      "size_mb": 0.02,
-      "sha256": "4fe7c1473b818540bd92b19e8e38a81106e41b40d46c200629d34d18adbd9636"
-    },
-    {
-      "bundle_path": "12_final_supplemental_experiments/track1_sci_align_reliability/track1_training_utility_ablation.json",
-      "source_path": "benchmark/eval/results/track1_training_utility_ablation.json",
-      "size_bytes": 6296,
-      "size_mb": 0.01,
-      "sha256": "a3bd1d9a75512c9b31846bee0d19e360215d6fc3f340b34b8e713f9c1d659c56"
-    },
-    {
-      "bundle_path": "12_final_supplemental_experiments/track1_sci_align_reliability/track1_export_format_compatibility.json",
-      "source_path": "benchmark/eval/results/track1_export_format_compatibility.json",
-      "size_bytes": 9149,
-      "size_mb": 0.01,
-      "sha256": "d6a4be5d3767e984cff7bcdf7ce910db85556331bebee47c27a9beffab7463a0"
-    },
-    {
-      "bundle_path": "12_final_supplemental_experiments/track1_sci_align_reliability/track1_sample_review_consistency.json",
-      "source_path": "benchmark/eval/results/track1_sample_review_consistency.json",
-      "size_bytes": 259281,
-      "size_mb": 0.25,
-      "sha256": "2e11295e28728d7b07b3ec77dd7a7b2d3fe1a29bfd291fcb9b02b38747008f14"
-    },
-    {
-      "bundle_path": "12_final_supplemental_experiments/track1_sci_align_reliability/track1_supplemental_summary.json",
-      "source_path": "benchmark/eval/results/track1_supplemental_summary.json",
-      "size_bytes": 4848,
+      "bundle_path": "source_repo_evidence/benchmark/agent/logs/demo-local-gpu-fallback-20260509-0116.md",
+      "source_path": "source_repo_evidence/benchmark/agent/logs/demo-local-gpu-fallback-20260509-0116.md",
+      "size_bytes": 2401,
       "size_mb": 0.0,
-      "sha256": "04192ac49d754079ceb8e756e4fc0b3f2832251a77dfa9c85f298f18d3925d24"
+      "sha256": "ac7c2e83ecfb091f8357a1c240178389aa45fddf32c1653bbe6dc29f70a96fad"
     },
     {
-      "bundle_path": "12_final_supplemental_experiments/track1_sci_align_reliability/SUMMARY.md",
-      "source_path": "docs/submissions/data_trace_bundle/12_final_supplemental_experiments/track1_sci_align_reliability/SUMMARY.md",
-      "size_bytes": 2473,
+      "bundle_path": "source_repo_evidence/benchmark/agent/logs/demo-multi-format-20260510-1917.json",
+      "source_path": "source_repo_evidence/benchmark/agent/logs/demo-multi-format-20260510-1917.json",
+      "size_bytes": 1827,
       "size_mb": 0.0,
-      "sha256": "e808bebce6ea9b8c78574786ad4047312838655e58dbabb227255d16894c3856"
+      "sha256": "0fd9226640f34709582fe7c7208585e7c920f2def04a76291e573bbd7b7aba4f"
     },
     {
-      "bundle_path": "12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_rag_pipeline_ablation.json",
-      "source_path": "benchmark/eval/results/track3_rag_pipeline_ablation.json",
-      "size_bytes": 8441,
+      "bundle_path": "source_repo_evidence/benchmark/agent/logs/demo-vllm-mineru-1.2b-20260509-162156.json",
+      "source_path": "source_repo_evidence/benchmark/agent/logs/demo-vllm-mineru-1.2b-20260509-162156.json",
+      "size_bytes": 11552,
       "size_mb": 0.01,
-      "sha256": "00a5315dbb3ffe802bd4b98df27195113fc1a485e2af584fb70a102a4b03e058"
+      "sha256": "9670d82f19ac48ca77c5ef47c1b4bce998692642a3c4abf7c07e6ba114d40b8b"
     },
     {
-      "bundle_path": "12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_safety_refusal_stress.json",
-      "source_path": "benchmark/eval/results/track3_safety_refusal_stress.json",
-      "size_bytes": 23258,
-      "size_mb": 0.02,
-      "sha256": "83cbc0f346acce33b23ed7088739d5f439d90af47a70005e841463767438b69f"
-    },
-    {
-      "bundle_path": "12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_medbench_ei_taxonomy.json",
-      "source_path": "benchmark/eval/results/track3_medbench_ei_taxonomy.json",
-      "size_bytes": 165739,
-      "size_mb": 0.16,
-      "sha256": "afbb08968ba7b0723e5f3070015c9e40c993fd734e23a98c160b8460c30a4721"
-    },
-    {
-      "bundle_path": "12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_privacy_boundary_audit.json",
-      "source_path": "benchmark/eval/results/track3_privacy_boundary_audit.json",
-      "size_bytes": 10144,
+      "bundle_path": "source_repo_evidence/benchmark/agent/logs/demo-vllm-mineru-1.2b-20260509-162410.json",
+      "source_path": "source_repo_evidence/benchmark/agent/logs/demo-vllm-mineru-1.2b-20260509-162410.json",
+      "size_bytes": 11792,
       "size_mb": 0.01,
-      "sha256": "28ba3a941ef989bcceb0d4039a353962d4539230228520654218d047e9b5416d"
+      "sha256": "c2562618457960280d7049eb904c043b45e970f95a1158f708d85b39adcc6358"
     },
     {
-      "bundle_path": "12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_semantic_chunk_quality.json",
-      "source_path": "benchmark/eval/results/track3_semantic_chunk_quality.json",
-      "size_bytes": 33934,
-      "size_mb": 0.03,
-      "sha256": "b2a6f75407b43bebec9e472757b553a4cdee1682a6679bc7e93c7220952c9921"
+      "bundle_path": "source_repo_evidence/benchmark/agent/logs/demo-vllm-mineru-1.2b-20260509-162808.json",
+      "source_path": "source_repo_evidence/benchmark/agent/logs/demo-vllm-mineru-1.2b-20260509-162808.json",
+      "size_bytes": 10977,
+      "size_mb": 0.01,
+      "sha256": "02df22fe968e4f7ef3914fe252baa923b7a69b76c7d61e60fa4bf9f23cf00b40"
     },
     {
-      "bundle_path": "12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_zh_ask_robustness.json",
-      "source_path": "benchmark/eval/results/track3_zh_ask_robustness.json",
-      "size_bytes": 41352,
+      "bundle_path": "source_repo_evidence/benchmark/agent/logs/demo-vllm-mineru-1.2b-20260509-163024.json",
+      "source_path": "source_repo_evidence/benchmark/agent/logs/demo-vllm-mineru-1.2b-20260509-163024.json",
+      "size_bytes": 11470,
+      "size_mb": 0.01,
+      "sha256": "d47abeb19692b7e2b10fdb66b750bccdc2130c528ae3e3cf06f5c56296d5220d"
+    },
+    {
+      "bundle_path": "source_repo_evidence/benchmark/agent/logs/demo-vllm-mineru-1.2b-20260509-163259.json",
+      "source_path": "source_repo_evidence/benchmark/agent/logs/demo-vllm-mineru-1.2b-20260509-163259.json",
+      "size_bytes": 117378,
+      "size_mb": 0.11,
+      "sha256": "a9a8dc2ac8aa2bf5315d5cb3a4a649d5cc4006e86be01f214223c29c87378381"
+    },
+    {
+      "bundle_path": "source_repo_evidence/benchmark/agent/logs/demo-vllm-mineru-1.2b-20260509-163516.json",
+      "source_path": "source_repo_evidence/benchmark/agent/logs/demo-vllm-mineru-1.2b-20260509-163516.json",
+      "size_bytes": 119143,
+      "size_mb": 0.11,
+      "sha256": "dd5e5456e872e8462e98d86e17e9d4cab7131be45926a59908c97223f77782c0"
+    },
+    {
+      "bundle_path": "source_repo_evidence/benchmark/agent/logs/demo-vllm-mineru-1.2b-20260509-165247.json",
+      "source_path": "source_repo_evidence/benchmark/agent/logs/demo-vllm-mineru-1.2b-20260509-165247.json",
+      "size_bytes": 131064,
+      "size_mb": 0.12,
+      "sha256": "2a6e319d95422d0d75c57a534904a278cd90c2f131ec0b004d553010c318b3b6"
+    },
+    {
+      "bundle_path": "source_repo_evidence/benchmark/agent/logs/demo-vllm-mineru-1.2b-20260509-165808.json",
+      "source_path": "source_repo_evidence/benchmark/agent/logs/demo-vllm-mineru-1.2b-20260509-165808.json",
+      "size_bytes": 131064,
+      "size_mb": 0.12,
+      "sha256": "301aa607f9c0f42324eae0f92a33ebaaa7227a8c8082099cc0c21a83c2989c68"
+    },
+    {
+      "bundle_path": "source_repo_evidence/benchmark/agent/logs/demo-vllm-mineru-1.2b-20260509-173415.json",
+      "source_path": "source_repo_evidence/benchmark/agent/logs/demo-vllm-mineru-1.2b-20260509-173415.json",
+      "size_bytes": 182385,
+      "size_mb": 0.17,
+      "sha256": "05c94c61f35d32f8a65108dfbe25d13b626279d8332ff3d6c5fa2079edfa3766"
+    },
+    {
+      "bundle_path": "source_repo_evidence/benchmark/agent/logs/demo-vllm-mineru-1.2b-20260509-181823.json",
+      "source_path": "source_repo_evidence/benchmark/agent/logs/demo-vllm-mineru-1.2b-20260509-181823.json",
+      "size_bytes": 183821,
+      "size_mb": 0.18,
+      "sha256": "883f60881d101bd1be37f10ba622d8f98757daa67b87f9dd18018fa7a3cbd9e6"
+    },
+    {
+      "bundle_path": "source_repo_evidence/benchmark/agent/logs/demo-vllm-mineru-1.2b-20260509-182136.json",
+      "source_path": "source_repo_evidence/benchmark/agent/logs/demo-vllm-mineru-1.2b-20260509-182136.json",
+      "size_bytes": 181271,
+      "size_mb": 0.17,
+      "sha256": "4f5712e6ce51b64d01fcd48b8344130618ebfefb5b6bff5d8095bf90425c08c1"
+    },
+    {
+      "bundle_path": "source_repo_evidence/benchmark/agent/results/bench_mineru_1.2b_checkpoint.json",
+      "source_path": "source_repo_evidence/benchmark/agent/results/bench_mineru_1.2b_checkpoint.json",
+      "size_bytes": 181267,
+      "size_mb": 0.17,
+      "sha256": "8162c6c439a3eb743ec20d6772b6c32fcc610703f1eacbfc8b3370bd6ed6f6b9"
+    },
+    {
+      "bundle_path": "source_repo_evidence/benchmark/eval/reports/cross_judge_kappa.json",
+      "source_path": "source_repo_evidence/benchmark/eval/reports/cross_judge_kappa.json",
+      "size_bytes": 46569,
       "size_mb": 0.04,
-      "sha256": "5c30832ad94c6e7a4a6f3ce49d7a369cebe82310345f856f28aca4e0ba5aa3c0"
+      "sha256": "88560e14350c5a9741092904f2c30ebd7e065e3a282cb4cb9ddf18dfed880acb"
     },
     {
-      "bundle_path": "12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_evidence_card_completeness.json",
-      "source_path": "benchmark/eval/results/track3_evidence_card_completeness.json",
-      "size_bytes": 30768,
+      "bundle_path": "source_repo_evidence/benchmark/eval/reports/quality_audit.json",
+      "source_path": "source_repo_evidence/benchmark/eval/reports/quality_audit.json",
+      "size_bytes": 40973,
+      "size_mb": 0.04,
+      "sha256": "6ecc63cefd6b76cc8ade1a7a054038505f025a437a900e1367006c80404ff829"
+    },
+    {
+      "bundle_path": "source_repo_evidence/benchmark/eval/results/analysis/a7_dimension_agreement.json",
+      "source_path": "source_repo_evidence/benchmark/eval/results/analysis/a7_dimension_agreement.json",
+      "size_bytes": 808,
+      "size_mb": 0.0,
+      "sha256": "defe8e6b439422cc03f7d87bbb04eff74a8882773913334fcce4d5114218f41b"
+    },
+    {
+      "bundle_path": "source_repo_evidence/benchmark/eval/results/analysis/a8_difficulty_matrix.json",
+      "source_path": "source_repo_evidence/benchmark/eval/results/analysis/a8_difficulty_matrix.json",
+      "size_bytes": 4940,
+      "size_mb": 0.0,
+      "sha256": "5ea58244c8eb7dbc39907aa59323824949dc1eb23c51b4774361a97dfa1b44e3"
+    },
+    {
+      "bundle_path": "source_repo_evidence/benchmark/eval/results/analysis/scoring_anti_scaling_law.md",
+      "source_path": "source_repo_evidence/benchmark/eval/results/analysis/scoring_anti_scaling_law.md",
+      "size_bytes": 9828,
+      "size_mb": 0.01,
+      "sha256": "a6516c27223c38759380f0e5f08e18e3301bd4ed8e8b2fa1e8d027194c646f1e"
+    },
+    {
+      "bundle_path": "source_repo_evidence/benchmark/eval/results/chunk_embedding/a2_doc_similarity.json",
+      "source_path": "source_repo_evidence/benchmark/eval/results/chunk_embedding/a2_doc_similarity.json",
+      "size_bytes": 10851,
+      "size_mb": 0.01,
+      "sha256": "481d9ef8696bcc4d1060e9839d2ea8445bed68953d0953ad9d897e17e0b9f58a"
+    },
+    {
+      "bundle_path": "source_repo_evidence/benchmark/eval/results/chunk_embedding/a2_document_similarity.json",
+      "source_path": "source_repo_evidence/benchmark/eval/results/chunk_embedding/a2_document_similarity.json",
+      "size_bytes": 10851,
+      "size_mb": 0.01,
+      "sha256": "481d9ef8696bcc4d1060e9839d2ea8445bed68953d0953ad9d897e17e0b9f58a"
+    },
+    {
+      "bundle_path": "source_repo_evidence/benchmark/eval/results/failure_analysis.json",
+      "source_path": "source_repo_evidence/benchmark/eval/results/failure_analysis.json",
+      "size_bytes": 78008,
+      "size_mb": 0.07,
+      "sha256": "f4341c76e2f8f59e8c389d4c5295b9529c3f54b4373d1ff7b69d9839dfc49ee3"
+    },
+    {
+      "bundle_path": "source_repo_evidence/benchmark/eval/results/judge_matrix/api_8judge_consolidated.json",
+      "source_path": "source_repo_evidence/benchmark/eval/results/judge_matrix/api_8judge_consolidated.json",
+      "size_bytes": 4994,
+      "size_mb": 0.0,
+      "sha256": "c199f25a0b1c8e1a3651da997ae0f5ad7e56a67325c84f9077dd4a83e719854d"
+    },
+    {
+      "bundle_path": "source_repo_evidence/benchmark/eval/results/judge_matrix/gemma3_4b_sample_judge.json",
+      "source_path": "source_repo_evidence/benchmark/eval/results/judge_matrix/gemma3_4b_sample_judge.json",
+      "size_bytes": 26259,
       "size_mb": 0.03,
-      "sha256": "86ca9fd5d83dd2fa3f1347f5388b5e9f54b744e4888fceef7003e860d2c15b69"
+      "sha256": "093f5c42416163ba46123fbb4a7a9a244bcb41a8885e1603386d0286509bb604"
     },
     {
-      "bundle_path": "12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_deployment_smoke_matrix.json",
-      "source_path": "benchmark/eval/results/track3_deployment_smoke_matrix.json",
-      "size_bytes": 6779,
+      "bundle_path": "source_repo_evidence/benchmark/eval/results/judge_matrix/llama3.2_3b_sample_judge.json",
+      "source_path": "source_repo_evidence/benchmark/eval/results/judge_matrix/llama3.2_3b_sample_judge.json",
+      "size_bytes": 20766,
+      "size_mb": 0.02,
+      "sha256": "a442278c64ed69a16022a0ae0cdf0758faaa09b3c94977443064ecfae8998bfc"
+    },
+    {
+      "bundle_path": "source_repo_evidence/benchmark/eval/results/judge_matrix/local_6judge_consolidated.json",
+      "source_path": "source_repo_evidence/benchmark/eval/results/judge_matrix/local_6judge_consolidated.json",
+      "size_bytes": 2281,
+      "size_mb": 0.0,
+      "sha256": "40545c994dcae90580f874b2005f3463cf7acd4019c6b25a13ae3b60afb83047"
+    },
+    {
+      "bundle_path": "source_repo_evidence/benchmark/eval/results/judge_matrix/ollama_35b_sample_judge.json",
+      "source_path": "source_repo_evidence/benchmark/eval/results/judge_matrix/ollama_35b_sample_judge.json",
+      "size_bytes": 6702,
       "size_mb": 0.01,
-      "sha256": "9ad5b3c61dbd92cf8d75f007a660897222f955cf1a2274ca4f568058555280f5"
+      "sha256": "db8f9cdfa5832480314bdfb734747ed1b3facb2eba562e2e4eb4b4ab6f08b0f6"
     },
     {
-      "bundle_path": "12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_supplemental_summary.json",
-      "source_path": "benchmark/eval/results/track3_supplemental_summary.json",
-      "size_bytes": 5308,
+      "bundle_path": "source_repo_evidence/benchmark/eval/results/judge_matrix/qwen3.5_2b_sample_judge.json",
+      "source_path": "source_repo_evidence/benchmark/eval/results/judge_matrix/qwen3.5_2b_sample_judge.json",
+      "size_bytes": 26279,
+      "size_mb": 0.03,
+      "sha256": "2d5f35ebf749a387e36bffba93e3c56f2afbfe8d63da382df5a74844f76ff64b"
+    },
+    {
+      "bundle_path": "source_repo_evidence/benchmark/eval/results/judge_matrix/qwen3.5_35b_sample_judge.json",
+      "source_path": "source_repo_evidence/benchmark/eval/results/judge_matrix/qwen3.5_35b_sample_judge.json",
+      "size_bytes": 25411,
+      "size_mb": 0.02,
+      "sha256": "71d761786eb5809b0424e51aa12486b18fe3891ca93d1bbf15b679360187fd8c"
+    },
+    {
+      "bundle_path": "source_repo_evidence/benchmark/eval/results/judge_matrix/qwen3.5_4b_sample_judge.json",
+      "source_path": "source_repo_evidence/benchmark/eval/results/judge_matrix/qwen3.5_4b_sample_judge.json",
+      "size_bytes": 24730,
+      "size_mb": 0.02,
+      "sha256": "3947b869f6dd022b83a9a44f55605e817cd0345f83feb8af5af9d7d0c31adaff"
+    },
+    {
+      "bundle_path": "source_repo_evidence/benchmark/eval/results/judge_matrix/qwen3.5_9b_sample_judge.json",
+      "source_path": "source_repo_evidence/benchmark/eval/results/judge_matrix/qwen3.5_9b_sample_judge.json",
+      "size_bytes": 26556,
+      "size_mb": 0.03,
+      "sha256": "7f2f2c0508f0bdcdff21b1548802e4bf6c0ba4ab4e156660e84c94ba88f2e3ad"
+    },
+    {
+      "bundle_path": "source_repo_evidence/benchmark/eval/results/leaderboard_complete.json",
+      "source_path": "source_repo_evidence/benchmark/eval/results/leaderboard_complete.json",
+      "size_bytes": 1714,
+      "size_mb": 0.0,
+      "sha256": "23c14f8a3463b9020d7941d0579981bc2e9eea9416f3e60f264ff0ecf13b9e6a"
+    },
+    {
+      "bundle_path": "source_repo_evidence/benchmark/eval/results/medical/judge_consistency.json",
+      "source_path": "source_repo_evidence/benchmark/eval/results/medical/judge_consistency.json",
+      "size_bytes": 28794,
+      "size_mb": 0.03,
+      "sha256": "f3ca45006de404f15f40b100f4f7cbf4fee3a358e35e87a80219895153533094"
+    },
+    {
+      "bundle_path": "source_repo_evidence/benchmark/eval/results/medical/kb_quality_report.json",
+      "source_path": "source_repo_evidence/benchmark/eval/results/medical/kb_quality_report.json",
+      "size_bytes": 802579,
+      "size_mb": 0.77,
+      "sha256": "0385ff73db4ebdfb776ed4e0c1172ae7e8047217c0048e8eb6b796ca54c373a3"
+    },
+    {
+      "bundle_path": "source_repo_evidence/benchmark/eval/results/medical/reranker_qlora_report.json",
+      "source_path": "source_repo_evidence/benchmark/eval/results/medical/reranker_qlora_report.json",
+      "size_bytes": 60135,
+      "size_mb": 0.06,
+      "sha256": "8575954ae57cd764af8634cae3e29b40ca6352495530abe1ac87128d57ccd2f0"
+    },
+    {
+      "bundle_path": "source_repo_evidence/benchmark/eval/results/medical_rag_eval_zh_ask_structured.json",
+      "source_path": "source_repo_evidence/benchmark/eval/results/medical_rag_eval_zh_ask_structured.json",
+      "size_bytes": 49235,
+      "size_mb": 0.05,
+      "sha256": "161a0622df183d0080debbe069566fc0cea212fbe8e6c04532d8091fe56db286"
+    },
+    {
+      "bundle_path": "source_repo_evidence/benchmark/eval/results/medical_rag_eval_zh_ask_structured_all_indexes.json",
+      "source_path": "source_repo_evidence/benchmark/eval/results/medical_rag_eval_zh_ask_structured_all_indexes.json",
+      "size_bytes": 135525,
+      "size_mb": 0.13,
+      "sha256": "61d2a8e6364f0e17ecbacc1e0691ce08fc784f4fb848f7afcd5f410bdb242c38"
+    },
+    {
+      "bundle_path": "source_repo_evidence/benchmark/eval/results/medical_rag_zh_ask_structured_traces.jsonl",
+      "source_path": "source_repo_evidence/benchmark/eval/results/medical_rag_zh_ask_structured_traces.jsonl",
+      "size_bytes": 31584,
+      "size_mb": 0.03,
+      "sha256": "4cfaf85140dc4b65dfe117953d87be85d882a178e517353c62fbbc7a748c1915"
+    },
+    {
+      "bundle_path": "source_repo_evidence/benchmark/eval/results/self_correction_candidates.json",
+      "source_path": "source_repo_evidence/benchmark/eval/results/self_correction_candidates.json",
+      "size_bytes": 136925,
+      "size_mb": 0.13,
+      "sha256": "c605b971e89047a1d02b369a74ce4fe137d9e0c2135ada2c383bfc7ef501c4d8"
+    },
+    {
+      "bundle_path": "source_repo_evidence/benchmark/eval/results/self_correction_results.json",
+      "source_path": "source_repo_evidence/benchmark/eval/results/self_correction_results.json",
+      "size_bytes": 188794,
+      "size_mb": 0.18,
+      "sha256": "e75bac848a0b15b07f6ff406c668ab7cf5db508222c1cfee062d7939b3375aad"
+    },
+    {
+      "bundle_path": "source_repo_evidence/data/sources_medical/index/index_meta.json",
+      "source_path": "source_repo_evidence/data/sources_medical/index/index_meta.json",
+      "size_bytes": 1184,
+      "size_mb": 0.0,
+      "sha256": "8509758b004b865ed45236b502f23e5ecedadb33d3c9962f2726c312082d5d0a"
+    },
+    {
+      "bundle_path": "source_repo_evidence/data/sources_medical/index/metadata.json",
+      "source_path": "source_repo_evidence/data/sources_medical/index/metadata.json",
+      "size_bytes": 1184,
+      "size_mb": 0.0,
+      "sha256": "8509758b004b865ed45236b502f23e5ecedadb33d3c9962f2726c312082d5d0a"
+    },
+    {
+      "bundle_path": "source_repo_evidence/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "source_path": "source_repo_evidence/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "size_bytes": 1092115,
+      "size_mb": 1.04,
+      "sha256": "6a0087565a7e6cfdf13010f4deebcccc94fd3cbe85f1ea2f3380a4c035d6e32d"
+    },
+    {
+      "bundle_path": "source_repo_evidence/data/sources_medical/medbench/medbench_full_retrieval_stats_v1.json",
+      "source_path": "source_repo_evidence/data/sources_medical/medbench/medbench_full_retrieval_stats_v1.json",
+      "size_bytes": 2599267,
+      "size_mb": 2.48,
+      "sha256": "6d81716b678e5d99281391729dd66e2fb8ac9f9ebeac126a30a306075d1b5ee0"
+    },
+    {
+      "bundle_path": "source_repo_evidence/data/sources_medical/medbench/medbench_vlm_report.json",
+      "source_path": "source_repo_evidence/data/sources_medical/medbench/medbench_vlm_report.json",
+      "size_bytes": 899758,
+      "size_mb": 0.86,
+      "sha256": "2abd47d05e3d1148350097c33f04e762269ad01e0103317efc78f022397b20e2"
+    },
+    {
+      "bundle_path": "source_repo_evidence/data/sources_medical/medbench/medbench_vlm_report_9b.json",
+      "source_path": "source_repo_evidence/data/sources_medical/medbench/medbench_vlm_report_9b.json",
+      "size_bytes": 844343,
+      "size_mb": 0.81,
+      "sha256": "2c82dacff43266d180460f28f5f7668d5a3df4b299c1bb53444c50ba8d68211f"
+    },
+    {
+      "bundle_path": "source_repo_evidence/docs/evidence/qlora-9b-training-demo.md",
+      "source_path": "source_repo_evidence/docs/evidence/qlora-9b-training-demo.md",
+      "size_bytes": 4622,
+      "size_mb": 0.0,
+      "sha256": "9637be7cce2697ac16a08381fbbe915903379aba18bc00de5fc7580c7143f7ff"
+    },
+    {
+      "bundle_path": "source_repo_evidence/docs/submissions/shared/cloud_demo_walkthrough.md",
+      "source_path": "source_repo_evidence/docs/submissions/shared/cloud_demo_walkthrough.md",
+      "size_bytes": 5000,
+      "size_mb": 0.0,
+      "sha256": "91d86e6eb3ed75230f9c4cd5e87ecbbba9efb01607345f384d8d79a03bcf679a"
+    },
+    {
+      "bundle_path": "source_repo_evidence/docs/submissions/shared/minimal_repro_results.md",
+      "source_path": "source_repo_evidence/docs/submissions/shared/minimal_repro_results.md",
+      "size_bytes": 10513,
       "size_mb": 0.01,
-      "sha256": "f2539c5f35277dad2d944dda8aafb3aeb7e9f50347cf0d2fc29b680c16e32f33"
-    }
-  ],
-  "excluded": [],
-  "non_file_sources": [
-    {
-      "label": "DT #23",
-      "note": "benchmark/agent/agent_report.md §3.4 L254 — Markdown 行引用"
+      "sha256": "bc4a537d46402f9aea408fece8cb8e9062a1c5f4a0ac626172962d4501361d15"
     },
     {
-      "label": "DT #34",
-      "note": "抽样确认 — 人工核查"
+      "bundle_path": "source_repo_evidence/docs/submissions/shared/public_cloud_boundary.md",
+      "source_path": "source_repo_evidence/docs/submissions/shared/public_cloud_boundary.md",
+      "size_bytes": 4006,
+      "size_mb": 0.0,
+      "sha256": "50959e7728181e086250e0ac3b64cf87115a25ad50780eefddd4a6e5e70628d3"
     },
     {
-      "label": "DT #69",
-      "note": "git log — 版本控制元数据"
+      "bundle_path": "source_repo_evidence/finetune/output/eval_baseline_gemma4b_report.json",
+      "source_path": "source_repo_evidence/finetune/output/eval_baseline_gemma4b_report.json",
+      "size_bytes": 324459,
+      "size_mb": 0.31,
+      "sha256": "fc753b2b956a0dc4ff480e69ffcee372d997521be40d4baa70c9701e9db79df3"
     },
     {
-      "label": "DT #70",
-      "note": "evaluate 管线日志 — 分布式运行时日志"
+      "bundle_path": "source_repo_evidence/finetune/output/eval_baseline_smollm3b_report.json",
+      "source_path": "source_repo_evidence/finetune/output/eval_baseline_smollm3b_report.json",
+      "size_bytes": 313757,
+      "size_mb": 0.3,
+      "sha256": "2005a949a5502ef57a6f7da584912aeef4d7265e91ab2c6652eba06cd496a947"
     },
     {
-      "label": "DT #73",
-      "note": "GPU 嵌入分析 — 已删除，无日志"
+      "bundle_path": "source_repo_evidence/finetune/output/eval_finetuned_9b_report.json",
+      "source_path": "source_repo_evidence/finetune/output/eval_finetuned_9b_report.json",
+      "size_bytes": 94021,
+      "size_mb": 0.09,
+      "sha256": "e54289a4a943f53edd7a6e0e930248b6f9b600fac19a1b8869cbbdc5e0a6038f"
     },
     {
-      "label": "DT #74",
-      "note": "Ollama 评测进度日志 — 运行时日志"
+      "bundle_path": "source_repo_evidence/finetune/output/eval_medical_ppl/perplexity_medical_chatml.json",
+      "source_path": "source_repo_evidence/finetune/output/eval_medical_ppl/perplexity_medical_chatml.json",
+      "size_bytes": 12596,
+      "size_mb": 0.01,
+      "sha256": "8e2939199840b432fa9d91fbd142e11b4fc12a480de73b2dcf60d81cb8f4164f"
+    },
+    {
+      "bundle_path": "source_repo_evidence/finetune/output/eval_medical_ppl/perplexity_medical_delta.json",
+      "source_path": "source_repo_evidence/finetune/output/eval_medical_ppl/perplexity_medical_delta.json",
+      "size_bytes": 12707,
+      "size_mb": 0.01,
+      "sha256": "7902ad2aeff7741c455fe0f7f1a13988a37a37712846c81893cd60f9be94cfd0"
+    },
+    {
+      "bundle_path": "source_repo_evidence/finetune/output/eval_medical_ppl/perplexity_medical_raw.json",
+      "source_path": "source_repo_evidence/finetune/output/eval_medical_ppl/perplexity_medical_raw.json",
+      "size_bytes": 12707,
+      "size_mb": 0.01,
+      "sha256": "7902ad2aeff7741c455fe0f7f1a13988a37a37712846c81893cd60f9be94cfd0"
+    },
+    {
+      "bundle_path": "source_repo_evidence/finetune/output/eval_report_gemma4b.json",
+      "source_path": "source_repo_evidence/finetune/output/eval_report_gemma4b.json",
+      "size_bytes": 270379,
+      "size_mb": 0.26,
+      "sha256": "d920eacaafe6a0e89728688c57393c4e951ed06a7287692afad22b624f111cdc"
+    },
+    {
+      "bundle_path": "source_repo_evidence/finetune/output/eval_report_gemma4b.json.status.json",
+      "source_path": "source_repo_evidence/finetune/output/eval_report_gemma4b.json.status.json",
+      "size_bytes": 236,
+      "size_mb": 0.0,
+      "sha256": "99cc5a45a7d882f58d7ed25bed1b43f13a1e7170e521831cf87c8a79cccbad49"
+    },
+    {
+      "bundle_path": "source_repo_evidence/finetune/output/eval_report_qwen4b.json",
+      "source_path": "source_repo_evidence/finetune/output/eval_report_qwen4b.json",
+      "size_bytes": 302630,
+      "size_mb": 0.29,
+      "sha256": "4c5330a71946ef1b02ac444e446a162905912ab61fa9f38433468cc5485375b7"
+    },
+    {
+      "bundle_path": "source_repo_evidence/finetune/output/eval_report_qwen4b.json.status.json",
+      "source_path": "source_repo_evidence/finetune/output/eval_report_qwen4b.json.status.json",
+      "size_bytes": 236,
+      "size_mb": 0.0,
+      "sha256": "0676de02315d186cd6a3664734e33e92803210eac3d32d1c7cff4898788d9a68"
+    },
+    {
+      "bundle_path": "source_repo_evidence/finetune/output/eval_report_smollm3b.json",
+      "source_path": "source_repo_evidence/finetune/output/eval_report_smollm3b.json",
+      "size_bytes": 265391,
+      "size_mb": 0.25,
+      "sha256": "6098770a1ff29d0169de71350b408c4dcee4125c7495d0679631924102fd5111"
+    },
+    {
+      "bundle_path": "source_repo_evidence/finetune/output/eval_report_smollm3b.json.status.json",
+      "source_path": "source_repo_evidence/finetune/output/eval_report_smollm3b.json.status.json",
+      "size_bytes": 236,
+      "size_mb": 0.0,
+      "sha256": "5e7d5b487b026fcd527d80771e563ade599e29c694016028d0b523317796ecf0"
     }
   ]
 }

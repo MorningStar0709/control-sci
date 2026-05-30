@@ -1,0 +1,29 @@
+{
+  "models": [
+    "4B",
+    "9B",
+    "35B"
+  ],
+  "known_leaderboard": {
+    "4B": "C=0.632",
+    "9B": "C=0.662"
+  },
+  "results": {
+    "4B": {
+      "chars": 1966,
+      "elapsed_s": 46.3,
+      "preview": "作为控制科学专家，我将为您详细解答该问题。\n\n我们需要分析负反馈闭环系统的稳定性。根据控制理论，判断线性定常系统的稳定性，通常采用闭环特征方程（Characteristic Equation）并结合劳斯-赫尔维茨判据（Routh-Hurwitz Stability Criterion）进行分析。\n\n以下是完整的推导步骤：\n\n### 第一步：确定闭环特征方程\n\n对于典型的单位负反馈系统，闭环传递函数 $T(s)$ 为：\n$$ T(s) = \\frac{G(s)H(s)}{1 + G(s)H(s)} $$\n\n系统的稳定性取决于其分母多项式（即特征多项式）的根是否位于 S 平面的左半部分。\n已知开环"
+    },
+    "9B": {
+      "chars": 2272,
+      "elapsed_s": 54.7,
+      "preview": "你好。我是控制科学专家。针对您提出的反馈控制系统问题，我将通过劳斯 - 赫维茨稳定性判据（Routh-Hurwitz Stability Criterion）系统地、专业地推导出参数 $K$ 的取值范围。\n\n假设该系统为标准负单位负反馈系统（Negative Unity Feedback System），即闭环特征方程由 $1 + G(s)H(s) = 0$ 给出。\n\n### 1. 建立闭环特征方程 (Formulation of the Characteristic Equation)\n\n首先，我们需要写出系统的闭环特征方程。\n已知开环传递函数为：\n$$ G(s)H(s) = \\frac{K"
+    },
+    "35B": {
+      "chars": 2643,
+      "elapsed_s": 128.2,
+      "preview": "你好！我是控制科学领域的专家。针对你提出的关于控制系统稳定性的问题，我将使用**劳斯 - 赫尔维茨判据（Routh-Hurwitz Criterion）**进行详细推导和解答。\n\n### 1. 问题描述与系统模型\n\n已知开环传递函数为：\n$$ G(s)H(s) = \\frac{K}{s(s+2)(s+4)} $$\n\n我们需要确定使闭环系统渐近稳定的增益 $K$ 的取值范围。\n\n**前提假设：**\n在控制理论中，除非特别说明，反馈控制系统通常默认为**负反馈（Negative Feedback）**结构。闭环系统的稳定性由闭环特征方程的根（即闭环极点）决定。\n\n### 2. 建立闭环特征方程\n\n"
+    }
+  },
+  "narrative": "Elastic scaling 4B->9B->35B on single RTX 5090. 4B: 46.3s, 9B: 54.7s, 35B: 128.2s."
+}

@@ -1,0 +1,1316 @@
+{
+  "meta": {
+    "project": "ControlSci S2* AI质量审计",
+    "audit_model": "deepseek-v4-flash",
+    "sample_size": 50,
+    "total_population": 500,
+    "seed": 42,
+    "dimension_filter": "all"
+  },
+  "summary": {
+    "clarity": {
+      "n_valid": 50,
+      "mean": 4.18,
+      "min": 1,
+      "max": 5,
+      "flags": {
+        "review": 12,
+        "none": 36,
+        "critical": 2
+      }
+    },
+    "correctness": {
+      "n_valid": 50,
+      "mean": 4.3,
+      "min": 1,
+      "max": 5,
+      "flags": {
+        "none": 36,
+        "review": 9,
+        "critical": 5
+      }
+    },
+    "difficulty_alignment": {
+      "n_valid": 50,
+      "mean": 3.6,
+      "min": 1,
+      "max": 5,
+      "flags": {
+        "none": 29,
+        "review": 18,
+        "critical": 3
+      }
+    },
+    "dimension_fit": {
+      "n_valid": 50,
+      "mean": 4.62,
+      "min": 1,
+      "max": 5,
+      "flags": {
+        "none": 45,
+        "review": 4,
+        "critical": 1
+      }
+    },
+    "overall": {
+      "mean": 4.17,
+      "total_flags": {
+        "none": 146,
+        "review": 43,
+        "critical": 11
+      }
+    }
+  },
+  "results": [
+    {
+      "clarity": {
+        "score": 3,
+        "reason": "题目依赖未给出的方程(26)，且条件与正确答案隐含矛盾，可能造成歧义",
+        "flag": "review"
+      },
+      "correctness": {
+        "score": 4,
+        "reason": "数学推导逻辑正确，但未考虑A1、A2可能依赖v_G的情况，且未给出显式表达式",
+        "flag": "none"
+      },
+      "difficulty_alignment": {
+        "score": 5,
+        "reason": "需要多步推理、矩阵可逆性分析和假设修正，符合L4最高难度",
+        "flag": "none"
+      },
+      "dimension_fit": {
+        "score": 5,
+        "reason": "分析参数v_G变化对平衡点的影响，属于敏感性分析，契合C维度",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00242",
+      "dimension": "C",
+      "difficulty": "L4"
+    },
+    {
+      "clarity": {
+        "score": 5,
+        "reason": "题目明确要求写出传递函数矩阵的H∞范数数学定义，无歧义",
+        "flag": "none"
+      },
+      "correctness": {
+        "score": 5,
+        "reason": "标准答案给出的定义数学上完全正确",
+        "flag": "none"
+      },
+      "difficulty_alignment": {
+        "score": 2,
+        "reason": "实际H∞范数定义属基础概念，标注L4（高级）偏高，难度不匹配",
+        "flag": "review"
+      },
+      "dimension_fit": {
+        "score": 5,
+        "reason": "题目要求写出数学定义，完全契合A维度",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00293",
+      "dimension": "A",
+      "difficulty": "L4"
+    },
+    {
+      "clarity": {
+        "score": 5,
+        "reason": "题目表述明确，直接询问定义，无歧义",
+        "flag": "none"
+      },
+      "correctness": {
+        "score": 5,
+        "reason": "标准答案给出了正确的齐次Lyapunov函数定义，包括正定性、导数负定性和加权齐次性条件",
+        "flag": "none"
+      },
+      "difficulty_alignment": {
+        "score": 2,
+        "reason": "实际难度为L2（定义默写），标注L4（高级），偏差较大",
+        "flag": "review"
+      },
+      "dimension_fit": {
+        "score": 5,
+        "reason": "题目要求写出定义，完全符合A维度概念定义与数学表达",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00939",
+      "dimension": "A",
+      "difficulty": "L4"
+    },
+    {
+      "clarity": {
+        "score": 3,
+        "reason": "题目依赖‘教材中的自适应控制框架’未具体说明，且未给出系统模型形式，导致表述不够清晰",
+        "flag": "review"
+      },
+      "correctness": {
+        "score": 3,
+        "reason": "标准答案框架正确但缺乏具体控制律和自适应律的数学表达式，验证部分过于笼统",
+        "flag": "review"
+      },
+      "difficulty_alignment": {
+        "score": 4,
+        "reason": "题目要求设计完整控制方案并满足具体性能指标，难度较高，与L4基本匹配",
+        "flag": "none"
+      },
+      "dimension_fit": {
+        "score": 5,
+        "reason": "完全符合D维度要求，涉及完整方案设计与综合评估",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00450",
+      "dimension": "D",
+      "difficulty": "L4"
+    },
+    {
+      "clarity": {
+        "score": 5,
+        "reason": "题目描述清晰，术语明确，无歧义",
+        "flag": "none"
+      },
+      "correctness": {
+        "score": 5,
+        "reason": "数学推导和答案完全正确",
+        "flag": "none"
+      },
+      "difficulty_alignment": {
+        "score": 2,
+        "reason": "实际仅为简单凸优化计算，难度远低于标注的L4，应属L2或L3",
+        "flag": "review"
+      },
+      "dimension_fit": {
+        "score": 5,
+        "reason": "题目需要多步推导和计算，完全契合B维度",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00049",
+      "dimension": "B",
+      "difficulty": "L4"
+    },
+    {
+      "clarity": {
+        "score": 2,
+        "reason": "题目未给出Ξ_0的定义及Π、Sym等符号说明，依赖外部上下文导致理解困难",
+        "flag": "review"
+      },
+      "correctness": {
+        "score": 4,
+        "reason": "答案数值0正确，但推理中部分表述（如‘转置与自身积为0’）略有不严谨，无致命错误",
+        "flag": "none"
+      },
+      "difficulty_alignment": {
+        "score": 3,
+        "reason": "符号抽象但数值简化后计算不复杂，实际难度与L3中等偏高基本匹配",
+        "flag": "none"
+      },
+      "dimension_fit": {
+        "score": 5,
+        "reason": "题目要求多步代入和计算求解，完全符合维度B的定义",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00638",
+      "dimension": "B",
+      "difficulty": "L3"
+    },
+    {
+      "clarity": {
+        "score": 4,
+        "reason": "题目明确要求写出公式，但符号依赖于教材背景，对未阅读教材者不清晰",
+        "flag": "none"
+      },
+      "correctness": {
+        "score": 5,
+        "reason": "答案公式准确表达了遍历极限的数学形式，符合命题5.1",
+        "flag": "none"
+      },
+      "difficulty_alignment": {
+        "score": 4,
+        "reason": "直接复现教材命题，难度略低于L2，但基本匹配",
+        "flag": "none"
+      },
+      "dimension_fit": {
+        "score": 5,
+        "reason": "考察概念公式的记忆与表达，完全属于A维度",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00603",
+      "dimension": "A",
+      "difficulty": "L2"
+    },
+    {
+      "clarity": {
+        "score": 5,
+        "reason": "题目表述明确，术语定义清晰，无歧义。",
+        "flag": "none"
+      },
+      "correctness": {
+        "score": 5,
+        "reason": "标准答案数学推导正确，最优控制律和最小损失函数值合理。",
+        "flag": "none"
+      },
+      "difficulty_alignment": {
+        "score": 4,
+        "reason": "实际难度中等偏上，标注L4稍高但尚可接受。",
+        "flag": "none"
+      },
+      "dimension_fit": {
+        "score": 5,
+        "reason": "题目主要考察二次型变换的数学表达，与维度A完全契合。",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00753",
+      "dimension": "A",
+      "difficulty": "L4"
+    },
+    {
+      "clarity": {
+        "score": 5,
+        "reason": "题目表述明确，术语清晰，无歧义",
+        "flag": "none"
+      },
+      "correctness": {
+        "score": 5,
+        "reason": "标准答案技术正确，公式和推导正确，虽符号定义略模糊但整体无误",
+        "flag": "none"
+      },
+      "difficulty_alignment": {
+        "score": 5,
+        "reason": "标注L2与实际难度匹配，需综合运用鲁棒控制和LMI知识",
+        "flag": "none"
+      },
+      "dimension_fit": {
+        "score": 5,
+        "reason": "题目要求完整方案设计及验证，完全契合D维度",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00431",
+      "dimension": "D",
+      "difficulty": "L2"
+    },
+    {
+      "clarity": {
+        "score": 5,
+        "reason": "题目表述明确，术语清晰，无歧义。",
+        "flag": "none"
+      },
+      "correctness": {
+        "score": 5,
+        "reason": "标准答案中滞后补偿器传递函数形式正确，零点极点关系与K_v关系表述准确。",
+        "flag": "none"
+      },
+      "difficulty_alignment": {
+        "score": 3,
+        "reason": "实际难度约为L2（概念解释），低于标注的L3（高难）。",
+        "flag": "review"
+      },
+      "dimension_fit": {
+        "score": 5,
+        "reason": "题目要求写出表达式并解释关系，完全属于概念定义与数学表达维度。",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00345",
+      "dimension": "A",
+      "difficulty": "L3"
+    },
+    {
+      "clarity": {
+        "score": 4,
+        "reason": "引用定理2和式(22)未提供具体内容，但术语和逻辑清晰，不影响基于一般控制理论的理解",
+        "flag": "review"
+      },
+      "correctness": {
+        "score": 4,
+        "reason": "结论正确，但不等式方向表述可能有笔误（应为V̇≤-ρV而非V̇≤ρV），需核实",
+        "flag": "review"
+      },
+      "difficulty_alignment": {
+        "score": 5,
+        "reason": "实际难度与L2匹配，需概念推理但无复杂计算",
+        "flag": "none"
+      },
+      "dimension_fit": {
+        "score": 5,
+        "reason": "分析参数λ变化对收敛结论的影响，完美契合敏感性分析维度C",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00720",
+      "dimension": "C",
+      "difficulty": "L2"
+    },
+    {
+      "clarity": {
+        "score": 3,
+        "reason": "题目引用未公开的方程(37)(38)且未定义隐式表示的具体形式，导致建模和约束不明确",
+        "flag": "review"
+      },
+      "correctness": {
+        "score": 3,
+        "reason": "将P>0和μ>0作为决策变量在线优化可能引入非凸问题，且缺乏具体公式验证正确性",
+        "flag": "review"
+      },
+      "difficulty_alignment": {
+        "score": 4,
+        "reason": "需理解隐式模型、鲁棒MPC和SOS规划，符合L3要求，但答案过于概括",
+        "flag": "none"
+      },
+      "dimension_fit": {
+        "score": 5,
+        "reason": "题目要求设计完整控制方案并评估，完全契合D维度",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00866",
+      "dimension": "D",
+      "difficulty": "L3"
+    },
+    {
+      "clarity": {
+        "score": 5,
+        "reason": "题目表述明确，术语清晰，无歧义",
+        "flag": "none"
+      },
+      "correctness": {
+        "score": 5,
+        "reason": "标准答案正确，条件公式和解释均无误",
+        "flag": "none"
+      },
+      "difficulty_alignment": {
+        "score": 4,
+        "reason": "L3难度合理，但仅需陈述定理条件，稍偏向L2",
+        "flag": "none"
+      },
+      "dimension_fit": {
+        "score": 4,
+        "reason": "C维度敏感分析合理，但更接近概念定义（A）",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00404",
+      "dimension": "C",
+      "difficulty": "L3"
+    },
+    {
+      "clarity": {
+        "score": 2,
+        "reason": "未指定定理8的具体来源，存在歧义，学生可能不清楚上下文",
+        "flag": "review"
+      },
+      "correctness": {
+        "score": 3,
+        "reason": "答案给出的条件正确但不完整，缺少径向无界等常见要求",
+        "flag": "review"
+      },
+      "difficulty_alignment": {
+        "score": 3,
+        "reason": "仅需记忆性质，实际难度低于L3，应为L2",
+        "flag": "review"
+      },
+      "dimension_fit": {
+        "score": 5,
+        "reason": "题目要求列出数学性质，完全符合A维度定义",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00228",
+      "dimension": "A",
+      "difficulty": "L3"
+    },
+    {
+      "clarity": {
+        "score": 3,
+        "reason": "题目未明确系统模型、事件触发机制及LQ性能指标的具体形式，需读者自行补充背景",
+        "flag": "review"
+      },
+      "correctness": {
+        "score": 2,
+        "reason": "标准答案中LMI的维度不匹配且未出现控制增益K，存在数学错误或不完整",
+        "flag": "critical"
+      },
+      "difficulty_alignment": {
+        "score": 5,
+        "reason": "题目涉及多智能体、事件触发、切换拓扑、LMI等前沿复杂概念，与L4难度完全匹配",
+        "flag": "none"
+      },
+      "dimension_fit": {
+        "score": 2,
+        "reason": "题目要求写出LMI条件属于多步推理与计算求解（B），而非敏感性分析或方案对比（C）",
+        "flag": "review"
+      },
+      "question_id": "CS-EVO-00553",
+      "dimension": "C",
+      "difficulty": "L4"
+    },
+    {
+      "clarity": {
+        "score": 2,
+        "reason": "O_T记号未定义，指数运算中Big-O使用不规范，导致表述模糊",
+        "flag": "critical"
+      },
+      "correctness": {
+        "score": 3,
+        "reason": "假设O_T代表某个具体常数时推导正确，但Big-O在指数运算中用法不严谨",
+        "flag": "review"
+      },
+      "difficulty_alignment": {
+        "score": 2,
+        "reason": "仅两步简单代入，实际难度低于L2，应为L1",
+        "flag": "review"
+      },
+      "dimension_fit": {
+        "score": 3,
+        "reason": "多步推理步骤少，勉强符合B维度，但更接近A",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00284",
+      "dimension": "B",
+      "difficulty": "L2"
+    },
+    {
+      "clarity": {
+        "score": 4,
+        "reason": "题目表述明确，但积分下限t_*^+未进一步解释，稍有模糊",
+        "flag": "none"
+      },
+      "correctness": {
+        "score": 5,
+        "reason": "定义式在最优控制跟踪问题中正确，参数定义清晰",
+        "flag": "none"
+      },
+      "difficulty_alignment": {
+        "score": 1,
+        "reason": "标注难度L4，但实际为基础记忆题，难度严重高估",
+        "flag": "critical"
+      },
+      "dimension_fit": {
+        "score": 5,
+        "reason": "完全符合概念定义与数学表达维度",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-01027",
+      "dimension": "A",
+      "difficulty": "L4"
+    },
+    {
+      "clarity": {
+        "score": 4,
+        "reason": "题目表述明确，但未给出系统模型符号，可能造成歧义",
+        "flag": "none"
+      },
+      "correctness": {
+        "score": 2,
+        "reason": "定义正确，但假设条件不完整且符号未定义，易误导",
+        "flag": "review"
+      },
+      "difficulty_alignment": {
+        "score": 3,
+        "reason": "实际难度介于L2-L3，答案条件偏难，不匹配常见教学",
+        "flag": "none"
+      },
+      "dimension_fit": {
+        "score": 5,
+        "reason": "完全契合概念定义与数学表达维度",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00746",
+      "dimension": "A",
+      "difficulty": "L3"
+    },
+    {
+      "clarity": {
+        "score": 5,
+        "reason": "题目表述明确，术语定义清晰，无歧义",
+        "flag": "none"
+      },
+      "correctness": {
+        "score": 5,
+        "reason": "标准答案正确，离散系统BIBO稳定判据准确",
+        "flag": "none"
+      },
+      "difficulty_alignment": {
+        "score": 4,
+        "reason": "难度略低于L2，更接近L1直接回忆，但尚可接受",
+        "flag": "review"
+      },
+      "dimension_fit": {
+        "score": 5,
+        "reason": "完全契合A维度概念定义与数学表达",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00569",
+      "dimension": "A",
+      "difficulty": "L2"
+    },
+    {
+      "clarity": {
+        "score": 5,
+        "reason": "题目明确要求写出数学表达式并说明物理意义，无歧义",
+        "flag": "none"
+      },
+      "correctness": {
+        "score": 5,
+        "reason": "标准答案数学表达式和物理意义均正确",
+        "flag": "none"
+      },
+      "difficulty_alignment": {
+        "score": 5,
+        "reason": "L1难度对应基础概念记忆，实际难度完全匹配",
+        "flag": "none"
+      },
+      "dimension_fit": {
+        "score": 5,
+        "reason": "题目属于概念定义与数学表达维度，归类准确",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00677",
+      "dimension": "A",
+      "difficulty": "L1"
+    },
+    {
+      "clarity": {
+        "score": 5,
+        "reason": "题目表述清晰明确，术语无歧义",
+        "flag": "none"
+      },
+      "correctness": {
+        "score": 5,
+        "reason": "标准答案正确，符合持续激励的数学定义",
+        "flag": "none"
+      },
+      "difficulty_alignment": {
+        "score": 4,
+        "reason": "定义记忆难度适中，L3合理但略偏高",
+        "flag": "none"
+      },
+      "dimension_fit": {
+        "score": 5,
+        "reason": "题目归类A维度，完全契合概念定义与数学表达",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00286",
+      "dimension": "A",
+      "difficulty": "L3"
+    },
+    {
+      "clarity": {
+        "score": 5,
+        "reason": "题目表述明确，问题清晰，无歧义",
+        "flag": "none"
+      },
+      "correctness": {
+        "score": 5,
+        "reason": "标准答案技术上正确，推理合理",
+        "flag": "none"
+      },
+      "difficulty_alignment": {
+        "score": 4,
+        "reason": "实际难度较高，但标注L4略高于常规L1-L3范围，可能有偏差",
+        "flag": "review"
+      },
+      "dimension_fit": {
+        "score": 5,
+        "reason": "完全契合敏感性分析与方案对比维度，要求分析条件变化并解释敏感性来源",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00181",
+      "dimension": "C",
+      "difficulty": "L4"
+    },
+    {
+      "clarity": {
+        "score": 3,
+        "reason": "题目依赖于未给出的Problem 15.6，且Δk未明确定义，导致表述不够独立清晰",
+        "flag": "review"
+      },
+      "correctness": {
+        "score": 5,
+        "reason": "标准答案正确解释了标量加权无法处理MIMO通道差异，结论不成立",
+        "flag": "none"
+      },
+      "difficulty_alignment": {
+        "score": 4,
+        "reason": "需要深入理解鲁棒控制中加权函数的结构影响，难度较高接近L4",
+        "flag": "none"
+      },
+      "dimension_fit": {
+        "score": 5,
+        "reason": "题目分析加权结构变化对结论的敏感性，完全契合维度C（敏感性分析与方案对比）",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00507",
+      "dimension": "C",
+      "difficulty": "L4"
+    },
+    {
+      "clarity": {
+        "score": 5,
+        "reason": "题目表述明确，无歧义，直接要求写出MSE数学表达式。",
+        "flag": "none"
+      },
+      "correctness": {
+        "score": 5,
+        "reason": "标准答案MSE公式正确，符合常见定义。",
+        "flag": "none"
+      },
+      "difficulty_alignment": {
+        "score": 5,
+        "reason": "L1难度与实际非常简单的要求完全匹配。",
+        "flag": "none"
+      },
+      "dimension_fit": {
+        "score": 5,
+        "reason": "维度A（概念定义与数学表达）完全契合，题目要求写出公式。",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00205",
+      "dimension": "A",
+      "difficulty": "L1"
+    },
+    {
+      "clarity": {
+        "score": 4,
+        "reason": "题目表述清晰，但依赖教材中给出的具体基准数值（92.4次），未在题目中提供，可能影响独立作答",
+        "flag": "none"
+      },
+      "correctness": {
+        "score": 5,
+        "reason": "标准答案逻辑正确，定性分析和敏感性来源解释合理，符合STC机制原理",
+        "flag": "none"
+      },
+      "difficulty_alignment": {
+        "score": 4,
+        "reason": "实际难度约为L3，标注L4略偏高，但仍在可接受范围内",
+        "flag": "none"
+      },
+      "dimension_fit": {
+        "score": 5,
+        "reason": "题目要求分析状态选择对传输次数的影响及敏感性来源，完全契合C维度",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00842",
+      "dimension": "C",
+      "difficulty": "L4"
+    },
+    {
+      "clarity": {
+        "score": 5,
+        "reason": "题目表述明确，无歧义，要求清晰",
+        "flag": "none"
+      },
+      "correctness": {
+        "score": 5,
+        "reason": "标准答案正确，表述了劳斯判据的充要条件",
+        "flag": "none"
+      },
+      "difficulty_alignment": {
+        "score": 5,
+        "reason": "L1基础难度，考察基本定义，完全匹配",
+        "flag": "none"
+      },
+      "dimension_fit": {
+        "score": 5,
+        "reason": "题目属于概念定义与数学表达，A维度准确",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00869",
+      "dimension": "A",
+      "difficulty": "L1"
+    },
+    {
+      "clarity": {
+        "score": 5,
+        "reason": "题目表述清晰，术语定义明确，无歧义",
+        "flag": "none"
+      },
+      "correctness": {
+        "score": 5,
+        "reason": "标准答案技术上正确，逻辑合理",
+        "flag": "none"
+      },
+      "difficulty_alignment": {
+        "score": 5,
+        "reason": "题目难度适中，与L2标注匹配",
+        "flag": "none"
+      },
+      "dimension_fit": {
+        "score": 5,
+        "reason": "题目属于敏感性分析，与C维度完全契合",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00876",
+      "dimension": "C",
+      "difficulty": "L2"
+    },
+    {
+      "clarity": {
+        "score": 4,
+        "reason": "题目表述清晰，但依赖外部等式编号，缺乏上下文解释",
+        "flag": "none"
+      },
+      "correctness": {
+        "score": 5,
+        "reason": "答案分析正确，数学推理无错误",
+        "flag": "none"
+      },
+      "difficulty_alignment": {
+        "score": 5,
+        "reason": "所需理解深度和推理复杂度符合L3要求",
+        "flag": "none"
+      },
+      "dimension_fit": {
+        "score": 5,
+        "reason": "分析参数变化对等式有效性的影响，属于敏感性分析",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00113",
+      "dimension": "C",
+      "difficulty": "L3"
+    },
+    {
+      "clarity": {
+        "score": 4,
+        "reason": "题目表述清晰，但未明确连续或离散时间，稍有模糊",
+        "flag": "none"
+      },
+      "correctness": {
+        "score": 1,
+        "reason": "标准答案中矩阵项顺序错误且含时变符号，不正确",
+        "flag": "critical"
+      },
+      "difficulty_alignment": {
+        "score": 3,
+        "reason": "标注L2，实际为简单概念记忆，难度略高但尚可接受",
+        "flag": "review"
+      },
+      "dimension_fit": {
+        "score": 1,
+        "reason": "题目考察概念定义，应属A维度，标注C严重偏差",
+        "flag": "critical"
+      },
+      "question_id": "CS-EVO-00192",
+      "dimension": "C",
+      "difficulty": "L2"
+    },
+    {
+      "clarity": {
+        "score": 3,
+        "reason": "未给出式(30)-(33)具体内容，影响理解值函数定义",
+        "flag": "review"
+      },
+      "correctness": {
+        "score": 5,
+        "reason": "计算正确，步骤无误",
+        "flag": "none"
+      },
+      "difficulty_alignment": {
+        "score": 3,
+        "reason": "实际难度偏低，应为L2而非L3",
+        "flag": "review"
+      },
+      "dimension_fit": {
+        "score": 5,
+        "reason": "符合多步计算求解维度",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00098",
+      "dimension": "B",
+      "difficulty": "L3"
+    },
+    {
+      "clarity": {
+        "score": 5,
+        "reason": "题目表述明确，术语清晰，无歧义。",
+        "flag": "none"
+      },
+      "correctness": {
+        "score": 5,
+        "reason": "标准答案数学表达式和对称性描述正确。",
+        "flag": "none"
+      },
+      "difficulty_alignment": {
+        "score": 3,
+        "reason": "标注L4偏高，实际为基础概念难度，建议L2或L3。",
+        "flag": "review"
+      },
+      "dimension_fit": {
+        "score": 5,
+        "reason": "维度A（概念定义与数学表达）归类准确。",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00822",
+      "dimension": "A",
+      "difficulty": "L4"
+    },
+    {
+      "clarity": {
+        "score": 5,
+        "reason": "题目表述清晰，术语定义明确，即使有冗余信息也不影响理解。",
+        "flag": "none"
+      },
+      "correctness": {
+        "score": 5,
+        "reason": "标准答案的LQR推导和闭环稳定性分析完全正确。",
+        "flag": "none"
+      },
+      "difficulty_alignment": {
+        "score": 5,
+        "reason": "L2难度与中等复杂度的LQR求解和稳定性分析匹配。",
+        "flag": "none"
+      },
+      "dimension_fit": {
+        "score": 5,
+        "reason": "题目涉及多步推理和计算求解，完全符合B维度要求。",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00026",
+      "dimension": "B",
+      "difficulty": "L2"
+    },
+    {
+      "clarity": {
+        "score": 4,
+        "reason": "术语专业明确，但未提供共轭函数定义可能对初学者不友好。",
+        "flag": "none"
+      },
+      "correctness": {
+        "score": 5,
+        "reason": "数学推导正确，凸集分离定理应用无误。",
+        "flag": "none"
+      },
+      "difficulty_alignment": {
+        "score": 5,
+        "reason": "涉及凸分析和HJB理论深入概念，符合高难度。",
+        "flag": "none"
+      },
+      "dimension_fit": {
+        "score": 2,
+        "reason": "本质是理论推导，不属于敏感性分析或方案对比。",
+        "flag": "review"
+      },
+      "question_id": "CS-EVO-00887",
+      "dimension": "C",
+      "difficulty": "L3"
+    },
+    {
+      "clarity": {
+        "score": 1,
+        "reason": "题目依赖表格数据但未提供，无法独立作答",
+        "flag": "critical"
+      },
+      "correctness": {
+        "score": 5,
+        "reason": "计算过程和结果正确，无技术错误",
+        "flag": "none"
+      },
+      "difficulty_alignment": {
+        "score": 1,
+        "reason": "实际仅需简单公式代入，远低于L4难度",
+        "flag": "critical"
+      },
+      "dimension_fit": {
+        "score": 5,
+        "reason": "多步推理计算，符合B维度要求",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00515",
+      "dimension": "B",
+      "difficulty": "L4"
+    },
+    {
+      "clarity": {
+        "score": 5,
+        "reason": "题目表述清晰，术语定义明确，无歧义。",
+        "flag": "none"
+      },
+      "correctness": {
+        "score": 2,
+        "reason": "标准答案中性能指标最优值公式应为x(0)'Px(0)，而非1/2 x(0)'Px(0)；参数选择理由不充分，未严格验证约束满足。",
+        "flag": "critical"
+      },
+      "difficulty_alignment": {
+        "score": 2,
+        "reason": "标注L4过高，实际为标准LQR设计，难度仅相当于L2或L3。",
+        "flag": "critical"
+      },
+      "dimension_fit": {
+        "score": 4,
+        "reason": "题目要求完整设计流程与验证，基本符合D维度，但综合评估深度稍浅。",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00510",
+      "dimension": "D",
+      "difficulty": "L4"
+    },
+    {
+      "clarity": {
+        "score": 5,
+        "reason": "题目要求明确，术语定义清晰，无歧义",
+        "flag": "none"
+      },
+      "correctness": {
+        "score": 3,
+        "reason": "李雅普诺夫函数形式有误，伪逆最小范数解不一定满足力矩约束，存在技术瑕疵",
+        "flag": "review"
+      },
+      "difficulty_alignment": {
+        "score": 4,
+        "reason": "题目设计复杂，符合L4难度，但答案存在瑕疵，略有降低",
+        "flag": "none"
+      },
+      "dimension_fit": {
+        "score": 5,
+        "reason": "题目要求完整控制方案设计和综合评估，完全符合D维度",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00742",
+      "dimension": "D",
+      "difficulty": "L4"
+    },
+    {
+      "clarity": {
+        "score": 4,
+        "reason": "术语CFH-Hard未解释，但题目要求给出定义，整体清晰可接受",
+        "flag": "none"
+      },
+      "correctness": {
+        "score": 4,
+        "reason": "定义和影响解释合理，但形式化表述中属性与攻击有细微混淆",
+        "flag": "review"
+      },
+      "difficulty_alignment": {
+        "score": 2,
+        "reason": "标注L4超出常规三级难度，实际难度约为L3",
+        "flag": "review"
+      },
+      "dimension_fit": {
+        "score": 3,
+        "reason": "主要考察定义（A），但要求分析影响，部分偏向C维度",
+        "flag": "review"
+      },
+      "question_id": "CS-EVO-00704",
+      "dimension": "A",
+      "difficulty": "L4"
+    },
+    {
+      "clarity": {
+        "score": 5,
+        "reason": "题目表述清晰，要求明确，无歧义",
+        "flag": "none"
+      },
+      "correctness": {
+        "score": 4,
+        "reason": "技术方案基本正确，但部分细节（如LNN具体结构、正定保证方法）未充分展开",
+        "flag": "none"
+      },
+      "difficulty_alignment": {
+        "score": 2,
+        "reason": "标注L2偏简单，实际需要综合设计能力，难度偏高",
+        "flag": "review"
+      },
+      "dimension_fit": {
+        "score": 5,
+        "reason": "完全符合D维度，要求完整方案设计与综合评估",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00157",
+      "dimension": "D",
+      "difficulty": "L2"
+    },
+    {
+      "clarity": {
+        "score": 5,
+        "reason": "题目场景、要求和约束条件明确，无歧义",
+        "flag": "none"
+      },
+      "correctness": {
+        "score": 5,
+        "reason": "数学模型、目标函数、权重分析和验证指标均正确合理",
+        "flag": "none"
+      },
+      "difficulty_alignment": {
+        "score": 5,
+        "reason": "题目涉及多机器人建模、LQR设计、差分隐私与综合分析，符合L3高难度",
+        "flag": "none"
+      },
+      "dimension_fit": {
+        "score": 5,
+        "reason": "要求从建模到控制器设计再到验证指标，属于完整设计与综合评估的D维度",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00824",
+      "dimension": "D",
+      "difficulty": "L3"
+    },
+    {
+      "clarity": {
+        "score": 5,
+        "reason": "题目表述明确无歧义，术语定义清晰",
+        "flag": "none"
+      },
+      "correctness": {
+        "score": 5,
+        "reason": "标准答案技术正确，数学解释无误",
+        "flag": "none"
+      },
+      "difficulty_alignment": {
+        "score": 4,
+        "reason": "题目为概念解释，难度中等，标注L3略偏高但可接受",
+        "flag": "none"
+      },
+      "dimension_fit": {
+        "score": 5,
+        "reason": "题目内容属于概念定义与数学表达维度，完全契合",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00932",
+      "dimension": "A",
+      "difficulty": "L3"
+    },
+    {
+      "clarity": {
+        "score": 4,
+        "reason": "题目表述基本清晰，但未明确是SISO系统，可能存在MIMO歧义",
+        "flag": "review"
+      },
+      "correctness": {
+        "score": 5,
+        "reason": "证明逻辑严密，物理解释准确",
+        "flag": "none"
+      },
+      "difficulty_alignment": {
+        "score": 4,
+        "reason": "实际难度与L3基本匹配，论证部分直接，物理解释需一定理解",
+        "flag": "none"
+      },
+      "dimension_fit": {
+        "score": 3,
+        "reason": "题目主要是数学等价性证明和物理解释，缺乏方案对比或参数变化分析，与C维度定义有偏差",
+        "flag": "review"
+      },
+      "question_id": "CS-EVO-00349",
+      "dimension": "C",
+      "difficulty": "L3"
+    },
+    {
+      "clarity": {
+        "score": 5,
+        "reason": "题目表述清晰，术语明确，无歧义。",
+        "flag": "none"
+      },
+      "correctness": {
+        "score": 5,
+        "reason": "标准答案部分分式展开和状态空间表达式正确无误。",
+        "flag": "none"
+      },
+      "difficulty_alignment": {
+        "score": 3,
+        "reason": "实际难度约为L3，标注L4偏高，略有偏差。",
+        "flag": "review"
+      },
+      "dimension_fit": {
+        "score": 5,
+        "reason": "题目要求多步计算求解，完全符合维度B的定义。",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00206",
+      "dimension": "B",
+      "difficulty": "L4"
+    },
+    {
+      "clarity": {
+        "score": 5,
+        "reason": "题目表述明确，术语清晰，无歧义",
+        "flag": "none"
+      },
+      "correctness": {
+        "score": 5,
+        "reason": "标准答案正确，定义和条件准确",
+        "flag": "none"
+      },
+      "difficulty_alignment": {
+        "score": 5,
+        "reason": "L1难度匹配，属于基础概念记忆",
+        "flag": "none"
+      },
+      "dimension_fit": {
+        "score": 5,
+        "reason": "A维度归类准确，考察函数定义与数学表达",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00847",
+      "dimension": "A",
+      "difficulty": "L1"
+    },
+    {
+      "clarity": {
+        "score": 5,
+        "reason": "题目表述明确，术语清晰无歧义",
+        "flag": "none"
+      },
+      "correctness": {
+        "score": 2,
+        "reason": "标准答案假设了特殊情形（如α与a的变差一致），缺乏普遍性，可能不正确",
+        "flag": "critical"
+      },
+      "difficulty_alignment": {
+        "score": 5,
+        "reason": "涉及抽象测度论概念，符合L3高难度",
+        "flag": "none"
+      },
+      "dimension_fit": {
+        "score": 5,
+        "reason": "直接考查概念定义，属于A维度",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00481",
+      "dimension": "A",
+      "difficulty": "L3"
+    },
+    {
+      "clarity": {
+        "score": 4,
+        "reason": "题目表述较清晰，但依赖未指定的教材表示公式，稍有模糊",
+        "flag": "none"
+      },
+      "correctness": {
+        "score": 3,
+        "reason": "标准答案中Hamiltonian和凸共轭表达式有误，推导不严谨，依赖未说明的定理",
+        "flag": "critical"
+      },
+      "difficulty_alignment": {
+        "score": 4,
+        "reason": "题目要求综合设计状态约束最优控制，复杂度高，基本匹配L3",
+        "flag": "none"
+      },
+      "dimension_fit": {
+        "score": 5,
+        "reason": "题目要求完整控制方案设计与综合评估，完全契合D维度",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00642",
+      "dimension": "D",
+      "difficulty": "L3"
+    },
+    {
+      "clarity": {
+        "score": 5,
+        "reason": "题目表述清晰，明确要求设计控制器并给出约束和优化目标，无歧义",
+        "flag": "none"
+      },
+      "correctness": {
+        "score": 5,
+        "reason": "标准答案技术正确，建模、LQR设计、参数整定及验证指标合理",
+        "flag": "none"
+      },
+      "difficulty_alignment": {
+        "score": 5,
+        "reason": "标注L3与实际难度匹配，需综合建模、设计、整定和验证，复杂度高",
+        "flag": "none"
+      },
+      "dimension_fit": {
+        "score": 5,
+        "reason": "题目要求完整控制方案设计与综合评估，符合D维度定义",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00905",
+      "dimension": "D",
+      "difficulty": "L3"
+    },
+    {
+      "clarity": {
+        "score": 4,
+        "reason": "术语未解释但表达式清晰，条件明确",
+        "flag": "none"
+      },
+      "correctness": {
+        "score": 5,
+        "reason": "数学推导和渐近分析正确",
+        "flag": "none"
+      },
+      "difficulty_alignment": {
+        "score": 3,
+        "reason": "证明渐近阶相对直接，标注L3偏高",
+        "flag": "review"
+      },
+      "dimension_fit": {
+        "score": 5,
+        "reason": "符合多步推理与计算求解特征",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00176",
+      "dimension": "B",
+      "difficulty": "L3"
+    },
+    {
+      "clarity": {
+        "score": 4,
+        "reason": "题目参数明确，但未给出教材公式(3.24)的具体形式，依赖外部上下文",
+        "flag": "review"
+      },
+      "correctness": {
+        "score": 5,
+        "reason": "代入参数计算正确，结果3.75无误",
+        "flag": "none"
+      },
+      "difficulty_alignment": {
+        "score": 2,
+        "reason": "标注L2但实际仅为简单代入计算，应属L1",
+        "flag": "review"
+      },
+      "dimension_fit": {
+        "score": 5,
+        "reason": "纯数值计算求解，符合B类多步推理与计算求解",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00166",
+      "dimension": "B",
+      "difficulty": "L2"
+    },
+    {
+      "clarity": {
+        "score": 5,
+        "reason": "题目明确要求写出三个关键条件，无歧义",
+        "flag": "none"
+      },
+      "correctness": {
+        "score": 5,
+        "reason": "标准答案正确描述了SMFE的三个耦合条件",
+        "flag": "none"
+      },
+      "difficulty_alignment": {
+        "score": 2,
+        "reason": "SMFE属于高级概念，实际难度远高于L1基础水平",
+        "flag": "review"
+      },
+      "dimension_fit": {
+        "score": 5,
+        "reason": "题目考察定义中的条件，属于概念定义与数学表达维度",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00081",
+      "dimension": "A",
+      "difficulty": "L1"
+    },
+    {
+      "clarity": {
+        "score": 2,
+        "reason": "微分器式(4.2)未定义，近似过程不明确，导致歧义",
+        "flag": "review"
+      },
+      "correctness": {
+        "score": 3,
+        "reason": "标准答案数学推导正确但未体现微分器近似，可能忽略关键条件",
+        "flag": "review"
+      },
+      "difficulty_alignment": {
+        "score": 2,
+        "reason": "实际难度较低，L4偏高",
+        "flag": "review"
+      },
+      "dimension_fit": {
+        "score": 4,
+        "reason": "符合多步推理计算，但可能涉及概念理解",
+        "flag": "none"
+      },
+      "question_id": "CS-EVO-00790",
+      "dimension": "B",
+      "difficulty": "L4"
+    }
+  ]
+}

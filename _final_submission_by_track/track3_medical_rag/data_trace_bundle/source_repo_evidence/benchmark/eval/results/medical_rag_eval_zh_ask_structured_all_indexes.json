@@ -1,0 +1,3381 @@
+{
+  "generated_at": "2026-05-15T20:16:07+0800",
+  "manifest": "data\\sources_medical\\chunks\\chunks_manifest.json",
+  "k": 3,
+  "with_synthesis": true,
+  "synthesis_model": "qwen3.5:9b",
+  "case_set": "zh_ask",
+  "trace_jsonl": "benchmark\\eval\\results\\medical_rag_zh_ask_structured_all_indexes_traces.jsonl",
+  "cases": [
+    {
+      "case_id": "zh_primary_endpoint_safety",
+      "query": "主要终点和安全性证据",
+      "target_labels": [
+        "primary_outcome",
+        "secondary_outcome",
+        "outcome_measures",
+        "adverse_events"
+      ],
+      "target_terms": [
+        "primary endpoint",
+        "adverse event",
+        "adverse events",
+        "safety"
+      ],
+      "focus": "中文 Ask: 主要终点与安全性"
+    },
+    {
+      "case_id": "zh_survival_endpoint",
+      "query": "总生存和无进展生存证据",
+      "target_labels": [
+        "primary_outcome",
+        "secondary_outcome",
+        "outcome_measures",
+        "statistical_analysis"
+      ],
+      "target_terms": [
+        "overall survival",
+        "progression-free survival",
+        "progression free survival"
+      ],
+      "focus": "中文 Ask: OS/PFS 证据"
+    },
+    {
+      "case_id": "zh_chemo_toxicity",
+      "query": "化疗剂量减少和治疗延迟的不良事件证据",
+      "target_labels": [
+        "intervention",
+        "secondary_outcome",
+        "adverse_events"
+      ],
+      "target_terms": [
+        "chemotherapy",
+        "dose reduction",
+        "treatment delay",
+        "adverse events",
+        "toxicit"
+      ],
+      "focus": "中文 Ask: 化疗剂量与毒性"
+    },
+    {
+      "case_id": "zh_serious_adverse_event",
+      "query": "严重不良事件的安全性终点证据",
+      "target_labels": [
+        "adverse_events",
+        "secondary_outcome",
+        "_data_collection_other"
+      ],
+      "target_terms": [
+        "serious adverse event",
+        "safety",
+        "endpoint"
+      ],
+      "focus": "中文 Ask: 严重不良事件"
+    },
+    {
+      "case_id": "zh_itt_population",
+      "query": "意向治疗分析人群的统计分析证据",
+      "target_labels": [
+        "statistical_analysis",
+        "_statistical_analysis_other",
+        "population"
+      ],
+      "target_terms": [
+        "intention-to-treat",
+        "intention to treat",
+        "statistical analysis"
+      ],
+      "focus": "中文 Ask: ITT 分析人群"
+    },
+    {
+      "case_id": "zh_closed_loop_mechanism",
+      "query": "为什么诊断后48个月内胰岛素需求上升支持早期使用自适应闭环系统？",
+      "target_labels": [
+        "primary_outcome",
+        "outcome_measures",
+        "_methods_other"
+      ],
+      "target_terms": [
+        "closed-loop",
+        "closed loop",
+        "insulin",
+        "hypoglycaemia",
+        "hypoglycemia",
+        "48"
+      ],
+      "focus": "中文 Ask: 闭环胰岛素机制解释"
+    },
+    {
+      "case_id": "zh_eligibility",
+      "query": "随机对照试验的纳入排除标准",
+      "target_labels": [
+        "population",
+        "_methods_other",
+        "_randomization_other"
+      ],
+      "target_terms": [
+        "randomized controlled trial",
+        "inclusion criteria",
+        "exclusion criteria",
+        "eligible"
+      ],
+      "focus": "中文 Ask: 纳入排除标准"
+    }
+  ],
+  "indexes": [
+    {
+      "label": "medical_qwen3_embedding_4b",
+      "index_dir": "data\\sources_medical\\index",
+      "embedding_provider": "ollama",
+      "embedding_model": "qwen3-embedding:4b",
+      "embedding_dim": 2560,
+      "query_embed_seconds": 0.0
+    },
+    {
+      "label": "index_bge_small",
+      "index_dir": "data\\sources_medical\\index_bge_small",
+      "embedding_provider": "hf",
+      "embedding_model": "BAAI/bge-small-en-v1.5",
+      "embedding_dim": 384,
+      "query_embed_seconds": 0.0
+    },
+    {
+      "label": "index_bge_m3",
+      "index_dir": "data\\sources_medical\\index_bge_m3",
+      "embedding_provider": "hf",
+      "embedding_model": "BAAI/bge-m3",
+      "embedding_dim": 1024,
+      "query_embed_seconds": 0.0
+    }
+  ],
+  "results": {
+    "medical_qwen3_embedding_4b": {
+      "zh_primary_endpoint_safety": {
+        "case": {
+          "case_id": "zh_primary_endpoint_safety",
+          "query": "主要终点和安全性证据",
+          "target_labels": [
+            "primary_outcome",
+            "secondary_outcome",
+            "outcome_measures",
+            "adverse_events"
+          ],
+          "target_terms": [
+            "primary endpoint",
+            "adverse event",
+            "adverse events",
+            "safety"
+          ],
+          "focus": "中文 Ask: 主要终点与安全性"
+        },
+        "search_query": "primary endpoint outcome safety adverse events",
+        "search_queries": [
+          "primary endpoint outcome safety adverse events"
+        ],
+        "query_language": "zh",
+        "query_rewrites": [
+          {
+            "source": "主要终点",
+            "rewrite": "primary endpoint"
+          },
+          {
+            "source": "终点",
+            "rewrite": "endpoint outcome"
+          },
+          {
+            "source": "安全性",
+            "rewrite": "safety adverse events"
+          }
+        ],
+        "rewrite_method": "rule_based_medical_terms",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": true,
+          "first_label_hit_rank": 1,
+          "matched_terms": [
+            "primary endpoint"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 1124,
+            "chunk_id": "PMC3002358_chunk_012",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "primary_outcome",
+            "medical_parent": "outcome_measures",
+            "source_section": "Primary outcome measures",
+            "source_file": "data/sources_medical/chunks/train/PMC3002358_chunk_012.md",
+            "preview": "# Primary outcome measures",
+            "multi_query_count": 1
+          },
+          {
+            "rank": 2,
+            "manifest_index": 3032,
+            "chunk_id": "PMC8600696_chunk_007",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "_introduction_other",
+            "medical_parent": "introduction",
+            "source_section": "Endpoints",
+            "source_file": "data/sources_medical/chunks/train/PMC8600696_chunk_007.md",
+            "preview": "# Endpoints  The primary endpoint is overall survival after R0/R1 resection (OS-res) (only patients with R0/R1 resection).  Secondary efficacy endpoints are OS of the entire patients cohort, R0/R1 resection rate and prog",
+            "multi_query_count": 1
+          },
+          {
+            "rank": 3,
+            "manifest_index": 741,
+            "chunk_id": "PMC12574440_chunk_034",
+            "score": 0.016129,
+            "mode": "hybrid",
+            "medical_label": "outcome_measures",
+            "medical_parent": "methods",
+            "source_section": "Other secondary efficacy endpoints",
+            "source_file": "data/sources_medical/chunks/train/PMC12574440_chunk_034.md",
+            "preview": "# Other secondary efficacy endpoints",
+            "multi_query_count": 1
+          }
+        ],
+        "synthesis": {
+          "model": "qwen3.5:9b",
+          "rag_mode": "evidence_structured",
+          "question_type": "safety_judgement",
+          "answer_strategy": [
+            "结论",
+            "安全性发现",
+            "适用边界",
+            "安全声明"
+          ],
+          "evidence_cards_count": 3,
+          "evidence_card_roles": [
+            "endpoint"
+          ],
+          "reasoning_steps": 2,
+          "answer": "该研究的主要终点为 R0/R1 切除后的总生存期（OS-res），次要疗效终点包括全队列总生存期、R0/R1 切除率和无进展生存期（PFS）。安全性次要终点包括不良事件（AE）的类型、频率和严重程度（依据 NCI CTCAE 5.0 分级），以及围手术期并发症和死亡率。",
+          "citations": [
+            "PMC8600696_chunk_007"
+          ],
+          "reasoning_trace": [
+            {
+              "step": "识别问题类型为安全性判断，检索证据中关于主要终点和安全性终点的描述。",
+              "citations": [
+                "PMC8600696_chunk_007"
+              ],
+              "status": "supported"
+            },
+            {
+              "step": "提取主要终点定义及安全性终点的具体指标和评估标准。",
+              "citations": [
+                "PMC8600696_chunk_007"
+              ],
+              "status": "supported"
+            }
+          ],
+          "claim_count": 3,
+          "supported_claims": 3,
+          "unsupported_claims": 0,
+          "citation_coverage": 1.0,
+          "confidence": "high",
+          "abstain": false,
+          "abstain_reason": "",
+          "evidence_sufficiency": {
+            "sufficient": true,
+            "query_terms": [],
+            "matched_terms": [],
+            "matched_term_count": 0,
+            "top_rrf_score": 0.016393,
+            "evidence_count": 3
+          }
+        }
+      },
+      "zh_survival_endpoint": {
+        "case": {
+          "case_id": "zh_survival_endpoint",
+          "query": "总生存和无进展生存证据",
+          "target_labels": [
+            "primary_outcome",
+            "secondary_outcome",
+            "outcome_measures",
+            "statistical_analysis"
+          ],
+          "target_terms": [
+            "overall survival",
+            "progression-free survival",
+            "progression free survival"
+          ],
+          "focus": "中文 Ask: OS/PFS 证据"
+        },
+        "search_query": "overall survival progression free",
+        "search_queries": [
+          "overall survival progression free"
+        ],
+        "query_language": "zh",
+        "query_rewrites": [
+          {
+            "source": "总生存",
+            "rewrite": "overall survival"
+          },
+          {
+            "source": "无进展生存",
+            "rewrite": "progression free survival"
+          }
+        ],
+        "rewrite_method": "rule_based_medical_terms",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": true,
+          "first_label_hit_rank": 3,
+          "matched_terms": [
+            "overall survival",
+            "progression-free survival"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 994,
+            "chunk_id": "PMC12928687_chunk_024",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "_statistical_analysis_other",
+            "medical_parent": "statistical_analysis",
+            "source_section": "Secondary End Points",
+            "source_file": "data/sources_medical/chunks/train/PMC12928687_chunk_024.md",
+            "preview": "# Secondary End Points  Twelve- and 24-month overall survival as well as distant progression-free survival will be evaluated by Kaplan-Meier analysis. All other secondary end points will be descriptively summarized.",
+            "multi_query_count": 1
+          },
+          {
+            "rank": 2,
+            "manifest_index": 2320,
+            "chunk_id": "PMC6937062_chunk_006",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "introduction",
+            "medical_parent": null,
+            "source_section": "Background",
+            "source_file": "data/sources_medical/chunks/train/PMC6937062_chunk_006.md",
+            "preview": "# Background  Prostate cancer (PC) is the most common male cancer in the UK and the second highest cause of male cancer death.1 In large part, PC is a slowly progressive disease and when detected at an early stage is man",
+            "multi_query_count": 1
+          },
+          {
+            "rank": 3,
+            "manifest_index": 254,
+            "chunk_id": "PMC10882371_chunk_024",
+            "score": 0.016129,
+            "mode": "hybrid",
+            "medical_label": "outcome_measures",
+            "medical_parent": "methods",
+            "source_section": "Tertiary outcome measures",
+            "source_file": "data/sources_medical/chunks/train/PMC10882371_chunk_024.md",
+            "preview": "# Tertiary outcome measures",
+            "multi_query_count": 1
+          }
+        ],
+        "synthesis": {
+          "model": "qwen3.5:9b",
+          "rag_mode": "evidence_structured",
+          "question_type": "efficacy_judgement",
+          "answer_strategy": [
+            "结论",
+            "关键终点",
+            "证据强度",
+            "局限"
+          ],
+          "evidence_cards_count": 3,
+          "evidence_card_roles": [
+            "context",
+            "endpoint"
+          ],
+          "reasoning_steps": 1,
+          "answer": "当前本地知识库证据不足，无法回答该问题。",
+          "citations": [],
+          "reasoning_trace": [
+            {
+              "step": "识别问题类型/匹配证据卡/组织回答",
+              "citations": [],
+              "status": "supported"
+            }
+          ],
+          "claim_count": 1,
+          "supported_claims": 0,
+          "unsupported_claims": 1,
+          "citation_coverage": 0.0,
+          "confidence": "low",
+          "abstain": true,
+          "abstain_reason": "证据中缺乏支持具体疗效结论的定量数据或研究结果。",
+          "evidence_sufficiency": {
+            "sufficient": true,
+            "query_terms": [],
+            "matched_terms": [],
+            "matched_term_count": 0,
+            "top_rrf_score": 0.016393,
+            "evidence_count": 3
+          }
+        }
+      },
+      "zh_chemo_toxicity": {
+        "case": {
+          "case_id": "zh_chemo_toxicity",
+          "query": "化疗剂量减少和治疗延迟的不良事件证据",
+          "target_labels": [
+            "intervention",
+            "secondary_outcome",
+            "adverse_events"
+          ],
+          "target_terms": [
+            "chemotherapy",
+            "dose reduction",
+            "treatment delay",
+            "adverse events",
+            "toxicit"
+          ],
+          "focus": "中文 Ask: 化疗剂量与毒性"
+        },
+        "search_query": "chemotherapy dose reduction treatment delay adverse events",
+        "search_queries": [
+          "chemotherapy dose reduction treatment delay adverse events",
+          "adverse events",
+          "chemotherapy dose reduction treatment delay"
+        ],
+        "query_language": "zh",
+        "query_rewrites": [
+          {
+            "source": "化疗",
+            "rewrite": "chemotherapy"
+          },
+          {
+            "source": "剂量减少",
+            "rewrite": "dose reduction"
+          },
+          {
+            "source": "治疗延迟",
+            "rewrite": "treatment delay"
+          },
+          {
+            "source": "不良事件",
+            "rewrite": "adverse events"
+          }
+        ],
+        "rewrite_method": "rule_based_medical_terms",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": true,
+          "first_label_hit_rank": 1,
+          "matched_terms": [
+            "adverse events",
+            "chemotherapy",
+            "dose reduction",
+            "treatment delay"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 1515,
+            "chunk_id": "PMC5490215_chunk_019",
+            "score": 0.032522,
+            "mode": "hybrid_multi_query",
+            "medical_label": "secondary_outcome",
+            "medical_parent": "outcome_measures",
+            "source_section": "Secondary outcomes",
+            "source_file": "data/sources_medical/chunks/train/PMC5490215_chunk_019.md",
+            "preview": "# Secondary outcomes  Secondary endpoints include adverse events (registered for every chemotherapy cycle after CTC criteria version 4.0), dose reductions, treatment delays (which follow the standardized guidelines of th",
+            "multi_query_count": 3
+          },
+          {
+            "rank": 2,
+            "manifest_index": 1512,
+            "chunk_id": "PMC5490215_chunk_016",
+            "score": 0.032522,
+            "mode": "hybrid_multi_query",
+            "medical_label": "intervention",
+            "medical_parent": "methods",
+            "source_section": "The oncological treatment",
+            "source_file": "data/sources_medical/chunks/train/PMC5490215_chunk_016.md",
+            "preview": "# The oncological treatment  The standard adjuvant chemotherapy is outlined in Table 2. The standard dose is based on body surface area (BSA), with a possible 25% primary dose reduction in frail patients.",
+            "multi_query_count": 3
+          },
+          {
+            "rank": 3,
+            "manifest_index": 436,
+            "chunk_id": "PMC11466402_chunk_015",
+            "score": 0.031498,
+            "mode": "hybrid_multi_query",
+            "medical_label": "intervention",
+            "medical_parent": "methods",
+            "source_section": "Extension Regimen Determination",
+            "source_file": "data/sources_medical/chunks/train/PMC11466402_chunk_015.md",
+            "preview": "# Extension Regimen Determination",
+            "multi_query_count": 3
+          }
+        ],
+        "synthesis": {
+          "model": "qwen3.5:9b",
+          "rag_mode": "evidence_structured",
+          "question_type": "safety_judgement",
+          "answer_strategy": [
+            "结论",
+            "安全性发现",
+            "适用边界",
+            "安全声明"
+          ],
+          "evidence_cards_count": 3,
+          "evidence_card_roles": [
+            "endpoint",
+            "intervention"
+          ],
+          "reasoning_steps": 1,
+          "answer": "当前本地知识库证据不足，无法回答该问题。",
+          "citations": [],
+          "reasoning_trace": [
+            {
+              "step": "识别问题类型/匹配证据卡/组织回答",
+              "citations": [],
+              "status": "supported"
+            }
+          ],
+          "claim_count": 1,
+          "supported_claims": 0,
+          "unsupported_claims": 1,
+          "citation_coverage": 0.0,
+          "confidence": "low",
+          "abstain": true,
+          "abstain_reason": "现有证据仅定义了剂量减少和治疗延迟的操作标准，未提供相关的不良事件发生数据或安全性分析结果，无法支持回答用户关于不良事件证据的问题。",
+          "evidence_sufficiency": {
+            "sufficient": true,
+            "query_terms": [],
+            "matched_terms": [],
+            "matched_term_count": 0,
+            "top_rrf_score": 0.032522,
+            "evidence_count": 3
+          }
+        }
+      },
+      "zh_serious_adverse_event": {
+        "case": {
+          "case_id": "zh_serious_adverse_event",
+          "query": "严重不良事件的安全性终点证据",
+          "target_labels": [
+            "adverse_events",
+            "secondary_outcome",
+            "_data_collection_other"
+          ],
+          "target_terms": [
+            "serious adverse event",
+            "safety",
+            "endpoint"
+          ],
+          "focus": "中文 Ask: 严重不良事件"
+        },
+        "search_query": "serious adverse event safety endpoint events outcome",
+        "search_queries": [
+          "serious adverse event safety endpoint events outcome"
+        ],
+        "query_language": "zh",
+        "query_rewrites": [
+          {
+            "source": "严重不良事件",
+            "rewrite": "serious adverse event safety endpoint"
+          },
+          {
+            "source": "不良事件",
+            "rewrite": "adverse events"
+          },
+          {
+            "source": "安全性",
+            "rewrite": "safety adverse events"
+          },
+          {
+            "source": "终点",
+            "rewrite": "endpoint outcome"
+          }
+        ],
+        "rewrite_method": "rule_based_medical_terms",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": true,
+          "first_label_hit_rank": 3,
+          "matched_terms": [
+            "safety",
+            "serious adverse event"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 495,
+            "chunk_id": "PMC11529615_chunk_024",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "_outcome_measures_other",
+            "medical_parent": "outcome_measures",
+            "source_section": "Safety analysis",
+            "source_file": "data/sources_medical/chunks/train/PMC11529615_chunk_024.md",
+            "preview": "# Safety analysis  Adverse events (AEs) will be assessed since the inclusion of the patient, at each study visit and until the end of the follow-up. AE will be analysed by a treatment group using descriptive statistical ",
+            "multi_query_count": 1
+          },
+          {
+            "rank": 2,
+            "manifest_index": 1996,
+            "chunk_id": "PMC6448906_chunk_007",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "methods",
+            "medical_parent": null,
+            "source_section": "Methods",
+            "source_file": "data/sources_medical/chunks/train/PMC6448906_chunk_007.md",
+            "preview": "The exercise protocol was performed on a cycle ergometer (Power Cube LF8.5G with Schiller software; Ganshorn, Niederlauer, Germany).  The $\\mathrm { H b A } _ { \\mathrm { 1 c } }$ level was determined by an immunochemica",
+            "multi_query_count": 1
+          },
+          {
+            "rank": 3,
+            "manifest_index": 2291,
+            "chunk_id": "PMC6921499_chunk_024",
+            "score": 0.016129,
+            "mode": "hybrid",
+            "medical_label": "_data_collection_other",
+            "medical_parent": "data_collection",
+            "source_section": "Safety monitoring",
+            "source_file": "data/sources_medical/chunks/train/PMC6921499_chunk_024.md",
+            "preview": "# Safety monitoring  In this population and within this clinical context, events that can be considered serious adverse events (SAEs), suspected unexpected serious adverse reactions (SUSA Rs) or serious adverse device ev",
+            "multi_query_count": 1
+          }
+        ],
+        "synthesis": {
+          "model": "qwen3.5:9b",
+          "rag_mode": "evidence_structured",
+          "question_type": "safety_judgement",
+          "answer_strategy": [
+            "结论",
+            "安全性发现",
+            "适用边界",
+            "安全声明"
+          ],
+          "evidence_cards_count": 3,
+          "evidence_card_roles": [
+            "method",
+            "safety"
+          ],
+          "reasoning_steps": 4,
+          "answer": "严重不良事件（SAEs）的安全性终点包括死亡、严重新发器官衰竭（如新开始肾脏替代治疗、机械循环支持或俯卧位通气）。此外，严重低血糖（血糖<2.8 mmol/l 伴抽搐或意识丧失，或需静脉/肌肉注射葡萄糖/胰高血糖素）和严重高血糖伴酮症酸中毒（血糖>13.9 mmol/l 伴低碳酸氢盐/低pH及酮症）也被定义为严重不良事件。所有SAEs、SUSARs和SADEs将按规定向相关机构报告，且申办方/研究者需购买涵盖研究期间及结束后4年内的责任保险。",
+          "citations": [
+            "PMC11529615_chunk_024",
+            "PMC6448906_chunk_007",
+            "PMC6921499_chunk_024"
+          ],
+          "reasoning_trace": [
+            {
+              "step": "识别问题类型为安全性判断，匹配证据卡中关于SAE定义、监测及报告的内容。",
+              "citations": [
+                "PMC6921499_chunk_024",
+                "PMC6448906_chunk_007",
+                "PMC11529615_chunk_024"
+              ],
+              "status": "supported"
+            },
+            {
+              "step": "从PMC6921499_chunk_024提取SAE的通用定义（死亡、严重新发器官衰竭）及报告要求。",
+              "citations": [
+                "PMC6921499_chunk_024"
+              ],
+              "status": "supported"
+            },
+            {
+              "step": "从PMC6448906_chunk_007提取特定于糖尿病研究的SAE定义（严重低血糖、严重高血糖伴酮症酸中毒）。",
+              "citations": [
+                "PMC6448906_chunk_007"
+              ],
+              "status": "supported"
+            },
+            {
+              "step": "从PMC11529615_chunk_024提取AEs的评估流程及统计分析方法作为补充安全性发现。",
+              "citations": [
+                "PMC11529615_chunk_024"
+              ],
+              "status": "supported"
+            }
+          ],
+          "claim_count": 6,
+          "supported_claims": 6,
+          "unsupported_claims": 0,
+          "citation_coverage": 1.0,
+          "confidence": "high",
+          "abstain": false,
+          "abstain_reason": "",
+          "evidence_sufficiency": {
+            "sufficient": true,
+            "query_terms": [],
+            "matched_terms": [],
+            "matched_term_count": 0,
+            "top_rrf_score": 0.016393,
+            "evidence_count": 3
+          }
+        }
+      },
+      "zh_itt_population": {
+        "case": {
+          "case_id": "zh_itt_population",
+          "query": "意向治疗分析人群的统计分析证据",
+          "target_labels": [
+            "statistical_analysis",
+            "_statistical_analysis_other",
+            "population"
+          ],
+          "target_terms": [
+            "intention-to-treat",
+            "intention to treat",
+            "statistical analysis"
+          ],
+          "focus": "中文 Ask: ITT 分析人群"
+        },
+        "search_query": "intention to treat population analysis statistical",
+        "search_queries": [
+          "intention to treat population analysis statistical"
+        ],
+        "query_language": "zh",
+        "query_rewrites": [
+          {
+            "source": "意向治疗",
+            "rewrite": "intention to treat population"
+          },
+          {
+            "source": "分析人群",
+            "rewrite": "analysis population"
+          },
+          {
+            "source": "统计分析",
+            "rewrite": "statistical analysis"
+          }
+        ],
+        "rewrite_method": "rule_based_medical_terms",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 2,
+          "label_hit_at_k": true,
+          "first_label_hit_rank": 2,
+          "matched_terms": [
+            "statistical analysis"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 1034,
+            "chunk_id": "PMC13019998_chunk_022",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "intervention",
+            "medical_parent": "methods",
+            "source_section": "Assignment of interventions: allocation",
+            "source_file": "data/sources_medical/chunks/train/PMC13019998_chunk_022.md",
+            "preview": "# Assignment of interventions: allocation",
+            "multi_query_count": 1
+          },
+          {
+            "rank": 2,
+            "manifest_index": 814,
+            "chunk_id": "PMC12742169_chunk_024",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "statistical_analysis",
+            "medical_parent": "methods",
+            "source_section": "Statistical analysis plan",
+            "source_file": "data/sources_medical/chunks/train/PMC12742169_chunk_024.md",
+            "preview": "# Statistical analysis plan  Descriptive statistics will be calculated as percentages for discrete variables, and median with IQR or mean with SE of the mean for continuous variables, as appropriate.  Continuous outcome ",
+            "multi_query_count": 1
+          },
+          {
+            "rank": 3,
+            "manifest_index": 738,
+            "chunk_id": "PMC12574440_chunk_031",
+            "score": 0.016129,
+            "mode": "hybrid",
+            "medical_label": "statistical_analysis",
+            "medical_parent": "methods",
+            "source_section": "Statistical analysis",
+            "source_file": "data/sources_medical/chunks/train/PMC12574440_chunk_031.md",
+            "preview": "# Statistical analysis  All randomised participants with/without protocol violation and including dropouts and withdrawals will be included in the analysis according to intention-totreat principle.",
+            "multi_query_count": 1
+          }
+        ],
+        "synthesis": {
+          "model": "qwen3.5:9b",
+          "rag_mode": "evidence_structured",
+          "question_type": "population_applicability",
+          "answer_strategy": [
+            "结论",
+            "研究人群",
+            "外推边界",
+            "局限"
+          ],
+          "evidence_cards_count": 3,
+          "evidence_card_roles": [
+            "intervention",
+            "method"
+          ],
+          "reasoning_steps": 3,
+          "answer": "意向治疗（ITT）分析人群包括所有随机化参与者，无论其是否违反方案、是否脱落或退出研究。该分析策略旨在评估治疗的真实世界有效性，并展示其实际适用性。",
+          "citations": [
+            "PMC12574440_chunk_031",
+            "PMC12742169_chunk_024"
+          ],
+          "reasoning_trace": [
+            {
+              "step": "识别问题类型为人群适用性，匹配证据卡中关于统计分析及人群定义的片段。",
+              "citations": [
+                "PMC12574440_chunk_031",
+                "PMC12742169_chunk_024"
+              ],
+              "status": "supported"
+            },
+            {
+              "step": "提取关于 ITT 分析人群定义的证据，构建结论。",
+              "citations": [
+                "PMC12574440_chunk_031"
+              ],
+              "status": "supported"
+            },
+            {
+              "step": "提取关于 ITT 分析目的（真实世界有效性）的证据，补充结论。",
+              "citations": [
+                "PMC12742169_chunk_024"
+              ],
+              "status": "supported"
+            }
+          ],
+          "claim_count": 2,
+          "supported_claims": 2,
+          "unsupported_claims": 0,
+          "citation_coverage": 1.0,
+          "confidence": "high",
+          "abstain": false,
+          "abstain_reason": "",
+          "evidence_sufficiency": {
+            "sufficient": true,
+            "query_terms": [],
+            "matched_terms": [],
+            "matched_term_count": 0,
+            "top_rrf_score": 0.016393,
+            "evidence_count": 3
+          }
+        }
+      },
+      "zh_closed_loop_mechanism": {
+        "case": {
+          "case_id": "zh_closed_loop_mechanism",
+          "query": "为什么诊断后48个月内胰岛素需求上升支持早期使用自适应闭环系统？",
+          "target_labels": [
+            "primary_outcome",
+            "outcome_measures",
+            "_methods_other"
+          ],
+          "target_terms": [
+            "closed-loop",
+            "closed loop",
+            "insulin",
+            "hypoglycaemia",
+            "hypoglycemia",
+            "48"
+          ],
+          "focus": "中文 Ask: 闭环胰岛素机制解释"
+        },
+        "search_query": "48 months insulin requirements closed loop daily dose adaptive",
+        "search_queries": [
+          "48 months insulin requirements closed loop daily dose adaptive"
+        ],
+        "query_language": "zh",
+        "query_rewrites": [
+          {
+            "source": "48个月",
+            "rewrite": "48 months insulin requirements closed loop"
+          },
+          {
+            "source": "胰岛素需求",
+            "rewrite": "insulin requirements daily insulin dose"
+          },
+          {
+            "source": "自适应闭环",
+            "rewrite": "adaptive closed loop insulin"
+          },
+          {
+            "source": "闭环",
+            "rewrite": "closed loop"
+          }
+        ],
+        "rewrite_method": "rule_based_medical_terms",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": false,
+          "first_label_hit_rank": null,
+          "matched_terms": [
+            "48",
+            "closed loop",
+            "closed-loop",
+            "insulin"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 2685,
+            "chunk_id": "PMC7618672_chunk_016",
+            "score": 0.032787,
+            "mode": "hybrid",
+            "medical_label": "conclusion",
+            "medical_parent": null,
+            "source_section": "Conclusions",
+            "source_file": "data/sources_medical/chunks/eval/PMC7618672_chunk_016.md",
+            "preview": "# Conclusions  In conclusion, over the first 48 months after diagnosis of type 1 diabetes, insulin requirements in children and adolescents more than double with closed loop insulin delivery. Over time, a greater proport",
+            "multi_query_count": 1
+          },
+          {
+            "rank": 2,
+            "manifest_index": 2673,
+            "chunk_id": "PMC7618672_chunk_004",
+            "score": 0.032258,
+            "mode": "hybrid",
+            "medical_label": "front_matter",
+            "medical_parent": null,
+            "source_section": "Abstract",
+            "source_file": "data/sources_medical/chunks/train/PMC7618672_chunk_004.md",
+            "preview": "# Abstract  Objective: To evaluate trends in insulin delivery and day-to-day variability of insulin requirements over 48 months of hybrid closed-loop use following diagnosis of type 1 diabetes in individuals aged 10 to 1",
+            "multi_query_count": 1
+          },
+          {
+            "rank": 3,
+            "manifest_index": 2689,
+            "chunk_id": "PMC7618672_chunk_020",
+            "score": 0.03125,
+            "mode": "hybrid",
+            "medical_label": "references",
+            "medical_parent": null,
+            "source_section": "References",
+            "source_file": "data/sources_medical/chunks/eval/PMC7618672_chunk_020.md",
+            "preview": "| Time (days) | Solid Line | Dashed Line | Dotted Line | |-------------|------------|-------------|-------------| | 0           | 25         | 30          | 20          | | 6           | 35         | 40          | 30    ",
+            "multi_query_count": 1
+          }
+        ],
+        "synthesis": {
+          "model": "qwen3.5:9b",
+          "rag_mode": "evidence_structured",
+          "question_type": "mechanism_explanation",
+          "answer_strategy": [
+            "结论",
+            "机制解释",
+            "适用边界",
+            "安全声明"
+          ],
+          "evidence_cards_count": 3,
+          "evidence_card_roles": [
+            "context"
+          ],
+          "reasoning_steps": 3,
+          "answer": "诊断后48个月内胰岛素需求上升支持早期使用自适应闭环系统，主要基于以下结论与机制：\n\n1. **结论**：在确诊1型糖尿病后的前48个月内，儿童和青少年的胰岛素需求量会显著增加（超过翻倍），且每日胰岛素需求的日波动性（variability）在诊断初期即处于高水平并持续存在 [PMC7618672_chunk_016], [PMC7618672_chunk_004]。\n\n2. **机制解释**：\n   - **需求激增与波动性**：研究显示，从诊断后0-3个月到42-48个月，总日剂量（TDD）从约27单位增加到66单位，且日波动系数（CV）在诊断初期高达23.3%并保持稳定 [PMC7618672_chunk_004]。这种高波动性意味着患者的胰岛素敏感性随时间、饮食、活动等因素变化剧烈。\n   - **自适应系统的必要性**：由于日波动性高且胰岛素需求随时间显著增长，传统的固定剂量方案难以应对这种快速变化的生理状态。自适应闭环系统能够根据实时血糖数据动态调整基础率和追加剂量，从而更好地适应这种高波动性和需求增长，减少人工调整的频率和误差 [PMC7618672_chunk_016], [PMC7618672_chunk_004]。\n   - **算法比例变化**：随着时间推移，闭环算法提供的胰岛素比例逐渐增加，表明系统能更好地处理日益增长的胰岛素需求 [PMC7618672_chunk_016]。\n\n3. **适用边界**：该结论主要基于10至16岁的新诊断儿童和青少年群体，使用混合闭环系统（hybrid closed-loop）的数据 [PMC7618672_chunk_004]。\n\n4. **安全声明**：本回答仅基于提供的文献证据进行解释，不构成医疗建议。胰岛素剂量的调整及闭环系统的启用必须在专业医生指导下进行，个体情况可能存在差异。",
+          "citations": [
+            "PMC7618672_chunk_016",
+            "PMC7618672_chunk_004"
+          ],
+          "reasoning_trace": [
+            {
+              "step": "识别问题类型为机制解释，匹配证据卡中关于胰岛素需求趋势和波动性的描述。",
+              "citations": [
+                "PMC7618672_chunk_016",
+                "PMC7618672_chunk_004"
+              ],
+              "status": "supported"
+            },
+            {
+              "step": "提取证据中关于48个月内胰岛素需求翻倍及波动性高的数据，作为结论依据。",
+              "citations": [
+                "PMC7618672_chunk_016",
+                "PMC7618672_chunk_004"
+              ],
+              "status": "supported"
+            },
+            {
+              "step": "从证据中推导高波动性和需求增长对自适应系统需求的逻辑链条。",
+              "citations": [
+                "PMC7618672_chunk_016",
+                "PMC7618672_chunk_004"
+              ],
+              "status": "supported"
+            }
+          ],
+          "claim_count": 2,
+          "supported_claims": 2,
+          "unsupported_claims": 0,
+          "citation_coverage": 1.0,
+          "confidence": "high",
+          "abstain": false,
+          "abstain_reason": "",
+          "evidence_sufficiency": {
+            "sufficient": true,
+            "query_terms": [],
+            "matched_terms": [],
+            "matched_term_count": 0,
+            "top_rrf_score": 0.032787,
+            "evidence_count": 3
+          }
+        }
+      },
+      "zh_eligibility": {
+        "case": {
+          "case_id": "zh_eligibility",
+          "query": "随机对照试验的纳入排除标准",
+          "target_labels": [
+            "population",
+            "_methods_other",
+            "_randomization_other"
+          ],
+          "target_terms": [
+            "randomized controlled trial",
+            "inclusion criteria",
+            "exclusion criteria",
+            "eligible"
+          ],
+          "focus": "中文 Ask: 纳入排除标准"
+        },
+        "search_query": "randomized controlled trial inclusion criteria exclusion",
+        "search_queries": [
+          "randomized controlled trial inclusion criteria exclusion",
+          "inclusion criteria exclusion"
+        ],
+        "query_language": "zh",
+        "query_rewrites": [
+          {
+            "source": "随机对照",
+            "rewrite": "randomized controlled trial"
+          },
+          {
+            "source": "纳入排除",
+            "rewrite": "inclusion criteria exclusion criteria"
+          },
+          {
+            "source": "排除标准",
+            "rewrite": "exclusion criteria"
+          }
+        ],
+        "rewrite_method": "rule_based_medical_terms",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": true,
+          "first_label_hit_rank": 1,
+          "matched_terms": [
+            "exclusion criteria"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 2080,
+            "chunk_id": "PMC6561428_chunk_012",
+            "score": 0.032787,
+            "mode": "hybrid_multi_query",
+            "medical_label": "_randomization_other",
+            "medical_parent": "randomization",
+            "source_section": "Box 1 Inclusion and exclusion criteria",
+            "source_file": "data/sources_medical/chunks/train/PMC6561428_chunk_012.md",
+            "preview": "# Box 1 Inclusion and exclusion criteria",
+            "multi_query_count": 2
+          },
+          {
+            "rank": 2,
+            "manifest_index": 1763,
+            "chunk_id": "PMC6091910_chunk_007",
+            "score": 0.016129,
+            "mode": "hybrid_multi_query",
+            "medical_label": "methods",
+            "medical_parent": null,
+            "source_section": "Methods",
+            "source_file": "data/sources_medical/chunks/train/PMC6091910_chunk_007.md",
+            "preview": "# Methods  This is a multicentre, unblinded, parallel, randomised controlled phase III home trial, conducted by five tertiary paediatric diabetes centres in Australia. The trial has been approved. Ethics approval for the",
+            "multi_query_count": 2
+          },
+          {
+            "rank": 3,
+            "manifest_index": 2620,
+            "chunk_id": "PMC7526307_chunk_019",
+            "score": 0.016129,
+            "mode": "hybrid_multi_query",
+            "medical_label": "methods",
+            "medical_parent": null,
+            "source_section": "Box 1 Core Protocol and SPRY-Metformin Domain-Specific Appendix inclusion and exclusion criteria",
+            "source_file": "data/sources_medical/chunks/train/PMC7526307_chunk_019.md",
+            "preview": "# Box 1 Core Protocol and SPRY-Metformin Domain-Specific Appendix inclusion and exclusion criteria",
+            "multi_query_count": 2
+          }
+        ],
+        "synthesis": {
+          "model": "qwen3.5:9b",
+          "rag_mode": "evidence_structured",
+          "question_type": "population_applicability",
+          "answer_strategy": [
+            "结论",
+            "研究人群",
+            "外推边界",
+            "局限"
+          ],
+          "evidence_cards_count": 3,
+          "evidence_card_roles": [
+            "method",
+            "population"
+          ],
+          "reasoning_steps": 1,
+          "answer": "当前本地知识库证据不足，无法回答该问题。",
+          "citations": [],
+          "reasoning_trace": [
+            {
+              "step": "识别问题类型/匹配证据卡/组织回答",
+              "citations": [],
+              "status": "supported"
+            }
+          ],
+          "claim_count": 1,
+          "supported_claims": 0,
+          "unsupported_claims": 1,
+          "citation_coverage": 0.0,
+          "confidence": "low",
+          "abstain": true,
+          "abstain_reason": "证据片段中缺乏具体的纳入排除标准文本内容，无法支持回答。",
+          "evidence_sufficiency": {
+            "sufficient": true,
+            "query_terms": [],
+            "matched_terms": [],
+            "matched_term_count": 0,
+            "top_rrf_score": 0.032787,
+            "evidence_count": 3
+          }
+        }
+      }
+    },
+    "index_bge_small": {
+      "zh_primary_endpoint_safety": {
+        "case": {
+          "case_id": "zh_primary_endpoint_safety",
+          "query": "主要终点和安全性证据",
+          "target_labels": [
+            "primary_outcome",
+            "secondary_outcome",
+            "outcome_measures",
+            "adverse_events"
+          ],
+          "target_terms": [
+            "primary endpoint",
+            "adverse event",
+            "adverse events",
+            "safety"
+          ],
+          "focus": "中文 Ask: 主要终点与安全性"
+        },
+        "search_query": "primary endpoint outcome safety adverse events",
+        "search_queries": [
+          "primary endpoint outcome safety adverse events"
+        ],
+        "query_language": "zh",
+        "query_rewrites": [
+          {
+            "source": "主要终点",
+            "rewrite": "primary endpoint"
+          },
+          {
+            "source": "终点",
+            "rewrite": "endpoint outcome"
+          },
+          {
+            "source": "安全性",
+            "rewrite": "safety adverse events"
+          }
+        ],
+        "rewrite_method": "rule_based_medical_terms",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": true,
+          "first_label_hit_rank": 2,
+          "matched_terms": [
+            "primary endpoint"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 3032,
+            "chunk_id": "PMC8600696_chunk_007",
+            "score": 0.032266,
+            "mode": "hybrid",
+            "medical_label": "_introduction_other",
+            "medical_parent": "introduction",
+            "source_section": "Endpoints",
+            "source_file": "data/sources_medical/chunks/train/PMC8600696_chunk_007.md",
+            "preview": "# Endpoints  The primary endpoint is overall survival after R0/R1 resection (OS-res) (only patients with R0/R1 resection).  Secondary efficacy endpoints are OS of the entire patients cohort, R0/R1 resection rate and prog",
+            "multi_query_count": 1
+          },
+          {
+            "rank": 2,
+            "manifest_index": 3165,
+            "chunk_id": "PMC9443636_chunk_010",
+            "score": 0.031281,
+            "mode": "hybrid",
+            "medical_label": "outcome_measures",
+            "medical_parent": "methods",
+            "source_section": "Outcomes",
+            "source_file": "data/sources_medical/chunks/train/PMC9443636_chunk_010.md",
+            "preview": "# Outcomes  All outcome defnitions were prespecifed and described in detail in the published study protocol [17]. Te primary endpoint was PK target attainment (TA), during the frst 24 h following randomisation for the pr",
+            "multi_query_count": 1
+          },
+          {
+            "rank": 3,
+            "manifest_index": 558,
+            "chunk_id": "PMC11929207_chunk_020",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "primary_outcome",
+            "medical_parent": "outcome_measures",
+            "source_section": "Primary endpoint",
+            "source_file": "data/sources_medical/chunks/train/PMC11929207_chunk_020.md",
+            "preview": "# Primary endpoint  Te primary endpoint, 28-day mortality, will be analyzed using a mixed-efects binary logistic regression [31]. Tis regression will include treatment efect and source of sepsis as fxed efects and site a",
+            "multi_query_count": 1
+          }
+        ],
+        "synthesis": {
+          "model": "qwen3.5:9b",
+          "rag_mode": "evidence_structured",
+          "question_type": "safety_judgement",
+          "answer_strategy": [
+            "结论",
+            "安全性发现",
+            "适用边界",
+            "安全声明"
+          ],
+          "evidence_cards_count": 3,
+          "evidence_card_roles": [
+            "endpoint"
+          ],
+          "reasoning_steps": 4,
+          "answer": "根据提供的证据，主要研究终点包括总生存期（OS）、28 天死亡率、药代动力学目标达成率等。安全性证据主要涉及不良事件（AE）的类型、频率和严重程度（依据 NCI CTCAE v5.0）、围手术期并发症及死亡率、ICU 出院及医院出院时的死亡率、住院时间、急性肾损伤（AKI）发生率等。部分研究针对不同剂量组（低剂量、标准剂量、高剂量）进行了预定义的安全性分析，重点关注死亡率和肾衰竭。",
+          "citations": [
+            "PMC8600696_chunk_007",
+            "PMC9443636_chunk_010",
+            "PMC11929207_chunk_020"
+          ],
+          "reasoning_trace": [
+            {
+              "step": "识别问题类型为安全性判断，检索证据卡中关于主要终点和安全性终点的定义。",
+              "citations": [
+                "PMC8600696_chunk_007",
+                "PMC9443636_chunk_010",
+                "PMC11929207_chunk_020"
+              ],
+              "status": "supported"
+            },
+            {
+              "step": "提取各证据中关于主要终点（OS, 28-day mortality, PK target attainment）的具体定义。",
+              "citations": [
+                "PMC8600696_chunk_007",
+                "PMC9443636_chunk_010",
+                "PMC11929207_chunk_020"
+              ],
+              "status": "supported"
+            },
+            {
+              "step": "提取各证据中关于安全性终点（AE, 围手术期并发症，死亡率，AKI）及剂量分组分析的描述。",
+              "citations": [
+                "PMC8600696_chunk_007",
+                "PMC9443636_chunk_010"
+              ],
+              "status": "supported"
+            },
+            {
+              "step": "综合所有证据，构建关于主要终点和安全性证据的结论性回答。",
+              "citations": [
+                "PMC8600696_chunk_007",
+                "PMC9443636_chunk_010",
+                "PMC11929207_chunk_020"
+              ],
+              "status": "supported"
+            }
+          ],
+          "claim_count": 5,
+          "supported_claims": 5,
+          "unsupported_claims": 0,
+          "citation_coverage": 1.0,
+          "confidence": "high",
+          "abstain": false,
+          "abstain_reason": "",
+          "evidence_sufficiency": {
+            "sufficient": true,
+            "query_terms": [],
+            "matched_terms": [],
+            "matched_term_count": 0,
+            "top_rrf_score": 0.032266,
+            "evidence_count": 3
+          }
+        }
+      },
+      "zh_survival_endpoint": {
+        "case": {
+          "case_id": "zh_survival_endpoint",
+          "query": "总生存和无进展生存证据",
+          "target_labels": [
+            "primary_outcome",
+            "secondary_outcome",
+            "outcome_measures",
+            "statistical_analysis"
+          ],
+          "target_terms": [
+            "overall survival",
+            "progression-free survival",
+            "progression free survival"
+          ],
+          "focus": "中文 Ask: OS/PFS 证据"
+        },
+        "search_query": "overall survival progression free",
+        "search_queries": [
+          "overall survival progression free"
+        ],
+        "query_language": "zh",
+        "query_rewrites": [
+          {
+            "source": "总生存",
+            "rewrite": "overall survival"
+          },
+          {
+            "source": "无进展生存",
+            "rewrite": "progression free survival"
+          }
+        ],
+        "rewrite_method": "rule_based_medical_terms",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": false,
+          "first_label_hit_rank": null,
+          "matched_terms": [
+            "overall survival",
+            "progression-free survival"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 994,
+            "chunk_id": "PMC12928687_chunk_024",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "_statistical_analysis_other",
+            "medical_parent": "statistical_analysis",
+            "source_section": "Secondary End Points",
+            "source_file": "data/sources_medical/chunks/train/PMC12928687_chunk_024.md",
+            "preview": "# Secondary End Points  Twelve- and 24-month overall survival as well as distant progression-free survival will be evaluated by Kaplan-Meier analysis. All other secondary end points will be descriptively summarized.",
+            "multi_query_count": 1
+          },
+          {
+            "rank": 2,
+            "manifest_index": 2320,
+            "chunk_id": "PMC6937062_chunk_006",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "introduction",
+            "medical_parent": null,
+            "source_section": "Background",
+            "source_file": "data/sources_medical/chunks/train/PMC6937062_chunk_006.md",
+            "preview": "# Background  Prostate cancer (PC) is the most common male cancer in the UK and the second highest cause of male cancer death.1 In large part, PC is a slowly progressive disease and when detected at an early stage is man",
+            "multi_query_count": 1
+          },
+          {
+            "rank": 3,
+            "manifest_index": 2139,
+            "chunk_id": "PMC6726216_chunk_018",
+            "score": 0.016129,
+            "mode": "hybrid",
+            "medical_label": "adverse_events",
+            "medical_parent": "results",
+            "source_section": "Training set: Probability density function / mortality fraction",
+            "source_file": "data/sources_medical/chunks/train/PMC6726216_chunk_018.md",
+            "preview": "# Training set: Probability density function / mortality fraction  For the participants in NSABP B15, observed survival at each yearly interval following diagnosis was used to generate a survival curve for the group as a",
+            "multi_query_count": 1
+          }
+        ],
+        "synthesis": {
+          "model": "qwen3.5:9b",
+          "rag_mode": "evidence_structured",
+          "question_type": "efficacy_judgement",
+          "answer_strategy": [
+            "结论",
+            "关键终点",
+            "证据强度",
+            "局限"
+          ],
+          "evidence_cards_count": 3,
+          "evidence_card_roles": [
+            "context",
+            "endpoint",
+            "safety"
+          ],
+          "reasoning_steps": 5,
+          "answer": "现有证据表明，对于前列腺癌（PC），特别是转移性去势抵抗性前列腺癌（mCRPC），在初始激素治疗基础上联合化疗（多西他赛）或其他激素疗法（阿比特龙、恩杂鲁胺）可显著延长总生存期（OS）和无进展生存期（PFS）。此外，针对雄激素受体轴靶向药物（如阿帕鲁胺）的随机试验也显示，与安慰剂相比，联合激素治疗能延长总生存期和影像学无进展生存期。然而，证据指出 mCRPC 通常在 3 年内出现且预后不良，且部分生存预测模型（如 CancerMath）在特定人群（非 ER+/PR+ 乳腺癌）中可能高估早期生存率，提示需结合具体人群特征解读生存数据。",
+          "citations": [
+            "PMC6937062_chunk_006",
+            "PMC12928687_chunk_024",
+            "PMC6726216_chunk_018"
+          ],
+          "reasoning_trace": [
+            {
+              "step": "识别问题类型为疗效判断，需检索总生存（OS）和无进展生存（PFS）相关证据。",
+              "citations": [
+                "PMC6937062_chunk_006",
+                "PMC12928687_chunk_024"
+              ],
+              "status": "supported"
+            },
+            {
+              "step": "从背景证据中提取前列腺癌疾病特征及 mCRPC 的预后情况。",
+              "citations": [
+                "PMC6937062_chunk_006"
+              ],
+              "status": "supported"
+            },
+            {
+              "step": "从临床试验结果中提取联合治疗对 OS 和 PFS 的改善证据。",
+              "citations": [
+                "PMC6937062_chunk_006"
+              ],
+              "status": "supported"
+            },
+            {
+              "step": "确认 OS 和 PFS 作为次要终点的统计评估方法。",
+              "citations": [
+                "PMC12928687_chunk_024"
+              ],
+              "status": "supported"
+            },
+            {
+              "step": "识别生存预测模型的局限性及特定人群偏差。",
+              "citations": [
+                "PMC6726216_chunk_018"
+              ],
+              "status": "supported"
+            }
+          ],
+          "claim_count": 5,
+          "supported_claims": 5,
+          "unsupported_claims": 0,
+          "citation_coverage": 1.0,
+          "confidence": "high",
+          "abstain": false,
+          "abstain_reason": "",
+          "evidence_sufficiency": {
+            "sufficient": true,
+            "query_terms": [],
+            "matched_terms": [],
+            "matched_term_count": 0,
+            "top_rrf_score": 0.016393,
+            "evidence_count": 3
+          }
+        }
+      },
+      "zh_chemo_toxicity": {
+        "case": {
+          "case_id": "zh_chemo_toxicity",
+          "query": "化疗剂量减少和治疗延迟的不良事件证据",
+          "target_labels": [
+            "intervention",
+            "secondary_outcome",
+            "adverse_events"
+          ],
+          "target_terms": [
+            "chemotherapy",
+            "dose reduction",
+            "treatment delay",
+            "adverse events",
+            "toxicit"
+          ],
+          "focus": "中文 Ask: 化疗剂量与毒性"
+        },
+        "search_query": "chemotherapy dose reduction treatment delay adverse events",
+        "search_queries": [
+          "chemotherapy dose reduction treatment delay adverse events",
+          "adverse events",
+          "chemotherapy dose reduction treatment delay"
+        ],
+        "query_language": "zh",
+        "query_rewrites": [
+          {
+            "source": "化疗",
+            "rewrite": "chemotherapy"
+          },
+          {
+            "source": "剂量减少",
+            "rewrite": "dose reduction"
+          },
+          {
+            "source": "治疗延迟",
+            "rewrite": "treatment delay"
+          },
+          {
+            "source": "不良事件",
+            "rewrite": "adverse events"
+          }
+        ],
+        "rewrite_method": "rule_based_medical_terms",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": true,
+          "first_label_hit_rank": 1,
+          "matched_terms": [
+            "adverse events",
+            "chemotherapy",
+            "dose reduction",
+            "toxicit"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 3040,
+            "chunk_id": "PMC8600696_chunk_015",
+            "score": 0.032787,
+            "mode": "hybrid_multi_query",
+            "medical_label": "intervention",
+            "medical_parent": "methods",
+            "source_section": "Dose modifications and prerequisites for the start of a new cycle",
+            "source_file": "data/sources_medical/chunks/train/PMC8600696_chunk_015.md",
+            "preview": "# Dose modifications and prerequisites for the start of a new cycle  Doses will be reduced for haematological and nonhaematological toxicities. In case of concurrent toxicities, all dose modifications should be based on ",
+            "multi_query_count": 3
+          },
+          {
+            "rank": 2,
+            "manifest_index": 1512,
+            "chunk_id": "PMC5490215_chunk_016",
+            "score": 0.031025,
+            "mode": "hybrid_multi_query",
+            "medical_label": "intervention",
+            "medical_parent": "methods",
+            "source_section": "The oncological treatment",
+            "source_file": "data/sources_medical/chunks/train/PMC5490215_chunk_016.md",
+            "preview": "# The oncological treatment  The standard adjuvant chemotherapy is outlined in Table 2. The standard dose is based on body surface area (BSA), with a possible 25% primary dose reduction in frail patients.",
+            "multi_query_count": 3
+          },
+          {
+            "rank": 3,
+            "manifest_index": 2588,
+            "chunk_id": "PMC7470506_chunk_025",
+            "score": 0.016393,
+            "mode": "hybrid_multi_query",
+            "medical_label": "_ethical_approval_other",
+            "medical_parent": "ethical_approval",
+            "source_section": "Adverse events",
+            "source_file": "data/sources_medical/chunks/train/PMC7470506_chunk_025.md",
+            "preview": "# Adverse events  All adverse events will be monitored and documented until the end of study. Adverse events are reported to the trial sponsor according to their standard operating procedure for further investigation. As",
+            "multi_query_count": 3
+          }
+        ],
+        "synthesis": {
+          "model": "qwen3.5:9b",
+          "rag_mode": "evidence_structured",
+          "question_type": "safety_judgement",
+          "answer_strategy": [
+            "结论",
+            "安全性发现",
+            "适用边界",
+            "安全声明"
+          ],
+          "evidence_cards_count": 3,
+          "evidence_card_roles": [
+            "intervention",
+            "safety"
+          ],
+          "reasoning_steps": 4,
+          "answer": "化疗剂量减少适用于血液学和非血液学毒性，若并发毒性则基于最严重的先前毒性进行调整；若需进一步减量则应停止治疗。治疗延迟方面，因不良事件导致的周期延迟最多为 7 天；若延迟超过 7 天则取消该周期并按计划启动下一周期；若延迟超过 28 天则应永久停止治疗。",
+          "citations": [
+            "PMC8600696_chunk_015",
+            "PMC5490215_chunk_016"
+          ],
+          "reasoning_trace": [
+            {
+              "step": "识别问题类型为安全性判断，匹配证据卡中关于剂量调整和延迟的标准。",
+              "citations": [
+                "PMC8600696_chunk_015",
+                "PMC5490215_chunk_016"
+              ],
+              "status": "supported"
+            },
+            {
+              "step": "提取关于剂量减少的具体指征（血液学/非血液学毒性）及并发毒性处理原则。",
+              "citations": [
+                "PMC8600696_chunk_015"
+              ],
+              "status": "supported"
+            },
+            {
+              "step": "提取关于治疗延迟的时间阈值（7 天、28 天）及相应处理措施（取消周期、永久停药）。",
+              "citations": [
+                "PMC8600696_chunk_015"
+              ],
+              "status": "supported"
+            },
+            {
+              "step": "提取关于虚弱患者初始剂量减少的特定建议。",
+              "citations": [
+                "PMC5490215_chunk_016"
+              ],
+              "status": "supported"
+            }
+          ],
+          "claim_count": 3,
+          "supported_claims": 3,
+          "unsupported_claims": 0,
+          "citation_coverage": 1.0,
+          "confidence": "high",
+          "abstain": false,
+          "abstain_reason": "",
+          "evidence_sufficiency": {
+            "sufficient": true,
+            "query_terms": [],
+            "matched_terms": [],
+            "matched_term_count": 0,
+            "top_rrf_score": 0.032787,
+            "evidence_count": 3
+          }
+        }
+      },
+      "zh_serious_adverse_event": {
+        "case": {
+          "case_id": "zh_serious_adverse_event",
+          "query": "严重不良事件的安全性终点证据",
+          "target_labels": [
+            "adverse_events",
+            "secondary_outcome",
+            "_data_collection_other"
+          ],
+          "target_terms": [
+            "serious adverse event",
+            "safety",
+            "endpoint"
+          ],
+          "focus": "中文 Ask: 严重不良事件"
+        },
+        "search_query": "serious adverse event safety endpoint events outcome",
+        "search_queries": [
+          "serious adverse event safety endpoint events outcome"
+        ],
+        "query_language": "zh",
+        "query_rewrites": [
+          {
+            "source": "严重不良事件",
+            "rewrite": "serious adverse event safety endpoint"
+          },
+          {
+            "source": "不良事件",
+            "rewrite": "adverse events"
+          },
+          {
+            "source": "安全性",
+            "rewrite": "safety adverse events"
+          },
+          {
+            "source": "终点",
+            "rewrite": "endpoint outcome"
+          }
+        ],
+        "rewrite_method": "rule_based_medical_terms",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": true,
+          "first_label_hit_rank": 1,
+          "matched_terms": [
+            "safety",
+            "serious adverse event"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 2513,
+            "chunk_id": "PMC7439928_chunk_009",
+            "score": 0.031514,
+            "mode": "hybrid",
+            "medical_label": "adverse_events",
+            "medical_parent": "results",
+            "source_section": "Adverse Event Analysis",
+            "source_file": "data/sources_medical/chunks/train/PMC7439928_chunk_009.md",
+            "preview": "# Adverse Event Analysis  Adverse events were recorded throughout the study. A total of 652 participants were enrolled in safety outcome measures: 323 participants from the genotype-guided group and 329 participants from",
+            "multi_query_count": 1
+          },
+          {
+            "rank": 2,
+            "manifest_index": 746,
+            "chunk_id": "PMC12574440_chunk_039",
+            "score": 0.031025,
+            "mode": "hybrid",
+            "medical_label": "_intervention_other",
+            "medical_parent": "intervention",
+            "source_section": "Safety analysis",
+            "source_file": "data/sources_medical/chunks/train/PMC12574440_chunk_039.md",
+            "preview": "# Safety analysis  For each of the following safety outcomes, mean±SD or summary statistics appropriate to the distribution will be tabulated by treatment group:  ► Number of severe hypoglycaemia events.    ► Number of p",
+            "multi_query_count": 1
+          },
+          {
+            "rank": 3,
+            "manifest_index": 2291,
+            "chunk_id": "PMC6921499_chunk_024",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "_data_collection_other",
+            "medical_parent": "data_collection",
+            "source_section": "Safety monitoring",
+            "source_file": "data/sources_medical/chunks/train/PMC6921499_chunk_024.md",
+            "preview": "# Safety monitoring  In this population and within this clinical context, events that can be considered serious adverse events (SAEs), suspected unexpected serious adverse reactions (SUSA Rs) or serious adverse device ev",
+            "multi_query_count": 1
+          }
+        ],
+        "synthesis": {
+          "model": "qwen3.5:9b",
+          "rag_mode": "evidence_structured",
+          "question_type": "safety_judgement",
+          "answer_strategy": [
+            "结论",
+            "安全性发现",
+            "适用边界",
+            "安全声明"
+          ],
+          "evidence_cards_count": 3,
+          "evidence_card_roles": [
+            "safety"
+          ],
+          "reasoning_steps": 1,
+          "answer": "根据提供的证据，严重不良事件（SAEs）的定义包括死亡、严重新发器官衰竭（如需要肾脏替代治疗、机械循环支持或俯卧位通气）。在特定研究中，严重出血事件（包括严重出血）和严重低血糖事件被作为关键安全性终点进行监测和记录。一项研究（PMC7439928）显示两组间严重出血事件无显著差异，且每组各报告1例死亡。另一项研究（PMC12574440）计划按治疗组汇总严重低血糖事件及严重不良事件数量。所有严重不良事件将在整个研究期间列出并按规定向监管机构报告。",
+          "citations": [
+            "PMC7439928_chunk_009",
+            "PMC12574440_chunk_039",
+            "PMC6921499_chunk_024"
+          ],
+          "reasoning_trace": [
+            {
+              "step": "识别问题类型/匹配证据卡/组织回答",
+              "citations": [
+                "PMC7439928_chunk_009",
+                "PMC12574440_chunk_039",
+                "PMC6921499_chunk_024"
+              ],
+              "status": "supported"
+            }
+          ],
+          "claim_count": 5,
+          "supported_claims": 5,
+          "unsupported_claims": 0,
+          "citation_coverage": 1.0,
+          "confidence": "high",
+          "abstain": false,
+          "abstain_reason": "",
+          "evidence_sufficiency": {
+            "sufficient": true,
+            "query_terms": [],
+            "matched_terms": [],
+            "matched_term_count": 0,
+            "top_rrf_score": 0.031514,
+            "evidence_count": 3
+          }
+        }
+      },
+      "zh_itt_population": {
+        "case": {
+          "case_id": "zh_itt_population",
+          "query": "意向治疗分析人群的统计分析证据",
+          "target_labels": [
+            "statistical_analysis",
+            "_statistical_analysis_other",
+            "population"
+          ],
+          "target_terms": [
+            "intention-to-treat",
+            "intention to treat",
+            "statistical analysis"
+          ],
+          "focus": "中文 Ask: ITT 分析人群"
+        },
+        "search_query": "intention to treat population analysis statistical",
+        "search_queries": [
+          "intention to treat population analysis statistical"
+        ],
+        "query_language": "zh",
+        "query_rewrites": [
+          {
+            "source": "意向治疗",
+            "rewrite": "intention to treat population"
+          },
+          {
+            "source": "分析人群",
+            "rewrite": "analysis population"
+          },
+          {
+            "source": "统计分析",
+            "rewrite": "statistical analysis"
+          }
+        ],
+        "rewrite_method": "rule_based_medical_terms",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": true,
+          "first_label_hit_rank": 1,
+          "matched_terms": [
+            "statistical analysis"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 2096,
+            "chunk_id": "PMC6561428_chunk_028",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "statistical_analysis",
+            "medical_parent": "methods",
+            "source_section": "Statistical analysis",
+            "source_file": "data/sources_medical/chunks/train/PMC6561428_chunk_028.md",
+            "preview": "# Statistical analysis",
+            "multi_query_count": 1
+          },
+          {
+            "rank": 2,
+            "manifest_index": 814,
+            "chunk_id": "PMC12742169_chunk_024",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "statistical_analysis",
+            "medical_parent": "methods",
+            "source_section": "Statistical analysis plan",
+            "source_file": "data/sources_medical/chunks/train/PMC12742169_chunk_024.md",
+            "preview": "# Statistical analysis plan  Descriptive statistics will be calculated as percentages for discrete variables, and median with IQR or mean with SE of the mean for continuous variables, as appropriate.  Continuous outcome ",
+            "multi_query_count": 1
+          },
+          {
+            "rank": 3,
+            "manifest_index": 991,
+            "chunk_id": "PMC12928687_chunk_021",
+            "score": 0.016129,
+            "mode": "hybrid",
+            "medical_label": "statistical_analysis",
+            "medical_parent": "methods",
+            "source_section": "Statistical Analysis",
+            "source_file": "data/sources_medical/chunks/train/PMC12928687_chunk_021.md",
+            "preview": "# Statistical Analysis",
+            "multi_query_count": 1
+          }
+        ],
+        "synthesis": {
+          "model": "qwen3.5:9b",
+          "rag_mode": "evidence_structured",
+          "question_type": "population_applicability",
+          "answer_strategy": [
+            "结论",
+            "研究人群",
+            "外推边界",
+            "局限"
+          ],
+          "evidence_cards_count": 3,
+          "evidence_card_roles": [
+            "method"
+          ],
+          "reasoning_steps": 1,
+          "answer": "当前本地知识库证据不足，无法回答该问题。",
+          "citations": [],
+          "reasoning_trace": [
+            {
+              "step": "识别问题类型/匹配证据卡/组织回答",
+              "citations": [],
+              "status": "supported"
+            }
+          ],
+          "claim_count": 1,
+          "supported_claims": 0,
+          "unsupported_claims": 1,
+          "citation_coverage": 0.0,
+          "confidence": "low",
+          "abstain": true,
+          "abstain_reason": "证据中缺乏关于研究人群具体特征的描述，无法回答关于意向治疗分析人群适用性的问题。",
+          "evidence_sufficiency": {
+            "sufficient": true,
+            "query_terms": [],
+            "matched_terms": [],
+            "matched_term_count": 0,
+            "top_rrf_score": 0.016393,
+            "evidence_count": 3
+          }
+        }
+      },
+      "zh_closed_loop_mechanism": {
+        "case": {
+          "case_id": "zh_closed_loop_mechanism",
+          "query": "为什么诊断后48个月内胰岛素需求上升支持早期使用自适应闭环系统？",
+          "target_labels": [
+            "primary_outcome",
+            "outcome_measures",
+            "_methods_other"
+          ],
+          "target_terms": [
+            "closed-loop",
+            "closed loop",
+            "insulin",
+            "hypoglycaemia",
+            "hypoglycemia",
+            "48"
+          ],
+          "focus": "中文 Ask: 闭环胰岛素机制解释"
+        },
+        "search_query": "48 months insulin requirements closed loop daily dose adaptive",
+        "search_queries": [
+          "48 months insulin requirements closed loop daily dose adaptive"
+        ],
+        "query_language": "zh",
+        "query_rewrites": [
+          {
+            "source": "48个月",
+            "rewrite": "48 months insulin requirements closed loop"
+          },
+          {
+            "source": "胰岛素需求",
+            "rewrite": "insulin requirements daily insulin dose"
+          },
+          {
+            "source": "自适应闭环",
+            "rewrite": "adaptive closed loop insulin"
+          },
+          {
+            "source": "闭环",
+            "rewrite": "closed loop"
+          }
+        ],
+        "rewrite_method": "rule_based_medical_terms",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": false,
+          "first_label_hit_rank": null,
+          "matched_terms": [
+            "48",
+            "closed loop",
+            "closed-loop",
+            "insulin"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 2673,
+            "chunk_id": "PMC7618672_chunk_004",
+            "score": 0.032522,
+            "mode": "hybrid",
+            "medical_label": "front_matter",
+            "medical_parent": null,
+            "source_section": "Abstract",
+            "source_file": "data/sources_medical/chunks/train/PMC7618672_chunk_004.md",
+            "preview": "# Abstract  Objective: To evaluate trends in insulin delivery and day-to-day variability of insulin requirements over 48 months of hybrid closed-loop use following diagnosis of type 1 diabetes in individuals aged 10 to 1",
+            "multi_query_count": 1
+          },
+          {
+            "rank": 2,
+            "manifest_index": 2685,
+            "chunk_id": "PMC7618672_chunk_016",
+            "score": 0.032018,
+            "mode": "hybrid",
+            "medical_label": "conclusion",
+            "medical_parent": null,
+            "source_section": "Conclusions",
+            "source_file": "data/sources_medical/chunks/eval/PMC7618672_chunk_016.md",
+            "preview": "# Conclusions  In conclusion, over the first 48 months after diagnosis of type 1 diabetes, insulin requirements in children and adolescents more than double with closed loop insulin delivery. Over time, a greater proport",
+            "multi_query_count": 1
+          },
+          {
+            "rank": 3,
+            "manifest_index": 2684,
+            "chunk_id": "PMC7618672_chunk_015",
+            "score": 0.032002,
+            "mode": "hybrid",
+            "medical_label": "discussion",
+            "medical_parent": null,
+            "source_section": "Discussion",
+            "source_file": "data/sources_medical/chunks/train/PMC7618672_chunk_015.md",
+            "preview": "# Discussion  Our analysis demonstrates that total daily insulin requirements more than double with hybrid closed-loop insulin delivery over the first 48 months following a T1D diagnosis. Most of the increase in closed-l",
+            "multi_query_count": 1
+          }
+        ],
+        "synthesis": {
+          "model": "qwen3.5:9b",
+          "rag_mode": "evidence_structured",
+          "question_type": "mechanism_explanation",
+          "answer_strategy": [
+            "结论",
+            "机制解释",
+            "适用边界",
+            "安全声明"
+          ],
+          "evidence_cards_count": 3,
+          "evidence_card_roles": [
+            "context"
+          ],
+          "reasoning_steps": 1,
+          "answer": "文献证据表明，在 1 型糖尿病（T1D）诊断后的前 48 个月内，儿童和青少年的胰岛素总日需求量（TDD）会翻倍 [PMC7618672_chunk_004]。这种需求量的显著增加主要归因于β细胞的破坏和自身胰岛素分泌的减少，导致内源性胰岛素产生下降 [PMC7618672_chunk_015]。由于诊断初期患者就面临较高的日胰岛素需求波动（变异系数 CV 高达 23-25%），且这种高波动性在诊断后保持稳定 [PMC7618672_chunk_004]，因此支持从诊断开始就早期使用自适应闭环系统，以应对这种快速变化且难以预测的胰岛素需求 [PMC7618672_chunk_016]。",
+          "citations": [
+            "PMC7618672_chunk_004",
+            "PMC7618672_chunk_015",
+            "PMC7618672_chunk_016"
+          ],
+          "reasoning_trace": [
+            {
+              "step": "识别问题类型/匹配证据卡/组织回答",
+              "citations": [
+                "PMC7618672_chunk_004",
+                "PMC7618672_chunk_015",
+                "PMC7618672_chunk_016"
+              ],
+              "status": "supported"
+            }
+          ],
+          "claim_count": 3,
+          "supported_claims": 3,
+          "unsupported_claims": 0,
+          "citation_coverage": 1.0,
+          "confidence": "high",
+          "abstain": false,
+          "abstain_reason": "",
+          "evidence_sufficiency": {
+            "sufficient": true,
+            "query_terms": [],
+            "matched_terms": [],
+            "matched_term_count": 0,
+            "top_rrf_score": 0.032522,
+            "evidence_count": 3
+          }
+        }
+      },
+      "zh_eligibility": {
+        "case": {
+          "case_id": "zh_eligibility",
+          "query": "随机对照试验的纳入排除标准",
+          "target_labels": [
+            "population",
+            "_methods_other",
+            "_randomization_other"
+          ],
+          "target_terms": [
+            "randomized controlled trial",
+            "inclusion criteria",
+            "exclusion criteria",
+            "eligible"
+          ],
+          "focus": "中文 Ask: 纳入排除标准"
+        },
+        "search_query": "randomized controlled trial inclusion criteria exclusion",
+        "search_queries": [
+          "randomized controlled trial inclusion criteria exclusion",
+          "inclusion criteria exclusion"
+        ],
+        "query_language": "zh",
+        "query_rewrites": [
+          {
+            "source": "随机对照",
+            "rewrite": "randomized controlled trial"
+          },
+          {
+            "source": "纳入排除",
+            "rewrite": "inclusion criteria exclusion criteria"
+          },
+          {
+            "source": "排除标准",
+            "rewrite": "exclusion criteria"
+          }
+        ],
+        "rewrite_method": "rule_based_medical_terms",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": true,
+          "first_label_hit_rank": 1,
+          "matched_terms": [
+            "eligible",
+            "exclusion criteria"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 2080,
+            "chunk_id": "PMC6561428_chunk_012",
+            "score": 0.032787,
+            "mode": "hybrid_multi_query",
+            "medical_label": "_randomization_other",
+            "medical_parent": "randomization",
+            "source_section": "Box 1 Inclusion and exclusion criteria",
+            "source_file": "data/sources_medical/chunks/train/PMC6561428_chunk_012.md",
+            "preview": "# Box 1 Inclusion and exclusion criteria",
+            "multi_query_count": 2
+          },
+          {
+            "rank": 2,
+            "manifest_index": 954,
+            "chunk_id": "PMC12898571_chunk_006",
+            "score": 0.032258,
+            "mode": "hybrid_multi_query",
+            "medical_label": "population",
+            "medical_parent": "methods",
+            "source_section": "2.2. Participants and Sample Size",
+            "source_file": "data/sources_medical/chunks/train/PMC12898571_chunk_006.md",
+            "preview": "# 2.2. Participants and Sample Size  The following inclusion and exclusion criteria were applied to select eligible participants for the study.",
+            "multi_query_count": 2
+          },
+          {
+            "rank": 3,
+            "manifest_index": 547,
+            "chunk_id": "PMC11929207_chunk_009",
+            "score": 0.015873,
+            "mode": "hybrid_multi_query",
+            "medical_label": "exclusion_criteria",
+            "medical_parent": "population",
+            "source_section": "Exclusion criteria",
+            "source_file": "data/sources_medical/chunks/train/PMC11929207_chunk_009.md",
+            "preview": "# Exclusion criteria  A potential subject who meets any of the following criteria will be excluded from participation in this study:  – Patient or legal representative not available to give informed consent within 72 h a",
+            "multi_query_count": 2
+          }
+        ],
+        "synthesis": {
+          "model": "qwen3.5:9b",
+          "rag_mode": "evidence_structured",
+          "question_type": "population_applicability",
+          "answer_strategy": [
+            "结论",
+            "研究人群",
+            "外推边界",
+            "局限"
+          ],
+          "evidence_cards_count": 3,
+          "evidence_card_roles": [
+            "population"
+          ],
+          "reasoning_steps": 3,
+          "answer": "随机对照试验（RCT）的纳入与排除标准旨在筛选符合特定条件的研究对象，以确保研究结果的内部有效性和外部适用性。根据提供的证据，排除标准通常包括：无法在入院后72小时内提供知情同意、妊娠、特定疾病（如烧伤伤口）、仅作为选择性消化道去污（SDD）的预防性抗生素治疗、参与其他干预性试验、纳入前已接受研究抗生素超过24小时、接受体外膜肺氧合（ECMO）、或已接受基于疑似感染的加倍剂量抗生素治疗 [PMC11929207_chunk_009]。纳入标准的具体细节在提供的片段中未完全详述，但通常与排除标准互补，用于定义目标研究人群 [PMC12898571_chunk_006]。",
+          "citations": [
+            "PMC6561428_chunk_012",
+            "PMC12898571_chunk_006",
+            "PMC11929207_chunk_009"
+          ],
+          "reasoning_trace": [
+            {
+              "step": "识别问题类型为研究人群适用性，并检索相关证据片段。",
+              "citations": [
+                "PMC6561428_chunk_012",
+                "PMC12898571_chunk_006",
+                "PMC11929207_chunk_009"
+              ],
+              "status": "supported"
+            },
+            {
+              "step": "从证据中提取关于纳入和排除标准的具体描述，特别是排除标准列表。",
+              "citations": [
+                "PMC11929207_chunk_009"
+              ],
+              "status": "supported"
+            },
+            {
+              "step": "综合证据内容，构建关于RCT纳入排除标准的回答，并标注引用来源。",
+              "citations": [
+                "PMC6561428_chunk_012",
+                "PMC12898571_chunk_006",
+                "PMC11929207_chunk_009"
+              ],
+              "status": "supported"
+            }
+          ],
+          "claim_count": 2,
+          "supported_claims": 2,
+          "unsupported_claims": 0,
+          "citation_coverage": 1.0,
+          "confidence": "medium",
+          "abstain": false,
+          "abstain_reason": "",
+          "evidence_sufficiency": {
+            "sufficient": true,
+            "query_terms": [],
+            "matched_terms": [],
+            "matched_term_count": 0,
+            "top_rrf_score": 0.032787,
+            "evidence_count": 3
+          }
+        }
+      }
+    },
+    "index_bge_m3": {
+      "zh_primary_endpoint_safety": {
+        "case": {
+          "case_id": "zh_primary_endpoint_safety",
+          "query": "主要终点和安全性证据",
+          "target_labels": [
+            "primary_outcome",
+            "secondary_outcome",
+            "outcome_measures",
+            "adverse_events"
+          ],
+          "target_terms": [
+            "primary endpoint",
+            "adverse event",
+            "adverse events",
+            "safety"
+          ],
+          "focus": "中文 Ask: 主要终点与安全性"
+        },
+        "search_query": "primary endpoint outcome safety adverse events",
+        "search_queries": [
+          "primary endpoint outcome safety adverse events"
+        ],
+        "query_language": "zh",
+        "query_rewrites": [
+          {
+            "source": "主要终点",
+            "rewrite": "primary endpoint"
+          },
+          {
+            "source": "终点",
+            "rewrite": "endpoint outcome"
+          },
+          {
+            "source": "安全性",
+            "rewrite": "safety adverse events"
+          }
+        ],
+        "rewrite_method": "rule_based_medical_terms",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": true,
+          "first_label_hit_rank": 2,
+          "matched_terms": [
+            "primary endpoint"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 3032,
+            "chunk_id": "PMC8600696_chunk_007",
+            "score": 0.032522,
+            "mode": "hybrid",
+            "medical_label": "_introduction_other",
+            "medical_parent": "introduction",
+            "source_section": "Endpoints",
+            "source_file": "data/sources_medical/chunks/train/PMC8600696_chunk_007.md",
+            "preview": "# Endpoints  The primary endpoint is overall survival after R0/R1 resection (OS-res) (only patients with R0/R1 resection).  Secondary efficacy endpoints are OS of the entire patients cohort, R0/R1 resection rate and prog",
+            "multi_query_count": 1
+          },
+          {
+            "rank": 2,
+            "manifest_index": 3165,
+            "chunk_id": "PMC9443636_chunk_010",
+            "score": 0.030536,
+            "mode": "hybrid",
+            "medical_label": "outcome_measures",
+            "medical_parent": "methods",
+            "source_section": "Outcomes",
+            "source_file": "data/sources_medical/chunks/train/PMC9443636_chunk_010.md",
+            "preview": "# Outcomes  All outcome defnitions were prespecifed and described in detail in the published study protocol [17]. Te primary endpoint was PK target attainment (TA), during the frst 24 h following randomisation for the pr",
+            "multi_query_count": 1
+          },
+          {
+            "rank": 3,
+            "manifest_index": 1124,
+            "chunk_id": "PMC3002358_chunk_012",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "primary_outcome",
+            "medical_parent": "outcome_measures",
+            "source_section": "Primary outcome measures",
+            "source_file": "data/sources_medical/chunks/train/PMC3002358_chunk_012.md",
+            "preview": "# Primary outcome measures",
+            "multi_query_count": 1
+          }
+        ],
+        "synthesis": {
+          "model": "qwen3.5:9b",
+          "rag_mode": "evidence_structured",
+          "question_type": "safety_judgement",
+          "answer_strategy": [
+            "结论",
+            "安全性发现",
+            "适用边界",
+            "安全声明"
+          ],
+          "evidence_cards_count": 3,
+          "evidence_card_roles": [
+            "endpoint"
+          ],
+          "reasoning_steps": 3,
+          "answer": "根据提供的证据，主要终点和安全性证据因研究类型不同而存在差异。在研究 [PMC8600696_chunk_007] 中，主要终点为 R0/R1 切除后的总生存期（OS-res），安全性终点包括不良事件（AE）的类型、频率和严重程度（依据 NCI CTCAE 5.0 分级）以及围手术期并发症和死亡率。在研究 [PMC9443636_chunk_010] 中，主要终点为给药后 24 小时内的药代动力学（PK）目标达成率（TA），安全性分析则聚焦于不同剂量组（低、正常、高剂量）下的死亡率和肾衰竭发生率。",
+          "citations": [
+            "PMC8600696_chunk_007",
+            "PMC9443636_chunk_010"
+          ],
+          "reasoning_trace": [
+            {
+              "step": "识别问题类型为安全性判断，匹配证据卡中的 Endpoints 和 Outcomes 部分。",
+              "citations": [
+                "PMC8600696_chunk_007",
+                "PMC9443636_chunk_010"
+              ],
+              "status": "supported"
+            },
+            {
+              "step": "提取 [PMC8600696_chunk_007] 中的主要终点和安全性终点定义。",
+              "citations": [
+                "PMC8600696_chunk_007"
+              ],
+              "status": "supported"
+            },
+            {
+              "step": "提取 [PMC9443636_chunk_010] 中的主要终点和安全性分析分组及关注指标。",
+              "citations": [
+                "PMC9443636_chunk_010"
+              ],
+              "status": "supported"
+            }
+          ],
+          "claim_count": 2,
+          "supported_claims": 2,
+          "unsupported_claims": 0,
+          "citation_coverage": 1.0,
+          "confidence": "high",
+          "abstain": false,
+          "abstain_reason": "",
+          "evidence_sufficiency": {
+            "sufficient": true,
+            "query_terms": [],
+            "matched_terms": [],
+            "matched_term_count": 0,
+            "top_rrf_score": 0.032522,
+            "evidence_count": 3
+          }
+        }
+      },
+      "zh_survival_endpoint": {
+        "case": {
+          "case_id": "zh_survival_endpoint",
+          "query": "总生存和无进展生存证据",
+          "target_labels": [
+            "primary_outcome",
+            "secondary_outcome",
+            "outcome_measures",
+            "statistical_analysis"
+          ],
+          "target_terms": [
+            "overall survival",
+            "progression-free survival",
+            "progression free survival"
+          ],
+          "focus": "中文 Ask: OS/PFS 证据"
+        },
+        "search_query": "overall survival progression free",
+        "search_queries": [
+          "overall survival progression free"
+        ],
+        "query_language": "zh",
+        "query_rewrites": [
+          {
+            "source": "总生存",
+            "rewrite": "overall survival"
+          },
+          {
+            "source": "无进展生存",
+            "rewrite": "progression free survival"
+          }
+        ],
+        "rewrite_method": "rule_based_medical_terms",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": true,
+          "first_label_hit_rank": 1,
+          "matched_terms": [
+            "overall survival",
+            "progression-free survival"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 2345,
+            "chunk_id": "PMC6937062_chunk_031",
+            "score": 0.030536,
+            "mode": "hybrid",
+            "medical_label": "statistical_analysis",
+            "medical_parent": "methods",
+            "source_section": "Data analysis plan",
+            "source_file": "data/sources_medical/chunks/train/PMC6937062_chunk_031.md",
+            "preview": "# Data analysis plan  Analyses will be conducted on an intention-to-treat basis, with sensitivity analyses used to investigate the impact of non-compliance to allocated arm. Given the feasibility status of this study, al",
+            "multi_query_count": 1
+          },
+          {
+            "rank": 2,
+            "manifest_index": 686,
+            "chunk_id": "PMC12487728_chunk_008",
+            "score": 0.030536,
+            "mode": "hybrid",
+            "medical_label": "_front_matter_other",
+            "medical_parent": "front_matter",
+            "source_section": "Secondary Endpoints",
+            "source_file": "data/sources_medical/chunks/train/PMC12487728_chunk_008.md",
+            "preview": "# Secondary Endpoints  The secondary endpoints included the following.  1. To evaluate the safety of a flexible dosing schedule of [177Lu]Lu-PSMA-617 including up to 12 cycles and “treatment holiday” periods by Common Te",
+            "multi_query_count": 1
+          },
+          {
+            "rank": 3,
+            "manifest_index": 994,
+            "chunk_id": "PMC12928687_chunk_024",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "_statistical_analysis_other",
+            "medical_parent": "statistical_analysis",
+            "source_section": "Secondary End Points",
+            "source_file": "data/sources_medical/chunks/train/PMC12928687_chunk_024.md",
+            "preview": "# Secondary End Points  Twelve- and 24-month overall survival as well as distant progression-free survival will be evaluated by Kaplan-Meier analysis. All other secondary end points will be descriptively summarized.",
+            "multi_query_count": 1
+          }
+        ],
+        "synthesis": {
+          "model": "qwen3.5:9b",
+          "rag_mode": "evidence_structured",
+          "question_type": "efficacy_judgement",
+          "answer_strategy": [
+            "结论",
+            "关键终点",
+            "证据强度",
+            "局限"
+          ],
+          "evidence_cards_count": 3,
+          "evidence_card_roles": [
+            "endpoint",
+            "method"
+          ],
+          "reasoning_steps": 3,
+          "answer": "根据现有证据，[177Lu]Lu-PSMA-617 治疗的研究计划中，总生存期（OS）和无进展生存期（PFS）被设定为关键次要终点。研究计划采用 Kaplan-Meier 法分析 12 个月和 24 个月的总生存率，以及远处无进展生存率。对于总生存期，定义为从首次注射到死亡的时间；对于无进展生存期，定义为从首次注射到首次出现疾病进展（如影像学进展）的时间。统计分析将基于意向性治疗原则进行，并计划使用 Kaplan-Meier 方法推导 6 个月及 24 个月的生存率估计值。",
+          "citations": [
+            "PMC12487728_chunk_008",
+            "PMC12928687_chunk_024",
+            "PMC6937062_chunk_031"
+          ],
+          "reasoning_trace": [
+            {
+              "step": "识别问题类型为疗效判断，需检索关于总生存和无进展生存的证据。",
+              "citations": [
+                "PMC12487728_chunk_008",
+                "PMC12928687_chunk_024",
+                "PMC6937062_chunk_031"
+              ],
+              "status": "supported"
+            },
+            {
+              "step": "匹配证据卡，确认 OS 和 PFS 为次要终点，并提取其定义及分析方法。",
+              "citations": [
+                "PMC12487728_chunk_008",
+                "PMC12928687_chunk_024"
+              ],
+              "status": "supported"
+            },
+            {
+              "step": "组织回答，总结研究计划中的终点定义、分析方法和统计原则。",
+              "citations": [
+                "PMC6937062_chunk_031"
+              ],
+              "status": "supported"
+            }
+          ],
+          "claim_count": 4,
+          "supported_claims": 4,
+          "unsupported_claims": 0,
+          "citation_coverage": 1.0,
+          "confidence": "high",
+          "abstain": false,
+          "abstain_reason": "",
+          "evidence_sufficiency": {
+            "sufficient": true,
+            "query_terms": [],
+            "matched_terms": [],
+            "matched_term_count": 0,
+            "top_rrf_score": 0.030536,
+            "evidence_count": 3
+          }
+        }
+      },
+      "zh_chemo_toxicity": {
+        "case": {
+          "case_id": "zh_chemo_toxicity",
+          "query": "化疗剂量减少和治疗延迟的不良事件证据",
+          "target_labels": [
+            "intervention",
+            "secondary_outcome",
+            "adverse_events"
+          ],
+          "target_terms": [
+            "chemotherapy",
+            "dose reduction",
+            "treatment delay",
+            "adverse events",
+            "toxicit"
+          ],
+          "focus": "中文 Ask: 化疗剂量与毒性"
+        },
+        "search_query": "chemotherapy dose reduction treatment delay adverse events",
+        "search_queries": [
+          "chemotherapy dose reduction treatment delay adverse events",
+          "adverse events",
+          "chemotherapy dose reduction treatment delay"
+        ],
+        "query_language": "zh",
+        "query_rewrites": [
+          {
+            "source": "化疗",
+            "rewrite": "chemotherapy"
+          },
+          {
+            "source": "剂量减少",
+            "rewrite": "dose reduction"
+          },
+          {
+            "source": "治疗延迟",
+            "rewrite": "treatment delay"
+          },
+          {
+            "source": "不良事件",
+            "rewrite": "adverse events"
+          }
+        ],
+        "rewrite_method": "rule_based_medical_terms",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": true,
+          "first_label_hit_rank": 1,
+          "matched_terms": [
+            "adverse events",
+            "chemotherapy",
+            "dose reduction",
+            "toxicit",
+            "treatment delay"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 3040,
+            "chunk_id": "PMC8600696_chunk_015",
+            "score": 0.032522,
+            "mode": "hybrid_multi_query",
+            "medical_label": "intervention",
+            "medical_parent": "methods",
+            "source_section": "Dose modifications and prerequisites for the start of a new cycle",
+            "source_file": "data/sources_medical/chunks/train/PMC8600696_chunk_015.md",
+            "preview": "# Dose modifications and prerequisites for the start of a new cycle  Doses will be reduced for haematological and nonhaematological toxicities. In case of concurrent toxicities, all dose modifications should be based on ",
+            "multi_query_count": 3
+          },
+          {
+            "rank": 2,
+            "manifest_index": 3196,
+            "chunk_id": "PMC9502603_chunk_003",
+            "score": 0.031025,
+            "mode": "hybrid_multi_query",
+            "medical_label": "front_matter",
+            "medical_parent": null,
+            "source_section": "Abstract",
+            "source_file": "data/sources_medical/chunks/train/PMC9502603_chunk_003.md",
+            "preview": "# Abstract  Background: Adverse events of chemotherapy may be caused by pharmacodynamics or psychological factors such as negative expectations, which constitute nocebo efects. In a randomized controlled trial, we examin",
+            "multi_query_count": 3
+          },
+          {
+            "rank": 3,
+            "manifest_index": 1515,
+            "chunk_id": "PMC5490215_chunk_019",
+            "score": 0.016393,
+            "mode": "hybrid_multi_query",
+            "medical_label": "secondary_outcome",
+            "medical_parent": "outcome_measures",
+            "source_section": "Secondary outcomes",
+            "source_file": "data/sources_medical/chunks/train/PMC5490215_chunk_019.md",
+            "preview": "# Secondary outcomes  Secondary endpoints include adverse events (registered for every chemotherapy cycle after CTC criteria version 4.0), dose reductions, treatment delays (which follow the standardized guidelines of th",
+            "multi_query_count": 3
+          }
+        ],
+        "synthesis": {
+          "model": "qwen3.5:9b",
+          "rag_mode": "evidence_structured",
+          "question_type": "safety_judgement",
+          "answer_strategy": [
+            "结论",
+            "安全性发现",
+            "适用边界",
+            "安全声明"
+          ],
+          "evidence_cards_count": 3,
+          "evidence_card_roles": [
+            "context",
+            "endpoint",
+            "intervention"
+          ],
+          "reasoning_steps": 4,
+          "answer": "化疗剂量减少和治疗延迟是应对血液学和非血液学毒性的标准干预措施。当出现并发毒性时，剂量调整应基于最严重的先前毒性。治疗延迟通常限制为最多 7 天；若延迟超过 7 天则取消该周期，若延迟超过 28 天则永久停止治疗。此外，患者教育（针对安慰剂效应/nocebo 效应）被证明可降低自报的不良反应强度。",
+          "citations": [
+            "PMC8600696_chunk_015",
+            "PMC9502603_chunk_003",
+            "PMC5490215_chunk_019"
+          ],
+          "reasoning_trace": [
+            {
+              "step": "识别问题类型为安全性判断，匹配关于剂量调整、延迟及不良反应机制的证据卡。",
+              "citations": [
+                "PMC8600696_chunk_015",
+                "PMC9502603_chunk_003",
+                "PMC5490215_chunk_019"
+              ],
+              "status": "supported"
+            },
+            {
+              "step": "从 PMC8600696_chunk_015 提取剂量减少和延迟的具体标准（7 天/28 天界限）。",
+              "citations": [
+                "PMC8600696_chunk_015"
+              ],
+              "status": "supported"
+            },
+            {
+              "step": "从 PMC9502603_chunk_003 提取关于 nocebo 效应及患者教育对不良反应影响的证据。",
+              "citations": [
+                "PMC9502603_chunk_003"
+              ],
+              "status": "supported"
+            },
+            {
+              "step": "从 PMC5490215_chunk_019 确认剂量减少和延迟作为次要结局的评估背景。",
+              "citations": [
+                "PMC5490215_chunk_019"
+              ],
+              "status": "supported"
+            }
+          ],
+          "claim_count": 4,
+          "supported_claims": 4,
+          "unsupported_claims": 0,
+          "citation_coverage": 1.0,
+          "confidence": "high",
+          "abstain": false,
+          "abstain_reason": "",
+          "evidence_sufficiency": {
+            "sufficient": true,
+            "query_terms": [],
+            "matched_terms": [],
+            "matched_term_count": 0,
+            "top_rrf_score": 0.032522,
+            "evidence_count": 3
+          }
+        }
+      },
+      "zh_serious_adverse_event": {
+        "case": {
+          "case_id": "zh_serious_adverse_event",
+          "query": "严重不良事件的安全性终点证据",
+          "target_labels": [
+            "adverse_events",
+            "secondary_outcome",
+            "_data_collection_other"
+          ],
+          "target_terms": [
+            "serious adverse event",
+            "safety",
+            "endpoint"
+          ],
+          "focus": "中文 Ask: 严重不良事件"
+        },
+        "search_query": "serious adverse event safety endpoint events outcome",
+        "search_queries": [
+          "serious adverse event safety endpoint events outcome"
+        ],
+        "query_language": "zh",
+        "query_rewrites": [
+          {
+            "source": "严重不良事件",
+            "rewrite": "serious adverse event safety endpoint"
+          },
+          {
+            "source": "不良事件",
+            "rewrite": "adverse events"
+          },
+          {
+            "source": "安全性",
+            "rewrite": "safety adverse events"
+          },
+          {
+            "source": "终点",
+            "rewrite": "endpoint outcome"
+          }
+        ],
+        "rewrite_method": "rule_based_medical_terms",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": true,
+          "first_label_hit_rank": 2,
+          "matched_terms": [
+            "safety",
+            "serious adverse event"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 746,
+            "chunk_id": "PMC12574440_chunk_039",
+            "score": 0.030777,
+            "mode": "hybrid",
+            "medical_label": "_intervention_other",
+            "medical_parent": "intervention",
+            "source_section": "Safety analysis",
+            "source_file": "data/sources_medical/chunks/train/PMC12574440_chunk_039.md",
+            "preview": "# Safety analysis  For each of the following safety outcomes, mean±SD or summary statistics appropriate to the distribution will be tabulated by treatment group:  ► Number of severe hypoglycaemia events.    ► Number of p",
+            "multi_query_count": 1
+          },
+          {
+            "rank": 2,
+            "manifest_index": 2291,
+            "chunk_id": "PMC6921499_chunk_024",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "_data_collection_other",
+            "medical_parent": "data_collection",
+            "source_section": "Safety monitoring",
+            "source_file": "data/sources_medical/chunks/train/PMC6921499_chunk_024.md",
+            "preview": "# Safety monitoring  In this population and within this clinical context, events that can be considered serious adverse events (SAEs), suspected unexpected serious adverse reactions (SUSA Rs) or serious adverse device ev",
+            "multi_query_count": 1
+          },
+          {
+            "rank": 3,
+            "manifest_index": 1996,
+            "chunk_id": "PMC6448906_chunk_007",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "methods",
+            "medical_parent": null,
+            "source_section": "Methods",
+            "source_file": "data/sources_medical/chunks/train/PMC6448906_chunk_007.md",
+            "preview": "The exercise protocol was performed on a cycle ergometer (Power Cube LF8.5G with Schiller software; Ganshorn, Niederlauer, Germany).  The $\\mathrm { H b A } _ { \\mathrm { 1 c } }$ level was determined by an immunochemica",
+            "multi_query_count": 1
+          }
+        ],
+        "synthesis": {
+          "model": "qwen3.5:9b",
+          "rag_mode": "evidence_structured",
+          "question_type": "safety_judgement",
+          "answer_strategy": [
+            "结论",
+            "安全性发现",
+            "适用边界",
+            "安全声明"
+          ],
+          "evidence_cards_count": 3,
+          "evidence_card_roles": [
+            "method",
+            "safety"
+          ],
+          "reasoning_steps": 3,
+          "answer": "严重不良事件（SAEs）在本研究中被定义为死亡、严重新发器官衰竭（如新开始肾脏替代治疗、机械循环支持或俯卧位通气）[PMC6921499_chunk_024]。此外，严重低血糖（定义为血糖<2.8 mmol/L 并伴有抽搐或意识丧失，或需要静脉/肌肉注射葡萄糖/胰高血糖素）也被视为严重不良事件 [PMC6448906_chunk_007]。研究将记录所有严重不良事件，包括退出和撤出的参与者，并列出整个研究期间的严重不良事件 [PMC12574440_chunk_039]。所有 SAEs 将按国家法律规定向相关机构报告 [PMC6921499_chunk_024]。",
+          "citations": [
+            "PMC6921499_chunk_024",
+            "PMC6448906_chunk_007",
+            "PMC12574440_chunk_039"
+          ],
+          "reasoning_trace": [
+            {
+              "step": "识别问题类型为安全性判断，匹配证据卡中关于 SAE 定义和报告策略的内容。",
+              "citations": [
+                "PMC6921499_chunk_024",
+                "PMC6448906_chunk_007",
+                "PMC12574440_chunk_039"
+              ],
+              "status": "supported"
+            },
+            {
+              "step": "从证据中提取 SAE 的具体定义（器官衰竭、严重低血糖）及报告范围（所有参与者、整个研究期）。",
+              "citations": [
+                "PMC6921499_chunk_024",
+                "PMC6448906_chunk_007",
+                "PMC12574440_chunk_039"
+              ],
+              "status": "supported"
+            },
+            {
+              "step": "组织回答，按结论、发现、边界、声明结构输出，并引用对应证据。",
+              "citations": [
+                "PMC6921499_chunk_024",
+                "PMC6448906_chunk_007",
+                "PMC12574440_chunk_039"
+              ],
+              "status": "supported"
+            }
+          ],
+          "claim_count": 4,
+          "supported_claims": 4,
+          "unsupported_claims": 0,
+          "citation_coverage": 1.0,
+          "confidence": "high",
+          "abstain": false,
+          "abstain_reason": "",
+          "evidence_sufficiency": {
+            "sufficient": true,
+            "query_terms": [],
+            "matched_terms": [],
+            "matched_term_count": 0,
+            "top_rrf_score": 0.030777,
+            "evidence_count": 3
+          }
+        }
+      },
+      "zh_itt_population": {
+        "case": {
+          "case_id": "zh_itt_population",
+          "query": "意向治疗分析人群的统计分析证据",
+          "target_labels": [
+            "statistical_analysis",
+            "_statistical_analysis_other",
+            "population"
+          ],
+          "target_terms": [
+            "intention-to-treat",
+            "intention to treat",
+            "statistical analysis"
+          ],
+          "focus": "中文 Ask: ITT 分析人群"
+        },
+        "search_query": "intention to treat population analysis statistical",
+        "search_queries": [
+          "intention to treat population analysis statistical"
+        ],
+        "query_language": "zh",
+        "query_rewrites": [
+          {
+            "source": "意向治疗",
+            "rewrite": "intention to treat population"
+          },
+          {
+            "source": "分析人群",
+            "rewrite": "analysis population"
+          },
+          {
+            "source": "统计分析",
+            "rewrite": "statistical analysis"
+          }
+        ],
+        "rewrite_method": "rule_based_medical_terms",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": true,
+          "first_label_hit_rank": 1,
+          "matched_terms": [
+            "statistical analysis"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 556,
+            "chunk_id": "PMC11929207_chunk_018",
+            "score": 0.031514,
+            "mode": "hybrid",
+            "medical_label": "statistical_analysis",
+            "medical_parent": "methods",
+            "source_section": "Statistical analysis",
+            "source_file": "data/sources_medical/chunks/train/PMC11929207_chunk_018.md",
+            "preview": "# Statistical analysis  In general, p-values < 0.05 are considered to indicate statistical signifcance (2-tailed test). Te p-values for the secondary endpoints will be presented but considered descriptive and hypothesis ",
+            "multi_query_count": 1
+          },
+          {
+            "rank": 2,
+            "manifest_index": 738,
+            "chunk_id": "PMC12574440_chunk_031",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "statistical_analysis",
+            "medical_parent": "methods",
+            "source_section": "Statistical analysis",
+            "source_file": "data/sources_medical/chunks/train/PMC12574440_chunk_031.md",
+            "preview": "# Statistical analysis  All randomised participants with/without protocol violation and including dropouts and withdrawals will be included in the analysis according to intention-totreat principle.",
+            "multi_query_count": 1
+          },
+          {
+            "rank": 3,
+            "manifest_index": 814,
+            "chunk_id": "PMC12742169_chunk_024",
+            "score": 0.016393,
+            "mode": "hybrid",
+            "medical_label": "statistical_analysis",
+            "medical_parent": "methods",
+            "source_section": "Statistical analysis plan",
+            "source_file": "data/sources_medical/chunks/train/PMC12742169_chunk_024.md",
+            "preview": "# Statistical analysis plan  Descriptive statistics will be calculated as percentages for discrete variables, and median with IQR or mean with SE of the mean for continuous variables, as appropriate.  Continuous outcome ",
+            "multi_query_count": 1
+          }
+        ],
+        "synthesis": {
+          "model": "qwen3.5:9b",
+          "rag_mode": "evidence_structured",
+          "question_type": "population_applicability",
+          "answer_strategy": [
+            "结论",
+            "研究人群",
+            "外推边界",
+            "局限"
+          ],
+          "evidence_cards_count": 3,
+          "evidence_card_roles": [
+            "method"
+          ],
+          "reasoning_steps": 3,
+          "answer": "意向治疗（ITT）分析人群的统计证据表明，该分析原则要求将所有随机化的受试者纳入分析，无论其是否违反方案、是否脱落或退出研究。这种策略旨在评估治疗在真实世界中的有效性，并减少因非依从性导致的偏差。然而，部分研究（如针对非劣效性终点）可能优先采用符合方案（PP）分析作为主要分析，而将 ITT 分析作为次要分析或敏感性分析，以最小化非依从性对结果的稀释效应。",
+          "citations": [
+            "PMC11929207_chunk_018",
+            "PMC12574440_chunk_031",
+            "PMC12742169_chunk_024"
+          ],
+          "reasoning_trace": [
+            {
+              "step": "识别问题类型为 population_applicability，匹配证据卡中关于统计分析和 ITT 原则的描述。",
+              "citations": [
+                "PMC11929207_chunk_018",
+                "PMC12574440_chunk_031",
+                "PMC12742169_chunk_024"
+              ],
+              "status": "supported"
+            },
+            {
+              "step": "从证据中提取 ITT 分析的人群定义及目的。",
+              "citations": [
+                "PMC11929207_chunk_018",
+                "PMC12574440_chunk_031",
+                "PMC12742169_chunk_024"
+              ],
+              "status": "supported"
+            },
+            {
+              "step": "总结 ITT 分析的适用边界及潜在局限（如非劣效性研究中的 PP 优先策略）。",
+              "citations": [
+                "PMC12742169_chunk_024"
+              ],
+              "status": "supported"
+            }
+          ],
+          "claim_count": 4,
+          "supported_claims": 4,
+          "unsupported_claims": 0,
+          "citation_coverage": 1.0,
+          "confidence": "high",
+          "abstain": false,
+          "abstain_reason": "",
+          "evidence_sufficiency": {
+            "sufficient": true,
+            "query_terms": [],
+            "matched_terms": [],
+            "matched_term_count": 0,
+            "top_rrf_score": 0.031514,
+            "evidence_count": 3
+          }
+        }
+      },
+      "zh_closed_loop_mechanism": {
+        "case": {
+          "case_id": "zh_closed_loop_mechanism",
+          "query": "为什么诊断后48个月内胰岛素需求上升支持早期使用自适应闭环系统？",
+          "target_labels": [
+            "primary_outcome",
+            "outcome_measures",
+            "_methods_other"
+          ],
+          "target_terms": [
+            "closed-loop",
+            "closed loop",
+            "insulin",
+            "hypoglycaemia",
+            "hypoglycemia",
+            "48"
+          ],
+          "focus": "中文 Ask: 闭环胰岛素机制解释"
+        },
+        "search_query": "48 months insulin requirements closed loop daily dose adaptive",
+        "search_queries": [
+          "48 months insulin requirements closed loop daily dose adaptive"
+        ],
+        "query_language": "zh",
+        "query_rewrites": [
+          {
+            "source": "48个月",
+            "rewrite": "48 months insulin requirements closed loop"
+          },
+          {
+            "source": "胰岛素需求",
+            "rewrite": "insulin requirements daily insulin dose"
+          },
+          {
+            "source": "自适应闭环",
+            "rewrite": "adaptive closed loop insulin"
+          },
+          {
+            "source": "闭环",
+            "rewrite": "closed loop"
+          }
+        ],
+        "rewrite_method": "rule_based_medical_terms",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": false,
+          "first_label_hit_rank": null,
+          "matched_terms": [
+            "48",
+            "closed loop",
+            "closed-loop",
+            "insulin"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 2673,
+            "chunk_id": "PMC7618672_chunk_004",
+            "score": 0.032522,
+            "mode": "hybrid",
+            "medical_label": "front_matter",
+            "medical_parent": null,
+            "source_section": "Abstract",
+            "source_file": "data/sources_medical/chunks/train/PMC7618672_chunk_004.md",
+            "preview": "# Abstract  Objective: To evaluate trends in insulin delivery and day-to-day variability of insulin requirements over 48 months of hybrid closed-loop use following diagnosis of type 1 diabetes in individuals aged 10 to 1",
+            "multi_query_count": 1
+          },
+          {
+            "rank": 2,
+            "manifest_index": 2685,
+            "chunk_id": "PMC7618672_chunk_016",
+            "score": 0.032522,
+            "mode": "hybrid",
+            "medical_label": "conclusion",
+            "medical_parent": null,
+            "source_section": "Conclusions",
+            "source_file": "data/sources_medical/chunks/eval/PMC7618672_chunk_016.md",
+            "preview": "# Conclusions  In conclusion, over the first 48 months after diagnosis of type 1 diabetes, insulin requirements in children and adolescents more than double with closed loop insulin delivery. Over time, a greater proport",
+            "multi_query_count": 1
+          },
+          {
+            "rank": 3,
+            "manifest_index": 2684,
+            "chunk_id": "PMC7618672_chunk_015",
+            "score": 0.031746,
+            "mode": "hybrid",
+            "medical_label": "discussion",
+            "medical_parent": null,
+            "source_section": "Discussion",
+            "source_file": "data/sources_medical/chunks/train/PMC7618672_chunk_015.md",
+            "preview": "# Discussion  Our analysis demonstrates that total daily insulin requirements more than double with hybrid closed-loop insulin delivery over the first 48 months following a T1D diagnosis. Most of the increase in closed-l",
+            "multi_query_count": 1
+          }
+        ],
+        "synthesis": {
+          "model": "qwen3.5:9b",
+          "rag_mode": "evidence_structured",
+          "question_type": "mechanism_explanation",
+          "answer_strategy": [
+            "结论",
+            "机制解释",
+            "适用边界",
+            "安全声明"
+          ],
+          "evidence_cards_count": 3,
+          "evidence_card_roles": [
+            "context"
+          ],
+          "reasoning_steps": 3,
+          "answer": "文献证据表明，在 1 型糖尿病（T1D）诊断后的前 48 个月内，儿童和青少年的胰岛素总日剂量（TDD）会翻倍，且每日胰岛素需求的变异性较高 [PMC7618672_chunk_004, PMC7618672_chunk_016]。这种高变异性支持在诊断早期即使用自适应闭环系统，因为该算法能够根据不断变化的生理需求（如β细胞破坏导致的内源性胰岛素分泌减少）自动调整基础胰岛素输注比例，从而更好地管理血糖波动 [PMC7618672_chunk_015]。随着时间推移，闭环系统输送的胰岛素比例增加，基础胰岛素占比上升，反映了算法对需求上升的适应过程 [PMC7618672_chunk_015]。",
+          "citations": [
+            "PMC7618672_chunk_004",
+            "PMC7618672_chunk_016",
+            "PMC7618672_chunk_015"
+          ],
+          "reasoning_trace": [
+            {
+              "step": "识别问题类型为机制解释，匹配证据卡中关于胰岛素需求变化与闭环系统适应性的描述。",
+              "citations": [
+                "PMC7618672_chunk_004",
+                "PMC7618672_chunk_016",
+                "PMC7618672_chunk_015"
+              ],
+              "status": "supported"
+            },
+            {
+              "step": "提取证据中关于胰岛素需求翻倍及变异性高的结论，作为支持早期使用闭环系统的依据。",
+              "citations": [
+                "PMC7618672_chunk_004",
+                "PMC7618672_chunk_016"
+              ],
+              "status": "supported"
+            },
+            {
+              "step": "解释机制：证据指出变异性高且与β细胞功能下降相关，自适应系统通过调整基础率来应对这些变化。",
+              "citations": [
+                "PMC7618672_chunk_015"
+              ],
+              "status": "supported"
+            }
+          ],
+          "claim_count": 3,
+          "supported_claims": 3,
+          "unsupported_claims": 0,
+          "citation_coverage": 1.0,
+          "confidence": "high",
+          "abstain": false,
+          "abstain_reason": "",
+          "evidence_sufficiency": {
+            "sufficient": true,
+            "query_terms": [],
+            "matched_terms": [],
+            "matched_term_count": 0,
+            "top_rrf_score": 0.032522,
+            "evidence_count": 3
+          }
+        }
+      },
+      "zh_eligibility": {
+        "case": {
+          "case_id": "zh_eligibility",
+          "query": "随机对照试验的纳入排除标准",
+          "target_labels": [
+            "population",
+            "_methods_other",
+            "_randomization_other"
+          ],
+          "target_terms": [
+            "randomized controlled trial",
+            "inclusion criteria",
+            "exclusion criteria",
+            "eligible"
+          ],
+          "focus": "中文 Ask: 纳入排除标准"
+        },
+        "search_query": "randomized controlled trial inclusion criteria exclusion",
+        "search_queries": [
+          "randomized controlled trial inclusion criteria exclusion",
+          "inclusion criteria exclusion"
+        ],
+        "query_language": "zh",
+        "query_rewrites": [
+          {
+            "source": "随机对照",
+            "rewrite": "randomized controlled trial"
+          },
+          {
+            "source": "纳入排除",
+            "rewrite": "inclusion criteria exclusion criteria"
+          },
+          {
+            "source": "排除标准",
+            "rewrite": "exclusion criteria"
+          }
+        ],
+        "rewrite_method": "rule_based_medical_terms",
+        "vision_enabled": false,
+        "metrics": {
+          "hit_at_k": true,
+          "first_hit_rank": 1,
+          "label_hit_at_k": true,
+          "first_label_hit_rank": 1,
+          "matched_terms": [
+            "eligible",
+            "exclusion criteria"
+          ]
+        },
+        "top_results": [
+          {
+            "rank": 1,
+            "manifest_index": 2080,
+            "chunk_id": "PMC6561428_chunk_012",
+            "score": 0.032787,
+            "mode": "hybrid_multi_query",
+            "medical_label": "_randomization_other",
+            "medical_parent": "randomization",
+            "source_section": "Box 1 Inclusion and exclusion criteria",
+            "source_file": "data/sources_medical/chunks/train/PMC6561428_chunk_012.md",
+            "preview": "# Box 1 Inclusion and exclusion criteria",
+            "multi_query_count": 2
+          },
+          {
+            "rank": 2,
+            "manifest_index": 954,
+            "chunk_id": "PMC12898571_chunk_006",
+            "score": 0.032258,
+            "mode": "hybrid_multi_query",
+            "medical_label": "population",
+            "medical_parent": "methods",
+            "source_section": "2.2. Participants and Sample Size",
+            "source_file": "data/sources_medical/chunks/train/PMC12898571_chunk_006.md",
+            "preview": "# 2.2. Participants and Sample Size  The following inclusion and exclusion criteria were applied to select eligible participants for the study.",
+            "multi_query_count": 2
+          },
+          {
+            "rank": 3,
+            "manifest_index": 547,
+            "chunk_id": "PMC11929207_chunk_009",
+            "score": 0.015873,
+            "mode": "hybrid_multi_query",
+            "medical_label": "exclusion_criteria",
+            "medical_parent": "population",
+            "source_section": "Exclusion criteria",
+            "source_file": "data/sources_medical/chunks/train/PMC11929207_chunk_009.md",
+            "preview": "# Exclusion criteria  A potential subject who meets any of the following criteria will be excluded from participation in this study:  – Patient or legal representative not available to give informed consent within 72 h a",
+            "multi_query_count": 2
+          }
+        ],
+        "synthesis": {
+          "model": "qwen3.5:9b",
+          "rag_mode": "evidence_structured",
+          "question_type": "population_applicability",
+          "answer_strategy": [
+            "结论",
+            "研究人群",
+            "外推边界",
+            "局限"
+          ],
+          "evidence_cards_count": 3,
+          "evidence_card_roles": [
+            "population"
+          ],
+          "reasoning_steps": 3,
+          "answer": "随机对照试验（RCT）的纳入与排除标准旨在筛选符合特定条件的受试者以确保研究结果的内部有效性。根据提供的证据，排除标准通常包括：无法在入院后72小时内提供知情同意、妊娠、特定疾病（如烧伤伤口）、仅作为选择性消化道去污（SDD）的预防性抗生素治疗、参与其他干预性试验、入组前已接受研究抗生素超过24小时、接受体外膜肺氧合（ECMO）、或已接受基于疑似感染的加倍剂量抗生素治疗。纳入标准的具体细节在提供的片段中未完全详述，但通常与排除标准互补以定义目标人群。",
+          "citations": [
+            "PMC6561428_chunk_012",
+            "PMC12898571_chunk_006",
+            "PMC11929207_chunk_009"
+          ],
+          "reasoning_trace": [
+            {
+              "step": "识别问题类型为研究人群适用性，匹配包含纳入排除标准的证据卡。",
+              "citations": [
+                "PMC6561428_chunk_012",
+                "PMC12898571_chunk_006",
+                "PMC11929207_chunk_009"
+              ],
+              "status": "supported"
+            },
+            {
+              "step": "从证据中提取具体的排除标准列表并转化为中文结论。",
+              "citations": [
+                "PMC11929207_chunk_009"
+              ],
+              "status": "supported"
+            },
+            {
+              "step": "确认证据中关于纳入标准具体内容的缺失情况。",
+              "citations": [
+                "PMC6561428_chunk_012"
+              ],
+              "status": "supported"
+            }
+          ],
+          "claim_count": 3,
+          "supported_claims": 3,
+          "unsupported_claims": 0,
+          "citation_coverage": 1.0,
+          "confidence": "high",
+          "abstain": false,
+          "abstain_reason": "",
+          "evidence_sufficiency": {
+            "sufficient": true,
+            "query_terms": [],
+            "matched_terms": [],
+            "matched_term_count": 0,
+            "top_rrf_score": 0.032787,
+            "evidence_count": 3
+          }
+        }
+      }
+    }
+  },
+  "summary": {
+    "medical_qwen3_embedding_4b": {
+      "cases": 7,
+      "hit_at_k": 7,
+      "hit_rate": 1.0,
+      "label_hit_at_k": 6,
+      "label_hit_rate": 0.8571,
+      "mean_first_hit_rank": 1.143,
+      "mean_citation_coverage": 0.5714,
+      "query_languages": [
+        "zh"
+      ],
+      "bridged_cases": 7,
+      "multi_query_cases": 2,
+      "structured_rag_cases": 7,
+      "mechanism_cases": 1
+    },
+    "index_bge_small": {
+      "cases": 7,
+      "hit_at_k": 7,
+      "hit_rate": 1.0,
+      "label_hit_at_k": 5,
+      "label_hit_rate": 0.7143,
+      "mean_first_hit_rank": 1.0,
+      "mean_citation_coverage": 0.8571,
+      "query_languages": [
+        "zh"
+      ],
+      "bridged_cases": 7,
+      "multi_query_cases": 2,
+      "structured_rag_cases": 7,
+      "mechanism_cases": 1
+    },
+    "index_bge_m3": {
+      "cases": 7,
+      "hit_at_k": 7,
+      "hit_rate": 1.0,
+      "label_hit_at_k": 6,
+      "label_hit_rate": 0.8571,
+      "mean_first_hit_rank": 1.0,
+      "mean_citation_coverage": 1.0,
+      "query_languages": [
+        "zh"
+      ],
+      "bridged_cases": 7,
+      "multi_query_cases": 2,
+      "structured_rag_cases": 7,
+      "mechanism_cases": 1
+    }
+  }
+}

@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-05-25T15:04:20+08:00",
+  "generated_at": "2026-05-31T01:57:29+08:00",
   "generator": "final_bundle_manifest_rebuild",
   "copy_mode": "track_specific_existing_files",
   "root": "data_trace_bundle",
   "file_count": 79,
-  "total_size_bytes": 390710139,
+  "total_size_bytes": 390711680,
   "total_size_mb": 372.61,
   "files": [
     {
@@ -31,9 +31,9 @@
     {
       "bundle_path": "09_medical_rag/medical_rag_eval.md",
       "source_path": "benchmark/eval/results/medical_rag_eval.md",
-      "size_bytes": 9580,
+      "size_bytes": 9834,
       "size_mb": 0.01,
-      "sha256": "d2f414357a30fa21f463581629e193ecb1801216f22f6a2a60cc1b6594e5d1a5"
+      "sha256": "15880cdd355df05214f00893a1c191f2d405038aefa1e7374c49f9cf2fa5443c"
     },
     {
       "bundle_path": "09_medical_rag/medical_rag_eval_synthesis_smoke.json",
@@ -52,9 +52,9 @@
     {
       "bundle_path": "09_medical_rag/medical_rag_eval_zh_ask.md",
       "source_path": "benchmark/eval/results/medical_rag_eval_zh_ask.md",
-      "size_bytes": 3373,
+      "size_bytes": 3634,
       "size_mb": 0.0,
-      "sha256": "50b621c941f124204a9f6a2c340bc3302f6ae8ce6c27a279b3c88041a6098247"
+      "sha256": "5389173d0abe23693a6dc270b12a6e4473f0c9f31c8fe63ac27228a5c30cec96"
     },
     {
       "bundle_path": "09_medical_rag/medical_rag_zh_ask_traces.jsonl",
@@ -194,7 +194,7 @@
       "source_path": "docs/evidence/final_supplemental_experiments/minimal_acceptance/SUMMARY.md",
       "size_bytes": 1135,
       "size_mb": 0.0,
-      "sha256": "5007eb08359e4610a91b429d5d35d0f1917fe28b8639872734f3219d66341bfd"
+      "sha256": "4c24199649e2762511f8814ea607863aceb2c1f5d5c056fb7030e71c7035c219"
     },
     {
       "bundle_path": "12_final_supplemental_experiments/minimal_acceptance/track1_acceptance_demo.log",
@@ -556,9 +556,9 @@
     {
       "bundle_path": "README.md",
       "source_path": "docs/submissions/data_trace_bundle/README.md",
-      "size_bytes": 1434,
+      "size_bytes": 2460,
       "size_mb": 0.0,
-      "sha256": "51e0161a365502a632ed9be9822d1ea449cf6a08ae67d4ada67cf86b23664a12"
+      "sha256": "86df0af9d4bb84a860a077c37bb3ab569c14bdfe0983857f120a6f1f1ef0d427"
     }
   ]
 }

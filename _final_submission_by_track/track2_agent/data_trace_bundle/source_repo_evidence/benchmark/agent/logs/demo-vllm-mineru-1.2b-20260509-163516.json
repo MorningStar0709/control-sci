@@ -1,0 +1,957 @@
+{
+  "generated_at": "2026-05-09T16:46:44.373092",
+  "sample_count": 50,
+  "mode": "mimo_only",
+  "results": [
+    {
+      "index": 151,
+      "chunk_id": "非线性系统_Khalil_chunk_332",
+      "image_hash": "dae0b54137f63e59266df28eecc1696fb7ce386718d8e765fd7ffb55c9deb075.jpg",
+      "image_path": "data\\processed\\非线性系统_Khalil\\image\\dae0b54137f63e59266df28eecc1696fb7ce386718d8e765fd7ffb55c9deb075.jpg",
+      "ground_truth_latex": "z = -(1 + t)x z = 0 \\varepsilon = 0.1 \\varepsilon = 0.1",
+      "ground_truth_clean": "z = -(1 + t)x z = 0 \\varepsilon = 0.1 \\varepsilon = 0.1",
+      "formula_count": 4,
+      "source_section": "例 11.6 考虑例 11.2 中高增益反馈系统的奇异扰动问题",
+      "mimo_latex": "\\begin{aligned}\nx(t) &= e^{-t} \\\\\nz(t) &= -e^{-t}\n\\end{aligned}",
+      "mimo_latex_clean": "\\begin{aligned} x(t) &= e^{-t} \\\\ z(t) &= -e^{-t} \\end{aligned}",
+      "mimo_edit_distance": 0.8888888888888888,
+      "mimo_bleu": 0.0005355481203158059,
+      "mimo_char_match": 0.06349206349206349,
+      "mimo_tokens": {
+        "prompt": 429,
+        "completion": 29
+      }
+    },
+    {
+      "index": 163,
+      "chunk_id": "2405.01087_Non_overshooting_sliding_mode_for_UAV_control_chunk_041",
+      "image_hash": "9372592d960f92b16164a5f8cf08eb857a81ed6b70a991149ed5fa36d0408d55.jpg",
+      "image_path": "data\\processed\\2405.01087_Non_overshooting_sliding_mode_for_UAV_control\\image\\9372592d960f92b16164a5f8cf08eb857a81ed6b70a991149ed5fa36d0408d55.jpg",
+      "ground_truth_latex": "u (t) = \\left\\{ \\begin{array}{l} k _ {c} \\mathrm{sign} [ e _ {2} (t) + e _ {2 c} \\mathrm{sign} (e _ {1} (t)) ] - h (t), \\mathrm{if} | e _ {1} (t) | > e _ {1 c} \\\\ k _ {2} \\mathrm{sign} [ e _ {2} (t) + k _ {1} e _ {1} (t) ] - h (t), \\mathrm{if} | e _ {1} (t) | \\leq e _ {1 c} \\end{array} \\right. h \\left( t \\right) = 5 x _ { 1 } ^ { \\frac { 1 } { 3 } } \\mathrm { 5 ( a ) } x _ { 1 } x _ { d } \\left( t \\right) . ~ x _ { 1 } x _ { d } \\left( t \\right) x _ { 2 } { \\dot { x } } _ { d } \\left( t \\right)",
+      "ground_truth_clean": "u (t) = \\left\\{ \\begin{array}{l} k _ {c} \\mathrm{sign} [ e _ {2} (t) + e _ {2 c} \\mathrm{sign} (e _ {1} (t)) ] - h (t), \\mathrm{if} | e _ {1} (t) | > e _ {1 c} \\\\ k _ {2} \\mathrm{sign} [ e _ {2} (t) + k _ {1} e _ {1} (t) ] - h (t), \\mathrm{if} | e _ {1} (t) | \\leq e _ {1 c} \\end{array} \\right. h \\left( t \\right) = 5 x _ { 1 } ^ { \\frac { 1 } { 3 } } \\mathrm { 5 ( a ) } x _ { 1 } x _ { d } \\left( t \\right) . ~ x _ { 1 } x _ { d } \\left( t \\right) x _ { 2 } { \\dot { x } } _ { d } \\left( t \\right)",
+      "formula_count": 8,
+      "source_section": "Example 6.1: (Non-overshooting control from Theorem 5.1):",
+      "mimo_latex": "$$x_2(t)$$\n$$\\frac{dx_d(t)}{dt}$$",
+      "mimo_latex_clean": "x_2(t)$$ $$\\frac{dx_d(t)}{dt}",
+      "mimo_edit_distance": 0.9519038076152304,
+      "mimo_bleu": 0.014566989140349625,
+      "mimo_char_match": 0.002004008016032064,
+      "mimo_tokens": {
+        "prompt": 254,
+        "completion": 21
+      }
+    },
+    {
+      "index": 139,
+      "chunk_id": "2303.01379_Planning_and_Control_of_Uncertain_Cooperative_Mobile_Manipul_chunk_214",
+      "image_hash": "5450eff0a5cc52507e3c7f175ae21e4165f7bc2bc49975fc0819b717c71fd3ce.jpg",
+      "image_path": "data\\processed\\2303.01379_Planning_and_Control_of_Uncertain_Cooperative_Mobile_Manipul\\image\\5450eff0a5cc52507e3c7f175ae21e4165f7bc2bc49975fc0819b717c71fd3ce.jpg",
+      "ground_truth_latex": "B (q) \\ddot {q} + C _ {q} (q, \\dot {q}) \\dot {q} + g _ {q} (q) = \\tau - J (q) ^ {\\top} h, \\tag {3.33a}M (q) \\dot {v} + C (q, \\dot {q}) v + g (q) = u - h, \\tag {3.33b} { \\cal J } : = \\mathrm { d i a g } \\{ [ J _ { i } ] _ { i \\in { \\cal N } } \\} \\mathsf { S } _ { i } = \\{ q _ { i } \\in \\mathbb { R } ^ { n } : \\operatorname* { d e t } ( J _ { i } ( q _ { i } ) J _ { i } ( q _ { i } ) ^ { \\top } ) > 0 \\} x _ { o } : = [ p _ { o } ^ { \\top } , \\eta _ { o } ^ { \\top } ] ^ { \\top } \\in \\mathbb { M } , \\ R _ { o } ( \\eta _ { o } ) \\in \\mathbb { S O } ( 3 ) , \\ v _ { o } : = [ { \\dot { p } } _ { o } ^ { \\top } , \\omega _ { o } ^ { \\top } ] ^ { \\top } \\in \\mathbb { R } ^ { 6 }",
+      "ground_truth_clean": "B (q) \\ddot {q} + C _ {q} (q, \\dot {q}) \\dot {q} + g _ {q} (q) = \\tau - J (q) ^ {\\top} h, \\tag {3.33a}M (q) \\dot {v} + C (q, \\dot {q}) v + g (q) = u - h, \\tag {3.33b} { \\cal J } : = \\mathrm { d i a g } \\{ [ J _ { i } ] _ { i \\in { \\cal N } } \\} \\mathsf { S } _ { i } = \\{ q _ { i } \\in \\mathbb { R } ^ { n } : \\operatorname* { d e t } ( J _ { i } ( q _ { i } ) J _ { i } ( q _ { i } ) ^ { \\top } ) > 0 \\} x _ { o } : = [ p _ { o } ^ { \\top } , \\eta _ { o } ^ { \\top } ] ^ { \\top } \\in \\mathbb { M } , \\ R _ { o } ( \\eta _ { o } ) \\in \\mathbb { S O } ( 3 ) , \\ v _ { o } : = [ { \\dot { p } } _ { o } ^ { \\top } , \\omega _ { o } ^ { \\top } ] ^ { \\top } \\in \\mathbb { R } ^ { 6 }",
+      "formula_count": 4,
+      "source_section": "3.3.1 Cooperative Manipulation Modeling",
+      "mimo_latex": "$$u_{2\\ell}, \\ell \\in \\{1, \\dots, 6\\}$$",
+      "mimo_latex_clean": "u_{2\\ell}, \\ell \\in \\{1, \\dots, 6\\}",
+      "mimo_edit_distance": 0.9600591715976331,
+      "mimo_bleu": 0.022566807978714618,
+      "mimo_char_match": 0.0029585798816568047,
+      "mimo_tokens": {
+        "prompt": 441,
+        "completion": 24
+      }
+    },
+    {
+      "index": 39,
+      "chunk_id": "2203.12114_An_Optical_Control_Environment_for_Benchmarking_Reinforcemen_chunk_055",
+      "image_hash": "7ce946cf36345fb670aeaee01941ba8bf4896e15dbad8168bcb886ecfa83a4ef.jpg",
+      "image_path": "data\\processed\\2203.12114_An_Optical_Control_Environment_for_Benchmarking_Reinforcemen\\image\\7ce946cf36345fb670aeaee01941ba8bf4896e15dbad8168bcb886ecfa83a4ef.jpg",
+      "ground_truth_latex": "P _ { 6 }",
+      "ground_truth_clean": "P _ { 6 }",
+      "formula_count": 1,
+      "source_section": "B.4 Rendering the controlling results on OPS environment",
+      "mimo_latex": "\\text{iteration}=50",
+      "mimo_latex_clean": "\\text{iteration}=50",
+      "mimo_edit_distance": 0.8947368421052632,
+      "mimo_bleu": 1.8012296973499107e-08,
+      "mimo_char_match": 0.0,
+      "mimo_tokens": {
+        "prompt": 217,
+        "completion": 8
+      }
+    },
+    {
+      "index": 207,
+      "chunk_id": "控制之美_chunk_085",
+      "image_hash": "e96a795405697602551bc672de06c0d509dc41ec12341e730a3e3ed2e15f3875.jpg",
+      "image_path": "data\\processed\\控制之美\\image\\e96a795405697602551bc672de06c0d509dc41ec12341e730a3e3ed2e15f3875.jpg",
+      "ground_truth_latex": "\\frac {\\mathrm{d} x (t)}{\\mathrm{d} t} + a x (t) = a u (t) \\tag {4.2.1} s X (s) + a X (s) = a U (s) \\tag {4.2.2} G (s) = \\frac {X (s)}{U (s)} = \\frac {a}{s + a} \\tag {4.2.3} \\left\\{ \\begin{array}{l} \\delta (t) = 0, t \\neq 0 \\\\ \\int_ {- \\infty} ^ {\\infty} \\delta (t) \\mathrm{d} t = 1 \\end{array} \\right. \\tag {4.2.4} \\mathcal {L} [ \\delta (t) ] = \\int_ {0} ^ {\\infty} \\delta (t) \\mathrm{e} ^ {- s t} \\mathrm{d} t = \\mathrm{e} ^ {- s 0} = 1 \\tag {4.2.5} u (t) = \\left\\{ \\begin{array}{l l} 1, & t \\geqslant 0 \\\\ 0, & t <   0 \\end{array} \\right. \\tag {4.2.6} \\mathcal {L} [ 1 ] = \\mathcal {L} \\left[ \\mathrm{e} ^ {- 0 t} \\right] = \\frac {1}{s + 0} = \\frac {1}{s} \\tag {4.2.7} a x(0) = u(0) = 0 G(s) s_{p}=-a",
+      "ground_truth_clean": "\\frac {\\mathrm{d} x (t)}{\\mathrm{d} t} + a x (t) = a u (t) \\tag {4.2.1} s X (s) + a X (s) = a U (s) \\tag {4.2.2} G (s) = \\frac {X (s)}{U (s)} = \\frac {a}{s + a} \\tag {4.2.3} \\left\\{ \\begin{array}{l} \\delta (t) = 0, t \\neq 0 \\\\ \\int_ {- \\infty} ^ {\\infty} \\delta (t) \\mathrm{d} t = 1 \\end{array} \\right. \\tag {4.2.4} \\mathcal {L} [ \\delta (t) ] = \\int_ {0} ^ {\\infty} \\delta (t) \\mathrm{e} ^ {- s t} \\mathrm{d} t = \\mathrm{e} ^ {- s 0} = 1 \\tag {4.2.5} u (t) = \\left\\{ \\begin{array}{l l} 1, & t \\geqslant 0 \\\\ 0, & t < 0 \\end{array} \\right. \\tag {4.2.6} \\mathcal {L} [ 1 ] = \\mathcal {L} \\left[ \\mathrm{e} ^ {- 0 t} \\right] = \\frac {1}{s + 0} = \\frac {1}{s} \\tag {4.2.7} a x(0) = u(0) = 0 G(s) s_{p}=-a",
+      "formula_count": 11,
+      "source_section": "4.2.1 典型一阶系统和典型系统输入信号",
+      "mimo_latex": "$$u(t) = \\begin{cases} 1, & t \\ge 0 \\\\ 0, & t < 0 \\end{cases}$$",
+      "mimo_latex_clean": "u(t) = \\begin{cases} 1, & t \\ge 0 \\\\ 0, & t < 0 \\end{cases}",
+      "mimo_edit_distance": 0.9172610556348074,
+      "mimo_bleu": 0.06705548956163865,
+      "mimo_char_match": 0.0014265335235378032,
+      "mimo_tokens": {
+        "prompt": 471,
+        "completion": 35
+      }
+    },
+    {
+      "index": 143,
+      "chunk_id": "自动控制原理_胡寿松_chunk_251",
+      "image_hash": "3acd5bf75e908cfd33b97984e041d37e8003c7bcf02e6909c2ce8abbd77060d3.jpg",
+      "image_path": "data\\processed\\自动控制原理_胡寿松\\image\\3acd5bf75e908cfd33b97984e041d37e8003c7bcf02e6909c2ce8abbd77060d3.jpg",
+      "ground_truth_latex": "G _ {p} (s) = \\frac {0 . 5}{s ^ {2} + 1 . 5 s + 0 . 5} 0 < K_{a} < \\infty K_{a} \\zeta \\geqslant 0.707 90^{\\circ} K_{1} K_{1} K_{1}=280 r(t)=1(t) h(t) \\Delta=2\\% K_{1}=280, r(t)=0 N(s)=1/s h_{n}(t) R(s) K_a K_t R(s) = 1/s^2 2s(\\Delta = 5\\%)",
+      "ground_truth_clean": "G _ {p} (s) = \\frac {0 . 5}{s ^ {2} + 1 . 5 s + 0 . 5} 0 < K_{a} < \\infty K_{a} \\zeta \\geqslant 0.707 90^{\\circ} K_{1} K_{1} K_{1}=280 r(t)=1(t) h(t) \\Delta=2\\% K_{1}=280, r(t)=0 N(s)=1/s h_{n}(t) R(s) K_a K_t R(s) = 1/s^2 2s(\\Delta = 5\\%)",
+      "formula_count": 19,
+      "source_section": "4-1 设单位反馈控制系统的开环传递函数为",
+      "mimo_latex": "\\text{V-22 Osprey}",
+      "mimo_latex_clean": "\\text{V-22 Osprey}",
+      "mimo_edit_distance": 0.9581589958158996,
+      "mimo_bleu": 3.4831827142111864e-07,
+      "mimo_char_match": 0.0,
+      "mimo_tokens": {
+        "prompt": 801,
+        "completion": 12
+      }
+    },
+    {
+      "index": 183,
+      "chunk_id": "智能控制_chunk_417",
+      "image_hash": "0087a33bab8ab731cb20de4fac988cd6fed1d145462bc94792b2535d269acedd.jpg",
+      "image_path": "data\\processed\\智能控制\\image\\0087a33bab8ab731cb20de4fac988cd6fed1d145462bc94792b2535d269acedd.jpg",
+      "ground_truth_latex": "y (k) = 0. 3 6 8 y (k - 1) + 0. 2 6 y (k - 2) + 0. 1 0 u (k - 1) + 0. 6 3 2 u (k - 2) r(k)=0.5\\mathrm{sign}(\\sin(4\\pi t)) W=\\left[w_{1}\\quad w_{2}\\quad w_{3}\\right]=\\left[0.1\\quad 0.1\\quad 0.1\\right] \\eta=0.40,K=0.12 \\omega_{1} \\omega_{2} \\omega_{3}",
+      "ground_truth_clean": "y (k) = 0. 3 6 8 y (k - 1) + 0. 2 6 y (k - 2) + 0. 1 0 u (k - 1) + 0. 6 3 2 u (k - 2) r(k)=0.5\\mathrm{sign}(\\sin(4\\pi t)) W=\\left[w_{1}\\quad w_{2}\\quad w_{3}\\right]=\\left[0.1\\quad 0.1\\quad 0.1\\right] \\eta=0.40,K=0.12 \\omega_{1} \\omega_{2} \\omega_{3}",
+      "formula_count": 7,
+      "source_section": "9.3.2 仿真实例",
+      "mimo_latex": "$$w_2$$",
+      "mimo_latex_clean": "w_2",
+      "mimo_edit_distance": 0.9879518072289156,
+      "mimo_bleu": 1.0131282111490538e-07,
+      "mimo_char_match": 0.0,
+      "mimo_tokens": {
+        "prompt": 291,
+        "completion": 6
+      }
+    },
+    {
+      "index": 166,
+      "chunk_id": "2206.07915_Barrier_Certified_Safety_Learning_Control_When_Sum_of_Square_chunk_016",
+      "image_hash": "ce908a2837b277a95447e9fe83bc493852322ded63cc532442ae98d2e89eb738.jpg",
+      "image_path": "data\\processed\\2206.07915_Barrier_Certified_Safety_Learning_Control_When_Sum_of_Square\\image\\ce908a2837b277a95447e9fe83bc493852322ded63cc532442ae98d2e89eb738.jpg",
+      "ground_truth_latex": "r = \\theta ^ { 2 } + 0 . 1 \\dot { \\theta } ^ { 2 } + 0 . 0 0 1 a ^ { 2 } | \\dot { \\theta } | \\dot { \\theta } ( 2 ^ { n d } ( 1 5 0 ^ { t h }",
+      "ground_truth_clean": "r = \\theta ^ { 2 } + 0 . 1 \\dot { \\theta } ^ { 2 } + 0 . 0 0 1 a ^ { 2 } | \\dot { \\theta } | \\dot { \\theta } ( 2 ^ { n d } ( 1 5 0 ^ { t h }",
+      "formula_count": 5,
+      "source_section": "IV. NUMERICAL EXAMPLE",
+      "mimo_latex": "\\text{Max } |\\dot{\\theta}|",
+      "mimo_latex_clean": "\\text{Max } |\\dot{\\theta}|",
+      "mimo_edit_distance": 0.8357142857142857,
+      "mimo_bleu": 0.07778117007922537,
+      "mimo_char_match": 0.0,
+      "mimo_tokens": {
+        "prompt": 342,
+        "completion": 11
+      }
+    },
+    {
+      "index": 50,
+      "chunk_id": "控制之美_chunk_034",
+      "image_hash": "ed37bef7f71566de59ecbe47a46baf95f24e2576e78200c442c0e1dac31858f1.jpg",
+      "image_path": "data\\processed\\控制之美\\image\\ed37bef7f71566de59ecbe47a46baf95f24e2576e78200c442c0e1dac31858f1.jpg",
+      "ground_truth_latex": "\\frac {\\mathrm{d} m}{\\mathrm{d} t} = \\frac {E _ {\\mathrm{i}} - E _ {\\mathrm{e}}}{7 0 0 0} \\tag {2.1.11} E _ {\\mathrm{e}} = E _ {\\mathrm{a}} + \\alpha P \\tag {2.1.12} P = 1 0 m + 6. 2 5 h - 5 a + S \\tag {2.1.13} 7 0 0 0 \\frac {\\mathrm{d} m}{\\mathrm{d} t} + 1 0 \\alpha m = E _ {\\mathrm{i}} - E _ {\\mathrm{a}} - \\alpha (6. 2 5 h - 5 a + S) \\tag {2.1.14} E_{i} E_{e} E_{i}-E_{e} 7000kCal \\approx 1kg 7000kCal 7000kCal E_{i} E_{e} E_{a} \\alpha P \\alpha \\alpha=1.3 \\alpha=1.5 \\alpha=1.9",
+      "ground_truth_clean": "\\frac {\\mathrm{d} m}{\\mathrm{d} t} = \\frac {E _ {\\mathrm{i}} - E _ {\\mathrm{e}}}{7 0 0 0} \\tag {2.1.11} E _ {\\mathrm{e}} = E _ {\\mathrm{a}} + \\alpha P \\tag {2.1.12} P = 1 0 m + 6. 2 5 h - 5 a + S \\tag {2.1.13} 7 0 0 0 \\frac {\\mathrm{d} m}{\\mathrm{d} t} + 1 0 \\alpha m = E _ {\\mathrm{i}} - E _ {\\mathrm{a}} - \\alpha (6. 2 5 h - 5 a + S) \\tag {2.1.14} E_{i} E_{e} E_{i}-E_{e} 7000kCal \\approx 1kg 7000kCal 7000kCal E_{i} E_{e} E_{a} \\alpha P \\alpha \\alpha=1.3 \\alpha=1.5 \\alpha=1.9",
+      "formula_count": 18,
+      "source_section": "2.1.2 常见动态系统微分方程举例",
+      "mimo_latex": "e(t) = e_L(t) + e_C(t) + e_R(t)",
+      "mimo_latex_clean": "e(t) = e_L(t) + e_C(t) + e_R(t)",
+      "mimo_edit_distance": 0.964509394572025,
+      "mimo_bleu": 7.486739574404135e-05,
+      "mimo_char_match": 0.0,
+      "mimo_tokens": {
+        "prompt": 541,
+        "completion": 19
+      }
+    },
+    {
+      "index": 28,
+      "chunk_id": "2210.15930_Lyapunov_based_Nonlinear_Model_Predictive_Control_for_Attitu_chunk_026",
+      "image_hash": "971e6ac8c0673f54e8ea8588b14822d2d2502106ea63f9d461c7bb4f0a796901.jpg",
+      "image_path": "data\\processed\\2210.15930_Lyapunov_based_Nonlinear_Model_Predictive_Control_for_Attitu\\image\\971e6ac8c0673f54e8ea8588b14822d2d2502106ea63f9d461c7bb4f0a796901.jpg",
+      "ground_truth_latex": "e_{\\phi} e_{\\theta} e_{\\psi} e_{\\phi} e_{\\theta} e_{\\psi}",
+      "ground_truth_clean": "e_{\\phi} e_{\\theta} e_{\\psi} e_{\\phi} e_{\\theta} e_{\\psi}",
+      "formula_count": 6,
+      "source_section": "5.5 Validation with software-in-the-loop tests based on Gazebo simulator",
+      "mimo_latex": "\\begin{align*}\n\\phi &\\text{ [rad]} \\\\\n\\theta &\\text{ [rad]} \\\\\n\\psi &\\text{ [rad]}\n\\end{align*}",
+      "mimo_latex_clean": "\\begin{align*} \\phi &\\text{ [rad]} \\\\ \\theta &\\text{ [rad]} \\\\ \\psi &\\text{ [rad]} \\end{align*}",
+      "mimo_edit_distance": 0.7052631578947368,
+      "mimo_bleu": 0.1369546421241116,
+      "mimo_char_match": 0.042105263157894736,
+      "mimo_tokens": {
+        "prompt": 264,
+        "completion": 42
+      }
+    },
+    {
+      "index": 40,
+      "chunk_id": "Ogata_Modern_Control_5th_chunk_226",
+      "image_hash": "276a21ee3f0938423a9aa78f8c51a4a338b103501c7435616c9ea82448d96d57.jpg",
+      "image_path": "data\\processed\\Ogata_Modern_Control_5th\\image\\276a21ee3f0938423a9aa78f8c51a4a338b103501c7435616c9ea82448d96d57.jpg",
+      "ground_truth_latex": "\\begin{array}{l} \\left[ \\begin{array}{c} \\dot {x} _ {1} \\\\ \\dot {x} _ {2} \\end{array} \\right] = \\left[ \\begin{array}{c c} - 1 & 0. 5 \\\\ - 1 & 0 \\end{array} \\right] \\left[ \\begin{array}{c} x _ {1} \\\\ x _ {2} \\end{array} \\right] + \\left[ \\begin{array}{c} 0 \\\\ 1 \\end{array} \\right] u \\\\ y = \\left[ \\begin{array}{c c} 1 & 0 \\end{array} \\right] \\left[ \\begin{array}{c} x _ {1} \\\\ x _ {2} \\end{array} \\right] \\\\ \\end{array}",
+      "ground_truth_clean": "\\begin{array}{l} \\left[ \\begin{array}{c} \\dot {x} _ {1} \\\\ \\dot {x} _ {2} \\end{array} \\right] = \\left[ \\begin{array}{c c} - 1 & 0. 5 \\\\ - 1 & 0 \\end{array} \\right] \\left[ \\begin{array}{c} x _ {1} \\\\ x _ {2} \\end{array} \\right] + \\left[ \\begin{array}{c} 0 \\\\ 1 \\end{array} \\right] u \\\\ y = \\left[ \\begin{array}{c c} 1 & 0 \\end{array} \\right] \\left[ \\begin{array}{c} x _ {1} \\\\ x _ {2} \\end{array} \\right] \\\\ \\end{array}",
+      "formula_count": 1,
+      "source_section": "MATLAB Program 5–3",
+      "mimo_latex": "\\text{Unit-Ramp Input and System Output}",
+      "mimo_latex_clean": "\\text{Unit-Ramp Input and System Output}",
+      "mimo_edit_distance": 0.937799043062201,
+      "mimo_bleu": 4.1276322775372793e-07,
+      "mimo_char_match": 0.007177033492822967,
+      "mimo_tokens": {
+        "prompt": 457,
+        "completion": 12
+      }
+    },
+    {
+      "index": 236,
+      "chunk_id": "控制之美_chunk_028",
+      "image_hash": "7c04290fa3e898007768329c3b3f00534988f2ee9af3eeb83ddd9a175cd50c52.jpg",
+      "image_path": "data\\processed\\控制之美\\image\\7c04290fa3e898007768329c3b3f00534988f2ee9af3eeb83ddd9a175cd50c52.jpg",
+      "ground_truth_latex": "u(t) u(t) x(t) r(t) u(t) r(t) u(t) x(t) r(t) u(t) r(t)",
+      "ground_truth_clean": "u(t) u(t) x(t) r(t) u(t) r(t) u(t) x(t) r(t) u(t) r(t)",
+      "formula_count": 11,
+      "source_section": "1.2 控制系统",
+      "mimo_latex": "$$r(t) \\rightarrow \\text{控制器} \\rightarrow u(t) \\rightarrow \\text{动态系统} \\rightarrow x(t)$$",
+      "mimo_latex_clean": "r(t) \\rightarrow \\text{控制器} \\rightarrow u(t) \\rightarrow \\text{动态系统} \\rightarrow x(t)",
+      "mimo_edit_distance": 0.6941176470588235,
+      "mimo_bleu": 0.15645891115237387,
+      "mimo_char_match": 0.10588235294117647,
+      "mimo_tokens": {
+        "prompt": 524,
+        "completion": 31
+      }
+    },
+    {
+      "index": 87,
+      "chunk_id": "动态系统的反馈控制_Franklin_chunk_180",
+      "image_hash": "27046b1e111be47ee8963799533900cd45993c8e02b08a20df21783aec882a99.jpg",
+      "image_path": "data\\processed\\动态系统的反馈控制_Franklin\\image\\27046b1e111be47ee8963799533900cd45993c8e02b08a20df21783aec882a99.jpg",
+      "ground_truth_latex": "1 + \\left(K + \\frac {K _ {1}}{s}\\right) \\frac {1}{(s + 1) (s + 2)} = 0 s ^ {3} + 3 s ^ {2} + (2 + K) s + K _ {\\mathrm{I}} = 0 \\begin{array}{l} s ^ {3}: \\quad 1 \\quad 2 + K \\\\ s ^ {2}: \\quad 3 \\quad K _ {I} \\\\ s: \\quad (6 + 3 K - K _ {1}) / 3 \\\\ s ^ {0}: \\quad K _ {1} \\\\ \\end{array} K _ {1} > 0, \\quad K > \\frac {1}{3} K _ {1} - 2 \\begin{array}{l} f h = @ (K I, K) 6 + 3 ^ {*} K - K I; \\\\ \\text { ezplot } (f h) \\\\ \\text { hold   on; } \\\\ f = @ (K I, K) K I; \\\\ \\text { ezplot } (f); \\\\ \\end{array} T (s) = \\frac {Y (s)}{R (s)} = \\frac {K s + K _ {\\mathrm{I}}}{s ^ {3} + 3 s ^ {2} + (2 + K) s + K _ {\\mathrm{I}}} \\text { denT } = [ 1 3 2 + K K I ]; \\quad \\% \\text { form denominator } \\text { numT } = [ \\text { K KI } ]; \\% \\text { form numerator } \\begin{array}{l l} \\text {sysT = tf(numT,denT);} & \\% \\text {define system by its numerator and denominator} \\\\ \\text {step(sysT)} & \\% \\text {compute step response} \\end{array} (K, K_{1}) K_{1} -K_{1}/K K_{1}=0 -1.5\\pm0.86j K=K_{1}=1 K_{1}=5 -1.26\\pm3.3j K_{I}=0",
+      "ground_truth_clean": "1 + \\left(K + \\frac {K _ {1}}{s}\\right) \\frac {1}{(s + 1) (s + 2)} = 0 s ^ {3} + 3 s ^ {2} + (2 + K) s + K _ {\\mathrm{I}} = 0 \\begin{array}{l} s ^ {3}: \\quad 1 \\quad 2 + K \\\\ s ^ {2}: \\quad 3 \\quad K _ {I} \\\\ s: \\quad (6 + 3 K - K _ {1}) / 3 \\\\ s ^ {0}: \\quad K _ {1} \\\\ \\end{array} K _ {1} > 0, \\quad K > \\frac {1}{3} K _ {1} - 2 \\begin{array}{l} f h = @ (K I, K) 6 + 3 ^ {*} K - K I; \\\\ \\text { ezplot } (f h) \\\\ \\text { hold on; } \\\\ f = @ (K I, K) K I; \\\\ \\text { ezplot } (f); \\\\ \\end{array} T (s) = \\frac {Y (s)}{R (s)} = \\frac {K s + K _ {\\mathrm{I}}}{s ^ {3} + 3 s ^ {2} + (2 + K) s + K _ {\\mathrm{I}}} \\text { denT } = [ 1 3 2 + K K I ]; \\quad \\% \\text { form denominator } \\text { numT } = [ \\text { K KI } ]; \\% \\text { form numerator } \\begin{array}{l l} \\text {sysT = tf(numT,denT);} & \\% \\text {define system by its numerator and denominator} \\\\ \\text {step(sysT)} & \\% \\text {compute step response} \\end{array} (K, K_{1}) K_{1} -K_{1}/K K_{1}=0 -1.5\\pm0.86j K=K_{1}=1 K_{1}=5 -1.26\\pm3.3j K_{I}=0",
+      "formula_count": 18,
+      "source_section": "例3.34 相对于两个参数变化的稳定性",
+      "mimo_latex": "\\begin{align*}\nR &\\rightarrow \\bigoplus \\rightarrow \\boxed{K + \\frac{K_I}{s}} \\rightarrow \\boxed{\\frac{1}{(s+1)(s+2)}} \\rightarrow Y \\\\\n&\\uparrow \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad",
+      "mimo_latex_clean": "\\begin{align*} R &\\rightarrow \\bigoplus \\rightarrow \\boxed{K + \\frac{K_I}{s}} \\rightarrow \\boxed{\\frac{1}{(s+1)(s+2)}} \\rightarrow Y \\\\ &\\uparrow \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad \\qquad",
+      "mimo_edit_distance": 0.8337489609310058,
+      "mimo_bleu": 0.05073525450787932,
+      "mimo_char_match": 0.01828761429758936,
+      "mimo_tokens": {
+        "prompt": 193,
+        "completion": 1024
+      }
+    },
+    {
+      "index": 56,
+      "chunk_id": "2206.06553_Safe_Output_Feedback_Motion_Planning_from_Images_via_Learned_chunk_038",
+      "image_hash": "6bc5fb8376590a6b6518949331be5b48fba6f7f3ba1fa716bd0ea745c1eb720b.jpg",
+      "image_path": "data\\processed\\2206.06553_Safe_Output_Feedback_Motion_Planning_from_Images_via_Learned\\image\\6bc5fb8376590a6b6518949331be5b48fba6f7f3ba1fa716bd0ea745c1eb720b.jpg",
+      "ground_truth_latex": "D _ { r } \\subseteq { \\mathcal { X } } D _ { r } D _ { x }",
+      "ground_truth_clean": "D _ { r } \\subseteq { \\mathcal { X } } D _ { r } D _ { x }",
+      "formula_count": 3,
+      "source_section": "A Trusted domain visualizations",
+      "mimo_latex": "$$D_r = (C_r D_p) \\times \\mathbb{R}$$\n$$C_r = \\begin{bmatrix} 1 & 0 \\\\ 0 & 0 \\end{bmatrix}$$",
+      "mimo_latex_clean": "D_r = (C_r D_p) \\times \\mathbb{R}$$ $$C_r = \\begin{bmatrix} 1 & 0 \\\\ 0 & 0 \\end{bmatrix}",
+      "mimo_edit_distance": 0.7159090909090909,
+      "mimo_bleu": 0.09741544274063611,
+      "mimo_char_match": 0.03409090909090909,
+      "mimo_tokens": {
+        "prompt": 445,
+        "completion": 49
+      }
+    },
+    {
+      "index": 173,
+      "chunk_id": "非线性系统_Khalil_chunk_216",
+      "image_hash": "884dfbadf739c06c06f74b8c8680e0b9ee1cd9c66234e534873b24c8e1bb3f9c.jpg",
+      "image_path": "data\\processed\\非线性系统_Khalil\\image\\884dfbadf739c06c06f74b8c8680e0b9ee1cd9c66234e534873b24c8e1bb3f9c.jpg",
+      "ground_truth_latex": "G (s) = \\frac {4}{(s - 1) (\\frac {1}{2} s + 1) (\\frac {1}{3} s + 1)} G (s) = \\frac {s + 2}{(s + 1) (s - 1)} \\dot {x} _ {1} = x _ {2}\\dot {x} _ {2} = x _ {1} + uy = 2 x _ {1} + x _ {2}u = - \\psi (y) \\alpha G(j\\omega) D(\\alpha,\\beta) \\alpha \\beta D(\\alpha,\\beta) -3.2+j0 \\psi(y)=\\mathrm{sat}(y) G(s) \\alpha [-a,a] \\psi [\\alpha,\\beta] \\alpha=1/a,\\beta=1 G(s) G(j\\omega) D(\\alpha,1) \\alpha>0.5359 \\alpha=0.55 [-1.818,1.818] D(0.55,1) V(x)=x^{\\mathrm{T}}Px",
+      "ground_truth_clean": "G (s) = \\frac {4}{(s - 1) (\\frac {1}{2} s + 1) (\\frac {1}{3} s + 1)} G (s) = \\frac {s + 2}{(s + 1) (s - 1)} \\dot {x} _ {1} = x _ {2}\\dot {x} _ {2} = x _ {1} + uy = 2 x _ {1} + x _ {2}u = - \\psi (y) \\alpha G(j\\omega) D(\\alpha,\\beta) \\alpha \\beta D(\\alpha,\\beta) -3.2+j0 \\psi(y)=\\mathrm{sat}(y) G(s) \\alpha [-a,a] \\psi [\\alpha,\\beta] \\alpha=1/a,\\beta=1 G(s) G(j\\omega) D(\\alpha,1) \\alpha>0.5359 \\alpha=0.55 [-1.818,1.818] D(0.55,1) V(x)=x^{\\mathrm{T}}Px",
+      "formula_count": 25,
+      "source_section": "7.1.1 圆判据",
+      "mimo_latex": "\\begin{tikzpicture}\n\\draw[->] (-2.2,0) -- (0.5,0) node[below] {$\\operatorname{Re} G$};\n\\draw[->] (0,-0.7) -- (0,1.1) node[right] {$\\operatorname{Im} G$};\n\\draw[thick, domain=-2:0, samples=100] plot ({\\x}, {0.5*sqrt(1-(\\x+1)^2)});\n\\draw[thick, domain=-2:0, samples=100] plot ({\\x}, {-0.5*sqrt(1-(\\x+1)^2)});\n\\draw[->] (-1.5,0.433) -- (-1.6,0.433);\n\\draw[->] (-1.5,-0.433) -- (-1.4,-0.433);\n\\foreach \\x in {-2,-1.5,-1,-0.5,0}\n    \\draw (\\x,0.05) -- (\\x,-0.05) node[below] {\\x};\n\\foreach \\y in {-0.5,0,0.5}\n    \\draw (0.05,\\y) -- (-0.05,\\y) node[left] {\\y};\n\\end{tikzpicture}",
+      "mimo_latex_clean": "\\begin{tikzpicture} \\draw[->] (-2.2,0) -- (0.5,0) node[below] {$\\operatorname{Re} G$}; \\draw[->] (0,-0.7) -- (0,1.1) node[right] {$\\operatorname{Im} G$}; \\draw[thick, domain=-2:0, samples=100] plot ({\\x}, {0.5*sqrt(1-(\\x+1)^2)}); \\draw[thick, domain=-2:0, samples=100] plot ({\\x}, {-0.5*sqrt(1-(\\x+1)^2)}); \\draw[->] (-1.5,0.433) -- (-1.6,0.433); \\draw[->] (-1.5,-0.433) -- (-1.4,-0.433); \\foreach \\x in {-2,-1.5,-1,-0.5,0} \\draw (\\x,0.05) -- (\\x,-0.05) node[below] {\\x}; \\foreach \\y in {-0.5,0,0.5} \\draw (0.05,\\y) -- (-0.05,\\y) node[left] {\\y}; \\end{tikzpicture}",
+      "mimo_edit_distance": 0.8333333333333334,
+      "mimo_bleu": 0.06342450475006627,
+      "mimo_char_match": 0.03546099290780142,
+      "mimo_tokens": {
+        "prompt": 301,
+        "completion": 307
+      }
+    },
+    {
+      "index": 195,
+      "chunk_id": "Ogata_Modern_Control_5th_chunk_280",
+      "image_hash": "7e9dd750e3e29f11dafbc0bb165fedbce686dbe45e9a5184a13123995159957a.jpg",
+      "image_path": "data\\processed\\Ogata_Modern_Control_5th\\image\\7e9dd750e3e29f11dafbc0bb165fedbce686dbe45e9a5184a13123995159957a.jpg",
+      "ground_truth_latex": "x _ { 1 } ( t ) t , x _ { 2 } ( t ) t , x _ { 3 } ( t ) e ( t ) e ( t ) = r ( t ) - x _ { 1 } ( t ) { \\big ] }",
+      "ground_truth_clean": "x _ { 1 } ( t ) t , x _ { 2 } ( t ) t , x _ { 3 } ( t ) e ( t ) e ( t ) = r ( t ) - x _ { 1 } ( t ) { \\big ] }",
+      "formula_count": 5,
+      "source_section": "PROBLEMS",
+      "mimo_latex": "\\begin{tikzpicture}[auto, node distance=2cm,>=latex']\n    \\node [input, name=input] {$R(s)$};\n    \\node [sum, right of=input] (sum) {};\n    \\node [block, right of=sum] (controller) {$5$};\n    \\node [block, right of=controller, node distance=3cm] (system) {$\\frac{1}{s(5s+1)}$};\n    \\node [output, right of=system, node distance=2cm] (output) {$C(s)$};\n    \\draw [->] (input) -- node {$ $} (sum);\n    \\draw [->] (sum) -- node {$ $} (controller);\n    \\draw [->] (controller) -- node {$ $} (system);\n    \\draw [->] (system) -- node [name=y] {$ $}(output);\n    \\draw [->] (y) |- (sum);\n    \\node [below of=sum, node distance=1cm] {System I};\n\\end{tikzpicture}",
+      "mimo_latex_clean": "\\begin{tikzpicture}[auto, node distance=2cm,>=latex'] \\node [input, name=input] {$R(s)$}; \\node [sum, right of=input] (sum) {}; \\node [block, right of=sum] (controller) {$5$}; \\node [block, right of=controller, node distance=3cm] (system) {$\\frac{1}{s(5s+1)}$}; \\node [output, right of=system, node distance=2cm] (output) {$C(s)$}; \\draw [->] (input) -- node {$ $} (sum); \\draw [->] (sum) -- node {$ $} (controller); \\draw [->] (controller) -- node {$ $} (system); \\draw [->] (system) -- node [name=y] {$ $}(output); \\draw [->] (y) |- (sum); \\node [below of=sum, node distance=1cm] {System I}; \\end{tikzpicture}",
+      "mimo_edit_distance": 0.8690671031096563,
+      "mimo_bleu": 0.0003026949348925263,
+      "mimo_char_match": 0.014729950900163666,
+      "mimo_tokens": {
+        "prompt": 254,
+        "completion": 235
+      }
+    },
+    {
+      "index": 8,
+      "chunk_id": "MPC_Control_Rawlings_chunk_425",
+      "image_hash": "ae99fbeaac7e456cc28e690fe035136d9bcb1032db91d59901f684573bc09b92.jpg",
+      "image_path": "data\\processed\\MPC_Control_Rawlings\\image\\ae99fbeaac7e456cc28e690fe035136d9bcb1032db91d59901f684573bc09b92.jpg",
+      "ground_truth_latex": "\\ell ( z - z _ { e } , \\nu - \\nu _ { e } ) \\ell ( z , \\nu ) : = ( 1 / 2 ) | z | ^ { 2 } + 5 \\nu ^ { 2 } \\ell _ { a } ( x , u ) = 5 0 | x | ^ { 2 } + ( 1 / 2 0 ) u ^ { 2 }",
+      "ground_truth_clean": "\\ell ( z - z _ { e } , \\nu - \\nu _ { e } ) \\ell ( z , \\nu ) : = ( 1 / 2 ) | z | ^ { 2 } + 5 \\nu ^ { 2 } \\ell _ { a } ( x , u ) = 5 0 | x | ^ { 2 } + ( 1 / 2 0 ) u ^ { 2 }",
+      "formula_count": 3,
+      "source_section": "Example 3.22: Robust control of an exothermic reaction",
+      "mimo_latex": "\\begin{tikzpicture}\n\\begin{axis}[\n    xlabel={$t$},\n    ylabel={temperature},\n    xmin=0, xmax=300,\n    ymin=0.3, ymax=0.7,\n    xtick={0,50,100,150,200,250,300},\n    ytick={0.3,0.4,0.5,0.6,0.7},\n    width=10cm,\n    height=8cm,\n    grid=major,\n    grid style={dashed, gray!30},\n]\n\\addplot[black, thick] coordinates {\n    (0,0.39)\n    (10,0.395)\n    (20,0.40)\n    (30,0.405)\n    (40,0.41)\n    (50,0.415)\n    (60,0.42)\n    (70,0.43)\n    (80,0.45)\n    (90,0.48)\n    (100,0.52)\n    (110,0.55)\n    (120,0.57)\n    (130,0.58)\n    (140,0.59)\n    (150,0.60)\n    (160,0.61)\n    (170,0.62)\n    (180,0.63)\n    (190,0.635)\n    (200,0.64)\n    (210,0.645)\n    (220,0.65)\n    (230,0.65)\n    (240,0.65)\n    (250,0.65)\n    (260,0.65)\n    (270,0.65)\n    (280,0.65)\n    (290,0.65)\n    (300,0.65)\n};\n\\end{axis}\n\\end{tikzpicture}",
+      "mimo_latex_clean": "\\begin{tikzpicture} \\begin{axis}[ xlabel={$t$}, ylabel={temperature}, xmin=0, xmax=300, ymin=0.3, ymax=0.7, xtick={0,50,100,150,200,250,300}, ytick={0.3,0.4,0.5,0.6,0.7}, width=10cm, height=8cm, grid=major, grid style={dashed, gray!30}, ] \\addplot[black, thick] coordinates { (0,0.39) (10,0.395) (20,0.40) (30,0.405) (40,0.41) (50,0.415) (60,0.42) (70,0.43) (80,0.45) (90,0.48) (100,0.52) (110,0.55) (120,0.57) (130,0.58) (140,0.59) (150,0.60) (160,0.61) (170,0.62) (180,0.63) (190,0.635) (200,0.64) (210,0.645) (220,0.65) (230,0.65) (240,0.65) (250,0.65) (260,0.65) (270,0.65) (280,0.65) (290,0.65) (300,0.65) }; \\end{axis} \\end{tikzpicture}",
+      "mimo_edit_distance": 0.867601246105919,
+      "mimo_bleu": 0.016914622555811696,
+      "mimo_char_match": 0.012461059190031152,
+      "mimo_tokens": {
+        "prompt": 261,
+        "completion": 493
+      }
+    },
+    {
+      "index": 23,
+      "chunk_id": "动态系统的反馈控制_Franklin_chunk_513",
+      "image_hash": "98008d41003df455df296b2770c6b8bba12d2554cf419d5e4d3588ed1fdfd998.jpg",
+      "image_path": "data\\processed\\动态系统的反馈控制_Franklin\\image\\98008d41003df455df296b2770c6b8bba12d2554cf419d5e4d3588ed1fdfd998.jpg",
+      "ground_truth_latex": "\\boldsymbol {A} = \\left[ \\begin{array}{c c} - 2 & 1 \\\\ 1 & 0 \\end{array} \\right], \\quad \\boldsymbol {B} = \\left[ \\begin{array}{l} 1 \\\\ 0 \\end{array} \\right], \\quad \\boldsymbol {C} = \\left[ \\begin{array}{l l} 1 & 2 \\end{array} \\right] G (s) = \\frac {9}{s ^ {2} - 9} G _ {1} (s) = \\frac {9 (s + 1)}{s ^ {2} - 9} x = \\left[ \\begin{array}{c} x _ {\\mathrm{p}} \\\\ x _ {\\mathrm{f}} \\end{array} \\right] \\boldsymbol {A} = n \\times n, \\quad \\boldsymbol {L} = n \\times 1\\boldsymbol {B} = n \\times 1, \\quad x = 2 n \\times 1C = 1 \\times n, \\quad r = 1 \\times 1\\boldsymbol {K} = 1 \\times n, \\quad y = 1 \\times 1 \\boldsymbol {T} = \\left[ \\begin{array}{c c} \\boldsymbol {I} & \\boldsymbol {0} \\\\ \\boldsymbol {I} & \\boldsymbol {I} \\end{array} \\right] u = -Kx + r (A - BK, C) K=\\left[1\\ K_{2}\\right] K_{2} (A_{0}, B_{0}, C_{0}) (A_{0}, B_{0}) s = -3 \\pm 3j s = -12 \\pm 12j u = -Kx + r G_{1}(s) u(t) x_{1}=i_{L} x_{2}=v_{C} x = Tz u(t) y(t) R_{1} R_{2}",
+      "ground_truth_clean": "\\boldsymbol {A} = \\left[ \\begin{array}{c c} - 2 & 1 \\\\ 1 & 0 \\end{array} \\right], \\quad \\boldsymbol {B} = \\left[ \\begin{array}{l} 1 \\\\ 0 \\end{array} \\right], \\quad \\boldsymbol {C} = \\left[ \\begin{array}{l l} 1 & 2 \\end{array} \\right] G (s) = \\frac {9}{s ^ {2} - 9} G _ {1} (s) = \\frac {9 (s + 1)}{s ^ {2} - 9} x = \\left[ \\begin{array}{c} x _ {\\mathrm{p}} \\\\ x _ {\\mathrm{f}} \\end{array} \\right] \\boldsymbol {A} = n \\times n, \\quad \\boldsymbol {L} = n \\times 1\\boldsymbol {B} = n \\times 1, \\quad x = 2 n \\times 1C = 1 \\times n, \\quad r = 1 \\times 1\\boldsymbol {K} = 1 \\times n, \\quad y = 1 \\times 1 \\boldsymbol {T} = \\left[ \\begin{array}{c c} \\boldsymbol {I} & \\boldsymbol {0} \\\\ \\boldsymbol {I} & \\boldsymbol {I} \\end{array} \\right] u = -Kx + r (A - BK, C) K=\\left[1\\ K_{2}\\right] K_{2} (A_{0}, B_{0}, C_{0}) (A_{0}, B_{0}) s = -3 \\pm 3j s = -12 \\pm 12j u = -Kx + r G_{1}(s) u(t) x_{1}=i_{L} x_{2}=v_{C} x = Tz u(t) y(t) R_{1} R_{2}",
+      "formula_count": 24,
+      "source_section": "7.7节习题",
+      "mimo_latex": "$$\n\\begin{cases}\nL \\frac{di_L}{dt} + R i_L = u \\\\\nC \\frac{dv_C}{dt} + \\frac{v_C}{R} = i_L \\\\\ny = v_C\n\\end{cases}\n$$",
+      "mimo_latex_clean": "\\begin{cases} L \\frac{di_L}{dt} + R i_L = u \\\\ C \\frac{dv_C}{dt} + \\frac{v_C}{R} = i_L \\\\ y = v_C \\end{cases}",
+      "mimo_edit_distance": 0.9141630901287554,
+      "mimo_bleu": 0.047110671935764896,
+      "mimo_char_match": 0.00536480686695279,
+      "mimo_tokens": {
+        "prompt": 199,
+        "completion": 57
+      }
+    },
+    {
+      "index": 1,
+      "chunk_id": "Essentials_of_Robust_Control_Zhou_Doyle_chunk_472",
+      "image_hash": "a5885ccfca38907e074872b9b79a02bfeff7f2d7c6cb081c1b5de28a24cd8a22.jpg",
+      "image_path": "data\\processed\\Essentials_of_Robust_Control_Zhou_Doyle\\image\\a5885ccfca38907e074872b9b79a02bfeff7f2d7c6cb081c1b5de28a24cd8a22.jpg",
+      "ground_truth_latex": "\\frac {| P (j \\omega_ {0}) - P _ {0} (j \\omega_ {0}) |}{\\sqrt {1 + | P (j \\omega_ {0}) | ^ {2}} \\sqrt {1 + | P _ {0} (j \\omega_ {0}) | ^ {2}}} = r. \\left(R - \\frac {R _ {0}}{1 - \\alpha}\\right) ^ {2} + \\left(I - \\frac {I _ {0}}{1 - \\alpha}\\right) ^ {2} = \\frac {\\alpha (1 + | P _ {0} | ^ {2} - \\alpha)}{(1 - \\alpha) ^ {2}}, \\text { if } \\alpha \\neq 1 P _ { 0 } ( j \\omega _ { 0 } ) \\omega _ { \\mathrm { 0 } } ; P ( j \\omega _ { 0 } ) = R + j I P _ { 0 } ( j \\omega _ { 0 } ) = R _ { 0 } + j I _ { 0 } \\alpha = r ^ { 2 } ( 1 + | P _ { 0 } | ^ { 2 } ) P _ { 0 } ( j \\omega _ { 0 } ) = 1 p _ { 0 } | p _ { 0 } ( j \\omega _ { 0 } ) | = 1 \\delta _ { \\nu } ( p _ { 0 } , p ) \\leq 0 . 2 ) 0 . 6 6 1 \\leq | p ( j \\omega _ { 0 } ) | \\leq 1 . 5 1 3 2 3 . 0 7 3 9 ^ { \\mathrm { o } } { \\mathrm { a t } } \\ \\omega _ { 0 } \\| \\Psi ( P _ { 1 } , P _ { 2 } ) \\| _ { \\infty }",
+      "ground_truth_clean": "\\frac {| P (j \\omega_ {0}) - P _ {0} (j \\omega_ {0}) |}{\\sqrt {1 + | P (j \\omega_ {0}) | ^ {2}} \\sqrt {1 + | P _ {0} (j \\omega_ {0}) | ^ {2}}} = r. \\left(R - \\frac {R _ {0}}{1 - \\alpha}\\right) ^ {2} + \\left(I - \\frac {I _ {0}}{1 - \\alpha}\\right) ^ {2} = \\frac {\\alpha (1 + | P _ {0} | ^ {2} - \\alpha)}{(1 - \\alpha) ^ {2}}, \\text { if } \\alpha \\neq 1 P _ { 0 } ( j \\omega _ { 0 } ) \\omega _ { \\mathrm { 0 } } ; P ( j \\omega _ { 0 } ) = R + j I P _ { 0 } ( j \\omega _ { 0 } ) = R _ { 0 } + j I _ { 0 } \\alpha = r ^ { 2 } ( 1 + | P _ { 0 } | ^ { 2 } ) P _ { 0 } ( j \\omega _ { 0 } ) = 1 p _ { 0 } | p _ { 0 } ( j \\omega _ { 0 } ) | = 1 \\delta _ { \\nu } ( p _ { 0 } , p ) \\leq 0 . 2 ) 0 . 6 6 1 \\leq | p ( j \\omega _ { 0 } ) | \\leq 1 . 5 1 3 2 3 . 0 7 3 9 ^ { \\mathrm { o } } { \\mathrm { a t } } \\ \\omega _ { 0 } \\| \\Psi ( P _ { 1 } , P _ { 2 } ) \\| _ { \\infty }",
+      "formula_count": 14,
+      "source_section": "17.3 Geometric Interpretation of ν-Gap Metric",
+      "mimo_latex": "\\begin{tikzpicture}\n    \\begin{axis}[\n        axis lines=left,\n        xlabel={real axis},\n        ylabel={imaginary axis},\n        zlabel={},\n        xmin=-1, xmax=3,\n        ymin=-1, ymax=1,\n        zmin=0, zmax=1,\n        view={120}{25},\n        grid=major,\n        width=10cm,\n        height=8cm\n    ]\n        % 绘制球体\n        \\addplot3[\n            surf,\n            shader=flat,\n            draw=black,\n            fill=white,\n            opacity=0.8,\n            samples=30,\n            samples y=30,\n            domain=0:180,\n            y domain=0:360\n        ]\n        ({1.5 + 0.8*sin(x)*cos(y)}, {0.8*sin(x)*sin(y)}, {0.8*cos(x)});\n\n        % 绘制底部的螺旋线\n        \\addplot3[\n            thick,\n            black,\n            domain=0:10*pi,\n            samples=200,\n            samples y=0\n        ]\n        ({1.5 + 0.8*cos(deg(x))}, {0.8*sin(deg(x))}, {0.1 - 0.01*x});\n    \\end{axis}\n\\end{tikzpicture}",
+      "mimo_latex_clean": "\\begin{tikzpicture} \\begin{axis}[ axis lines=left, xlabel={real axis}, ylabel={imaginary axis}, zlabel={}, xmin=-1, xmax=3, ymin=-1, ymax=1, zmin=0, zmax=1, view={120}{25}, grid=major, width=10cm, height=8cm ] % 绘制球体 \\addplot3[ surf, shader=flat, draw=black, fill=white, opacity=0.8, samples=30, samples y=30, domain=0:180, y domain=0:360 ] ({1.5 + 0.8*sin(x)*cos(y)}, {0.8*sin(x)*sin(y)}, {0.8*cos(x)}); % 绘制底部的螺旋线 \\addplot3[ thick, black, domain=0:10*pi, samples=200, samples y=0 ] ({1.5 + 0.8*cos(deg(x))}, {0.8*sin(deg(x))}, {0.1 - 0.01*x}); \\end{axis} \\end{tikzpicture}",
+      "mimo_edit_distance": 0.8356643356643356,
+      "mimo_bleu": 0.04104054111922773,
+      "mimo_char_match": 0.04079254079254079,
+      "mimo_tokens": {
+        "prompt": 513,
+        "completion": 302
+      }
+    },
+    {
+      "index": 246,
+      "chunk_id": "Dynamic_Systems_Modeling_Simulation_Control_chunk_698",
+      "image_hash": "270b670412326f61a95b626bb9415a24a7f68f2610dc9c0eac9f1ed59839a05d.jpg",
+      "image_path": "data\\processed\\Dynamic_Systems_Modeling_Simulation_Control\\image\\270b670412326f61a95b626bb9415a24a7f68f2610dc9c0eac9f1ed59839a05d.jpg",
+      "ground_truth_latex": "K _ { P } K _ { P } s = - 3 1 5 \\pm j 1 5 2 . 5 6 K _ { P } \\pm 6 0 ^ { \\circ } K _ { P } = 2 8 5 0 \\mathrm { V / m }",
+      "ground_truth_clean": "K _ { P } K _ { P } s = - 3 1 5 \\pm j 1 5 2 . 5 6 K _ { P } \\pm 6 0 ^ { \\circ } K _ { P } = 2 8 5 0 \\mathrm { V / m }",
+      "formula_count": 6,
+      "source_section": "Feedback Control System Design",
+      "mimo_latex": "\\text{Root Locus}",
+      "mimo_latex_clean": "\\text{Root Locus}",
+      "mimo_edit_distance": 0.9572649572649573,
+      "mimo_bleu": 3.6806569306005407e-09,
+      "mimo_char_match": 0.0,
+      "mimo_tokens": {
+        "prompt": 737,
+        "completion": 8
+      }
+    },
+    {
+      "index": 55,
+      "chunk_id": "先进PID控制MATLAB仿真_chunk_244",
+      "image_hash": "3718ce2d58fed3b2d62694afa9de2cee6c4ba7571259ed785762561bcf49bed7.jpg",
+      "image_path": "data\\processed\\先进PID控制MATLAB仿真\\image\\3718ce2d58fed3b2d62694afa9de2cee6c4ba7571259ed785762561bcf49bed7.jpg",
+      "ground_truth_latex": "v(t)=\\sin t \\alpha=18 \\lambda^{2}\\geqslant4C\\frac{\\alpha+C}{\\alpha-C}=4\\frac{18+1}{18-1}=4.4706 \\lambda=6 x_{1} x_{2}",
+      "ground_truth_clean": "v(t)=\\sin t \\alpha=18 \\lambda^{2}\\geqslant4C\\frac{\\alpha+C}{\\alpha-C}=4\\frac{18+1}{18-1}=4.4706 \\lambda=6 x_{1} x_{2}",
+      "formula_count": 6,
+      "source_section": "2. 微分器信号处理",
+      "mimo_latex": "\\begin{tikzpicture}\n\\begin{axis}[\n    xlabel={time(s)},\n    ylabel={derivative signal},\n    xmin=0, xmax=10,\n    ymin=-2, ymax=2,\n    legend pos=north east,\n    legend style={draw=none}\n]\n\\addplot[thick, gray] coordinates {\n    (0,0.5) (1,0.8) (2,0.2) (3,-0.8) (4,-0.5) (5,0.5) (6,1.2) (7,0.8) (8,0.2) (9,-0.8) (10,-0.5)\n};\n\\addlegendentry{ideal derivative signal}\n\\addplot[thick, black, densely dotted] coordinates {\n    (0,0.5) (0.5,1.1) (1,0.9) (1.5,0.5) (2,0.1) (2.5,-0.5) (3,-0.9) (3.5,-0.7) (4,-0.4) (4.5,0.1) (5,0.6) (5.5,1.1) (6,1.3) (6.5,1.0) (7,0.7) (7.5,0.3) (8,0.0) (8.5,-0.5) (9,-0.9) (9.5,-0.7) (10,-0.5)\n};\n\\addlegendentry{x2 by Levant TD}\n\\end{axis}\n\\end{tikzpicture}",
+      "mimo_latex_clean": "\\begin{tikzpicture} \\begin{axis}[ xlabel={time(s)}, ylabel={derivative signal}, xmin=0, xmax=10, ymin=-2, ymax=2, legend pos=north east, legend style={draw=none} ] \\addplot[thick, gray] coordinates { (0,0.5) (1,0.8) (2,0.2) (3,-0.8) (4,-0.5) (5,0.5) (6,1.2) (7,0.8) (8,0.2) (9,-0.8) (10,-0.5) }; \\addlegendentry{ideal derivative signal} \\addplot[thick, black, densely dotted] coordinates { (0,0.5) (0.5,1.1) (1,0.9) (1.5,0.5) (2,0.1) (2.5,-0.5) (3,-0.9) (3.5,-0.7) (4,-0.4) (4.5,0.1) (5,0.6) (5.5,1.1) (6,1.3) (6.5,1.0) (7,0.7) (7.5,0.3) (8,0.0) (8.5,-0.5) (9,-0.9) (9.5,-0.7) (10,-0.5) }; \\addlegendentry{x2 by Levant TD} \\end{axis} \\end{tikzpicture}",
+      "mimo_edit_distance": 0.9078341013824884,
+      "mimo_bleu": 0.00021316259774994815,
+      "mimo_char_match": 0.004608294930875576,
+      "mimo_tokens": {
+        "prompt": 254,
+        "completion": 371
+      }
+    },
+    {
+      "index": 22,
+      "chunk_id": "Ogata_Modern_Control_5th_chunk_239",
+      "image_hash": "6d1ea22f4327a0d0551bfe37b68031b2e0049e9a33e8cd8325a789e92ac721ec.jpg",
+      "image_path": "data\\processed\\Ogata_Modern_Control_5th\\image\\6d1ea22f4327a0d0551bfe37b68031b2e0049e9a33e8cd8325a789e92ac721ec.jpg",
+      "ground_truth_latex": "(s + 1) (s - 1) (s + j 5) (s - j 5) (s + 2) = 0 s = \\hat {s} - \\sigma \\quad (\\sigma = \\text { constant }) \\frac {C (s)}{R (s)} = \\frac {K}{s (s ^ {2} + s + 1) (s + 2) + K} s ^ {4} + 3 s ^ {3} + 3 s ^ {2} + 2 s + K = 0 \\begin{array}{l} s ^ {4} \\qquad 1 \\qquad 3 \\quad K \\\\ s ^ {3} \\quad 3 \\quad 2 \\quad 0 \\\\ s ^ {2} \\quad \\frac {7}{3} \\quad K \\\\ s ^ {1} \\quad 2 - \\frac {9}{7} K \\\\ s ^ {0} \\quad K \\\\ \\end{array} \\frac {1 4}{9} > K > 0 { \\hat { s } } ; \\begin{array} { r } { K = \\frac { 1 4 } { 9 } } \\end{array}",
+      "ground_truth_clean": "(s + 1) (s - 1) (s + j 5) (s - j 5) (s + 2) = 0 s = \\hat {s} - \\sigma \\quad (\\sigma = \\text { constant }) \\frac {C (s)}{R (s)} = \\frac {K}{s (s ^ {2} + s + 1) (s + 2) + K} s ^ {4} + 3 s ^ {3} + 3 s ^ {2} + 2 s + K = 0 \\begin{array}{l} s ^ {4} \\qquad 1 \\qquad 3 \\quad K \\\\ s ^ {3} \\quad 3 \\quad 2 \\quad 0 \\\\ s ^ {2} \\quad \\frac {7}{3} \\quad K \\\\ s ^ {1} \\quad 2 - \\frac {9}{7} K \\\\ s ^ {0} \\quad K \\\\ \\end{array} \\frac {1 4}{9} > K > 0 { \\hat { s } } ; \\begin{array} { r } { K = \\frac { 1 4 } { 9 } } \\end{array}",
+      "formula_count": 8,
+      "source_section": "MATLAB Program 5–17",
+      "mimo_latex": "\\begin{tikzpicture}[auto, node distance=2cm, >=latex']\n    \\node [input, name=input] {$R(s)$};\n    \\node [sum, right of=input] (sum) {};\n    \\node [block, right of=sum] (controller) {$\\dfrac{K}{s(s^2+s+1)(s+2)}$};\n    \\node [output, right of=controller] (output) {$C(s)$};\n    \\draw [->] (input) -- node {} (sum);\n    \\draw [->] (sum) -- node {} (controller);\n    \\draw [->] (controller) -- node [name=y] {}(output);\n    \\draw [->] (y) |- node [pos=0.99] {} (sum);\n\\end{tikzpicture}",
+      "mimo_latex_clean": "\\begin{tikzpicture}[auto, node distance=2cm, >=latex'] \\node [input, name=input] {$R(s)$}; \\node [sum, right of=input] (sum) {}; \\node [block, right of=sum] (controller) {$\\dfrac{K}{s(s^2+s+1)(s+2)}$}; \\node [output, right of=controller] (output) {$C(s)$}; \\draw [->] (input) -- node {} (sum); \\draw [->] (sum) -- node {} (controller); \\draw [->] (controller) -- node [name=y] {}(output); \\draw [->] (y) |- node [pos=0.99] {} (sum); \\end{tikzpicture}",
+      "mimo_edit_distance": 0.8258317025440313,
+      "mimo_bleu": 0.09896208318420996,
+      "mimo_char_match": 0.050880626223091974,
+      "mimo_tokens": {
+        "prompt": 211,
+        "completion": 181
+      }
+    },
+    {
+      "index": 188,
+      "chunk_id": "2503.05594_Multi_asset_optimal_trade_execution_with_stochastic_cross_ef_chunk_116",
+      "image_hash": "bf9860dcb9440966532ee995217966ae64f35226bd5627598baa20b1936146e3.jpg",
+      "image_path": "data\\processed\\2503.05594_Multi_asset_optimal_trade_execution_with_stochastic_cross_ef\\image\\bf9860dcb9440966532ee995217966ae64f35226bd5627598baa20b1936146e3.jpg",
+      "ground_truth_latex": "\\gamma (s) = \\frac {1}{2 5} \\left( \\begin{array}{c c} 9 e ^ {3 s} + 1 6 e ^ {s} & 1 2 (e ^ {3 s} - e ^ {s}) \\\\ 1 2 (e ^ {3 s} - e ^ {s}) & 1 6 e ^ {3 s} + 9 e ^ {s} \\end{array} \\right) e ^ {W _ {1} (s) - \\frac {s}{2}}, \\quad s \\in [ 0, T ]. \\tag {C.36} \\gamma \\mathcal { H } ^ { \\ast } \\theta",
+      "ground_truth_clean": "\\gamma (s) = \\frac {1}{2 5} \\left( \\begin{array}{c c} 9 e ^ {3 s} + 1 6 e ^ {s} & 1 2 (e ^ {3 s} - e ^ {s}) \\\\ 1 2 (e ^ {3 s} - e ^ {s}) & 1 6 e ^ {3 s} + 9 e ^ {s} \\end{array} \\right) e ^ {W _ {1} (s) - \\frac {s}{2}}, \\quad s \\in [ 0, T ]. \\tag {C.36} \\gamma \\mathcal { H } ^ { \\ast } \\theta",
+      "formula_count": 4,
+      "source_section": "C.4. Cross-effects from the price impact",
+      "mimo_latex": "\\begin{align*}\n\\text{price deviation} & \\quad \\text{time} \\\\\n\\text{first asset} & \\quad \\text{second asset}\n\\end{align*}",
+      "mimo_latex_clean": "\\begin{align*} \\text{price deviation} & \\quad \\text{time} \\\\ \\text{first asset} & \\quad \\text{second asset} \\end{align*}",
+      "mimo_edit_distance": 0.821917808219178,
+      "mimo_bleu": 0.13050381402462066,
+      "mimo_char_match": 0.03767123287671233,
+      "mimo_tokens": {
+        "prompt": 577,
+        "completion": 43
+      }
+    },
+    {
+      "index": 114,
+      "chunk_id": "智能控制_chunk_359",
+      "image_hash": "ea61ef12eaa804125ed5a21b0a49afd79ab0ca2b00e9b19ec0776e88a95910b5.jpg",
+      "image_path": "data\\processed\\智能控制\\image\\ea61ef12eaa804125ed5a21b0a49afd79ab0ca2b00e9b19ec0776e88a95910b5.jpg",
+      "ground_truth_latex": "x=[x_{1},x_{2}]^{\\mathrm{T}} b=[b_{1}\\quad b_{2}\\quad b_{3}\\quad b_{4}\\quad b_{5}]^{\\mathrm{T}} c=\\begin{bmatrix}c_{11}&c_{12}&c_{13}&c_{14}&c_{15}\\\\c_{21}&c_{22}&c_{23}&c_{24}&c_{25}\\end{bmatrix},h=[h_{1}\\quad h_{2}\\quad h_{3}\\quad h_{4}\\quad h_{5}]^{\\mathrm{T}},w=[w_{1}\\quad w_{2}\\quad w_{3}\\quad w_{4}\\quad w_{5}]^{\\mathrm{T}} y_{\\mathrm{m}}(t)=w^{\\mathrm{T}}h=w_{1}h_{1}+w_{2}h_{2}+w_{3}h_{3}+w_{4}h_{4}+w_{5}h_{5} \\sin t",
+      "ground_truth_clean": "x=[x_{1},x_{2}]^{\\mathrm{T}} b=[b_{1}\\quad b_{2}\\quad b_{3}\\quad b_{4}\\quad b_{5}]^{\\mathrm{T}} c=\\begin{bmatrix}c_{11}&c_{12}&c_{13}&c_{14}&c_{15}\\\\c_{21}&c_{22}&c_{23}&c_{24}&c_{25}\\end{bmatrix},h=[h_{1}\\quad h_{2}\\quad h_{3}\\quad h_{4}\\quad h_{5}]^{\\mathrm{T}},w=[w_{1}\\quad w_{2}\\quad w_{3}\\quad w_{4}\\quad w_{5}]^{\\mathrm{T}} y_{\\mathrm{m}}(t)=w^{\\mathrm{T}}h=w_{1}h_{1}+w_{2}h_{2}+w_{3}h_{3}+w_{4}h_{4}+w_{5}h_{5} \\sin t",
+      "formula_count": 5,
+      "source_section": "2. 结构为 2-5-1 的 RBF 网络",
+      "mimo_latex": "$$y(t) = 1 + \\sin(2\\pi t)$$",
+      "mimo_latex_clean": "y(t) = 1 + \\sin(2\\pi t)",
+      "mimo_edit_distance": 0.9647887323943662,
+      "mimo_bleu": 0.014546978292715956,
+      "mimo_char_match": 0.002347417840375587,
+      "mimo_tokens": {
+        "prompt": 373,
+        "completion": 18
+      }
+    },
+    {
+      "index": 189,
+      "chunk_id": "动态系统的反馈控制_Franklin_chunk_350",
+      "image_hash": "4f3ed63f9dbb4fcc8bdd1545df4287c0ae0582b966d864b15b7e615a043f2864.jpg",
+      "image_path": "data\\processed\\动态系统的反馈控制_Franklin\\image\\4f3ed63f9dbb4fcc8bdd1545df4287c0ae0582b966d864b15b7e615a043f2864.jpg",
+      "ground_truth_latex": "D _ {\\mathrm{c}} (s) = \\left(\\frac {T _ {\\mathrm{D}} s + 1}{\\alpha T _ {\\mathrm{D}} s + 1}\\right) ^ {2} 90^{\\circ} 1/\\alpha 1/\\alpha 70^{\\circ} 1 / \\alpha",
+      "ground_truth_clean": "D _ {\\mathrm{c}} (s) = \\left(\\frac {T _ {\\mathrm{D}} s + 1}{\\alpha T _ {\\mathrm{D}} s + 1}\\right) ^ {2} 90^{\\circ} 1/\\alpha 1/\\alpha 70^{\\circ} 1 / \\alpha",
+      "formula_count": 6,
+      "source_section": "6.7.2 超前补偿",
+      "mimo_latex": "\\begin{tikzpicture}\n\\begin{axis}[\n    xlabel={$1/\\alpha$},\n    ylabel={最大相位超前},\n    xmin=1, xmax=150,\n    ymin=0, ymax=90,\n    xmode=log,\n    log basis x=10,\n    xtick={1,2,4,6,8,10,20,40,60,100},\n    ytick={0,30,60,90},\n    grid=both,\n    minor tick num=1,\n    legend pos=north west,\n    ymajorgrids=true,\n    xmajorgrids=true,\n    minor xgrids={1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100},\n    minor ygrids={10,20,40,50,70,80},\n    width=10cm,\n    height=7cm,\n]\n\\addplot[\n    color=black,\n    mark=none,\n    thick,\n    domain=1:150,\n    samples=100,\n]\n{atan(1/(x))};\n\\end{axis}\n\\end{tikzpicture}",
+      "mimo_latex_clean": "\\begin{tikzpicture} \\begin{axis}[ xlabel={$1/\\alpha$}, ylabel={最大相位超前}, xmin=1, xmax=150, ymin=0, ymax=90, xmode=log, log basis x=10, xtick={1,2,4,6,8,10,20,40,60,100}, ytick={0,30,60,90}, grid=both, minor tick num=1, legend pos=north west, ymajorgrids=true, xmajorgrids=true, minor xgrids={1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100}, minor ygrids={10,20,40,50,70,80}, width=10cm, height=7cm, ] \\addplot[ color=black, mark=none, thick, domain=1:150, samples=100, ] {atan(1/(x))}; \\end{axis} \\end{tikzpicture}",
+      "mimo_edit_distance": 0.8757281553398059,
+      "mimo_bleu": 0.042142206301097725,
+      "mimo_char_match": 0.009708737864077669,
+      "mimo_tokens": {
+        "prompt": 281,
+        "completion": 292
+      }
+    },
+    {
+      "index": 178,
+      "chunk_id": "动态系统的反馈控制_Franklin_chunk_589",
+      "image_hash": "3b3bb117c4e4854f5ddd215792ad4c6cfe673b792f11dc6d76aacac2d846494c.jpg",
+      "image_path": "data\\processed\\动态系统的反馈控制_Franklin\\image\\3b3bb117c4e4854f5ddd215792ad4c6cfe673b792f11dc6d76aacac2d846494c.jpg",
+      "ground_truth_latex": "s^{2}+0.2s+1(\\omega=1,\\zeta=0.1) \\omega_{0}=1,K=0.2 1 \\, rad/s 1/[s(s^{2}+0.2s+1.0)] s = -10",
+      "ground_truth_clean": "s^{2}+0.2s+1(\\omega=1,\\zeta=0.1) \\omega_{0}=1,K=0.2 1 \\, rad/s 1/[s(s^{2}+0.2s+1.0)] s = -10",
+      "formula_count": 5,
+      "source_section": "例 9.8 使用根轨迹法对极限环系统的分析和设计",
+      "mimo_latex": "$$\\text{实轴}$$\n$$\\text{虚轴}$$\n$$K=0.5$$",
+      "mimo_latex_clean": "\\text{实轴}$$ $$\\text{虚轴}$$ $$K=0.5",
+      "mimo_edit_distance": 0.9130434782608695,
+      "mimo_bleu": 0.03509538598382456,
+      "mimo_char_match": 0.010869565217391304,
+      "mimo_tokens": {
+        "prompt": 286,
+        "completion": 26
+      }
+    },
+    {
+      "index": 107,
+      "chunk_id": "自动控制原理_胡寿松_chunk_545",
+      "image_hash": "4969e8bf67a3a571ed6b87f5c33f5370ee4b3d3e221b1386df1e18e8a5ba3290.jpg",
+      "image_path": "data\\processed\\自动控制原理_胡寿松\\image\\4969e8bf67a3a571ed6b87f5c33f5370ee4b3d3e221b1386df1e18e8a5ba3290.jpg",
+      "ground_truth_latex": "T \\ddot {c} + \\dot {c} + K M _ {0} = 0, \\qquad c > h \\text {或} c > - h, \\dot {c} < 0 (8 - 4 7)T \\ddot {c} + \\dot {c} - K M _ {0} = 0, \\qquad c < - h \\text {或} c < h, \\dot {c} > 0 T \\ddot {e} + \\dot {e} + K M _ {0} = T \\ddot {r} + \\dot {r} = 0, \\qquad e > h \\text {或} e > - h, \\dot {e} < 0 \\tag {8-48}T \\ddot {e} + \\dot {e} - K M _ {0} = T \\ddot {r} + \\dot {r} = 0, \\qquad e < - h \\text {或} e < h, \\dot {e} > 0 T \\ddot {c} + \\dot {c} + K M _ {0} = 0, \\qquad c + \\tau \\dot {c} > h \\text {或} c + \\tau \\dot {c} > - h, \\dot {c} + \\tau \\ddot {c} < 0 \\tag {8-49}T \\ddot {c} + \\dot {c} - K M _ {0} = 0, \\qquad c + \\tau \\dot {c} < - h \\text {或} c + \\tau \\dot {c} < h, \\dot {c} + \\tau \\ddot {c} > 0 \\dot {c} + \\tau \\ddot {c} = \\frac {\\tau}{T} (T \\ddot {c} + \\dot {c}) + \\dot {c} \\left(1 - \\frac {\\tau}{T}\\right) = \\frac {\\tau}{T} (- K M _ {0}) + \\dot {c} \\left(1 - \\frac {\\tau}{T}\\right) < 0 H(s) r(t)=0 H(s)=1 c = h, \\dot{c} > 0; c = -h \\dot{c} < 0 -h < c < h, \\dot{c} = 0 \\dot{c} = KM_0 (k = \\alpha = 0) \\dot{c} = -KM_0 (-h, h) r(t) = R \\cdot 1(t) e(t) \\dot{e}(t) H(s) = 1 + \\tau s(0 < \\tau < T) -h < c + \\tau c < h KM_0 -KM_0 L_1: c + \\tau c = h, L_2: c + \\tau c = -h (\\dot{c} < 0) L_1 L_1",
+      "ground_truth_clean": "T \\ddot {c} + \\dot {c} + K M _ {0} = 0, \\qquad c > h \\text {或} c > - h, \\dot {c} < 0 (8 - 4 7)T \\ddot {c} + \\dot {c} - K M _ {0} = 0, \\qquad c < - h \\text {或} c < h, \\dot {c} > 0 T \\ddot {e} + \\dot {e} + K M _ {0} = T \\ddot {r} + \\dot {r} = 0, \\qquad e > h \\text {或} e > - h, \\dot {e} < 0 \\tag {8-48}T \\ddot {e} + \\dot {e} - K M _ {0} = T \\ddot {r} + \\dot {r} = 0, \\qquad e < - h \\text {或} e < h, \\dot {e} > 0 T \\ddot {c} + \\dot {c} + K M _ {0} = 0, \\qquad c + \\tau \\dot {c} > h \\text {或} c + \\tau \\dot {c} > - h, \\dot {c} + \\tau \\ddot {c} < 0 \\tag {8-49}T \\ddot {c} + \\dot {c} - K M _ {0} = 0, \\qquad c + \\tau \\dot {c} < - h \\text {或} c + \\tau \\dot {c} < h, \\dot {c} + \\tau \\ddot {c} > 0 \\dot {c} + \\tau \\ddot {c} = \\frac {\\tau}{T} (T \\ddot {c} + \\dot {c}) + \\dot {c} \\left(1 - \\frac {\\tau}{T}\\right) = \\frac {\\tau}{T} (- K M _ {0}) + \\dot {c} \\left(1 - \\frac {\\tau}{T}\\right) < 0 H(s) r(t)=0 H(s)=1 c = h, \\dot{c} > 0; c = -h \\dot{c} < 0 -h < c < h, \\dot{c} = 0 \\dot{c} = KM_0 (k = \\alpha = 0) \\dot{c} = -KM_0 (-h, h) r(t) = R \\cdot 1(t) e(t) \\dot{e}(t) H(s) = 1 + \\tau s(0 < \\tau < T) -h < c + \\tau c < h KM_0 -KM_0 L_1: c + \\tau c = h, L_2: c + \\tau c = -h (\\dot{c} < 0) L_1 L_1",
+      "formula_count": 24,
+      "source_section": "(3) 具有滞环继电特性的非线性控制系统",
+      "mimo_latex": "\\begin{tikzpicture}[auto, node distance=2cm,>=latex']\n    \\node [input, name=input] {$r$};\n    \\node [sum, right of=input] (sum) {};\n    \\node [block, right of=sum, node distance=3cm] (controller) {$M_0$};\n    \\node [block, right of=controller, node distance=3cm] (system) {$\\frac{K}{s(Ts+1)}$};\n    \\node [output, right of=system, node distance=3cm] (output) {$c$};\n    \\node [block, below of=controller, node distance=2cm] (measurements) {$H(s)$};\n\n    \\draw [->] (input) -- node {$r$} (sum);\n    \\draw [->] (sum) -- node {$e$} (controller);\n    \\draw [->] (controller) -- node {$m$} (system);\n    \\draw [->] (system) -- node [name=y] {$c$} (output);\n    \\draw [->] (y) |- (measurements);\n    \\draw [->] (measurements) -| node[pos=0.99] {$-$} \n        node [near end] {} (sum);\n\\end{tikzpicture}",
+      "mimo_latex_clean": "\\begin{tikzpicture}[auto, node distance=2cm,>=latex'] \\node [input, name=input] {$r$}; \\node [sum, right of=input] (sum) {}; \\node [block, right of=sum, node distance=3cm] (controller) {$M_0$}; \\node [block, right of=controller, node distance=3cm] (system) {$\\frac{K}{s(Ts+1)}$}; \\node [output, right of=system, node distance=3cm] (output) {$c$}; \\node [block, below of=controller, node distance=2cm] (measurements) {$H(s)$}; \\draw [->] (input) -- node {$r$} (sum); \\draw [->] (sum) -- node {$e$} (controller); \\draw [->] (controller) -- node {$m$} (system); \\draw [->] (system) -- node [name=y] {$c$} (output); \\draw [->] (y) |- (measurements); \\draw [->] (measurements) -| node[pos=0.99] {$-$} node [near end] {} (sum); \\end{tikzpicture}",
+      "mimo_edit_distance": 0.8130287648054145,
+      "mimo_bleu": 0.04916872854107315,
+      "mimo_char_match": 0.02622673434856176,
+      "mimo_tokens": {
+        "prompt": 345,
+        "completion": 288
+      }
+    },
+    {
+      "index": 26,
+      "chunk_id": "2411.05445_Agile_UAV_landing_control_on_moving_ship_in_adverse_conditio_chunk_010",
+      "image_hash": "276bd10eca56653ce0221339707ed2b2f2aa550b4d9e0723835b6093c859fc24.jpg",
+      "image_path": "data\\processed\\2411.05445_Agile_UAV_landing_control_on_moving_ship_in_adverse_conditio\\image\\276bd10eca56653ce0221339707ed2b2f2aa550b4d9e0723835b6093c859fc24.jpg",
+      "ground_truth_latex": "\\frac {\\omega_ {c}}{s + \\omega_ {c}} \\tag {3} \\omega _ { c } \\omega _ { c } \\omega _ { c } = 2 . 5 r a d / s",
+      "ground_truth_clean": "\\frac {\\omega_ {c}}{s + \\omega_ {c}} \\tag {3} \\omega _ { c } \\omega _ { c } \\omega _ { c } = 2 . 5 r a d / s",
+      "formula_count": 4,
+      "source_section": "2.4 SENSOR NOISE AND FILTERING",
+      "mimo_latex": "\\text{Signal}",
+      "mimo_latex_clean": "\\text{Signal}",
+      "mimo_edit_distance": 0.9351851851851852,
+      "mimo_bleu": 5.540040724787521e-07,
+      "mimo_char_match": 0.009259259259259259,
+      "mimo_tokens": {
+        "prompt": 206,
+        "completion": 6
+      }
+    },
+    {
+      "index": 214,
+      "chunk_id": "2303.01379_Planning_and_Control_of_Uncertain_Cooperative_Mobile_Manipul_chunk_350",
+      "image_hash": "0a21c061c383d1b85a357f5ae301eb4d73e911f081b1cd92b7ab45f19e050c8d.jpg",
+      "image_path": "data\\processed\\2303.01379_Planning_and_Control_of_Uncertain_Cooperative_Mobile_Manipul\\image\\0a21c061c383d1b85a357f5ae301eb4d73e911f081b1cd92b7ab45f19e050c8d.jpg",
+      "ground_truth_latex": "u _ { i } ( t ) \\forall t \\in [ 0 , 2 0 ] i \\in \\mathcal N .",
+      "ground_truth_clean": "u _ { i } ( t ) \\forall t \\in [ 0 , 2 0 ] i \\in \\mathcal N .",
+      "formula_count": 3,
+      "source_section": "4.5 Conclusion",
+      "mimo_latex": "\\begin{align*}\nu_{1,3} & \\quad u_{4,3} & \\quad u_{7,3} \\\\\nu_{2,3} & \\quad u_{5,3} & \\quad u_{8,3} \\\\\nu_{3,3} & \\quad u_{6,3}\n\\end{align*}",
+      "mimo_latex_clean": "\\begin{align*} u_{1,3} & \\quad u_{4,3} & \\quad u_{7,3} \\\\ u_{2,3} & \\quad u_{5,3} & \\quad u_{8,3} \\\\ u_{3,3} & \\quad u_{6,3} \\end{align*}",
+      "mimo_edit_distance": 0.8102189781021898,
+      "mimo_bleu": 3.6425338138917334e-06,
+      "mimo_char_match": 0.0,
+      "mimo_tokens": {
+        "prompt": 163,
+        "completion": 78
+      }
+    },
+    {
+      "index": 206,
+      "chunk_id": "控制理论导论_郭雷_chunk_427",
+      "image_hash": "58798f43c64d8e9015a8169147ba140c3965a99328a63ffb7fab40df6d8abb70.jpg",
+      "image_path": "data\\processed\\控制理论导论_郭雷\\image\\58798f43c64d8e9015a8169147ba140c3965a99328a63ffb7fab40df6d8abb70.jpg",
+      "ground_truth_latex": "\\| R ^ {- 1} (\\cdot) T _ {z _ {0} w} (\\cdot) \\| _ {\\infty} < 1. \\tag {6.1.17} z = R ^ {- 1} (s) z _ {0}, P (s) = \\left[ \\begin{array}{c c} 0 & - R ^ {- 1} (s) \\\\ G (s) & - G (s) \\end{array} \\right], \\left\\{ \\begin{array}{l} \\dot {x} = A x + B _ {1} w + B _ {2} u, \\\\ y = C _ {2} x + D _ {2 1} w, \\end{array} \\right. \\tag {6.1.18} J = \\int_ {0} ^ {\\infty} \\left(x ^ {\\mathrm{T}} Q x + u ^ {\\mathrm{T}} R u\\right) \\mathrm{d} t, \\tag {6.1.19} J \\leqslant \\varepsilon^ {2} \\| w \\| _ {2} ^ {2}, \\quad \\forall w \\in L _ {q} ^ {2}, \\tag {6.1.20} \\Delta G(s) |\\Delta G(j\\omega)| \\leqslant |R(j\\omega)|, \\forall \\omega \\in \\mathbb{R} R(s) K(s) \\Delta G w, z_0 w z_0 T_{z_0w}(s) T_{z_0w}(s) \\in RH_\\infty H_{\\infty} \\Delta G(s) w z T_{zw}(s) \\in RH_{\\infty} \\| T_{zw}(\\cdot) \\|_{\\infty} < 1 K(s) H_{\\infty} T_{zw}(s) = R^{-1}(s) \\cdot T_{z_0w}(s) H_{\\infty} x \\in \\mathbb{R}^n u \\in R^r w \\in R^q y \\in \\mathbb{R}^p A, B_1, B_2, C_2, D_{21} w LQ Q \\geqslant 0 R > 0 J \\pmb{w}",
+      "ground_truth_clean": "\\| R ^ {- 1} (\\cdot) T _ {z _ {0} w} (\\cdot) \\| _ {\\infty} < 1. \\tag {6.1.17} z = R ^ {- 1} (s) z _ {0}, P (s) = \\left[ \\begin{array}{c c} 0 & - R ^ {- 1} (s) \\\\ G (s) & - G (s) \\end{array} \\right], \\left\\{ \\begin{array}{l} \\dot {x} = A x + B _ {1} w + B _ {2} u, \\\\ y = C _ {2} x + D _ {2 1} w, \\end{array} \\right. \\tag {6.1.18} J = \\int_ {0} ^ {\\infty} \\left(x ^ {\\mathrm{T}} Q x + u ^ {\\mathrm{T}} R u\\right) \\mathrm{d} t, \\tag {6.1.19} J \\leqslant \\varepsilon^ {2} \\| w \\| _ {2} ^ {2}, \\quad \\forall w \\in L _ {q} ^ {2}, \\tag {6.1.20} \\Delta G(s) |\\Delta G(j\\omega)| \\leqslant |R(j\\omega)|, \\forall \\omega \\in \\mathbb{R} R(s) K(s) \\Delta G w, z_0 w z_0 T_{z_0w}(s) T_{z_0w}(s) \\in RH_\\infty H_{\\infty} \\Delta G(s) w z T_{zw}(s) \\in RH_{\\infty} \\| T_{zw}(\\cdot) \\|_{\\infty} < 1 K(s) H_{\\infty} T_{zw}(s) = R^{-1}(s) \\cdot T_{z_0w}(s) H_{\\infty} x \\in \\mathbb{R}^n u \\in R^r w \\in R^q y \\in \\mathbb{R}^p A, B_1, B_2, C_2, D_{21} w LQ Q \\geqslant 0 R > 0 J \\pmb{w}",
+      "formula_count": 37,
+      "source_section": "6.1 $H_{\\infty}$ 控制基本设计问题",
+      "mimo_latex": "$$\n\\begin{aligned}\nz &= -R^{-1}(s) z_0 \\\\\ny &= G(s) (u + z_0) \\\\\nu &= K(s) y\n\\end{aligned}\n$$",
+      "mimo_latex_clean": "\\begin{aligned} z &= -R^{-1}(s) z_0 \\\\ y &= G(s) (u + z_0) \\\\ u &= K(s) y \\end{aligned}",
+      "mimo_edit_distance": 0.9305699481865285,
+      "mimo_bleu": 0.058292815594475814,
+      "mimo_char_match": 0.004145077720207254,
+      "mimo_tokens": {
+        "prompt": 796,
+        "completion": 47
+      }
+    },
+    {
+      "index": 59,
+      "chunk_id": "2403.01657_Generalized_pair_wise_logit_dynamic_and_its_connection_to_a_chunk_034",
+      "image_hash": "f8f2b6bd0f5dc81f1125c3d6c0fdd1f3b5b26aafd149effdf98f972a33ffea60.jpg",
+      "image_path": "data\\processed\\2403.01657_Generalized_pair_wise_logit_dynamic_and_its_connection_to_a\\image\\f8f2b6bd0f5dc81f1125c3d6c0fdd1f3b5b26aafd149effdf98f972a33ffea60.jpg",
+      "ground_truth_latex": "A _ { 2 } \\eta = 0 . 0 1 \\kappa = 0 . 5 x = 1 A _ { 2 } = 1 A _ { 2 } = 2",
+      "ground_truth_clean": "A _ { 2 } \\eta = 0 . 0 1 \\kappa = 0 . 5 x = 1 A _ { 2 } = 1 A _ { 2 } = 2",
+      "formula_count": 6,
+      "source_section": "4.2 First application",
+      "mimo_latex": "$$\n\\begin{tikzpicture}\n\\begin{axis}[\n    view={120}{30},\n    xlabel=$x$,\n    ylabel=$t$,\n    zlabel=$p$,\n    xmin=0, xmax=1,\n    ymin=0, ymax=120,\n    zmin=0, zmax=4,\n    colormap/jet,\n    colorbar,\n    colorbar style={\n        ylabel=$p$,\n        ytick={0,4},\n        yticklabels={0,4}\n    }\n]\n\\addplot3[\n    surf,\n    shader=interp,\n    domain=0:1,\n    domain y=0:120,\n    samples=50,\n    samples y=50\n]\n{4*exp(-((x-0.5)^2)/0.01)*exp(-(y-60)^2)/10000};\n\\end{axis}\n\\end{tikzpicture}\n$$",
+      "mimo_latex_clean": "\\begin{tikzpicture} \\begin{axis}[ view={120}{30}, xlabel=$x$, ylabel=$t$, zlabel=$p$, xmin=0, xmax=1, ymin=0, ymax=120, zmin=0, zmax=4, colormap/jet, colorbar, colorbar style={ ylabel=$p$, ytick={0,4}, yticklabels={0,4} } ] \\addplot3[ surf, shader=interp, domain=0:1, domain y=0:120, samples=50, samples y=50 ] {4*exp(-((x-0.5)^2)/0.01)*exp(-(y-60)^2)/10000}; \\end{axis} \\end{tikzpicture}",
+      "mimo_edit_distance": 0.8814432989690721,
+      "mimo_bleu": 0.01849852799833195,
+      "mimo_char_match": 0.01288659793814433,
+      "mimo_tokens": {
+        "prompt": 261,
+        "completion": 209
+      }
+    },
+    {
+      "index": 233,
+      "chunk_id": "智能控制_chunk_456",
+      "image_hash": "1ee204dd3c2563b2f241ebc76ed5765784da74117819ca873c399653e5f2d815.jpg",
+      "image_path": "data\\processed\\智能控制\\image\\1ee204dd3c2563b2f241ebc76ed5765784da74117819ca873c399653e5f2d815.jpg",
+      "ground_truth_latex": "S = 1 S = 2 m = 1, l = 1, g = 9.8, d = 0.5\\sin (t), C_0 = 2, \\Delta D = 0.8D_0, \\Delta C = 0.8C_0, \\Delta G = 0.8G_0 x = [0,0] q_{\\mathrm{d}} = 0.5\\sin (k \\cdot t_{\\mathrm{s}}) t_{\\mathrm{s}} = 0.001 k_{\\mathrm{p}} = 40, k_{\\mathrm{v}} = 20, Q = \\left[ \\begin{array}{cc}2000 & 0 \\\\ 0 & 2000 \\end{array} \\right] \\gamma = 5, k_1 = 0.01 M = 1 M = 2 (M=1) (M=2) (M=2)",
+      "ground_truth_clean": "S = 1 S = 2 m = 1, l = 1, g = 9.8, d = 0.5\\sin (t), C_0 = 2, \\Delta D = 0.8D_0, \\Delta C = 0.8C_0, \\Delta G = 0.8G_0 x = [0,0] q_{\\mathrm{d}} = 0.5\\sin (k \\cdot t_{\\mathrm{s}}) t_{\\mathrm{s}} = 0.001 k_{\\mathrm{p}} = 40, k_{\\mathrm{v}} = 20, Q = \\left[ \\begin{array}{cc}2000 & 0 \\\\ 0 & 2000 \\end{array} \\right] \\gamma = 5, k_1 = 0.01 M = 1 M = 2 (M=1) (M=2) (M=2)",
+      "formula_count": 13,
+      "source_section": "9.10.2 仿真实例",
+      "mimo_latex": "\\text{Position tracking of single link} \\\\\n\\text{time(s)} \\\\\n\\text{Position tracking error of single link} \\\\\n\\text{time(s)}",
+      "mimo_latex_clean": "\\text{Position tracking of single link} \\\\ \\text{time(s)} \\\\ \\text{Position tracking error of single link} \\\\ \\text{time(s)}",
+      "mimo_edit_distance": 0.8622589531680441,
+      "mimo_bleu": 0.029397730221368507,
+      "mimo_char_match": 0.01928374655647383,
+      "mimo_tokens": {
+        "prompt": 641,
+        "completion": 35
+      }
+    },
+    {
+      "index": 70,
+      "chunk_id": "Computer_Controlled_Systems_Astrom_chunk_807",
+      "image_hash": "4de9dfcdc6b72274707aefbbc70aec5a63379c7aa386017a06ed15eca415ef59.jpg",
+      "image_path": "data\\processed\\Computer_Controlled_Systems_Astrom\\image\\4de9dfcdc6b72274707aefbbc70aec5a63379c7aa386017a06ed15eca415ef59.jpg",
+      "ground_truth_latex": "u (k) = - k y (k) = - 0. 2 y (k) \\tag {13.18} \\hat {b} = b + \\frac {1}{k} (a - \\hat {a}) = - 3. 5 - 5 \\hat {a} u (k) = - 0. 3 2 y (k - 1) \\tag {13.19}",
+      "ground_truth_clean": "u (k) = - k y (k) = - 0. 2 y (k) \\tag {13.18} \\hat {b} = b + \\frac {1}{k} (a - \\hat {a}) = - 3. 5 - 5 \\hat {a} u (k) = - 0. 3 2 y (k - 1) \\tag {13.19}",
+      "formula_count": 3,
+      "source_section": "Example 13.5 Influence of feedback",
+      "mimo_latex": "\\begin{tikzpicture}\n\\begin{axis}[\n    xlabel={Parameter estimate $\\hat{b}$},\n    ylabel={Parameter estimate $\\hat{a}$},\n    xmin=-2.5, xmax=1.5,\n    ymin=-1.5, ymax=1.5,\n    xtick={-2,-1,0,1},\n    ytick={-1,0,1},\n    axis lines=left,\n    width=10cm,\n    height=10cm,\n    clip=false\n]\n% Dashed line\n\\draw[dashed, thick] (axis cs:-0.8,1.5) -- (axis cs:-0.5,-1.5);\n\n% Arrows (approximate positions and slopes)\n\\draw[->, thick] (axis cs:-1.8,0.6) -- (axis cs:-0.8,0.8);\n\\draw[->, thick] (axis cs:-1.6,-0.2) -- (axis cs:-0.6,0.0);\n\\draw[->, thick] (axis cs:-1.4,-1.1) -- (axis cs:-0.4,-0.9);\n\\draw[->, thick] (axis cs:-0.7,1.0) -- (axis cs:0.3,1.2);\n\\draw[->, thick] (axis cs:-0.5,0.3) -- (axis cs:0.5,0.5);\n\\draw[->, thick] (axis cs:-0.3,-0.6) -- (axis cs:0.7,-0.4);\n\n\\end{axis}\n\\end{tikzpicture}",
+      "mimo_latex_clean": "\\begin{tikzpicture} \\begin{axis}[ xlabel={Parameter estimate $\\hat{b}$}, ylabel={Parameter estimate $\\hat{a}$}, xmin=-2.5, xmax=1.5, ymin=-1.5, ymax=1.5, xtick={-2,-1,0,1}, ytick={-1,0,1}, axis lines=left, width=10cm, height=10cm, clip=false ] % Dashed line \\draw[dashed, thick] (axis cs:-0.8,1.5) -- (axis cs:-0.5,-1.5); % Arrows (approximate positions and slopes) \\draw[->, thick] (axis cs:-1.8,0.6) -- (axis cs:-0.8,0.8); \\draw[->, thick] (axis cs:-1.6,-0.2) -- (axis cs:-0.6,0.0); \\draw[->, thick] (axis cs:-1.4,-1.1) -- (axis cs:-0.4,-0.9); \\draw[->, thick] (axis cs:-0.7,1.0) -- (axis cs:0.3,1.2); \\draw[->, thick] (axis cs:-0.5,0.3) -- (axis cs:0.5,0.5); \\draw[->, thick] (axis cs:-0.3,-0.6) -- (axis cs:0.7,-0.4); \\end{axis} \\end{tikzpicture}",
+      "mimo_edit_distance": 0.8786666666666667,
+      "mimo_bleu": 0.02695743795556937,
+      "mimo_char_match": 0.010666666666666666,
+      "mimo_tokens": {
+        "prompt": 788,
+        "completion": 364
+      }
+    },
+    {
+      "index": 228,
+      "chunk_id": "先进PID控制MATLAB仿真_chunk_203",
+      "image_hash": "f990b6530ac84d0abd84b20c7b5cc9d7f2584e505d2aa664bbe2ae1b2ed075db.jpg",
+      "image_path": "data\\processed\\先进PID控制MATLAB仿真\\image\\f990b6530ac84d0abd84b20c7b5cc9d7f2584e505d2aa664bbe2ae1b2ed075db.jpg",
+      "ground_truth_latex": "u (t) = A _ {m} \\sin (\\omega t) \\tag {2.32} \\begin{array}{l} y (t) = A _ {\\mathrm{f}} \\sin (\\omega t + \\varphi) \\\\ = A _ {\\mathrm{f}} \\sin (\\omega t) \\cos (\\varphi) + A _ {\\mathrm{f}} \\cos (\\omega t) \\sin \\varphi \\tag {2.33} \\\\ = \\left[ \\sin (\\omega t) \\quad \\cos (\\omega t) \\right] \\left[ \\begin{array}{l} A _ {\\mathrm{f}} \\cos \\varphi \\\\ A _ {\\mathrm{f}} \\sin \\varphi \\end{array} \\right] \\\\ \\end{array} \\boldsymbol {Y} ^ {\\mathrm{T}} = \\left[ \\begin{array}{c c c c} y (0) & y (h) & \\dots & y (n h) \\end{array} \\right]\n\n\\boldsymbol {\\Psi} ^ {\\mathrm{T}} = \\left[ \\begin{array}{l l l l} \\sin (w 0) & \\sin (w h) & \\dots & \\sin (w n h) \\\\ \\cos (w 0) & \\cos (w h) & \\dots & \\cos (w n h) \\end{array} \\right] \\tag {2.34}\nc _ {1} = A _ {\\mathrm{f}} \\cos \\varphi , c _ {2} = A _ {\\mathrm{f}} \\sin \\varphi \\boldsymbol {Y} = \\boldsymbol {\\Psi} \\cdot \\left[ \\begin{array}{l} c _ {1} \\\\ c _ {2} \\end{array} \\right] \\tag {2.35} \\left[ \\begin{array}{l} \\hat {c} _ {1} \\\\ \\hat {c} _ {2} \\end{array} \\right] = \\left(\\boldsymbol {\\Psi} ^ {\\mathrm{T}} \\boldsymbol {\\Psi}\\right) ^ {- 1} \\boldsymbol {\\Psi} ^ {\\mathrm{T}} \\boldsymbol {Y} \\tag {2.36} \\hat {A} _ {\\mathrm{f}} = \\sqrt {\\hat {c} _ {1} ^ {2} + \\hat {c} _ {2} ^ {2}} \\tag {2.37}\\hat {\\varphi} = \\arctan \\left(\\frac {\\hat {c} _ {2}}{\\hat {c} _ {1}}\\right) \\tag {2.38} \\hat {\\varphi} _ {\\mathrm{e}} = \\varphi_ {\\text {out}} - \\varphi_ {\\text {in}} = \\hat {\\varphi} - 0 = \\arctan^ {- 1} \\left(\\frac {\\hat {c} _ {2}}{\\hat {c} _ {1}}\\right) \\tag {2.39}\\hat {M} = 2 0 \\lg \\left(\\frac {\\hat {A} _ {\\mathrm{f}}}{A _ {\\mathrm{m}}}\\right) = 2 0 \\lg \\left(\\frac {\\sqrt {\\hat {c} _ {1} ^ {2} + \\hat {c} _ {2} ^ {2}}}{A _ {\\mathrm{m}}}\\right) \\tag {2.40} G_{\\mathrm{p}}(s) A_{m} \\omega A_{f} \\varphi t=0, h, 2h, \\cdots, nh c_{1} c_{2} \\hat{c}_{1} \\hat{c}_{2} u(t)=A_{\\mathrm{m}}\\sin(\\omega t) \\left\\{\\omega_{i}\\right\\} i=0,1,\\cdots,n",
+      "ground_truth_clean": "u (t) = A _ {m} \\sin (\\omega t) \\tag {2.32} \\begin{array}{l} y (t) = A _ {\\mathrm{f}} \\sin (\\omega t + \\varphi) \\\\ = A _ {\\mathrm{f}} \\sin (\\omega t) \\cos (\\varphi) + A _ {\\mathrm{f}} \\cos (\\omega t) \\sin \\varphi \\tag {2.33} \\\\ = \\left[ \\sin (\\omega t) \\quad \\cos (\\omega t) \\right] \\left[ \\begin{array}{l} A _ {\\mathrm{f}} \\cos \\varphi \\\\ A _ {\\mathrm{f}} \\sin \\varphi \\end{array} \\right] \\\\ \\end{array} \\boldsymbol {Y} ^ {\\mathrm{T}} = \\left[ \\begin{array}{c c c c} y (0) & y (h) & \\dots & y (n h) \\end{array} \\right] \\boldsymbol {\\Psi} ^ {\\mathrm{T}} = \\left[ \\begin{array}{l l l l} \\sin (w 0) & \\sin (w h) & \\dots & \\sin (w n h) \\\\ \\cos (w 0) & \\cos (w h) & \\dots & \\cos (w n h) \\end{array} \\right] \\tag {2.34} c _ {1} = A _ {\\mathrm{f}} \\cos \\varphi , c _ {2} = A _ {\\mathrm{f}} \\sin \\varphi \\boldsymbol {Y} = \\boldsymbol {\\Psi} \\cdot \\left[ \\begin{array}{l} c _ {1} \\\\ c _ {2} \\end{array} \\right] \\tag {2.35} \\left[ \\begin{array}{l} \\hat {c} _ {1} \\\\ \\hat {c} _ {2} \\end{array} \\right] = \\left(\\boldsymbol {\\Psi} ^ {\\mathrm{T}} \\boldsymbol {\\Psi}\\right) ^ {- 1} \\boldsymbol {\\Psi} ^ {\\mathrm{T}} \\boldsymbol {Y} \\tag {2.36} \\hat {A} _ {\\mathrm{f}} = \\sqrt {\\hat {c} _ {1} ^ {2} + \\hat {c} _ {2} ^ {2}} \\tag {2.37}\\hat {\\varphi} = \\arctan \\left(\\frac {\\hat {c} _ {2}}{\\hat {c} _ {1}}\\right) \\tag {2.38} \\hat {\\varphi} _ {\\mathrm{e}} = \\varphi_ {\\text {out}} - \\varphi_ {\\text {in}} = \\hat {\\varphi} - 0 = \\arctan^ {- 1} \\left(\\frac {\\hat {c} _ {2}}{\\hat {c} _ {1}}\\right) \\tag {2.39}\\hat {M} = 2 0 \\lg \\left(\\frac {\\hat {A} _ {\\mathrm{f}}}{A _ {\\mathrm{m}}}\\right) = 2 0 \\lg \\left(\\frac {\\sqrt {\\hat {c} _ {1} ^ {2} + \\hat {c} _ {2} ^ {2}}}{A _ {\\mathrm{m}}}\\right) \\tag {2.40} G_{\\mathrm{p}}(s) A_{m} \\omega A_{f} \\varphi t=0, h, 2h, \\cdots, nh c_{1} c_{2} \\hat{c}_{1} \\hat{c}_{2} u(t)=A_{\\mathrm{m}}\\sin(\\omega t) \\left\\{\\omega_{i}\\right\\} i=0,1,\\cdots,n",
+      "formula_count": 20,
+      "source_section": "2.12.1 基本原理",
+      "mimo_latex": "\\begin{tikzpicture}[auto, node distance=2cm, >=latex']\n    \\node [input, name=input] {$u(t)$};\n    \\node [block, right of=input] (controller) {$G_p(s)$};\n    \\node [output, right of=controller, node distance=3cm] (output) {$y(t)$};\n    \\draw [->] (input) -- (controller);\n    \\draw [->] (controller) -- (output);\n\\end{tikzpicture}",
+      "mimo_latex_clean": "\\begin{tikzpicture}[auto, node distance=2cm, >=latex'] \\node [input, name=input] {$u(t)$}; \\node [block, right of=input] (controller) {$G_p(s)$}; \\node [output, right of=controller, node distance=3cm] (output) {$y(t)$}; \\draw [->] (input) -- (controller); \\draw [->] (controller) -- (output); \\end{tikzpicture}",
+      "mimo_edit_distance": 0.9048898441698012,
+      "mimo_bleu": 0.030996114970987868,
+      "mimo_char_match": 0.011284255776464266,
+      "mimo_tokens": {
+        "prompt": 139,
+        "completion": 112
+      }
+    },
+    {
+      "index": 154,
+      "chunk_id": "2203.01623_ETCetera_beyond_Event_Triggered_Control_chunk_055",
+      "image_hash": "8dd8c1a6fb3aadfec6a44fbecd924f4c42bce8d475f1f8064494c90d4709b69f.jpg",
+      "image_path": "data\\processed\\2203.01623_ETCetera_beyond_Event_Triggered_Control\\image\\8dd8c1a6fb3aadfec6a44fbecd924f4c42bce8d475f1f8064494c90d4709b69f.jpg",
+      "ground_truth_latex": "x _ { 0 } = [ 1 , 1 ] ^ { T } . \\displaystyle x _ { 0 } = [ 1 , - 1 ] ^ { T } .",
+      "ground_truth_clean": "x _ { 0 } = [ 1 , 1 ] ^ { T } . \\displaystyle x _ { 0 } = [ 1 , - 1 ] ^ { T } .",
+      "formula_count": 2,
+      "source_section": "5 CONCLUSIONS AND FUTURE WORK",
+      "mimo_latex": "\\begin{tikzpicture}\n    \\draw[->] (0,0) -- (12,0) node[right] {Time(s)};\n    \\foreach \\x in {0.2,0.4,0.6,0.8,1,1.2}\n        \\draw (\\x*10,0.1) -- (\\x*10,-0.1) node[below] {\\x};\n    \\node[left] at (0,1) {System 1};\n    \\node[left] at (0,-1) {System 2};\n    \\draw[blue] (0,1) node {$\\times$} -- (1,1) node {$\\circ$} -- (2,1) node {$\\circ$} -- (3,1) node {$\\circ$} -- (4,1) node {$\\circ$} -- (5,1) node {$\\circ$} -- (6,1) node {$\\circ$} -- (7,1) node {$\\circ$} -- (8,1) node {$\\circ$} -- (9,1) node {$\\circ$} -- (10,1) node {$\\circ$} -- (11,1) node {$\\circ$};\n    \\draw[red] (0,-1) node {$\\times$} -- (0.5,-1) node {$\\circ$} -- (1,-1) node {$\\circ$} -- (1.5,-1) node {$\\circ$} -- (2,-1) node {$\\circ$} -- (2.5,-1) node {$\\circ$} -- (3,-1) node {$\\circ$} -- (3.5,-1) node {$\\circ$} -- (4,-1) node {$\\circ$} -- (4.5,-1) node {$\\circ$} -- (5,-1) node {$\\circ$} -- (5.5,-1) node {$\\circ$} -- (6,-1) node {$\\circ$} -- (6.5,-1) node {$\\circ$} -- (7,-1) node {$\\circ$} -- (7.5,-1) node {$\\circ$} -- (8,-1) node {$\\circ$} -- (8.5,-1) node {$\\circ$} -- (9,-1) node {$\\circ$} -- (9.5,-1) node {$\\circ$} -- (10,-1) node {$\\circ$} -- (10.5,-1) node {$\\circ$} -- (11,-1) node {$\\circ$};\n\\end{tikzpicture}",
+      "mimo_latex_clean": "\\begin{tikzpicture} \\draw[->] (0,0) -- (12,0) node[right] {Time(s)}; \\foreach \\x in {0.2,0.4,0.6,0.8,1,1.2} \\draw (\\x*10,0.1) -- (\\x*10,-0.1) node[below] {\\x}; \\node[left] at (0,1) {System 1}; \\node[left] at (0,-1) {System 2}; \\draw[blue] (0,1) node {$\\times$} -- (1,1) node {$\\circ$} -- (2,1) node {$\\circ$} -- (3,1) node {$\\circ$} -- (4,1) node {$\\circ$} -- (5,1) node {$\\circ$} -- (6,1) node {$\\circ$} -- (7,1) node {$\\circ$} -- (8,1) node {$\\circ$} -- (9,1) node {$\\circ$} -- (10,1) node {$\\circ$} -- (11,1) node {$\\circ$}; \\draw[red] (0,-1) node {$\\times$} -- (0.5,-1) node {$\\circ$} -- (1,-1) node {$\\circ$} -- (1.5,-1) node {$\\circ$} -- (2,-1) node {$\\circ$} -- (2.5,-1) node {$\\circ$} -- (3,-1) node {$\\circ$} -- (3.5,-1) node {$\\circ$} -- (4,-1) node {$\\circ$} -- (4.5,-1) node {$\\circ$} -- (5,-1) node {$\\circ$} -- (5.5,-1) node {$\\circ$} -- (6,-1) node {$\\circ$} -- (6.5,-1) node {$\\circ$} -- (7,-1) node {$\\circ$} -- (7.5,-1) node {$\\circ$} -- (8,-1) node {$\\circ$} -- (8.5,-1) node {$\\circ$} -- (9,-1) node {$\\circ$} -- (9.5,-1) node {$\\circ$} -- (10,-1) node {$\\circ$} -- (10.5,-1) node {$\\circ$} -- (11,-1) node {$\\circ$}; \\end{tikzpicture}",
+      "mimo_edit_distance": 0.9497835497835497,
+      "mimo_bleu": 0.0001170021512274829,
+      "mimo_char_match": 0.004329004329004329,
+      "mimo_tokens": {
+        "prompt": 201,
+        "completion": 591
+      }
+    },
+    {
+      "index": 7,
+      "chunk_id": "Belanger_Control_Engineering_chunk_358",
+      "image_hash": "21c9021afcf61dd96ff9e7dfa3454bc7ed8ed62d4181e654defadc8734a3fd22.jpg",
+      "image_path": "data\\processed\\Belanger_Control_Engineering\\image\\21c9021afcf61dd96ff9e7dfa3454bc7ed8ed62d4181e654defadc8734a3fd22.jpg",
+      "ground_truth_latex": "1 + k \\frac {(- T / 2) s + 1}{(T / 2) s + 1} \\cdot \\frac {1}{\\tau s + 1} = 0\\frac {1}{2} \\tau T s ^ {2} + \\left(\\frac {1}{2} T + \\tau - \\frac {1}{2} k T\\right) s + k = 0. \\frac {1}{2} T + \\tau - \\frac {1}{2} k T > 0, \\qquad k > 0 0 < k < 1 + 2 \\frac {\\tau}{T}. \\frac {u}{e} = \\frac {F}{1 + P _ {m} F (1 - e ^ {- s T})} \\begin{array}{l} \\frac {y}{y _ {d}} = \\frac {\\frac {F P e ^ {- s T}}{1 + P _ {m} F (1 - e ^ {- s T})}}{1 + \\frac {F P e ^ {- s T}}{1 + P _ {m} F (1 - e ^ {- s T})}} \\\\ = \\frac {F P e ^ {- s T}}{1 + F P _ {m} - F P _ {m} e ^ {- s T} + F P e ^ {- s T}}. \\\\ \\end{array} \\frac {y}{y _ {d}} = \\frac {F P}{1 + F P} e ^ {- s T}. \\tag {6.54} \\tau T > 0 \\tau / T = 0.1 15\\% P_{m}(s) P(s) P_{m} = P FP/(1 + FP) F(s)",
+      "ground_truth_clean": "1 + k \\frac {(- T / 2) s + 1}{(T / 2) s + 1} \\cdot \\frac {1}{\\tau s + 1} = 0\\frac {1}{2} \\tau T s ^ {2} + \\left(\\frac {1}{2} T + \\tau - \\frac {1}{2} k T\\right) s + k = 0. \\frac {1}{2} T + \\tau - \\frac {1}{2} k T > 0, \\qquad k > 0 0 < k < 1 + 2 \\frac {\\tau}{T}. \\frac {u}{e} = \\frac {F}{1 + P _ {m} F (1 - e ^ {- s T})} \\begin{array}{l} \\frac {y}{y _ {d}} = \\frac {\\frac {F P e ^ {- s T}}{1 + P _ {m} F (1 - e ^ {- s T})}}{1 + \\frac {F P e ^ {- s T}}{1 + P _ {m} F (1 - e ^ {- s T})}} \\\\ = \\frac {F P e ^ {- s T}}{1 + F P _ {m} - F P _ {m} e ^ {- s T} + F P e ^ {- s T}}. \\\\ \\end{array} \\frac {y}{y _ {d}} = \\frac {F P}{1 + F P} e ^ {- s T}. \\tag {6.54} \\tau T > 0 \\tau / T = 0.1 15\\% P_{m}(s) P(s) P_{m} = P FP/(1 + FP) F(s)",
+      "formula_count": 15,
+      "source_section": "Solution",
+      "mimo_latex": "$$\n\\begin{aligned}\ne &= y_d - y \\\\\nu &= F(e - P_m(1 - e^{-sT})u) \\\\\ny &= P e^{-sT} u\n\\end{aligned}\n$$",
+      "mimo_latex_clean": "\\begin{aligned} e &= y_d - y \\\\ u &= F(e - P_m(1 - e^{-sT})u) \\\\ y &= P e^{-sT} u \\end{aligned}",
+      "mimo_edit_distance": 0.9033149171270718,
+      "mimo_bleu": 0.056287665900464315,
+      "mimo_char_match": 0.009668508287292817,
+      "mimo_tokens": {
+        "prompt": 268,
+        "completion": 49
+      }
+    },
+    {
+      "index": 71,
+      "chunk_id": "智能控制_chunk_424",
+      "image_hash": "3e187eba552c73cd39a0fdd06537276965778e48eb2b0930159d8fa2795b4e18.jpg",
+      "image_path": "data\\processed\\智能控制\\image\\3e187eba552c73cd39a0fdd06537276965778e48eb2b0930159d8fa2795b4e18.jpg",
+      "ground_truth_latex": "h _ {j} = \\exp \\left(- \\frac {\\| y (k) - \\mathbf {C} _ {j} \\| ^ {2}}{2 b _ {j} ^ {2}}\\right) \\tag {9.11} \\boldsymbol {W} = \\left[ w _ {1}, \\dots , w _ {m} \\right] ^ {\\mathrm{T}} \\tag {9.12}\\boldsymbol {V} = \\left[ v _ {1}, \\dots , v _ {m} \\right] ^ {\\mathrm{T}} \\tag {9.13} N g (k) = h _ {1} w _ {1} + \\dots + h _ {j} w _ {j} + \\dots + h _ {m} w _ {m} \\tag {9.14}N \\varphi (k) = h _ {1} v _ {1} + \\dots + h _ {j} v _ {j} + \\dots + h _ {m} v _ {m} \\tag {9.15} y _ {m} (k) = N g [ y (k - 1); W (k) ] + N \\varphi [ y (k - 1); V (k) ] u (k - 1) \\tag {9.16} E (k) = \\frac {1}{2} (y (k) - y _ {m} (k)) ^ {2} \\tag {9.17} \\Delta w _ {j} (k) = - \\eta_ {w} \\frac {\\partial E (k)}{\\partial w _ {j} (k)} = \\eta_ {w} (y (k) - y _ {m} (k)) h _ {j} (k)\\Delta v _ {j} (k) = - \\eta_ {v} \\frac {\\partial E (k)}{\\partial v _ {j} (k)} = \\eta_ {v} (y (k) - y _ {m} (k)) h _ {j} (k) \\boldsymbol {W} (k) = \\boldsymbol {W} (k - 1) + \\Delta \\boldsymbol {W} (k) + \\alpha (\\boldsymbol {W} (k - 1) - \\boldsymbol {W} (k - 2)) \\tag {9.18}\\mathbf {V} (k) = \\mathbf {V} (k - 1) + \\Delta \\mathbf {V} (k) + \\alpha (\\mathbf {V} (k - 1) - \\mathbf {V} (k - 2)) \\tag {9.19} g[\\cdot] \\varphi[\\cdot] y(k) H = [h_{1}, \\cdots, h_{m}]^{T} h_{j} j=1,\\cdots,m b_{j} b_{j}>0,C_{j} C_{j}=\\left[c_{11},\\cdots,c_{1m}\\right]^{T},B=\\left[b_{1},\\cdots,b_{m}\\right]^{T} \\eta_{w} \\eta_{v} \\alpha",
+      "ground_truth_clean": "h _ {j} = \\exp \\left(- \\frac {\\| y (k) - \\mathbf {C} _ {j} \\| ^ {2}}{2 b _ {j} ^ {2}}\\right) \\tag {9.11} \\boldsymbol {W} = \\left[ w _ {1}, \\dots , w _ {m} \\right] ^ {\\mathrm{T}} \\tag {9.12}\\boldsymbol {V} = \\left[ v _ {1}, \\dots , v _ {m} \\right] ^ {\\mathrm{T}} \\tag {9.13} N g (k) = h _ {1} w _ {1} + \\dots + h _ {j} w _ {j} + \\dots + h _ {m} w _ {m} \\tag {9.14}N \\varphi (k) = h _ {1} v _ {1} + \\dots + h _ {j} v _ {j} + \\dots + h _ {m} v _ {m} \\tag {9.15} y _ {m} (k) = N g [ y (k - 1); W (k) ] + N \\varphi [ y (k - 1); V (k) ] u (k - 1) \\tag {9.16} E (k) = \\frac {1}{2} (y (k) - y _ {m} (k)) ^ {2} \\tag {9.17} \\Delta w _ {j} (k) = - \\eta_ {w} \\frac {\\partial E (k)}{\\partial w _ {j} (k)} = \\eta_ {w} (y (k) - y _ {m} (k)) h _ {j} (k)\\Delta v _ {j} (k) = - \\eta_ {v} \\frac {\\partial E (k)}{\\partial v _ {j} (k)} = \\eta_ {v} (y (k) - y _ {m} (k)) h _ {j} (k) \\boldsymbol {W} (k) = \\boldsymbol {W} (k - 1) + \\Delta \\boldsymbol {W} (k) + \\alpha (\\boldsymbol {W} (k - 1) - \\boldsymbol {W} (k - 2)) \\tag {9.18}\\mathbf {V} (k) = \\mathbf {V} (k - 1) + \\Delta \\mathbf {V} (k) + \\alpha (\\mathbf {V} (k - 1) - \\mathbf {V} (k - 2)) \\tag {9.19} g[\\cdot] \\varphi[\\cdot] y(k) H = [h_{1}, \\cdots, h_{m}]^{T} h_{j} j=1,\\cdots,m b_{j} b_{j}>0,C_{j} C_{j}=\\left[c_{11},\\cdots,c_{1m}\\right]^{T},B=\\left[b_{1},\\cdots,b_{m}\\right]^{T} \\eta_{w} \\eta_{v} \\alpha",
+      "formula_count": 19,
+      "source_section": "9.5.3 RBF 网络自校正控制算法",
+      "mimo_latex": "$$\n\\begin{aligned}\n& \\text{输入: } u(k), y(k) \\\\\n& \\text{输出: } \\hat{y}(k) \\\\\n& \\text{左侧模块: } N\\varphi[\\cdot] \\\\\n& \\text{右侧模块: } Ng[\\cdot]\n\\end{aligned}\n$$",
+      "mimo_latex_clean": "\\begin{aligned} & \\text{输入: } u(k), y(k) \\\\ & \\text{输出: } \\hat{y}(k) \\\\ & \\text{左侧模块: } N\\varphi[\\cdot] \\\\ & \\text{右侧模块: } Ng[\\cdot] \\end{aligned}",
+      "mimo_edit_distance": 0.9239373601789709,
+      "mimo_bleu": 0.03827316257609004,
+      "mimo_char_match": 0.0044742729306487695,
+      "mimo_tokens": {
+        "prompt": 325,
+        "completion": 71
+      }
+    },
+    {
+      "index": 240,
+      "chunk_id": "Belanger_Control_Engineering_chunk_484",
+      "image_hash": "c4370c80cede6f65657541c1118f8c41fecb1746a7dfb8b01e8216e0d11d8f26.jpg",
+      "image_path": "data\\processed\\Belanger_Control_Engineering\\image\\c4370c80cede6f65657541c1118f8c41fecb1746a7dfb8b01e8216e0d11d8f26.jpg",
+      "ground_truth_latex": "kL'(s) L'(s) (-1 / k, 0) k (-1, 0) k = 0.1 P = 0 k = 0.1 k = 1",
+      "ground_truth_clean": "kL'(s) L'(s) (-1 / k, 0) k (-1, 0) k = 0.1 P = 0 k = 0.1 k = 1",
+      "formula_count": 9,
+      "source_section": "8.4 STABILITY",
+      "mimo_latex": "\\text{Magnitude (dB)} \\quad \\text{Frequency (rad/s)}",
+      "mimo_latex_clean": "\\text{Magnitude (dB)} \\quad \\text{Frequency (rad/s)}",
+      "mimo_edit_distance": 0.9193548387096774,
+      "mimo_bleu": 2.7352598325431678e-06,
+      "mimo_char_match": 0.016129032258064516,
+      "mimo_tokens": {
+        "prompt": 537,
+        "completion": 18
+      }
+    },
+    {
+      "index": 86,
+      "chunk_id": "MPC_Control_Rawlings_chunk_552",
+      "image_hash": "ba617dac8395ea25c68df442cdb682c9241d26025ee6292fdaddddfebce66635.jpg",
+      "image_path": "data\\processed\\MPC_Control_Rawlings\\image\\ba617dac8395ea25c68df442cdb682c9241d26025ee6292fdaddddfebce66635.jpg",
+      "ground_truth_latex": "2 \\mathrm{A} \\stackrel {k} {\\longrightarrow} \\mathrm{B} r = k c _ {A} ^ {2} \\begin{array}{l} \\frac {d c _ {A}}{d t} = - 2 k c _ {A} ^ {2} + \\frac {Q _ {f}}{V} c _ {A f} \\\\ \\frac {d c _ {B}}{d t} = k c _ {A} ^ {2} + \\frac {Q _ {f}}{V} c _ {B f} \\\\ \\end{array} \\frac {Q _ {f}}{V} = 0. 4 \\quad k = 0. 1 6 \\quad c _ {A f} = 1 \\quad c _ {B f} = 0 p _ {x (0)} (x) = n (x, \\hat {x} (0), P (0)) \\mathbf { M H E } , \\mathbf { P F } , \\Delta = 0 . 1 x ( 0 ) = [ 3 \\ : 1 ] ^ { \\prime } { \\hat { x } ( 0 ) = [ 0 . 1 4 . 5 ] ^ { \\prime } } t \\ : = \\ : 5 P _ { 0 } = 1 0 I _ { 2 } t = 5",
+      "ground_truth_clean": "2 \\mathrm{A} \\stackrel {k} {\\longrightarrow} \\mathrm{B} r = k c _ {A} ^ {2} \\begin{array}{l} \\frac {d c _ {A}}{d t} = - 2 k c _ {A} ^ {2} + \\frac {Q _ {f}}{V} c _ {A f} \\\\ \\frac {d c _ {B}}{d t} = k c _ {A} ^ {2} + \\frac {Q _ {f}}{V} c _ {B f} \\\\ \\end{array} \\frac {Q _ {f}}{V} = 0. 4 \\quad k = 0. 1 6 \\quad c _ {A f} = 1 \\quad c _ {B f} = 0 p _ {x (0)} (x) = n (x, \\hat {x} (0), P (0)) \\mathbf { M H E } , \\mathbf { P F } , \\Delta = 0 . 1 x ( 0 ) = [ 3 \\ : 1 ] ^ { \\prime } { \\hat { x } ( 0 ) = [ 0 . 1 4 . 5 ] ^ { \\prime } } t \\ : = \\ : 5 P _ { 0 } = 1 0 I _ { 2 } t = 5",
+      "formula_count": 11,
+      "source_section": "Example 4.40: Comparison of $\\mathbf { M H E } , \\mathbf { P F } ,$ , and combined MHE/PF",
+      "mimo_latex": "$$c_j$$\n$$t$$\n$$y$$\n$$c_A$$\n$$c_B$$",
+      "mimo_latex_clean": "c_j$$ $$t$$ $$y$$ $$c_A$$ $$c_B",
+      "mimo_edit_distance": 0.9755244755244755,
+      "mimo_bleu": 1.4049382952910078e-09,
+      "mimo_char_match": 0.0,
+      "mimo_tokens": {
+        "prompt": 615,
+        "completion": 23
+      }
+    },
+    {
+      "index": 35,
+      "chunk_id": "Dynamic_Systems_Modeling_Simulation_Control_chunk_065",
+      "image_hash": "def24f6f6b7de7461cbbdfbc03fd5bf631df3543153bf43583e812b11b402126.jpg",
+      "image_path": "data\\processed\\Dynamic_Systems_Modeling_Simulation_Control\\image\\def24f6f6b7de7461cbbdfbc03fd5bf631df3543153bf43583e812b11b402126.jpg",
+      "ground_truth_latex": "m \\ddot {x} + b \\dot {x} + F _ {\\mathrm{dry}} \\operatorname{sgn} (\\dot {x}) + k x = F _ {\\mathrm{em}} \\tag {2.26}",
+      "ground_truth_clean": "m \\ddot {x} + b \\dot {x} + F _ {\\mathrm{dry}} \\operatorname{sgn} (\\dot {x}) + k x = F _ {\\mathrm{em}} \\tag {2.26}",
+      "formula_count": 1,
+      "source_section": "Example 2.4",
+      "mimo_latex": "$$F_{\\text{em}} - kx - b\\dot{x} - F_{\\text{dry}}\\text{sgn}(\\dot{x}) = m\\ddot{x}$$",
+      "mimo_latex_clean": "F_{\\text{em}} - kx - b\\dot{x} - F_{\\text{dry}}\\text{sgn}(\\dot{x}) = m\\ddot{x}",
+      "mimo_edit_distance": 0.6106194690265486,
+      "mimo_bleu": 0.299764797907226,
+      "mimo_char_match": 0.061946902654867256,
+      "mimo_tokens": {
+        "prompt": 317,
+        "completion": 44
+      }
+    },
+    {
+      "index": 150,
+      "chunk_id": "先进PID控制MATLAB仿真_chunk_086",
+      "image_hash": "6a96446ff57af4f473360d8850e41d6ae6f484b169142b71e7f8cbbd9fac462d.jpg",
+      "image_path": "data\\processed\\先进PID控制MATLAB仿真\\image\\6a96446ff57af4f473360d8850e41d6ae6f484b169142b71e7f8cbbd9fac462d.jpg",
+      "ground_truth_latex": "G (s) = \\frac {1}{J s ^ {2} + B s} J=0.0067;\\ B=0.10 y_{\\mathrm{d}}(k)=0.50\\sin(2\\pi t) k_{p}=20.0, k_{d}=0.50",
+      "ground_truth_clean": "G (s) = \\frac {1}{J s ^ {2} + B s} J=0.0067;\\ B=0.10 y_{\\mathrm{d}}(k)=0.50\\sin(2\\pi t) k_{p}=20.0, k_{d}=0.50",
+      "formula_count": 4,
+      "source_section": "【仿真之一】采用 M 语言进行仿真",
+      "mimo_latex": "\\begin{tikzpicture}\n\\begin{axis}[\n    xlabel={time(s)},\n    ylabel={yd,y},\n    xmin=0, xmax=2,\n    ymin=-0.8, ymax=0.6,\n    xtick={0,0.2,0.4,0.6,0.8,1,1.2,1.4,1.6,1.8,2},\n    ytick={-0.8,-0.6,-0.4,-0.2,0,0.2,0.4,0.6},\n    legend pos=north east,\n    grid=major,\n    width=10cm,\n    height=7cm\n]\n\\addplot[domain=0:2, samples=100, smooth, thick] {0.5*sin(deg(2*pi*x))};\n\\addlegendentry{Ideal position signal}\n\\addplot[domain=0:2, samples=100, smooth, thick, dashed] {0.5*sin(deg(2*pi*x))};\n\\addlegendentry{Position tracking}\n\\end{axis}\n\\end{tikzpicture}",
+      "mimo_latex_clean": "\\begin{tikzpicture} \\begin{axis}[ xlabel={time(s)}, ylabel={yd,y}, xmin=0, xmax=2, ymin=-0.8, ymax=0.6, xtick={0,0.2,0.4,0.6,0.8,1,1.2,1.4,1.6,1.8,2}, ytick={-0.8,-0.6,-0.4,-0.2,0,0.2,0.4,0.6}, legend pos=north east, grid=major, width=10cm, height=7cm ] \\addplot[domain=0:2, samples=100, smooth, thick] {0.5*sin(deg(2*pi*x))}; \\addlegendentry{Ideal position signal} \\addplot[domain=0:2, samples=100, smooth, thick, dashed] {0.5*sin(deg(2*pi*x))}; \\addlegendentry{Position tracking} \\end{axis} \\end{tikzpicture}",
+      "mimo_edit_distance": 0.8901960784313725,
+      "mimo_bleu": 0.026676289240145777,
+      "mimo_char_match": 0.00392156862745098,
+      "mimo_tokens": {
+        "prompt": 355,
+        "completion": 248
+      }
+    },
+    {
+      "index": 179,
+      "chunk_id": "先进PID控制MATLAB仿真_chunk_156",
+      "image_hash": "e4e77dac83f00c146c073ccf1da7b36b6dba7a90800db025e9f97a81a41d5849.jpg",
+      "image_path": "data\\processed\\先进PID控制MATLAB仿真\\image\\e4e77dac83f00c146c073ccf1da7b36b6dba7a90800db025e9f97a81a41d5849.jpg",
+      "ground_truth_latex": "G _ {\\mathrm{p}} (s) = \\frac {K}{T s + 1} \\mathrm{e} ^ {- \\tau s} K = \\frac {\\frac {\\Delta y}{y _ {\\max} - y _ {\\min}}}{\\frac {\\Delta u}{u _ {\\max} - u _ {\\min}}} = 1, \\varepsilon = \\frac {K}{T} = \\frac {1}{6 0} G _ {\\mathrm{p}} (s) = \\frac {1}{6 0 s + 1} \\mathrm{e} ^ {- 8 0 s} \\tau = 80 \\delta=0.85\\varepsilon\\tau=0.85\\times\\frac{1}{60}\\times80=1.1333 k_{p}=\\frac{1}{\\delta}=0.8824,\\quad T_{I}=2\\tau=160,\\quad T_{D}=0.5\\tau=40 T_{s}=20",
+      "ground_truth_clean": "G _ {\\mathrm{p}} (s) = \\frac {K}{T s + 1} \\mathrm{e} ^ {- \\tau s} K = \\frac {\\frac {\\Delta y}{y _ {\\max} - y _ {\\min}}}{\\frac {\\Delta u}{u _ {\\max} - u _ {\\min}}} = 1, \\varepsilon = \\frac {K}{T} = \\frac {1}{6 0} G _ {\\mathrm{p}} (s) = \\frac {1}{6 0 s + 1} \\mathrm{e} ^ {- 8 0 s} \\tau = 80 \\delta=0.85\\varepsilon\\tau=0.85\\times\\frac{1}{60}\\times80=1.1333 k_{p}=\\frac{1}{\\delta}=0.8824,\\quad T_{I}=2\\tau=160,\\quad T_{D}=0.5\\tau=40 T_{s}=20",
+      "formula_count": 7,
+      "source_section": "2.2.2 仿真实例",
+      "mimo_latex": "\\begin{tikzpicture}\n\\begin{axis}[\n    xlabel={time(s)},\n    ylabel={y},\n    xmin=0, xmax=500,\n    ymin=0, ymax=1,\n    xtick={0,50,100,150,200,250,300,350,400,450,500},\n    ytick={0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1},\n    grid=both,\n    minor tick num=1,\n    legend pos=north west,\n    ymajorgrids=true,\n    xmajorgrids=true,\n    minor grid style={gray!25},\n    major grid style={gray!50},\n]\n\\addplot[\n    color=black,\n    mark=none,\n    thick,\n    domain=0:500,\n    samples=100,\n    ]\n    {1 - exp(-(x-75)/50) * (x>75)};\n\\addplot[\n    color=gray,\n    mark=none,\n    thick,\n    domain=0:500,\n    samples=100,\n    ]\n    {0.02*(x-75) * (x>75)};\n\\end{axis}\n\\end{tikzpicture}",
+      "mimo_latex_clean": "\\begin{tikzpicture} \\begin{axis}[ xlabel={time(s)}, ylabel={y}, xmin=0, xmax=500, ymin=0, ymax=1, xtick={0,50,100,150,200,250,300,350,400,450,500}, ytick={0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1}, grid=both, minor tick num=1, legend pos=north west, ymajorgrids=true, xmajorgrids=true, minor grid style={gray!25}, major grid style={gray!50}, ] \\addplot[ color=black, mark=none, thick, domain=0:500, samples=100, ] {1 - exp(-(x-75)/50) * (x>75)}; \\addplot[ color=gray, mark=none, thick, domain=0:500, samples=100, ] {0.02*(x-75) * (x>75)}; \\end{axis} \\end{tikzpicture}",
+      "mimo_edit_distance": 0.8586572438162544,
+      "mimo_bleu": 0.053567446183172635,
+      "mimo_char_match": 0.022968197879858657,
+      "mimo_tokens": {
+        "prompt": 373,
+        "completion": 312
+      }
+    },
+    {
+      "index": 6,
+      "chunk_id": "Astrom_Adaptive_Control_chunk_417",
+      "image_hash": "d8ed995ad5dab1e0eee88c274df0b5eb3206b681939765074d37e281cad9d994.jpg",
+      "image_path": "data\\processed\\Astrom_Adaptive_Control\\image\\d8ed995ad5dab1e0eee88c274df0b5eb3206b681939765074d37e281cad9d994.jpg",
+      "ground_truth_latex": "G (s) = \\frac {1}{s + 1} \\left| A \\left(\\frac {- b _ {1}}{b _ {0}}\\right) \\right| = \\left| \\frac {b _ {1} ^ {2} - a _ {1} b _ {0} b _ {1} + a _ {2} b _ {0} ^ {2}}{b _ {0} ^ {2}} \\right| \\leq 0. 0 1 \\tag {6.37} A_{m} \\omega = 1.5 \\zeta = 0.707 A_{n} = z",
+      "ground_truth_clean": "G (s) = \\frac {1}{s + 1} \\left| A \\left(\\frac {- b _ {1}}{b _ {0}}\\right) \\right| = \\left| \\frac {b _ {1} ^ {2} - a _ {1} b _ {0} b _ {1} + a _ {2} b _ {0} ^ {2}}{b _ {0} ^ {2}} \\right| \\leq 0. 0 1 \\tag {6.37} A_{m} \\omega = 1.5 \\zeta = 0.707 A_{n} = z",
+      "formula_count": 6,
+      "source_section": "EXAMPLE 6.7 Indirect adaptive system with design singularities",
+      "mimo_latex": "$$u_c$$\n$$y$$",
+      "mimo_latex_clean": "u_c$$ $$y",
+      "mimo_edit_distance": 0.9880952380952381,
+      "mimo_bleu": 8.581469336195551e-10,
+      "mimo_char_match": 0.003968253968253968,
+      "mimo_tokens": {
+        "prompt": 361,
+        "completion": 9
+      }
+    },
+    {
+      "index": 108,
+      "chunk_id": "2603.07907_Robust_control_synthesis_for_uncertain_linear_systems_with_i_chunk_038",
+      "image_hash": "435544ca137c8afcd68bb22a856aaa99852e4a15a7b7773c15e8b1afb1f3af4d.jpg",
+      "image_path": "data\\processed\\2603.07907_Robust_control_synthesis_for_uncertain_linear_systems_with_i\\image\\435544ca137c8afcd68bb22a856aaa99852e4a15a7b7773c15e8b1afb1f3af4d.jpg",
+      "ground_truth_latex": "d \\_ = 0 . 5 \\sin ( 0 . 5 t \\ + \\ { \\frac { \\pi } { 3 } } ) \\begin{array} { r l r } { t } & { { } = } & { 1 0 s } \\end{array} \\alpha \\ \\mathrm { ~  ~ { ~ = ~ } ~ } \\ 2 \\begin{array} { r l r } { \\bar { u } } & { { } = } & { 0 . 0 0 0 3 } \\end{array} \\rho \\mathcal { S } ( { \\boldsymbol \\rho } , { \\boldsymbol \\theta } ) { \\frac { \\pi } { 3 } } , F _ { c } ~ = ~ [ 0 . 0 1 0 9 ~ 0 . 0 0 4 1 ~ 0 . 0 5 8 9 ~ 0 . 3 2 2 9 ~ - 0 . 0 7 5 4 - 0 . 1 3 8 6 \\ - 0 . 0 4 8 8 \\ - 0 . 0 1 0 1 ] H _ { c } ~ = ~ 0 . 6 5 3 6 \\lambda _ { 1 } = 6 0 . 9 9 1 6 , \\lambda _ { 2 } = 7 7 . 1 2 8 9 \\lambda _ { 3 } = 4 3 . 7 0 4 9 t = 3 s - 1 . 5 4 9 1 , \\ - 1 . 6 2 0 2 , \\ - 2 . 3 2 7 5 , \\ - 2 . 0 0 0 0 , \\ - 2 . 0 0 0 0 , \\ - 2 . 0 0 0 0 \\mathcal { H } _ { \\infty }",
+      "ground_truth_clean": "d \\_ = 0 . 5 \\sin ( 0 . 5 t \\ + \\ { \\frac { \\pi } { 3 } } ) \\begin{array} { r l r } { t } & { { } = } & { 1 0 s } \\end{array} \\alpha \\ \\mathrm { ~ ~ { ~ = ~ } ~ } \\ 2 \\begin{array} { r l r } { \\bar { u } } & { { } = } & { 0 . 0 0 0 3 } \\end{array} \\rho \\mathcal { S } ( { \\boldsymbol \\rho } , { \\boldsymbol \\theta } ) { \\frac { \\pi } { 3 } } , F _ { c } ~ = ~ [ 0 . 0 1 0 9 ~ 0 . 0 0 4 1 ~ 0 . 0 5 8 9 ~ 0 . 3 2 2 9 ~ - 0 . 0 7 5 4 - 0 . 1 3 8 6 \\ - 0 . 0 4 8 8 \\ - 0 . 0 1 0 1 ] H _ { c } ~ = ~ 0 . 6 5 3 6 \\lambda _ { 1 } = 6 0 . 9 9 1 6 , \\lambda _ { 2 } = 7 7 . 1 2 8 9 \\lambda _ { 3 } = 4 3 . 7 0 4 9 t = 3 s - 1 . 5 4 9 1 , \\ - 1 . 6 2 0 2 , \\ - 2 . 3 2 7 5 , \\ - 2 . 0 0 0 0 , \\ - 2 . 0 0 0 0 , \\ - 2 . 0 0 0 0 \\mathcal { H } _ { \\infty }",
+      "formula_count": 16,
+      "source_section": "A. A Second-Order LFT Uncertain System",
+      "mimo_latex": "$$x_2$$\n$$t(s)$$",
+      "mimo_latex_clean": "x_2$$ $$t(s)",
+      "mimo_edit_distance": 0.9906040268456375,
+      "mimo_bleu": 4.4514773894590774e-10,
+      "mimo_char_match": 0.0,
+      "mimo_tokens": {
+        "prompt": 292,
+        "completion": 12
+      }
+    },
+    {
+      "index": 194,
+      "chunk_id": "2402.03174_Decentralized_Event_Triggered_Online_Learning_for_Safe_Conse_chunk_026",
+      "image_hash": "630ba21f8c124bd688f79d37e89a2499b67569999dd65491aa656b453746c640.jpg",
+      "image_path": "data\\processed\\2402.03174_Decentralized_Event_Triggered_Online_Learning_for_Safe_Conse\\image\\630ba21f8c124bd688f79d37e89a2499b67569999dd65491aa656b453746c640.jpg",
+      "ground_truth_latex": "\\pmb { x } ( 0 ) = [ - 0 . 5 2 , 0 . 1 5 , - 0 . 0 6 , - 0 . 7 1 ] ^ { T } \\bar { x } ^ { * } = - 0 . 2 8 5 { \\bar { x } } ^ { * } \\begin{array} { r } { \\bar { x } _ { \\infty } = \\operatorname* { l i m } _ { t \\to \\infty } \\mathbf { 1 } _ { N } ^ { T } \\pmb { x } ( t ) } \\end{array} { \\bar { x } } ^ { * } \\bar { x } _ { \\infty } \\bar { x } _ { \\infty } { \\bar { x } } ^ { * } x _ { i } { \\bar { x } } ^ { * } { \\bar { x } } ^ { * } | \\bar { x } _ { \\infty } - \\bar { x } ^ { * } | \\rho ( x _ { i } , \\bar { x } _ { i } ) i \\in \\stackrel { \\sim } { \\nu }",
+      "ground_truth_clean": "\\pmb { x } ( 0 ) = [ - 0 . 5 2 , 0 . 1 5 , - 0 . 0 6 , - 0 . 7 1 ] ^ { T } \\bar { x } ^ { * } = - 0 . 2 8 5 { \\bar { x } } ^ { * } \\begin{array} { r } { \\bar { x } _ { \\infty } = \\operatorname* { l i m } _ { t \\to \\infty } \\mathbf { 1 } _ { N } ^ { T } \\pmb { x } ( t ) } \\end{array} { \\bar { x } } ^ { * } \\bar { x } _ { \\infty } \\bar { x } _ { \\infty } { \\bar { x } } ^ { * } x _ { i } { \\bar { x } } ^ { * } { \\bar { x } } ^ { * } | \\bar { x } _ { \\infty } - \\bar { x } ^ { * } | \\rho ( x _ { i } , \\bar { x } _ { i } ) i \\in \\stackrel { \\sim } { \\nu }",
+      "formula_count": 15,
+      "source_section": "B. Performance among Difference Controllers",
+      "mimo_latex": "\\|x(t) - \\mathbf{1}_N \\bar{x}^*\\|",
+      "mimo_latex_clean": "\\|x(t) - \\mathbf{1}_N \\bar{x}^*\\|",
+      "mimo_edit_distance": 0.9441441441441442,
+      "mimo_bleu": 0.027287026197183362,
+      "mimo_char_match": 0.005405405405405406,
+      "mimo_tokens": {
+        "prompt": 310,
+        "completion": 21
+      }
+    },
+    {
+      "index": 229,
+      "chunk_id": "Dynamic_Systems_Modeling_Simulation_Control_chunk_478",
+      "image_hash": "1ead3774d166b2685b87705a94d7d9094637903968dc7355e8bbfcc6dcdc00ae.jpg",
+      "image_path": "data\\processed\\Dynamic_Systems_Modeling_Simulation_Control\\image\\1ead3774d166b2685b87705a94d7d9094637903968dc7355e8bbfcc6dcdc00ae.jpg",
+      "ground_truth_latex": "G (s) = \\frac {1 / R}{(L / R) s + 1} = \\frac {0 . 8 3 3 3}{\\tau s + 1} \\tag {9.28} e _ { \\mathrm { i n } } ( t ) \\tau = L / R = 0 . 0 1 6 7 \\mathrm { s } 4 \\tau = 0 . 0 6 7 \\mathrm { s } ( \\mathrm { i . e . , 0 } \\leq t < 0 . 0 6 7 \\mathrm { s } ) t > 0 . 0 6 7",
+      "ground_truth_clean": "G (s) = \\frac {1 / R}{(L / R) s + 1} = \\frac {0 . 8 3 3 3}{\\tau s + 1} \\tag {9.28} e _ { \\mathrm { i n } } ( t ) \\tau = L / R = 0 . 0 1 6 7 \\mathrm { s } 4 \\tau = 0 . 0 6 7 \\mathrm { s } ( \\mathrm { i . e . , 0 } \\leq t < 0 . 0 6 7 \\mathrm { s } ) t > 0 . 0 6 7",
+      "formula_count": 6,
+      "source_section": "Example 9.2",
+      "mimo_latex": "\\frac{1}{0.02s + 1.2}",
+      "mimo_latex_clean": "\\frac{1}{0.02s + 1.2}",
+      "mimo_edit_distance": 0.9272030651340997,
+      "mimo_bleu": 0.03673297351696242,
+      "mimo_char_match": 0.007662835249042145,
+      "mimo_tokens": {
+        "prompt": 446,
+        "completion": 17
+      }
+    },
+    {
+      "index": 129,
+      "chunk_id": "2406.07073_Adaptive_Control_Algorithms_Analysis_and_Applications_chunk_750",
+      "image_hash": "b803f822baa74b86bbc6c3537c9d6fe2d2b1c8418a021222919672ee0a99ad7d.jpg",
+      "image_path": "data\\processed\\2406.07073_Adaptive_Control_Algorithms_Analysis_and_Applications\\image\\b803f822baa74b86bbc6c3537c9d6fe2d2b1c8418a021222919672ee0a99ad7d.jpg",
+      "ground_truth_latex": "\\bar {Q} = Q + C ^ {T} \\Delta C + M _ {0} \\tag {C.19}\\bar {S} = S + C ^ {T} \\Delta D \\tag {C.20}\\bar {R} = R + D ^ {T} \\Delta D + K \\tag {C.21}\n\\bar {M} = \\left[ \\begin{array}{l l} \\bar {Q} & \\bar {S} \\\\ \\bar {S} ^ {T} & \\bar {R} \\end{array} \\right] \\tag {C.22} \\begin{array}{l} \\sum_ {t = 0} ^ {t _ {1}} y ^ {T} (t) u (t) = \\frac {1}{2} x ^ {T} \\left(t _ {1} + 1\\right) P x \\left(t _ {1} + 1\\right) - \\frac {1}{2} x ^ {T} (0) P x (0) \\\\ + \\frac {1}{2} \\sum_ {t = 0} ^ {t _ {1}} [ x ^ {T} (t), u ^ {T} (t) ] \\bar {M} \\left[ \\begin{array}{l} x (t) \\\\ u (t) \\end{array} \\right] \\tag {C.23} \\\\ \\end{array} M _ { 0 } \\geq 0 , \\varDelta > 0 , K \\geq 0 M _ { 0 } > 0 , \\varDelta \\geq 0 , K > 0 M _ { 0 } > 0 , \\varDelta > 0 , K \\geq 0 M _ { 0 } > 0 , \\varDelta > 0 , K > 0 \\bar { M } .",
+      "ground_truth_clean": "\\bar {Q} = Q + C ^ {T} \\Delta C + M _ {0} \\tag {C.19}\\bar {S} = S + C ^ {T} \\Delta D \\tag {C.20}\\bar {R} = R + D ^ {T} \\Delta D + K \\tag {C.21} \\bar {M} = \\left[ \\begin{array}{l l} \\bar {Q} & \\bar {S} \\\\ \\bar {S} ^ {T} & \\bar {R} \\end{array} \\right] \\tag {C.22} \\begin{array}{l} \\sum_ {t = 0} ^ {t _ {1}} y ^ {T} (t) u (t) = \\frac {1}{2} x ^ {T} \\left(t _ {1} + 1\\right) P x \\left(t _ {1} + 1\\right) - \\frac {1}{2} x ^ {T} (0) P x (0) \\\\ + \\frac {1}{2} \\sum_ {t = 0} ^ {t _ {1}} [ x ^ {T} (t), u ^ {T} (t) ] \\bar {M} \\left[ \\begin{array}{l} x (t) \\\\ u (t) \\end{array} \\right] \\tag {C.23} \\\\ \\end{array} M _ { 0 } \\geq 0 , \\varDelta > 0 , K \\geq 0 M _ { 0 } > 0 , \\varDelta \\geq 0 , K > 0 M _ { 0 } > 0 , \\varDelta > 0 , K \\geq 0 M _ { 0 } > 0 , \\varDelta > 0 , K > 0 \\bar { M } .",
+      "formula_count": 7,
+      "source_section": "C.3 Discrete Linear Time-Invariant Passive Systems",
+      "mimo_latex": "\\begin{tikzpicture}[auto, node distance=2cm, >=latex']\n    \\node [input, name=input] {};\n    \\node [block, right of=input, node distance=2cm] (L) {$L(\\Lambda)$};\n    \\node [block, below of=L, node distance=2cm] (negL) {$-(1/2)\\Lambda$};\n    \\node [output, right of=L, node distance=2cm] (output) {};\n    \\node [sum, right of=negL, node distance=2cm] (sum) {};\n    \\draw [->] (input) -- node {$u$} (L);\n    \\draw [->] (input) |- node [pos=0.99] {$u_1$} (L);\n    \\draw [->] (input) |- node [pos=0.99] {$u_2$} (negL);\n    \\draw [->] (L) -- node {$y_1$} (sum);\n    \\draw [->] (negL) -- node [pos=0.99] {$y_2$} (sum);\n    \\draw [->] (sum) -- node {$y$} (output);\n    \\node [above of=sum, node distance=0.5cm] {$+$};\n    \\node [below of=sum, node distance=0.5cm] {$+$};\n\\end{tikzpicture}",
+      "mimo_latex_clean": "\\begin{tikzpicture}[auto, node distance=2cm, >=latex'] \\node [input, name=input] {}; \\node [block, right of=input, node distance=2cm] (L) {$L(\\Lambda)$}; \\node [block, below of=L, node distance=2cm] (negL) {$-(1/2)\\Lambda$}; \\node [output, right of=L, node distance=2cm] (output) {}; \\node [sum, right of=negL, node distance=2cm] (sum) {}; \\draw [->] (input) -- node {$u$} (L); \\draw [->] (input) |- node [pos=0.99] {$u_1$} (L); \\draw [->] (input) |- node [pos=0.99] {$u_2$} (negL); \\draw [->] (L) -- node {$y_1$} (sum); \\draw [->] (negL) -- node [pos=0.99] {$y_2$} (sum); \\draw [->] (sum) -- node {$y$} (output); \\node [above of=sum, node distance=0.5cm] {$+$}; \\node [below of=sum, node distance=0.5cm] {$+$}; \\end{tikzpicture}",
+      "mimo_edit_distance": 0.8459563543003851,
+      "mimo_bleu": 0.08569504493943801,
+      "mimo_char_match": 0.04749679075738126,
+      "mimo_tokens": {
+        "prompt": 198,
+        "completion": 314
+      }
+    },
+    {
+      "index": 57,
+      "chunk_id": "2202.10752_Event_Triggered_Tracking_Control_of_Networked_Multi_Agent_Sy_chunk_058",
+      "image_hash": "1a194c0f9a52817d061d7f1501081f90254acab140dd2d2b8cc1627bf5b07dee.jpg",
+      "image_path": "data\\processed\\2202.10752_Event_Triggered_Tracking_Control_of_Networked_Multi_Agent_Sy\\image\\1a194c0f9a52817d061d7f1501081f90254acab140dd2d2b8cc1627bf5b07dee.jpg",
+      "ground_truth_latex": "\\rho _ { i } = 0 . 2 \\overline { { \\rho } } _ { i } T _ { 1 } ~ = ~ 0 . 2 T _ { 2 } ~ = ~ 0 . 4 x _ { \\mathrm { p } } ( 0 ) = ( 1 , 1 , 1 ) , \\ x _ { \\circ } ^ { 1 } ( 0 ) \\ = \\ ( 1 , 3 , 6 ) , \\ x _ { \\circ } ^ { 2 } ( 0 ) \\ = \\ ( - 2 , 2 , 3 . 5 ) , \\ \\mathring { \\vartheta _ { 1 } } ( 0 ) \\ = ( 1 , 1 , 1 ) \\vartheta _ { 2 } ( 0 ) = ( - 1 , - 1 , - 1 ) x _ { 0 } ^ { 1 } = ( x _ { 0 } ^ { 1 1 } , x _ { 0 } ^ { 1 2 } , x _ { 0 } ^ { 1 3 } ) x _ { 0 } ^ { 2 } = ( x _ { 0 } ^ { 2 1 } , x _ { 0 } ^ { 2 2 } , x _ { 0 } ^ { 2 3 } ) x _ { \\mathrm { p } } = ( x _ { \\mathrm { p } } ^ { 1 } , x _ { \\mathrm { p } } ^ { 2 } , \\bar { x _ { \\mathrm { p } } } ^ { 3 } ) { \\mathrm { i s } } ,",
+      "ground_truth_clean": "\\rho _ { i } = 0 . 2 \\overline { { \\rho } } _ { i } T _ { 1 } ~ = ~ 0 . 2 T _ { 2 } ~ = ~ 0 . 4 x _ { \\mathrm { p } } ( 0 ) = ( 1 , 1 , 1 ) , \\ x _ { \\circ } ^ { 1 } ( 0 ) \\ = \\ ( 1 , 3 , 6 ) , \\ x _ { \\circ } ^ { 2 } ( 0 ) \\ = \\ ( - 2 , 2 , 3 . 5 ) , \\ \\mathring { \\vartheta _ { 1 } } ( 0 ) \\ = ( 1 , 1 , 1 ) \\vartheta _ { 2 } ( 0 ) = ( - 1 , - 1 , - 1 ) x _ { 0 } ^ { 1 } = ( x _ { 0 } ^ { 1 1 } , x _ { 0 } ^ { 1 2 } , x _ { 0 } ^ { 1 3 } ) x _ { 0 } ^ { 2 } = ( x _ { 0 } ^ { 2 1 } , x _ { 0 } ^ { 2 2 } , x _ { 0 } ^ { 2 3 } ) x _ { \\mathrm { p } } = ( x _ { \\mathrm { p } } ^ { 1 } , x _ { \\mathrm { p } } ^ { 2 } , \\bar { x _ { \\mathrm { p } } } ^ { 3 } ) { \\mathrm { i s } } ,",
+      "formula_count": 12,
+      "source_section": "B. Robust Distributed Estimation",
+      "mimo_latex": "\\begin{tikzpicture}\n\\begin{axis}[\n    xlabel={Time ($t$)},\n    ylabel={Norms of estimation errors},\n    xmin=0, xmax=100,\n    ymin=0, ymax=6,\n    xtick={0,10,20,30,40,50,60,70,80,90,100},\n    ytick={0,1,2,3,4,5,6},\n    legend pos=north east,\n    ymajorgrids=true,\n    xmajorgrids=true,\n    grid style=dashed,\n]\n\\addplot[\n    color=red,\n    mark=none,\n    thick\n    ]\n    coordinates {\n    (0,5.2)(1,4.8)(2,4.5)(3,4.2)(4,3.8)(5,3.5)(6,3.2)(7,2.9)(8,2.6)(9,2.3)(10,2.0)(11,1.8)(12,1.6)(13,1.4)(14,1.2)(15,1.0)(16,0.9)(17,0.8)(18,0.7)(19,0.6)(20,0.5)(21,0.45)(22,0.4)(23,0.35)(24,0.3)(25,0.25)(26,0.2)(27,0.18)(28,0.16)(29,0.14)(30,0.12)(31,0.1)(32,0.09)(33,0.08)(34,0.07)(35,0.06)(36,0.05)(37,0.04)(38,0.03)(39,0.02)(40,0.01)(41,0.009)(42,0.008)(43,0.007)(44,0.006)(45,0.005)(46,0.004)(47,0.003)(48,0.002)(49,0.001)(50,0.0009)(51,0.0008)(52,0.0007)(53,0.0006)(54,0.0005)(55,0.0004)(56,0.0003)(57,0.0002)(58,0.0001)(59,0.00009)(60,0.00008)(61,0.00007)(62,0.00006)(63,0.00005)(64,0.00004)(65,0.00003)(66,0.00002)(67,0.00001)(68,0.000009)(69,0.000008)(70,0.000007)(71,0.000006)(72,0.000005)(73,0.000004)(74,0.000003)(75,0.000002)(76,0.000001)(77,0.0000009)(78,0.0000008)(79,0.0000007)(80,0.0000006)(81,0.0000005)(82,0.0000004)(83,0.0000003)(84,0.0000002)(85,0.0000001)(86,0.00000009)(87,0.00000008)(88,0.00000007)(89,0.00000006)(90,0.00000005)(91,0.000",
+      "mimo_latex_clean": "\\begin{tikzpicture} \\begin{axis}[ xlabel={Time ($t$)}, ylabel={Norms of estimation errors}, xmin=0, xmax=100, ymin=0, ymax=6, xtick={0,10,20,30,40,50,60,70,80,90,100}, ytick={0,1,2,3,4,5,6}, legend pos=north east, ymajorgrids=true, xmajorgrids=true, grid style=dashed, ] \\addplot[ color=red, mark=none, thick ] coordinates { (0,5.2)(1,4.8)(2,4.5)(3,4.2)(4,3.8)(5,3.5)(6,3.2)(7,2.9)(8,2.6)(9,2.3)(10,2.0)(11,1.8)(12,1.6)(13,1.4)(14,1.2)(15,1.0)(16,0.9)(17,0.8)(18,0.7)(19,0.6)(20,0.5)(21,0.45)(22,0.4)(23,0.35)(24,0.3)(25,0.25)(26,0.2)(27,0.18)(28,0.16)(29,0.14)(30,0.12)(31,0.1)(32,0.09)(33,0.08)(34,0.07)(35,0.06)(36,0.05)(37,0.04)(38,0.03)(39,0.02)(40,0.01)(41,0.009)(42,0.008)(43,0.007)(44,0.006)(45,0.005)(46,0.004)(47,0.003)(48,0.002)(49,0.001)(50,0.0009)(51,0.0008)(52,0.0007)(53,0.0006)(54,0.0005)(55,0.0004)(56,0.0003)(57,0.0002)(58,0.0001)(59,0.00009)(60,0.00008)(61,0.00007)(62,0.00006)(63,0.00005)(64,0.00004)(65,0.00003)(66,0.00002)(67,0.00001)(68,0.000009)(69,0.000008)(70,0.000007)(71,0.000006)(72,0.000005)(73,0.000004)(74,0.000003)(75,0.000002)(76,0.000001)(77,0.0000009)(78,0.0000008)(79,0.0000007)(80,0.0000006)(81,0.0000005)(82,0.0000004)(83,0.0000003)(84,0.0000002)(85,0.0000001)(86,0.00000009)(87,0.00000008)(88,0.00000007)(89,0.00000006)(90,0.00000005)(91,0.000",
+      "mimo_edit_distance": 0.9010132501948558,
+      "mimo_bleu": 0.0002627347244963704,
+      "mimo_char_match": 0.019485580670303974,
+      "mimo_tokens": {
+        "prompt": 256,
+        "completion": 1024
+      }
+    },
+    {
+      "index": 247,
+      "chunk_id": "自抗扰控制技术_chunk_083",
+      "image_hash": "0e051781fa10993c70d44227d05e442ce160b9a3891b87e38547ff0c9a2c34b2.jpg",
+      "image_path": "data\\processed\\自抗扰控制技术\\image\\0e051781fa10993c70d44227d05e442ce160b9a3891b87e38547ff0c9a2c34b2.jpg",
+      "ground_truth_latex": "\\left\\{ \\begin{array}{l} \\mathrm{fh} = \\mathrm{fhan} (v _ {1} - v (t), v _ {2}, r, h _ {1}) \\\\ v _ {1} = v _ {1} + h v _ {2} \\\\ v _ {2} = v _ {2} + h \\mathrm{fh} \\end{array} \\right. \\tag {2.6.24}\n\\gamma (t) = \\frac {1}{\\gamma} (v _ {1} (t) + \\lambda h _ {1} v _ {2} (t)), \\gamma > 1 h = h _ {1} = 0. 0 1, v _ {1} (t) = \\sin (t), \\lambda = 1 1 0, \\gamma = 1. 5 \\lambda",
+      "ground_truth_clean": "\\left\\{ \\begin{array}{l} \\mathrm{fh} = \\mathrm{fhan} (v _ {1} - v (t), v _ {2}, r, h _ {1}) \\\\ v _ {1} = v _ {1} + h v _ {2} \\\\ v _ {2} = v _ {2} + h \\mathrm{fh} \\end{array} \\right. \\tag {2.6.24} \\gamma (t) = \\frac {1}{\\gamma} (v _ {1} (t) + \\lambda h _ {1} v _ {2} (t)), \\gamma > 1 h = h _ {1} = 0. 0 1, v _ {1} (t) = \\sin (t), \\lambda = 1 1 0, \\gamma = 1. 5 \\lambda",
+      "formula_count": 3,
+      "source_section": "2.6.9 相位超前功能的实现",
+      "mimo_latex": "\\begin{aligned}\ny(t) &= \\sin(t) \\\\\nu(t) &= \\cos(t)\n\\end{aligned}",
+      "mimo_latex_clean": "\\begin{aligned} y(t) &= \\sin(t) \\\\ u(t) &= \\cos(t) \\end{aligned}",
+      "mimo_edit_distance": 0.885558583106267,
+      "mimo_bleu": 0.08632893889528348,
+      "mimo_char_match": 0.008174386920980926,
+      "mimo_tokens": {
+        "prompt": 157,
+        "completion": 28
+      }
+    },
+    {
+      "index": 62,
+      "chunk_id": "MPC_Control_Rawlings_chunk_843",
+      "image_hash": "e134271db2a5f513ef0fada57a2003daa0e5a8ed02b59e13a041983b425234f6.jpg",
+      "image_path": "data\\processed\\MPC_Control_Rawlings\\image\\e134271db2a5f513ef0fada57a2003daa0e5a8ed02b59e13a041983b425234f6.jpg",
+      "ground_truth_latex": "H = \\{x \\in \\mathbb {R} ^ {n} | \\langle x, v \\rangle = \\alpha \\} \\langle x, v \\rangle \\geq \\alpha \\text { for all } x \\in S _ {1}\\langle y, v \\rangle \\leq \\alpha \\text { for all } y \\in S _ {2} \\langle x, v \\rangle \\geq \\alpha + \\varepsilon \\text { for all } x \\in S _ {1}\\langle y, v \\rangle \\leq \\alpha - \\varepsilon \\text { for all } y \\in S _ {2} \\hat {x} = \\arg \\min \\{| x | ^ {2} \\mid x \\in S \\} H = \\{x \\mid \\langle \\hat {x}, x \\rangle = | \\hat {x} | ^ {2} \\} \\begin{array}{l} 0 <   | \\hat {x} | ^ {2} \\leq | \\hat {x} + \\lambda (x - \\hat {x}) | ^ {2} \\\\ = | \\hat {x} | ^ {2} + 2 \\lambda \\langle \\hat {x}, x - \\hat {x} \\rangle + \\lambda^ {2} | x - \\hat {x} | ^ {2} \\\\ \\end{array} 0 \\leq 2 \\langle \\hat {x}, x - \\hat {x} \\rangle + \\lambda | x - \\hat {x} | ^ {2} \\alpha ^ { i } < 0 \\bar { \\theta } > 0 \\bar { \\mu } ^ { j } + \\bar { \\theta } \\alpha ^ { j } = 0 \\bar { \\mu } ^ { i } + \\bar { \\theta } \\alpha ^ { i } \\geq 0 \\bar { k } - 1 \\bar { x } ( n + 1 ) S _ { 1 } , S _ { 2 } \\mathbb { R } ^ { n } S _ { 1 } S _ { 2 } \\varepsilon > 0 S _ { 1 } , S _ { 2 } \\mathbb { R } ^ { n } S _ { 1 } \\cap S _ { 2 } = \\emptyset S _ { 1 } S _ { 2 } i f S _ { 1 } S _ { 2 } S _ { 1 } S _ { 2 } S \\subset \\mathbb { R } ^ { n } 0 , i . e . , \\langle \\hat { x } , x \\rangle \\geq | \\hat { x } | ^ { 2 } x \\in S x \\in S [ \\hat { x } + \\lambda ( x - \\hat { x } ) ] \\in S \\lambda \\in [ 0 , 1 ] \\hat { x } \\lambda \\in ( 0 , 1 ] \\lambda  0",
+      "ground_truth_clean": "H = \\{x \\in \\mathbb {R} ^ {n} | \\langle x, v \\rangle = \\alpha \\} \\langle x, v \\rangle \\geq \\alpha \\text { for all } x \\in S _ {1}\\langle y, v \\rangle \\leq \\alpha \\text { for all } y \\in S _ {2} \\langle x, v \\rangle \\geq \\alpha + \\varepsilon \\text { for all } x \\in S _ {1}\\langle y, v \\rangle \\leq \\alpha - \\varepsilon \\text { for all } y \\in S _ {2} \\hat {x} = \\arg \\min \\{| x | ^ {2} \\mid x \\in S \\} H = \\{x \\mid \\langle \\hat {x}, x \\rangle = | \\hat {x} | ^ {2} \\} \\begin{array}{l} 0 < | \\hat {x} | ^ {2} \\leq | \\hat {x} + \\lambda (x - \\hat {x}) | ^ {2} \\\\ = | \\hat {x} | ^ {2} + 2 \\lambda \\langle \\hat {x}, x - \\hat {x} \\rangle + \\lambda^ {2} | x - \\hat {x} | ^ {2} \\\\ \\end{array} 0 \\leq 2 \\langle \\hat {x}, x - \\hat {x} \\rangle + \\lambda | x - \\hat {x} | ^ {2} \\alpha ^ { i } < 0 \\bar { \\theta } > 0 \\bar { \\mu } ^ { j } + \\bar { \\theta } \\alpha ^ { j } = 0 \\bar { \\mu } ^ { i } + \\bar { \\theta } \\alpha ^ { i } \\geq 0 \\bar { k } - 1 \\bar { x } ( n + 1 ) S _ { 1 } , S _ { 2 } \\mathbb { R } ^ { n } S _ { 1 } S _ { 2 } \\varepsilon > 0 S _ { 1 } , S _ { 2 } \\mathbb { R } ^ { n } S _ { 1 } \\cap S _ { 2 } = \\emptyset S _ { 1 } S _ { 2 } i f S _ { 1 } S _ { 2 } S _ { 1 } S _ { 2 } S \\subset \\mathbb { R } ^ { n } 0 , i . e . , \\langle \\hat { x } , x \\rangle \\geq | \\hat { x } | ^ { 2 } x \\in S x \\in S [ \\hat { x } + \\lambda ( x - \\hat { x } ) ] \\in S \\lambda \\in [ 0 , 1 ] \\hat { x } \\lambda \\in ( 0 , 1 ] \\lambda 0",
+      "formula_count": 38,
+      "source_section": "A.13.1 Convex Sets",
+      "mimo_latex": "$$S_1$$\n$$S_2$$\n$$H$$\n$$v$$",
+      "mimo_latex_clean": "S_1$$ $$S_2$$ $$H$$ $$v",
+      "mimo_edit_distance": 0.9922480620155039,
+      "mimo_bleu": 4.2624731159085925e-10,
+      "mimo_char_match": 0.0007047216349541931,
+      "mimo_tokens": {
+        "prompt": 264,
+        "completion": 20
+      }
+    }
+  ]
+}

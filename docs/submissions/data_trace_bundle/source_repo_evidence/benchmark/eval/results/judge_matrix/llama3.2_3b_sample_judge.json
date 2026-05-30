@@ -1,0 +1,657 @@
+{
+  "model": "deepseek-v4-flash",
+  "judge_model": "llama3.2:3b",
+  "judge_family": "Llama",
+  "judge_size": "极小",
+  "scoring_mode": "sample",
+  "total_questions": 80,
+  "overall_score": 0.6775,
+  "dimension_scores": {
+    "A": 0.885,
+    "B": 0.67,
+    "C": 0.54,
+    "D": 0.615
+  },
+  "records": [
+    {
+      "id": "CS-EVO-00071",
+      "dimension": "A",
+      "difficulty_level": "L1",
+      "score": 0.8,
+      "reason": "正确回答了RUDER_MBOT_RL的核心控制目标函数，尽管没有确切文献依据，但基于控制科学与强化学习的交叉领域提供了一种典型结合模型预测控制（MPC）与强化学习（RL）的算法框架及其核心控制目标函数。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00847",
+      "dimension": "A",
+      "difficulty_level": "L1",
+      "score": 0.8,
+      "reason": "答案正确，提到了基于收缩理论的神经元同步控制中使用的两个逐元素应用函数：修正线性单元（ReLU）函数和饱和函数。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00303",
+      "dimension": "A",
+      "difficulty_level": "L2",
+      "score": 0.9,
+      "reason": "答案准确，数学定义正确",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00772",
+      "dimension": "A",
+      "difficulty_level": "L3",
+      "score": 0.8,
+      "reason": "答案中提供了L1自适应控制中关于带宽选择的设计指南，包括设计原则、完整数学表达式和符号含义。虽然没有直接给出模型答案，但提供了足够的信息来评估正确性。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00952",
+      "dimension": "A",
+      "difficulty_level": "L3",
+      "score": 1.0,
+      "reason": "正确的答案",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00607",
+      "dimension": "B",
+      "difficulty_level": "L2",
+      "score": 0.0,
+      "reason": "parse_failed: 根据给定的上界：\n\n- $\\|y_t\\| \\leq R_y$  \n- $\\|\\hat{y}_t^{\\mathrm{TK}}\\| \\leq \\sqrt{h} R_",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00509",
+      "dimension": "B",
+      "difficulty_level": "L2",
+      "score": 0.8,
+      "reason": "计算过程正确，公式应用准确，但最后一步的权值更新有错误",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00540",
+      "dimension": "B",
+      "difficulty_level": "L3",
+      "score": 0.9,
+      "reason": "正确推导了Lyapunov函数V(t)的导数，正确应用了机械臂动力学方程和控制律，正确消除参数误差项，并且证明了系统稳定",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00362",
+      "dimension": "B",
+      "difficulty_level": "L3",
+      "score": 0.4,
+      "reason": "计算过程中存在错误，未正确应用给定的不等式和参数值",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00790",
+      "dimension": "B",
+      "difficulty_level": "L4",
+      "score": 0.8,
+      "reason": "正确的闭环传递函数推导和Routh-Hurwitz分析",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00251",
+      "dimension": "C",
+      "difficulty_level": "L2",
+      "score": 0.0,
+      "reason": "",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00005",
+      "dimension": "C",
+      "difficulty_level": "L2",
+      "score": 0.8,
+      "reason": "答案正确，触发条件表达式准确，分析噪声导致非触发误行为的数学机理也正确",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00231",
+      "dimension": "C",
+      "difficulty_level": "L3",
+      "score": 0.8,
+      "reason": "正确，分析了系统的稳定性变化",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00778",
+      "dimension": "C",
+      "difficulty_level": "L3",
+      "score": 0.8,
+      "reason": "答案准确，提供了详细的数学背景和分析，表明原有的指数收敛结论不再成立，并解释了原因和敏感性来源。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00590",
+      "dimension": "C",
+      "difficulty_level": "L4",
+      "score": 0.0,
+      "reason": "基于常数时延的LMI条件无法保证时变时延系统的渐近稳定性，需要考虑时延变化率的影响",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00431",
+      "dimension": "D",
+      "difficulty_level": "L2",
+      "score": 0.8,
+      "reason": "方案在工程上可行，控制方法选择基于系统特性，且提供了详细的建模和参数设计步骤。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00931",
+      "dimension": "D",
+      "difficulty_level": "L2",
+      "score": 0.0,
+      "reason": "",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00817",
+      "dimension": "D",
+      "difficulty_level": "L3",
+      "score": 0.8,
+      "reason": "控制方案设计全面，包括状态空间建模、控制结构选择、参数估计和遗憾指标体系。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00278",
+      "dimension": "D",
+      "difficulty_level": "L3",
+      "score": 0.8,
+      "reason": "设计方案可行，阻尼比ζ=0.5的性能指标满足，控制方法选择合理",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00174",
+      "dimension": "D",
+      "difficulty_level": "L4",
+      "score": 0.8,
+      "reason": "环境建模部分描述清晰，动力学模型简化合理，但缺乏具体的数学表达式和参数设置，控制器结构和训练目标函数部分描述较为详细，方法选择合理",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00825",
+      "dimension": "A",
+      "difficulty_level": "L1",
+      "score": 0.5,
+      "reason": "答案正确，但不准确表达",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00782",
+      "dimension": "A",
+      "difficulty_level": "L1",
+      "score": 1.0,
+      "reason": "答案准确、详细、推导过程清晰",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00569",
+      "dimension": "A",
+      "difficulty_level": "L2",
+      "score": 1.0,
+      "reason": "答案准确、详细、符合题目要求",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00860",
+      "dimension": "A",
+      "difficulty_level": "L3",
+      "score": 0.9,
+      "reason": "答案正确，仅有小小的错误",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00704",
+      "dimension": "A",
+      "difficulty_level": "L4",
+      "score": 0.9,
+      "reason": "答案准确且全面，提供了CFH-Hard安全属性的定义和解释，表明对主题有深入的理解。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00368",
+      "dimension": "B",
+      "difficulty_level": "L2",
+      "score": 0.5,
+      "reason": "题目描述不够详细，缺乏具体的计算步骤和结果",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00026",
+      "dimension": "B",
+      "difficulty_level": "L2",
+      "score": 1.0,
+      "reason": "正确的推导过程和答案",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00629",
+      "dimension": "B",
+      "difficulty_level": "L3",
+      "score": 0.9,
+      "reason": "正确的计算方法和结果",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00796",
+      "dimension": "B",
+      "difficulty_level": "L3",
+      "score": 0.0,
+      "reason": "parse_failed",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00920",
+      "dimension": "B",
+      "difficulty_level": "L4",
+      "score": 0.9,
+      "reason": "正确的推导过程，仅在最后一步有小错误",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00340",
+      "dimension": "C",
+      "difficulty_level": "L2",
+      "score": 0.8,
+      "reason": "答案正确，提到了Kessler-Sørensen噪声模型的参数满足b1>0且b2≥0，证明其强解始终保持在区间(-1,1)内，并给出参数b3与b2的关系。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00433",
+      "dimension": "C",
+      "difficulty_level": "L2",
+      "score": 0.0,
+      "reason": "parse_failed",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00838",
+      "dimension": "C",
+      "difficulty_level": "L3",
+      "score": 0.0,
+      "reason": "parse_failed",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00113",
+      "dimension": "C",
+      "difficulty_level": "L3",
+      "score": 0.0,
+      "reason": "因为当状态转移依赖整个历史时，概率分解中的Q(x_{t+1} | z_t, x_t, a_t)将替换为Q(x_{t+1} | z_{1:t}, x_{1:t}, a_{1:t})，而该因子不能从对x_t^l, a_t^f的求和∑中独立提取出来",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00842",
+      "dimension": "C",
+      "difficulty_level": "L4",
+      "score": 0.9,
+      "reason": "答案准确，详细分析了STC机制的变化影响和敏感性来源",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00356",
+      "dimension": "D",
+      "difficulty_level": "L2",
+      "score": 1.0,
+      "reason": "基于混合自动机的CPS建模，考虑了连续动力学和离散动力学的统一形式化框架，能够精确刻画系统的混合动态，并支持形式化验证和硬件实现的实时性要求",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00814",
+      "dimension": "D",
+      "difficulty_level": "L2",
+      "score": 0.0,
+      "reason": "",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00755",
+      "dimension": "D",
+      "difficulty_level": "L3",
+      "score": 0.0,
+      "reason": "",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00353",
+      "dimension": "D",
+      "difficulty_level": "L3",
+      "score": 0.8,
+      "reason": "答案中缺少了具体的控制器参数设计，且没有提供详细的计算过程和图表。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00086",
+      "dimension": "D",
+      "difficulty_level": "L4",
+      "score": 0.8,
+      "reason": "方案在数学上可行，模型与现有理论一致，无逻辑矛盾，但缺乏详细的控制器设计和参数设计步骤。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00380",
+      "dimension": "A",
+      "difficulty_level": "L1",
+      "score": 1.0,
+      "reason": "答案准确反映了预期路径随机控制问题的价值函数公式，正确引用了标准教材",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00001",
+      "dimension": "A",
+      "difficulty_level": "L1",
+      "score": 1.0,
+      "reason": "正确",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00559",
+      "dimension": "A",
+      "difficulty_level": "L1",
+      "score": 1.0,
+      "reason": "答案准确、全面、正确",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00575",
+      "dimension": "A",
+      "difficulty_level": "L1",
+      "score": 1.0,
+      "reason": "正确的标准答案",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00198",
+      "dimension": "A",
+      "difficulty_level": "L2",
+      "score": 0.9,
+      "reason": "答案正确，表达了在2-范数（p=2）时，将约束代入目标函数后的简化形式",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00650",
+      "dimension": "A",
+      "difficulty_level": "L2",
+      "score": 0.9,
+      "reason": "答案准确，解释了MLP控制器中动作采样的数学表达式，并解释了各符号的含义",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00815",
+      "dimension": "A",
+      "difficulty_level": "L3",
+      "score": 0.8,
+      "reason": "答案正确，系统对单位斜坡输入响应的稳态误差表达式为e(∞) = 1/Kv，速度误差系数Kv的定义式为Kv = lim(s→0) Gc(s)/50，且稳态误差与Kv成反比关系",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00539",
+      "dimension": "A",
+      "difficulty_level": "L3",
+      "score": 0.9,
+      "reason": "答案准确，描述了MPC中优化问题的标准二次型目标函数表达式",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00504",
+      "dimension": "A",
+      "difficulty_level": "L3",
+      "score": 0.8,
+      "reason": "答案中提供了改进梯度算法中先验预测误差与后验预测误差之间的关系式，表达式准确且正确。然而，缺乏对该关系式的解释和应用背景的描述，因此得分为0.8",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00841",
+      "dimension": "A",
+      "difficulty_level": "L4",
+      "score": 0.8,
+      "reason": "标准答案与模型答案相符，表明正确",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00619",
+      "dimension": "B",
+      "difficulty_level": "L2",
+      "score": 1.0,
+      "reason": "正确的推导和计算，符合题目要求",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00440",
+      "dimension": "B",
+      "difficulty_level": "L2",
+      "score": 0.0,
+      "reason": "parse_failed",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00525",
+      "dimension": "B",
+      "difficulty_level": "L2",
+      "score": 0.9,
+      "reason": "正确的计算和解法",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00153",
+      "dimension": "B",
+      "difficulty_level": "L3",
+      "score": 0.8,
+      "reason": "答案中缺少了关键步骤的详细推导，且未提供最优控制律和状态轨迹的解析表达式",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00612",
+      "dimension": "B",
+      "difficulty_level": "L3",
+      "score": 0.9,
+      "reason": "答案正确，仅有小数点位置错误",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00803",
+      "dimension": "B",
+      "difficulty_level": "L3",
+      "score": 1.0,
+      "reason": "正确答案",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00115",
+      "dimension": "B",
+      "difficulty_level": "L3",
+      "score": 0.9,
+      "reason": "正确推导了条件概率的链式法则，并应用了条件独立性来简化表达式。只有在最后一步中没有明确说明使用了什么概率法则，因此减少了1分",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00515",
+      "dimension": "B",
+      "difficulty_level": "L4",
+      "score": 0.0,
+      "reason": "缺乏必要的数据表",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00641",
+      "dimension": "B",
+      "difficulty_level": "L4",
+      "score": 0.8,
+      "reason": "答案正确，证明过程详细，符合题目要求",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00032",
+      "dimension": "B",
+      "difficulty_level": "L4",
+      "score": 0.9,
+      "reason": "正确",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00615",
+      "dimension": "C",
+      "difficulty_level": "L2",
+      "score": 0.9,
+      "reason": "正确的推导和计算，仅有一个小错误",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00739",
+      "dimension": "C",
+      "difficulty_level": "L2",
+      "score": 0.9,
+      "reason": "答案准确，解释了K2变为非正值对角矩阵时原有稳定性结论不再成立的原因。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00769",
+      "dimension": "C",
+      "difficulty_level": "L2",
+      "score": 0.8,
+      "reason": "答案正确，表达了k₁和k₂估计结果的差异，并从参数估计灵敏度的角度说明k₂出现偏差的原因。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00191",
+      "dimension": "C",
+      "difficulty_level": "L2",
+      "score": 0.0,
+      "reason": "当终端时间改为有限值时，黎卡提矩阵微分方程不能简化为代数黎卡提方程，因为K(t)不是常数矩阵且边界条件在终端时间处不为零。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00075",
+      "dimension": "C",
+      "difficulty_level": "L2",
+      "score": 0.9,
+      "reason": "答案准确，解释了Convolutional critic网络中Flatten层输出神经元数量的计算方法和示例，正确指出输出层形状不受输入尺寸影响",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00527",
+      "dimension": "C",
+      "difficulty_level": "L3",
+      "score": 0.8,
+      "reason": "答案准确，分析详细，模型解释清晰",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00442",
+      "dimension": "C",
+      "difficulty_level": "L3",
+      "score": 0.8,
+      "reason": "张三给是一个你子的索为一个你子。请张一个你子的索为一个你子。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00201",
+      "dimension": "C",
+      "difficulty_level": "L3",
+      "score": 0.0,
+      "reason": "parse_failed",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00760",
+      "dimension": "C",
+      "difficulty_level": "L4",
+      "score": 0.8,
+      "reason": "答案准确，分析详细，机理理解深刻",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00383",
+      "dimension": "C",
+      "difficulty_level": "L4",
+      "score": 0.8,
+      "reason": "原结论的适用性判断中缺乏具体数值计算，仅提供了一个概括性的答案。正确答案应该包括具体的数学运算和分析，例如计算系泊力分布中心的变化率等。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00010",
+      "dimension": "D",
+      "difficulty_level": "L2",
+      "score": 0.8,
+      "reason": "方案在理论上可行，正确选择CS-ETM方法，反馈增益K和触发参数η_i设计合理且有理，但缺乏详细的建模、控制器设计和仿真验证方法。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00102",
+      "dimension": "D",
+      "difficulty_level": "L2",
+      "score": 0.0,
+      "reason": "parse_failed",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00834",
+      "dimension": "D",
+      "difficulty_level": "L2",
+      "score": 0.9,
+      "reason": "方案全面，基于系统完全能控的条件，选择了合理的状态反馈控制方法，设计步骤详细，验证指标明确。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00745",
+      "dimension": "D",
+      "difficulty_level": "L2",
+      "score": 0.8,
+      "reason": "模型建立正确，补偿器阶数m确定为1，控制器结构选择合理，参数整定步骤清晰，验证指标体系提出了，但缺乏具体的计算和数据支持",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00438",
+      "dimension": "D",
+      "difficulty_level": "L3",
+      "score": 0.0,
+      "reason": "parse_failed",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00541",
+      "dimension": "D",
+      "difficulty_level": "L3",
+      "score": 0.8,
+      "reason": "建模方法正确，考虑了非线性动态模型和参数不确定性，采用场景树表示不确定性演变。控制方法选择理由充分，多阶段NMPC适用于非线性系统。参数设计步骤详细，预测时域Np=10,控制时域Nc=5,场景数Ns=3。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00493",
+      "dimension": "D",
+      "difficulty_level": "L3",
+      "score": 0.8,
+      "reason": "方案在工程上是可行的，参数选择合理，能满足调节时间指标，使用中心流形简化原理是恰当的，但需要进一步验证李雅普诺夫函数或仿真验证",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00918",
+      "dimension": "D",
+      "difficulty_level": "L4",
+      "score": 0.8,
+      "reason": "方案基于教材内容可行，考虑了实际系统约束如噪声和计算复杂度。然而，缺少了详细的参数选择依据和验证步骤。",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00067",
+      "dimension": "D",
+      "difficulty_level": "L4",
+      "score": 0.8,
+      "reason": "所设计的控制方案在实际磁驱动微型机器人系统中是否可行，符合物理约束。预设性能控制与滑模控制结合的理由是否充分，是否针对了扰动和性能约束",
+      "issues": []
+    },
+    {
+      "id": "CS-EVO-00868",
+      "dimension": "D",
+      "difficulty_level": "L4",
+      "score": 0.8,
+      "reason": "方案基于教材内容，技术可行且满足工程约束，但缺乏具体系统模型和详细的控制器设计步骤。",
+      "issues": []
+    }
+  ]
+}

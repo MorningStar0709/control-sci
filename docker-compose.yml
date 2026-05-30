@@ -13,13 +13,14 @@ services:
         ollama serve &
         sleep 3
         ollama pull qwen3-embedding:4b
+        ollama pull qwen3.5:9b
         wait
     healthcheck:
-      test: ["CMD-SHELL", "ollama list 2>/dev/null | grep -q qwen3-embedding"]
+      test: ["CMD-SHELL", "ollama list 2>/dev/null | grep -q qwen3-embedding && ollama list 2>/dev/null | grep -q qwen3.5"]
       interval: 10s
       timeout: 10s
-      retries: 30
-      start_period: 60s
+      retries: 60
+      start_period: 120s
 
   rag-api:
     build: .

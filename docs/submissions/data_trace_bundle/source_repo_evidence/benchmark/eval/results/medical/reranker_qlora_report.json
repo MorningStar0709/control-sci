@@ -1,0 +1,2150 @@
+{
+  "meta": {
+    "base_model": "principled-intelligence/Qwen3.5-4B-text-only",
+    "adapter_path": "finetune\\output\\qlora-medical-final",
+    "source_report": "benchmark\\eval\\results\\medical\\kb_quality_report.json",
+    "candidate_source": "hybrid",
+    "top_k": 5,
+    "max_chars": 1800,
+    "max_length": 1536,
+    "elapsed_seconds": 44.3,
+    "note": "Exact MRR uses source_chunk_id. Graded NDCG uses exact=3, same PMCID=2, same medical label=1."
+  },
+  "summary": {
+    "queries": 25,
+    "candidates": 125,
+    "baseline_mrr": 0.386,
+    "rerank_mrr": 0.43,
+    "baseline_ndcg": 0.7479688496409627,
+    "rerank_ndcg": 0.7907038345934136,
+    "delta_mrr": 0.043999999999999984,
+    "delta_ndcg": 0.04273498495245098
+  },
+  "per_query": [
+    {
+      "query_id": "6f78941a",
+      "question": "Results",
+      "source_chunk_id": "PMC8363503_chunk_003",
+      "source_label": "results",
+      "candidate_count": 5,
+      "baseline_mrr": 0.0,
+      "rerank_mrr": 0.0,
+      "baseline_ndcg": 0.9828920819566879,
+      "rerank_ndcg": 0.7606395682357036,
+      "baseline_top": [
+        {
+          "chunk_id": "PMC4692529_chunk_011",
+          "grade": 1,
+          "label": "results",
+          "baseline_rank": 1,
+          "qlora_score": -0.3125
+        },
+        {
+          "chunk_id": "PMC2645399_chunk_015",
+          "grade": 1,
+          "label": "results",
+          "baseline_rank": 2,
+          "qlora_score": -0.3125
+        },
+        {
+          "chunk_id": "PMC5811797_chunk_012",
+          "grade": 1,
+          "label": "results",
+          "baseline_rank": 3,
+          "qlora_score": -0.3125
+        },
+        {
+          "chunk_id": "PMC12742169_chunk_027",
+          "grade": 0,
+          "label": "_statistical_analysis_other",
+          "baseline_rank": 4,
+          "qlora_score": -0.0625
+        },
+        {
+          "chunk_id": "PMC5035370_chunk_007",
+          "grade": 1,
+          "label": "results",
+          "baseline_rank": 5,
+          "qlora_score": -0.3125
+        }
+      ],
+      "rerank_top": [
+        {
+          "chunk_id": "PMC12742169_chunk_027",
+          "grade": 0,
+          "label": "_statistical_analysis_other",
+          "baseline_rank": 4,
+          "qlora_score": -0.0625
+        },
+        {
+          "chunk_id": "PMC4692529_chunk_011",
+          "grade": 1,
+          "label": "results",
+          "baseline_rank": 1,
+          "qlora_score": -0.3125
+        },
+        {
+          "chunk_id": "PMC2645399_chunk_015",
+          "grade": 1,
+          "label": "results",
+          "baseline_rank": 2,
+          "qlora_score": -0.3125
+        },
+        {
+          "chunk_id": "PMC5811797_chunk_012",
+          "grade": 1,
+          "label": "results",
+          "baseline_rank": 3,
+          "qlora_score": -0.3125
+        },
+        {
+          "chunk_id": "PMC5035370_chunk_007",
+          "grade": 1,
+          "label": "results",
+          "baseline_rank": 5,
+          "qlora_score": -0.3125
+        }
+      ]
+    },
+    {
+      "query_id": "1c2cdc0e",
+      "question": "Acknowledgements",
+      "source_chunk_id": "PMC12216833_chunk_029",
+      "source_label": "front_matter",
+      "candidate_count": 5,
+      "baseline_mrr": 0.0,
+      "rerank_mrr": 0.0,
+      "baseline_ndcg": 1.0,
+      "rerank_ndcg": 1.0,
+      "baseline_top": [
+        {
+          "chunk_id": "PMC8541813_chunk_018",
+          "grade": 1,
+          "label": "front_matter",
+          "baseline_rank": 1,
+          "qlora_score": -0.75
+        },
+        {
+          "chunk_id": "PMC8600696_chunk_033",
+          "grade": 1,
+          "label": "front_matter",
+          "baseline_rank": 2,
+          "qlora_score": -0.8125
+        },
+        {
+          "chunk_id": "PMC11292867_chunk_010",
+          "grade": 1,
+          "label": "front_matter",
+          "baseline_rank": 3,
+          "qlora_score": -1.125
+        },
+        {
+          "chunk_id": "PMC7118863_chunk_043",
+          "grade": 1,
+          "label": "front_matter",
+          "baseline_rank": 4,
+          "qlora_score": -1.125
+        },
+        {
+          "chunk_id": "PMC5097399_chunk_019",
+          "grade": 1,
+          "label": "front_matter",
+          "baseline_rank": 5,
+          "qlora_score": -0.875
+        }
+      ],
+      "rerank_top": [
+        {
+          "chunk_id": "PMC8541813_chunk_018",
+          "grade": 1,
+          "label": "front_matter",
+          "baseline_rank": 1,
+          "qlora_score": -0.75
+        },
+        {
+          "chunk_id": "PMC8600696_chunk_033",
+          "grade": 1,
+          "label": "front_matter",
+          "baseline_rank": 2,
+          "qlora_score": -0.8125
+        },
+        {
+          "chunk_id": "PMC5097399_chunk_019",
+          "grade": 1,
+          "label": "front_matter",
+          "baseline_rank": 5,
+          "qlora_score": -0.875
+        },
+        {
+          "chunk_id": "PMC11292867_chunk_010",
+          "grade": 1,
+          "label": "front_matter",
+          "baseline_rank": 3,
+          "qlora_score": -1.125
+        },
+        {
+          "chunk_id": "PMC7118863_chunk_043",
+          "grade": 1,
+          "label": "front_matter",
+          "baseline_rank": 4,
+          "qlora_score": -1.125
+        }
+      ]
+    },
+    {
+      "query_id": "c2f95902",
+      "question": "研究中的安全性评估和伦理考量是什么？",
+      "source_chunk_id": "PMC7470506_chunk_024",
+      "source_label": "ethical_approval",
+      "candidate_count": 5,
+      "baseline_mrr": 1.0,
+      "rerank_mrr": 1.0,
+      "baseline_ndcg": 0.9828422279067397,
+      "rerank_ndcg": 0.9737576937588317,
+      "baseline_top": [
+        {
+          "chunk_id": "PMC7470506_chunk_024",
+          "grade": 3,
+          "label": "ethical_approval",
+          "baseline_rank": 1,
+          "qlora_score": 0.25
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_024",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 2,
+          "qlora_score": -0.125
+        },
+        {
+          "chunk_id": "PMC7414682_chunk_016",
+          "grade": 1,
+          "label": "ethical_approval",
+          "baseline_rank": 3,
+          "qlora_score": -0.125
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_023",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 4,
+          "qlora_score": -0.3125
+        },
+        {
+          "chunk_id": "PMC6009467_chunk_032",
+          "grade": 0,
+          "label": "data_collection",
+          "baseline_rank": 5,
+          "qlora_score": 0.1875
+        }
+      ],
+      "rerank_top": [
+        {
+          "chunk_id": "PMC7470506_chunk_024",
+          "grade": 3,
+          "label": "ethical_approval",
+          "baseline_rank": 1,
+          "qlora_score": 0.25
+        },
+        {
+          "chunk_id": "PMC6009467_chunk_032",
+          "grade": 0,
+          "label": "data_collection",
+          "baseline_rank": 5,
+          "qlora_score": 0.1875
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_024",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 2,
+          "qlora_score": -0.125
+        },
+        {
+          "chunk_id": "PMC7414682_chunk_016",
+          "grade": 1,
+          "label": "ethical_approval",
+          "baseline_rank": 3,
+          "qlora_score": -0.125
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_023",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 4,
+          "qlora_score": -0.3125
+        }
+      ]
+    },
+    {
+      "query_id": "ba5292c7",
+      "question": "混合闭环疗法对血糖变异性指标有何影响？",
+      "source_chunk_id": "PMC6009467_chunk_011",
+      "source_label": "secondary_outcome",
+      "candidate_count": 5,
+      "baseline_mrr": 0.0,
+      "rerank_mrr": 0.0,
+      "baseline_ndcg": 0.38685280723454163,
+      "rerank_ndcg": 0.6309297535714574,
+      "baseline_top": [
+        {
+          "chunk_id": "PMC6448906_chunk_010",
+          "grade": 0,
+          "label": "results",
+          "baseline_rank": 1,
+          "qlora_score": -0.4375
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_024",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 2,
+          "qlora_score": -0.375
+        },
+        {
+          "chunk_id": "PMC7618672_chunk_005",
+          "grade": 0,
+          "label": "front_matter",
+          "baseline_rank": 3,
+          "qlora_score": -0.125
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_023",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 4,
+          "qlora_score": -0.3125
+        },
+        {
+          "chunk_id": "PMC6009467_chunk_010",
+          "grade": 2,
+          "label": "primary_outcome",
+          "baseline_rank": 5,
+          "qlora_score": -0.25
+        }
+      ],
+      "rerank_top": [
+        {
+          "chunk_id": "PMC7618672_chunk_005",
+          "grade": 0,
+          "label": "front_matter",
+          "baseline_rank": 3,
+          "qlora_score": -0.125
+        },
+        {
+          "chunk_id": "PMC6009467_chunk_010",
+          "grade": 2,
+          "label": "primary_outcome",
+          "baseline_rank": 5,
+          "qlora_score": -0.25
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_023",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 4,
+          "qlora_score": -0.3125
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_024",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 2,
+          "qlora_score": -0.375
+        },
+        {
+          "chunk_id": "PMC6448906_chunk_010",
+          "grade": 0,
+          "label": "results",
+          "baseline_rank": 1,
+          "qlora_score": -0.4375
+        }
+      ]
+    },
+    {
+      "query_id": "fb02b239",
+      "question": "AC+P方案的预测总体生存率与观察值是否有显著差异？",
+      "source_chunk_id": "PMC6726216_chunk_021",
+      "source_label": "_adverse_events_other",
+      "candidate_count": 5,
+      "baseline_mrr": 1.0,
+      "rerank_mrr": 1.0,
+      "baseline_ndcg": 0.929544338806268,
+      "rerank_ndcg": 1.0,
+      "baseline_top": [
+        {
+          "chunk_id": "PMC6726216_chunk_021",
+          "grade": 3,
+          "label": "_adverse_events_other",
+          "baseline_rank": 1,
+          "qlora_score": 0.3125
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_024",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 2,
+          "qlora_score": -0.25
+        },
+        {
+          "chunk_id": "PMC6726216_chunk_020",
+          "grade": 2,
+          "label": "_adverse_events_other",
+          "baseline_rank": 3,
+          "qlora_score": 0.3125
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_023",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 4,
+          "qlora_score": -0.5
+        },
+        {
+          "chunk_id": "PMC6726216_chunk_009",
+          "grade": 2,
+          "label": "introduction",
+          "baseline_rank": 5,
+          "qlora_score": -0.125
+        }
+      ],
+      "rerank_top": [
+        {
+          "chunk_id": "PMC6726216_chunk_021",
+          "grade": 3,
+          "label": "_adverse_events_other",
+          "baseline_rank": 1,
+          "qlora_score": 0.3125
+        },
+        {
+          "chunk_id": "PMC6726216_chunk_020",
+          "grade": 2,
+          "label": "_adverse_events_other",
+          "baseline_rank": 3,
+          "qlora_score": 0.3125
+        },
+        {
+          "chunk_id": "PMC6726216_chunk_009",
+          "grade": 2,
+          "label": "introduction",
+          "baseline_rank": 5,
+          "qlora_score": -0.125
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_024",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 2,
+          "qlora_score": -0.25
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_023",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 4,
+          "qlora_score": -0.5
+        }
+      ]
+    },
+    {
+      "query_id": "313c2d9d",
+      "question": "Trial status",
+      "source_chunk_id": "PMC4609090_chunk_024",
+      "source_label": "_data_collection_other",
+      "candidate_count": 5,
+      "baseline_mrr": 0.2,
+      "rerank_mrr": 1.0,
+      "baseline_ndcg": 0.38685280723454163,
+      "rerank_ndcg": 1.0,
+      "baseline_top": [
+        {
+          "chunk_id": "PMC4617442_chunk_059",
+          "grade": 0,
+          "label": "_discussion_other",
+          "baseline_rank": 1,
+          "qlora_score": -0.3125
+        },
+        {
+          "chunk_id": "PMC4617442_chunk_041",
+          "grade": 0,
+          "label": "outcome_measures",
+          "baseline_rank": 2,
+          "qlora_score": -0.5625
+        },
+        {
+          "chunk_id": "PMC11466402_chunk_024",
+          "grade": 0,
+          "label": "_outcome_measures_other",
+          "baseline_rank": 3,
+          "qlora_score": -0.125
+        },
+        {
+          "chunk_id": "PMC4692529_chunk_011",
+          "grade": 0,
+          "label": "results",
+          "baseline_rank": 4,
+          "qlora_score": -0.1875
+        },
+        {
+          "chunk_id": "PMC4609090_chunk_024",
+          "grade": 3,
+          "label": "_data_collection_other",
+          "baseline_rank": 5,
+          "qlora_score": 0.0
+        }
+      ],
+      "rerank_top": [
+        {
+          "chunk_id": "PMC4609090_chunk_024",
+          "grade": 3,
+          "label": "_data_collection_other",
+          "baseline_rank": 5,
+          "qlora_score": 0.0
+        },
+        {
+          "chunk_id": "PMC11466402_chunk_024",
+          "grade": 0,
+          "label": "_outcome_measures_other",
+          "baseline_rank": 3,
+          "qlora_score": -0.125
+        },
+        {
+          "chunk_id": "PMC4692529_chunk_011",
+          "grade": 0,
+          "label": "results",
+          "baseline_rank": 4,
+          "qlora_score": -0.1875
+        },
+        {
+          "chunk_id": "PMC4617442_chunk_059",
+          "grade": 0,
+          "label": "_discussion_other",
+          "baseline_rank": 1,
+          "qlora_score": -0.3125
+        },
+        {
+          "chunk_id": "PMC4617442_chunk_041",
+          "grade": 0,
+          "label": "outcome_measures",
+          "baseline_rank": 2,
+          "qlora_score": -0.5625
+        }
+      ]
+    },
+    {
+      "query_id": "5d7cac63",
+      "question": "SHAP enhancing clinical interpretability and predictive credibility",
+      "source_chunk_id": "PMC12801964_chunk_020",
+      "source_label": "_subgroup_analysis_other",
+      "candidate_count": 5,
+      "baseline_mrr": 1.0,
+      "rerank_mrr": 1.0,
+      "baseline_ndcg": 1.0,
+      "rerank_ndcg": 0.9324441894571632,
+      "baseline_top": [
+        {
+          "chunk_id": "PMC12801964_chunk_020",
+          "grade": 3,
+          "label": "_subgroup_analysis_other",
+          "baseline_rank": 1,
+          "qlora_score": 0.0625
+        },
+        {
+          "chunk_id": "PMC12801964_chunk_010",
+          "grade": 2,
+          "label": "_outcome_measures_other",
+          "baseline_rank": 2,
+          "qlora_score": -0.4375
+        },
+        {
+          "chunk_id": "PMC11369390_chunk_007",
+          "grade": 0,
+          "label": "_population_other",
+          "baseline_rank": 3,
+          "qlora_score": -0.5
+        },
+        {
+          "chunk_id": "PMC5439542_chunk_000",
+          "grade": 0,
+          "label": "other",
+          "baseline_rank": 4,
+          "qlora_score": -0.25
+        },
+        {
+          "chunk_id": "PMC5439542_chunk_008",
+          "grade": 0,
+          "label": "_results_other",
+          "baseline_rank": 5,
+          "qlora_score": -0.1875
+        }
+      ],
+      "rerank_top": [
+        {
+          "chunk_id": "PMC12801964_chunk_020",
+          "grade": 3,
+          "label": "_subgroup_analysis_other",
+          "baseline_rank": 1,
+          "qlora_score": 0.0625
+        },
+        {
+          "chunk_id": "PMC5439542_chunk_008",
+          "grade": 0,
+          "label": "_results_other",
+          "baseline_rank": 5,
+          "qlora_score": -0.1875
+        },
+        {
+          "chunk_id": "PMC5439542_chunk_000",
+          "grade": 0,
+          "label": "other",
+          "baseline_rank": 4,
+          "qlora_score": -0.25
+        },
+        {
+          "chunk_id": "PMC12801964_chunk_010",
+          "grade": 2,
+          "label": "_outcome_measures_other",
+          "baseline_rank": 2,
+          "qlora_score": -0.4375
+        },
+        {
+          "chunk_id": "PMC11369390_chunk_007",
+          "grade": 0,
+          "label": "_population_other",
+          "baseline_rank": 3,
+          "qlora_score": -0.5
+        }
+      ]
+    },
+    {
+      "query_id": "307b9e2f",
+      "question": "2.4.4 Blinding",
+      "source_chunk_id": "PMC10803438_chunk_018",
+      "source_label": "blinding",
+      "candidate_count": 5,
+      "baseline_mrr": 0.5,
+      "rerank_mrr": 1.0,
+      "baseline_ndcg": 0.6309297535714575,
+      "rerank_ndcg": 1.0,
+      "baseline_top": [
+        {
+          "chunk_id": "PMC13019998_chunk_026",
+          "grade": 0,
+          "label": "intervention",
+          "baseline_rank": 1,
+          "qlora_score": -0.625
+        },
+        {
+          "chunk_id": "PMC10803438_chunk_018",
+          "grade": 3,
+          "label": "blinding",
+          "baseline_rank": 2,
+          "qlora_score": 0.75
+        },
+        {
+          "chunk_id": "PMC5753844_chunk_010",
+          "grade": 0,
+          "label": "_introduction_other",
+          "baseline_rank": 3,
+          "qlora_score": -0.375
+        },
+        {
+          "chunk_id": "PMC13019998_chunk_027",
+          "grade": 0,
+          "label": "_intervention_other",
+          "baseline_rank": 4,
+          "qlora_score": 0.25
+        },
+        {
+          "chunk_id": "PMC6221103_chunk_023",
+          "grade": 0,
+          "label": "supplementary",
+          "baseline_rank": 5,
+          "qlora_score": -0.0625
+        }
+      ],
+      "rerank_top": [
+        {
+          "chunk_id": "PMC10803438_chunk_018",
+          "grade": 3,
+          "label": "blinding",
+          "baseline_rank": 2,
+          "qlora_score": 0.75
+        },
+        {
+          "chunk_id": "PMC13019998_chunk_027",
+          "grade": 0,
+          "label": "_intervention_other",
+          "baseline_rank": 4,
+          "qlora_score": 0.25
+        },
+        {
+          "chunk_id": "PMC6221103_chunk_023",
+          "grade": 0,
+          "label": "supplementary",
+          "baseline_rank": 5,
+          "qlora_score": -0.0625
+        },
+        {
+          "chunk_id": "PMC5753844_chunk_010",
+          "grade": 0,
+          "label": "_introduction_other",
+          "baseline_rank": 3,
+          "qlora_score": -0.375
+        },
+        {
+          "chunk_id": "PMC13019998_chunk_026",
+          "grade": 0,
+          "label": "intervention",
+          "baseline_rank": 1,
+          "qlora_score": -0.625
+        }
+      ]
+    },
+    {
+      "query_id": "5e132da2",
+      "question": "Basic relations between filtered and non-filtered samples",
+      "source_chunk_id": "PMC2645399_chunk_009",
+      "source_label": "_methods_other",
+      "candidate_count": 5,
+      "baseline_mrr": 0.25,
+      "rerank_mrr": 0.25,
+      "baseline_ndcg": 0.43067655807339306,
+      "rerank_ndcg": 0.43067655807339306,
+      "baseline_top": [
+        {
+          "chunk_id": "PMC6894475_chunk_015",
+          "grade": 0,
+          "label": "_intervention_other",
+          "baseline_rank": 1,
+          "qlora_score": 0.0
+        },
+        {
+          "chunk_id": "PMC6479804_chunk_005",
+          "grade": 0,
+          "label": "_introduction_other",
+          "baseline_rank": 2,
+          "qlora_score": -0.8125
+        },
+        {
+          "chunk_id": "PMC4617442_chunk_046",
+          "grade": 0,
+          "label": "_population_other",
+          "baseline_rank": 3,
+          "qlora_score": 0.0
+        },
+        {
+          "chunk_id": "PMC2645399_chunk_009",
+          "grade": 3,
+          "label": "_methods_other",
+          "baseline_rank": 4,
+          "qlora_score": -0.625
+        },
+        {
+          "chunk_id": "PMC4609090_chunk_020",
+          "grade": 0,
+          "label": "_data_collection_other",
+          "baseline_rank": 5,
+          "qlora_score": 0.0
+        }
+      ],
+      "rerank_top": [
+        {
+          "chunk_id": "PMC6894475_chunk_015",
+          "grade": 0,
+          "label": "_intervention_other",
+          "baseline_rank": 1,
+          "qlora_score": 0.0
+        },
+        {
+          "chunk_id": "PMC4617442_chunk_046",
+          "grade": 0,
+          "label": "_population_other",
+          "baseline_rank": 3,
+          "qlora_score": 0.0
+        },
+        {
+          "chunk_id": "PMC4609090_chunk_020",
+          "grade": 0,
+          "label": "_data_collection_other",
+          "baseline_rank": 5,
+          "qlora_score": 0.0
+        },
+        {
+          "chunk_id": "PMC2645399_chunk_009",
+          "grade": 3,
+          "label": "_methods_other",
+          "baseline_rank": 4,
+          "qlora_score": -0.625
+        },
+        {
+          "chunk_id": "PMC6479804_chunk_005",
+          "grade": 0,
+          "label": "_introduction_other",
+          "baseline_rank": 2,
+          "qlora_score": -0.8125
+        }
+      ]
+    },
+    {
+      "query_id": "105841e9",
+      "question": "OPTIMAL算法如何调整抗IL-5",
+      "source_chunk_id": "PMC11339407_chunk_008",
+      "source_label": "_population_other",
+      "candidate_count": 5,
+      "baseline_mrr": 0.0,
+      "rerank_mrr": 0.0,
+      "baseline_ndcg": 0.8854598815714875,
+      "rerank_ndcg": 0.9060254355346824,
+      "baseline_top": [
+        {
+          "chunk_id": "PMC11339407_chunk_007",
+          "grade": 2,
+          "label": "_population_other",
+          "baseline_rank": 1,
+          "qlora_score": 0.0
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_024",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 2,
+          "qlora_score": -0.125
+        },
+        {
+          "chunk_id": "PMC11339407_chunk_018",
+          "grade": 2,
+          "label": "conclusion",
+          "baseline_rank": 3,
+          "qlora_score": -0.4375
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_023",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 4,
+          "qlora_score": -0.4375
+        },
+        {
+          "chunk_id": "PMC11339407_chunk_000",
+          "grade": 2,
+          "label": "other",
+          "baseline_rank": 5,
+          "qlora_score": -0.25
+        }
+      ],
+      "rerank_top": [
+        {
+          "chunk_id": "PMC11339407_chunk_007",
+          "grade": 2,
+          "label": "_population_other",
+          "baseline_rank": 1,
+          "qlora_score": 0.0
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_024",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 2,
+          "qlora_score": -0.125
+        },
+        {
+          "chunk_id": "PMC11339407_chunk_000",
+          "grade": 2,
+          "label": "other",
+          "baseline_rank": 5,
+          "qlora_score": -0.25
+        },
+        {
+          "chunk_id": "PMC11339407_chunk_018",
+          "grade": 2,
+          "label": "conclusion",
+          "baseline_rank": 3,
+          "qlora_score": -0.4375
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_023",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 4,
+          "qlora_score": -0.4375
+        }
+      ]
+    },
+    {
+      "query_id": "f17dc5bf",
+      "question": "对不良反应信息的渴求是否调节干预对总不良反应的效果？",
+      "source_chunk_id": "PMC9502603_chunk_020",
+      "source_label": "_primary_results_other",
+      "candidate_count": 5,
+      "baseline_mrr": 1.0,
+      "rerank_mrr": 1.0,
+      "baseline_ndcg": 0.929544338806268,
+      "rerank_ndcg": 1.0,
+      "baseline_top": [
+        {
+          "chunk_id": "PMC9502603_chunk_020",
+          "grade": 3,
+          "label": "_primary_results_other",
+          "baseline_rank": 1,
+          "qlora_score": 0.5625
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_024",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 2,
+          "qlora_score": -0.5625
+        },
+        {
+          "chunk_id": "PMC9502603_chunk_028",
+          "grade": 2,
+          "label": "_discussion_other",
+          "baseline_rank": 3,
+          "qlora_score": 0.25
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_023",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 4,
+          "qlora_score": -0.25
+        },
+        {
+          "chunk_id": "PMC9502603_chunk_005",
+          "grade": 2,
+          "label": "introduction",
+          "baseline_rank": 5,
+          "qlora_score": 0.0625
+        }
+      ],
+      "rerank_top": [
+        {
+          "chunk_id": "PMC9502603_chunk_020",
+          "grade": 3,
+          "label": "_primary_results_other",
+          "baseline_rank": 1,
+          "qlora_score": 0.5625
+        },
+        {
+          "chunk_id": "PMC9502603_chunk_028",
+          "grade": 2,
+          "label": "_discussion_other",
+          "baseline_rank": 3,
+          "qlora_score": 0.25
+        },
+        {
+          "chunk_id": "PMC9502603_chunk_005",
+          "grade": 2,
+          "label": "introduction",
+          "baseline_rank": 5,
+          "qlora_score": 0.0625
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_023",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 4,
+          "qlora_score": -0.25
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_024",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 2,
+          "qlora_score": -0.5625
+        }
+      ]
+    },
+    {
+      "query_id": "afd0ee3f",
+      "question": "AI胰岛素",
+      "source_chunk_id": "PMC10579102_chunk_027",
+      "source_label": "study_design",
+      "candidate_count": 5,
+      "baseline_mrr": 0.0,
+      "rerank_mrr": 0.0,
+      "baseline_ndcg": 1.0,
+      "rerank_ndcg": 0.4306765580733931,
+      "baseline_top": [
+        {
+          "chunk_id": "PMC10579102_chunk_018",
+          "grade": 2,
+          "label": "references",
+          "baseline_rank": 1,
+          "qlora_score": -0.8125
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_024",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 2,
+          "qlora_score": -0.375
+        },
+        {
+          "chunk_id": "PMC6009467_chunk_017",
+          "grade": 0,
+          "label": "_exclusion_criteria_other",
+          "baseline_rank": 3,
+          "qlora_score": -0.375
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_023",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 4,
+          "qlora_score": -0.375
+        },
+        {
+          "chunk_id": "PMC11297938_chunk_028",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 5,
+          "qlora_score": -0.9375
+        }
+      ],
+      "rerank_top": [
+        {
+          "chunk_id": "PMC9911317_chunk_024",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 2,
+          "qlora_score": -0.375
+        },
+        {
+          "chunk_id": "PMC6009467_chunk_017",
+          "grade": 0,
+          "label": "_exclusion_criteria_other",
+          "baseline_rank": 3,
+          "qlora_score": -0.375
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_023",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 4,
+          "qlora_score": -0.375
+        },
+        {
+          "chunk_id": "PMC10579102_chunk_018",
+          "grade": 2,
+          "label": "references",
+          "baseline_rank": 1,
+          "qlora_score": -0.8125
+        },
+        {
+          "chunk_id": "PMC11297938_chunk_028",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 5,
+          "qlora_score": -0.9375
+        }
+      ]
+    },
+    {
+      "query_id": "321d4de9",
+      "question": "Supplementary Information",
+      "source_chunk_id": "PMC10503150_chunk_023",
+      "source_label": "supplementary",
+      "candidate_count": 5,
+      "baseline_mrr": 0.5,
+      "rerank_mrr": 1.0,
+      "baseline_ndcg": 0.7525360009859927,
+      "rerank_ndcg": 1.0,
+      "baseline_top": [
+        {
+          "chunk_id": "PMC7691962_chunk_031",
+          "grade": 1,
+          "label": "supplementary",
+          "baseline_rank": 1,
+          "qlora_score": 0.125
+        },
+        {
+          "chunk_id": "PMC10503150_chunk_023",
+          "grade": 3,
+          "label": "supplementary",
+          "baseline_rank": 2,
+          "qlora_score": 0.5
+        },
+        {
+          "chunk_id": "PMC6221103_chunk_023",
+          "grade": 1,
+          "label": "supplementary",
+          "baseline_rank": 3,
+          "qlora_score": 0.25
+        },
+        {
+          "chunk_id": "PMC7118863_chunk_041",
+          "grade": 1,
+          "label": "supplementary",
+          "baseline_rank": 4,
+          "qlora_score": 0.4375
+        },
+        {
+          "chunk_id": "PMC13019998_chunk_061",
+          "grade": 1,
+          "label": "supplementary",
+          "baseline_rank": 5,
+          "qlora_score": 0.3125
+        }
+      ],
+      "rerank_top": [
+        {
+          "chunk_id": "PMC10503150_chunk_023",
+          "grade": 3,
+          "label": "supplementary",
+          "baseline_rank": 2,
+          "qlora_score": 0.5
+        },
+        {
+          "chunk_id": "PMC7118863_chunk_041",
+          "grade": 1,
+          "label": "supplementary",
+          "baseline_rank": 4,
+          "qlora_score": 0.4375
+        },
+        {
+          "chunk_id": "PMC13019998_chunk_061",
+          "grade": 1,
+          "label": "supplementary",
+          "baseline_rank": 5,
+          "qlora_score": 0.3125
+        },
+        {
+          "chunk_id": "PMC6221103_chunk_023",
+          "grade": 1,
+          "label": "supplementary",
+          "baseline_rank": 3,
+          "qlora_score": 0.25
+        },
+        {
+          "chunk_id": "PMC7691962_chunk_031",
+          "grade": 1,
+          "label": "supplementary",
+          "baseline_rank": 1,
+          "qlora_score": 0.125
+        }
+      ]
+    },
+    {
+      "query_id": "8ec5d1e1",
+      "question": "自适应结合历史对照的贝叶斯设计有何临床优势？",
+      "source_chunk_id": "PMC6221103_chunk_018",
+      "source_label": "conclusion",
+      "candidate_count": 5,
+      "baseline_mrr": 0.0,
+      "rerank_mrr": 0.0,
+      "baseline_ndcg": 0.8854598815714875,
+      "rerank_ndcg": 1.0,
+      "baseline_top": [
+        {
+          "chunk_id": "PMC6221103_chunk_000",
+          "grade": 2,
+          "label": "other",
+          "baseline_rank": 1,
+          "qlora_score": 0.25
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_024",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 2,
+          "qlora_score": -0.3125
+        },
+        {
+          "chunk_id": "PMC6221103_chunk_002",
+          "grade": 2,
+          "label": "front_matter",
+          "baseline_rank": 3,
+          "qlora_score": 0.0
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_023",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 4,
+          "qlora_score": -0.0625
+        },
+        {
+          "chunk_id": "PMC6221103_chunk_022",
+          "grade": 2,
+          "label": "_references_other",
+          "baseline_rank": 5,
+          "qlora_score": 0.375
+        }
+      ],
+      "rerank_top": [
+        {
+          "chunk_id": "PMC6221103_chunk_022",
+          "grade": 2,
+          "label": "_references_other",
+          "baseline_rank": 5,
+          "qlora_score": 0.375
+        },
+        {
+          "chunk_id": "PMC6221103_chunk_000",
+          "grade": 2,
+          "label": "other",
+          "baseline_rank": 1,
+          "qlora_score": 0.25
+        },
+        {
+          "chunk_id": "PMC6221103_chunk_002",
+          "grade": 2,
+          "label": "front_matter",
+          "baseline_rank": 3,
+          "qlora_score": 0.0
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_023",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 4,
+          "qlora_score": -0.0625
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_024",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 2,
+          "qlora_score": -0.3125
+        }
+      ]
+    },
+    {
+      "query_id": "b7d263c9",
+      "question": "Author affiliations",
+      "source_chunk_id": "PMC7526307_chunk_036",
+      "source_label": "_conclusion_other",
+      "candidate_count": 5,
+      "baseline_mrr": 1.0,
+      "rerank_mrr": 0.5,
+      "baseline_ndcg": 1.0,
+      "rerank_ndcg": 0.6309297535714575,
+      "baseline_top": [
+        {
+          "chunk_id": "PMC7526307_chunk_036",
+          "grade": 3,
+          "label": "_conclusion_other",
+          "baseline_rank": 1,
+          "qlora_score": -0.25
+        },
+        {
+          "chunk_id": "PMC7470506_chunk_034",
+          "grade": 0,
+          "label": "_discussion_other",
+          "baseline_rank": 2,
+          "qlora_score": -0.3125
+        },
+        {
+          "chunk_id": "PMC11929207_chunk_041",
+          "grade": 0,
+          "label": "_references_other",
+          "baseline_rank": 3,
+          "qlora_score": -1.0
+        },
+        {
+          "chunk_id": "PMC11529615_chunk_033",
+          "grade": 0,
+          "label": "_ethical_approval_other",
+          "baseline_rank": 4,
+          "qlora_score": -0.0625
+        },
+        {
+          "chunk_id": "PMC8216535_chunk_008",
+          "grade": 0,
+          "label": "_front_matter_other",
+          "baseline_rank": 5,
+          "qlora_score": -0.375
+        }
+      ],
+      "rerank_top": [
+        {
+          "chunk_id": "PMC11529615_chunk_033",
+          "grade": 0,
+          "label": "_ethical_approval_other",
+          "baseline_rank": 4,
+          "qlora_score": -0.0625
+        },
+        {
+          "chunk_id": "PMC7526307_chunk_036",
+          "grade": 3,
+          "label": "_conclusion_other",
+          "baseline_rank": 1,
+          "qlora_score": -0.25
+        },
+        {
+          "chunk_id": "PMC7470506_chunk_034",
+          "grade": 0,
+          "label": "_discussion_other",
+          "baseline_rank": 2,
+          "qlora_score": -0.3125
+        },
+        {
+          "chunk_id": "PMC8216535_chunk_008",
+          "grade": 0,
+          "label": "_front_matter_other",
+          "baseline_rank": 5,
+          "qlora_score": -0.375
+        },
+        {
+          "chunk_id": "PMC11929207_chunk_041",
+          "grade": 0,
+          "label": "_references_other",
+          "baseline_rank": 3,
+          "qlora_score": -1.0
+        }
+      ]
+    },
+    {
+      "query_id": "4d2d53a9",
+      "question": "Subgroup Analysis Based on Genotyping and Age",
+      "source_chunk_id": "PMC7439928_chunk_011",
+      "source_label": "subgroup_analysis",
+      "candidate_count": 5,
+      "baseline_mrr": 0.0,
+      "rerank_mrr": 0.0,
+      "baseline_ndcg": 0.5,
+      "rerank_ndcg": 0.5,
+      "baseline_top": [
+        {
+          "chunk_id": "PMC9842495_chunk_055",
+          "grade": 0,
+          "label": "methods",
+          "baseline_rank": 1,
+          "qlora_score": 0.5625
+        },
+        {
+          "chunk_id": "PMC5439542_chunk_008",
+          "grade": 0,
+          "label": "_results_other",
+          "baseline_rank": 2,
+          "qlora_score": 0.5
+        },
+        {
+          "chunk_id": "PMC7439928_chunk_010",
+          "grade": 2,
+          "label": "subgroup_analysis",
+          "baseline_rank": 3,
+          "qlora_score": 0.3125
+        },
+        {
+          "chunk_id": "PMC11466402_chunk_015",
+          "grade": 0,
+          "label": "intervention",
+          "baseline_rank": 4,
+          "qlora_score": -0.125
+        },
+        {
+          "chunk_id": "PMC6133081_chunk_012",
+          "grade": 0,
+          "label": "_data_collection_other",
+          "baseline_rank": 5,
+          "qlora_score": -0.5
+        }
+      ],
+      "rerank_top": [
+        {
+          "chunk_id": "PMC9842495_chunk_055",
+          "grade": 0,
+          "label": "methods",
+          "baseline_rank": 1,
+          "qlora_score": 0.5625
+        },
+        {
+          "chunk_id": "PMC5439542_chunk_008",
+          "grade": 0,
+          "label": "_results_other",
+          "baseline_rank": 2,
+          "qlora_score": 0.5
+        },
+        {
+          "chunk_id": "PMC7439928_chunk_010",
+          "grade": 2,
+          "label": "subgroup_analysis",
+          "baseline_rank": 3,
+          "qlora_score": 0.3125
+        },
+        {
+          "chunk_id": "PMC11466402_chunk_015",
+          "grade": 0,
+          "label": "intervention",
+          "baseline_rank": 4,
+          "qlora_score": -0.125
+        },
+        {
+          "chunk_id": "PMC6133081_chunk_012",
+          "grade": 0,
+          "label": "_data_collection_other",
+          "baseline_rank": 5,
+          "qlora_score": -0.5
+        }
+      ]
+    },
+    {
+      "query_id": "1763d999",
+      "question": "SPRY-Metformin研究的入组标准是什么？",
+      "source_chunk_id": "PMC7526307_chunk_016",
+      "source_label": "_supplementary_other",
+      "candidate_count": 5,
+      "baseline_mrr": 0.0,
+      "rerank_mrr": 0.0,
+      "baseline_ndcg": 0.8854598815714875,
+      "rerank_ndcg": 1.0,
+      "baseline_top": [
+        {
+          "chunk_id": "PMC7526307_chunk_017",
+          "grade": 2,
+          "label": "_supplementary_other",
+          "baseline_rank": 1,
+          "qlora_score": 0.4375
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_024",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 2,
+          "qlora_score": -0.6875
+        },
+        {
+          "chunk_id": "PMC7526307_chunk_019",
+          "grade": 2,
+          "label": "methods",
+          "baseline_rank": 3,
+          "qlora_score": 0.375
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_023",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 4,
+          "qlora_score": -0.8125
+        },
+        {
+          "chunk_id": "PMC7526307_chunk_021",
+          "grade": 2,
+          "label": "_methods_other",
+          "baseline_rank": 5,
+          "qlora_score": 0.125
+        }
+      ],
+      "rerank_top": [
+        {
+          "chunk_id": "PMC7526307_chunk_017",
+          "grade": 2,
+          "label": "_supplementary_other",
+          "baseline_rank": 1,
+          "qlora_score": 0.4375
+        },
+        {
+          "chunk_id": "PMC7526307_chunk_019",
+          "grade": 2,
+          "label": "methods",
+          "baseline_rank": 3,
+          "qlora_score": 0.375
+        },
+        {
+          "chunk_id": "PMC7526307_chunk_021",
+          "grade": 2,
+          "label": "_methods_other",
+          "baseline_rank": 5,
+          "qlora_score": 0.125
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_024",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 2,
+          "qlora_score": -0.6875
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_023",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 4,
+          "qlora_score": -0.8125
+        }
+      ]
+    },
+    {
+      "query_id": "e8909c8e",
+      "question": "该临床试验的额外纳入和排除标准是什么？",
+      "source_chunk_id": "PMC12928687_chunk_011",
+      "source_label": "inclusion_criteria",
+      "candidate_count": 5,
+      "baseline_mrr": 0.0,
+      "rerank_mrr": 0.0,
+      "baseline_ndcg": 0.0,
+      "rerank_ndcg": 0.0,
+      "baseline_top": [
+        {
+          "chunk_id": "PMC5439542_chunk_016",
+          "grade": 0,
+          "label": "_results_other",
+          "baseline_rank": 1,
+          "qlora_score": -0.1875
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_024",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 2,
+          "qlora_score": 0.0
+        },
+        {
+          "chunk_id": "PMC6561428_chunk_012",
+          "grade": 0,
+          "label": "_randomization_other",
+          "baseline_rank": 3,
+          "qlora_score": -0.25
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_023",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 4,
+          "qlora_score": -0.125
+        },
+        {
+          "chunk_id": "PMC4617442_chunk_059",
+          "grade": 0,
+          "label": "_discussion_other",
+          "baseline_rank": 5,
+          "qlora_score": -0.875
+        }
+      ],
+      "rerank_top": [
+        {
+          "chunk_id": "PMC9911317_chunk_024",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 2,
+          "qlora_score": 0.0
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_023",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 4,
+          "qlora_score": -0.125
+        },
+        {
+          "chunk_id": "PMC5439542_chunk_016",
+          "grade": 0,
+          "label": "_results_other",
+          "baseline_rank": 1,
+          "qlora_score": -0.1875
+        },
+        {
+          "chunk_id": "PMC6561428_chunk_012",
+          "grade": 0,
+          "label": "_randomization_other",
+          "baseline_rank": 3,
+          "qlora_score": -0.25
+        },
+        {
+          "chunk_id": "PMC4617442_chunk_059",
+          "grade": 0,
+          "label": "_discussion_other",
+          "baseline_rank": 5,
+          "qlora_score": -0.875
+        }
+      ]
+    },
+    {
+      "query_id": "75097927",
+      "question": "药物的药代动力学参数如何？",
+      "source_chunk_id": "PMC6133081_chunk_009",
+      "source_label": "_study_design_other",
+      "candidate_count": 5,
+      "baseline_mrr": 0.2,
+      "rerank_mrr": 1.0,
+      "baseline_ndcg": 0.4731889542498568,
+      "rerank_ndcg": 0.9324441894571632,
+      "baseline_top": [
+        {
+          "chunk_id": "PMC7932937_chunk_016",
+          "grade": 0,
+          "label": "pharmacokinetics",
+          "baseline_rank": 1,
+          "qlora_score": -0.25
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_024",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 2,
+          "qlora_score": -0.25
+        },
+        {
+          "chunk_id": "PMC6133081_chunk_012",
+          "grade": 2,
+          "label": "_data_collection_other",
+          "baseline_rank": 3,
+          "qlora_score": -0.3125
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_023",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 4,
+          "qlora_score": -0.4375
+        },
+        {
+          "chunk_id": "PMC6133081_chunk_009",
+          "grade": 3,
+          "label": "_study_design_other",
+          "baseline_rank": 5,
+          "qlora_score": -0.125
+        }
+      ],
+      "rerank_top": [
+        {
+          "chunk_id": "PMC6133081_chunk_009",
+          "grade": 3,
+          "label": "_study_design_other",
+          "baseline_rank": 5,
+          "qlora_score": -0.125
+        },
+        {
+          "chunk_id": "PMC7932937_chunk_016",
+          "grade": 0,
+          "label": "pharmacokinetics",
+          "baseline_rank": 1,
+          "qlora_score": -0.25
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_024",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 2,
+          "qlora_score": -0.25
+        },
+        {
+          "chunk_id": "PMC6133081_chunk_012",
+          "grade": 2,
+          "label": "_data_collection_other",
+          "baseline_rank": 3,
+          "qlora_score": -0.3125
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_023",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 4,
+          "qlora_score": -0.4375
+        }
+      ]
+    },
+    {
+      "query_id": "5de0d25e",
+      "question": "益生菌在严重急性胰腺炎动物模型中的疗效是否受偏倚风险影响？",
+      "source_chunk_id": "PMC3496732_chunk_022",
+      "source_label": "_references_other",
+      "candidate_count": 5,
+      "baseline_mrr": 0.0,
+      "rerank_mrr": 0.0,
+      "baseline_ndcg": 0.8854598815714875,
+      "rerank_ndcg": 1.0,
+      "baseline_top": [
+        {
+          "chunk_id": "PMC3496732_chunk_000",
+          "grade": 2,
+          "label": "methods",
+          "baseline_rank": 1,
+          "qlora_score": 0.5625
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_024",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 2,
+          "qlora_score": -0.1875
+        },
+        {
+          "chunk_id": "PMC3496732_chunk_001",
+          "grade": 2,
+          "label": "front_matter",
+          "baseline_rank": 3,
+          "qlora_score": 0.375
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_023",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 4,
+          "qlora_score": -0.5625
+        },
+        {
+          "chunk_id": "PMC3496732_chunk_015",
+          "grade": 2,
+          "label": "_results_other",
+          "baseline_rank": 5,
+          "qlora_score": 0.0
+        }
+      ],
+      "rerank_top": [
+        {
+          "chunk_id": "PMC3496732_chunk_000",
+          "grade": 2,
+          "label": "methods",
+          "baseline_rank": 1,
+          "qlora_score": 0.5625
+        },
+        {
+          "chunk_id": "PMC3496732_chunk_001",
+          "grade": 2,
+          "label": "front_matter",
+          "baseline_rank": 3,
+          "qlora_score": 0.375
+        },
+        {
+          "chunk_id": "PMC3496732_chunk_015",
+          "grade": 2,
+          "label": "_results_other",
+          "baseline_rank": 5,
+          "qlora_score": 0.0
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_024",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 2,
+          "qlora_score": -0.1875
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_023",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 4,
+          "qlora_score": -0.5625
+        }
+      ]
+    },
+    {
+      "query_id": "1201108f",
+      "question": "External validation underscoring model’s robustness and generalizability",
+      "source_chunk_id": "PMC12801964_chunk_018",
+      "source_label": "sensitivity_analysis",
+      "candidate_count": 5,
+      "baseline_mrr": 1.0,
+      "rerank_mrr": 0.5,
+      "baseline_ndcg": 0.9095333176489386,
+      "rerank_ndcg": 0.8252901585453934,
+      "baseline_top": [
+        {
+          "chunk_id": "PMC12801964_chunk_018",
+          "grade": 3,
+          "label": "sensitivity_analysis",
+          "baseline_rank": 1,
+          "qlora_score": 0.4375
+        },
+        {
+          "chunk_id": "PMC5439542_chunk_000",
+          "grade": 0,
+          "label": "other",
+          "baseline_rank": 2,
+          "qlora_score": 0.25
+        },
+        {
+          "chunk_id": "PMC5439542_chunk_008",
+          "grade": 0,
+          "label": "_results_other",
+          "baseline_rank": 3,
+          "qlora_score": 0.1875
+        },
+        {
+          "chunk_id": "PMC12801964_chunk_015",
+          "grade": 2,
+          "label": "baseline_characteristics",
+          "baseline_rank": 4,
+          "qlora_score": 0.625
+        },
+        {
+          "chunk_id": "PMC12801964_chunk_003",
+          "grade": 2,
+          "label": "front_matter",
+          "baseline_rank": 5,
+          "qlora_score": -0.5
+        }
+      ],
+      "rerank_top": [
+        {
+          "chunk_id": "PMC12801964_chunk_015",
+          "grade": 2,
+          "label": "baseline_characteristics",
+          "baseline_rank": 4,
+          "qlora_score": 0.625
+        },
+        {
+          "chunk_id": "PMC12801964_chunk_018",
+          "grade": 3,
+          "label": "sensitivity_analysis",
+          "baseline_rank": 1,
+          "qlora_score": 0.4375
+        },
+        {
+          "chunk_id": "PMC5439542_chunk_000",
+          "grade": 0,
+          "label": "other",
+          "baseline_rank": 2,
+          "qlora_score": 0.25
+        },
+        {
+          "chunk_id": "PMC5439542_chunk_008",
+          "grade": 0,
+          "label": "_results_other",
+          "baseline_rank": 3,
+          "qlora_score": 0.1875
+        },
+        {
+          "chunk_id": "PMC12801964_chunk_003",
+          "grade": 2,
+          "label": "front_matter",
+          "baseline_rank": 5,
+          "qlora_score": -0.5
+        }
+      ]
+    },
+    {
+      "query_id": "4c893132",
+      "question": "References",
+      "source_chunk_id": "PMC8600696_chunk_044",
+      "source_label": "references",
+      "candidate_count": 5,
+      "baseline_mrr": 0.0,
+      "rerank_mrr": 0.0,
+      "baseline_ndcg": 0.0,
+      "rerank_ndcg": 0.0,
+      "baseline_top": [
+        {
+          "chunk_id": "PMC9502603_chunk_000",
+          "grade": 0,
+          "label": "other",
+          "baseline_rank": 1,
+          "qlora_score": -0.125
+        },
+        {
+          "chunk_id": "PMC9842495_chunk_066",
+          "grade": 0,
+          "label": "_discussion_other",
+          "baseline_rank": 2,
+          "qlora_score": 0.875
+        },
+        {
+          "chunk_id": "PMC9443636_chunk_000",
+          "grade": 0,
+          "label": "other",
+          "baseline_rank": 3,
+          "qlora_score": -0.125
+        },
+        {
+          "chunk_id": "PMC13019998_chunk_027",
+          "grade": 0,
+          "label": "_intervention_other",
+          "baseline_rank": 4,
+          "qlora_score": 0.1875
+        },
+        {
+          "chunk_id": "PMC6894475_chunk_000",
+          "grade": 0,
+          "label": "other",
+          "baseline_rank": 5,
+          "qlora_score": -0.125
+        }
+      ],
+      "rerank_top": [
+        {
+          "chunk_id": "PMC9842495_chunk_066",
+          "grade": 0,
+          "label": "_discussion_other",
+          "baseline_rank": 2,
+          "qlora_score": 0.875
+        },
+        {
+          "chunk_id": "PMC13019998_chunk_027",
+          "grade": 0,
+          "label": "_intervention_other",
+          "baseline_rank": 4,
+          "qlora_score": 0.1875
+        },
+        {
+          "chunk_id": "PMC9502603_chunk_000",
+          "grade": 0,
+          "label": "other",
+          "baseline_rank": 1,
+          "qlora_score": -0.125
+        },
+        {
+          "chunk_id": "PMC9443636_chunk_000",
+          "grade": 0,
+          "label": "other",
+          "baseline_rank": 3,
+          "qlora_score": -0.125
+        },
+        {
+          "chunk_id": "PMC6894475_chunk_000",
+          "grade": 0,
+          "label": "other",
+          "baseline_rank": 5,
+          "qlora_score": -0.125
+        }
+      ]
+    },
+    {
+      "query_id": "d75d2d0c",
+      "question": "Background",
+      "source_chunk_id": "PMC6921499_chunk_003",
+      "source_label": "introduction",
+      "candidate_count": 5,
+      "baseline_mrr": 0.0,
+      "rerank_mrr": 0.0,
+      "baseline_ndcg": 1.0,
+      "rerank_ndcg": 1.0,
+      "baseline_top": [
+        {
+          "chunk_id": "PMC7840704_chunk_007",
+          "grade": 1,
+          "label": "introduction",
+          "baseline_rank": 1,
+          "qlora_score": -0.3125
+        },
+        {
+          "chunk_id": "PMC13019998_chunk_006",
+          "grade": 1,
+          "label": "introduction",
+          "baseline_rank": 2,
+          "qlora_score": -0.375
+        },
+        {
+          "chunk_id": "PMC9842495_chunk_005",
+          "grade": 1,
+          "label": "introduction",
+          "baseline_rank": 3,
+          "qlora_score": -0.3125
+        },
+        {
+          "chunk_id": "PMC7118863_chunk_031",
+          "grade": 1,
+          "label": "introduction",
+          "baseline_rank": 4,
+          "qlora_score": 0.25
+        },
+        {
+          "chunk_id": "PMC6937062_chunk_005",
+          "grade": 1,
+          "label": "introduction",
+          "baseline_rank": 5,
+          "qlora_score": -0.3125
+        }
+      ],
+      "rerank_top": [
+        {
+          "chunk_id": "PMC7118863_chunk_031",
+          "grade": 1,
+          "label": "introduction",
+          "baseline_rank": 4,
+          "qlora_score": 0.25
+        },
+        {
+          "chunk_id": "PMC7840704_chunk_007",
+          "grade": 1,
+          "label": "introduction",
+          "baseline_rank": 1,
+          "qlora_score": -0.3125
+        },
+        {
+          "chunk_id": "PMC9842495_chunk_005",
+          "grade": 1,
+          "label": "introduction",
+          "baseline_rank": 3,
+          "qlora_score": -0.3125
+        },
+        {
+          "chunk_id": "PMC6937062_chunk_005",
+          "grade": 1,
+          "label": "introduction",
+          "baseline_rank": 5,
+          "qlora_score": -0.3125
+        },
+        {
+          "chunk_id": "PMC13019998_chunk_006",
+          "grade": 1,
+          "label": "introduction",
+          "baseline_rank": 2,
+          "qlora_score": -0.375
+        }
+      ]
+    },
+    {
+      "query_id": "cc5b9bbb",
+      "question": "Week 1: Psychoeducation and Test Diary",
+      "source_chunk_id": "PMC7840704_chunk_026",
+      "source_label": "_intervention_other",
+      "candidate_count": 5,
+      "baseline_mrr": 1.0,
+      "rerank_mrr": 1.0,
+      "baseline_ndcg": 0.9324441894571632,
+      "rerank_ndcg": 0.95583058934618,
+      "baseline_top": [
+        {
+          "chunk_id": "PMC7840704_chunk_026",
+          "grade": 3,
+          "label": "_intervention_other",
+          "baseline_rank": 1,
+          "qlora_score": 0.0625
+        },
+        {
+          "chunk_id": "PMC6009467_chunk_027",
+          "grade": 0,
+          "label": "_statistical_analysis_other",
+          "baseline_rank": 2,
+          "qlora_score": -0.125
+        },
+        {
+          "chunk_id": "PMC12574440_chunk_027",
+          "grade": 0,
+          "label": "data_collection",
+          "baseline_rank": 3,
+          "qlora_score": -0.6875
+        },
+        {
+          "chunk_id": "PMC7840704_chunk_019",
+          "grade": 2,
+          "label": "_introduction_other",
+          "baseline_rank": 4,
+          "qlora_score": -0.3125
+        },
+        {
+          "chunk_id": "PMC12574440_chunk_046",
+          "grade": 0,
+          "label": "_statistical_analysis_other",
+          "baseline_rank": 5,
+          "qlora_score": -0.8125
+        }
+      ],
+      "rerank_top": [
+        {
+          "chunk_id": "PMC7840704_chunk_026",
+          "grade": 3,
+          "label": "_intervention_other",
+          "baseline_rank": 1,
+          "qlora_score": 0.0625
+        },
+        {
+          "chunk_id": "PMC6009467_chunk_027",
+          "grade": 0,
+          "label": "_statistical_analysis_other",
+          "baseline_rank": 2,
+          "qlora_score": -0.125
+        },
+        {
+          "chunk_id": "PMC7840704_chunk_019",
+          "grade": 2,
+          "label": "_introduction_other",
+          "baseline_rank": 4,
+          "qlora_score": -0.3125
+        },
+        {
+          "chunk_id": "PMC12574440_chunk_027",
+          "grade": 0,
+          "label": "data_collection",
+          "baseline_rank": 3,
+          "qlora_score": -0.6875
+        },
+        {
+          "chunk_id": "PMC12574440_chunk_046",
+          "grade": 0,
+          "label": "_statistical_analysis_other",
+          "baseline_rank": 5,
+          "qlora_score": -0.8125
+        }
+      ]
+    },
+    {
+      "query_id": "dcfdcf29",
+      "question": "不同年龄、基线抑郁严重程度及创伤史亚组",
+      "source_chunk_id": "PMC13019998_chunk_051",
+      "source_label": "_secondary_outcome_other",
+      "candidate_count": 5,
+      "baseline_mrr": 1.0,
+      "rerank_mrr": 0.5,
+      "baseline_ndcg": 0.929544338806268,
+      "rerank_ndcg": 0.8579514172105233,
+      "baseline_top": [
+        {
+          "chunk_id": "PMC13019998_chunk_051",
+          "grade": 3,
+          "label": "_secondary_outcome_other",
+          "baseline_rank": 1,
+          "qlora_score": 0.5
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_024",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 2,
+          "qlora_score": -0.5
+        },
+        {
+          "chunk_id": "PMC13019998_chunk_002",
+          "grade": 2,
+          "label": "intervention",
+          "baseline_rank": 3,
+          "qlora_score": 0.5625
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_023",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 4,
+          "qlora_score": -0.5625
+        },
+        {
+          "chunk_id": "PMC13019998_chunk_037",
+          "grade": 2,
+          "label": "primary_outcome",
+          "baseline_rank": 5,
+          "qlora_score": 0.0625
+        }
+      ],
+      "rerank_top": [
+        {
+          "chunk_id": "PMC13019998_chunk_002",
+          "grade": 2,
+          "label": "intervention",
+          "baseline_rank": 3,
+          "qlora_score": 0.5625
+        },
+        {
+          "chunk_id": "PMC13019998_chunk_051",
+          "grade": 3,
+          "label": "_secondary_outcome_other",
+          "baseline_rank": 1,
+          "qlora_score": 0.5
+        },
+        {
+          "chunk_id": "PMC13019998_chunk_037",
+          "grade": 2,
+          "label": "primary_outcome",
+          "baseline_rank": 5,
+          "qlora_score": 0.0625
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_024",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 2,
+          "qlora_score": -0.5
+        },
+        {
+          "chunk_id": "PMC9911317_chunk_023",
+          "grade": 0,
+          "label": "references",
+          "baseline_rank": 4,
+          "qlora_score": -0.5625
+        }
+      ]
+    }
+  ]
+}

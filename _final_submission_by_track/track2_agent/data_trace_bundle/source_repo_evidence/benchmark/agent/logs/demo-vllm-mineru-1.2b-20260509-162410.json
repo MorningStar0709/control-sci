@@ -1,0 +1,64 @@
+{
+  "generated_at": "2026-05-09T16:24:59.820590",
+  "sample_count": 3,
+  "mode": "mimo_only",
+  "results": [
+    {
+      "index": 10,
+      "chunk_id": "2603.29490_Flatness_based_control_of_a_Timoshenko_beam_chunk_019",
+      "image_hash": "0aa1805b7550db6d07f09788776d3f909cf93dc851b33659dd09b7867164ebb6.jpg",
+      "image_path": "data\\processed\\2603.29490_Flatness_based_control_of_a_Timoshenko_beam\\image\\0aa1805b7550db6d07f09788776d3f909cf93dc851b33659dd09b7867164ebb6.jpg",
+      "ground_truth_latex": "| \\gamma _ { i } | < 1 , i = 1 , 2 \\eta ( \\cdot , t ) y _ { \\mathrm { r } } ( \\cdot ) { \\pmb x } ( \\cdot , t ) \\mathbf { \\boldsymbol { x } } _ { \\mathrm { { r } } } ( \\cdot , t ) \\alpha _ { i } ( \\tau ) = 0 , i = 1 , 2 | \\gamma _ { i } | < 1 e _ { i } ( t ) \\eta _ { i } ( \\tau , t ) \\eta _ { i , \\mathrm { r } } ( \\tau , t ) = y _ { i , \\mathrm { r } } ( t + \\tau ) , i = 1 , 2 t \\to \\infty \\pmb { x } ( z , t ) { \\pmb x } _ { \\mathrm { r } } ( z , t ) { \\pmb x } _ { \\mathrm { r } } ( z , t ) { \\mathbf { } } y _ { \\mathrm { { r } } } ( t ) { \\bf { \\it y } } _ { \\mathrm { { r } } } ( t ) w ( z , t )",
+      "ground_truth_clean": "| \\gamma _ { i } | < 1 , i = 1 , 2 \\eta ( \\cdot , t ) y _ { \\mathrm { r } } ( \\cdot ) { \\pmb x } ( \\cdot , t ) \\mathbf { \\boldsymbol { x } } _ { \\mathrm { { r } } } ( \\cdot , t ) \\alpha _ { i } ( \\tau ) = 0 , i = 1 , 2 | \\gamma _ { i } | < 1 e _ { i } ( t ) \\eta _ { i } ( \\tau , t ) \\eta _ { i , \\mathrm { r } } ( \\tau , t ) = y _ { i , \\mathrm { r } } ( t + \\tau ) , i = 1 , 2 t \\to \\infty \\pmb { x } ( z , t ) { \\pmb x } _ { \\mathrm { r } } ( z , t ) { \\pmb x } _ { \\mathrm { r } } ( z , t ) { \\mathbf { } } y _ { \\mathrm { { r } } } ( t ) { \\bf { \\it y } } _ { \\mathrm { { r } } } ( t ) w ( z , t )",
+      "formula_count": 18,
+      "source_section": "V. STATE FEEDBACK TRACKING CONTROLLER",
+      "mimo_latex": "\\begin{tikzpicture}\n\\begin{axis}[\n    width=12cm,\n    height=6cm,\n    xlabel={$t$},\n    ylabel={},\n    xmin=0, xmax=6,\n    ymin=-0.3, ymax=0.2,\n    xtick={0,1,2,3,4,5,6},\n    ytick={-0.3,-0.2,-0.1,0,0.1,0.2},\n    grid=both,\n    minor tick num=1,\n    legend style={at={(0.5,0.95)}, anchor=north, draw=none},\n    legend cell align={left}\n]\n% 定义函数\n\\addplot[blue, thick, domain=0:6, samples=200] {0.15*sin(deg(2*pi*x)) * exp(-0.5*x) * (x < 2.8) + 0.1 * (1 - exp(-2*(x-4.5))) * (x >= 4.5)};\n\\addlegendentry{$y_1(t)$}\n\\addplot[blue, dashed, thick, domain=0:6, samples=200] {0};\n\\addlegendentry{$y_{1,r}(t)$}\n\\addplot[red, thick, domain=0:6, samples=200] {0.15*sin(deg(2*pi*x)) * exp(-0.5*x) * (x < 2.8) - 0.2 * (1 - exp(-2*(x-4.5))) * (x >= 4.5)};\n\\addlegendentry{$y_2(t)$}\n\\addplot[red, dashed, thick, domain=0:6, samples=200] {0};\n\\addlegendentry{$y_{2,r}(t)$}\n\n% 添加垂直虚线\n\\draw[dashed, blue] (axis cs:1.5,-0.3) -- (axis cs:1.5,0.2) node[above] {$2\\tau_1$};\n\\draw[dashed, red] (axis cs:2.8,-0.3) -- (axis cs:2.8,0.2) node[above] {$2\\tau_2$};\n\\draw[dashed, black] (axis cs:4.5,-0.3) -- (axis cs:4.5,0.2) node[above] {$t_0$};\n\\draw[dashed, black] (axis cs:5.5,-0.3) -- (axis cs:5.5,0.2) node[above] {$t_T$};\n\n\\end{axis}\n\\end{tikzpicture}",
+      "mimo_latex_clean": "\\begin{tikzpicture} \\begin{axis}[ width=12cm, height=6cm, xlabel={$t$}, ylabel={}, xmin=0, xmax=6, ymin=-0.3, ymax=0.2, xtick={0,1,2,3,4,5,6}, ytick={-0.3,-0.2,-0.1,0,0.1,0.2}, grid=both, minor tick num=1, legend style={at={(0.5,0.95)}, anchor=north, draw=none}, legend cell align={left} ] % 定义函数 \\addplot[blue, thick, domain=0:6, samples=200] {0.15*sin(deg(2*pi*x)) * exp(-0.5*x) * (x < 2.8) + 0.1 * (1 - exp(-2*(x-4.5))) * (x >= 4.5)}; \\addlegendentry{$y_1(t)$} \\addplot[blue, dashed, thick, domain=0:6, samples=200] {0}; \\addlegendentry{$y_{1,r}(t)$} \\addplot[red, thick, domain=0:6, samples=200] {0.15*sin(deg(2*pi*x)) * exp(-0.5*x) * (x < 2.8) - 0.2 * (1 - exp(-2*(x-4.5))) * (x >= 4.5)}; \\addlegendentry{$y_2(t)$} \\addplot[red, dashed, thick, domain=0:6, samples=200] {0}; \\addlegendentry{$y_{2,r}(t)$} % 添加垂直虚线 \\draw[dashed, blue] (axis cs:1.5,-0.3) -- (axis cs:1.5,0.2) node[above] {$2\\tau_1$}; \\draw[dashed, red] (axis cs:2.8,-0.3) -- (axis cs:2.8,0.2) node[above] {$2\\tau_2$}; \\draw[dashed, black] (axis cs:4.5,-0.3) -- (axis cs:4.5,0.2) node[above] {$t_0$}; \\draw[dashed, black] (axis cs:5.5,-0.3) -- (axis cs:5.5,0.2) node[above] {$t_T$}; \\end{axis} \\end{tikzpicture}",
+      "mimo_edit_distance": 0.8091603053435115,
+      "mimo_bleu": 0.03199421037730265,
+      "mimo_char_match": 0.02714164546225615,
+      "mimo_tokens": {
+        "prompt": 363,
+        "completion": 596
+      }
+    },
+    {
+      "index": 1,
+      "chunk_id": "Essentials_of_Robust_Control_Zhou_Doyle_chunk_472",
+      "image_hash": "a5885ccfca38907e074872b9b79a02bfeff7f2d7c6cb081c1b5de28a24cd8a22.jpg",
+      "image_path": "data\\processed\\Essentials_of_Robust_Control_Zhou_Doyle\\image\\a5885ccfca38907e074872b9b79a02bfeff7f2d7c6cb081c1b5de28a24cd8a22.jpg",
+      "ground_truth_latex": "\\frac {| P (j \\omega_ {0}) - P _ {0} (j \\omega_ {0}) |}{\\sqrt {1 + | P (j \\omega_ {0}) | ^ {2}} \\sqrt {1 + | P _ {0} (j \\omega_ {0}) | ^ {2}}} = r. \\left(R - \\frac {R _ {0}}{1 - \\alpha}\\right) ^ {2} + \\left(I - \\frac {I _ {0}}{1 - \\alpha}\\right) ^ {2} = \\frac {\\alpha (1 + | P _ {0} | ^ {2} - \\alpha)}{(1 - \\alpha) ^ {2}}, \\text { if } \\alpha \\neq 1 P _ { 0 } ( j \\omega _ { 0 } ) \\omega _ { \\mathrm { 0 } } ; P ( j \\omega _ { 0 } ) = R + j I P _ { 0 } ( j \\omega _ { 0 } ) = R _ { 0 } + j I _ { 0 } \\alpha = r ^ { 2 } ( 1 + | P _ { 0 } | ^ { 2 } ) P _ { 0 } ( j \\omega _ { 0 } ) = 1 p _ { 0 } | p _ { 0 } ( j \\omega _ { 0 } ) | = 1 \\delta _ { \\nu } ( p _ { 0 } , p ) \\leq 0 . 2 ) 0 . 6 6 1 \\leq | p ( j \\omega _ { 0 } ) | \\leq 1 . 5 1 3 2 3 . 0 7 3 9 ^ { \\mathrm { o } } { \\mathrm { a t } } \\ \\omega _ { 0 } \\| \\Psi ( P _ { 1 } , P _ { 2 } ) \\| _ { \\infty }",
+      "ground_truth_clean": "\\frac {| P (j \\omega_ {0}) - P _ {0} (j \\omega_ {0}) |}{\\sqrt {1 + | P (j \\omega_ {0}) | ^ {2}} \\sqrt {1 + | P _ {0} (j \\omega_ {0}) | ^ {2}}} = r. \\left(R - \\frac {R _ {0}}{1 - \\alpha}\\right) ^ {2} + \\left(I - \\frac {I _ {0}}{1 - \\alpha}\\right) ^ {2} = \\frac {\\alpha (1 + | P _ {0} | ^ {2} - \\alpha)}{(1 - \\alpha) ^ {2}}, \\text { if } \\alpha \\neq 1 P _ { 0 } ( j \\omega _ { 0 } ) \\omega _ { \\mathrm { 0 } } ; P ( j \\omega _ { 0 } ) = R + j I P _ { 0 } ( j \\omega _ { 0 } ) = R _ { 0 } + j I _ { 0 } \\alpha = r ^ { 2 } ( 1 + | P _ { 0 } | ^ { 2 } ) P _ { 0 } ( j \\omega _ { 0 } ) = 1 p _ { 0 } | p _ { 0 } ( j \\omega _ { 0 } ) | = 1 \\delta _ { \\nu } ( p _ { 0 } , p ) \\leq 0 . 2 ) 0 . 6 6 1 \\leq | p ( j \\omega _ { 0 } ) | \\leq 1 . 5 1 3 2 3 . 0 7 3 9 ^ { \\mathrm { o } } { \\mathrm { a t } } \\ \\omega _ { 0 } \\| \\Psi ( P _ { 1 } , P _ { 2 } ) \\| _ { \\infty }",
+      "formula_count": 14,
+      "source_section": "17.3 Geometric Interpretation of ν-Gap Metric",
+      "mimo_latex": "\\begin{tikzpicture}\n    \\begin{axis}[\n        axis lines=left,\n        xlabel={real axis},\n        ylabel={imaginary axis},\n        zlabel={},\n        xmin=-1, xmax=3,\n        ymin=-1, ymax=1,\n        zmin=0, zmax=1,\n        view={120}{30},\n        grid=major,\n        width=10cm,\n        height=8cm\n    ]\n        % 绘制球体\n        \\addplot3[\n            surf,\n            shader=flat,\n            draw=black,\n            fill=white,\n            opacity=0.5,\n            samples=20,\n            samples y=20,\n            domain=0:180,\n            y domain=0:360\n        ]\n        ({sin(x)*cos(y)}, {sin(x)*sin(y)}, {cos(x)});\n        \n        % 绘制投影曲线\n        \\addplot3[\n            thick,\n            samples=100,\n            samples y=0,\n            domain=0:360,\n            variable=\\t,\n            color=black\n        ]\n        ({1.5 + 0.5*cos(t)}, {0.5*sin(t)}, {0});\n        \n        \\addplot3[\n            thick,\n            samples=100,\n            samples y=0,\n            domain=0:360,\n            variable=\\t,\n            color=black\n        ]\n        ({2 + 0.3*cos(t)}, {0.3*sin(t)}, {0});\n        \n        \\addplot3[\n            thick,\n            samples=100,\n            samples y=0,\n            domain=0:360,\n            variable=\\t,\n            color=black\n        ]\n        ({2.5 + 0.2*cos(t)}, {0.2*sin(t)}, {0});\n        \n        \\addplot3[\n            thick,\n            samples=100,\n            samples y=0,\n            domain=0:360,\n            variable=\\t,\n            color=black\n        ]\n        ({2.8 + 0.1*cos(t)}, {0.1*sin(t)}, {0});\n    \\end{axis}\n\\end{tikzpicture}",
+      "mimo_latex_clean": "\\begin{tikzpicture} \\begin{axis}[ axis lines=left, xlabel={real axis}, ylabel={imaginary axis}, zlabel={}, xmin=-1, xmax=3, ymin=-1, ymax=1, zmin=0, zmax=1, view={120}{30}, grid=major, width=10cm, height=8cm ] % 绘制球体 \\addplot3[ surf, shader=flat, draw=black, fill=white, opacity=0.5, samples=20, samples y=20, domain=0:180, y domain=0:360 ] ({sin(x)*cos(y)}, {sin(x)*sin(y)}, {cos(x)}); % 绘制投影曲线 \\addplot3[ thick, samples=100, samples y=0, domain=0:360, variable=\\t, color=black ] ({1.5 + 0.5*cos(t)}, {0.5*sin(t)}, {0}); \\addplot3[ thick, samples=100, samples y=0, domain=0:360, variable=\\t, color=black ] ({2 + 0.3*cos(t)}, {0.3*sin(t)}, {0}); \\addplot3[ thick, samples=100, samples y=0, domain=0:360, variable=\\t, color=black ] ({2.5 + 0.2*cos(t)}, {0.2*sin(t)}, {0}); \\addplot3[ thick, samples=100, samples y=0, domain=0:360, variable=\\t, color=black ] ({2.8 + 0.1*cos(t)}, {0.1*sin(t)}, {0}); \\end{axis} \\end{tikzpicture}",
+      "mimo_edit_distance": 0.847732181425486,
+      "mimo_bleu": 0.07023536140052529,
+      "mimo_char_match": 0.047516198704103674,
+      "mimo_tokens": {
+        "prompt": 513,
+        "completion": 479
+      }
+    },
+    {
+      "index": 0,
+      "chunk_id": "2308.11925_Solving_Elliptic_Optimal_Control_Problems_via_Neural_Network_chunk_045",
+      "image_hash": "f6c5394d8406bba2c8fee058181efb75699c91f98598ab00dc1402ebf9617276.jpg",
+      "image_path": "data\\processed\\2308.11925_Solving_Elliptic_Optimal_Control_Problems_via_Neural_Network\\image\\f6c5394d8406bba2c8fee058181efb75699c91f98598ab00dc1402ebf9617276.jpg",
+      "ground_truth_latex": "u ^ { * } \\lvert u ^ { * } - \\bar { u } \\rvert y ^ { * } x _ { 3 } = x _ { 4 } = 0 . 5 \\widehat { \\mathcal { L } } _ { \\mathrm { n n } } ( y ) { \\widehat { \\mathcal { L } } } _ { \\mathrm { n n } } ( p ) \\widehat { \\mathcal { L } } _ { \\mathrm { n n } } ( y ) { \\widehat { \\mathcal { L } } } _ { \\mathrm { n n } } ( p ) \\widehat { \\mathcal { L } } _ { \\mathrm { n n } } ( y )",
+      "ground_truth_clean": "u ^ { * } \\lvert u ^ { * } - \\bar { u } \\rvert y ^ { * } x _ { 3 } = x _ { 4 } = 0 . 5 \\widehat { \\mathcal { L } } _ { \\mathrm { n n } } ( y ) { \\widehat { \\mathcal { L } } } _ { \\mathrm { n n } } ( p ) \\widehat { \\mathcal { L } } _ { \\mathrm { n n } } ( y ) { \\widehat { \\mathcal { L } } } _ { \\mathrm { n n } } ( p ) \\widehat { \\mathcal { L } } _ { \\mathrm { n n } } ( y )",
+      "formula_count": 9,
+      "source_section": "4 Numerical experiments and discussions",
+      "mimo_latex": "$$\n\\text{Loss}\n$$\n$$\nL_{\\text{KL}}(p)\n$$\n$$\nL_{\\text{KL}}(y)\n$$\n$$\nJ\n$$",
+      "mimo_latex_clean": "\\text{Loss} $$ $$ L_{\\text{KL}}(p) $$ $$ L_{\\text{KL}}(y) $$ $$ J",
+      "mimo_edit_distance": 0.8877005347593583,
+      "mimo_bleu": 8.427531428398006e-07,
+      "mimo_char_match": 0.008021390374331552,
+      "mimo_tokens": {
+        "prompt": 251,
+        "completion": 43
+      }
+    }
+  ]
+}

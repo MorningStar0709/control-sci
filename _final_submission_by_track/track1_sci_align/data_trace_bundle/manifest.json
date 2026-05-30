@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-05-25T15:04:19+08:00",
+  "generated_at": "2026-05-31T01:57:29+08:00",
   "generator": "final_bundle_manifest_rebuild",
   "copy_mode": "track_specific_existing_files",
   "root": "data_trace_bundle",
   "file_count": 94,
-  "total_size_bytes": 39678931,
+  "total_size_bytes": 39679877,
   "total_size_mb": 37.84,
   "files": [
     {
@@ -269,9 +269,9 @@
     {
       "bundle_path": "10_charts/manifest.json",
       "source_path": "build/submission_experiment_figures/manifest.json",
-      "size_bytes": 3006,
+      "size_bytes": 3000,
       "size_mb": 0.0,
-      "sha256": "7e9592609cdfc50e87176409d88a553bcd2134dd13bd32d17f72bd95e1a122f9"
+      "sha256": "94e3d1a669a118fccd70023792bde4f46bdb3933e3a5263d6162d8cb0e98f256"
     },
     {
       "bundle_path": "11_throughput/gpu_throughput.json",
@@ -299,7 +299,7 @@
       "source_path": "docs/evidence/final_supplemental_experiments/minimal_acceptance/SUMMARY.md",
       "size_bytes": 1135,
       "size_mb": 0.0,
-      "sha256": "5007eb08359e4610a91b429d5d35d0f1917fe28b8639872734f3219d66341bfd"
+      "sha256": "4c24199649e2762511f8814ea607863aceb2c1f5d5c056fb7030e71c7035c219"
     },
     {
       "bundle_path": "12_final_supplemental_experiments/minimal_acceptance/track1_acceptance_demo.log",
@@ -346,9 +346,9 @@
     {
       "bundle_path": "12_final_supplemental_experiments/track1_sci_align_reliability/SUMMARY.md",
       "source_path": "docs/submissions/data_trace_bundle/12_final_supplemental_experiments/track1_sci_align_reliability/SUMMARY.md",
-      "size_bytes": 2473,
+      "size_bytes": 2456,
       "size_mb": 0.0,
-      "sha256": "e808bebce6ea9b8c78574786ad4047312838655e58dbabb227255d16894c3856"
+      "sha256": "e25d53054fd1b6b7866a33dd105a60cdbb462b48a1bd5b07ef4c26b9914e6b87"
     },
     {
       "bundle_path": "12_final_supplemental_experiments/track1_sci_align_reliability/track1_ai_ready_smoke.json",
@@ -661,9 +661,9 @@
     {
       "bundle_path": "README.md",
       "source_path": "docs/submissions/data_trace_bundle/README.md",
-      "size_bytes": 1643,
+      "size_bytes": 2612,
       "size_mb": 0.0,
-      "sha256": "349ef711fb0c7fd316b5f6063d21a9c783c26851325ee49baa7ff26ef98786c0"
+      "sha256": "edae0a2735e59d4f4df693eca345346325eaf5d0e59db64fe4d9b9e0e0824913"
     }
   ]
 }

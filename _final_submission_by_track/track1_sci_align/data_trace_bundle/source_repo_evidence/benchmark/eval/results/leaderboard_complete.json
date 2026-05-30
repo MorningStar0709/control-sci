@@ -1,0 +1,58 @@
+{
+  "models": [
+    {
+      "model": "MiMo-v2-flash",
+      "overall_score": 0.647,
+      "total_questions": 500,
+      "dimension_scores": {"A": 0.610, "B": 0.606, "C": 0.636, "D": 0.736}
+    },
+    {
+      "model": "DeepSeek-v4-flash",
+      "overall_score": 0.632,
+      "total_questions": 500,
+      "dimension_scores": {"A": 0.634, "B": 0.631, "C": 0.714, "D": 0.550}
+    },
+    {
+      "model": "Qwen3.5-9B",
+      "overall_score": 0.625,
+      "total_questions": 500,
+      "dimension_scores": {"A": 0.569, "B": 0.610, "C": 0.662, "D": 0.659}
+    },
+    {
+      "model": "DeepSeek-v4-pro",
+      "overall_score": 0.619,
+      "total_questions": 500,
+      "dimension_scores": {"A": 0.627, "B": 0.590, "C": 0.742, "D": 0.514}
+    },
+    {
+      "model": "MiniMax-M2.5-highspeed",
+      "overall_score": 0.602,
+      "total_questions": 500,
+      "dimension_scores": {"A": 0.638, "B": 0.519, "C": 0.624, "D": 0.626}
+    },
+    {
+      "model": "MiniMax-M2.7-highspeed",
+      "overall_score": 0.574,
+      "total_questions": 500,
+      "dimension_scores": {"A": 0.605, "B": 0.485, "C": 0.612, "D": 0.593}
+    },
+    {
+      "model": "MiMo-v2.5-pro",
+      "overall_score": 0.539,
+      "total_questions": 500,
+      "dimension_scores": {"A": 0.595, "B": 0.523, "C": 0.602, "D": 0.436}
+    },
+    {
+      "model": "MiMo-v2-pro",
+      "overall_score": 0.514,
+      "total_questions": 500,
+      "dimension_scores": {"A": 0.638, "B": 0.490, "C": 0.560, "D": 0.369}
+    },
+    {
+      "model": "MiMo-v2.5",
+      "overall_score": 0.440,
+      "total_questions": 500,
+      "dimension_scores": {"A": 0.608, "B": 0.466, "C": 0.528, "D": 0.156}
+    }
+  ]
+}

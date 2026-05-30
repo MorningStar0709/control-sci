@@ -1,0 +1,103 @@
+{
+  "description": "本地6模型 × 80题分层抽检 Judge 一致性矩阵",
+  "n_questions": 80,
+  "n_judges": 6,
+  "judges": [
+    "qwen3.5:2b",
+    "llama3.2:3b",
+    "gemma3:4b",
+    "qwen3.5:4b",
+    "qwen3.5:9b",
+    "qwen3.5:35b"
+  ],
+  "judge_meta": {
+    "qwen3.5:2b": {
+      "family": "Qwen",
+      "size": "极小"
+    },
+    "llama3.2:3b": {
+      "family": "Llama",
+      "size": "极小"
+    },
+    "gemma3:4b": {
+      "family": "Gemma",
+      "size": "小"
+    },
+    "qwen3.5:4b": {
+      "family": "Qwen",
+      "size": "小"
+    },
+    "qwen3.5:9b": {
+      "family": "Qwen",
+      "size": "中"
+    },
+    "qwen3.5:35b": {
+      "family": "Qwen",
+      "size": "大"
+    }
+  },
+  "overall_scores": {
+    "qwen3.5:2b": 0.5675,
+    "llama3.2:3b": 0.6775,
+    "gemma3:4b": 0.8719,
+    "qwen3.5:4b": 0.3469,
+    "qwen3.5:9b": 0.4619,
+    "qwen3.5:35b": 0.2325
+  },
+  "dimension_scores": {
+    "qwen3.5:2b": {
+      "A": 0.42,
+      "B": 0.535,
+      "C": 0.64,
+      "D": 0.675
+    },
+    "llama3.2:3b": {
+      "A": 0.885,
+      "B": 0.67,
+      "C": 0.54,
+      "D": 0.615
+    },
+    "gemma3:4b": {
+      "A": 0.895,
+      "B": 0.8675,
+      "C": 0.9125,
+      "D": 0.8125
+    },
+    "qwen3.5:4b": {
+      "A": 0.36,
+      "B": 0.265,
+      "C": 0.4925,
+      "D": 0.27
+    },
+    "qwen3.5:9b": {
+      "A": 0.49,
+      "B": 0.395,
+      "C": 0.485,
+      "D": 0.4775
+    },
+    "qwen3.5:35b": {
+      "A": 0.2875,
+      "B": 0.19,
+      "C": 0.3225,
+      "D": 0.13
+    }
+  },
+  "fleiss_kappa": 0.0027,
+  "cohens_kappa_matrix": {
+    "qwen3.5:2b__vs__llama3.2:3b": -0.091,
+    "qwen3.5:2b__vs__gemma3:4b": 0.0,
+    "qwen3.5:2b__vs__qwen3.5:4b": 0.1229,
+    "qwen3.5:2b__vs__qwen3.5:9b": 0.3153,
+    "qwen3.5:2b__vs__qwen3.5:35b": -0.0129,
+    "llama3.2:3b__vs__gemma3:4b": 0.0,
+    "llama3.2:3b__vs__qwen3.5:4b": -0.027,
+    "llama3.2:3b__vs__qwen3.5:9b": -0.0127,
+    "llama3.2:3b__vs__qwen3.5:35b": -0.0627,
+    "gemma3:4b__vs__qwen3.5:4b": 0.0,
+    "gemma3:4b__vs__qwen3.5:9b": 0.0,
+    "gemma3:4b__vs__qwen3.5:35b": 0.0,
+    "qwen3.5:4b__vs__qwen3.5:9b": 0.3781,
+    "qwen3.5:4b__vs__qwen3.5:35b": 0.3633,
+    "qwen3.5:9b__vs__qwen3.5:35b": 0.0931
+  }
+}

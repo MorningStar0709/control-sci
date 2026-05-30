@@ -5,7 +5,7 @@
 - Top-k: 3
 - Synthesis: enabled
 
-> Snapshot note: 本文件是中文 Ask case set 的评测快照，数值权威源为同目录 `medical_rag_eval_zh_ask.json` 与 `shared/DATA-TRACE.md`。新增中文改写鲁棒性补充实验见 `../12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_zh_ask_robustness.json`，其中 7 base cases、21 variants、rewrite_success_rate=1.0、intent_consistency_rate=1.0；对应 DATA-TRACE #187。
+> Evidence bundle snapshot. Original artifact: `benchmark/eval/results/medical_rag_eval_zh_ask.json`. DO NOT EDIT. Numeric authority rests with `shared/DATA-TRACE.md` and the source JSON; this `.md` is a human-readable copy from the final submission bundle.
 
 ## Summary
 

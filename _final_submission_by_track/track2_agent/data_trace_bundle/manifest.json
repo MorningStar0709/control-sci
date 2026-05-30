@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-25T15:58:34",
+  "generated_at": "2026-05-31T01:57:29+08:00",
   "project": "ControlSci — 2026 MinerU Challenge",
   "generator": "final_bundle_manifest_rebuild",
   "copy_mode": "track_specific_existing_files",
@@ -306,7 +306,7 @@
       "source_path": "docs/evidence/final_supplemental_experiments/minimal_acceptance/SUMMARY.md",
       "size_bytes": 1135,
       "size_mb": 0.0,
-      "sha256": "5007eb08359e4610a91b429d5d35d0f1917fe28b8639872734f3219d66341bfd"
+      "sha256": "4c24199649e2762511f8814ea607863aceb2c1f5d5c056fb7030e71c7035c219"
     },
     {
       "bundle_path": "12_final_supplemental_experiments/minimal_acceptance/track1_acceptance_demo.log",
@@ -647,9 +647,10 @@
     {
       "bundle_path": "README.md",
       "source_path": "docs/submissions/data_trace_bundle/README.md",
-      "size_bytes": 1669,
+      "size_bytes": 2785,
       "size_mb": 0.0,
-      "sha256": "a235194fbfb1cf9e34445601d9ae7cdd12d307de8ea4e63805ab035df191eafd"
+      "sha256": "d372a8709fbe30fb1309c794f07d333a81aee1c1a0943100b848502c64f46211"
     }
-  ]
+  ],
+  "total_size_bytes": 39447690
 }

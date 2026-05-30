@@ -1,0 +1,199 @@
+{
+  "analysis": "API 8 Judge 评分一致性分析",
+  "n_models": 8,
+  "models": [
+    "deepseek-v4-flash",
+    "deepseek-v4-pro",
+    "MiniMax-M2.5-highspeed",
+    "MiniMax-M2.7-highspeed",
+    "mimo-v2-flash",
+    "mimo-v2-pro",
+    "mimo-v2.5-pro",
+    "mimo-v2.5"
+  ],
+  "score_categories": [
+    "0 (0-0.15]",
+    "低 (0.15-0.45]",
+    "中 (0.45-0.80]",
+    "高 (0.80-1.0]"
+  ],
+  "summary_statistics": {
+    "deepseek-v4-flash": {
+      "mean": 0.6321,
+      "std": 0.0,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "n_questions": 500
+    },
+    "deepseek-v4-pro": {
+      "mean": 0.6185,
+      "std": 0.0,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "n_questions": 500
+    },
+    "MiniMax-M2.5-highspeed": {
+      "mean": 0.6016,
+      "std": 0.0,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "n_questions": 500
+    },
+    "MiniMax-M2.7-highspeed": {
+      "mean": 0.5735,
+      "std": 0.0,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "n_questions": 500
+    },
+    "mimo-v2-flash": {
+      "mean": 0.647,
+      "std": 0.0,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "n_questions": 500
+    },
+    "mimo-v2-pro": {
+      "mean": 0.5142,
+      "std": 0.0,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "n_questions": 500
+    },
+    "mimo-v2.5-pro": {
+      "mean": 0.5391,
+      "std": 0.0,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "n_questions": 500
+    },
+    "mimo-v2.5": {
+      "mean": 0.4396,
+      "std": 0.0,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 1.0,
+      "n_questions": 500
+    }
+  },
+  "judge_consistency": {
+    "description": "8 Judge × 共同题目评分一致性",
+    "n_common_questions": 175,
+    "common_question_summary": {
+      "deepseek-v4-flash": {
+        "mean": 0.6451,
+        "n_common": 175
+      },
+      "deepseek-v4-pro": {
+        "mean": 0.6349,
+        "n_common": 175
+      },
+      "MiniMax-M2.5-highspeed": {
+        "mean": 0.5966,
+        "n_common": 175
+      },
+      "MiniMax-M2.7-highspeed": {
+        "mean": 0.5943,
+        "n_common": 175
+      },
+      "mimo-v2-flash": {
+        "mean": 0.5994,
+        "n_common": 175
+      },
+      "mimo-v2-pro": {
+        "mean": 0.5737,
+        "n_common": 175
+      },
+      "mimo-v2.5-pro": {
+        "mean": 0.5634,
+        "n_common": 175
+      },
+      "mimo-v2.5": {
+        "mean": 0.6034,
+        "n_common": 175
+      }
+    },
+    "pairwise_cohens_kappa": {
+      "deepseek-v4-flash": {
+        "deepseek-v4-pro": 0.5641,
+        "MiniMax-M2.5-highspeed": 0.501,
+        "MiniMax-M2.7-highspeed": 0.5771,
+        "mimo-v2-flash": 0.5409,
+        "mimo-v2-pro": 0.5264,
+        "mimo-v2.5-pro": 0.5105,
+        "mimo-v2.5": 0.5942
+      },
+      "deepseek-v4-pro": {
+        "deepseek-v4-flash": 0.5641,
+        "MiniMax-M2.5-highspeed": 0.5528,
+        "MiniMax-M2.7-highspeed": 0.5541,
+        "mimo-v2-flash": 0.5842,
+        "mimo-v2-pro": 0.5402,
+        "mimo-v2.5-pro": 0.5803,
+        "mimo-v2.5": 0.6185
+      },
+      "MiniMax-M2.5-highspeed": {
+        "deepseek-v4-flash": 0.501,
+        "deepseek-v4-pro": 0.5528,
+        "MiniMax-M2.7-highspeed": 0.6084,
+        "mimo-v2-flash": 0.5732,
+        "mimo-v2-pro": 0.5305,
+        "mimo-v2.5-pro": 0.497,
+        "mimo-v2.5": 0.571
+      },
+      "MiniMax-M2.7-highspeed": {
+        "deepseek-v4-flash": 0.5771,
+        "deepseek-v4-pro": 0.5541,
+        "MiniMax-M2.5-highspeed": 0.6084,
+        "mimo-v2-flash": 0.6211,
+        "mimo-v2-pro": 0.522,
+        "mimo-v2.5-pro": 0.515,
+        "mimo-v2.5": 0.5823
+      },
+      "mimo-v2-flash": {
+        "deepseek-v4-flash": 0.5409,
+        "deepseek-v4-pro": 0.5842,
+        "MiniMax-M2.5-highspeed": 0.5732,
+        "MiniMax-M2.7-highspeed": 0.6211,
+        "mimo-v2-pro": 0.5331,
+        "mimo-v2.5-pro": 0.5546,
+        "mimo-v2.5": 0.5563
+      },
+      "mimo-v2-pro": {
+        "deepseek-v4-flash": 0.5264,
+        "deepseek-v4-pro": 0.5402,
+        "MiniMax-M2.5-highspeed": 0.5305,
+        "MiniMax-M2.7-highspeed": 0.522,
+        "mimo-v2-flash": 0.5331,
+        "mimo-v2.5-pro": 0.7405,
+        "mimo-v2.5": 0.6135
+      },
+      "mimo-v2.5-pro": {
+        "deepseek-v4-flash": 0.5105,
+        "deepseek-v4-pro": 0.5803,
+        "MiniMax-M2.5-highspeed": 0.497,
+        "MiniMax-M2.7-highspeed": 0.515,
+        "mimo-v2-flash": 0.5546,
+        "mimo-v2-pro": 0.7405,
+        "mimo-v2.5": 0.6539
+      },
+      "mimo-v2.5": {
+        "deepseek-v4-flash": 0.5942,
+        "deepseek-v4-pro": 0.6185,
+        "MiniMax-M2.5-highspeed": 0.571,
+        "MiniMax-M2.7-highspeed": 0.5823,
+        "mimo-v2-flash": 0.5563,
+        "mimo-v2-pro": 0.6135,
+        "mimo-v2.5-pro": 0.6539
+      }
+    },
+    "fleiss_kappa": 0.5682
+  }
+}

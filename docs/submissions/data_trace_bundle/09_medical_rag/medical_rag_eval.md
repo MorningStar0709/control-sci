@@ -5,7 +5,7 @@
 - Top-k: 3
 - Synthesis: disabled
 
-> Snapshot note: 本文件是英文 case set 的评测快照，数值权威源为同目录 `medical_rag_eval.json` 与 `shared/DATA-TRACE.md`。Track3 新增 supplemental evidence 不改写本快照；阶段消融、安全拒答、隐私边界、Evidence Card 与部署 smoke matrix 见 `../12_final_supplemental_experiments/track3_medical_rag_supplemental/` 和 DATA-TRACE #182-190。
+> Evidence bundle snapshot. Original artifact: `benchmark/eval/results/medical_rag_eval.json`. DO NOT EDIT. Numeric authority rests with `shared/DATA-TRACE.md` and the source JSON; this `.md` is a human-readable copy from the final submission bundle.
 
 ## Summary
 

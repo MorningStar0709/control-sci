@@ -1,0 +1,60 @@
+{
+  "meta": {
+    "project": "ControlSci Data Agent",
+    "schema_version": "1.0",
+    "generated_at": "2026-05-10 19:17:38",
+    "intent_id": "multi_format_parse",
+    "source": "benchmark/agent/test_materials/"
+  },
+  "summary": {
+    "formats_parsed": 4,
+    "total_chunks": 194,
+    "total_images": 19,
+    "total_formulas": 83,
+    "status": "completed",
+    "engine": "MinerU API v3.1.6",
+    "output_dir": "benchmark/agent/test_materials/md/"
+  },
+  "formats": [
+    {
+      "format": "PowerPoint",
+      "extension": ".PPTX",
+      "source": "Control Theory Lecture 5; State-Space Models",
+      "chunks": 47,
+      "images": 12,
+      "formulas": 38,
+      "pipeline": "Slide Extraction",
+      "quality_checks": "[PASS] Slide Structure; [PASS] Inline Formulas; [PASS] Image Export"
+    },
+    {
+      "format": "Scanned Image",
+      "extension": ".PNG",
+      "source": "Khalil Nonlinear Systems; Nyquist Criterion (p.213)",
+      "chunks": 28,
+      "images": 1,
+      "formulas": 16,
+      "pipeline": "OCR + Layout",
+      "quality_checks": "[PASS] OCR → LaTeX; [PASS] Reading Order; [PASS] Image Region"
+    },
+    {
+      "format": "Word Document",
+      "extension": ".DOCX",
+      "source": "Lab Report; PID Tuning for DC Motor",
+      "chunks": 83,
+      "images": 6,
+      "formulas": 29,
+      "pipeline": "XML Parse",
+      "quality_checks": "[PASS] Heading Hierarchy; [PASS] Table Cells; [PASS] Image Export"
+    },
+    {
+      "format": "Spreadsheet",
+      "extension": ".XLSX",
+      "source": "Benchmark Results; Step Response Comparison",
+      "chunks": 36,
+      "images": 0,
+      "formulas": 0,
+      "pipeline": "Cell Extraction",
+      "quality_checks": "[PASS] Multi-Sheet; [PASS] Cell Format; [PASS] Numeric Precision"
+    }
+  ]
+}

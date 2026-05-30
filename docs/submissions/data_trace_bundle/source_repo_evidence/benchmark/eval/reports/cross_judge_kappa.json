@@ -1,0 +1,769 @@
+{
+  "meta": {
+    "project": "ControlSci S2* 多Judge交叉验证",
+    "method": "Fleiss' Kappa",
+    "threshold": 0.5,
+    "sample_size": 30,
+    "source_model": "deepseek-v4-flash"
+  },
+  "judges": [
+    "deepseek-v4-flash",
+    "deepseek-v4-pro",
+    "minimax-m2.5"
+  ],
+  "kappa": {
+    "kappa": 0.575,
+    "interpretation": "moderate",
+    "n_questions": 27,
+    "n_raters": 3,
+    "categories": [
+      0.0,
+      1.0
+    ],
+    "threshold": 0.5,
+    "P_bar": 0.8272,
+    "P_e_bar": 0.5934
+  },
+  "per_judge_summary": {
+    "deepseek-v4-flash": {
+      "count": 30,
+      "errors": 3,
+      "mean": 0.6833,
+      "std": 0.4192
+    },
+    "deepseek-v4-pro": {
+      "count": 30,
+      "errors": 3,
+      "mean": 0.7204,
+      "std": 0.3926
+    },
+    "minimax-m2.5": {
+      "count": 30,
+      "errors": 0,
+      "mean": 0.6933,
+      "std": 0.3577
+    }
+  },
+  "records": [
+    {
+      "score": 0.0,
+      "reason": "模型回答未识别标准答案中的关键矛盾：在λ1不变时，第二式求导导致∂xe/∂v_G=0，与第一式矛盾，需将λ1视为v_G的函数推导。模型直接应用隐函数定理且忽略λ1的可变性，结论与标准答案不符。",
+      "judge": "deepseek-v4-flash",
+      "error": null,
+      "question_id": "CS-EVO-00242",
+      "dimension": "C"
+    },
+    {
+      "score": 1.0,
+      "reason": "模型回答给出了H∞范数的数学定义，核心公式与标准答案一致，即sup_{ω∈ℝ} σ_max(G(jω))，并正确解释了最大奇异值。还补充了等价定义，没有错误。",
+      "judge": "deepseek-v4-flash",
+      "error": null,
+      "question_id": "CS-EVO-00293",
+      "dimension": "A"
+    },
+    {
+      "score": 0.6,
+      "reason": "模型回答正确给出了齐次Lyapunov函数的核心要素（正定性、导数负定性、齐次性），但齐次性定义仅表述为标准形式 V(λx)=λ^p V(x)，未包含标准答案中的加权齐次权重向量 (r1,...,rn)，存在关键细节遗漏。",
+      "judge": "deepseek-v4-flash",
+      "error": null,
+      "question_id": "CS-EVO-00939",
+      "dimension": "A"
+    },
+    {
+      "score": -1.0,
+      "reason": "'list' object has no attribute 'items'",
+      "judge": "deepseek-v4-flash",
+      "error": "'list' object has no attribute 'items'",
+      "question_id": "CS-EVO-00450",
+      "dimension": "D"
+    },
+    {
+      "score": 1.0,
+      "reason": "模型回答的推理步骤与标准推理链完全一致，逻辑清晰，每一步推导正确，最终结论正确。",
+      "judge": "deepseek-v4-flash",
+      "error": null,
+      "question_id": "CS-EVO-00049",
+      "dimension": "B"
+    },
+    {
+      "score": 0.0,
+      "reason": "模型回答没有提供任何有效的推理步骤来推导Ξ_0的数值结果，而是进行了大量无结论的猜测，未能完成计算。根据评分规则，属于无有效步骤。",
+      "judge": "deepseek-v4-flash",
+      "error": null,
+      "question_id": "CS-EVO-00638",
+      "dimension": "B"
+    },
+    {
+      "score": 0.0,
+      "reason": "模型回答给出的遍历极限公式是离散时间Birkhoff遍历定理，而标准答案要求的是连续时间过程的遍历极限，公式和上下文均不匹配，核心内容完全不同。",
+      "judge": "deepseek-v4-flash",
+      "error": null,
+      "question_id": "CS-EVO-00603",
+      "dimension": "A"
+    },
+    {
+      "score": 1.0,
+      "reason": "模型回答准确描述了完成平方的核心步骤，包括引入矩阵L满足Q_u L = Q_xu^T，正确推导出等价形式J = (u+Lx)^T Q_u (u+Lx) + x^T(Q_x - L^T Q_u L)x，并给出了最优控制律u* = -Lx和最小损失函数值J_min = x^T(Q_x - L^T Q_u L)x，与标准答案语义一致，无关键错误或遗漏。",
+      "judge": "deepseek-v4-flash",
+      "error": null,
+      "question_id": "CS-EVO-00753",
+      "dimension": "A"
+    },
+    {
+      "score": -1.0,
+      "reason": "'list' object has no attribute 'items'",
+      "judge": "deepseek-v4-flash",
+      "error": "'list' object has no attribute 'items'",
+      "question_id": "CS-EVO-00431",
+      "dimension": "D"
+    },
+    {
+      "score": 0.0,
+      "reason": "模型回答中滞后补偿器传递函数的零点极点位置关系为 z>p，而标准答案要求 z<p（零点更靠近原点），这是关键概念错误，导致核心结论不正确。",
+      "judge": "deepseek-v4-flash",
+      "error": null,
+      "question_id": "CS-EVO-00345",
+      "dimension": "A"
+    },
+    {
+      "score": 1.0,
+      "reason": "模型回答与标准答案的核心结论一致，均认为当λ变为负数时定理2的结论不成立，且原因分析均指向自适应增益符号变化破坏了Lyapunov稳定性条件，虽然表述细节略有不同，但无实质差异。",
+      "judge": "deepseek-v4-flash",
+      "error": null,
+      "question_id": "CS-EVO-00720",
+      "dimension": "C"
+    },
+    {
+      "score": -1.0,
+      "reason": "'list' object has no attribute 'items'",
+      "judge": "deepseek-v4-flash",
+      "error": "'list' object has no attribute 'items'",
+      "question_id": "CS-EVO-00866",
+      "dimension": "D"
+    },
+    {
+      "score": 0.5,
+      "reason": "模型回答给出了加性不确定性下鲁棒稳定的条件，但遗漏了加权函数W1，而标准答案中明确包含了W1和W2两个加权函数，这是定理8.4的关键部分。物理意义解释基本正确。",
+      "judge": "deepseek-v4-flash",
+      "error": null,
+      "question_id": "CS-EVO-00404",
+      "dimension": "C"
+    },
+    {
+      "score": 0.0,
+      "reason": "模型回答的核心正定性条件与标准答案不一致：标准要求V(0,z)=0对所有z成立，模型只要求V(0,0)=0，且认为当x=0且˜θ≠0时V>0，这导致关键概念错误。此外，模型添加了径向无界性、导数负定性等标准答案未要求的条件，但主要问题在于核心条件错误。",
+      "judge": "deepseek-v4-flash",
+      "error": null,
+      "question_id": "CS-EVO-00228",
+      "dimension": "A"
+    },
+    {
+      "score": 0.0,
+      "reason": "模型回答未完成，被截断，没有给出具体的线性矩阵不等式条件，与标准答案要求提供的不等式完全不符。",
+      "judge": "deepseek-v4-flash",
+      "error": null,
+      "question_id": "CS-EVO-00553",
+      "dimension": "C"
+    },
+    {
+      "score": 1.0,
+      "reason": "模型推理步骤完整、逻辑清晰，与标准推理链完全一致，每一步推导正确，最终结论正确。",
+      "judge": "deepseek-v4-flash",
+      "error": null,
+      "question_id": "CS-EVO-00284",
+      "dimension": "B"
+    },
+    {
+      "score": 0.3,
+      "reason": "模型回答包含了积分误差状态的核心概念，但定义式与标准答案有显著差异：标准答案中的积分变量是性能输出z(τ)与指令r的差值，并明确包含非零加权系数ϑ，而模型回答使用系统输出y(t)且未提及加权系数ϑ，积分下限也不一致，因此仅部分正确。",
+      "judge": "deepseek-v4-flash",
+      "error": null,
+      "question_id": "CS-EVO-01027",
+      "dimension": "A"
+    },
+    {
+      "score": 0.3,
+      "reason": "模型回答正确解释了一致性的核心概念，但数学定义仅针对一阶积分器系统，且假设条件（图连通性等）与标准答案中关于一般线性系统的可镇定和可检测条件完全不符，存在关键遗漏和错误。",
+      "judge": "deepseek-v4-flash",
+      "error": null,
+      "question_id": "CS-EVO-00746",
+      "dimension": "A"
+    },
+    {
+      "score": 1.0,
+      "reason": "模型回答的核心结论与标准答案完全一致，明确指出离散时间LTI系统BIBO稳定的充要条件是所有极点模小于1，并提供了正确的数学条件和详细解释，没有错误。",
+      "judge": "deepseek-v4-flash",
+      "error": null,
+      "question_id": "CS-EVO-00569",
+      "dimension": "A"
+    },
+    {
+      "score": 1.0,
+      "reason": "模型回答的核心公式 J = ∫_{t0}^{tf} dt = tf - t0 与标准答案完全一致，物理意义也正确解释了最小时间控制的快速性要求，且表述更加详细但语义等价。",
+      "judge": "deepseek-v4-flash",
+      "error": null,
+      "question_id": "CS-EVO-00677",
+      "dimension": "A"
+    },
+    {
+      "score": 1.0,
+      "reason": "模型回答给出了持续激励条件的连续时间形式，核心内容（存在常数使得外积积分正定下界）与标准答案的离散时间形式语义等价，且关键公式和结论正确，符合宽松评判原则。",
+      "judge": "deepseek-v4-flash",
+      "error": null,
+      "question_id": "CS-EVO-00286",
+      "dimension": "A"
+    },
+    {
+      "score": 1.0,
+      "reason": "模型回答完全正确，核心结论与标准答案一致：当噪声从独立改为不相关时，(12.16)的线性预测器在线性预测器类中仍是最优，但全局最优性不再成立。模型详细分析了条件变化前后的差异和敏感性来源，符合标准答案的要点。",
+      "judge": "deepseek-v4-flash",
+      "error": null,
+      "question_id": "CS-EVO-00181",
+      "dimension": "C"
+    },
+    {
+      "score": 1.0,
+      "reason": "模型回答与标准答案核心结论一致，均明确指出标量加权下结论不再成立，并正确解释了方向性、保守性等因素。",
+      "judge": "deepseek-v4-flash",
+      "error": null,
+      "question_id": "CS-EVO-00507",
+      "dimension": "C"
+    },
+    {
+      "score": 1.0,
+      "reason": "模型回答给出了与标准答案完全一致的样本估计公式 MSE = (1/N) Σ (y_i - ŷ_i)^2，且符号含义解释清晰。虽然还提供了期望形式的理论定义，但核心内容与标准答案语义等价，且无任何错误。",
+      "judge": "deepseek-v4-flash",
+      "error": null,
+      "question_id": "CS-EVO-00205",
+      "dimension": "A"
+    },
+    {
+      "score": 0.75,
+      "reason": "模型回答正确得出使用被控对象状态x_p后传输次数减少的结论，并分析了观测误差带来的保守性是敏感性来源，与标准答案核心一致。但未提及基准条件的具体传输次数92.4次以及与周期采样相比的1/3因子等定量细节，存在少量表述差异。",
+      "judge": "deepseek-v4-flash",
+      "error": null,
+      "question_id": "CS-EVO-00842",
+      "dimension": "C"
+    },
+    {
+      "score": 1.0,
+      "reason": "模型回答完整准确地阐述了劳斯判据及其数学条件，核心内容与标准答案一致：劳斯判据是代数稳定性判据，系统稳定的充要条件是劳斯阵列第一列所有元素大于零。模型回答还提供了更详细的构造步骤和特殊情况处理，但未改变核心结论，属于语义等价。",
+      "judge": "deepseek-v4-flash",
+      "error": null,
+      "question_id": "CS-EVO-00869",
+      "dimension": "A"
+    },
+    {
+      "score": 1.0,
+      "reason": "模型回答与标准答案的核心结论完全一致，均指出原P+前馈控制无法保证精确跟踪，并详细解释了坡度引入重力扰动导致稳态误差的原因。模型回答的推导和分析更加详细，但未出现表述差异或错误。",
+      "judge": "deepseek-v4-flash",
+      "error": null,
+      "question_id": "CS-EVO-00876",
+      "dimension": "C"
+    },
+    {
+      "score": 1.0,
+      "reason": "模型回答与标准答案的核心结论一致，均明确指出当状态转移依赖整个历史时等式(59)不成立，并从概率分解和推导角度进行了合理分析。",
+      "judge": "deepseek-v4-flash",
+      "error": null,
+      "question_id": "CS-EVO-00113",
+      "dimension": "C"
+    },
+    {
+      "score": 1.0,
+      "reason": "模型回答中给出的连续时间代数黎卡提方程表达式与标准答案的核心结论完全一致，均为 A^T P + P A - P B R^{-1} B^T P + Q = 0 的形式（仅变量名不同），且对矩阵含义的解释正确。额外包含离散时间形式和其他变体属于补充信息，不影响核心结论的正确性。",
+      "judge": "deepseek-v4-flash",
+      "error": null,
+      "question_id": "CS-EVO-00192",
+      "dimension": "C"
+    },
+    {
+      "score": 1.0,
+      "reason": "模型回答的推理步骤与标准推理链完全一致，逻辑清晰，每一步都正确，最终结论正确。",
+      "judge": "deepseek-v4-flash",
+      "error": null,
+      "question_id": "CS-EVO-00098",
+      "dimension": "B"
+    },
+    {
+      "score": 0.0,
+      "reason": "模型回答假设λ1保持不变，采用一般化隐函数求导直接给出平衡点偏导数表达式，这一推导路径正是标准答案所指出会导出矛盾的错误推导。标准答案明确指出若不将λ1视为v_G的函数则导致矛盾，正确推导需要将λ1视为函数并联合三个方程求解。模型回答与标准答案的核心结论和推导过程完全不同，因此错误。",
+      "judge": "deepseek-v4-pro",
+      "error": null,
+      "question_id": "CS-EVO-00242",
+      "dimension": "C"
+    },
+    {
+      "score": 1.0,
+      "reason": "模型回答准确给出了H∞范数的核心定义：||G||_∞ = sup_{ω∈ℝ} σ̄(G(jω))，与标准答案语义完全一致。附加的等价定义和说明没有错误。",
+      "judge": "deepseek-v4-pro",
+      "error": null,
+      "question_id": "CS-EVO-00293",
+      "dimension": "A"
+    },
+    {
+      "score": 0.3,
+      "reason": "模型回答给出了齐次Lyapunov函数的一般定义，但其中关于齐次性的定义仅采用通常的均匀缩放形式 V(λx)=λ^p V(x)，缺少标准答案中关键的加权齐次性（V(λ^{r1} x1, …, λ^{rn} xn) = λ^d V(x)）以及向量场齐次度权重的概念，导致核心定义不准确且不完整。",
+      "judge": "deepseek-v4-pro",
+      "error": null,
+      "question_id": "CS-EVO-00939",
+      "dimension": "A"
+    },
+    {
+      "score": -1.0,
+      "reason": "'list' object has no attribute 'items'",
+      "judge": "deepseek-v4-pro",
+      "error": "'list' object has no attribute 'items'",
+      "question_id": "CS-EVO-00450",
+      "dimension": "D"
+    },
+    {
+      "score": 1.0,
+      "reason": "推理步骤完整、逻辑清晰，每一步推导均正确，最终结论也与标准答案一致。",
+      "judge": "deepseek-v4-pro",
+      "error": null,
+      "question_id": "CS-EVO-00049",
+      "dimension": "B"
+    },
+    {
+      "score": 0.0,
+      "reason": "模型回答没有提供任何有效推理步骤，只是进行了一系列无序的猜测，未能根据定义计算Ξ_0，最终没有得出数值结果。",
+      "judge": "deepseek-v4-pro",
+      "error": null,
+      "question_id": "CS-EVO-00638",
+      "dimension": "B"
+    },
+    {
+      "score": 0.0,
+      "reason": "模型回答给出的是离散时间序列空间上的通用Birkhoff遍历定理，而问题与标准答案要求的是教材命题5.1中针对N个过程、连续时间积分及联合平稳分布的特定公式，两者完全不符。",
+      "judge": "deepseek-v4-pro",
+      "error": null,
+      "question_id": "CS-EVO-00603",
+      "dimension": "A"
+    },
+    {
+      "score": 1.0,
+      "reason": "答案核心内容与标准答案完全一致，正确推导了完成平方的核心步骤，明确给出了引入矩阵L的条件、等价形式、最优控制律u*=-Lx和最小损失函数值J_min=x^T(Q_x-L^T Q_u L)x，且表述清晰，无公式错误或遗漏。",
+      "judge": "deepseek-v4-pro",
+      "error": null,
+      "question_id": "CS-EVO-00753",
+      "dimension": "A"
+    },
+    {
+      "score": -1.0,
+      "reason": "'list' object has no attribute 'items'",
+      "judge": "deepseek-v4-pro",
+      "error": "'list' object has no attribute 'items'",
+      "question_id": "CS-EVO-00431",
+      "dimension": "D"
+    },
+    {
+      "score": 1.0,
+      "reason": "模型回答给出了滞后补偿器的标准传递函数表达式，包括基本形式和时间常数形式，并正确说明了零点与极点的比值决定了静态速度误差常数的提升倍数（z/p = β），与标准答案的核心结论一致。虽然参数符号约定（z>p与z<p）有所不同，但描述的是相同的零点更左、极点更右的相对位置关系，语义等价。",
+      "judge": "deepseek-v4-pro",
+      "error": null,
+      "question_id": "CS-EVO-00345",
+      "dimension": "A"
+    },
+    {
+      "score": 0.75,
+      "reason": "结论正确，指出结论不再成立，并解释了λ符号变化导致自适应律反转、Lyapunov导数无法保证负定、指数收敛条件失效。但未针对原定理中J^TΓJ+λI矩阵的正定性变化进行分析，与标准答案的详细原因有表述差异。",
+      "judge": "deepseek-v4-pro",
+      "error": null,
+      "question_id": "CS-EVO-00720",
+      "dimension": "C"
+    },
+    {
+      "score": -1.0,
+      "reason": "'list' object has no attribute 'items'",
+      "judge": "deepseek-v4-pro",
+      "error": "'list' object has no attribute 'items'",
+      "question_id": "CS-EVO-00866",
+      "dimension": "D"
+    },
+    {
+      "score": 0.5,
+      "reason": "模型回答基本理解了加性不确定性鲁棒稳定的充分必要条件及物理意义，但给出的数学表达式与标准答案存在明显差异：标准答案要求条件为 ‖W₂ K Sₒ W₁‖∞ ≤ 1，包含两个加权函数 W₁ 和 W₂，而模型回答仅使用了 W₂，省略了 W₁。这属于关键遗漏，导致结论不完全一致。",
+      "judge": "deepseek-v4-pro",
+      "error": null,
+      "question_id": "CS-EVO-00404",
+      "dimension": "C"
+    },
+    {
+      "score": 0.3,
+      "reason": "回答提到了连续可微和正定性等核心要素，但关键条件与标准答案不符：标准答案要求 V(0,z)=0 对所有 z 成立，而模型回答仅给出 V(0,0)=0；标准答案未要求径向无界性、导数负定性、特定结构形式等额外性质，这些不属于定理8所列条件。因此答案存在明显遗漏和错误，仅提供部分正确信息。",
+      "judge": "deepseek-v4-pro",
+      "error": null,
+      "question_id": "CS-EVO-00228",
+      "dimension": "A"
+    },
+    {
+      "score": 0.0,
+      "reason": "模型回答只进行了系统模型和控制律的推导，未给出任何线性矩阵不等式条件，且回答在推导过程中截断，完全没有呈现所需的核心结论。",
+      "judge": "deepseek-v4-pro",
+      "error": null,
+      "question_id": "CS-EVO-00553",
+      "dimension": "C"
+    },
+    {
+      "score": 1.0,
+      "reason": "模型推理步骤与标准推理链完全一致：正确计算了d1和d2的上界，代入得到最终表达式，结论正确。可选简化步骤也未影响最终结果的正确性。",
+      "judge": "deepseek-v4-pro",
+      "error": null,
+      "question_id": "CS-EVO-00284",
+      "dimension": "B"
+    },
+    {
+      "score": 0.3,
+      "reason": "模型回答给出了积分误差状态的基本形式，但遗漏了标准答案中的核心加权系数 ϑ，且将性能输出 z 替换为普通输出 y，积分下限也不同。虽然提到了加权矩阵的概念，但并未给出与标准定义等价的表达式，整体不够准确，只能视为部分正确。",
+      "judge": "deepseek-v4-pro",
+      "error": null,
+      "question_id": "CS-EVO-01027",
+      "dimension": "A"
+    },
+    {
+      "score": 0.3,
+      "reason": "模型回答给出了多智能体系统一致性的定义（状态趋于共同值），这与标准答案的核心定义（状态差趋于0）语义等价。但标准答案要求实现一致性的系统假设条件为配对(A,B2)可镇定和配对(C2,A)可检测，模型回答完全没有提到这两个关键条件，而是给出了图连通性、权重等完全不同的假设，存在明显遗漏和错误，无法作为完整答案。",
+      "judge": "deepseek-v4-pro",
+      "error": null,
+      "question_id": "CS-EVO-00746",
+      "dimension": "A"
+    },
+    {
+      "score": 1.0,
+      "reason": "模型回答准确给出了离散时间LTI系统BIBO稳定性的极点判据及其数学条件，核心结论与标准答案完全一致：所有极点均位于z平面单位圆内（模严格小于1）。回答中的推导和补充说明并未引入错误，且与标准答案语义等价。",
+      "judge": "deepseek-v4-pro",
+      "error": null,
+      "question_id": "CS-EVO-00569",
+      "dimension": "A"
+    },
+    {
+      "score": 1.0,
+      "reason": "答案核心内容与标准答案语义等价，积分表达式正确，物理意义阐释一致且更详细。",
+      "judge": "deepseek-v4-pro",
+      "error": null,
+      "question_id": "CS-EVO-00677",
+      "dimension": "A"
+    },
+    {
+      "score": 1.0,
+      "reason": "模型回答给出了自适应控制中持续激励条件的标准数学定义，核心内容与标准答案一致：存在正常数和固定时间窗口，使得回归向量的外积在该窗口内的累积（积分）为正定矩阵。虽然标准答案为离散时间求和形式，而模型回答为连续时间积分形式，但两者均为PE条件的标准数学表述，语义等价，且题目未限定离散或连续。回答中额外提及上界等细节未影响核心定义的正确性。",
+      "judge": "deepseek-v4-pro",
+      "error": null,
+      "question_id": "CS-EVO-00286",
+      "dimension": "A"
+    },
+    {
+      "score": 1.0,
+      "reason": "模型回答与标准答案的核心结论完全一致：均明确指出在噪声仅不相关时，若预测器限制在线性类中则(12.16)的线性预测器仍为最优，但若不限制预测器形式则可能被非线性预测器超越，从而不再是全局最优。回答还详细分析了二阶矩等价性与高阶矩信息所带来的敏感性来源，与标准答案中‘独立性是充分必要条件，而不相关性仅在线性限制下等效’的要点相符。",
+      "judge": "deepseek-v4-pro",
+      "error": null,
+      "question_id": "CS-EVO-00181",
+      "dimension": "C"
+    },
+    {
+      "score": 1.0,
+      "reason": "模型回答明确指出改用标量加权后，原结论不再必然成立，并解释了 MIMO 系统需要通道特定的对角加权来适应方向性，结论对加权结构高度敏感。这与标准答案的核心结论完全一致。",
+      "judge": "deepseek-v4-pro",
+      "error": null,
+      "question_id": "CS-EVO-00507",
+      "dimension": "C"
+    },
+    {
+      "score": 1.0,
+      "reason": "模型回答给出了与标准答案完全一致的样本估计表达式 MSE = (1/N) Σ (y_i - ŷ_i)^2，并说明了各变量含义。虽然额外补充了理论期望形式，但核心内容与标准答案语义等价，公式正确。",
+      "judge": "deepseek-v4-pro",
+      "error": null,
+      "question_id": "CS-EVO-00205",
+      "dimension": "A"
+    },
+    {
+      "score": 1.0,
+      "reason": "回答核心结论与标准答案一致：传输次数减少，敏感性来源于观测误差或观测器收敛带来的额外保守性。",
+      "judge": "deepseek-v4-pro",
+      "error": null,
+      "question_id": "CS-EVO-00842",
+      "dimension": "C"
+    },
+    {
+      "score": 1.0,
+      "reason": "模型回答准确描述了劳斯判据的定义、用途，并给出了完整的数学条件：系统稳定的充要条件是劳斯表第一列所有元素均大于零，且第一列符号变化的次数等于具有正实部根的个数。这与标准答案的核心内容语义完全一致，尽管表述更详细，但未引入错误。",
+      "judge": "deepseek-v4-pro",
+      "error": null,
+      "question_id": "CS-EVO-00869",
+      "dimension": "A"
+    },
+    {
+      "score": 1.0,
+      "reason": "模型回答与标准答案均得出'不能保证精确跟踪'的核心结论，并都指向前馈未补偿坡度重力分量、P反馈无法消除常值干扰导致稳态误差这些关键原因，逻辑和结论一致。",
+      "judge": "deepseek-v4-pro",
+      "error": null,
+      "question_id": "CS-EVO-00876",
+      "dimension": "C"
+    },
+    {
+      "score": 1.0,
+      "reason": "模型回答的核心结论与标准答案一致，均为“不成立”，并正确地分析了马尔可夫性缺失导致的概率分解结构变化和推导失效，整体回答充分且无错误。",
+      "judge": "deepseek-v4-pro",
+      "error": null,
+      "question_id": "CS-EVO-00113",
+      "dimension": "C"
+    },
+    {
+      "score": 1.0,
+      "reason": "模型回答给出了连续时间代数黎卡提方程的标准形式 A^T P + P A - P B R^{-1} B^T P + Q = 0，该式与标准答案中提供的稳态代数黎卡提方程在数学上等价（仅符号记法与移项形式略有差异）。核心结论完全一致，且对各项含义作出了正确解释。",
+      "judge": "deepseek-v4-pro",
+      "error": null,
+      "question_id": "CS-EVO-00192",
+      "dimension": "C"
+    },
+    {
+      "score": 1.0,
+      "reason": "模型推理步骤完整，正确应用了值函数定义，考虑了确定策略下的即时奖励和未来值，结论正确。",
+      "judge": "deepseek-v4-pro",
+      "error": null,
+      "question_id": "CS-EVO-00098",
+      "dimension": "B"
+    },
+    {
+      "score": 0.2,
+      "reason": "模型回答虽然正确运用了隐函数定理的框架，但存在以下根本性问题：(1)未使用方程(26)的具体形式（-1.5Rx1 + 1.5ωLx2 = v_G等）进行实际推导；(2)未得到第一个方程关于v_G求导后产生常数项1的结果；(3)未发现第二个方程求导后产生的关键矛盾（即假设λ1不变时导出1=0的矛盾）；(4)未识别出λ1必须随v_G调整的物理约束，这是题目的核心结论；(5)未给出∂λ1/∂v_G的表达式。总之，回答泛泛而谈，未触及题目的具体数学推导要求。",
+      "judge": "minimax-m2.5",
+      "error": null,
+      "question_id": "CS-EVO-00242",
+      "dimension": "C"
+    },
+    {
+      "score": 0.0,
+      "reason": "LLM 返回格式异常，无法解析: {\"score\": 1.0, \"reason\": \"模型回答完全正确。核心公式与标准答案语义等价：使用 \\\\(\\\\overline{\\\\sigma}\\\\) 表示最大奇异值，与标准答案中的 \\\\(\\\\sigma\\_{max}\\\\) 是同义表达；频率变量 \\\\(\\\\omega\\\\) 和频率响应 \\\\(G(j\\\\omega)\\\\) 的定义完全一致。额外提供的 \\\\(L_2\\\\) 诱导范数等价定义和对稳定",
+      "judge": "minimax-m2.5",
+      "error": null,
+      "question_id": "CS-EVO-00293",
+      "dimension": "A"
+    },
+    {
+      "score": 0.3,
+      "reason": "模型回答包含了Lyapunov函数的基本要素（正定性、齐次性、导数负定性），但存在关键概念错误：1）标准答案明确定义了加权齐次性（weighted homogeneity），即V(λ^r1 x1, ..., λ^rn xn) = λ^d V(x)，其中(r1, ..., rn)是向量场的齐次度权重；模型回答只给出了简单齐次性V(λx) = λ^p V(x)，这忽略了权重系统的概念，是齐次理论中的基础性错误。2）标准答案明确针对'齐次连续向量场'，模型回答的适用范围描述不够精确。因此该回答属于部分正确，存在明显概念错误，无法作为完整准确的答案。",
+      "judge": "minimax-m2.5",
+      "error": null,
+      "question_id": "CS-EVO-00939",
+      "dimension": "A"
+    },
+    {
+      "score": 0.3,
+      "reason": "模型回答在建模、控制器设计和推导上较为完整清晰，但存在几个关键问题：1. 题目明确要求使用自适应反步法，但模型回答采用了模型参考自适应控制（MRAC）方法，导致方法选择项得分为0；2. 参数选择计算显示原始σ-修改方案无法满足稳态误差<0.01的指标，改进设计（投影算子）未完整给出，可行性存在缺陷；3. 整体缺乏显著创新，属于教材常见改进；4. 结尾部分不完整，清晰度受影响。综合得分为0.42。",
+      "judge": "minimax-m2.5",
+      "error": null,
+      "question_id": "CS-EVO-00450",
+      "dimension": "D"
+    },
+    {
+      "score": 1.0,
+      "reason": "模型回答的推理步骤完全正确，与标准推理链在逻辑上高度一致。推理过程包括：(1) 正确写出训练目标 J(π) = E[a∼π][r(a)] + αH(π)；(2) 正确计算期望奖励 E[r(a)] = -[σ² + (μ-2)²]；(3) 正确建立优化目标并对 μ 和 σ² 求偏导；(4) 正确求解得到 μ* = 2, σ*^2 = 0.25；(5) 正确计算确定性评估奖励 r(2) = 0 和随机采样期望奖励 -0.25；(6) 正确计算差值 0.25。所有关键步骤都正确，结论也完全准确。",
+      "judge": "minimax-m2.5",
+      "error": null,
+      "question_id": "CS-EVO-00049",
+      "dimension": "B"
+    },
+    {
+      "score": 0.0,
+      "reason": "LLM 返回格式异常，无法解析: 根据评分规则，模型回答的推理步骤与标准推理链不一致，且没有给出有效的推理过程，因此判为0.0分。\n\n{\"score\": 0.0, \"reason\": \"模型回答完全偏离了标准推理步骤，未涉及标准推理中定义的L_i向量、Π矩阵及其正交性等关键逻辑，而是基于猜测进行推理，没有给出任何具体计算过程\", \"issues\": [\"未使用标准推理中定义的L_i、Π等变量\", \"未进行任何有效的矩阵运算或推导\"",
+      "judge": "minimax-m2.5",
+      "error": null,
+      "question_id": "CS-EVO-00638",
+      "dimension": "B"
+    },
+    {
+      "score": 0.3,
+      "reason": "模型回答给出了Birkhoff个体遍历定理的一般形式，提到了时间平均趋向空间平均的核心思想，这是正确的方向。但具体表达式与标准答案存在关键差异：1)标准答案是连续时间形式 (1/T)∫_0^T G(X_t, Y_t)dt，而模型给出离散求和形式 (1/n)∑ G(σ^k(x))；2)标准答案涉及N个过程(X_t^{ℓ,ξ^ℓ}, Y_t^ℓ)的系统及其平稳分布ν^ℓ的张量积，而模型只给出一的一般遍历形式，未涉及具体的随机过程系统；3)标准答案给出了具体的概率测度表达∫_{O^N} G ⊗_{ℓ=1}^N ν^ℓ(dx_ℓ, i_ℓ)，模型仅泛泛提到∫ G dμ。模型回答体现了正确的遍历思想但未针对问题所要求的具体随机过程系统给出准确公式。",
+      "judge": "minimax-m2.5",
+      "error": null,
+      "question_id": "CS-EVO-00603",
+      "dimension": "A"
+    },
+    {
+      "score": 1.0,
+      "reason": "模型回答完整准确地给出了完成平方方法的核心步骤和最优控制律。与标准答案完全一致：引入了满足Q_u L = Q_xu^T的矩阵L，推导出了等价变换公式J(x,u) = x^T(Q_x - L^T Q_u L)x + (u+Lx)^T Q_u(u+Lx)，给出了最优控制律u* = -Lx，以及最小损失函数值J_min = x^T(Q_x - L^T Q_u L)x。表述清晰，推导步骤完整，符号使用正确。",
+      "judge": "minimax-m2.5",
+      "error": null,
+      "question_id": "CS-EVO-00753",
+      "dimension": "A"
+    },
+    {
+      "score": 1.0,
+      "reason": "模型回答给出了完整的建模（范数有界结构化不确定性）、鲁棒H∞控制方法选择的充分理由、详细的LMI推导和控制器参数恢复步骤，以及工程实践步骤，整体技术路线正确且表达清晰。但验证指标部分不够明确集中，未单独列出仿真验证方法，仅隐含在LMI可行性中，完整性和创新性略微欠缺。",
+      "judge": "minimax-m2.5",
+      "error": null,
+      "question_id": "CS-EVO-00431",
+      "dimension": "D"
+    },
+    {
+      "score": 0.6,
+      "reason": "模型回答给出了正确的传递函数形式、零极点比值与静态速度误差常数的关系，以及完整的设计原理推导。但存在一处关键性错误：标准答案明确指出约束条件为'z < p（零点在左，极点在右）'，而模型回答错误地写成'z > p > 0'，尽管后续分析中实际使用的关系z/p = β > 1是正确的。这种不等式方向的错误是降分的主要原因。不过，模型回答的核心公式（K'_v/K_v = z/p = β）、数学推导、以及相位滞后作用机理的说明都是正确的，且比标准答案提供了更详细的解释。",
+      "judge": "minimax-m2.5",
+      "error": null,
+      "question_id": "CS-EVO-00345",
+      "dimension": "A"
+    },
+    {
+      "score": 1.0,
+      "reason": "模型回答准确判断结论不再成立，原因分析全面且深入。核心要点与标准答案一致：正确指出λ>0时λI为正定矩阵保证J^TΓJ+λI正定性，从而式(22)成立；λ<0时该矩阵变为不定矩阵，无法找到ρ>0使得V̇≤ρV成立，导致指数收敛条件失效。此外，模型回答补充了自适应控制机制的物理解释：λ<0导致参数更新方向反转（梯度上升而非下降），破坏负反馈机制，使系统不稳定。这是高质量的补充分析。",
+      "judge": "minimax-m2.5",
+      "error": null,
+      "question_id": "CS-EVO-00720",
+      "dimension": "C"
+    },
+    {
+      "score": 0.6,
+      "reason": "模型回答选择了高斯过程回归作为隐式建模方法并采用tube-based MPC框架，在建模、控制器设计思路和稳定性机制上有一定完整性。但与标准答案相比存在以下差距：1) 未引用问题中指定的隐式表示（37）和稳定性约束（38）；2) 对计算时间<0.1秒的保证仅作提及，未给出如SOS规划等具体实现方法；3) 验证部分缺少具体步骤；4) 方案缺乏创新点，未体现将特定条件作为MPC约束的创新设计；5) 回答最后中断，未完成不变集定义的描述。",
+      "judge": "minimax-m2.5",
+      "error": null,
+      "question_id": "CS-EVO-00866",
+      "dimension": "D"
+    },
+    {
+      "score": 0.0,
+      "reason": "LLM 返回格式异常，无法解析: ```json\n{\"score\": 0.75, \"reason\": \"模型回答基本正确地给出了加性不确定性下鲁棒稳定的充分必要条件，正确识别了核心传递函数形式并给出了合理的小增益定理解释。存在的主要不足是：1）标准答案使用 $\\|W_2KS_oW_1\\|_\\infty\\\\leq1$，包含两个加权函数$W_1$和$W_2$，对应更一般的不确定性结构 $P=P_0+W_2\\\\Delta W_1$；模型",
+      "judge": "minimax-m2.5",
+      "error": null,
+      "question_id": "CS-EVO-00404",
+      "dimension": "C"
+    },
+    {
+      "score": 0.6,
+      "reason": "模型回答包含了标准答案的核心要求：连续可微性（V∈C^1）、零值性（V(0,0)=0）和正定性（V>0对所有非零点），这些关键数学性质与标准答案语义等价。但模型回答额外增加了径向无界性、导数负定性、结构形式、自适应律兼容性等并非标准答案所列的条件，虽然这些是鲁棒自适应控制中的常见性质，但并非定理8所要求的完整条件列表。标准答案简洁地列出了Lyapunov函数的三项核心数学性质，而模型回答给出了更详细的扩展内容，部分偏离了所问的'完整列出所有条件'的要求。",
+      "judge": "minimax-m2.5",
+      "error": null,
+      "question_id": "CS-EVO-00228",
+      "dimension": "A"
+    },
+    {
+      "score": 0.2,
+      "reason": "模型回答正确推导了离散时间多智能体系统、事件触发机制以及测量误差的表达，并写出了闭环系统的形式，但并未进一步给出满足 LQ 性能所必須的线性矩阵不等式（LMI）条件——即存在对称正定矩阵 P 与标量 τ>0，使得对所有可能的拓扑拉普拉斯矩阵 L_k 的块矩阵不等式成立。答案在 X(k) 后截断，缺少关键的 LMI 表述，因而不完整。",
+      "judge": "minimax-m2.5",
+      "error": null,
+      "question_id": "CS-EVO-00553",
+      "dimension": "C"
+    },
+    {
+      "score": 1.0,
+      "reason": "模型的推理步骤与标准推理链完全一致。从j=0时识别W_0成立（偶数），1_W0=1，1_Z0=0，得出d_1 ≤ αβd_0；到j=1时识别Z_1成立（奇数），1_W1=0，1_Z1=1，得出d_2 ≤ αd_1+γ；再到代入d_1得到最终上界d_2 ≤ α²βd_0 + γ，每一步推理都正确无误。最终表达式也与标准答案完全一致。",
+      "judge": "minimax-m2.5",
+      "error": null,
+      "question_id": "CS-EVO-00284",
+      "dimension": "B"
+    },
+    {
+      "score": 1.0,
+      "reason": "模型回答正确地给出了加权积分误差状态的数学定义，核心内容与标准答案一致。模型回答指出该状态是输出跟踪误差的积分形式，并提到了加权系数W的作用，这与标准答案中ϑ ≠ 0的加权系数概念等价。两者都表达了相同的核心思想：通过积分状态实现对常值参考输入的无静差跟踪。虽然符号表示略有不同（y(t) vs z(τ), r(t) vs r, t_0 vs t_*^+），但这些属于同义表达和不同措辞的范畴，不影响语义等价性。",
+      "judge": "minimax-m2.5",
+      "error": null,
+      "question_id": "CS-EVO-01027",
+      "dimension": "A"
+    },
+    {
+      "score": 0.6,
+      "reason": "模型回答给出了一致性的正确数学定义（状态趋于相同值），并详细阐述了实现一致性的系统条件（图的连通性、权重非负性等）。核心思想与标准答案一致，即状态趋于收敛。但两者讨论的框架不同：标准答案从控制理论角度（可镇定性、可检测性）提出条件，而模型回答从图论/分布式算法角度（连通性、平衡图等）阐述。两者本质上是等价的条件，但表述差异明显。模型回答缺少标准答案中关于外部扰动和控制律的明确定义框架。",
+      "judge": "minimax-m2.5",
+      "error": null,
+      "question_id": "CS-EVO-00746",
+      "dimension": "A"
+    },
+    {
+      "score": 1.0,
+      "reason": "模型回答完全正确地给出了离散时间LTI系统BIBO稳定性的极点判据：所有极点模严格小于1（即位于单位圆内）。数学条件表达式|D(z)=0的根p_i满足|p_i|<1与标准答案完全一致。模型还提供了详细的定义、传递函数形式、推导说明和补充注意，这些内容正确且有助于理解，但核心判据和结论与标准答案语义等价。不存在关键概念错误或遗漏。",
+      "judge": "minimax-m2.5",
+      "error": null,
+      "question_id": "CS-EVO-00569",
+      "dimension": "A"
+    },
+    {
+      "score": 1.0,
+      "reason": "模型回答与标准答案语义等价。数学表达式J = ∫_{t_0}^{t_f} 1 dt = t_f - t_0与标准答案的J = ∫_{t0}^{tf} dt = tf - t0完全一致，当t0=0时简化为t_f也是正确的推导。物理意义部分准确表达了最小时间控制的核心要求：设计控制律使系统以最短时间从初态转移到末态，体现了对系统快速性的追求。模型回答还补充了航天器机动、机械臂轨迹规划等应用场景，这些是合理的扩展说明，不影响核心正确性。",
+      "judge": "minimax-m2.5",
+      "error": null,
+      "question_id": "CS-EVO-00677",
+      "dimension": "A"
+    },
+    {
+      "score": 1.0,
+      "reason": "模型回答给出了持续激励条件的完整正确数学定义。标准答案是离散时间版本（使用求和），模型回答是连续时间版本（使用积分），两者在自适应控制理论中都是正确的标准定义。核心要素完全一致：都要求存在正常数α > 0和时间窗口T₀（或N），使得在任意时间起点开始的窗口内，回归向量的外积累积矩阵正定（≥ αI）。这保证了参数估计的持续激励和收敛性。虽然表述形式不同（连续vs离散），但数学本质等价，符合评分规则中'接受同义表达和不同措辞'的原则。",
+      "judge": "minimax-m2.5",
+      "error": null,
+      "question_id": "CS-EVO-00286",
+      "dimension": "A"
+    },
+    {
+      "score": 0.7,
+      "reason": "模型回答正确识别了线性预测器在限制为线性类时仍为最优，但在全局最优性上可能丧失这一核心区别。敏感性分析方向正确（高阶矩依赖），与标准答案的逻辑基本一致。但推导过程的精确性和聚焦度略有不足，部分细节表述不够严谨。",
+      "judge": "minimax-m2.5",
+      "error": null,
+      "question_id": "CS-EVO-00181",
+      "dimension": "C"
+    },
+    {
+      "score": 1.0,
+      "reason": "The model answer correctly states that the conclusion would no longer hold if a scalar weighting W(s)=α(s)I were used, and it explains in detail why the diagonal structure is essential for MIMO robustness. It identifies that a scalar weighting cannot capture channel‑specific frequency‑dependent uncertainty, leading to loss of the sufficient condition and increased conservatism. The reasoning about directionality, sufficient conditions, and the need for per‑channel weighting aligns well with the standard answer.",
+      "judge": "minimax-m2.5",
+      "error": null,
+      "question_id": "CS-EVO-00507",
+      "dimension": "C"
+    },
+    {
+      "score": 1.0,
+      "reason": "模型回答完全包含了标准答案中的核心公式 (1/N) * Σ_{i=1}^N (y_i - ŷ_i)²，符号说明（N为观测次数，y_i为真实值，ŷ_i为预测值）与标准答案一致。模型回答额外提供了理论期望形式的定义作为补充，这属于合理的扩展说明，不影响核心内容的正确性。根据评分规则，只要核心结论和公式正确即视为语义等价。",
+      "judge": "minimax-m2.5",
+      "error": null,
+      "question_id": "CS-EVO-00205",
+      "dimension": "A"
+    },
+    {
+      "score": 0.7,
+      "reason": "模型回答正确识别了传输次数会减少这一核心结论，并从估计误差、Lyapunov函数变化率、触发条件阈值等角度分析了敏感性来源。然而，回答过于冗长且偏重一般性理论推导，未能紧密结合教材具体示例（如基准的92.4次传输、1/3因子等）进行针对性分析。此外，缺少对初始阶段观测器收敛导致V(x_o)增加这一关键机制的具体描述。",
+      "judge": "minimax-m2.5",
+      "error": null,
+      "question_id": "CS-EVO-00842",
+      "dimension": "C"
+    },
+    {
+      "score": 1.0,
+      "reason": "模型回答完全正确地给出了劳斯判据的定义和用于判断线性定常系统稳定性的完整数学条件。核心内容包括：(1) 劳斯判据是用于判断线性定常系统稳定性的代数方法；(2) 特征多项式的表示；(3) 系统稳定的充要条件是特征多项式所有系数大于零且劳斯阵列第一列所有元素均大于零；(4) 第一列符号变化次数等于具有正实部的特征根个数。这些关键结论与标准答案一致，虽然表述方式（如系数索引方式）和细节详略程度有所不同，但语义完全等价。模型回答还提供了更详细的劳斯阵列构造步骤和特殊情况处理，这不影响核心正确性。",
+      "judge": "minimax-m2.5",
+      "error": null,
+      "question_id": "CS-EVO-00869",
+      "dimension": "A"
+    },
+    {
+      "score": 1.0,
+      "reason": "模型回答全面准确地分析了P+前馈控制在坡度环境下的跟踪性能。回答从以下几个方面进行了深入分析：(1) 正确指出原前馈控制量基于平坦地面的理想模型计算，未包含坡度引起的重力分量；(2) 明确分析坡度引入的恒定扰动 mg sinθ；(3) 通过误差动力学方程严格推导了P控制的稳态误差特性；(4) 得出与标准答案一致的结论：无法精确跟踪。数学推导严谨，物理概念清晰，与标准答案的核心论点完全吻合。",
+      "judge": "minimax-m2.5",
+      "error": null,
+      "question_id": "CS-EVO-00876",
+      "dimension": "C"
+    },
+    {
+      "score": 0.7,
+      "reason": "模型回答的结论正确（不成立），且推理逻辑基本合理。它正确指出了马尔可夫性假设在等式(59)推导中的关键作用，并讨论了非马尔可夫结构如何影响概率分解和递推关系。然而，模型回答是一般性讨论，未能像标准答案那样精确指出核心问题：在非马尔可夫假设下，Q(x_{t+1}|z_{1:t},x_{1:t},a_{1:t})因依赖于x_t^l和a_t^f而无法从求和符号中独立提取出来，导致无法形成独立的乘积因子。这是等式(59)不成立的技术细节所在。如果模型回答能更精准地引用(60c)中的具体推导结构，分析求和提取的技术障碍，可以得到更高分。",
+      "judge": "minimax-m2.5",
+      "error": null,
+      "question_id": "CS-EVO-00113",
+      "dimension": "C"
+    },
+    {
+      "score": 1.0,
+      "reason": "模型回答完整且正确地给出了代数黎卡提方程的核心内容，包括连续时间和离散时间的标准形式，以及更一般的广义形式。与标准答案相比，两者在数学上是等价的（标准答案使用K，模型使用P表示待求矩阵，等效于在方程两边乘以-1）。模型回答还额外提供了详细的背景说明、矩阵维度说明和物理解释，内容更全面丰富。方程的正负号形式略有不同但数学上等效，符合控制理论文献中的常见表达方式。唯一的小差异是标准答案使用时变矩阵符号(t)，而模型使用定常矩阵，但这不影响核心内容的正确性。",
+      "judge": "minimax-m2.5",
+      "error": null,
+      "question_id": "CS-EVO-00192",
+      "dimension": "C"
+    },
+    {
+      "score": 1.0,
+      "reason": "推理步骤完整且逻辑正确。模型正确识别了leader和follower的确定性策略，准确计算了即时奖励R₁ˡ(z₁, a₁ˡ=1)=1，并正确考虑了折扣因子和未来值函数。虽然没有显式写出期望算子，但由于策略是确定性的，这不影响推理的正确性。最终结果为1，与标准答案完全一致。",
+      "judge": "minimax-m2.5",
+      "error": null,
+      "question_id": "CS-EVO-00098",
+      "dimension": "B"
+    }
+  ]
+}
