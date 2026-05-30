@@ -47,10 +47,10 @@ export default async function handler(req, res) {
     } else {
       data = await callStep(payload, accessCode);
     }
-    const id = createTask(data);
-    res.status(200).json({ id, status: 'done' });
+    const task = createTask(data);
+    res.status(200).json({ id: task.id, owner_token: task.owner_token, status: task.status });
   } catch (error) {
-    const id = createTask({ status: 'failed', message: error.message });
-    res.status(200).json({ id, status: 'done' });
+    const task = createTask({ status: 'failed', message: error.message });
+    res.status(200).json({ id: task.id, owner_token: task.owner_token, status: task.status });
   }
 }

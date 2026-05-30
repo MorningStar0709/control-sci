@@ -6,7 +6,7 @@ export const config = {
   },
 };
 
-const BACKEND = 'http://127.0.0.1:17001';
+const BACKEND = process.env.CONTROLMIND_BACKEND_URL || 'http://127.0.0.1:17001';
 const HOP_BY_HOP_HEADERS = new Set([
   'connection',
   'content-length',
@@ -19,11 +19,13 @@ const HOP_BY_HOP_HEADERS = new Set([
   'transfer-encoding',
   'upgrade',
 ]);
+const PROXY_HEADER_ALLOWLIST = new Set(['accept', 'content-type', 'x-request-id', 'x-runtime-profile']);
 
 function proxyHeaders(reqHeaders, targetHost) {
   const headers = {};
   Object.entries(reqHeaders || {}).forEach(([key, value]) => {
-    if (!HOP_BY_HOP_HEADERS.has(key.toLowerCase())) headers[key] = value;
+    const lower = key.toLowerCase();
+    if (!HOP_BY_HOP_HEADERS.has(lower) && PROXY_HEADER_ALLOWLIST.has(lower)) headers[key] = value;
   });
   headers.host = targetHost;
   return headers;
@@ -45,7 +47,7 @@ function offlineEvidence(path, query) {
     query: query?.q || '',
     count: 0,
     results: [],
-    error: 'Medical RAG API 未连通，请启动 FastAPI 17001 或使用已验证产物。',
+    error: '来源服务未连通，请启动工作台 FastAPI 17001，或使用报告、DATA-TRACE 与已验证产物复核。',
     path,
   };
 }

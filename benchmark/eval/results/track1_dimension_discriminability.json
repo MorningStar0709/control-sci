@@ -1,0 +1,760 @@
+{
+  "schema_version": "1.0",
+  "experiment": "track1_dimension_discriminability",
+  "created_at": "2026-05-23 23:07:25",
+  "status": "ok",
+  "evaluation_mode": "existing_leaderboard_dimension_score_analysis_no_new_model_eval",
+  "inputs": {
+    "leaderboard": "benchmark/eval/results/leaderboard_complete.json",
+    "dataset": "benchmark/dataset/core.json"
+  },
+  "model_count": 9,
+  "question_count": 500,
+  "dimension_question_counts": {
+    "A": 125,
+    "B": 125,
+    "C": 125,
+    "D": 125
+  },
+  "dimension_stats": {
+    "A": {
+      "model_count": 9,
+      "mean": 0.6138,
+      "variance": 0.0005,
+      "std": 0.0217,
+      "min": 0.569,
+      "max": 0.638,
+      "range": 0.069,
+      "top_model": {
+        "rank": 1,
+        "model": "MiMo-v2-pro",
+        "score": 0.638
+      },
+      "bottom_model": {
+        "rank": 9,
+        "model": "Qwen3.5-9B",
+        "score": 0.569
+      },
+      "ranking": [
+        {
+          "rank": 1,
+          "model": "MiMo-v2-pro",
+          "score": 0.638
+        },
+        {
+          "rank": 2,
+          "model": "MiniMax-M2.5-highspeed",
+          "score": 0.638
+        },
+        {
+          "rank": 3,
+          "model": "DeepSeek-v4-flash",
+          "score": 0.634
+        },
+        {
+          "rank": 4,
+          "model": "DeepSeek-v4-pro",
+          "score": 0.627
+        },
+        {
+          "rank": 5,
+          "model": "MiMo-v2-flash",
+          "score": 0.61
+        },
+        {
+          "rank": 6,
+          "model": "MiMo-v2.5",
+          "score": 0.608
+        },
+        {
+          "rank": 7,
+          "model": "MiniMax-M2.7-highspeed",
+          "score": 0.605
+        },
+        {
+          "rank": 8,
+          "model": "MiMo-v2.5-pro",
+          "score": 0.595
+        },
+        {
+          "rank": 9,
+          "model": "Qwen3.5-9B",
+          "score": 0.569
+        }
+      ],
+      "scores_by_model": {
+        "DeepSeek-v4-flash": 0.634,
+        "DeepSeek-v4-pro": 0.627,
+        "MiMo-v2-flash": 0.61,
+        "MiMo-v2-pro": 0.638,
+        "MiMo-v2.5": 0.608,
+        "MiMo-v2.5-pro": 0.595,
+        "MiniMax-M2.5-highspeed": 0.638,
+        "MiniMax-M2.7-highspeed": 0.605,
+        "Qwen3.5-9B": 0.569
+      }
+    },
+    "B": {
+      "model_count": 9,
+      "mean": 0.5467,
+      "variance": 0.0035,
+      "std": 0.059,
+      "min": 0.466,
+      "max": 0.631,
+      "range": 0.165,
+      "top_model": {
+        "rank": 1,
+        "model": "DeepSeek-v4-flash",
+        "score": 0.631
+      },
+      "bottom_model": {
+        "rank": 9,
+        "model": "MiMo-v2.5",
+        "score": 0.466
+      },
+      "ranking": [
+        {
+          "rank": 1,
+          "model": "DeepSeek-v4-flash",
+          "score": 0.631
+        },
+        {
+          "rank": 2,
+          "model": "Qwen3.5-9B",
+          "score": 0.61
+        },
+        {
+          "rank": 3,
+          "model": "MiMo-v2-flash",
+          "score": 0.606
+        },
+        {
+          "rank": 4,
+          "model": "DeepSeek-v4-pro",
+          "score": 0.59
+        },
+        {
+          "rank": 5,
+          "model": "MiMo-v2.5-pro",
+          "score": 0.523
+        },
+        {
+          "rank": 6,
+          "model": "MiniMax-M2.5-highspeed",
+          "score": 0.519
+        },
+        {
+          "rank": 7,
+          "model": "MiMo-v2-pro",
+          "score": 0.49
+        },
+        {
+          "rank": 8,
+          "model": "MiniMax-M2.7-highspeed",
+          "score": 0.485
+        },
+        {
+          "rank": 9,
+          "model": "MiMo-v2.5",
+          "score": 0.466
+        }
+      ],
+      "scores_by_model": {
+        "DeepSeek-v4-flash": 0.631,
+        "DeepSeek-v4-pro": 0.59,
+        "MiMo-v2-flash": 0.606,
+        "MiMo-v2-pro": 0.49,
+        "MiMo-v2.5": 0.466,
+        "MiMo-v2.5-pro": 0.523,
+        "MiniMax-M2.5-highspeed": 0.519,
+        "MiniMax-M2.7-highspeed": 0.485,
+        "Qwen3.5-9B": 0.61
+      }
+    },
+    "C": {
+      "model_count": 9,
+      "mean": 0.6311,
+      "variance": 0.0041,
+      "std": 0.0642,
+      "min": 0.528,
+      "max": 0.742,
+      "range": 0.214,
+      "top_model": {
+        "rank": 1,
+        "model": "DeepSeek-v4-pro",
+        "score": 0.742
+      },
+      "bottom_model": {
+        "rank": 9,
+        "model": "MiMo-v2.5",
+        "score": 0.528
+      },
+      "ranking": [
+        {
+          "rank": 1,
+          "model": "DeepSeek-v4-pro",
+          "score": 0.742
+        },
+        {
+          "rank": 2,
+          "model": "DeepSeek-v4-flash",
+          "score": 0.714
+        },
+        {
+          "rank": 3,
+          "model": "Qwen3.5-9B",
+          "score": 0.662
+        },
+        {
+          "rank": 4,
+          "model": "MiMo-v2-flash",
+          "score": 0.636
+        },
+        {
+          "rank": 5,
+          "model": "MiniMax-M2.5-highspeed",
+          "score": 0.624
+        },
+        {
+          "rank": 6,
+          "model": "MiniMax-M2.7-highspeed",
+          "score": 0.612
+        },
+        {
+          "rank": 7,
+          "model": "MiMo-v2.5-pro",
+          "score": 0.602
+        },
+        {
+          "rank": 8,
+          "model": "MiMo-v2-pro",
+          "score": 0.56
+        },
+        {
+          "rank": 9,
+          "model": "MiMo-v2.5",
+          "score": 0.528
+        }
+      ],
+      "scores_by_model": {
+        "DeepSeek-v4-flash": 0.714,
+        "DeepSeek-v4-pro": 0.742,
+        "MiMo-v2-flash": 0.636,
+        "MiMo-v2-pro": 0.56,
+        "MiMo-v2.5": 0.528,
+        "MiMo-v2.5-pro": 0.602,
+        "MiniMax-M2.5-highspeed": 0.624,
+        "MiniMax-M2.7-highspeed": 0.612,
+        "Qwen3.5-9B": 0.662
+      }
+    },
+    "D": {
+      "model_count": 9,
+      "mean": 0.5154,
+      "variance": 0.0273,
+      "std": 0.1652,
+      "min": 0.156,
+      "max": 0.736,
+      "range": 0.58,
+      "top_model": {
+        "rank": 1,
+        "model": "MiMo-v2-flash",
+        "score": 0.736
+      },
+      "bottom_model": {
+        "rank": 9,
+        "model": "MiMo-v2.5",
+        "score": 0.156
+      },
+      "ranking": [
+        {
+          "rank": 1,
+          "model": "MiMo-v2-flash",
+          "score": 0.736
+        },
+        {
+          "rank": 2,
+          "model": "Qwen3.5-9B",
+          "score": 0.659
+        },
+        {
+          "rank": 3,
+          "model": "MiniMax-M2.5-highspeed",
+          "score": 0.626
+        },
+        {
+          "rank": 4,
+          "model": "MiniMax-M2.7-highspeed",
+          "score": 0.593
+        },
+        {
+          "rank": 5,
+          "model": "DeepSeek-v4-flash",
+          "score": 0.55
+        },
+        {
+          "rank": 6,
+          "model": "DeepSeek-v4-pro",
+          "score": 0.514
+        },
+        {
+          "rank": 7,
+          "model": "MiMo-v2.5-pro",
+          "score": 0.436
+        },
+        {
+          "rank": 8,
+          "model": "MiMo-v2-pro",
+          "score": 0.369
+        },
+        {
+          "rank": 9,
+          "model": "MiMo-v2.5",
+          "score": 0.156
+        }
+      ],
+      "scores_by_model": {
+        "DeepSeek-v4-flash": 0.55,
+        "DeepSeek-v4-pro": 0.514,
+        "MiMo-v2-flash": 0.736,
+        "MiMo-v2-pro": 0.369,
+        "MiMo-v2.5": 0.156,
+        "MiMo-v2.5-pro": 0.436,
+        "MiniMax-M2.5-highspeed": 0.626,
+        "MiniMax-M2.7-highspeed": 0.593,
+        "Qwen3.5-9B": 0.659
+      }
+    }
+  },
+  "rank_stability": {
+    "overall_ranking": [
+      {
+        "rank": 1,
+        "model": "MiMo-v2-flash",
+        "score": 0.647
+      },
+      {
+        "rank": 2,
+        "model": "DeepSeek-v4-flash",
+        "score": 0.632
+      },
+      {
+        "rank": 3,
+        "model": "Qwen3.5-9B",
+        "score": 0.625
+      },
+      {
+        "rank": 4,
+        "model": "DeepSeek-v4-pro",
+        "score": 0.619
+      },
+      {
+        "rank": 5,
+        "model": "MiniMax-M2.5-highspeed",
+        "score": 0.602
+      },
+      {
+        "rank": 6,
+        "model": "MiniMax-M2.7-highspeed",
+        "score": 0.574
+      },
+      {
+        "rank": 7,
+        "model": "MiMo-v2.5-pro",
+        "score": 0.539
+      },
+      {
+        "rank": 8,
+        "model": "MiMo-v2-pro",
+        "score": 0.514
+      },
+      {
+        "rank": 9,
+        "model": "MiMo-v2.5",
+        "score": 0.44
+      }
+    ],
+    "by_dimension": {
+      "A": {
+        "spearman_rank_correlation_with_overall": -0.0167,
+        "pairwise_agreement_with_overall": {
+          "pair_count": 36,
+          "concordant": 17,
+          "discordant": 18,
+          "tied": 1,
+          "agreement_rate": 0.4722
+        },
+        "max_abs_rank_shift": 7,
+        "rank_shift_by_model": {
+          "DeepSeek-v4-flash": 1,
+          "DeepSeek-v4-pro": 0,
+          "MiMo-v2-flash": 4,
+          "MiMo-v2-pro": -7,
+          "MiMo-v2.5": -3,
+          "MiMo-v2.5-pro": 1,
+          "MiniMax-M2.5-highspeed": -3,
+          "MiniMax-M2.7-highspeed": 1,
+          "Qwen3.5-9B": 6
+        },
+        "ranking": [
+          {
+            "rank": 1,
+            "model": "MiMo-v2-pro",
+            "score": 0.638
+          },
+          {
+            "rank": 2,
+            "model": "MiniMax-M2.5-highspeed",
+            "score": 0.638
+          },
+          {
+            "rank": 3,
+            "model": "DeepSeek-v4-flash",
+            "score": 0.634
+          },
+          {
+            "rank": 4,
+            "model": "DeepSeek-v4-pro",
+            "score": 0.627
+          },
+          {
+            "rank": 5,
+            "model": "MiMo-v2-flash",
+            "score": 0.61
+          },
+          {
+            "rank": 6,
+            "model": "MiMo-v2.5",
+            "score": 0.608
+          },
+          {
+            "rank": 7,
+            "model": "MiniMax-M2.7-highspeed",
+            "score": 0.605
+          },
+          {
+            "rank": 8,
+            "model": "MiMo-v2.5-pro",
+            "score": 0.595
+          },
+          {
+            "rank": 9,
+            "model": "Qwen3.5-9B",
+            "score": 0.569
+          }
+        ]
+      },
+      "B": {
+        "spearman_rank_correlation_with_overall": 0.8667,
+        "pairwise_agreement_with_overall": {
+          "pair_count": 36,
+          "concordant": 31,
+          "discordant": 5,
+          "tied": 0,
+          "agreement_rate": 0.8611
+        },
+        "max_abs_rank_shift": 2,
+        "rank_shift_by_model": {
+          "DeepSeek-v4-flash": -1,
+          "DeepSeek-v4-pro": 0,
+          "MiMo-v2-flash": 2,
+          "MiMo-v2-pro": -1,
+          "MiMo-v2.5": 0,
+          "MiMo-v2.5-pro": -2,
+          "MiniMax-M2.5-highspeed": 1,
+          "MiniMax-M2.7-highspeed": 2,
+          "Qwen3.5-9B": -1
+        },
+        "ranking": [
+          {
+            "rank": 1,
+            "model": "DeepSeek-v4-flash",
+            "score": 0.631
+          },
+          {
+            "rank": 2,
+            "model": "Qwen3.5-9B",
+            "score": 0.61
+          },
+          {
+            "rank": 3,
+            "model": "MiMo-v2-flash",
+            "score": 0.606
+          },
+          {
+            "rank": 4,
+            "model": "DeepSeek-v4-pro",
+            "score": 0.59
+          },
+          {
+            "rank": 5,
+            "model": "MiMo-v2.5-pro",
+            "score": 0.523
+          },
+          {
+            "rank": 6,
+            "model": "MiniMax-M2.5-highspeed",
+            "score": 0.519
+          },
+          {
+            "rank": 7,
+            "model": "MiMo-v2-pro",
+            "score": 0.49
+          },
+          {
+            "rank": 8,
+            "model": "MiniMax-M2.7-highspeed",
+            "score": 0.485
+          },
+          {
+            "rank": 9,
+            "model": "MiMo-v2.5",
+            "score": 0.466
+          }
+        ]
+      },
+      "C": {
+        "spearman_rank_correlation_with_overall": 0.85,
+        "pairwise_agreement_with_overall": {
+          "pair_count": 36,
+          "concordant": 31,
+          "discordant": 5,
+          "tied": 0,
+          "agreement_rate": 0.8611
+        },
+        "max_abs_rank_shift": 3,
+        "rank_shift_by_model": {
+          "DeepSeek-v4-flash": 0,
+          "DeepSeek-v4-pro": -3,
+          "MiMo-v2-flash": 3,
+          "MiMo-v2-pro": 0,
+          "MiMo-v2.5": 0,
+          "MiMo-v2.5-pro": 0,
+          "MiniMax-M2.5-highspeed": 0,
+          "MiniMax-M2.7-highspeed": 0,
+          "Qwen3.5-9B": 0
+        },
+        "ranking": [
+          {
+            "rank": 1,
+            "model": "DeepSeek-v4-pro",
+            "score": 0.742
+          },
+          {
+            "rank": 2,
+            "model": "DeepSeek-v4-flash",
+            "score": 0.714
+          },
+          {
+            "rank": 3,
+            "model": "Qwen3.5-9B",
+            "score": 0.662
+          },
+          {
+            "rank": 4,
+            "model": "MiMo-v2-flash",
+            "score": 0.636
+          },
+          {
+            "rank": 5,
+            "model": "MiniMax-M2.5-highspeed",
+            "score": 0.624
+          },
+          {
+            "rank": 6,
+            "model": "MiniMax-M2.7-highspeed",
+            "score": 0.612
+          },
+          {
+            "rank": 7,
+            "model": "MiMo-v2.5-pro",
+            "score": 0.602
+          },
+          {
+            "rank": 8,
+            "model": "MiMo-v2-pro",
+            "score": 0.56
+          },
+          {
+            "rank": 9,
+            "model": "MiMo-v2.5",
+            "score": 0.528
+          }
+        ]
+      },
+      "D": {
+        "spearman_rank_correlation_with_overall": 0.8167,
+        "pairwise_agreement_with_overall": {
+          "pair_count": 36,
+          "concordant": 31,
+          "discordant": 5,
+          "tied": 0,
+          "agreement_rate": 0.8611
+        },
+        "max_abs_rank_shift": 3,
+        "rank_shift_by_model": {
+          "DeepSeek-v4-flash": 3,
+          "DeepSeek-v4-pro": 2,
+          "MiMo-v2-flash": 0,
+          "MiMo-v2-pro": 0,
+          "MiMo-v2.5": 0,
+          "MiMo-v2.5-pro": 0,
+          "MiniMax-M2.5-highspeed": -2,
+          "MiniMax-M2.7-highspeed": -2,
+          "Qwen3.5-9B": -1
+        },
+        "ranking": [
+          {
+            "rank": 1,
+            "model": "MiMo-v2-flash",
+            "score": 0.736
+          },
+          {
+            "rank": 2,
+            "model": "Qwen3.5-9B",
+            "score": 0.659
+          },
+          {
+            "rank": 3,
+            "model": "MiniMax-M2.5-highspeed",
+            "score": 0.626
+          },
+          {
+            "rank": 4,
+            "model": "MiniMax-M2.7-highspeed",
+            "score": 0.593
+          },
+          {
+            "rank": 5,
+            "model": "DeepSeek-v4-flash",
+            "score": 0.55
+          },
+          {
+            "rank": 6,
+            "model": "DeepSeek-v4-pro",
+            "score": 0.514
+          },
+          {
+            "rank": 7,
+            "model": "MiMo-v2.5-pro",
+            "score": 0.436
+          },
+          {
+            "rank": 8,
+            "model": "MiMo-v2-pro",
+            "score": 0.369
+          },
+          {
+            "rank": 9,
+            "model": "MiMo-v2.5",
+            "score": 0.156
+          }
+        ]
+      }
+    }
+  },
+  "difficulty_distribution": {
+    "global": {
+      "L1": 40,
+      "L2": 153,
+      "L3": 163,
+      "L4": 144
+    },
+    "global_rates": {
+      "L1": 0.08,
+      "L2": 0.306,
+      "L3": 0.326,
+      "L4": 0.288
+    },
+    "by_dimension": {
+      "A": {
+        "total": 125,
+        "counts": {
+          "L1": 40,
+          "L2": 31,
+          "L3": 30,
+          "L4": 24
+        },
+        "rates": {
+          "L1": 0.32,
+          "L2": 0.248,
+          "L3": 0.24,
+          "L4": 0.192
+        }
+      },
+      "B": {
+        "total": 125,
+        "counts": {
+          "L1": 0,
+          "L2": 32,
+          "L3": 47,
+          "L4": 46
+        },
+        "rates": {
+          "L1": 0.0,
+          "L2": 0.256,
+          "L3": 0.376,
+          "L4": 0.368
+        }
+      },
+      "C": {
+        "total": 125,
+        "counts": {
+          "L1": 0,
+          "L2": 50,
+          "L3": 41,
+          "L4": 34
+        },
+        "rates": {
+          "L1": 0.0,
+          "L2": 0.4,
+          "L3": 0.328,
+          "L4": 0.272
+        }
+      },
+      "D": {
+        "total": 125,
+        "counts": {
+          "L1": 0,
+          "L2": 40,
+          "L3": 45,
+          "L4": 40
+        },
+        "rates": {
+          "L1": 0.0,
+          "L2": 0.32,
+          "L3": 0.36,
+          "L4": 0.32
+        }
+      }
+    }
+  },
+  "dimension_gap_interpretation": {
+    "range_order_desc": [
+      "D",
+      "C",
+      "B",
+      "A"
+    ],
+    "std_order_desc": [
+      "D",
+      "C",
+      "B",
+      "A"
+    ],
+    "ab_range_mean": 0.117,
+    "cd_range_mean": 0.397,
+    "ab_std_mean": 0.0403,
+    "cd_std_mean": 0.1147,
+    "c_vs_ab_range_delta": 0.097,
+    "d_vs_ab_range_delta": 0.463,
+    "c_max_abs_rank_shift": 3,
+    "d_max_abs_rank_shift": 3,
+    "conclusion": "C/D dimensions separate model performance more strongly than A/B in the current leaderboard."
+  },
+  "interpretation_boundary": [
+    "This analysis summarizes existing leaderboard_complete.json and does not run new model inference.",
+    "Dimension discriminability is measured by between-model score spread and ranking shifts, not by statistical significance testing over per-question predictions.",
+    "Difficulty calibration is derived from dataset labels in core.json; it does not infer empirical item response difficulty from model-level aggregate scores."
+  ]
+}

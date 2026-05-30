@@ -17,6 +17,8 @@ This folder is an isolated cloud demo package. It keeps the local full demo unto
 - No local model switch, no private index, no local GPU/offline execution path.
 - Built-in sample PDF is hidden behind the "内置样例" button instead of being shown in the URL box.
 - Track1 backend exposes parse, quiz generation, and grading APIs.
+- Web task status uses an owner token and requires `x-task-token` for polling.
+- Next web proxy forwards only allowlisted headers and does not forward browser cookies or authorization headers.
 
 ## Local Development
 

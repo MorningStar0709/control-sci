@@ -5,6 +5,8 @@
 - Top-k: 3
 - Synthesis: disabled
 
+> Evidence bundle snapshot. Original artifact: `benchmark/eval/results/medical_rag_eval.json`. DO NOT EDIT. Numeric authority rests with `shared/DATA-TRACE.md` and the source JSON; this `.md` is a human-readable copy from the final submission bundle.
+
 ## Summary
 
 | Index | Provider | Model | Hit@K | Label Hit@K | Mean Hit Rank | Citation Coverage | Bridged | Multi-query | Query Embed Sec |

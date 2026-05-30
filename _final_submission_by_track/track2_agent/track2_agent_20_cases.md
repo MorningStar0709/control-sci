@@ -206,7 +206,7 @@
 | **Output** | 4B: 46.3s / 1,966 chars / 基础推导完整；9B: 54.7s / 2,272 chars / 增加前提假设；35B: 128.2s / 2,643 chars / 最详尽，标注负反馈默认假设。4B→9B 耗时 +18%，9B→35B +134% |
 | **Log path** | `benchmark/agent/logs/demo-35b-elastic-proof.json` |
 | **Pass criteria** | 三模型均完成回答；资源调度器正确路由至 Ollama；答案长度随模型尺寸递增；时间数据可复现 |
-| **Related capability** | D3 — 三轨推理引擎、成本速度精度平衡；D4 — 弹性伸缩 |
+| **Related capability** | D3 — 四路径推理引擎、成本速度精度平衡；D4 — 弹性伸缩 |
 | **Boundary note** | 数据仅在 RTX 5090 上验证；35B 耗时 2.1× 于 9B 但质量提升有限，符合反规模定律 |
 
 ---

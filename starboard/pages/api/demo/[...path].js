@@ -6,7 +6,7 @@ export const config = {
   },
 };
 
-const BACKEND = 'http://127.0.0.1:17001';
+const BACKEND = process.env.CONTROLMIND_BACKEND_URL || 'http://127.0.0.1:17001';
 const HOP_BY_HOP_HEADERS = new Set([
   'connection',
   'content-length',
@@ -19,11 +19,13 @@ const HOP_BY_HOP_HEADERS = new Set([
   'transfer-encoding',
   'upgrade',
 ]);
+const PROXY_HEADER_ALLOWLIST = new Set(['accept', 'content-type', 'x-request-id', 'x-runtime-profile']);
 
 function proxyHeaders(reqHeaders, targetHost) {
   const headers = {};
   Object.entries(reqHeaders || {}).forEach(([key, value]) => {
-    if (!HOP_BY_HOP_HEADERS.has(key.toLowerCase())) headers[key] = value;
+    const lower = key.toLowerCase();
+    if (!HOP_BY_HOP_HEADERS.has(lower) && PROXY_HEADER_ALLOWLIST.has(lower)) headers[key] = value;
   });
   headers.host = targetHost;
   return headers;
@@ -119,11 +121,11 @@ function offlineRuntimeOptions() {
 function fallbackTrack2Templates() {
   return {
     templates: [
-      { id: 'flywheel', label: '查看数据飞轮来源', goal: '核验 Quick Proof：arXiv PDF → MinerU Markdown → ABCD 快速题集 → 已保存评测结果' },
-      { id: 'eval40', label: '核验 Track1 抽样来源', goal: '核验 core.json、四维抽样计划、leaderboard 与已验证评测产物' },
-      { id: 'check_index', label: '核验 Medical RAG 索引', goal: '核验 FAISS + BM25 + chunk manifest 的存在性和来源路径' },
-      { id: 'evidence_bundle', label: '查看验收包来源', goal: '核验 data_trace_bundle、manifest 和 DATA-TRACE 来源文件' },
-      { id: 'visual_audit', label: '核验视觉审计产物', goal: '核验 visual_audit_results.jsonl 与跨模态审计来源' },
+      { id: 'flywheel', label: '查看数据飞轮来源', goal: '追溯 Quick Proof：arXiv PDF → MinerU Markdown → ABCD 快速题集 → 已保存评测结果' },
+      { id: 'eval40', label: '查看 Track1 抽样来源', goal: '追溯 core.json、四维抽样计划、leaderboard 与已验证评测产物' },
+      { id: 'check_index', label: '查看 Medical RAG 索引', goal: '追溯 FAISS + BM25 + chunk manifest 的存在性和来源路径' },
+      { id: 'evidence_bundle', label: '查看证据包来源', goal: '追溯 data_trace_bundle、manifest 和 DATA-TRACE 来源文件' },
+      { id: 'visual_audit', label: '查看视觉审计产物', goal: '追溯 visual_audit_results.jsonl 与跨模态审计来源' },
     ],
     mode: 'offline_fallback',
   };
@@ -133,7 +135,7 @@ function fallbackCapabilities() {
   return {
     meta: {
       project: 'ControlMind Data Agent',
-      total_intents: 14,
+      total_intents: 15,
       description: '后端离线时的能力注册表摘要',
     },
     intents: [
@@ -146,7 +148,9 @@ function fallbackCapabilities() {
       { intent_id: 'model_evaluate', name: '模型评测', resource_type: 'api' },
       { intent_id: 'leaderboard_viz', name: '排行榜可视化', resource_type: 'script' },
       { intent_id: 'local_finetune', name: '本地微调', resource_type: 'local_gpu' },
+      { intent_id: 'multi_format_parse', name: '多格式文档解析', resource_type: 'local_api' },
       { intent_id: 'medical_rag', name: '医学文献自动化合成', resource_type: 'local_gpu' },
+      { intent_id: 'sciverse_search', name: 'Sciverse 文献检索', resource_type: 'api' },
       { intent_id: 'reproduce_all', name: '全量复现', resource_type: 'script' },
     ],
     resource_scheduler_config: {

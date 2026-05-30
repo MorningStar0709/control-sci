@@ -1,5 +1,7 @@
 FROM python:3.12-slim
 
+LABEL org.opencontainers.image.description="Track 3 Medical RAG live API image. Build from the source repository root; standalone final bundle is evidence-only."
+
 WORKDIR /app
 
 RUN apt-get update && apt-get install -y --no-install-recommends \

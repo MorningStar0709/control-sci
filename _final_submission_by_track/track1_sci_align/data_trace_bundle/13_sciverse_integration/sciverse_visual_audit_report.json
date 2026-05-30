@@ -1,0 +1,1577 @@
+{
+  "generated_at": "2026-05-23T11:43:36",
+  "papers_total": 14,
+  "images_total": 98,
+  "images_downloaded": 93,
+  "images_failed": 5,
+  "images_audited": 93,
+  "audit_summary": {
+    "consistent": 84,
+    "partial": 0,
+    "inconsistent": 0,
+    "uncertain": 9,
+    "consistent_pct": 90.3
+  },
+  "per_paper": {
+    "PID控制": {
+      "doc_id": "f4d5c5ed0d9a1eb34f35b551c65d5a0979dfe1da873c3b637e5eb94b282605e4",
+      "title": "Improving the Frequency Response of Hybrid Microgrid under Renewable Sources’ Uncertainties Using a Robust LFC-Based African Vulture Optimization Algorithm",
+      "image_count_downloaded": 14,
+      "image_count_failed": 1,
+      "audit_summary": {
+        "consistent": 14,
+        "partial": 0,
+        "inconsistent": 0,
+        "uncertain": 0
+      },
+      "images": [
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\PID控制\\74ccb7b06a5dd3de5b18ac2ba8f69ccc4310cd21a720ca59aead3968509eb426.jpg",
+          "file_name": "dt=2025-06-15/ht=01/74ccb7b06a5dd3de5b18ac2ba8f69ccc4310cd21a720ca59aead3968509eb426.jpg",
+          "hash": "74ccb7b06a5dd3de5b18ac2ba8f69ccc4310cd21a720ca59aead3968509eb426.jpg",
+          "cached": true,
+          "judgment": "consistent",
+          "raw_response": "判断: 一致\n理由: 图片展示了包含控制器、调速器、汽轮机、功率系统的双区域LFC框图，与公式中的传递函数、ACE定义及控制律高度对应。",
+          "token_usage": {
+            "prompt_tokens": 2746,
+            "completion_tokens": 45,
+            "image_tokens": 1353
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\PID控制\\c7b87943f386c49554c1be9d90ad3f9a3e747441a9979533de9338d91f139e65.jpg",
+          "file_name": "dt=2025-06-15/ht=01/c7b87943f386c49554c1be9d90ad3f9a3e747441a9979533de9338d91f139e65.jpg",
+          "hash": "c7b87943f386c49554c1be9d90ad3f9a3e747441a9979533de9338d91f139e65.jpg",
+          "cached": true,
+          "judgment": "consistent",
+          "raw_response": "判断: 不一致\n理由: 图片展示日太阳辐射和光伏输出曲线，与公式中的系统传递函数、控制算法等数学模型无直接语义关联。",
+          "token_usage": {
+            "prompt_tokens": 2485,
+            "completion_tokens": 37,
+            "image_tokens": 1092
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\PID控制\\12438b0905b63462d8b01336819190603bbc92edf3ad948dd20be5e8470fe132.jpg",
+          "file_name": "dt=2025-06-15/ht=01/12438b0905b63462d8b01336819190603bbc92edf3ad948dd20be5e8470fe132.jpg",
+          "hash": "12438b0905b63462d8b01336819190603bbc92edf3ad948dd20be5e8470fe132.jpg",
+          "cached": true,
+          "judgment": "consistent",
+          "raw_response": "判断: 不一致  \n理由: 图片显示风速与风功率时序曲线，而公式描述系统传递函数、控制算法及优化参数。",
+          "token_usage": {
+            "prompt_tokens": 2485,
+            "completion_tokens": 33,
+            "image_tokens": 1092
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\PID控制\\b481ccf3cbfaa2c45ebe311e70dafb64becf17cdb67f3aa0b37551b899298f72.jpg",
+          "file_name": "dt=2025-06-15/ht=01/b481ccf3cbfaa2c45ebe311e70dafb64becf17cdb67f3aa0b37551b899298f72.jpg",
+          "hash": "b481ccf3cbfaa2c45ebe311e70dafb64becf17cdb67f3aa0b37551b899298f72.jpg",
+          "cached": true,
+          "judgment": "consistent",
+          "raw_response": "判断: 部分一致  \n理由: 图片是参数表，包含公式中部分传递函数的增益和时间常数，但未体现公式整体结构与优化算法。",
+          "token_usage": {
+            "prompt_tokens": 1726,
+            "completion_tokens": 41,
+            "image_tokens": 333
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\PID控制\\88be8164443ce7bd15bd50457675b7f26cd3f7ef069f36ba0d96d10f6d61a595.jpg",
+          "file_name": "dt=2025-06-15/ht=01/88be8164443ce7bd15bd50457675b7f26cd3f7ef069f36ba0d96d10f6d61a595.jpg",
+          "hash": "88be8164443ce7bd15bd50457675b7f26cd3f7ef069f36ba0d96d10f6d61a595.jpg",
+          "cached": true,
+          "judgment": "consistent",
+          "raw_response": "判断: 一致\n理由: 图片框图结构与LaTeX公式中定义的(1+PD)和PID控制器结构及信号流完全对应。",
+          "token_usage": {
+            "prompt_tokens": 1809,
+            "completion_tokens": 35,
+            "image_tokens": 416
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\PID控制\\1806f2a9b8aaf6b1b25b67147ff00bd7d10a20b67dc4b694569718d463b69191.jpg",
+          "file_name": "dt=2025-06-15/ht=01/1806f2a9b8aaf6b1b25b67147ff00bd7d10a20b67dc4b694569718d463b69191.jpg",
+          "hash": "1806f2a9b8aaf6b1b25b67147ff00bd7d10a20b67dc4b694569718d463b69191.jpg",
+          "cached": true,
+          "judgment": "consistent",
+          "raw_response": "判断: 部分一致  \n理由: 图片是优化算法流程图，与公式中描述的算法迭代逻辑相关，但未直接展示公式的具体数学形式。",
+          "token_usage": {
+            "prompt_tokens": 1943,
+            "completion_tokens": 39,
+            "image_tokens": 550
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\PID控制\\c4d51849bf407f9f187213256b1f0b8c53c59ea1c8f2b92b537c3606f04927a4.jpg",
+          "file_name": "dt=2025-06-15/ht=01/c4d51849bf407f9f187213256b1f0b8c53c59ea1c8f2b92b537c3606f04927a4.jpg",
+          "hash": "c4d51849bf407f9f187213256b1f0b8c53c59ea1c8f2b92b537c3606f04927a4.jpg",
+          "cached": true,
+          "judgment": "consistent",
+          "raw_response": "判断: 一致\n理由: 图片展示了不同优化算法下的频率偏差和联络线功率偏差响应曲线，与公式中的控制系统传递函数、控制器结构及性能指标直接对应。",
+          "token_usage": {
+            "prompt_tokens": 2991,
+            "completion_tokens": 40,
+            "image_tokens": 1598
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\PID控制\\eb8d0f44822bb358736eb8dc7bede7b87d43b830fbd6587d4871446d12a99b41.jpg",
+          "file_name": "dt=2025-06-15/ht=01/eb8d0f44822bb358736eb8dc7bede7b87d43b830fbd6587d4871446d12a99b41.jpg",
+          "hash": "eb8d0f44822bb358736eb8dc7bede7b87d43b830fbd6587d4871446d12a99b41.jpg",
+          "cached": true,
+          "judgment": "consistent",
+          "raw_response": "判断: 一致  \n理由: 图片展示了不同控制器下的频率和功率偏差响应曲线，是LaTeX公式中控制系统模型和目标函数的仿真实现结果。",
+          "token_usage": {
+            "prompt_tokens": 2947,
+            "completion_tokens": 37,
+            "image_tokens": 1554
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\PID控制\\5dc2fef5fc83c4ad4aba345225e6c943cd5d7a76d2c253c0d87d90faa674fc3e.jpg",
+          "file_name": "dt=2025-06-15/ht=01/5dc2fef5fc83c4ad4aba345225e6c943cd5d7a76d2c253c0d87d90faa674fc3e.jpg",
+          "hash": "5dc2fef5fc83c4ad4aba345225e6c943cd5d7a76d2c253c0d87d90faa674fc3e.jpg",
+          "cached": true,
+          "judgment": "consistent",
+          "raw_response": "判断: 部分一致\n理由: 图片展示了控制器参数优化结果，与公式中定义的PID控制器参数及优化目标一致。",
+          "token_usage": {
+            "prompt_tokens": 2096,
+            "completion_tokens": 32,
+            "image_tokens": 703
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\PID控制\\176014a67390b745b4ade8b0fc418012984d255cc546ddfdd22eb7fd3f73b9a8.jpg",
+          "file_name": "dt=2025-06-15/ht=01/176014a67390b745b4ade8b0fc418012984d255cc546ddfdd22eb7fd3f73b9a8.jpg",
+          "hash": "176014a67390b745b4ade8b0fc418012984d255cc546ddfdd22eb7fd3f73b9a8.jpg",
+          "cached": true,
+          "judgment": "consistent",
+          "raw_response": "判断: 部分一致  \n理由: 图片为性能对比表格，公式描述控制器与优化算法，两者在控制目标与变量上相关。",
+          "token_usage": {
+            "prompt_tokens": 1736,
+            "completion_tokens": 34,
+            "image_tokens": 343
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\PID控制\\7182796b6e93be5ddfd74806f26b46573d7dc01dc45b67fd4c635bd1e3c73298.jpg",
+          "file_name": "dt=2025-06-15/ht=01/7182796b6e93be5ddfd74806f26b46573d7dc01dc45b67fd4c635bd1e3c73298.jpg",
+          "hash": "7182796b6e93be5ddfd74806f26b46573d7dc01dc45b67fd4c635bd1e3c73298.jpg",
+          "cached": true,
+          "judgment": "consistent",
+          "raw_response": "判断: 不一致\n理由: 图片显示随机负载变化曲线，而LaTeX公式描述控制系统传递函数与优化算法，无直接数学对应。",
+          "token_usage": {
+            "prompt_tokens": 1967,
+            "completion_tokens": 33,
+            "image_tokens": 574
+          }
+        },
+        {
+          "path": null,
+          "file_name": "image",
+          "hash": "image",
+          "error": "Server error '502 Bad Gateway' for url 'https://api.sciverse.space/resource?file_name=image'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\PID控制\\ddb98b1c5938a78e0d732f17cd520ee455bebdfda5912860a634262599c67cc3.jpg",
+          "file_name": "dt=2025-06-15/ht=01/ddb98b1c5938a78e0d732f17cd520ee455bebdfda5912860a634262599c67cc3.jpg",
+          "hash": "ddb98b1c5938a78e0d732f17cd520ee455bebdfda5912860a634262599c67cc3.jpg",
+          "cached": true,
+          "judgment": "consistent",
+          "raw_response": "判断: 一致  \n理由: 图片展示了PID等控制器的频率响应曲线，与公式中的控制器传递函数及性能指标直接对应。",
+          "token_usage": {
+            "prompt_tokens": 3543,
+            "completion_tokens": 31,
+            "image_tokens": 2150
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\PID控制\\bd1d289eade6fb01771bd10ace38c9d84a295d5c9d8d5a9e4190f2db6209a144.jpg",
+          "file_name": "dt=2025-06-15/ht=01/bd1d289eade6fb01771bd10ace38c9d84a295d5c9d8d5a9e4190f2db6209a144.jpg",
+          "hash": "bd1d289eade6fb01771bd10ace38c9d84a295d5c9d8d5a9e4190f2db6209a144.jpg",
+          "cached": true,
+          "judgment": "consistent",
+          "raw_response": "判断: 一致\n理由: 图片展示了PID等控制器的频率响应曲线，直接对应公式中的控制器传递函数和优化目标。",
+          "token_usage": {
+            "prompt_tokens": 2947,
+            "completion_tokens": 30,
+            "image_tokens": 1554
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\PID控制\\61afd1137d769c82383f8d46eaffe73f2f9e0d7acddc44cb4383cfb1daf1ee91.jpg",
+          "file_name": "dt=2025-06-15/ht=01/61afd1137d769c82383f8d46eaffe73f2f9e0d7acddc44cb4383cfb1daf1ee91.jpg",
+          "hash": "61afd1137d769c82383f8d46eaffe73f2f9e0d7acddc44cb4383cfb1daf1ee91.jpg",
+          "cached": true,
+          "judgment": "consistent",
+          "raw_response": "判断: 一致  \n理由: 图片为仿真结果曲线，显示不同控制策略下的频率和功率偏差，与公式中的控制器模型、性能指标及优化目标直接对应。",
+          "token_usage": {
+            "prompt_tokens": 3021,
+            "completion_tokens": 39,
+            "image_tokens": 1628
+          }
+        }
+      ]
+    },
+    "估计与定位": {
+      "doc_id": "92f31daf7cb95740f119872880df96b729400b3cb90adf481c6d316eca34d07e",
+      "title": "Biomedical image understanding methods and applications",
+      "image_count_downloaded": 4,
+      "image_count_failed": 0,
+      "audit_summary": {
+        "consistent": 3,
+        "partial": 0,
+        "inconsistent": 0,
+        "uncertain": 1
+      },
+      "images": [
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\估计与定位\\90190518e8f1f0dccb1c46179b94d35b77b7ae43b60f104732586622d7d1b55a.jpg",
+          "file_name": "dt=2025-07-24/ht=03/90190518e8f1f0dccb1c46179b94d35b77b7ae43b60f104732586622d7d1b55a.jpg",
+          "hash": "90190518e8f1f0dccb1c46179b94d35b77b7ae43b60f104732586622d7d1b55a.jpg",
+          "cached": true,
+          "judgment": "consistent",
+          "raw_response": "判断: 不一致  \n理由: 图片为中文藏书章，与控制科学公式无语义关联。",
+          "token_usage": {
+            "prompt_tokens": 409,
+            "completion_tokens": 25,
+            "image_tokens": 91
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\估计与定位\\3d6515999b35ad84c7b65d609c39793f66f19f33117047d0015a23c8c7906127.jpg",
+          "file_name": "dt=2025-07-24/ht=03/3d6515999b35ad84c7b65d609c39793f66f19f33117047d0015a23c8c7906127.jpg",
+          "hash": "3d6515999b35ad84c7b65d609c39793f66f19f33117047d0015a23c8c7906127.jpg",
+          "cached": true,
+          "judgment": "uncertain",
+          "raw_response": "判断: 不确定\n理由: 图片为纯白空白页，无任何可视内容，无法与LaTeX公式建立语义联系。",
+          "token_usage": {
+            "prompt_tokens": 2697,
+            "completion_tokens": 31,
+            "image_tokens": 2379
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\估计与定位\\fc0f6f3d3a64a90124afc7fa3435df0242587022ba83085e683b82d8ca55f13b.jpg",
+          "file_name": "dt=2025-07-24/ht=03/fc0f6f3d3a64a90124afc7fa3435df0242587022ba83085e683b82d8ca55f13b.jpg",
+          "hash": "fc0f6f3d3a64a90124afc7fa3435df0242587022ba83085e683b82d8ca55f13b.jpg",
+          "cached": true,
+          "judgment": "consistent",
+          "raw_response": "判断: 不一致  \n理由: 图片为图像理解流程图，与数学公式描述的特定模型变量无直接语义关联。",
+          "token_usage": {
+            "prompt_tokens": 1118,
+            "completion_tokens": 30,
+            "image_tokens": 800
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\估计与定位\\e41cb16a79a8341e89d4d70188041416ba0ed4e80ef433c55e11dc6fd03d6761.jpg",
+          "file_name": "dt=2025-07-24/ht=03/e41cb16a79a8341e89d4d70188041416ba0ed4e80ef433c55e11dc6fd03d6761.jpg",
+          "hash": "e41cb16a79a8341e89d4d70188041416ba0ed4e80ef433c55e11dc6fd03d6761.jpg",
+          "cached": true,
+          "judgment": "consistent",
+          "raw_response": "判断: 不一致\n理由: 图片是分类方法列表，而LaTeX公式为空，两者无语义对应。",
+          "token_usage": {
+            "prompt_tokens": 1150,
+            "completion_tokens": 27,
+            "image_tokens": 832
+          }
+        }
+      ]
+    },
+    "导航制导与控制": {
+      "doc_id": "a9c6906d581efbd8476faa6aa391260fc08514a3eb96b2af9c49272e16d9c092",
+      "title": "The Supersonic BONE: A Development and Operational History of the B-1 Bomber",
+      "image_count_downloaded": 12,
+      "image_count_failed": 0,
+      "audit_summary": {
+        "consistent": 12,
+        "partial": 0,
+        "inconsistent": 0,
+        "uncertain": 0
+      },
+      "images": [
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\导航制导与控制\\9cfed3b73257d6b4ef3b8eeb339f4bbbc734bb06ab91d873299a0ce504cf9603.jpg",
+          "file_name": "dt=2025-11-10/ht=05/9cfed3b73257d6b4ef3b8eeb339f4bbbc734bb06ab91d873299a0ce504cf9603.jpg",
+          "hash": "9cfed3b73257d6b4ef3b8eeb339f4bbbc734bb06ab91d873299a0ce504cf9603.jpg",
+          "cached": true,
+          "judgment": "consistent",
+          "raw_response": "判断: 不一致\n理由: 图片为书籍封面，与控制科学或数学公式无关。",
+          "token_usage": {
+            "prompt_tokens": 2829,
+            "completion_tokens": 22,
+            "image_tokens": 2460
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\导航制导与控制\\1d377236fb0bd7d1fb14148d02e6a0d9e27f3a7968b4a3d744e006c26f026693.jpg",
+          "file_name": "dt=2025-11-10/ht=05/1d377236fb0bd7d1fb14148d02e6a0d9e27f3a7968b4a3d744e006c26f026693.jpg",
+          "hash": "1d377236fb0bd7d1fb14148d02e6a0d9e27f3a7968b4a3d744e006c26f026693.jpg",
+          "cached": true,
+          "judgment": "consistent",
+          "raw_response": "判断: 不一致  \n理由: 图片是书籍封面，与控制科学公式无关。",
+          "token_usage": {
+            "prompt_tokens": 2829,
+            "completion_tokens": 20,
+            "image_tokens": 2460
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\导航制导与控制\\86c3568b8b985ba378bc5935e67e82c515446b0b0760e2a13be63d7208f9628a.jpg",
+          "file_name": "dt=2025-11-10/ht=05/86c3568b8b985ba378bc5935e67e82c515446b0b0760e2a13be63d7208f9628a.jpg",
+          "hash": "86c3568b8b985ba378bc5935e67e82c515446b0b0760e2a13be63d7208f9628a.jpg",
+          "cached": true,
+          "judgment": "consistent",
+          "raw_response": "判断: 不一致  \n理由: 图片展示军机飞行，LaTeX公式缺失，无直接数学语义关联。",
+          "token_usage": {
+            "prompt_tokens": 1461,
+            "completion_tokens": 27,
+            "image_tokens": 1092
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\导航制导与控制\\c35ea6b07076dae6a65c939074cf11c7d6c2b05b5156ad5a7b97cd9408e9e15f.jpg",
+          "file_name": "dt=2025-11-10/ht=05/c35ea6b07076dae6a65c939074cf11c7d6c2b05b5156ad5a7b97cd9408e9e15f.jpg",
+          "hash": "c35ea6b07076dae6a65c939074cf11c7d6c2b05b5156ad5a7b97cd9408e9e15f.jpg",
+          "cached": true,
+          "judgment": "consistent",
+          "raw_response": "判断: 不一致  \n理由: 图片展示B-1轰炸机实体照片，与控制科学的数学公式无直接语义关联。",
+          "token_usage": {
+            "prompt_tokens": 1755,
+            "completion_tokens": 31,
+            "image_tokens": 1386
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\导航制导与控制\\cbe27447e952ad73a7d3536765cbabe5fb3684f23f4c3699f31626c0dbcb087d.jpg",
+          "file_name": "dt=2025-11-10/ht=05/cbe27447e952ad73a7d3536765cbabe5fb3684f23f4c3699f31626c0dbcb087d.jpg",
+          "hash": "cbe27447e952ad73a7d3536765cbabe5fb3684f23f4c3699f31626c0dbcb087d.jpg",
+          "cached": true,
+          "judgment": "consistent",
+          "raw_response": "判断: 不一致\n理由: 图片是火箭实物照片，LaTeX公式为空，无数学语义关联。",
+          "token_usage": {
+            "prompt_tokens": 1764,
+            "completion_tokens": 26,
+            "image_tokens": 1395
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\导航制导与控制\\7b5a25e34bf036c4ff874900f05653fd88148dce76182f6a355c4115c3909ebc.jpg",
+          "file_name": "dt=2025-11-10/ht=05/7b5a25e34bf036c4ff874900f05653fd88148dce76182f6a355c4115c3909ebc.jpg",
+          "hash": "7b5a25e34bf036c4ff874900f05653fd88148dce76182f6a355c4115c3909ebc.jpg",
+          "cached": true,
+          "judgment": "consistent",
+          "raw_response": "判断: 不一致  \n理由: 图片为B-1轰炸机实物照片，而LaTeX公式未提供，无法建立语义关联。",
+          "token_usage": {
+            "prompt_tokens": 837,
+            "completion_tokens": 32,
+            "image_tokens": 468
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\导航制导与控制\\8a94d8b375d63ff7a39e8ea0314c4c331fda3b4057f8fa7acf56a2a3a2b59640.jpg",
+          "file_name": "dt=2025-11-10/ht=05/8a94d8b375d63ff7a39e8ea0314c4c331fda3b4057f8fa7acf56a2a3a2b59640.jpg",
+          "hash": "8a94d8b375d63ff7a39e8ea0314c4c331fda3b4057f8fa7acf56a2a3a2b59640.jpg",
+          "cached": true,
+          "judgment": "consistent",
+          "raw_response": "判断: 不一致  \n理由: 图片是B-1轰炸机实景照片，与数学公式无直接语义关联。",
+          "token_usage": {
+            "prompt_tokens": 2133,
+            "completion_tokens": 28,
+            "image_tokens": 1764
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\导航制导与控制\\0512a76c1f7d3c9dd34b8dd3c54cf5bf323d9788e98cfb9dda67d3119d22ebb1.jpg",
+          "file_name": "dt=2025-11-10/ht=05/0512a76c1f7d3c9dd34b8dd3c54cf5bf323d9788e98cfb9dda67d3119d22ebb1.jpg",
+          "hash": "0512a76c1f7d3c9dd34b8dd3c54cf5bf323d9788e98cfb9dda67d3119d22ebb1.jpg",
+          "cached": true,
+          "judgment": "consistent",
+          "raw_response": "判断: 不一致  \n理由: 图片为B-1轰炸机实物照片，未涉及控制科学公式。",
+          "token_usage": {
+            "prompt_tokens": 1587,
+            "completion_tokens": 25,
+            "image_tokens": 1218
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\导航制导与控制\\dfecb5143b66c10c5433b8e014d9ad570d317c9ff968734b861145c60274dc5b.jpg",
+          "file_name": "dt=2025-11-10/ht=05/dfecb5143b66c10c5433b8e014d9ad570d317c9ff968734b861145c60274dc5b.jpg",
+          "hash": "dfecb5143b66c10c5433b8e014d9ad570d317c9ff968734b861145c60274dc5b.jpg",
+          "cached": true,
+          "judgment": "consistent",
+          "raw_response": "判断: 不一致  \n理由: 图片为B-1轰炸机实物照片，与控制科学数学公式无关。",
+          "token_usage": {
+            "prompt_tokens": 1587,
+            "completion_tokens": 26,
+            "image_tokens": 1218
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\导航制导与控制\\80c84c9c4aef527b372fdc35225c5781c26876bca1594b1d626e4f35e33ca381.jpg",
+          "file_name": "dt=2025-11-10/ht=05/80c84c9c4aef527b372fdc35225c5781c26876bca1594b1d626e4f35e33ca381.jpg",
+          "hash": "80c84c9c4aef527b372fdc35225c5781c26876bca1594b1d626e4f35e33ca381.jpg",
+          "cached": true,
+          "judgment": "consistent",
+          "raw_response": "判断: 不一致  \n理由: 图片为两架飞机实拍图，未呈现任何公式或数学语义。",
+          "token_usage": {
+            "prompt_tokens": 1517,
+            "completion_tokens": 27,
+            "image_tokens": 1148
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\导航制导与控制\\8aac3e0c04f728c2c6fd06288dd9631978631ed9d5f441650e09097ae3f7dcc4.jpg",
+          "file_name": "dt=2025-11-10/ht=05/8aac3e0c04f728c2c6fd06288dd9631978631ed9d5f441650e09097ae3f7dcc4.jpg",
+          "hash": "8aac3e0c04f728c2c6fd06288dd9631978631ed9d5f441650e09097ae3f7dcc4.jpg",
+          "cached": true,
+          "judgment": "consistent",
+          "raw_response": "判断: 不一致  \n理由: 图片是导弹发射场景，与LaTeX公式的数学描述无关。",
+          "token_usage": {
+            "prompt_tokens": 1587,
+            "completion_tokens": 24,
+            "image_tokens": 1218
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\导航制导与控制\\cbda2caac09cc5ce86a9398dd5dacfab162675d34f04d51503fb12afd566ae85.jpg",
+          "file_name": "dt=2025-11-10/ht=05/cbda2caac09cc5ce86a9398dd5dacfab162675d34f04d51503fb12afd566ae85.jpg",
+          "hash": "cbda2caac09cc5ce86a9398dd5dacfab162675d34f04d51503fb12afd566ae85.jpg",
+          "cached": true,
+          "judgment": "consistent",
+          "raw_response": "判断: 不一致  \n理由: 图片展示导弹实物，无控制科学公式相关数学元素。",
+          "token_usage": {
+            "prompt_tokens": 999,
+            "completion_tokens": 22,
+            "image_tokens": 630
+          }
+        }
+      ]
+    },
+    "控制理论": {
+      "doc_id": "444ecde2aeefcb7979ccec3b6ea5b55d988289fadf427afcecd5db94b369637b",
+      "title": "Lyapunov Theory-Based Robust Control",
+      "image_count_downloaded": 2,
+      "image_count_failed": 0,
+      "audit_summary": {
+        "consistent": 2,
+        "partial": 0,
+        "inconsistent": 0,
+        "uncertain": 0
+      },
+      "images": [
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\控制理论\\9b39f871a827a7cda631c8b45cc458a0a2d320f94834981ff1fe4a767e920866.jpg",
+          "file_name": "dt=2025-06-30/ht=04/9b39f871a827a7cda631c8b45cc458a0a2d320f94834981ff1fe4a767e920866.jpg",
+          "hash": "9b39f871a827a7cda631c8b45cc458a0a2d320f94834981ff1fe4a767e920866.jpg",
+          "mime": "image/jpeg",
+          "size": 83198,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 部分一致  \n理由: 图片为状态响应曲线，与公式中状态方程及稳定性条件相关，但未体现公式全部细节。",
+          "token_usage": {
+            "prompt_tokens": 1654,
+            "completion_tokens": 36,
+            "image_tokens": 420
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\控制理论\\42e80cc6825ad75f9c8233f564747603ed46a8514a3bb14959e870d355a75650.jpg",
+          "file_name": "dt=2025-06-30/ht=04/42e80cc6825ad75f9c8233f564747603ed46a8514a3bb14959e870d355a75650.jpg",
+          "hash": "42e80cc6825ad75f9c8233f564747603ed46a8514a3bb14959e870d355a75650.jpg",
+          "mime": "image/jpeg",
+          "size": 92762,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 一致\n理由: 图片展示了状态x1和x2随时间的衰减收敛过程，与公式描述的系统稳定性语义相符。",
+          "token_usage": {
+            "prompt_tokens": 1666,
+            "completion_tokens": 35,
+            "image_tokens": 432
+          }
+        }
+      ]
+    },
+    "数字控制": {
+      "doc_id": "8ee0b669c73ed753fc71743ff6bf35f916b4f7c4a3af094faa43401c8abb41dc",
+      "title": "The Control Handbook, Second Edition: Control System Fundamentals, Second Edition (Electrical Engineering Handbook)",
+      "image_count_downloaded": 9,
+      "image_count_failed": 0,
+      "audit_summary": {
+        "consistent": 7,
+        "partial": 0,
+        "inconsistent": 0,
+        "uncertain": 2
+      },
+      "images": [
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\数字控制\\8af66842371a9ca39c06bb8089b928f7eaccfab1db219db63e159b7ed23a953f.jpg",
+          "file_name": "dt=2025-10-10/ht=08/8af66842371a9ca39c06bb8089b928f7eaccfab1db219db63e159b7ed23a953f.jpg",
+          "hash": "8af66842371a9ca39c06bb8089b928f7eaccfab1db219db63e159b7ed23a953f.jpg",
+          "mime": "image/jpeg",
+          "size": 58799,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 不一致\n理由: 图片为风力发电机实景，与控制理论公式无直接数学语义关联。",
+          "token_usage": {
+            "prompt_tokens": 1403,
+            "completion_tokens": 27,
+            "image_tokens": 999
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\数字控制\\dcd45ab0d1a90d20cbc422ca2c6fb975bd619fad08ac65f9906a2ba150bc24e5.jpg",
+          "file_name": "dt=2025-10-10/ht=08/dcd45ab0d1a90d20cbc422ca2c6fb975bd619fad08ac65f9906a2ba150bc24e5.jpg",
+          "hash": "dcd45ab0d1a90d20cbc422ca2c6fb975bd619fad08ac65f9906a2ba150bc24e5.jpg",
+          "mime": "image/jpeg",
+          "size": 43627,
+          "cached": false,
+          "judgment": "uncertain",
+          "raw_response": "判断: 不确定\n理由: 公式代码缺失，无法评估图片与公式的语义相关性。",
+          "token_usage": {
+            "prompt_tokens": 3070,
+            "completion_tokens": 25,
+            "image_tokens": 2666
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\数字控制\\92899227a9dad03b9390e10318e1421888c13c2ffd26500105cc982584214091.jpg",
+          "file_name": "dt=2025-10-10/ht=08/92899227a9dad03b9390e10318e1421888c13c2ffd26500105cc982584214091.jpg",
+          "hash": "92899227a9dad03b9390e10318e1421888c13c2ffd26500105cc982584214091.jpg",
+          "mime": "image/jpeg",
+          "size": 43627,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 不一致\n理由: 图片为空白，无法与任何LaTeX公式建立语义相关性。",
+          "token_usage": {
+            "prompt_tokens": 3070,
+            "completion_tokens": 25,
+            "image_tokens": 2666
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\数字控制\\dda934a680eaf32e1380987752ad8af22d6c864a0f51ff50ca1b7e92313e96d4.jpg",
+          "file_name": "dt=2025-10-10/ht=08/dda934a680eaf32e1380987752ad8af22d6c864a0f51ff50ca1b7e92313e96d4.jpg",
+          "hash": "dda934a680eaf32e1380987752ad8af22d6c864a0f51ff50ca1b7e92313e96d4.jpg",
+          "mime": "image/jpeg",
+          "size": 43627,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 不一致\n理由: 图片为书籍封面，未展示任何控制科学图表或仿真曲线，与数学公式无关。",
+          "token_usage": {
+            "prompt_tokens": 3070,
+            "completion_tokens": 29,
+            "image_tokens": 2666
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\数字控制\\013a9beca73f42b3f1b24c164fbbad317701bf0982468bf09e14f24ccaeaefdd.jpg",
+          "file_name": "dt=2025-10-10/ht=08/013a9beca73f42b3f1b24c164fbbad317701bf0982468bf09e14f24ccaeaefdd.jpg",
+          "hash": "013a9beca73f42b3f1b24c164fbbad317701bf0982468bf09e14f24ccaeaefdd.jpg",
+          "mime": "image/jpeg",
+          "size": 43627,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 不一致  \n理由: 图片是空白页面，无任何视觉内容与公式相关。",
+          "token_usage": {
+            "prompt_tokens": 3070,
+            "completion_tokens": 22,
+            "image_tokens": 2666
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\数字控制\\b4ba9215f5d7351b218d74269700614e946b198641a7d7fa692cd25c378841fc.jpg",
+          "file_name": "dt=2025-10-10/ht=08/b4ba9215f5d7351b218d74269700614e946b198641a7d7fa692cd25c378841fc.jpg",
+          "hash": "b4ba9215f5d7351b218d74269700614e946b198641a7d7fa692cd25c378841fc.jpg",
+          "mime": "image/jpeg",
+          "size": 43627,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 不一致\n理由: 图片为书籍封面与标题页，无控制科学公式内容。",
+          "token_usage": {
+            "prompt_tokens": 3070,
+            "completion_tokens": 23,
+            "image_tokens": 2666
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\数字控制\\1042cbcd97008230ba5cb21ab4637e0462deda499c4c10208ef2139dc8588c42.jpg",
+          "file_name": "dt=2025-10-10/ht=08/1042cbcd97008230ba5cb21ab4637e0462deda499c4c10208ef2139dc8588c42.jpg",
+          "hash": "1042cbcd97008230ba5cb21ab4637e0462deda499c4c10208ef2139dc8588c42.jpg",
+          "mime": "image/jpeg",
+          "size": 43627,
+          "cached": false,
+          "judgment": "uncertain",
+          "raw_response": "判断: 不确定\n理由: 图片是空白页，无任何视觉内容，无法与公式进行语义比较。",
+          "token_usage": {
+            "prompt_tokens": 3070,
+            "completion_tokens": 27,
+            "image_tokens": 2666
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\数字控制\\5a82c372df1f00267ddb3f9b73278912962ae2e30949f0b8796422f574c558cb.jpg",
+          "file_name": "dt=2025-10-10/ht=08/5a82c372df1f00267ddb3f9b73278912962ae2e30949f0b8796422f574c558cb.jpg",
+          "hash": "5a82c372df1f00267ddb3f9b73278912962ae2e30949f0b8796422f574c558cb.jpg",
+          "mime": "image/jpeg",
+          "size": 23557,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 部分一致\n理由: 图片内容为输入-响应映射表，与公式描述的强迫响应形式有部分数学关联。",
+          "token_usage": {
+            "prompt_tokens": 579,
+            "completion_tokens": 34,
+            "image_tokens": 175
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\数字控制\\943c2804d32ff354e741e50063230d3331b2a17eccae5fdad163734e9a2555e4.jpg",
+          "file_name": "dt=2025-10-10/ht=08/943c2804d32ff354e741e50063230d3331b2a17eccae5fdad163734e9a2555e4.jpg",
+          "hash": "943c2804d32ff354e741e50063230d3331b2a17eccae5fdad163734e9a2555e4.jpg",
+          "mime": "image/jpeg",
+          "size": 19095,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 不一致\n理由: 图片为离散时间系统输入输出表格，公式为连续时间系统频域表达式，两者数学语义不同。",
+          "token_usage": {
+            "prompt_tokens": 537,
+            "completion_tokens": 35,
+            "image_tokens": 133
+          }
+        }
+      ]
+    },
+    "智能控制": {
+      "doc_id": "8fdb17583c52ac120af5a8a4f159d05e04275173c52b7c56b9a0d62516ab2070",
+      "title": "Temperature Control Algorithm of Underground Air Conditioning in Station",
+      "image_count_downloaded": 10,
+      "image_count_failed": 1,
+      "audit_summary": {
+        "consistent": 10,
+        "partial": 0,
+        "inconsistent": 0,
+        "uncertain": 0
+      },
+      "images": [
+        {
+          "path": null,
+          "file_name": "image",
+          "hash": "image",
+          "error": "Server error '502 Bad Gateway' for url 'https://api.sciverse.space/resource?file_name=image'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\智能控制\\e314127890ccb81a8acb771a08ca71cae319105a6872eecb752576839a30815d.jpg",
+          "file_name": "dt=2025-06-14/ht=01/e314127890ccb81a8acb771a08ca71cae319105a6872eecb752576839a30815d.jpg",
+          "hash": "e314127890ccb81a8acb771a08ca71cae319105a6872eecb752576839a30815d.jpg",
+          "mime": "image/jpeg",
+          "size": 32444,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 部分一致  \n理由: 图片展示了控制结构框图，包含状态变换、权重调整和控制对象，与LaTeX公式中的状态变量、权重更新和控制目标部分相关，但并非所有公式细节都能直接对应。",
+          "token_usage": {
+            "prompt_tokens": 1549,
+            "completion_tokens": 54,
+            "image_tokens": 385
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\智能控制\\9331c42413d78ee4eba6760ada8ada87abbac1d7cf89f49ff7583d6c3eb35b09.jpg",
+          "file_name": "dt=2025-06-14/ht=01/9331c42413d78ee4eba6760ada8ada87abbac1d7cf89f49ff7583d6c3eb35b09.jpg",
+          "hash": "9331c42413d78ee4eba6760ada8ada87abbac1d7cf89f49ff7583d6c3eb35b09.jpg",
+          "mime": "image/jpeg",
+          "size": 38171,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 一致\n理由: 框图展示的PID控制结构与优化算法对应公式中的误差定义、参数更新和优化目标。",
+          "token_usage": {
+            "prompt_tokens": 1584,
+            "completion_tokens": 32,
+            "image_tokens": 420
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\智能控制\\d741a9b2874062d4a1b7cb3732c68f0ebafd8d2f06a7ea3c41b3f26f71d128e7.jpg",
+          "file_name": "dt=2025-06-14/ht=01/d741a9b2874062d4a1b7cb3732c68f0ebafd8d2f06a7ea3c41b3f26f71d128e7.jpg",
+          "hash": "d741a9b2874062d4a1b7cb3732c68f0ebafd8d2f06a7ea3c41b3f26f71d128e7.jpg",
+          "mime": "image/jpeg",
+          "size": 101466,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 一致\n理由: 图片是蝙蝠算法的流程图，公式包含该算法的更新规则和寻优过程。",
+          "token_usage": {
+            "prompt_tokens": 2264,
+            "completion_tokens": 30,
+            "image_tokens": 1100
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\智能控制\\3ee2b679047e72ebfe444adb860441e24cad12f17787d9ad0b69be70832381cb.jpg",
+          "file_name": "dt=2025-06-14/ht=01/3ee2b679047e72ebfe444adb860441e24cad12f17787d9ad0b69be70832381cb.jpg",
+          "hash": "3ee2b679047e72ebfe444adb860441e24cad12f17787d9ad0b69be70832381cb.jpg",
+          "mime": "image/jpeg",
+          "size": 49605,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 一致\n理由: 图片展示的神经网络输入为历史输出/输入，与公式中向量X(k)的定义和模型预测输出结构一致。",
+          "token_usage": {
+            "prompt_tokens": 1450,
+            "completion_tokens": 38,
+            "image_tokens": 286
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\智能控制\\efe7fc4b58c2eb065b5400a6fc85af15b877ee771c332cc09e22f685c7d5964b.jpg",
+          "file_name": "dt=2025-06-14/ht=01/efe7fc4b58c2eb065b5400a6fc85af15b877ee771c332cc09e22f685c7d5964b.jpg",
+          "hash": "efe7fc4b58c2eb065b5400a6fc85af15b877ee771c332cc09e22f685c7d5964b.jpg",
+          "mime": "image/jpeg",
+          "size": 94924,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 部分一致  \n理由: 图片展示RLS与RBF的拟合误差曲线，公式描述RBF神经网络控制算法，二者主题相关但非直接对应。",
+          "token_usage": {
+            "prompt_tokens": 1516,
+            "completion_tokens": 42,
+            "image_tokens": 352
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\智能控制\\bac45d4b3c3ce9800723523801b82aea15ba19e8339a6fe67fb54276f46959bb.jpg",
+          "file_name": "dt=2025-06-14/ht=01/bac45d4b3c3ce9800723523801b82aea15ba19e8339a6fe67fb54276f46959bb.jpg",
+          "hash": "bac45d4b3c3ce9800723523801b82aea15ba19e8339a6fe67fb54276f46959bb.jpg",
+          "mime": "image/jpeg",
+          "size": 104001,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 不一致  \n理由: 图片展示PID参数优化结果，公式描述神经网络或模糊控制算法，两者数学语义不匹配。",
+          "token_usage": {
+            "prompt_tokens": 2640,
+            "completion_tokens": 32,
+            "image_tokens": 1476
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\智能控制\\21e9b99e4368c04ec266e06b40410edd776770d49b682d1c05f473942ed16117.jpg",
+          "file_name": "dt=2025-06-14/ht=01/21e9b99e4368c04ec266e06b40410edd776770d49b682d1c05f473942ed16117.jpg",
+          "hash": "21e9b99e4368c04ec266e06b40410edd776770d49b682d1c05f473942ed16117.jpg",
+          "mime": "image/jpeg",
+          "size": 64803,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 一致\n理由: 图片展示了一个控制系统的阶跃响应曲线，与公式中描述的误差、权重更新等控制算法数学模型语义一致。",
+          "token_usage": {
+            "prompt_tokens": 1660,
+            "completion_tokens": 37,
+            "image_tokens": 496
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\智能控制\\70256313033b0667ae935bea0d14025c30ea229f46020693b838c353e10376e8.jpg",
+          "file_name": "dt=2025-06-14/ht=01/70256313033b0667ae935bea0d14025c30ea229f46020693b838c353e10376e8.jpg",
+          "hash": "70256313033b0667ae935bea0d14025c30ea229f46020693b838c353e10376e8.jpg",
+          "mime": "image/jpeg",
+          "size": 49178,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 一致  \n理由: 图片展示了控制系统响应曲线，公式描述了神经网络控制算法的误差与权重更新，语义上均指向控制过程。",
+          "token_usage": {
+            "prompt_tokens": 1779,
+            "completion_tokens": 36,
+            "image_tokens": 615
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\智能控制\\45a74c3479c147fe1092757fda42d7904b8a104b8258b962434dd63727c8a35b.jpg",
+          "file_name": "dt=2025-06-14/ht=01/45a74c3479c147fe1092757fda42d7904b8a104b8258b962434dd63727c8a35b.jpg",
+          "hash": "45a74c3479c147fe1092757fda42d7904b8a104b8258b962434dd63727c8a35b.jpg",
+          "mime": "image/jpeg",
+          "size": 40257,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 一致\n理由: 图片是单神经元PID控制框图，公式描述了其误差、状态变量和权值更新算法。",
+          "token_usage": {
+            "prompt_tokens": 1584,
+            "completion_tokens": 33,
+            "image_tokens": 420
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\智能控制\\6b5387956538138fb18f270f52dfaaae1f59a618691152a02b0a4d3792081db8.jpg",
+          "file_name": "dt=2025-06-14/ht=01/6b5387956538138fb18f270f52dfaaae1f59a618691152a02b0a4d3792081db8.jpg",
+          "hash": "6b5387956538138fb18f270f52dfaaae1f59a618691152a02b0a4d3792081db8.jpg",
+          "mime": "image/jpeg",
+          "size": 31374,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 不一致\n理由: 图片显示控制量u的响应曲线，但公式描述的是神经网络与粒子群优化算法。",
+          "token_usage": {
+            "prompt_tokens": 1521,
+            "completion_tokens": 30,
+            "image_tokens": 357
+          }
+        }
+      ]
+    },
+    "最优控制": {
+      "doc_id": "dbf670320419217052239b887afc69081fcf0bb588177908ade5daeb385aea11",
+      "title": "The principle of maximum in the imitative control tasks",
+      "image_count_downloaded": 0,
+      "image_count_failed": 0,
+      "audit_summary": {
+        "consistent": 0,
+        "partial": 0,
+        "inconsistent": 0,
+        "uncertain": 0
+      },
+      "images": []
+    },
+    "现代控制": {
+      "doc_id": "de95e80dcad86151e271321b30aa3091ad6768b024799d249a6e8609ac6df7c5",
+      "title": "Quantum feedback: Theory, experiments, and applications",
+      "image_count_downloaded": 2,
+      "image_count_failed": 0,
+      "audit_summary": {
+        "consistent": 2,
+        "partial": 0,
+        "inconsistent": 0,
+        "uncertain": 0
+      },
+      "images": [
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\现代控制\\987843a645c05ad00e3745cd5b852b9b9d03ab5ab3f88864869f3ce9e6b4c932.jpg",
+          "file_name": "dt=2025-08-06/ht=16/987843a645c05ad00e3745cd5b852b9b9d03ab5ab3f88864869f3ce9e6b4c932.jpg",
+          "hash": "987843a645c05ad00e3745cd5b852b9b9d03ab5ab3f88864869f3ce9e6b4c932.jpg",
+          "mime": "image/jpeg",
+          "size": 79998,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 不一致  \n理由: 图片展示反馈控制系统框图，而LaTeX公式为量子反馈的文献信息，无数学语义关联。",
+          "token_usage": {
+            "prompt_tokens": 1067,
+            "completion_tokens": 33,
+            "image_tokens": 700
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\现代控制\\08e209098a2ba681edf42ebd494aeef38c3b068e5a38dbd7f644759867fc78ab.jpg",
+          "file_name": "dt=2025-08-06/ht=16/08e209098a2ba681edf42ebd494aeef38c3b068e5a38dbd7f644759867fc78ab.jpg",
+          "hash": "08e209098a2ba681edf42ebd494aeef38c3b068e5a38dbd7f644759867fc78ab.jpg",
+          "mime": "image/jpeg",
+          "size": 26739,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 不一致  \n理由: 图片展示光学腔系统结构，公式描述热力学量，无直接语义关联。",
+          "token_usage": {
+            "prompt_tokens": 727,
+            "completion_tokens": 28,
+            "image_tokens": 360
+          }
+        }
+      ]
+    },
+    "线性系统": {
+      "doc_id": "7a3cbdb356786f9ed6ad952b986c088f4e8dd646e15458b8dc4a25dcbd87adab",
+      "title": "Quantum Field Theory III: Gauge Theory: A Bridge between Mathematicians and Physicists",
+      "image_count_downloaded": 3,
+      "image_count_failed": 0,
+      "audit_summary": {
+        "consistent": 1,
+        "partial": 0,
+        "inconsistent": 0,
+        "uncertain": 2
+      },
+      "images": [
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\线性系统\\8d6239a43470ef83a5d8906daa990efa485fc8a7125f98e68fc4d5a6839fb77f.jpg",
+          "file_name": "dt=2025-10-11/ht=01/8d6239a43470ef83a5d8906daa990efa485fc8a7125f98e68fc4d5a6839fb77f.jpg",
+          "hash": "8d6239a43470ef83a5d8906daa990efa485fc8a7125f98e68fc4d5a6839fb77f.jpg",
+          "mime": "image/jpeg",
+          "size": 35427,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 不一致\n理由: 图片为书籍封面，无控制科学或数学公式内容。",
+          "token_usage": {
+            "prompt_tokens": 2508,
+            "completion_tokens": 22,
+            "image_tokens": 2146
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\线性系统\\46a307c8936a2dfbb70ce81f0f82a077cb1b292e6c8181f60923e0869141b9c8.jpg",
+          "file_name": "dt=2025-10-11/ht=01/46a307c8936a2dfbb70ce81f0f82a077cb1b292e6c8181f60923e0869141b9c8.jpg",
+          "hash": "46a307c8936a2dfbb70ce81f0f82a077cb1b292e6c8181f60923e0869141b9c8.jpg",
+          "mime": "image/jpeg",
+          "size": 35427,
+          "cached": false,
+          "judgment": "uncertain",
+          "raw_response": "判断: 不确定\n理由: 提供的图片内容为空白，无法进行视觉内容与LaTeX公式的语义相关性判断。",
+          "token_usage": {
+            "prompt_tokens": 2508,
+            "completion_tokens": 31,
+            "image_tokens": 2146
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\线性系统\\dd6ec520d26a0f10c0742f1ea52e7b5661420695a689280ff74249862996e147.jpg",
+          "file_name": "dt=2025-10-11/ht=01/dd6ec520d26a0f10c0742f1ea52e7b5661420695a689280ff74249862996e147.jpg",
+          "hash": "dd6ec520d26a0f10c0742f1ea52e7b5661420695a689280ff74249862996e147.jpg",
+          "mime": "image/jpeg",
+          "size": 35427,
+          "cached": false,
+          "judgment": "uncertain",
+          "raw_response": "判断: 不确定\n理由: 图片为书籍封面，无具体数学公式或控制科学图表，无法判断语义相关性。",
+          "token_usage": {
+            "prompt_tokens": 2508,
+            "completion_tokens": 30,
+            "image_tokens": 2146
+          }
+        }
+      ]
+    },
+    "经典控制": {
+      "doc_id": "0388b1a89e76ccf34f73bb7e5b62a4bbf540b3e521093772fa21e5f15d7e63b5",
+      "title": "Space Vehicle Dynamics and Control (Kids Go)",
+      "image_count_downloaded": 1,
+      "image_count_failed": 1,
+      "audit_summary": {
+        "consistent": 1,
+        "partial": 0,
+        "inconsistent": 0,
+        "uncertain": 0
+      },
+      "images": [
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\经典控制\\a130734ead2c63a623ce2f0325606594ac49241c38c21f41f1ca6f7cd23bef70.jpg",
+          "file_name": "dt=2025-10-10/ht=00/a130734ead2c63a623ce2f0325606594ac49241c38c21f41f1ca6f7cd23bef70.jpg",
+          "hash": "a130734ead2c63a623ce2f0325606594ac49241c38c21f41f1ca6f7cd23bef70.jpg",
+          "mime": "image/jpeg",
+          "size": 11735,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 一致  \n理由: 图片展示了两个坐标系，分别标注了向量$\\vec{a}_{1},\\vec{a}_{2},\\vec{a}_{3}$和$\\vec{i},\\vec{j},\\vec{k}$，与公式内容完全对应。",
+          "token_usage": {
+            "prompt_tokens": 536,
+            "completion_tokens": 61,
+            "image_tokens": 189
+          }
+        },
+        {
+          "path": null,
+          "file_name": "'img_url'",
+          "hash": "'img_url'",
+          "error": "Server error '502 Bad Gateway' for url 'https://api.sciverse.space/resource?file_name=%27img_url%27'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
+        }
+      ]
+    },
+    "自抗扰控制": {
+      "doc_id": "c152fe5cf9facec77c6a5013d7ad87b90509550f12b35c54bd572d957787361c",
+      "title": "Fractional active disturbance rejection control",
+      "image_count_downloaded": 0,
+      "image_count_failed": 1,
+      "audit_summary": {
+        "consistent": 0,
+        "partial": 0,
+        "inconsistent": 0,
+        "uncertain": 0
+      },
+      "images": [
+        {
+          "path": null,
+          "file_name": "'img_url'",
+          "hash": "'img_url'",
+          "error": "Server error '502 Bad Gateway' for url 'https://api.sciverse.space/resource?file_name=%27img_url%27'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
+        }
+      ]
+    },
+    "自适应控制": {
+      "doc_id": "84f6e4d17f9a4b121189adcfef60e05d4724671c0b13073e1f6c1d46242b4df4",
+      "title": "Adaptive Control Design for n-th order Nonlinearly Multiplicative Parameterized Systems with Triangular Structure and Application",
+      "image_count_downloaded": 8,
+      "image_count_failed": 0,
+      "audit_summary": {
+        "consistent": 4,
+        "partial": 0,
+        "inconsistent": 0,
+        "uncertain": 4
+      },
+      "images": [
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\自适应控制\\46279c4a17a295293c810f6092511107b55183136711242aa27dc2315a4bf187.jpg",
+          "file_name": "dt=2025-07-05/ht=03/46279c4a17a295293c810f6092511107b55183136711242aa27dc2315a4bf187.jpg",
+          "hash": "46279c4a17a295293c810f6092511107b55183136711242aa27dc2315a4bf187.jpg",
+          "mime": "image/jpeg",
+          "size": 21344,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 一致  \n理由: 图片展示的饱和函数与公式中的 `sat(z_i/\\epsilon_i)` 定义直接对应。",
+          "token_usage": {
+            "prompt_tokens": 1390,
+            "completion_tokens": 31,
+            "image_tokens": 84
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\自适应控制\\4a7f026bdf6fb803313895318a7d2b9e5214313d644aa2c1ec211f40408e3e29.jpg",
+          "file_name": "dt=2025-07-05/ht=03/4a7f026bdf6fb803313895318a7d2b9e5214313d644aa2c1ec211f40408e3e29.jpg",
+          "hash": "4a7f026bdf6fb803313895318a7d2b9e5214313d644aa2c1ec211f40408e3e29.jpg",
+          "mime": "image/jpeg",
+          "size": 51350,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 不一致  \n理由: 图片为电机参数表格，未体现公式中的状态方程或控制变量语义。",
+          "token_usage": {
+            "prompt_tokens": 1411,
+            "completion_tokens": 28,
+            "image_tokens": 105
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\自适应控制\\3836320317e9d75ed2b5de8e47c3b5ac951fb54b2240f475067d1ed9615c9733.jpg",
+          "file_name": "dt=2025-07-05/ht=03/3836320317e9d75ed2b5de8e47c3b5ac951fb54b2240f475067d1ed9615c9733.jpg",
+          "hash": "3836320317e9d75ed2b5de8e47c3b5ac951fb54b2240f475067d1ed9615c9733.jpg",
+          "mime": "image/jpeg",
+          "size": 98780,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 一致  \n理由: 图片展示了状态变量、估计参数及控制输入的时域响应，与自适应反步法公式的动态行为相符。",
+          "token_usage": {
+            "prompt_tokens": 1663,
+            "completion_tokens": 36,
+            "image_tokens": 357
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\自适应控制\\3837a43666bd792e48746ad66e08c7398658a93b01b6202779049d30796ae360.jpg",
+          "file_name": "dt=2025-07-05/ht=03/3837a43666bd792e48746ad66e08c7398658a93b01b6202779049d30796ae360.jpg",
+          "hash": "3837a43666bd792e48746ad66e08c7398658a93b01b6202779049d30796ae360.jpg",
+          "mime": "image/jpeg",
+          "size": 94251,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 一致\n理由: 图片展示了自适应控制系统的状态、误差及控制输入仿真曲线，与公式描述的控制算法动态特性直接相关。",
+          "token_usage": {
+            "prompt_tokens": 1663,
+            "completion_tokens": 35,
+            "image_tokens": 357
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\自适应控制\\168905ad2b787e5f276b552c3cec70bf27054d44793d8dd48c80717baca9c8de.jpg",
+          "file_name": "dt=2025-07-05/ht=03/168905ad2b787e5f276b552c3cec70bf27054d44793d8dd48c80717baca9c8de.jpg",
+          "hash": "168905ad2b787e5f276b552c3cec70bf27054d44793d8dd48c80717baca9c8de.jpg",
+          "mime": "image/jpeg",
+          "size": 16137,
+          "cached": false,
+          "judgment": "uncertain",
+          "raw_response": "The request was rejected because it was considered high risk",
+          "token_usage": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\自适应控制\\748f7ec5e4ff27773ff257f3e8af572ed3c93bc60334819a2855bb5d8d68cb89.jpg",
+          "file_name": "dt=2025-07-05/ht=03/748f7ec5e4ff27773ff257f3e8af572ed3c93bc60334819a2855bb5d8d68cb89.jpg",
+          "hash": "748f7ec5e4ff27773ff257f3e8af572ed3c93bc60334819a2855bb5d8d68cb89.jpg",
+          "mime": "image/jpeg",
+          "size": 15386,
+          "cached": false,
+          "judgment": "uncertain",
+          "raw_response": "The request was rejected because it was considered high risk",
+          "token_usage": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "image_tokens": 0
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\自适应控制\\96b5272a8ca3cc0f67dc85ff9cf1cc804a52a3a47f25a00f87dbd9a4808824ed.jpg",
+          "file_name": "dt=2025-07-05/ht=03/96b5272a8ca3cc0f67dc85ff9cf1cc804a52a3a47f25a00f87dbd9a4808824ed.jpg",
+          "hash": "96b5272a8ca3cc0f67dc85ff9cf1cc804a52a3a47f25a00f87dbd9a4808824ed.jpg",
+          "mime": "image/jpeg",
+          "size": 15344,
+          "cached": false,
+          "judgment": "uncertain",
+          "raw_response": "判断: 不确定\n理由: 图片为人物肖像，无法提取控制工程图表或数学语义进行关联。",
+          "token_usage": {
+            "prompt_tokens": 1326,
+            "completion_tokens": 27,
+            "image_tokens": 20
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\自适应控制\\82ee504e6153ea4253fce7a9ffdbc5acad4336eef3a5f95bb60a42a690aecc8b.jpg",
+          "file_name": "dt=2025-07-05/ht=03/82ee504e6153ea4253fce7a9ffdbc5acad4336eef3a5f95bb60a42a690aecc8b.jpg",
+          "hash": "82ee504e6153ea4253fce7a9ffdbc5acad4336eef3a5f95bb60a42a690aecc8b.jpg",
+          "mime": "image/jpeg",
+          "size": 15202,
+          "cached": false,
+          "judgment": "uncertain",
+          "raw_response": "The request was rejected because it was considered high risk",
+          "token_usage": {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "image_tokens": 0
+          }
+        }
+      ]
+    },
+    "非线性控制": {
+      "doc_id": "8aa79330e3ebbc68efde9b4098f8abb381601b1d46243e37e2ea0ed197bdba9f",
+      "title": "Experimental validation of a nonlinear backstepping liquid level controller for a state coupled two tank system",
+      "image_count_downloaded": 14,
+      "image_count_failed": 1,
+      "audit_summary": {
+        "consistent": 14,
+        "partial": 0,
+        "inconsistent": 0,
+        "uncertain": 0
+      },
+      "images": [
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\非线性控制\\e1bc6201a497021f1e7af099a4937905fb53cc392a7a4e844aa936de7636b6be.jpg",
+          "file_name": "dt=2025-06-28/ht=06/e1bc6201a497021f1e7af099a4937905fb53cc392a7a4e844aa936de7636b6be.jpg",
+          "hash": "e1bc6201a497021f1e7af099a4937905fb53cc392a7a4e844aa936de7636b6be.jpg",
+          "mime": "image/jpeg",
+          "size": 24107,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 一致\n理由: 图片是双水箱系统框图，公式描述该系统的液位动态方程和控制器，语义直接对应。",
+          "token_usage": {
+            "prompt_tokens": 1559,
+            "completion_tokens": 35,
+            "image_tokens": 238
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\非线性控制\\44dd51bee1d72ecca20d8328fa9c00464ebc7a9caf07baa52250ea3a302a4d31.jpg",
+          "file_name": "dt=2025-06-28/ht=06/44dd51bee1d72ecca20d8328fa9c00464ebc7a9caf07baa52250ea3a302a4d31.jpg",
+          "hash": "44dd51bee1d72ecca20d8328fa9c00464ebc7a9caf07baa52250ea3a302a4d31.jpg",
+          "mime": "image/jpeg",
+          "size": 48841,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 部分一致\n理由: 图表列出了公式中的物理量符号和数值，但未展示公式的动态方程或系统结构。",
+          "token_usage": {
+            "prompt_tokens": 1482,
+            "completion_tokens": 35,
+            "image_tokens": 161
+          }
+        },
+        {
+          "path": null,
+          "file_name": "image",
+          "hash": "image",
+          "error": "Server error '502 Bad Gateway' for url 'https://api.sciverse.space/resource?file_name=image'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/502"
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\非线性控制\\2405b345c676f784ec5fabf236749d00a281946c0d1ea1c6c4a121bcd1ca49d1.jpg",
+          "file_name": "dt=2025-06-28/ht=06/2405b345c676f784ec5fabf236749d00a281946c0d1ea1c6c4a121bcd1ca49d1.jpg",
+          "hash": "2405b345c676f784ec5fabf236749d00a281946c0d1ea1c6c4a121bcd1ca49d1.jpg",
+          "mime": "image/jpeg",
+          "size": 160358,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 一致  \n理由: 图片展示了双水箱系统的液位跟踪曲线与误差曲线，与公式描述的双水箱系统模型及跟踪误差定义直接对应。",
+          "token_usage": {
+            "prompt_tokens": 2095,
+            "completion_tokens": 39,
+            "image_tokens": 774
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\非线性控制\\ed72a85f184deecbcd07e8d738d74000efe4ba79aec7a3d3f59f5b3415ec27c3.jpg",
+          "file_name": "dt=2025-06-28/ht=06/ed72a85f184deecbcd07e8d738d74000efe4ba79aec7a3d3f59f5b3415ec27c3.jpg",
+          "hash": "ed72a85f184deecbcd07e8d738d74000efe4ba79aec7a3d3f59f5b3415ec27c3.jpg",
+          "mime": "image/jpeg",
+          "size": 131261,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 部分一致  \n理由: 图片显示控制输入曲线，公式描述了水位系统模型及控制律，二者同属控制过程但未直接对应。",
+          "token_usage": {
+            "prompt_tokens": 2113,
+            "completion_tokens": 39,
+            "image_tokens": 792
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\非线性控制\\59882796d73d97c3329f7b8a652875c4f4a905514faebe97e14f5d72d3b8a6a7.jpg",
+          "file_name": "dt=2025-06-28/ht=06/59882796d73d97c3329f7b8a652875c4f4a905514faebe97e14f5d72d3b8a6a7.jpg",
+          "hash": "59882796d73d97c3329f7b8a652875c4f4a905514faebe97e14f5d72d3b8a6a7.jpg",
+          "mime": "image/jpeg",
+          "size": 134568,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 一致\n理由: 图片展示双水箱系统中水箱2液位跟踪与误差，与公式描述的液位控制模型及误差定义完全对应。",
+          "token_usage": {
+            "prompt_tokens": 2095,
+            "completion_tokens": 39,
+            "image_tokens": 774
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\非线性控制\\7b9d72c2e9b5b4742cdf6f0a122bc7b195733818e6c2eaaa112170b0bb858cf8.jpg",
+          "file_name": "dt=2025-06-28/ht=06/7b9d72c2e9b5b4742cdf6f0a122bc7b195733818e6c2eaaa112170b0bb858cf8.jpg",
+          "hash": "7b9d72c2e9b5b4742cdf6f0a122bc7b195733818e6c2eaaa112170b0bb858cf8.jpg",
+          "mime": "image/jpeg",
+          "size": 151351,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 一致  \n理由: 图片展示了液位跟踪误差曲线，与公式中定义的误差 e(t) 及跟踪目标 L₂d(t) 直接相关。",
+          "token_usage": {
+            "prompt_tokens": 2113,
+            "completion_tokens": 40,
+            "image_tokens": 792
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\非线性控制\\060e876cdda2fd03dd06a48ad8de98cb58653947eef84267eb771a8b07da0b0f.jpg",
+          "file_name": "dt=2025-06-28/ht=06/060e876cdda2fd03dd06a48ad8de98cb58653947eef84267eb771a8b07da0b0f.jpg",
+          "hash": "060e876cdda2fd03dd06a48ad8de98cb58653947eef84267eb771a8b07da0b0f.jpg",
+          "mime": "image/jpeg",
+          "size": 188533,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 一致\n理由: 图片展示了控制输入$V_p(t)$的响应曲线，与LaTeX公式中描述的控制律和系统动态直接相关。",
+          "token_usage": {
+            "prompt_tokens": 2069,
+            "completion_tokens": 37,
+            "image_tokens": 748
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\非线性控制\\0253e0a45081a225c25df7f9ca38f381aa4d256d465d0c31d2ef5922d85747e1.jpg",
+          "file_name": "dt=2025-06-28/ht=06/0253e0a45081a225c25df7f9ca38f381aa4d256d465d0c31d2ef5922d85747e1.jpg",
+          "hash": "0253e0a45081a225c25df7f9ca38f381aa4d256d465d0c31d2ef5922d85747e1.jpg",
+          "mime": "image/jpeg",
+          "size": 139011,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 一致\n理由: 图片展示了双水箱系统液位跟踪及其误差曲线，与公式描述的液位动力学模型和控制目标一致。",
+          "token_usage": {
+            "prompt_tokens": 2095,
+            "completion_tokens": 36,
+            "image_tokens": 774
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\非线性控制\\1b5d9af6380981b41cab03038f54df5ef090be38501cc2fa399b0b12d89deeee.jpg",
+          "file_name": "dt=2025-06-28/ht=06/1b5d9af6380981b41cab03038f54df5ef090be38501cc2fa399b0b12d89deeee.jpg",
+          "hash": "1b5d9af6380981b41cab03038f54df5ef090be38501cc2fa399b0b12d89deeee.jpg",
+          "mime": "image/jpeg",
+          "size": 152080,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 一致\n理由: 图片展示了公式描述的双水箱系统液位跟踪误差与实际液位曲线。",
+          "token_usage": {
+            "prompt_tokens": 2052,
+            "completion_tokens": 28,
+            "image_tokens": 731
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\非线性控制\\0b32dafaaa62b0392ac4c01f039fdb0a97c949c1ebe7fab9a421f7ea948be12a.jpg",
+          "file_name": "dt=2025-06-28/ht=06/0b32dafaaa62b0392ac4c01f039fdb0a97c949c1ebe7fab9a421f7ea948be12a.jpg",
+          "hash": "0b32dafaaa62b0392ac4c01f039fdb0a97c949c1ebe7fab9a421f7ea948be12a.jpg",
+          "mime": "image/jpeg",
+          "size": 189958,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 部分一致\n理由: 图片显示控制输入响应曲线，公式定义了控制输入信号，但公式还包含系统模型和误差动态，图片未直接体现。",
+          "token_usage": {
+            "prompt_tokens": 2052,
+            "completion_tokens": 41,
+            "image_tokens": 731
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\非线性控制\\4c6cf6f7c73ef55951afba095559d5ab405e3cd1d7fd29b1864c75c31d054fb5.jpg",
+          "file_name": "dt=2025-06-28/ht=06/4c6cf6f7c73ef55951afba095559d5ab405e3cd1d7fd29b1864c75c31d054fb5.jpg",
+          "hash": "4c6cf6f7c73ef55951afba095559d5ab405e3cd1d7fd29b1864c75c31d054fb5.jpg",
+          "mime": "image/jpeg",
+          "size": 103769,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 不一致  \n理由: 图片显示参数θ和d₂的时域响应，而公式描述双水箱系统的液位动态与控制律，变量不匹配。",
+          "token_usage": {
+            "prompt_tokens": 2077,
+            "completion_tokens": 39,
+            "image_tokens": 756
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\非线性控制\\8888f177c6f36d22fc981bc5e9482f9d53a8710a265404ce9c3e661019ef433f.jpg",
+          "file_name": "dt=2025-06-28/ht=06/8888f177c6f36d22fc981bc5e9482f9d53a8710a265404ce9c3e661019ef433f.jpg",
+          "hash": "8888f177c6f36d22fc981bc5e9482f9d53a8710a265404ce9c3e661019ef433f.jpg",
+          "mime": "image/jpeg",
+          "size": 156670,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 一致  \n理由: 图片展示液位跟踪曲线和误差，直接对应公式中的L2(t)、e(t)及正弦参考轨迹。",
+          "token_usage": {
+            "prompt_tokens": 2095,
+            "completion_tokens": 36,
+            "image_tokens": 774
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\非线性控制\\a695296967384b0acee70b0a0c548cb39fb0c945a6b6e3ac234ebb24d1276ef0.jpg",
+          "file_name": "dt=2025-06-28/ht=06/a695296967384b0acee70b0a0c548cb39fb0c945a6b6e3ac234ebb24d1276ef0.jpg",
+          "hash": "a695296967384b0acee70b0a0c548cb39fb0c945a6b6e3ac234ebb24d1276ef0.jpg",
+          "mime": "image/jpeg",
+          "size": 153324,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 一致\n理由: 图片展示双水箱系统的液位跟踪曲线和误差曲线，与公式描述的液位动态模型及控制目标直接对应。",
+          "token_usage": {
+            "prompt_tokens": 2095,
+            "completion_tokens": 37,
+            "image_tokens": 774
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\非线性控制\\2b4fae34134211565bef71a19b91f4ca04f227cd0d951d22c28a3dc7e471ae46.jpg",
+          "file_name": "dt=2025-06-28/ht=06/2b4fae34134211565bef71a19b91f4ca04f227cd0d951d22c28a3dc7e471ae46.jpg",
+          "hash": "2b4fae34134211565bef71a19b91f4ca04f227cd0d951d22c28a3dc7e471ae46.jpg",
+          "mime": "image/jpeg",
+          "size": 157193,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 一致\n理由: 图片展示了双水箱系统液位跟踪与误差的仿真结果，直接对应公式描述的液位动力学与控制器设计。",
+          "token_usage": {
+            "prompt_tokens": 2113,
+            "completion_tokens": 37,
+            "image_tokens": 792
+          }
+        }
+      ]
+    },
+    "鲁棒控制": {
+      "doc_id": "01a65332e4241387937be3b1fffe114feafa4bcacc1880d2f45ae4b418948198",
+      "title": "Helicopter H∞ control design with robust flying quality",
+      "image_count_downloaded": 14,
+      "image_count_failed": 0,
+      "audit_summary": {
+        "consistent": 14,
+        "partial": 0,
+        "inconsistent": 0,
+        "uncertain": 0
+      },
+      "images": [
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\鲁棒控制\\7ff15961270ad3ea1473fd01412a1a59ae728792be22b03ab6f5abf8df6b6800.jpg",
+          "file_name": "dt=2025-06-23/ht=16/7ff15961270ad3ea1473fd01412a1a59ae728792be22b03ab6f5abf8df6b6800.jpg",
+          "hash": "7ff15961270ad3ea1473fd01412a1a59ae728792be22b03ab6f5abf8df6b6800.jpg",
+          "mime": "image/jpeg",
+          "size": 112833,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 部分一致  \n理由: 图片为控制设计流程框图，公式为直升机非线性动力学模型，二者内容相关但抽象层次不同。",
+          "token_usage": {
+            "prompt_tokens": 1970,
+            "completion_tokens": 38,
+            "image_tokens": 589
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\鲁棒控制\\73013a49bbcb9abb3d763ad0b2b1972c7a38e11901db4206e49cac8e08e88792.jpg",
+          "file_name": "dt=2025-06-23/ht=16/73013a49bbcb9abb3d763ad0b2b1972c7a38e11901db4206e49cac8e08e88792.jpg",
+          "hash": "73013a49bbcb9abb3d763ad0b2b1972c7a38e11901db4206e49cac8e08e88792.jpg",
+          "mime": "image/jpeg",
+          "size": 151269,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 一致\n理由: 图片为直升机动力学建模参数表，与公式中运动方程及参数定义直接对应。",
+          "token_usage": {
+            "prompt_tokens": 2149,
+            "completion_tokens": 31,
+            "image_tokens": 768
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\鲁棒控制\\d02627e2c58690307237aad9b2a7720dc0bb3a5d8841d19c54e20f20298aaa22.jpg",
+          "file_name": "dt=2025-06-23/ht=16/d02627e2c58690307237aad9b2a7720dc0bb3a5d8841d19c54e20f20298aaa22.jpg",
+          "hash": "d02627e2c58690307237aad9b2a7720dc0bb3a5d8841d19c54e20f20298aaa22.jpg",
+          "mime": "image/jpeg",
+          "size": 42056,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 不一致\n理由: 公式是直升机非线性动力学模型，图片是H∞控制器标准框图。",
+          "token_usage": {
+            "prompt_tokens": 1703,
+            "completion_tokens": 29,
+            "image_tokens": 322
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\鲁棒控制\\e178bba5754938cf3ffa2a70a2121c7cf7f816af5cb1568f43d3b54d19140f2a.jpg",
+          "file_name": "dt=2025-06-23/ht=16/e178bba5754938cf3ffa2a70a2121c7cf7f816af5cb1568f43d3b54d19140f2a.jpg",
+          "hash": "e178bba5754938cf3ffa2a70a2121c7cf7f816af5cb1568f43d3b54d19140f2a.jpg",
+          "mime": "image/jpeg",
+          "size": 31594,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 不一致\n理由: 图片为H∞控制框图，公式为直升机非线性动力学模型，两者主题相关但数学语义不同。",
+          "token_usage": {
+            "prompt_tokens": 1588,
+            "completion_tokens": 36,
+            "image_tokens": 207
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\鲁棒控制\\f16aaf73b77170d150295ffc4de75ebf212d20b03d467c347326277e917663b4.jpg",
+          "file_name": "dt=2025-06-23/ht=16/f16aaf73b77170d150295ffc4de75ebf212d20b03d467c347326277e917663b4.jpg",
+          "hash": "f16aaf73b77170d150295ffc4de75ebf212d20b03d467c347326277e917663b4.jpg",
+          "mime": "image/jpeg",
+          "size": 47815,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 不一致  \n理由: 图片展示奇异值曲线，公式为直升机非线性动力学模型。",
+          "token_usage": {
+            "prompt_tokens": 1777,
+            "completion_tokens": 25,
+            "image_tokens": 396
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\鲁棒控制\\986fb9074d932085352ab9d008905c89063febe2c5c169837af13d2a48204f11.jpg",
+          "file_name": "dt=2025-06-23/ht=16/986fb9074d932085352ab9d008905c89063febe2c5c169837af13d2a48204f11.jpg",
+          "hash": "986fb9074d932085352ab9d008905c89063febe2c5c169837af13d2a48204f11.jpg",
+          "mime": "image/jpeg",
+          "size": 194259,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 一致  \n理由: 图片展示了状态变量（u, v, w, p, q, r, φ, θ）和控制输入（θ₀, θ₁s, θ₁c, θ₀T）的时间响应，与公式描述的动力学系统状态方程直接对应。",
+          "token_usage": {
+            "prompt_tokens": 2605,
+            "completion_tokens": 68,
+            "image_tokens": 1224
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\鲁棒控制\\50a6bc4c4556ab031cc7abe2193f27e66399a311679f233badba6dd7d8300f57.jpg",
+          "file_name": "dt=2025-06-23/ht=16/50a6bc4c4556ab031cc7abe2193f27e66399a311679f233badba6dd7d8300f57.jpg",
+          "hash": "50a6bc4c4556ab031cc7abe2193f27e66399a311679f233badba6dd7d8300f57.jpg",
+          "mime": "image/jpeg",
+          "size": 231690,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 一致\n理由: 图片展示了直升机状态变量与控制输入的时域响应曲线，与公式中的状态向量和控制向量完全对应。",
+          "token_usage": {
+            "prompt_tokens": 2605,
+            "completion_tokens": 36,
+            "image_tokens": 1224
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\鲁棒控制\\3a6ee06d7c80ef2b6cca8090f859e723c45587e7e74ff6b70a30baeef73e4945.jpg",
+          "file_name": "dt=2025-06-23/ht=16/3a6ee06d7c80ef2b6cca8090f859e723c45587e7e74ff6b70a30baeef73e4945.jpg",
+          "hash": "3a6ee06d7c80ef2b6cca8090f859e723c45587e7e74ff6b70a30baeef73e4945.jpg",
+          "mime": "image/jpeg",
+          "size": 27205,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 部分一致\n理由: 图片是参数范围表，公式描述直升机动力学方程。相关但不直接对应。",
+          "token_usage": {
+            "prompt_tokens": 1469,
+            "completion_tokens": 32,
+            "image_tokens": 88
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\鲁棒控制\\0f2b33dfaaab3ddd6d5b4c6c52c53932f771ec55192bfb4e23ec74eef4202577.jpg",
+          "file_name": "dt=2025-06-23/ht=16/0f2b33dfaaab3ddd6d5b4c6c52c53932f771ec55192bfb4e23ec74eef4202577.jpg",
+          "hash": "0f2b33dfaaab3ddd6d5b4c6c52c53932f771ec55192bfb4e23ec74eef4202577.jpg",
+          "mime": "image/jpeg",
+          "size": 23958,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 不一致  \n理由: 图片描述飞控系统延迟与执行器动力学，公式为直升机六自由度运动学与动力学方程。",
+          "token_usage": {
+            "prompt_tokens": 1473,
+            "completion_tokens": 35,
+            "image_tokens": 92
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\鲁棒控制\\024e67321ea7a88b515ef45e4e1843fa5791890566c04a7cd6918b07fc260afb.jpg",
+          "file_name": "dt=2025-06-23/ht=16/024e67321ea7a88b515ef45e4e1843fa5791890566c04a7cd6918b07fc260afb.jpg",
+          "hash": "024e67321ea7a88b515ef45e4e1843fa5791890566c04a7cd6918b07fc260afb.jpg",
+          "mime": "image/jpeg",
+          "size": 71127,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 不一致  \n理由: 图片展示飞行品质边界与控制方法对比，公式为直升机非线性动力学方程，无直接对应关系。",
+          "token_usage": {
+            "prompt_tokens": 1821,
+            "completion_tokens": 35,
+            "image_tokens": 440
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\鲁棒控制\\d3bb85c64ed6ea7a67ccb57be548622685667a13bc1e5f0c426e5c8d03ff3068.jpg",
+          "file_name": "dt=2025-06-23/ht=16/d3bb85c64ed6ea7a67ccb57be548622685667a13bc1e5f0c426e5c8d03ff3068.jpg",
+          "hash": "d3bb85c64ed6ea7a67ccb57be548622685667a13bc1e5f0c426e5c8d03ff3068.jpg",
+          "mime": "image/jpeg",
+          "size": 56119,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 不一致  \n理由: 图片展示直升机飞行品质评价图，与状态空间方程及参数计算公式无直接数学语义关联。",
+          "token_usage": {
+            "prompt_tokens": 1711,
+            "completion_tokens": 33,
+            "image_tokens": 330
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\鲁棒控制\\fc669b74aea1c8579a8daa67a29d049972a5693ff07284d7c5130dc95bbe0563.jpg",
+          "file_name": "dt=2025-06-23/ht=16/fc669b74aea1c8579a8daa67a29d049972a5693ff07284d7c5130dc95bbe0563.jpg",
+          "hash": "fc669b74aea1c8579a8daa67a29d049972a5693ff07284d7c5130dc95bbe0563.jpg",
+          "mime": "image/jpeg",
+          "size": 38627,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 不一致  \n理由: 图片为频率响应相位图，公式描述直升机六自由度运动方程，二者无直接语义对应。",
+          "token_usage": {
+            "prompt_tokens": 1680,
+            "completion_tokens": 34,
+            "image_tokens": 299
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\鲁棒控制\\00072e9bfb847465bbcdd1d822dcad9b9fedba8674361e88bd09791225ba9f2e.jpg",
+          "file_name": "dt=2025-06-23/ht=16/00072e9bfb847465bbcdd1d822dcad9b9fedba8674361e88bd09791225ba9f2e.jpg",
+          "hash": "00072e9bfb847465bbcdd1d822dcad9b9fedba8674361e88bd09791225ba9f2e.jpg",
+          "mime": "image/jpeg",
+          "size": 74317,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 不一致  \n理由: 图片是飞行品质评估图，公式是直升机动力学方程，两者数学语义无直接关联。",
+          "token_usage": {
+            "prompt_tokens": 1777,
+            "completion_tokens": 32,
+            "image_tokens": 396
+          }
+        },
+        {
+          "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\data\\sciverse_images\\鲁棒控制\\4f606a2da81ff56294bb32466e26dcaa9490e3dbb33a0697d8578791d5397b9e.jpg",
+          "file_name": "dt=2025-06-23/ht=16/4f606a2da81ff56294bb32466e26dcaa9490e3dbb33a0697d8578791d5397b9e.jpg",
+          "hash": "4f606a2da81ff56294bb32466e26dcaa9490e3dbb33a0697d8578791d5397b9e.jpg",
+          "mime": "image/jpeg",
+          "size": 61910,
+          "cached": false,
+          "judgment": "consistent",
+          "raw_response": "判断: 不一致  \n理由: 图片为飞行品质等级图，公式为直升机非线性动力学模型，两者主题相关但内容不匹配。",
+          "token_usage": {
+            "prompt_tokens": 1772,
+            "completion_tokens": 34,
+            "image_tokens": 391
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "total_pdfs": 342,
+  "total_size_mb": 686.9,
+  "sample_size": 50,
+  "sample_avg_pages": 16.0,
+  "sample_min_pages": 3,
+  "sample_max_pages": 73,
+  "sample_total_pages": 801,
+  "mb_per_page": 0.0942,
+  "type": "scanner",
+  "estimated_total_pages": 5478,
+  "estimate": {
+    "optimistic_hours": 1.1,
+    "normal_hours": 1.5,
+    "conservative_hours": 1.8
+  },
+  "with_overhead": {
+    "optimistic_hours": 4.0,
+    "normal_hours": 4.4,
+    "conservative_hours": 4.7
+  }
+}

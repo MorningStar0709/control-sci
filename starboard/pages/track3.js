@@ -127,7 +127,7 @@ export default function Track3Page({ runtimeConfig }) {
         });
         return;
       }
-      const response = await getApiTask(task.id, { timeoutMs: 12000 });
+      const response = await getApiTask(task, { timeoutMs: 12000 });
       if (!response.ok) {
         patchSession({
           loading: '',
@@ -239,7 +239,7 @@ export default function Track3Page({ runtimeConfig }) {
       patchSession({ loading: '', results: { error: response.error, results: [] } });
       return;
     }
-    patchSession({ loading: 'search', pendingTask: createPendingTask(response.data.id, 'search', 75000) });
+    patchSession({ loading: 'search', pendingTask: createPendingTask(response.data, 'search', 75000) });
   }
 
   async function synthesize() {
@@ -257,7 +257,7 @@ export default function Track3Page({ runtimeConfig }) {
       patchSession({ loading: '', synthesis: { status: 'failed', message: response.error } });
       return;
     }
-    patchSession({ loading: 'synthesize', pendingTask: createPendingTask(response.data.id, 'synthesize', 210000) });
+    patchSession({ loading: 'synthesize', pendingTask: createPendingTask(response.data, 'synthesize', 210000) });
   }
 
   async function runRagDemo() {
@@ -289,7 +289,7 @@ export default function Track3Page({ runtimeConfig }) {
       patchSession({ loading: '', synthesis: { status: 'failed', message: response.error } });
       return;
     }
-    patchSession({ loading: 'demo', pendingTask: createPendingTask(response.data.id, 'demo', 270000) });
+    patchSession({ loading: 'demo', pendingTask: createPendingTask(response.data, 'demo', 270000) });
   }
 
   return (
@@ -449,7 +449,7 @@ export default function Track3Page({ runtimeConfig }) {
                   ))}
                 </div>
               ) : !results?.error && (
-                <div className="rounded-lg border bg-gray-50 p-4 text-xs text-gray-500">选择案例会立即展示可复现回放来源；手动问题可以点击“仅检索”或“真实验收”。</div>
+                <div className="rounded-lg border bg-gray-50 p-4 text-xs text-gray-500">选择案例会立即展示可复现回放来源；手动问题可以点击“仅检索”或“真实链路”。</div>
               )}
             </StepCard>
 
@@ -518,13 +518,16 @@ export default function Track3Page({ runtimeConfig }) {
               ) : (
                 <div className="text-xs text-gray-500">{evalSummary?.reason || '生成 medical_rag_eval.json 后展示评测摘要。'}</div>
               )}
+              <div className="mt-3 border-t border-gray-100 pt-2 text-[10px] text-gray-400 leading-relaxed">
+                完整补充实验（阶段消融、安全拒答、EI taxonomy、隐私边界、语义切片、中文 Ask 鲁棒性、Evidence Card、部署 smoke）见 DATA-TRACE #182-190 与来源矩阵。
+              </div>
             </StepCard>
 
             <div className="rounded-lg border bg-gray-50 p-4 text-xs leading-relaxed text-gray-600">
               <div className="mb-2 font-semibold text-gray-900">为什么可信</div>
               <div className="space-y-2">
                 <p>先检索后回答，不凭模型记忆直接生成医学结论。</p>
-                <p>回答包含 chunk 引用与 claim 支撑状态，便于评审逐条复核。</p>
+                <p>回答包含 chunk 引用与 claim 支撑状态，便于研究者逐条复核。</p>
                 <p>依据不足、个人诊疗和急症问题不会强行进入 RAG。</p>
               </div>
             </div>
@@ -616,11 +619,21 @@ function SmallMetric({ label, value }) {
 }
 
 function buildPrimaryStats(stats, evalSummary, synthesis) {
+  const bestEvalRow = evalSummary?.eval?.rows?.find(r => r.label === 'index_bge_m3') || evalSummary?.eval?.rows?.find(r => r.label === evalSummary?.eval?.best_label);
+  const hitValue = Number.isFinite(bestEvalRow?.hit_at_k) && Number.isFinite(evalSummary?.eval?.case_count)
+    ? `${bestEvalRow.hit_at_k}/${evalSummary.eval.case_count}`
+    : '待加载';
+  const claimValue = synthesis?.claims?.length
+    ? `${synthesis.claims.filter(c => c.supported).length}/${synthesis.claims.length}`
+    : '待加载';
+  const citationValue = synthesis?.citation_coverage !== undefined
+    ? `${Math.round((synthesis.citation_coverage || 0) * 100)}%`
+    : '待加载';
   return [
-    { label: '本地 chunks', value: stats?.total_chunks ? String(stats.total_chunks) : '3348' },
-    { label: '中文 Ask Hit@3', value: evalSummary?.eval?.rows?.find(r => r.label === 'index_bge_m3') ? '6/6' : '6/6' },
-    { label: 'Claims 支撑', value: synthesis?.claims?.length ? `${synthesis.claims.filter(c => c.supported).length}/${synthesis.claims.length}` : '25/25' },
-    { label: '引用覆盖', value: synthesis?.citation_coverage !== undefined ? `${Math.round((synthesis.citation_coverage || 0) * 100)}%` : '100%' },
+    { label: '本地 chunks', value: stats?.total_chunks ? String(stats.total_chunks) : '待加载' },
+    { label: '中文 Ask Hit@3', value: hitValue },
+    { label: 'Claims 支撑', value: claimValue },
+    { label: '引用覆盖', value: citationValue },
   ];
 }
 
@@ -646,8 +659,9 @@ function displayIndexLabel(label) {
   return label || '-';
 }
 
-function createPendingTask(id, kind, timeoutMs = CLIENT_TASK_TIMEOUT_MS) {
-  return { id, kind, timeoutMs, startedAt: Date.now() };
+function createPendingTask(task, kind, timeoutMs = CLIENT_TASK_TIMEOUT_MS) {
+  const id = typeof task === 'string' ? task : task?.id;
+  return { id, owner_token: typeof task === 'string' ? undefined : task?.owner_token, kind, timeoutMs, startedAt: Date.now() };
 }
 
 function isClientTaskExpired(task) {

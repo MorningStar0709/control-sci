@@ -1,0 +1,293 @@
+{
+  "schema_version": "1.0",
+  "experiment": "track1_export_format_compatibility",
+  "created_at": "2026-05-23 23:18:46",
+  "status": "ok",
+  "evaluation_mode": "local_stratified_sample_format_conversion_no_external_api",
+  "inputs": {
+    "dataset": "benchmark/dataset/core.json",
+    "sample_size_requested": 50
+  },
+  "dataset_question_count": 500,
+  "sample_size": 50,
+  "dimension_sample_counts": {
+    "A": 13,
+    "B": 13,
+    "C": 12,
+    "D": 12
+  },
+  "difficulty_sample_counts": {
+    "L1": 4,
+    "L2": 15,
+    "L3": 16,
+    "L4": 15
+  },
+  "formats": {
+    "openai_eval_style": {
+      "format_name": "openai_eval_style",
+      "status": "success",
+      "sample_count": 50,
+      "preserved_fields": [
+        "id",
+        "dimension",
+        "question",
+        "answer",
+        "reasoning_steps",
+        "source_ref"
+      ],
+      "missing_fields": [],
+      "field_preservation_rate": 1.0,
+      "example_keys": [
+        "id",
+        "input",
+        "ideal",
+        "metadata"
+      ],
+      "error_type": "",
+      "error": ""
+    },
+    "hf_row": {
+      "format_name": "hf_row",
+      "status": "success",
+      "sample_count": 50,
+      "preserved_fields": [
+        "id",
+        "dimension",
+        "question",
+        "answer",
+        "reasoning_steps",
+        "source_ref"
+      ],
+      "missing_fields": [],
+      "field_preservation_rate": 1.0,
+      "example_keys": [
+        "id",
+        "question",
+        "answer",
+        "dimension",
+        "difficulty_level",
+        "reasoning_steps",
+        "source_ref",
+        "control_category"
+      ],
+      "error_type": "",
+      "error": ""
+    },
+    "simple_qa_jsonl": {
+      "format_name": "simple_qa_jsonl",
+      "status": "success",
+      "sample_count": 50,
+      "preserved_fields": [
+        "id",
+        "dimension",
+        "question",
+        "answer",
+        "reasoning_steps",
+        "source_ref"
+      ],
+      "missing_fields": [],
+      "field_preservation_rate": 1.0,
+      "example_keys": [
+        "id",
+        "question",
+        "answer",
+        "dimension",
+        "reasoning_steps",
+        "source_ref"
+      ],
+      "error_type": "",
+      "error": ""
+    },
+    "chatml": {
+      "format_name": "chatml",
+      "status": "success",
+      "sample_count": 50,
+      "preserved_fields": [
+        "id",
+        "dimension",
+        "question",
+        "answer",
+        "reasoning_steps",
+        "source_ref"
+      ],
+      "missing_fields": [],
+      "field_preservation_rate": 1.0,
+      "example_keys": [
+        "id",
+        "messages",
+        "metadata"
+      ],
+      "error_type": "",
+      "error": ""
+    }
+  },
+  "field_preservation_rate": {
+    "required_fields": [
+      "id",
+      "dimension",
+      "question",
+      "answer",
+      "reasoning_steps",
+      "source_ref"
+    ],
+    "successful_format_count": 4,
+    "successful_formats": [
+      "openai_eval_style",
+      "hf_row",
+      "simple_qa_jsonl",
+      "chatml"
+    ],
+    "by_field": {
+      "id": {
+        "preserved_by_formats": [
+          "openai_eval_style",
+          "hf_row",
+          "simple_qa_jsonl",
+          "chatml"
+        ],
+        "format_count": 4,
+        "rate": 1.0
+      },
+      "dimension": {
+        "preserved_by_formats": [
+          "openai_eval_style",
+          "hf_row",
+          "simple_qa_jsonl",
+          "chatml"
+        ],
+        "format_count": 4,
+        "rate": 1.0
+      },
+      "question": {
+        "preserved_by_formats": [
+          "openai_eval_style",
+          "hf_row",
+          "simple_qa_jsonl",
+          "chatml"
+        ],
+        "format_count": 4,
+        "rate": 1.0
+      },
+      "answer": {
+        "preserved_by_formats": [
+          "openai_eval_style",
+          "hf_row",
+          "simple_qa_jsonl",
+          "chatml"
+        ],
+        "format_count": 4,
+        "rate": 1.0
+      },
+      "reasoning_steps": {
+        "preserved_by_formats": [
+          "openai_eval_style",
+          "hf_row",
+          "simple_qa_jsonl",
+          "chatml"
+        ],
+        "format_count": 4,
+        "rate": 1.0
+      },
+      "source_ref": {
+        "preserved_by_formats": [
+          "openai_eval_style",
+          "hf_row",
+          "simple_qa_jsonl",
+          "chatml"
+        ],
+        "format_count": 4,
+        "rate": 1.0
+      }
+    }
+  },
+  "examples": {
+    "openai_eval_style": [
+      {
+        "id": "CS-EVO-00071",
+        "input": [
+          {
+            "role": "system",
+            "content": "You are a control science benchmark solver."
+          },
+          {
+            "role": "user",
+            "content": "什么是RUDER_MBOT_RL算法？请写出其核心控制目标函数。"
+          }
+        ],
+        "ideal": "RUDER_MBOT_RL是一种基于强化学习的移动机器人控制算法，其核心控制目标函数为 J(π) = E[∑_{t=0}^{T} γ^t r(s_t, a_t)]，其中π为策略，γ为折扣因子，r为奖励函数。",
+        "metadata": {
+          "dimension": "A",
+          "difficulty_level": "L1",
+          "reasoning_steps": [
+            "根据提供的教材内容，RUDER_MBOT_RL是一种基于强化学习的移动机器人控制算法。",
+            "强化学习的目标是最大化累积折扣奖励，因此核心控制目标函数为 J(π) = E[∑γ^t r(s_t, a_t)]。"
+          ],
+          "source_ref": "2201.05599_Smart_Magnetic_Microrobots_Learn_to_Swim_with_Deep_Reinforce_chunk_047"
+        }
+      }
+    ],
+    "hf_row": [
+      {
+        "id": "CS-EVO-00071",
+        "question": "什么是RUDER_MBOT_RL算法？请写出其核心控制目标函数。",
+        "answer": "RUDER_MBOT_RL是一种基于强化学习的移动机器人控制算法，其核心控制目标函数为 J(π) = E[∑_{t=0}^{T} γ^t r(s_t, a_t)]，其中π为策略，γ为折扣因子，r为奖励函数。",
+        "dimension": "A",
+        "difficulty_level": "L1",
+        "reasoning_steps": [
+          "根据提供的教材内容，RUDER_MBOT_RL是一种基于强化学习的移动机器人控制算法。",
+          "强化学习的目标是最大化累积折扣奖励，因此核心控制目标函数为 J(π) = E[∑γ^t r(s_t, a_t)]。"
+        ],
+        "source_ref": "2201.05599_Smart_Magnetic_Microrobots_Learn_to_Swim_with_Deep_Reinforce_chunk_047",
+        "control_category": [
+          "optimal"
+        ]
+      }
+    ],
+    "simple_qa_jsonl": [
+      {
+        "id": "CS-EVO-00071",
+        "question": "什么是RUDER_MBOT_RL算法？请写出其核心控制目标函数。",
+        "answer": "RUDER_MBOT_RL是一种基于强化学习的移动机器人控制算法，其核心控制目标函数为 J(π) = E[∑_{t=0}^{T} γ^t r(s_t, a_t)]，其中π为策略，γ为折扣因子，r为奖励函数。",
+        "dimension": "A",
+        "reasoning_steps": [
+          "根据提供的教材内容，RUDER_MBOT_RL是一种基于强化学习的移动机器人控制算法。",
+          "强化学习的目标是最大化累积折扣奖励，因此核心控制目标函数为 J(π) = E[∑γ^t r(s_t, a_t)]。"
+        ],
+        "source_ref": "2201.05599_Smart_Magnetic_Microrobots_Learn_to_Swim_with_Deep_Reinforce_chunk_047"
+      }
+    ],
+    "chatml": [
+      {
+        "id": "CS-EVO-00071",
+        "messages": [
+          {
+            "role": "system",
+            "content": "You are a control science reasoning assistant."
+          },
+          {
+            "role": "user",
+            "content": "什么是RUDER_MBOT_RL算法？请写出其核心控制目标函数。"
+          },
+          {
+            "role": "assistant",
+            "content": "RUDER_MBOT_RL是一种基于强化学习的移动机器人控制算法，其核心控制目标函数为 J(π) = E[∑_{t=0}^{T} γ^t r(s_t, a_t)]，其中π为策略，γ为折扣因子，r为奖励函数。"
+          }
+        ],
+        "metadata": {
+          "dimension": "A",
+          "reasoning_steps": [
+            "根据提供的教材内容，RUDER_MBOT_RL是一种基于强化学习的移动机器人控制算法。",
+            "强化学习的目标是最大化累积折扣奖励，因此核心控制目标函数为 J(π) = E[∑γ^t r(s_t, a_t)]。"
+          ],
+          "source_ref": "2201.05599_Smart_Magnetic_Microrobots_Learn_to_Swim_with_Deep_Reinforce_chunk_047"
+        }
+      }
+    ]
+  },
+  "boundary_notes": [
+    "This compatibility audit converts a stratified local sample and does not upload data to external benchmark platforms.",
+    "Examples are limited to one record per successful format to avoid duplicating the full dataset in the evidence artifact.",
+    "Compatibility means structural preservation of key fields, not official certification by OpenAI, HuggingFace, or other benchmark hosts.",
+    "External narrative should describe ecosystem technical usability, not community adoption or impact."
+  ]
+}

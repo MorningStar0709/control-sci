@@ -1,0 +1,611 @@
+[
+  {
+    "chunk_id": "sciverse:af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4:chunk0",
+    "doc_id": "af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4",
+    "title": "Developing a Telemedicine Curriculum for a Family Medicine Residency",
+    "text": "Emmeline Ha, MD | Kristen Zwicky, MD | Grace Yu, MD | Andrew Schechtman, MD PRiMER. 2020;4:21.",
+    "estimated_tokens": 31
+  },
+  {
+    "chunk_id": "sciverse:af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4:chunk1",
+    "doc_id": "af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4",
+    "title": "Developing a Telemedicine Curriculum for a Family Medicine Residency",
+    "text": "Published: 9/21/2020 | DOI: 10.22454/PRiMER.2020.126466",
+    "estimated_tokens": 18
+  },
+  {
+    "chunk_id": "sciverse:af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4:chunk2",
+    "doc_id": "af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4",
+    "title": "Developing a Telemedicine Curriculum for a Family Medicine Residency",
+    "text": "Introduction: Telemedicine has rapidly become an essential part of primary care due to the COVID-19 pandemic. However, formal training in telemedicine during residency is lacking. We developed and implemented a telemedicine curriculum for a family medicine residency program and investigated its effect on resident conWdence levels in practicing telemedicine.",
+    "estimated_tokens": 119
+  },
+  {
+    "chunk_id": "sciverse:af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4:chunk3",
+    "doc_id": "af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4",
+    "title": "Developing a Telemedicine Curriculum for a Family Medicine Residency",
+    "text": "Methods: We designed a process map of the telemedicine visit workXow at the residency clinic to identify key topics to cover in the curriculum. We created a live 50-minute didactic lecture on best practices in telemedicine, along with a quick-reference handout. We distributed pre- and postintervention surveys to current residents $(N=24)$ to assess the effect of the educational intervention on their conWdence in practicing telemedicine.",
+    "estimated_tokens": 146
+  },
+  {
+    "chunk_id": "sciverse:af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4:chunk4",
+    "doc_id": "af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4",
+    "title": "Developing a Telemedicine Curriculum for a Family Medicine Residency",
+    "text": "Results: Fourteen residents ( $58\\%$ response rate) completed all aspects of the study including both surveys and participation in the educational intervention. ConWdence levels in conducting telemedicine visits increased in three of Wve domains: (1) virtual physical exam $\\left(P=.04\\right)$ , (2) visit documentation $\\left(P=.03\\right)$ , and (3) virtually stacng with an attending $\\left(P=.04\\right)$ . Resident interest in using telemedicine after residency also increased following the educational intervention.",
+    "estimated_tokens": 173
+  },
+  {
+    "chunk_id": "sciverse:af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4:chunk5",
+    "doc_id": "af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4",
+    "title": "Developing a Telemedicine Curriculum for a Family Medicine Residency",
+    "text": "Conclusion: Telemedicine requires a unique skill set. Formal education on best practices improves resident conWdence levels and interest in practicing telemedicine. Primary care residency programs should incorporate telemedicine training to adequately prepare their graduates for clinical practice.",
+    "estimated_tokens": 99
+  },
+  {
+    "chunk_id": "sciverse:af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4:chunk6",
+    "doc_id": "af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4",
+    "title": "Developing a Telemedicine Curriculum for a Family Medicine Residency",
+    "text": "Telemedicine is the practice of using technology to deliver health care remotely.1 While it has been a growing industry for the last 2 decades, widespread adoption was limited by reimbursement restrictions and technology barriers. The need for telemedicine abruptly increased during the 2020 COVID-19 pandemic because it served as a method for continuing health care while limiting in-person exposures. In graduate medical education, telemedicine was rapidly adopted once the Centers for Medicare and Medicaid Services expanded reimbursement for telemedicine outside of rural areas and allowed virtual precepting of resident visits via video/phone.2",
+    "estimated_tokens": 216
+  },
+  {
+    "chunk_id": "sciverse:af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4:chunk7",
+    "doc_id": "af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4",
+    "title": "Developing a Telemedicine Curriculum for a Family Medicine Residency",
+    "text": "There are several nuances to practicing telemedicine that require unique skills compared to in-person care.3-5 For example, visit logistics change when incorporating technology. Maintaining professionalism requires greater consideration of the surrounding environment and body language. The physical exam involves coaching patients to self-perform certain maneuvers. These aspects are different enough that formal training is essential to providing high-quality care through telemedicine. Despite this, there is a lack of training in telemedicine in primary care",
+    "estimated_tokens": 187
+  },
+  {
+    "chunk_id": "sciverse:af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4:chunk8",
+    "doc_id": "af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4",
+    "title": "Developing a Telemedicine Curriculum for a Family Medicine Residency",
+    "text": "residency programs, likely due to low utilization prior to the COVID-19 pandemic. In a 2015 survey of 207 family medicine residencies nationwide, the majority of program directors reported that they had telehealth services in some form, but actual use was limited and infrequent.6",
+    "estimated_tokens": 93
+  },
+  {
+    "chunk_id": "sciverse:af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4:chunk9",
+    "doc_id": "af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4",
+    "title": "Developing a Telemedicine Curriculum for a Family Medicine Residency",
+    "text": "While the American Academy of Family Physicians endorses telemedicine exposure during residency, there is no recognized gold standard for training in graduate medical education.1,7 There are several studies on telemedicine education in other specialties; however, to our knowledge there are no published studies in family medicine.8-14 The Society of Teachers of Family Medicine (STFM) perceives a need for standardized training and recently created a task force to develop a national telemedicine curriculum.1 In this study, we developed a telemedicine curriculum for the Stanford-O’Connor Family Medicine Residency Program and investigated its impact on resident conWdence and attitudes toward telemedicine.",
+    "estimated_tokens": 236
+  },
+  {
+    "chunk_id": "sciverse:af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4:chunk10",
+    "doc_id": "af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4",
+    "title": "Developing a Telemedicine Curriculum for a Family Medicine Residency",
+    "text": "The study population included current Stanford-O’Connor family medicine residents $(N=24)$ , whose clinic is an urban federally qualiWed health center. To develop the educational intervention, we designed a process map of our telemedicine visit workXow to identify key topics to include (Figure 1). We then developed a 50-minute lecture that was conducted live during regularly-scheduled didactic time. The lecture was recorded and made available to all residents, along with a quick-reference handout. Topics included appropriate visit types, logistics, technology set-up, etiquette, effective communication, virtual physical exam, documentation, and stacng with an attending. These resources are available for public access on the STFM Resource Library.15",
+    "estimated_tokens": 252
+  },
+  {
+    "chunk_id": "sciverse:af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4:chunk11",
+    "doc_id": "af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4",
+    "title": "Developing a Telemedicine Curriculum for a Family Medicine Residency",
+    "text": "Residents completed a pre- and postintervention survey on their conWdence in conducting various aspects of a telemedicine visit using a 4-point Likert scale ( $\\scriptstyle0=$ not at all conWdent, $\\scriptstyle4=$ very conWdent). They were also assessed on their attitude toward telemedicine by indicating their level of agreement with different statements. To be included in the study, residents were required to complete both pre- and postsurveys and the educational intervention. Survey data were linked by deidentiWed participant ID numbers, and statistical signiWcance was determined by the pairedsample Wilcoxon signed rank test. The Stanford University School of Medicine Institutional Review Board granted this project exemption.",
+    "estimated_tokens": 245
+  },
+  {
+    "chunk_id": "sciverse:af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4:chunk12",
+    "doc_id": "af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4",
+    "title": "Developing a Telemedicine Curriculum for a Family Medicine Residency",
+    "text": "Of the 24 current residents, 14 $(58\\%)$ met inclusion criteria. Resident mean conWdence levels in conducting telemedicine visits increased in all domains (Table 1). Three domains were statistically signiWcant $(P{<}.05)$ : virtual physical exam (median 1 vs 2), documenting the visit (median 2.5 vs 3), and virtually stacng with an attending (median 3 vs. 4). ConWdence levels for the logistics of a telemedicine visit (median 2 vs 2) and taking a history through telemedicine (median 3 vs 3) did not signiWcantly increase. Following the intervention, all residents expressed interest in using telemedicine after residency (Figure 2).",
+    "estimated_tokens": 211
+  },
+  {
+    "chunk_id": "sciverse:af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4:chunk13",
+    "doc_id": "af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4",
+    "title": "Developing a Telemedicine Curriculum for a Family Medicine Residency",
+    "text": "We developed and implemented a telemedicine curriculum for family medicine residents that included a didactic lecture and quick-reference handout. Prior to our educational intervention, most residents felt comfortable obtaining a history through telemedicine, but conWdence was lower for conducting a virtual physical exam, documenting, and virtually stacng with an attending. The results of our study show signiWcant increases in conWdence levels in these domains after formal telemedicine education",
+    "estimated_tokens": 166
+  },
+  {
+    "chunk_id": "sciverse:af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4:chunk14",
+    "doc_id": "af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4",
+    "title": "Developing a Telemedicine Curriculum for a Family Medicine Residency",
+    "text": ". ConWdence in logistics for a telemedicine visit did not change, likely because residents were already familiar with the workXow standardized by clinic administration before our curriculum was implemented. Our Wndings are consistent with prior studies on resident telemedicine training in a variety of specialties.8-13 We are the Wrst, to our knowledge, to report such Wndings for family medicine residents.",
+    "estimated_tokens": 136
+  },
+  {
+    "chunk_id": "sciverse:af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4:chunk15",
+    "doc_id": "af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4",
+    "title": "Developing a Telemedicine Curriculum for a Family Medicine Residency",
+    "text": "imitations of our study include self-reported data, selection bias from voluntary survey participation, and small sample size due to inclusion of a single site. Additionally, the time between educational intervention and postsurvey was only 1 week. This short interval was chosen to prevent residents from having signiWcant time to complete more telemedicine visits, which could have confounded our data. Assessing the durability of these conWdence increases over time was not within the scope of our study. Finally, it is unclear what is the best method of telemedicine instruction in graduate medical education, given the lack of a current gold standard for training.",
+    "estimated_tokens": 223
+  },
+  {
+    "chunk_id": "sciverse:af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4:chunk16",
+    "doc_id": "af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4",
+    "title": "Developing a Telemedicine Curriculum for a Family Medicine Residency",
+    "text": "Our educational resources are publicly available to assist other residency programs in developing their own telemedicine curriculum. Future directions include expanding our study to multiple sites to determine if Wndings are generalizable to a larger population. Additionally, longitudinal outcomes could be assessed to determine if a onetime educational intervention creates lasting effects on resident skills and attitudes toward telemedicine.",
+    "estimated_tokens": 148
+  },
+  {
+    "chunk_id": "sciverse:af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4:chunk17",
+    "doc_id": "af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4",
+    "title": "Developing a Telemedicine Curriculum for a Family Medicine Residency",
+    "text": "While the future of telemedicine post-COVID-19 remains unclear, current widespread use and advocacy for permanent expansion of reimbursement indicates that it will continue to have an important role in health care. Given this, primary care residency programs should incorporate telemedicine training to adequately prepare their graduates for clinical practice. Our developed curriculum contributes to the growing body of telemedicine education in residency.",
+    "estimated_tokens": 152
+  },
+  {
+    "chunk_id": "sciverse:af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4:chunk18",
+    "doc_id": "af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4",
+    "title": "Developing a Telemedicine Curriculum for a Family Medicine Residency",
+    "text": "Figure 1: Process Map of Telemedicine Visit Workflow at StanfordO'Connor Family Medicine Residency Clinic",
+    "estimated_tokens": 35
+  },
+  {
+    "chunk_id": "sciverse:af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4:chunk19",
+    "doc_id": "af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4",
+    "title": "Developing a Telemedicine Curriculum for a Family Medicine Residency",
+    "text": "Figure 2: Pre- and Posteducational Intervention Resident Responses to “After Residency, I Am Interested in Using Telemedicine in My Clinical Practice.\"",
+    "estimated_tokens": 50
+  },
+  {
+    "chunk_id": "sciverse:af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4:chunk20",
+    "doc_id": "af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4",
+    "title": "Developing a Telemedicine Curriculum for a Family Medicine Residency",
+    "text": "Table 1: Reported Resident Confidence Levels in Telemedicine Visit Domains, Pre- and Posteducational Intervention $10=N o t$ at All Confident, 1=Less Confident, $\\scriptstyle2=$ Somewhat Confident, $\\3=$ Very Confident)",
+    "estimated_tokens": 73
+  },
+  {
+    "chunk_id": "sciverse:af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4:chunk21",
+    "doc_id": "af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4",
+    "title": "Developing a Telemedicine Curriculum for a Family Medicine Residency",
+    "text": "<html><body><table><tr><td rowspan=\"2\">Domain</td><td colspan=\"2\"> Preintervention Confidence</td><td colspan=\"2\"> Postintervention Confidence</td><td rowspan=\"2\">P Valuea</td></tr><tr><td>Mean (SD)</td><td>Median</td><td>Mean (SD)</td><td>Median</td></tr><tr><td>Logistics of a telemedicine visit</td><td>2.14 (0.36)</td><td>2</td><td>2.43 (0.51)</td><td>2</td><td>.2</td></tr><tr><td>Taking a history through telemedicine</td><td>2.79 (0.43)</td><td>3</td><td>2.93 (0.27)</td><td>3</td><td>.5</td></tr><tr><td>Conducting a virtual physical exam</td><td>1.21 (0.97)</td><td>1</td><td>2 (0.68)</td><td>2</td><td>.04</td></tr><tr><td>Documenting a telemedicine visit</td><td>1.79 (0.89)</td><td>2.5</td><td>2.5 (0.65)</td><td>3</td><td>.03</td></tr><tr><td>Staffing with an attending virtually</td><td>1.57 (0.65)</td><td>3</td><td>2.21 (0.7)</td><td>4</td><td>.04</td></tr></table></body></html>",
+    "estimated_tokens": 298
+  },
+  {
+    "chunk_id": "sciverse:af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4:chunk22",
+    "doc_id": "af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4",
+    "title": "Developing a Telemedicine Curriculum for a Family Medicine Residency",
+    "text": "aDetermined by paired-sample Wilcoxon signed-rank test",
+    "estimated_tokens": 18
+  },
+  {
+    "chunk_id": "sciverse:af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4:chunk23",
+    "doc_id": "af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4",
+    "title": "Developing a Telemedicine Curriculum for a Family Medicine Residency",
+    "text": "Drs Ha and Zwicky served as co-Wrst authors and contributed equally to the work.",
+    "estimated_tokens": 26
+  },
+  {
+    "chunk_id": "sciverse:af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4:chunk24",
+    "doc_id": "af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4",
+    "title": "Developing a Telemedicine Curriculum for a Family Medicine Residency",
+    "text": "Emmeline Ha, MD 455 O'Connor Drive, Suite 250, San Jose, CA 95128. 408-283-7767. Fax: 408-283-7608",
+    "estimated_tokens": 32
+  },
+  {
+    "chunk_id": "sciverse:af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4:chunk25",
+    "doc_id": "af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4",
+    "title": "Developing a Telemedicine Curriculum for a Family Medicine Residency",
+    "text": "Emmeline Ha, MD - Stanford-O’Connor Family Medicine Residency, San Jose, CA Kristen Zwicky, MD - Stanford-O’Connor Family Medicine Residency, San Jose, CA",
+    "estimated_tokens": 51
+  },
+  {
+    "chunk_id": "sciverse:af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4:chunk26",
+    "doc_id": "af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4",
+    "title": "Developing a Telemedicine Curriculum for a Family Medicine Residency",
+    "text": "Grace Yu, MD - Stanford-O’Connor Family Medicine Residency, San Jose, CA Andrew Schechtman, MD - Stanford-O’Connor Family Medicine Residency, San Jose, CA",
+    "estimated_tokens": 51
+  },
+  {
+    "chunk_id": "sciverse:af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4:chunk27",
+    "doc_id": "af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4",
+    "title": "Developing a Telemedicine Curriculum for a Family Medicine Residency",
+    "text": "1. Theobald M, Brazelton T. STFM forms task force to develop a national telemedicine curriculum. Ann Fam Med. 2020;18(3):285-286. doi:10.1370/afm.2549   \n2. Centers for Medicare and Medicaid Services. Teaching Hospitals, Teaching Physicians and Medical Residents: CMS Flexibilities to Fight COVID-19. July 2020. Baltimore, MD: Centers for Medicare & Medicaid Services. https://www.cms.gov/Wles/document/covid-teaching-hospitals.pdf. Accessed September 11, 2020.",
+    "estimated_tokens": 153
+  },
+  {
+    "chunk_id": "sciverse:af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4:chunk28",
+    "doc_id": "af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4",
+    "title": "Developing a Telemedicine Curriculum for a Family Medicine Residency",
+    "text": "3. Onor ML, Misan S. The clinical interview and the doctor-patient relationship in telemedicine. Telemed J E Health. 2005;11(1):102-105. doi:10.1089/tmj.2005.11.102   \n4. Allen DT, Caldwell P, Komesaroff PA, et al; Royal Australasian College of Physicians Telehealth Working Group. Practical aspects of telehealth: set-up and preparation for video consultations. Intern Med J. 2013;43(10):1133-1136. doi:10.1111/imj.12264   \n5. Bulik RJ. Human factors in primary care telemedicine encounters. J Telemed Telecare. 2008;14(4):169-172. doi:10.1258/jtt.2007.007041",
+    "estimated_tokens": 186
+  },
+  {
+    "chunk_id": "sciverse:af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4:chunk29",
+    "doc_id": "af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4",
+    "title": "Developing a Telemedicine Curriculum for a Family Medicine Residency",
+    "text": "6. Moore MA, Jetty A, Coffman M. Over half of family medicine residency program directors report use of telehealth services. Telemed J E Health. 2019;25(10):933-939. doi:10.1089/tmj.2018.0134   \n7. American Academy of Family Physicians. Recommended Curriculum Guidelines for Family Medicine Residents Medical Informatics. August 2018. Leawood, KS: American Academy of Family Physicians; August 2018. https://www.aafp.org/dam/AAFP/documents/medical_education_residency/program_directors /Reprint288_Informatics.pdf. Accessed September 11, 2020.",
+    "estimated_tokens": 181
+  },
+  {
+    "chunk_id": "sciverse:af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4:chunk30",
+    "doc_id": "af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4",
+    "title": "Developing a Telemedicine Curriculum for a Family Medicine Residency",
+    "text": "8. Fleming DA, Riley SL, Boren S, Hoffman KG, Edison KE, Brooks CS. Incorporating telehealth into primary care resident outpatient training. Telemed J E Health. 2009;15(3):277-282. doi:10.1089/tmj.2008.0113   \n9. Kirkland EB, DuBose-Morris R, Duckett A. Telehealth for the internal medicine resident: A 3-year longitudinal curriculum [published online ahead of print, 2019 Dec 31]. J Telemed Telecare. 2019;1357633X19896683. doi:10.1177/1357633X19896683",
+    "estimated_tokens": 151
+  },
+  {
+    "chunk_id": "sciverse:af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4:chunk31",
+    "doc_id": "af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4",
+    "title": "Developing a Telemedicine Curriculum for a Family Medicine Residency",
+    "text": "10. Sunderji N, Crawford A, Jovanovic M. Telepsychiatry in graduate medical education: a narrative review. Acad Psychiatry. 2015;39(1):55-62. doi:10.1007/s40596-014-0176-x   \n11. Marttos AC Jr, Fernandes Juca Moscardi M, Fiorelli RKA, et al. Use of telemedicine in surgical education: a seven-year experience. Am Surg. 2018;84(8):1252-1260. doi:10.1177/000313481808400831   \n12. Afshari M, Witek NP, GaliWanakis NB. Education research: an experiential outpatient teleneurology curriculum for residents. Neurology. 2019;93(4):170-175. doi:10.1212/WNL.0000000000007848",
+    "estimated_tokens": 188
+  },
+  {
+    "chunk_id": "sciverse:af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4:chunk32",
+    "doc_id": "af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4",
+    "title": "Developing a Telemedicine Curriculum for a Family Medicine Residency",
+    "text": "13. Summe A, Foor L, Hoeck L, Campbell K, Boyd M, Barnes MA. Resident perceptions of competency and comfort before and after telemedicine-ICU implementation. South Med J. 2018;111(6):344-347. doi:10.14423/SMJ.0000000000000813   \n14. Wanat KA, Newman S, Finney KM, Kovarik CL, Lee I. Teledermatology education: current use of teledermatology in US residency programs. J Grad Med Educ. 2016;8(2):286-287. doi:10.4300/JGMED-16-00041.1",
+    "estimated_tokens": 143
+  },
+  {
+    "chunk_id": "sciverse:af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4:chunk33",
+    "doc_id": "af03a3763b7172e6e5cc6d8deb134bcce7f5d6db29556ae5745fad03eea7fae4",
+    "title": "Developing a Telemedicine Curriculum for a Family Medicine Residency",
+    "text": "15. Zwicky K, Ha E. Telemedicine 101: Best Practices for Residents. June 3, 2020. STFM Resource Library. https://resourcelibrary.stfm.org/viewdocument/telemedicine-101-best-practicesfo?CommunityKey $\\mathbf{\\bar{\\rho}}=\\mathbf{\\rho}$ 2751b51d-483f-45e2-81de-4faced0a290a. Accessed September 11, 2020.",
+    "estimated_tokens": 100
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk0",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": "1Zewail City of Science and Technology, Center for Materials Science, $6^{\\mathfrak{t h}}$ October City, 12588 Giza, Egypt 2Harefield Heart Science Centre, National Heart and Lung Institute, Imperial College, London, UK \\*Email: ielsherbiny@zewailcity.edu.eg",
+    "estimated_tokens": 86
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk1",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": "Review article http://dx.doi.org/ 10.5339/gcsp.2015.2",
+    "estimated_tokens": 17
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk2",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": "Submitted: 11 November 2014 Accepted: 28 January 2015 $\\circledcirc$ 2015 El-Sherbiny, El-Baz, Yacoub, licensee Bloomsbury Qatar Foundation Journals. This is an open access article distributed under the terms of the Creative Commons Attribution license CC BY 4.0, which permits unrestricted use, distribution and reproduction in any medium, provided the original work is properly cited.",
+    "estimated_tokens": 128
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk3",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": "Ibrahim M. El-Sherbiny1,\\*, Nancy M. El-Baz1, Magdi H. Yacoub2",
+    "estimated_tokens": 20
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk4",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": "The 21st century has seen a paradigm shift to inhaled therapy, for both systemic and local drug delivery, due to the lung’s favourable properties of a large surface area and high permeability. Pulmonary drug delivery possesses many advantages, including non-invasive route of administration, low metabolic activity, control environment for systemic absorption and avoids first bypass metabolism. However, because the lung is one of the major ports of entry, it has multiple clearance mechanisms, which prevent foreign particles from entering the body",
+    "estimated_tokens": 183
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk5",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": ". Although these clearance mechanisms maintain the sterility of the lung, clearance mechanisms can also act as barriers to the therapeutic effectiveness of inhaled drugs. This effectiveness is also influenced by the deposition site and delivered dose. Particulate-based drug delivery systems have emerged as an innovative and promising alternative to conventional inhaled drugs to circumvent pulmonary clearance mechanisms and provide enhanced therapeutic efficiency and controlled drug release",
+    "estimated_tokens": 164
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk6",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": ". The principle of multiple pulmonary clearance mechanisms is reviewed, including mucociliary, alveolar macrophages, absorptive, and metabolic degradation. This review also discusses the current approaches and formulations developed to achieve optimal pulmonary drug delivery systems.",
+    "estimated_tokens": 94
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk7",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": "Keywords: pulmonary delivery, pulmonary clearance mechanisms, bioavailability, particulate-based drug delivery system, liposomes, solid lipid nanoparticles, micelles, polymeric micro/nanoparticles",
+    "estimated_tokens": 65
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk8",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": "Inhalation therapy has a long and rich history in the treatment of different respiratory diseases using various natural inhalation remedies such as leaves from plants, vapors from aromatic plants, balsams, and myrrh. Demand for developing tailor-made inhalable drug formulations increased, which, coupled with advances in biology and engineering, have lead to a more optimized therapeutic efficiency1.",
+    "estimated_tokens": 133
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk9",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": "The pulmonary route of administration has gained a great deal of attention since the early 1990s as an alternative to the parenteral route. At the beginning of 19th century, liquid nebulizers had been developed and used as a legitimate inhalable pharmaceutical therapy. Examples of nebulizer drugs that had been developed and investigated at this time were adrenaline, porcine insulin, penicillin and steroids.",
+    "estimated_tokens": 136
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk10",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": "The invention of liquid nebulizers paved the way for the development of various types of inhaler devices. In $1956$ , the pressured metered dose inhaler (pMDI) was introduced and became the main therapy for asthma. Despite advances in drug formulation technology, the majority of the inhalable aerosol therapeutics suffer from limitations such as short half-life, and low bioavailability, resulting in the necessity of increasingly frequent dosing. Consequently, there was an urgent need for an effective inhalation therapy which could overcome these limitations and provide sustained therapeutic effect. To formulate an effective inhalation therapy, the anatomy of the respiratory system, lung deposition mechanisms and lung defense mechanisms should be fully understood2,4.",
+    "estimated_tokens": 258
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk11",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": "The respiratory system is divided into two main parts (Figure 1): the upper respiratory tract consisting of nose, nasal cavity and pharynx and the lower respiratory tract consisting of larynx, trachea, bronchi, alveoli, and lungs. Lungs are responsible for gas exchange throughout the body. Healthy lungs inhale about 1 pint of air about 12-15 times every minute. The lungs are composed of five lobes; right lung contains three lobes, while the left lung contains two lobes. The interior of the lung is comprised of bronchi, alveoli, blood vessels and lymph nodes. The bronchi are divided into bronchioles which branch in the lung, forming passageways for air, and terminate with the alveoli, which is responsible for gas exchange5,6.",
+    "estimated_tokens": 244
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk12",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": "Figure 1. Anatomy of respiratory system, A) shows different structures of the respiratory system. B) shows airways, alveoli, blood vessels and capillaries. C) shows gas exchange between alveoli and capillaries8.",
+    "estimated_tokens": 70
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk13",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": "There are over 300 million alveoli in the lung, and each alveolus is lined with pulmonary capillaries forming a huge network comprising over 280 billion capillaries, which provide a huge surface area of about 70 $\\mathsf{m}^{2}$ available as a blood gas barrier. The alveolar gas exchange mainly occurred at the interface consisting of alveolar epithelium, endothelium and interstitial cell layers, where the distance between the capillaries and alveolar is very small, about $0.5\\upmu\\mathrm{m}$ , and thus facilitating gas exchange via diffusion.",
+    "estimated_tokens": 182
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk14",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": "The alveoli are coated with a layer of fluids and mucus, mainly composed of phospholipids and surface proteins, which reduce the surface tension and are important for the proper functioning of gas exchange. The lower respiratory passages are lined by a thin layer of connective tissue, surrounded with different cells such as fibroblasts, nerves, macrophages and lymph vessels. Due to the uniqueness of lung anatomy, it becomes a very appealing target for drug delivery of pulmonary and lymphatic system, due to its large absorptive surface area, large absorptive mucosal membrane, and high vascularity, forming a non-invasive route of drug administration6,8.",
+    "estimated_tokens": 219
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk15",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": "The vast majority of current inhalation therapies suffer from a short half-life and low drug bioavailability at the targeted site, resulting in a suboptimal therapeutic effect and severe side effects. The short halflife and low drug bioavailability of inhaled drugs are due to three main clearance mechanisms (1) pulmonary clearance includes mucociliary clearance and alveolar macrophages, (2) enzymatic degradation, and $\\left(3\\right)$ rapid systemic adsorption8,10.",
+    "estimated_tokens": 156
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk16",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": "The primary function of the respiratory defense mechanism is to prevent foreign particles from entering the respiratory system and to maintain it healthy and sterile. Similar to foreign particles, when aerosol particles are administrated, the respiratory system eliminates the aerosol particles to avoid their interaction with the lung cells, leading to therapy failure. Clearance mechanism of inhaled particles is dependent on the deposition site within the lungs. For example, particles deposited in the tracheobronchial tree are rapidly eliminated by mucociliary escalator, while particles deposited in the lower alveolar region are cleared by macrophages9.",
+    "estimated_tokens": 220
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk17",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": "Mucociliary clearance is the primary defense mechanism in the upper respiratory tract. The upper airways are lined with epithelial cells consisting of two layers: ciliated cells and goblet (mucus-producing) cells, which both are known as a mucociliary escalator. The ciliated cells are covered with airway surface liquid (ASL) and is composed of two layers; mucus layer and periciliary layer (PCL). The PCL layer provides a desirable liquid environment which facilities the cilia displacement toward mucus clearance from the lung to mouth",
+    "estimated_tokens": 179
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk18",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": ". The principle of mucociliary escalator includes entrapment of the foreign/inhalable particles in mucus layer before moving to the lower respiratory regions and then propelled along with mucus out of trachea either by coughing or swallowing10,11. The mucociliary escalator eliminates the majority of the inhaled particles of sizes greater than $6\\upmu\\mathrm{m}$ . On the contrary, smaller particles escape the mucociliary escalator because they rapidly reach the epithelium and preferentially deposit in the alveolar region, where they dissolve or retain for long time span in the lungs",
+    "estimated_tokens": 196
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk19",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": ". The mucociliary escalator provides an effective clearance owing to its ability to balance between the function of ciliated cells and mucus-producing cells. However, during lung infection or inflammation, the balance of mucociliary escalator disturbs resulting in accelerating clearance of the inhaled drug and in turn reduces its retention time and effectiveness11,12.",
+    "estimated_tokens": 123
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk20",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": "Beside the mucociliary escalator clearance, in the deep lung, such as alveoli, there is another powerful clearance mechanism - the alveolar macrophages. The alveolar macrophages are phagocytic cells derived from monocytes and are present in large numbers in the lungs. Each alveolus is typically cleaned by 12-14 alveolar macrophages to keep it free from any foreign particles. Owing to the presence of alveolar macrophages, the half-life of inhalable drugs within the alveoli cannot exceed a few hours, which in turn results in an increasing dose frequency",
+    "estimated_tokens": 185
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk21",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": ". It was also reported that alveolar macrophages engulf particles of sizes ranged between $1.5{\\cdot}3\\upmu\\mathrm{m}^{9}$ . This size-discriminating property has been used as a basis for formulating inhalable drugs, which can escape the alveolar macrophages and provide a controlled drug release in the deep lung. Although the alveolar macrophage clearance seems to be understood, the exact mechanism behind particle uptake, transport, and clearance in the alveolar epithelium is still unknown $12-14$ .",
+    "estimated_tokens": 168
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk22",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": "Inhaled drugs are also highly susceptible to enzymatic degradation in the lung, resulting in a suboptimal therapy. The primary detoxification enzyme in the lung are the cytochrome P450 (CYP)",
+    "estimated_tokens": 63
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk23",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": "families, which provide a line of defense against ingested or inhaled xenobiotics. There are several CYP isoforms expressed in the lungs , which are able to degrade a broad spectrum of chemically-different inhalable drugs, pollutant, toxicants, etc. Several inhaled drugs such as budesonide, ciclesonide, salmeterol, and theophylline are enzymatically degraded in the lung. In addition, peptide/proteins drugs such as insulin are highly vulnerable to peptidase and proteases enzymes present in lung. Although the lung has a low metabolic activity, compared to other organs such as the liver, enzymatic degradation significantly influences a drug’s bioavailability at the lung, and hence should be carefully assessed during drug formulation5,12.",
+    "estimated_tokens": 248
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk24",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": "Another significant challenge facing inhalation therapeutics is their rapid systemic absorption from the lung. The rapid systemic absorption is ascribed to the lung’s large surface area, good epithelial permeability and high vascularity, as well as the highly dispersed nature of therapeutic aerosols. The optimal absorption of inhalable aerosol relies on their site of actions, either locally or systemically. Therefore, to achieve an ideal local effect, an inhaled drug must be absorbed and terminated in the lung, whilst any systemic absorption results in a rapid elimination of the drug and adverse side effects.",
+    "estimated_tokens": 205
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk25",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": "On the other hand, the systemic effect is achieved when the inhaled drug is systemically absorbed from the lung into blood stream. The air-to-blood transfer of inhalable drugs often starts with the interaction between the drug and the surfactant after deposition on the mucosa of tracheobronchial airways or alveolar region. This interaction is greatly influenced by the drug’s nature, and determines whether the drug is absorbed or eliminated. For instance, the contact between peptide drugs and lung surfactant causes particle aggregations, which in turn compromise their dissolution and accelerate their clearance via alveolar macrophage12 (Figure 2).",
+    "estimated_tokens": 218
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk26",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": "On the contrary, the contact between small lipophilic drugs (i.e. glucocorticosteroids) and lung surfactant improves their solubility and increases their rate and extent of absorption13,14. Immediately below the lung surfactant layer, there is a $0.01\\mathrm{-}10\\upmu\\mathrm{m}$ thick lining layer where the drug can diffuse to the epithelium, followed by interstitum and eventually diffuse to blood stream16. The mechanisms of systemic drug absorption include passive and active transport mechanisms such as paracellular or transcellular transport pore formation, vesicular transport and lymphatic drainage. The mechanisms of drug absorption across the epithelium are highly dependent on the drug nature, molecular weight and the targeted site5,17.",
+    "estimated_tokens": 250
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk27",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": "Studies reported that small lipophilic and hydrophobic drugs are comprehensively absorbed within 1- 2 minutes from the lung into the systemic circulation via passive diffusion, while small hydrophilic drugs are absorbed within 65 minutes, through the tight junction. Studies also found that hydrophilic and highly cationic small molecules exhibit a prolonged absorption5,11,17–20. Beyond these facts, the systemic adsorption of some drugs such as peptide drugs is still unclear",
+    "estimated_tokens": 159
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk28",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": ". Beyond these facts, the systemic adsorption of some drugs such as peptide drugs is still unclear. However, some speculated mechanisms stated that the absorption of peptide drugs take place either via transcytosis through caveoli or paracellularly through the tight junctions. The majority of researchers suggest that absorption through the tight junction is the predominant mechanism for peptide drugs",
+    "estimated_tokens": 134
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk29",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": ". Consequently, these findings claim that drug absorption site and mechanism should certainly be considered while designing inhalation therapy in order to achieve an optimum lung-tissue retention and permeability6,9,19–22.",
+    "estimated_tokens": 74
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk30",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": "Figure 2. The deposition mechanism and uptake of particles in the lungs along with different cell types6.",
+    "estimated_tokens": 35
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk31",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": "As a result of the strong pulmonary clearance mechanisms and rapid systemic absorption, inhaled drugs exhibit low bioavailability at the lungs. The low drug bioavailability at the lung represents the main obstacle toward formulating inhaled drugs with high therapeutic efficiency and sustained drug release",
+    "estimated_tokens": 102
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk32",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": ". Since drug bioavailability at the targeted site (lung) is considered the key factor for optimal therapy, as it determines whether a drug causes a complete treatment or a partial treatment with high toxicity, several approaches have been developed to overcome the rapid drug absorption and prolong its half-life5. Among different approaches, particulate-based drug delivery systems which rely on using carriers, which encapsulate the inhaled drug, seem to be advantageous for pulmonary delivery over other approaches",
+    "estimated_tokens": 172
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk33",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": ". The advantages of particulate-based drug delivery include (1) protect the drug from enzymatic degradation, (2) evade pulmonary clearance, (3) slow the drug absorption, (4) deliver the drug to targeted site at the lungs, (5) provide a controlled drug release, (6) reduce dose frequency, (7) maximize the therapeutic efficiency, and (8) minimize adverse side effects.",
+    "estimated_tokens": 122
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk34",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": "To achieve such inhalation therapeutic formula, several factors such as aerodynamic diameters, shape and surface properties of carriers should be tailored and optimized. Researchers from multidisciplinary fields such as chemistry, biology, toxicology, and biomaterials science heavily studied and investigated these factors in an attempt to identify the optimal parameters for developing an effective particulate-based pulmonary drug delivery system5,6,21–23.",
+    "estimated_tokens": 153
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk35",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": "In an attempt to evade both clearance mechanisms and simultaneously provide an effective therapy, several studies were conducted to identify the factors affecting drug bioavailability and deposition. It was found that modulating the particle size of an aerosol could deliver the drug to its targeted site and evade pulmonary clearance. Aerosols, inhalable suspensions composed of solid or liquid particles in a gas, are a form of particulate matter (PM). PM is referred to chemically heterogeneous disperse liquid droplets or solid particles, within the micro-scale (Figure 3)",
+    "estimated_tokens": 192
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk36",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": ". The size of PM in an aerosol can range from 0.001 to more than 100 microns. The aerosol particles can be divided into (1) ultrafine particles (less than $0.1\\upmu\\mathrm{m}\\dot{}$ ), (2) fine particles $\\left(0.1\\mathrm{-}2\\upmu\\mathrm{m}\\right)$ , and $\\textcircled{3}$ coarse particles (greater than $2\\upmu\\mathsf{m})^{5}$ .",
+    "estimated_tokens": 109
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk37",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": "The size of PM in aerosols plays a pivotal role in determining their deposition site and mechanism at the respiratory system. The mechanisms of respiratory deposition are classified based on particles sizes into different mechanisms, namely diffusion, sedimentation, impaction, and interception5,9.",
+    "estimated_tokens": 99
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk38",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": "Particles with sizes smaller than $0.5\\upmu\\mathrm{m}$ are deposited in the alveoli by diffusion mechanism. Diffusion is defined as the movement of particles from a region of high concentration to a region of low concentration owing to Brownian motion. Brownian motion is a random wiggling motion of particles due to the constant bombardment of air molecules. However, the majority of the particles are exhaled owing to their small size $(<0.5\\upmu\\mathrm{m})^{5,22-24}$ .",
+    "estimated_tokens": 157
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk39",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": "Sedimentation is another deposition mechanism, which plays a significant role in the setting out particles of aerodynamic size between $1{\\cdot}5\\upmu\\mathrm{m}$ in the smaller airways of bronchioles and alveoli where",
+    "estimated_tokens": 72
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk40",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": "Figure 3. Particle size determines the particles deposition site at the lung. Adapted from reference 79.",
+    "estimated_tokens": 34
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk41",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": "the airflow is low. Sedimentation is governed by gravitational forces, particle velocity and aerodynamic size. Moreover, sedimentation is influenced by breathing pattern, where slow breathing provides a long time span for particles to slowly deposit. It was also speculated that sedimentation is main deposition mechanism of hygroscopic particles, particles which grow in size after passing through warm and humid air passages. For example, nanoparticles released from the aerosol bypass the warm humid airways aggregating and forming particles of micro-sizes, which allow their deposit in the bronchiolar region24,25.",
+    "estimated_tokens": 206
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk42",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": "Particles with sizes greater than $5\\upmu\\mathrm{m}$ are deposited at the bronchial regions by impaction. Impaction is highly dependent on aerodynamic diameter and mass. Impaction is the common deposition mechanism for dry powder inhalation (DPI) and metered dose inhalators (MDI)5.",
+    "estimated_tokens": 94
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk43",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": "Interception is based on the physical size and shape of particles contacts the airway surface. In contrast to impaction, particles deposited by interception did not deviate from their air streamlines26. Interception commonly occurred at the small airways or when the air streamlines near to an airway wall. Interception is responsible for fiber deposition at the smallest airways owing to their small aerodynamic diameters relative to their sizes6,24.",
+    "estimated_tokens": 150
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk44",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": "Despite the tunable size of inhaled particles, which permits particles to deposit at the targeted site in the respiratory system, lung clearance mechanisms represent the main obstacle facing inhalation therapy. It was also revealed that the particle’s aerodynamic diameter, a diameter of sphere with density of $1{\\mathrm{g}}/{\\mathrm{cm}}^{3}$ with settling velocity similar to irregular particles, is the key factor, which can be manipulated to circumvent mucociliary and macrophage clearance mechanisms",
+    "estimated_tokens": 168
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk45",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": ". The main challenge facing inhaled therapeutics is the mucociliary clearance and alveoli clearance, which exaggerate during lung diseases resulting in therapy failure. Studies reported that the particles with aerodynamic sizes between $1{\\cdot}5\\upmu\\mathrm{m}$ could escape the mucociliary clearance and deposit in the lower airways. This aerodynamic size range is currently employed in many commercial inhalation aerosols commonly used for the treatment of asthma, such as terbutaline and salbutmol aerosols with aerodynamic diameter of $1.8-2.8\\upmu\\mathrm{m}$ . Usami et al",
+    "estimated_tokens": 192
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk46",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": ". Usami et al. recently formulated mono-dispersed aerosols, which have proven great preferential deposition ability in the deep lung. Although particles of aerodynamic sizes between $1{\\cdot}5\\upmu\\mathrm{m}$ are able to escape the mucociliary clearance and deposit in the deeper lungs, it was found that they are rapidly eliminated by alveoli macrophage27,28.",
+    "estimated_tokens": 120
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk47",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": "A particulate-based drug delivery system is a promising alternative approach, which depends on modulating the aerodynamic diameter of drug carriers to circumvent the alveoli macrophage and simultaneously deliver and release the drug into the deep lungs. One successful example of particulate-based drug delivery system includes the use of large porous microparticles $(\\mathsf{L P P S})$ with size greater than $5\\upmu\\mathrm{m}$ , but with a density of about $\\boldsymbol{0.1}\\boldsymbol{\\mathrm{g/L}}$ or less",
+    "estimated_tokens": 170
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk48",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": ". The LPPs showed an appealing ability to escape macrophage uptake and deposit homogeneously at the deep lungs. Nanoparticles (NPs) have also been used as a drug carriers for overcoming mucociliary clearance and alveolar macrophages. Studies showed that NPs can deposit at the lining fluid and escape both mucociliary clearance and alveolar macrophages29,30. Although NPs seems to be advantageous for pulmonary delivery, their small sizes mean they are predominantly exhaled after inhalation",
+    "estimated_tokens": 163
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk49",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": ". In order to overcome such an issue, a new particulate-based pulmonary drug delivery system has emerged based on encapsulating drug-loaded NPs in microparticles, known as “Trojan” particles. Trojan particles have shown a great ability in delivering and releasing NPs in the peripheral airways, hence evading the pulmonary clearance and offering a sustained drug release. Trojan particles are typically produced by spray drying of NPs, followed by their assembly into hollow microparticles of low density $(<0.1\\mathrm{g}/\\mathrm{L})^{31}$",
+    "estimated_tokens": 179
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk50",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": ". Although increasing the sizes of microparticles decreases their susceptibility to the alveolar macrophages clearance, this solution is restricted because the increase of microparticles’ sizes reduces the delivered respirable fraction.",
+    "estimated_tokens": 78
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk51",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": "In an attempt to overcome this challenge, a more recent particulate-based pulmonary drug delivery system has been developed by El-Sherbiny et al., relying on smart stimuli-responsive microparticles as carriers for drug-loaded ${\\mathsf{N P S}}^{32,33}$ . These smart microparticles are swellable, with sizes between $1{\\cdot}5\\upmu\\mathrm{m}$ in the dry state, while in moisture - such as in the warm and humid airways - they absorb water and swell, therefore they can preferentially deposit in the deep lung and escape the macrophage clearance. For instance, El-Sherbiny et al",
+    "estimated_tokens": 192
+  },
+  {
+    "chunk_id": "sciverse:02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d:chunk52",
+    "doc_id": "02f76ba59a218d7298a0d08323af1b0f3bfd1730d00455d39563108139c1498d",
+    "title": "Inhaled nano- and microparticles for drug delivery",
+    "text": ". For instance, El-Sherbiny et al. (Figure 4) developed smart microparticles composed of PEG grafted onto chitosan crosslinked hydrogel and combined with Pluronic F-108 for pulmonary deli",
+    "estimated_tokens": 62
+  }
+]

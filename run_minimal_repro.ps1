@@ -51,8 +51,8 @@ try {
     if ($DryRun) {
         Step "Dry-run plan"
         Write-Host "  Would run run_evaluation.ps1 -Execute -Limit $Limit -BalancedMini -ResultsDir $ResultsDir"
-        Write-Host "  Would run agent_cli.py --dry-run --intents reproduce_all"
-        Write-Host "  Would validate agent capabilities"
+        Write-Host "  Would run conda run --no-capture-output -n myenv python benchmark\agent\agent_cli.py --dry-run --intents reproduce_all"
+        Write-Host "  Would run conda run --no-capture-output -n myenv python benchmark\agent\_validate_capabilities.py"
         Write-Host "  Would run controlsci.medical.kb_quality --dry-run"
         if (-not $SkipApiSearch) {
             Write-Host "  Would start Medical RAG API on port $ApiPort and run reviewer demo"
@@ -65,11 +65,11 @@ try {
     }
 
     Run "Agent dry-run: reproduce_all" {
-        python benchmark\agent\agent_cli.py --dry-run --intents reproduce_all
+        conda run --no-capture-output -n myenv python benchmark\agent\agent_cli.py --dry-run --intents reproduce_all
     }
 
     Run "Agent capability deep validation" {
-        python benchmark\agent\_validate_capabilities.py
+        conda run --no-capture-output -n myenv python benchmark\agent\_validate_capabilities.py
     }
 
     Run "Medical RAG offline retrieval dry-run" {

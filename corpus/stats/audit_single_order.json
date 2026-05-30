@@ -1,0 +1,2310 @@
+{
+  "total_docs": 1,
+  "total_issues": 328,
+  "failed_docs": 0,
+  "failures": [],
+  "per_doc": [
+    {
+      "filename": "Optimal_Control_Exercise_Book",
+      "issue_count": 328,
+      "issues": [
+        {
+          "line": 8,
+          "next_line": 14,
+          "previous_tail": "KOREA ADVANCED INSTITUTE OF SCIENCE AND TECHNOLOGY KAIST 1971 · 한국과학기술원 · SOGY",
+          "next_head": "Optimal Control",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 14,
+          "next_line": 18,
+          "previous_tail": "Optimal Control",
+          "next_head": "Professor:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 20,
+          "next_line": 22,
+          "previous_tail": "Donghwan Lee",
+          "next_head": "Student:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 24,
+          "next_line": 26,
+          "previous_tail": "Federico Berto",
+          "next_head": "Course ID:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 28,
+          "next_line": 30,
+          "previous_tail": "EE688",
+          "next_head": "ID number:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 32,
+          "next_line": 38,
+          "previous_tail": "20204817",
+          "next_head": "Exercise 1.13 3",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 38,
+          "next_line": 40,
+          "previous_tail": "Exercise 1.13 3",
+          "next_head": "Exercise 1.15 3",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 40,
+          "next_line": 42,
+          "previous_tail": "Exercise 1.15 3",
+          "next_head": "Exercise 1.17 3",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 42,
+          "next_line": 44,
+          "previous_tail": "Exercise 1.17 3",
+          "next_head": "Exercise 1.24 4",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 44,
+          "next_line": 46,
+          "previous_tail": "Exercise 1.24 4",
+          "next_head": "Exercise 1.68 4",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 46,
+          "next_line": 48,
+          "previous_tail": "Exercise 1.68 4",
+          "next_head": "Exercise 1.69 6",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 48,
+          "next_line": 50,
+          "previous_tail": "Exercise 1.69 6",
+          "next_head": "Exercise 1.78 8",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 50,
+          "next_line": 52,
+          "previous_tail": "Exercise 1.78 8",
+          "next_head": "Exercise 1.81 9",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 52,
+          "next_line": 54,
+          "previous_tail": "Exercise 1.81 9",
+          "next_head": "Exercise 1.84 10",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 54,
+          "next_line": 56,
+          "previous_tail": "Exercise 1.84 10",
+          "next_head": "Exercise 1.85 11",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 56,
+          "next_line": 58,
+          "previous_tail": "Exercise 1.85 11",
+          "next_head": "Exercise 1.96 12",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 58,
+          "next_line": 62,
+          "previous_tail": "Exercise 1.96 12",
+          "next_head": "Exercise 2.4 14",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 62,
+          "next_line": 64,
+          "previous_tail": "Exercise 2.4 14",
+          "next_head": "Exercise 2.21 14",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 64,
+          "next_line": 66,
+          "previous_tail": "Exercise 2.21 14",
+          "next_head": "Exercise 2.22 15",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 66,
+          "next_line": 68,
+          "previous_tail": "Exercise 2.22 15",
+          "next_head": "Exercise 2.27 (The Brachistochrone Problem) 16",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 68,
+          "next_line": 70,
+          "previous_tail": "Exercise 2.27 (The Brachistochrone Problem) 16",
+          "next_head": "Exercise 2.30 18",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 70,
+          "next_line": 72,
+          "previous_tail": "Exercise 2.30 18",
+          "next_head": "Exercise 2.36 20",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 72,
+          "next_line": 74,
+          "previous_tail": "Exercise 2.36 20",
+          "next_head": "Exercise 2.37 (Dido’s Problem) 21",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 74,
+          "next_line": 76,
+          "previous_tail": "Exercise 2.37 (Dido’s Problem) 21",
+          "next_head": "Exercise 2.38 (The Catenary Problem) 22",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 76,
+          "next_line": 78,
+          "previous_tail": "Exercise 2.38 (The Catenary Problem) 22",
+          "next_head": "Exercise 2.47 25",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 78,
+          "next_line": 82,
+          "previous_tail": "Exercise 2.47 25",
+          "next_head": "Exercise 3.24 27",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 82,
+          "next_line": 86,
+          "previous_tail": "Exercise 3.24 27",
+          "next_head": "Exercise 4.10 30",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 86,
+          "next_line": 88,
+          "previous_tail": "Exercise 4.10 30",
+          "next_head": "Exercise 4.11 (Linear-quadratic problem) . . 32",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 88,
+          "next_line": 90,
+          "previous_tail": "Exercise 4.11 (Linear-quadratic problem) . . 32",
+          "next_head": "Exercise 4.12 (Control of production and consumption) 33",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 90,
+          "next_line": 92,
+          "previous_tail": "Exercise 4.12 (Control of production and consumption) 33",
+          "next_head": "Exercise 4.13 36",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 92,
+          "next_line": 94,
+          "previous_tail": "Exercise 4.13 36",
+          "next_head": "Exercise 4.14 38",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 94,
+          "next_line": 96,
+          "previous_tail": "Exercise 4.14 38",
+          "next_head": "Exercise 4.15 40",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 96,
+          "next_line": 100,
+          "previous_tail": "Exercise 4.15 40",
+          "next_head": "Exercise 5.4 42",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 100,
+          "next_line": 102,
+          "previous_tail": "Exercise 5.4 42",
+          "next_head": "Exercise 5.5 42",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 102,
+          "next_line": 104,
+          "previous_tail": "Exercise 5.5 42",
+          "next_head": "Exercise 5.15 (Linear quadratic optimal tracking) 43",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 104,
+          "next_line": 106,
+          "previous_tail": "Exercise 5.15 (Linear quadratic optimal tracking) 43",
+          "next_head": "Exercise 5.16 (Nonlinear system) 45",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 106,
+          "next_line": 108,
+          "previous_tail": "Exercise 5.16 (Nonlinear system) 45",
+          "next_head": "Exercise 5.19 (Linear quadratic regulator (LQR) problem) . . . . . . . . 47",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 108,
+          "next_line": 112,
+          "previous_tail": "Exercise 5.19 (Linear quadratic regulator (LQR) problem) . . . . . . . . 47",
+          "next_head": "Exercise 6.15 58",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 112,
+          "next_line": 114,
+          "previous_tail": "Exercise 6.15 58",
+          "next_head": "Exercise 6.24 59",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 114,
+          "next_line": 116,
+          "previous_tail": "Exercise 6.24 59",
+          "next_head": "Exercise 6.25 (Boeing 747 Lateral Model) . . 61",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 116,
+          "next_line": 122,
+          "previous_tail": "Exercise 6.25 (Boeing 747 Lateral Model) . . 61",
+          "next_head": "Prove the above lemma: ”If scalar sequence is monotonically nondecreasing and bounded above, then it converges. Similarl",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 122,
+          "next_line": 126,
+          "previous_tail": "then it converges. Similarly, if a scalar sequence is monotonically nonincreasing and bounded below, then it converges.”",
+          "next_head": "We first prove the convergence for the monotonically nondecreasing and bounded above series.",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 130,
+          "next_line": 134,
+          "previous_tail": "be easily shown in a similar way by showing its convergence to a $l = \\operatorname { i n f } _ { n } ( x _ { k } )$ . \u0003",
+          "next_head": "Devise a set X whose supremum exists and find its supremum. What is the maximum of the set? Do the same for the infimum.",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 140,
+          "next_line": 144,
+          "previous_tail": " 0, because of the definition of absolute value. Also in this case, the minimum corresponds to the infimum which is 0. \u0003",
+          "next_head": "Devise a sequence $( x _ { k } ) _ { k = 1 } ^ { \\infty }$ 1 whose upper limit exists and find its upper limit. Do the s",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 150,
+          "next_line": 152,
+          "previous_tail": "$$\\frac {x}{2 x + 1} = \\frac {1}{3}, \\frac {2}{5}, \\frac {3}{7}, \\dots \\tag {1}$$",
+          "next_head": "We can easily find its upper limit by:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 154,
+          "next_line": 156,
+          "previous_tail": "$$\\lim _ {k \\to \\infty} s u p (x _ {k}) = \\frac {1}{2} \\tag {2}$$",
+          "next_head": "As for the infimum, we can devise another sequence $( x _ { k } )$ as:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 158,
+          "next_line": 160,
+          "previous_tail": "$$\\frac {2 x + 1}{x} = 3, \\frac {5}{2}, \\frac {7}{3}, \\dots \\tag {3}$$",
+          "next_head": "We can easily find its infimum by:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 162,
+          "next_line": 168,
+          "previous_tail": "$$\\lim _ {k \\to \\infty} i n f (x _ {k}) = 2 \\tag {4}$$",
+          "next_head": "Devise examples of an open set and a closed set.",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 174,
+          "next_line": 178,
+          "previous_tail": " \\{ x , y \\mid x ^ { 2 } + y ^ { 2 } \\leq r ^ { 2 } , r \\in \\mathbb { R } \\}$ , then this is an example of closed set. \u0003",
+          "next_head": "Prove the two following propositions.",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 182,
+          "next_line": 184,
+          "previous_tail": "$$\\langle \\nabla f (x ^ {*}), d \\rangle \\geq 0 \\tag {5}$$",
+          "next_head": "for all feasible directions d.",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 190,
+          "next_line": 192,
+          "previous_tail": "$$g (\\alpha) := f (x ^ {*} + \\alpha d), \\quad \\alpha > 0 \\tag {6}$$",
+          "next_head": "Via the Taylor expansion, we obtain:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 194,
+          "next_line": 196,
+          "previous_tail": "$$g (\\alpha) = g (0) + g ^ {\\prime} (0) \\alpha + o (\\alpha) \\tag {7}$$",
+          "next_head": "We now claim that $g ^ { \\prime } ( 0 ) \\geq 0 ;$ we can prove this claim by contradiction. Suppose that $g ^ { \\prime }",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 198,
+          "next_line": 200,
+          "previous_tail": "$$\\lim _ {\\alpha \\rightarrow 0} \\frac {o (\\alpha)}{\\alpha} = 0 \\tag {8}$$",
+          "next_head": "There exists a small enough $\\varepsilon > 0$ such that for all α satisfying $0 < \\alpha < \\varepsilon$ we have",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 202,
+          "next_line": 204,
+          "previous_tail": "(\\alpha)}{\\alpha} \\right| < - g ^ {\\prime} (0) \\tag {9}\\therefore | o (\\alpha) | < - g ^ {\\prime} (0) \\alpha \\tag {10}$$",
+          "next_head": "Hence we have",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 206,
+          "next_line": 208,
+          "previous_tail": "alpha) \\leq g ^ {\\prime} (0) \\alpha + | o (\\alpha) | < g ^ {\\prime} (0) \\alpha - g ^ {\\prime} (0) \\alpha = 0 \\tag {11}$$",
+          "next_head": "However, given that $g ( \\alpha ) : = f ( x ^ { * } + \\alpha d )$ this implies that",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 210,
+          "next_line": 212,
+          "previous_tail": "$$f \\left(x ^ {*} + \\alpha d\\right) - f \\left(x ^ {*}\\right) < 0 \\tag {12}$$",
+          "next_head": "Which contradicts the the hypothesis of $x ^ { * }$ being a local minimum. Therefore, the claim $g ^ { \\prime } ( 0 ) \\g",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 214,
+          "next_line": 216,
+          "previous_tail": "$$g ^ {\\prime} (0) = \\left\\langle \\nabla f \\left(x ^ {*}\\right), d \\right\\rangle \\geq 0 \\tag {13}$$",
+          "next_head": "We have thus shown that given that d is an arbitrary feasible direction, $\\langle \\nabla f ( x ^ { * } , d ) \\geq$ 0 for",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 222,
+          "next_line": 224,
+          "previous_tail": "$$d ^ {T} \\nabla^ {2} f (x ^ {*}) d \\geq 0 \\tag {14}$$",
+          "next_head": "for all feasible directions d such that",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 226,
+          "next_line": 230,
+          "previous_tail": "$$\\langle \\nabla f (x ^ {*}), d \\rangle = 0 \\tag {15}$$",
+          "next_head": "We can pick an arbitrary feasible direction d $\\in \\ R ^ { n }$ . Then $x ^ { * } + \\alpha d \\in D$ for all small enough",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 232,
+          "next_line": 234,
+          "previous_tail": "$$g (\\alpha) := f (x ^ {*} + \\alpha d), \\quad \\alpha > 0 \\tag {16}$$",
+          "next_head": "Via the Taylor expansion, we obtain:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 236,
+          "next_line": 238,
+          "previous_tail": "} (0) \\stackrel {0} {\\alpha} + \\frac {1}{2} g ^ {\\prime \\prime} (0) \\alpha^ {2} + o \\left(\\alpha^ {2}\\right) \\tag {17}$$",
+          "next_head": "where $g ^ { \\prime } ( 0 ) \\alpha$ cancels out since $g ^ { \\prime } ( 0 ) \\alpha = \\langle \\nabla f ( x ^ { * } ) , d ",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 242,
+          "next_line": 244,
+          "previous_tail": "18}\\therefore \\left| o \\left(\\alpha^ {2}\\right) \\right| < - \\frac {1}{2} g ^ {\\prime \\prime} (0) \\alpha^ {2} \\tag {19}$$",
+          "next_head": "Hence this yields",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 246,
+          "next_line": 248,
+          "previous_tail": "pha) | < \\frac {1}{2} g ^ {\\prime \\prime} (0) \\alpha^ {2} - \\frac {1}{2} g ^ {\\prime \\prime} (0) \\alpha^ {2} = 0 (2 0)$$",
+          "next_head": "However, given that $g ( \\alpha ) : = f ( x ^ { * } + \\alpha d )$ this implies that",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 250,
+          "next_line": 252,
+          "previous_tail": "$$f \\left(x ^ {*} + \\alpha d\\right) - f \\left(x ^ {*}\\right) < 0 \\tag {21}$$",
+          "next_head": "Which contradicts the the hypothesis of $x ^ { * }$ being a local minimum. Therefore, the claim $g ^ { \\prime \\prime } (",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 254,
+          "next_line": 256,
+          "previous_tail": "$$g ^ {\\prime \\prime} (0) = d ^ {T} \\nabla^ {2} f (x ^ {*}) d \\geq 0 \\tag {22}$$",
+          "next_head": "We have thus shown that given that d is an arbitrary feasible direction, $d ^ { T } \\nabla ^ { 2 } f ( x ^ { * } ) d \\ge",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 256,
+          "next_line": 260,
+          "previous_tail": "n arbitrary feasible direction, $d ^ { T } \\nabla ^ { 2 } f ( x ^ { * } ) d \\geq$ 0 for all the feasible directions d. \u0003",
+          "next_head": "Suppose that f is a $\\mathcal { C } ^ { 2 }$ function and $x ^ { * }$ us a point of its domain at which we have $\\langle",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 266,
+          "next_line": 268,
+          "previous_tail": "$$g (\\alpha) := f (x ^ {*} + \\alpha d), \\quad \\alpha > 0 \\tag {23}$$",
+          "next_head": "Via the Taylor expansion, we obtain:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 270,
+          "next_line": 272,
+          "previous_tail": "0) + g ^ {\\prime} (0) \\alpha + \\frac {1}{2} g ^ {\\prime \\prime} (0) \\alpha^ {2} + o \\left(\\alpha^ {2}\\right) \\tag {24}$$",
+          "next_head": "In which the terms $g ^ { \\prime } ( 0 )$ and $g ^ { \\prime \\prime } ( 0 )$ are, according to our hypotesis:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 274,
+          "next_line": 276,
+          "previous_tail": "eft\\langle \\nabla f \\left(x ^ {*}\\right), d \\right\\rangle \\geq 0 \\tag {25}\\therefore g ^ {\\prime} (0) \\geq 0 \\tag {26}$$",
+          "next_head": "and (27)",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 278,
+          "next_line": 280,
+          "previous_tail": " {\\prime \\prime} (0) = d ^ {T} \\nabla^ {2} f (x ^ {*}) d > 0 \\tag {28}\\therefore g ^ {\\prime \\prime} (0) > 0 \\tag {29}$$",
+          "next_head": "If the residual $o ( \\alpha ^ { 2 } ) \\ge 0$ , then we have:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 282,
+          "next_line": 284,
+          "previous_tail": " g ^ {\\prime} (0) \\alpha + \\frac {1}{2} g ^ {\\prime \\prime} (0) \\alpha^ {2} + o \\left(\\alpha^ {2}\\right) > 0 \\tag {30}$$",
+          "next_head": "Thus implying",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 286,
+          "next_line": 288,
+          "previous_tail": "$$f (x ^ {*} + \\alpha d) - f (x ^ {*}) > 0 \\tag {31}$$",
+          "next_head": "which implies that $x ^ { * }$ is a local minimum for f for every nonzero feasible direction d. We now need to show the ",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 296,
+          "next_line": 298,
+          "previous_tail": "a^ {2} \\tag {35}\\therefore \\frac {1}{2} g ^ {\\prime \\prime} (0) \\alpha^ {2} + o \\left(\\alpha^ {2}\\right) > 0 \\tag {36}$$",
+          "next_head": "Therefore, as in the previous case, we get",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 300,
+          "next_line": 302,
+          "previous_tail": " g ^ {\\prime} (0) \\alpha + \\frac {1}{2} g ^ {\\prime \\prime} (0) \\alpha^ {2} + o \\left(\\alpha^ {2}\\right) > 0 \\tag {37}$$",
+          "next_head": "Thus implying",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 304,
+          "next_line": 306,
+          "previous_tail": "$$f (x ^ {*} + \\alpha d) - f (x ^ {*}) > 0 \\tag {38}$$",
+          "next_head": "which implies that $x ^ { * }$ is a local minimum for f for every nonzero feasible direction d.",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 308,
+          "next_line": 312,
+          "previous_tail": "\\nabla ^ { 2 } f ( x ^ { * } ) d > 0 .$ , $x ^ { * }$ is a local minimum for f for every nonzero feasible direction d. \u0003",
+          "next_head": "Give an example where a local minimum $x ^ { * }$ is not a regular point and the above necessary condition (namely first",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 318,
+          "next_line": 320,
+          "previous_tail": "$$f (x _ {1}, x _ {2}) = 4 2 (x _ {1} + x _ {2}) \\tag {39}$$",
+          "next_head": "given the following",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 322,
+          "next_line": 324,
+          "previous_tail": " {2} = 1 \\tag {40}h _ {2} \\left(x _ {1}, x _ {2}\\right) = \\left(x _ {2} - 2\\right) ^ {2} + x _ {2} ^ {2} = 4 \\tag {41}$$",
+          "next_head": "The problem only has one feasible point $( x _ { 1 } , x _ { 2 } ) = ( 0 , 0 )$ . The function f is then minimized at th",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 326,
+          "next_line": 330,
+          "previous_tail": "2 \\\\ 0 \\end{array} \\right], \\nabla h _ {2} (x ^ {*}) = \\left[ \\begin{array}{c} - 4 \\\\ 0 \\end{array} \\right] \\tag {43} $$",
+          "next_head": "We notice that:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 332,
+          "next_line": 334,
+          "previous_tail": "$$\\nabla h _ {2} (x ^ {*}) = 2 \\nabla h _ {1} (x ^ {*}) \\tag {44}$$",
+          "next_head": "which implies they are linearly dependent. Therefore the point $x ^ { * } = ( x _ { 1 } ^ { * } , x _ { 2 } ^ { * } ) = ",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 338,
+          "next_line": 340,
+          "previous_tail": " f (x ^ {*}) + \\lambda_ {1} ^ {*} \\nabla h _ {1} (x ^ {*}) + \\lambda_ {2} ^ {*} \\nabla h _ {2} (x ^ {*}) = 0 \\tag {45}$$",
+          "next_head": "which leads to",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 342,
+          "next_line": 346,
+          "previous_tail": " - 2 \\\\ 0 \\end{array} \\right] + \\lambda_ {2} ^ {*} \\left[ \\begin{array}{c} - 4 \\\\ 0 \\end{array} \\right] = 0 \\tag {46} $$",
+          "next_head": "However, there exist no such $\\lambda _ { 1 } ^ { * } , \\lambda _ { 2 } ^ { * }$ that can cancel out the second element ",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 360,
+          "next_line": 366,
+          "previous_tail": "Additive inverses: given $f ( x ) = i$ , we can easily find a function, say $l : [ a , b ] $ R such that $l ( x ) = - i$",
+          "next_head": "Since these conditions are all satisfied, then the vector addition + is defined ∀x.",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 375,
+          "next_line": 377,
+          "previous_tail": "• Unitary law: $1 \\cdot f ( x ) = 1 \\cdot i = i = f ( x )$ （20号",
+          "next_head": "Since these conditions are all satisfied, then the scalar multiplication is also defined ∀x. \u0003",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 377,
+          "next_line": 381,
+          "previous_tail": "Since these conditions are all satisfied, then the scalar multiplication is also defined ∀x. \u0003",
+          "next_head": "For $y \\in \\mathcal { C } ^ { 0 }$ , define:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 383,
+          "next_line": 385,
+          "previous_tail": "left| y \\right| \\right| _ {\\mathcal {L} _ {p}} := \\left(\\int_ {a} ^ {b} | y (x) | ^ {p} d x\\right) ^ {1 / p} \\tag {47}$$",
+          "next_head": "where p is a positive integer and $a , b \\in \\mathbb { R }$ with $a \\textless b$ . Prove that it is an inner product on ",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 385,
+          "next_line": 389,
+          "previous_tail": " \\in \\mathbb { R }$ with $a \\textless b$ . Prove that it is an inner product on the vector space $\\mathbb { C } ^ { 0 }$",
+          "next_head": "We need to prove that the expression represents a norm. Thus, it has to satisfy the following properties:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 394,
+          "next_line": 396,
+          "previous_tail": " y (x) | ^ {p} d x\\right) ^ {1 / p} = \\left(\\int_ {a} ^ {b} | c | ^ {p} | y (x) | ^ {p} d x\\right) ^ {1 / p} \\tag {48}$$",
+          "next_head": "So, we can move c out of the integral and get the result:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 403,
+          "next_line": 405,
+          "previous_tail": " {a} ^ {b} | y (x) | ^ {p} d x\\right) ^ {1 / p} + \\left(\\int_ {a} ^ {b} | z (x) | ^ {p} d x\\right) ^ {1 / p} \\tag {50}$$",
+          "next_head": "However, the exponential function is a convex function. Therefore, the following will hold:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 407,
+          "next_line": 409,
+          "previous_tail": "$$\\mid y (x) + z (x) \\mid^ {p} \\leq \\mid y (x) \\mid^ {p} + \\mid z (x) \\mid^ {p} \\tag {51}$$",
+          "next_head": "The integral function maintains the inequality:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 411,
+          "next_line": 413,
+          "previous_tail": "ht) \\leq \\left(\\int_ {a} ^ {b} | y (x) | ^ {p} d x\\right) + \\left(\\int_ {a} ^ {b} | z (x) | ^ {p} d x\\right) \\tag {52}$$",
+          "next_head": "And the other exponential function too:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 415,
+          "next_line": 417,
+          "previous_tail": "t_ {a} ^ {b} | y (x) | ^ {p} d x\\right) + \\left(\\int_ {a} ^ {b} | z (x) | ^ {p} d x\\right) \\right] ^ {1 / p} \\tag {53}$$",
+          "next_head": "The new exponential is also a convex function. Therefore, the following the chain of equations hold:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 419,
+          "next_line": 421,
+          "previous_tail": "left(\\int_ {a} ^ {b} | y (x) | ^ {p} d x\\right) ^ {1 / p} + \\left(\\int_ {a} ^ {b} | z (x) | ^ {p} d x\\right) ^ {1 / p}$$",
+          "next_head": "Thus proving our hypothesis.",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 429,
+          "next_line": 431,
+          "previous_tail": "$$\\langle x, y \\rangle = \\int_ {a} ^ {b} x (t) y (t) d t \\tag {54}$$",
+          "next_head": "where a, $b \\in \\mathbb { R }$ with $a < b$ . Prove that it is an inner product on the vector space $\\mathcal { C } ^ { ",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 439,
+          "next_line": 441,
+          "previous_tail": "le = \\int_ {a} ^ {b} x (t) y (t) d t = \\int_ {a} ^ {b} y (t) x (t) d t = \\overline {{\\langle y , x \\rangle}} \\tag {55}$$",
+          "next_head": "The expression hold because of the commutative property of the R space. The conjugate symmetry is just symmetry in R.",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 445,
+          "next_line": 447,
+          "previous_tail": "int_ {a} ^ {b} \\alpha x (t) y (t) d t = \\alpha \\int_ {a} ^ {b} y (t) x (t) d t = \\alpha \\langle x, y \\rangle \\tag {56}$$",
+          "next_head": "holds because of the properties of the integral, where $\\alpha \\in \\mathbb { R }$ . Also, we can see that the following ",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 449,
+          "next_line": 451,
+          "previous_tail": "t_ {a} ^ {b} x (t) z (t) d t + \\int_ {a} ^ {b} y (t) z (t) d t = \\langle x, z \\rangle + \\langle y, z \\rangle \\tag {57}$$",
+          "next_head": "thus satisfying the linearity conditions.",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 455,
+          "next_line": 457,
+          "previous_tail": "$$\\langle x, x \\rangle = \\int_ {a} ^ {b} x (t) x (t) d t = \\int_ {a} ^ {b} x (t) ^ {2} d t > 0 \\tag {58}$$",
+          "next_head": "where $x ( t ) ^ { 2 } > 0$ . Thus, since the integral of a positive function is positive, by our definition the express",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 459,
+          "next_line": 463,
+          "previous_tail": "Therefore, we can conclude the expression is indeed an inner product on the vector space $\\mathbb { C } ^ { 0 }$ . \u0003",
+          "next_head": "Consider the space $\\mathcal { C } ^ { 0 } ( [ 0 , 1 ] ) \\to \\mathbb { R }$ , let $g : \\mathbb { R }  \\mathbb { R }$ be ",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 465,
+          "next_line": 469,
+          "previous_tail": "$$\\delta J _ {y} (\\eta) = \\int_ {0} ^ {1} g ^ {\\prime} (y (x)) \\eta (x) d x \\tag {59}$$",
+          "next_head": "From the definition of first variation, if we take the following function:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 471,
+          "next_line": 473,
+          "previous_tail": "$$h (\\alpha) := J (y + \\alpha \\eta (x)) \\tag {60}$$",
+          "next_head": "then the first variation functional will be defined by:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 475,
+          "next_line": 477,
+          "previous_tail": "$$\\delta J _ {y} (\\eta (x)) = h ^ {\\prime} (0) \\tag {61}$$",
+          "next_head": "where $\\eta ( x )$ a perturbation and $\\alpha \\in \\mathbb { R }$ . The function becomes:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 479,
+          "next_line": 481,
+          "previous_tail": "$$J (y) = \\int_ {0} ^ {1} g ^ {\\prime} (y (x + \\alpha \\eta (x)) d x \\tag {62}$$",
+          "next_head": "Thus, we calculate the derivative",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 483,
+          "next_line": 485,
+          "previous_tail": " {1} g ^ {\\prime} (y (x + \\alpha \\eta (x))) \\eta (x) d x = \\int_ {0} ^ {1} g ^ {\\prime} (y (x)) \\eta (x) d x \\tag {63}$$",
+          "next_head": "And finally, since $h ^ { \\prime } ( 0 ) = \\delta J _ { y } ( \\eta )$ , then:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 487,
+          "next_line": 495,
+          "previous_tail": "$$\\delta J _ {y} (\\eta (x)) = \\int_ {0} ^ {1} g ^ {\\prime} (y (x)) \\eta (x) d x \\tag {64}$$",
+          "next_head": "Find another example of a variational problem. Describe it verbally first, then formalize it by specifying admissible cu",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 503,
+          "next_line": 505,
+          "previous_tail": "$$L = \\int_ {A} ^ {B} d s = \\int_ {x _ {o}} ^ {x _ {1}} \\sqrt {d x ^ {2} + d y ^ {2}} \\tag {65}$$",
+          "next_head": "Considering $d y = y ^ { \\prime } ( x ) d x$ yields to:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 507,
+          "next_line": 509,
+          "previous_tail": "ghtarrow \\left[ y _ {0}, y _ {1} \\right]} \\int_ {x _ {0}} ^ {x _ {1}} \\sqrt {1 + y ^ {\\prime} (x) ^ {2}} d x \\tag {66}$$",
+          "next_head": "subject to",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 511,
+          "next_line": 517,
+          "previous_tail": "$$y (x _ {0}) = y _ {0}, \\quad y (x _ {1}) = y _ {1} \\tag {67}$$",
+          "next_head": "Find an extremal for the problem",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 519,
+          "next_line": 523,
+          "previous_tail": "nt_ {0} ^ {1} y (x) ^ {2} (y ^ {\\prime} (x)) ^ {2} d x \\quad \\text { subject to } \\quad y (0) = 0, y (1) = 1 \\tag {68}$$",
+          "next_head": "Let’s consider the simplified notation $y ( x ) = y$ and $y ^ { \\prime } ( x ) = y ^ { \\prime }$ for convenience.",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 527,
+          "next_line": 529,
+          "previous_tail": "$$L (x, y, y ^ {\\prime}) = y ^ {2} y ^ {\\prime 2} \\tag {69}$$",
+          "next_head": "The derivatives of the Lagrangian are given by",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 531,
+          "next_line": 533,
+          "previous_tail": "$$L _ {y} = 2 y y ^ {\\prime 2} \\tag {70}L _ {y} ^ {\\prime} = 2 y ^ {2} y ^ {\\prime} \\tag {71}$$",
+          "next_head": "The Euler-Lagrange equation yields the following differential equation:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 535,
+          "next_line": 537,
+          "previous_tail": "$$y y ^ {\\prime 2} = \\frac {d}{d x} y ^ {2} y ^ {\\prime} \\tag {72}$$",
+          "next_head": "whose solutions are of the form $y ( x ) = c _ { 2 } { \\sqrt { c _ { 1 } + 2 x } }$ . Given the boundary conditions, we ",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 539,
+          "next_line": 543,
+          "previous_tail": " \\left\\{ \\begin{array}{l} c _ {1} = 0 \\\\ c _ {2} = \\frac {1}{\\sqrt {2}} \\end{array} \\right. \\right. \\right. \\tag {73} $$",
+          "next_head": "therefore, an extremal for the problem will be:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 545,
+          "next_line": 551,
+          "previous_tail": "$$y (x) = 2 \\sqrt {x} \\tag {74}$$",
+          "next_head": "Find an extremal for the problem",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 553,
+          "next_line": 557,
+          "previous_tail": "prime} (x)\\right) ^ {2} + 2 y (x) e ^ {x} \\right\\} d x \\quad \\text { subject to } \\quad y (0) = 0, y (1) = 1 \\tag {75}$$",
+          "next_head": "Let’s consider the simplified notation $y ( x ) = y$ and $y ^ { \\prime } ( x ) = y ^ { \\prime }$ for convenience. The fi",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 559,
+          "next_line": 561,
+          "previous_tail": "$$L (x, y, y ^ {\\prime}) = \\left(y ^ {\\prime}\\right) ^ {2} + 2 y e ^ {x} \\tag {76}$$",
+          "next_head": "Then, we calculate the derivatives of the Lagrangian as:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 563,
+          "next_line": 565,
+          "previous_tail": "tag {77}L _ {y ^ {\\prime}} = \\frac {\\partial}{\\partial y ^ {\\prime}} L (x, y, y ^ {\\prime}) = 2 y ^ {\\prime} \\tag {78}$$",
+          "next_head": "The Euler-Lagrange equation becomes:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 567,
+          "next_line": 569,
+          "previous_tail": "$$2 e ^ {x} = \\frac {d}{d x} 2 y ^ {\\prime} \\tag {79}$$",
+          "next_head": "Which yields:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 571,
+          "next_line": 573,
+          "previous_tail": "2}\\int \\left(e ^ {x} + c _ {0}\\right) d x = \\int y ^ {\\prime} d x \\tag {83}e ^ {x} + c _ {0} x + c _ {1} = y \\tag {84}$$",
+          "next_head": "Applying the boundary conditions $\\mathrm { y } ( 0 ) = 0$ and $\\mathrm { y } ( 1 ) = 1$ yields:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 575,
+          "next_line": 577,
+          "previous_tail": "$$1 + c _ {1} = 0 \\tag {85}e + c _ {0} - 1 = 0 \\tag {86}$$",
+          "next_head": "by which we obtain $c _ { 0 } = 1 - e$ and $c _ { 1 } = - 1$ . So, the extremal for the problem is:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 581,
+          "next_line": 585,
+          "previous_tail": "\u0003",
+          "next_head": "Use the no x result to show that extremals for the brachistochrone problem are indeed given by",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 587,
+          "next_line": 589,
+          "previous_tail": "$$x (\\theta) = a + c (\\theta - \\sin (\\theta), \\quad y (\\theta) = c (1 - \\cos (\\theta)) \\tag {89}$$",
+          "next_head": "where the parameter θ takes values between 0 and 2π and $c > 0$ is constant.",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 595,
+          "next_line": 597,
+          "previous_tail": "[ 0, \\infty)} J (y) = \\int_ {a} ^ {b} \\frac {\\sqrt {1 + \\left(y ^ {\\prime} (x)\\right) ^ {2}}}{\\sqrt {y (x)}} \\tag {90}$$",
+          "next_head": "subject to (91)",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 599,
+          "next_line": 601,
+          "previous_tail": "$$y (a) = y _ {0}, \\quad y (b) = y _ {1} \\tag {92}$$",
+          "next_head": "Let’s consider the simplified notation $y ( x ) = y$ and $y ^ { \\prime } ( x ) = y ^ { \\prime }$ for convenience. Moreov",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 605,
+          "next_line": 607,
+          "previous_tail": "$$L - L _ {y ^ {\\prime}} y ^ {\\prime} = \\sqrt {\\frac {1}{2 c}} \\text { with } c \\in \\mathbb {R}, c > 0 \\tag {93}$$",
+          "next_head": "where $\\sqrt { \\frac { 1 } { 2 c } }$ is a non-negative constant. The reason why we chose this formulation will become c",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 611,
+          "next_line": 613,
+          "previous_tail": "\\right) \\tag {97}\\frac {d y}{d x} = \\sqrt {\\frac {2 c - y}{y}} \\tag {98}d x = \\sqrt {\\frac {y}{2 c - y}} d y \\tag {99}$$",
+          "next_head": "We can operate the following substitution to make the integral easier: $y = c - c t ;$ $d y = - c d t$ yielding:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 615,
+          "next_line": 617,
+          "previous_tail": "$$d x = - c \\sqrt {\\frac {1 - t}{1 + t}} d t \\tag {101}$$",
+          "next_head": "In order to proceed with the integration, we can recall the following trigonometric functions:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 619,
+          "next_line": 621,
+          "previous_tail": "$$1 + \\cos \\theta = 2 \\cos^ {2} (\\theta / 2) \\tag {102}1 - \\cos \\theta = 2 \\sin^ {2} (\\theta / 2) \\tag {103}$$",
+          "next_head": "So, operating the substitution $t = \\cos \\theta ; d t = - \\sin \\theta d \\theta$ , we can rewrite the equation as:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 623,
+          "next_line": 625,
+          "previous_tail": "qrt {\\frac {2 \\sin^ {2} (\\theta / 2)}{2 \\cos^ {2} (\\theta / 2)}} = c \\tan (\\theta / 2) \\sin \\theta d \\theta \\tag {105}$$",
+          "next_head": "Given that sin $\\theta = 2 \\sin ( \\theta / 2 ) \\cos ( \\theta / 2 )$ we get:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 627,
+          "next_line": 629,
+          "previous_tail": "\\theta / 2) \\cos (\\theta / 2) d \\theta = 2 c \\sin^ {2} (\\theta / 2) d \\theta = c (1 - \\cos \\theta) d \\theta \\tag {106}$$",
+          "next_head": "By integrating, we get:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 631,
+          "next_line": 633,
+          "previous_tail": "$$\\int d x = \\int c (1 - \\cos \\theta) d \\theta \\tag {107}x (\\theta) = c (\\theta - \\sin \\theta) \\tag {108}$$",
+          "next_head": "We can obtain the value of y noting that t = cos θ and $y = c - c t$ . So:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 635,
+          "next_line": 637,
+          "previous_tail": "$$y (\\theta) = c (1 - \\cos \\theta) \\tag {109}$$",
+          "next_head": "Given the numerical conditions we could calculate the value of c. Moreover, if the value of x does not start from 0 but ",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 639,
+          "next_line": 645,
+          "previous_tail": "$$x (\\theta) = a + c (\\theta - \\sin \\theta) \\tag {110}y (\\theta) = c (1 - \\cos \\theta) \\tag {111}$$",
+          "next_head": "Confirm directly from the equations (2.10), (2.11), 2.12) (Hamilton’s canonical equations) that in the ”no y” case p is ",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 651,
+          "next_line": 653,
+          "previous_tail": "$$\\frac {d p}{d x} = - H _ {y} (x, y, y ^ {\\prime}, p), \\quad x \\in [ a, b ] \\tag {112}$$",
+          "next_head": "The Hamiltonian can be expressed as:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 655,
+          "next_line": 657,
+          "previous_tail": "$$H (x, y, y ^ {\\prime}, p) = p y ^ {\\prime} - L (x, y, y ^ {\\prime}) \\tag {113}$$",
+          "next_head": "Given the ”no $y '$ case, then we can write:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 659,
+          "next_line": 661,
+          "previous_tail": "$$H (x, y ^ {\\prime}, p) = p y ^ {\\prime} - L (x, y ^ {\\prime}) \\tag {114}$$",
+          "next_head": "Thus, the Hamilton’s canonical form yields",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 663,
+          "next_line": 665,
+          "previous_tail": ") \\tag {116}= - \\frac {d}{d y} p y ^ {\\prime} + \\frac {d}{d y} L \\left(x, y ^ {\\prime}\\right) \\tag {117}= 0 \\tag {118}$$",
+          "next_head": "Given that dp = 0 then $\\begin{array} { r } { { \\frac { d p } { d x } } = 0 } \\end{array}$",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 667,
+          "next_line": 669,
+          "previous_tail": "$$p (x) = \\text { constant } \\tag {119}$$",
+          "next_head": "thus showing that in the ”no $y '$ case p is constant along extremals.",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 673,
+          "next_line": 675,
+          "previous_tail": "$$H (y, y ^ {\\prime}, p) = p y ^ {\\prime} - L (y, y ^ {\\prime}) \\tag {120}$$",
+          "next_head": "Given the ”no $y '$ case, then we can write:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 677,
+          "next_line": 679,
+          "previous_tail": "$$H (y, y ^ {\\prime}, p) = p y ^ {\\prime} - L (y, y ^ {\\prime}) \\tag {121}$$",
+          "next_head": "We can derive with respect to x the Hamiltonian yielding",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 681,
+          "next_line": 683,
+          "previous_tail": "ht) \\tag {122}= \\frac {d}{d x} p y ^ {\\prime} - \\frac {d}{d x} L \\left(y, y ^ {\\prime}\\right) \\tag {123}= 0 \\tag {124}$$",
+          "next_head": "Hence, given that $\\begin{array} { r } { \\frac { d } { d x } H ( y , y ^ { \\prime } , p ) = 0 } \\end{array}$ we can writ",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 685,
+          "next_line": 687,
+          "previous_tail": "$$H (y, y ^ {\\prime}, p) = \\text { constant } \\tag {125}$$",
+          "next_head": "thus showing that in the ”no $x '$ case the Hamiltonian $H ( x , y , y ^ { \\prime } , p )$ is constant along extremals. ",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 687,
+          "next_line": 691,
+          "previous_tail": "hus showing that in the ”no $x '$ case the Hamiltonian $H ( x , y , y ^ { \\prime } , p )$ is constant along extremals. \u0003",
+          "next_head": "Find the curve $y ^ { * }$ that minimizes",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 693,
+          "next_line": 695,
+          "previous_tail": "$$J (y) = \\frac {1}{2} \\int_ {0} ^ {1} y ^ {\\prime} (x) ^ {2} d x \\tag {126}$$",
+          "next_head": "subject to the constraint",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 697,
+          "next_line": 701,
+          "previous_tail": "$$\\int_ {0} ^ {1} y (x) d x = \\frac {1}{6} \\tag {127}$$",
+          "next_head": "Let’s consider the simplified notation $y ( x ) = y$ and $y ^ { \\prime } ( x ) = y ^ { \\prime }$ for convenience.",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 705,
+          "next_line": 707,
+          "previous_tail": "right) + \\lambda \\left(M _ {y} - \\frac {d}{d x} M _ {y ^ {\\prime}}\\right) = 0, \\quad \\forall x \\in [ a, b ] \\tag {128}$$",
+          "next_head": "where $\\begin{array} { r } { L = \\frac { 1 } { 2 } y ^ { \\prime 2 } } \\end{array}$ and $M = y$ . Substituting, we obtain",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 709,
+          "next_line": 711,
+          "previous_tail": "$$\\frac {d}{d x} y ^ {\\prime} + \\lambda \\cdot 1 = 0 \\tag {129}y ^ {\\prime \\prime} = - \\lambda \\tag {130}$$",
+          "next_head": "Integrating twice, we get: (131)",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 713,
+          "next_line": 715,
+          "previous_tail": "$$y ^ {\\prime} = - \\lambda x + c _ {1} \\tag {132}y = \\frac {- \\lambda x ^ {2}}{2} + c _ {1} x + c _ {2} \\tag {133}$$",
+          "next_head": "(134)",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 719,
+          "next_line": 721,
+          "previous_tail": "$$y ^ {*} (x) = \\frac {- \\lambda x ^ {2}}{2} + c _ {1} x + c _ {2} \\tag {135}$$",
+          "next_head": "Now, we can find the value of λ given the integral constraint. So:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 723,
+          "next_line": 725,
+          "previous_tail": " {- \\lambda}{6} + \\frac {c _ {1}}{2} + c _ {2} = \\frac {1}{6} \\tag {138}\\lambda = 3 c _ {1} + 6 c _ {2} - 1 \\tag {139}$$",
+          "next_head": "So the optimal solution is:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 727,
+          "next_line": 729,
+          "previous_tail": "$$y ^ {(} x) = - \\frac {3 c _ {1} + 6 c _ {2} - 1}{2} x ^ {2} + c _ {1} x + c _ {2} \\tag {140}$$",
+          "next_head": "Given the boundary conditions, we could also easily calculate the values of $c _ { 1 }$ and $c _ { 2 }$ . \u0003",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 729,
+          "next_line": 733,
+          "previous_tail": "Given the boundary conditions, we could also easily calculate the values of $c _ { 1 }$ and $c _ { 2 }$ . \u0003",
+          "next_head": "Show that optimal curves for Dido’s problem are circular arcs.",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 739,
+          "next_line": 741,
+          "previous_tail": " { subject to } y (a) = y (b) = 0, \\quad \\int_ {a} ^ {b} \\sqrt {1 + (y ^ {\\prime} (x)) ^ {2}} d x = C _ {0} \\tag {142}$$",
+          "next_head": "Let’s also consider the simplified notation $y ( x ) = y$ and $y ^ { \\prime } ( x ) = y ^ { \\prime }$ for convenience. T",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 743,
+          "next_line": 745,
+          "previous_tail": "right) + \\lambda \\left(M _ {y} - \\frac {d}{d x} M _ {y ^ {\\prime}}\\right) = 0, \\quad \\forall x \\in [ a, b ] \\tag {143}$$",
+          "next_head": "where $L = y$ and $M = \\sqrt { 1 + y ^ { \\prime 2 } }$ . Substituting, we obtain:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 747,
+          "next_line": 749,
+          "previous_tail": ") ^ {2}}} \\tag {149}y ^ {\\prime} = \\int \\frac {x + c _ {o}}{\\sqrt {\\lambda^ {2} - (x - c _ {0}) ^ {2}}} d x \\tag {150}$$",
+          "next_head": "We can integrate by substituting $u = \\lambda ^ { 2 } - ( x + c _ { 0 } ) ^ { 2 }$ and $- d u / 2 = ( x + c _ { 0 } ) d ",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 751,
+          "next_line": 753,
+          "previous_tail": "$$y (u) = - \\frac {1}{2} \\int \\frac {d u}{\\sqrt {u}} = - \\sqrt {u} + c _ {1} \\tag {152}$$",
+          "next_head": "Substituting again, we get:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 755,
+          "next_line": 757,
+          "previous_tail": "lambda^ {2} - (x + c _ {0}) ^ {2}} + c 1 \\tag {153}(x + c _ {0}) ^ {2} + (y - c _ {1}) ^ {2} = \\lambda^ {2} \\tag {154}$$",
+          "next_head": "which describes a circle. We can assert that, given the geometry of the problem, this extremal should be indeed a maximi",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 757,
+          "next_line": 761,
+          "previous_tail": "f the area functional and not a minimizer and thus we have shown that curves solving Dido’s problem are circular arcs. \u0003",
+          "next_head": "Show that the optimal curves for the catenary problem satisfy",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 763,
+          "next_line": 767,
+          "previous_tail": "$$y (x) = c \\cosh x / c, \\quad c > 0 \\tag {156}$$",
+          "next_head": "Since the catenary will take the shape minimizing the potential energy, the problem can be stated as following:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 769,
+          "next_line": 771,
+          "previous_tail": "{y: [ a, b ] \\rightarrow 0, \\infty)} J (y) = \\int_ {a} ^ {b} y (x) \\sqrt {1 + (y ^ {\\prime} (x)) ^ {2}} d x \\tag {157}$$",
+          "next_head": "subject to",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 773,
+          "next_line": 775,
+          "previous_tail": " {a} ^ {b} \\sqrt {1 + (y ^ {\\prime} (x)) ^ {2}} d x = C _ {0}, \\quad y (a) = y _ {0}, \\quad y (b) = y _ {1} \\tag {158}$$",
+          "next_head": "As in the previous exercises, let’s also consider the simplified notation $y ( x ) = y$ and $y ^ { \\prime } ( x ) = y ^ ",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 779,
+          "next_line": 781,
+          "previous_tail": "$$L - L _ {y ^ {\\prime}} y ^ {\\prime} = c \\text { with } c \\in \\mathbb {R} \\tag {159}$$",
+          "next_head": "Given that the Langrangian for the problem is $L = y \\sqrt { 1 + y ^ { \\prime 2 } }$ , we can write the condition as:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 783,
+          "next_line": 785,
+          "previous_tail": "1 + y ^ {\\prime 2}}} - y \\sqrt {1 + y ^ {\\prime 2}} = c \\tag {160}\\frac {y}{\\sqrt {1 + y ^ {\\prime 2}}} = c \\tag {161}$$",
+          "next_head": "Now, we can solve the second order equation to find the first order derivative:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 787,
+          "next_line": 789,
+          "previous_tail": "$$y ^ {2} = c ^ {2} + c ^ {2} y ^ {\\prime 2} \\tag {163}y ^ {\\prime 2} = \\left(\\frac {y}{c}\\right) ^ {2} - 1 \\tag {164}$$",
+          "next_head": "which yields",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 791,
+          "next_line": 793,
+          "previous_tail": "$$y ^ {\\prime} = \\pm \\sqrt {\\left(\\frac {y}{c}\\right) ^ {2} - 1} \\tag {165}$$",
+          "next_head": "so,",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 795,
+          "next_line": 797,
+          "previous_tail": " c ^ {2}}} = \\frac {d x}{c} \\tag {167}\\pm \\int \\frac {d y}{\\sqrt {y ^ {2} - c ^ {2}}} = \\int \\frac {d x}{c} \\tag {168}$$",
+          "next_head": "Solving this integrals leads to the follwing solutions:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 799,
+          "next_line": 801,
+          "previous_tail": "\\right) = \\frac {x}{c} \\tag {170}\\ln \\left(\\frac {y - \\sqrt {y ^ {2} - c ^ {2}}}{c}\\right) = - \\frac {x}{c} \\tag {172}$$",
+          "next_head": "which lead to",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 803,
+          "next_line": 805,
+          "previous_tail": "c ^ {2}}}{c} = e ^ {\\frac {x}{c}} \\tag {173}\\frac {y - \\sqrt {y ^ {2} - c ^ {2}}}{c} = e ^ {- \\frac {x}{c}} \\tag {175}$$",
+          "next_head": "The solution can then be written as:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 807,
+          "next_line": 809,
+          "previous_tail": "$$y = c \\left(\\frac {e ^ {\\frac {x}{c}} + e ^ {- \\frac {x}{c}}}{2}\\right) \\tag {176}$$",
+          "next_head": "we can substitute the exponential terms with the hyperbolic cosine",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 811,
+          "next_line": 813,
+          "previous_tail": "$$\\cosh (x / c) = \\left(\\frac {e ^ {\\frac {x}{c}} + e ^ {- \\frac {x}{c}}}{2}\\right) \\tag {177}$$",
+          "next_head": "which leads us to the final equation",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 815,
+          "next_line": 817,
+          "previous_tail": "$$y (x) = c \\cosh (x / c) \\tag {178}$$",
+          "next_head": "which shows the optimal curves for the catenary problem.",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 819,
+          "next_line": 823,
+          "previous_tail": "up” (opposite direction with respect to the gravitational field), then the parameter satisfies the condition $c > 0$ . \u0003",
+          "next_head": "Is Legendre’s necessary condition satisfied by the admissible extremal for the problem minimizing",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 825,
+          "next_line": 827,
+          "previous_tail": "$$J (y) = \\int_ {0} ^ {2} \\sqrt {1 + y (x) ^ {2} y ^ {\\prime} (x) ^ {2}} d x \\tag {179}$$",
+          "next_head": "subject to $y ( 0 ) = 1$ and $y ( 2 ) = 3 ?$ Find $L _ { y ^ { \\prime } y ^ { \\prime } } ( x , y ( x ) , y ^ { \\prime } ",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 833,
+          "next_line": 835,
+          "previous_tail": "$$L _ {y ^ {\\prime} y ^ {\\prime}} (x, y (x), y ^ {\\prime} (x)) \\geq 0, \\quad \\forall x \\in [ a, b ] \\tag {180}$$",
+          "next_head": "Firstly, we will find the admissible extremal via the Lagrange equation. Let’s also consider the simplified notation $y ",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 837,
+          "next_line": 839,
+          "previous_tail": "\\prime 2}}} \\tag {182}L _ {y} ^ {\\prime} = \\frac {y ^ {2} y ^ {\\prime}}{\\sqrt {1 + y ^ {2} y ^ {\\prime 2}}} \\tag {183}$$",
+          "next_head": "The Euler-Lagrange equation becomes:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 841,
+          "next_line": 843,
+          "previous_tail": " y ^ {2} y ^ {\\prime 2}}} = \\frac {d}{d x} \\frac {y ^ {2} y ^ {\\prime}}{\\sqrt {1 + y ^ {2} y ^ {\\prime 2}}} \\tag {185}$$",
+          "next_head": "A general solution for the equation is the following",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 845,
+          "next_line": 847,
+          "previous_tail": "$$y (x) = c _ {2} \\sqrt {c _ {1} + 2 x} \\tag {186}$$",
+          "next_head": "Given the boundary conditions, we can get:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 849,
+          "next_line": 853,
+          "previous_tail": "\\left\\{ \\begin{array}{l} c _ {1} = \\frac {1}{2} \\\\ c _ {2} = \\sqrt {2} \\end{array} \\right. \\right. \\right. \\tag {187} $$",
+          "next_head": "Therefore the admissible extremal is $y ^ { * } ( x ) = \\sqrt { 2 } \\sqrt { \\textstyle { \\frac { 1 } { 2 } } + 2 x }$ No",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 855,
+          "next_line": 857,
+          "previous_tail": " {\\prime}} ^ {2})}{(\\sqrt {1 + {y ^ {2}} {y ^ {\\prime}} ^ {2}}) ^ {3}} \\geq 0, \\quad \\forall x \\in [ a, b ] \\tag {188}$$",
+          "next_head": "which is equivalent to verifying that $1 + y ^ { \\prime 2 } y ^ { 2 } - y ^ { \\prime 2 } \\ge 0$ . This yields:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 859,
+          "next_line": 861,
+          "previous_tail": "y ^ {\\prime 2} y ^ {2} - y ^ {\\prime 2} \\geq - 1 \\tag {189}y ^ {\\prime 2} \\left(y ^ {2} - 1\\right) \\geq - 1 \\tag {190}$$",
+          "next_head": "which always holds given the even more restrictive condition $y ^ { 2 } - 1 \\geq 0$ . Let’s subsitute:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 863,
+          "next_line": 865,
+          "previous_tail": "1 \\geq 0 \\tag {191}\\not 1 + 4 x \\not \\rightarrow 1 \\geq 0 \\tag {192}4 x \\geq 0 \\quad \\forall x \\in [ a, b ] \\tag {193}$$",
+          "next_head": "Hence, $L _ { y ^ { \\prime } y ^ { \\prime } } ( x , y ( x ) , y ^ { \\prime } ( x ) ) \\ge 0$ , $\\forall x \\in [ a , b ]$ ",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 865,
+          "next_line": 871,
+          "previous_tail": "ime } ( x ) ) \\ge 0$ , $\\forall x \\in [ a , b ]$ and thus we have shown the Legendre’s condition for optimality holds. \u0003",
+          "next_head": "Consider the problem",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 873,
+          "next_line": 875,
+          "previous_tail": "mathbb {R}} {\\operatorname{argmin}} J (u) := \\frac {1}{2} \\int_ {0} ^ {1} (x (t) ^ {2} + P u (t) ^ {2}) d t \\tag {194}$$",
+          "next_head": "subject to",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 877,
+          "next_line": 879,
+          "previous_tail": "$$\\dot {x} (t) = u (t), \\quad x (0) = 1, \\quad x (1) = \\text { free } \\tag {195}$$",
+          "next_head": "where $P > 0$ us a weighting parameter. Find an optimal solution $u ^ { * }$ and $x ^ { * }$ using the Euler-Lagrange co",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 887,
+          "next_line": 889,
+          "previous_tail": "$$L (t, x (t), u (t)) = \\frac {1}{2} \\left(x (t) ^ {2} + P u (t) ^ {2}\\right) \\tag {196}$$",
+          "next_head": "The Hamiltonian will be calculated as:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 891,
+          "next_line": 893,
+          "previous_tail": ", x (t), u (t)) = \\dots \\tag {197}\\dots = p (t) u (t) - \\frac {1}{2} x (t) ^ {2} - \\frac {P}{2} u (t) ^ {2} \\tag {198}$$",
+          "next_head": "Now, we have to calculate the adjoint vector $p ( t )$ which satisfies the following differential equation:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 895,
+          "next_line": 897,
+          "previous_tail": "text { with } p (1) = - K _ {x} \\left(1, x ^ {*} (1)\\right) = 0 (\\text { since there is no terminal cost }) \\tag {200}$$",
+          "next_head": "Therefore, ${ \\dot { p } } ( t ) = x ( t )$ ,with the final state condition $p ( 1 ) = 0$ . Now, we have the first order",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 899,
+          "next_line": 901,
+          "previous_tail": "$$H _ {u} (t, x (t), u (t), p (t)) = p (t) - P u (t) = 0 \\tag {201}$$",
+          "next_head": "from which we obtain $\\begin{array} { r } { u ( t ) = \\frac { p ( t ) } { P } } \\end{array}$ p . We can summarize the in",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 903,
+          "next_line": 905,
+          "previous_tail": "$$\\dot {x} (t) = p (t) = P u (t) \\tag {202}$$",
+          "next_head": "We have the two-point boundary value problem (TPBVP) stated as follows:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 907,
+          "next_line": 911,
+          "previous_tail": "& t _ {0} = 0, \\quad x (0) = 1 \\\\ \\dot {p} (t) = x (t), & t _ {f} = 1, \\quad p (1) = 0 \\end{array} \\right. \\tag {203} $$",
+          "next_head": "We can observe that ${ \\ddot { x } } ( t ) = { \\dot { p } } ( t ) = x ( t ) \\Longrightarrow { \\ddot { x } } ( t ) = x ( ",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 913,
+          "next_line": 917,
+          "previous_tail": " {t} + c _ {2} e ^ {- t} \\\\ p (t) = \\dot {x} (t) = c _ {1} e ^ {t} - c _ {2} e ^ {- t} \\end{array} \\right. \\tag {204} $$",
+          "next_head": "Now, we can obtain the values of $c _ { 1 }$ and $c _ { 2 }$ from the boundary conditions:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 919,
+          "next_line": 923,
+          "previous_tail": "tarrow p (1) = c _ {1} e - c _ {2} e ^ {- 1} \\Longrightarrow c _ {2} = c _ {1} e ^ {2} \\end{array} \\right. \\tag {205} $$",
+          "next_head": "from which we obtain",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 925,
+          "next_line": 929,
+          "previous_tail": "y}{l l} & c _ {1} = \\frac {1}{1 + e ^ {2}} \\\\ & c _ {2} = \\frac {e ^ {2}}{1 + e ^ {2}} \\end{array} \\right. \\tag {206} $$",
+          "next_head": "The optimal solution then becomes:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 931,
+          "next_line": 935,
+          "previous_tail": "}{P} = \\frac {1}{P (1 + e ^ {2})} e ^ {t} - \\frac {e ^ {2}}{P (1 + e ^ {2})} e ^ {- t} \\end{array} \\right. \\tag {207} $$",
+          "next_head": "where $t \\in [ 0 , 1 ]$ . We will now discuss about the influence of the weighting value P on the control input.",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 939,
+          "next_line": 941,
+          "previous_tail": "rightarrow \\infty} \\frac {e ^ {t}}{P (1 + e ^ {2})} (1 - e ^ {2 (1 - t)}) = - \\infty , \\quad t \\in [ 0, 1 ] \\tag {209}$$",
+          "next_head": "In this case, we can deduce that the weighting P going to zero makes the control input diverge: intuitively, the more th",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 945,
+          "next_line": 947,
+          "previous_tail": " {P \\to \\infty} \\frac {e ^ {t}}{P (1 + e ^ {2})} \\left(1 - e ^ {2 (1 - t)}\\right) = 0, \\quad t \\in [ 0, 1 ] \\tag {211}$$",
+          "next_head": "In this case, we can deduce that the weighting P going to infinity makes the control input go to zero: this means that, ",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 955,
+          "next_line": 957,
+          "previous_tail": "$$u ^ {*} := \\underset {u: [ 0, t _ {f} ] \\rightarrow [ - 1, 1 ]} {\\operatorname{argmin}} J := t _ {f} \\tag {212}$$",
+          "next_head": "subject to (213)",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 959,
+          "next_line": 965,
+          "previous_tail": " _ {2} (0) = 0 \\\\ x _ {1} \\left(t _ {f}\\right) = 0, & x _ {2} \\left(t _ {f}\\right) = 0 \\end{array} \\right. \\tag {214} $$",
+          "next_head": "For simplicity, let us consider the simplified notation $x = x ( t ) , u = u ( t )$ and $p = p ( t )$ ). We first calcul",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 967,
+          "next_line": 969,
+          "previous_tail": "$$H (t, x, u, p, p _ {0}) = \\langle p, f (t, x, u) \\rangle + p _ {0} L (t, x, u) \\tag {215}$$",
+          "next_head": "In this case, $L = 0 ;$ the Hamiltonian will be",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 971,
+          "next_line": 973,
+          "previous_tail": "\\tag {216}= p _ {1} \\left(- 4 x _ {1} + 2 x _ {2} + 2 u\\right) + p _ {2} \\left(3 x _ {1} - 3 x _ {2}\\right) \\tag {217}$$",
+          "next_head": "Let’s consider the set $\\mathcal { U } = [ - 1 , 1 ]$ for which $u \\in \\mathcal { U }$ . Then, by the Pontryagin’s maxim",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 975,
+          "next_line": 980,
+          "previous_tail": " {*} <   0 \\\\ \\text { any   number } \\in \\mathcal {U} & \\text { if } p _ {1} ^ {*} = 0 \\end{array} \\right. \\tag {221} $$",
+          "next_head": "Where the value of $p _ { 1 } ^ { * }$ can be found by the costate optimality equation, which is independent from $p _ {",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 982,
+          "next_line": 986,
+          "previous_tail": "gin{array}{l} 4 p _ {1} ^ {*} - 3 p _ {2} ^ {*} \\\\ - 2 p _ {1} ^ {*} + 3 p _ {2} ^ {*} \\end{array} \\right] \\tag {222} $$",
+          "next_head": "By solving the differential equations we obtain",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 988,
+          "next_line": 992,
+          "previous_tail": "} (2 e ^ {5 t} + 3) - 2 c _ {1} (e ^ {5 t} - 1) \\end{array} \\right] \\quad c _ {1}, c _ {2} \\in \\mathbb {R} \\tag {223} $$",
+          "next_head": "In order to get the switching time for solving $p _ { 1 } ^ { * } ( t ) = 0$ , the following ODE can be solved by imposi",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 994,
+          "next_line": 996,
+          "previous_tail": "$$\\dot {x} ^ {*} = H _ {p} \\left(t, x ^ {*}, u ^ {*}, p ^ {*}\\right) \\tag {224}$$",
+          "next_head": "which becomes",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 998,
+          "next_line": 1002,
+          "previous_tail": "ight] = \\left[ \\begin{array}{c} - 4 x _ {1} + 2 x _ {2} + 2 u \\\\ 3 x _ {1} - 3 x _ {2} \\end{array} \\right] \\tag {226} $$",
+          "next_head": "Which yields",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1007,
+          "next_line": 1010,
+          "previous_tail": "n{array}{c} - 1 \\\\ - 1 \\end{array} \\right] \\quad k _ {1}, k _ {2} \\in \\mathbb {R}, \\quad p ^ {*} (t) <   0 \\tag {228} $$",
+          "next_head": "After obtaining the switching time, for which $p _ { 1 } ^ { * }$ changes sign, we can rewrite the controller by choosin",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1012,
+          "next_line": 1018,
+          "previous_tail": "}{l l} 1 & \\text { if } p _ {1} ^ {*} \\geq 0 \\\\ - 1 & \\text { if } p _ {1} ^ {*} <   0 \\end{array} \\right. \\tag {229} $$",
+          "next_head": "Solve the problem",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1020,
+          "next_line": 1022,
+          "previous_tail": "ratorname{argmin}} J (u) := \\frac {1}{2} q \\cdot x (T) ^ {2} + \\frac {1}{2} \\int_ {0} ^ {T} u (t) ^ {2} d t \\tag {230}$$",
+          "next_head": "subject to (231)",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1024,
+          "next_line": 1026,
+          "previous_tail": "$$\\dot {x} (t) = a x (t) + b u (t), \\quad x (0) = x _ {0} \\tag {232}$$",
+          "next_head": "where $^ { a , }$ b are given nonzero scalars, $x _ { 0 } \\in \\mathbb { R }$ is an initial state, $T > 0$ is a fixed fin",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1032,
+          "next_line": 1034,
+          "previous_tail": "$$H (t, x, u, p, p _ {0}) = \\langle p, f (t, x, u) \\rangle + p _ {0} L (t, x, u) \\tag {233}$$",
+          "next_head": "We assume the following: we can consider $p _ { 0 } = - 1$ , given that this problem is in R: imposing it different than",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1038,
+          "next_line": 1040,
+          "previous_tail": "$$H (t, x, u, p) = p (a x + b u) - \\frac {1}{2} u ^ {2} \\tag {234}$$",
+          "next_head": "By applying Pontryagin’s maximum principle, we can find $u ^ { * } ( t )$ by maximizing the Hamiltonian:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1042,
+          "next_line": 1044,
+          "previous_tail": "= \\underset {u \\in \\mathbb {R}} {\\operatorname{argmax}} \\left[ p (a x + b u) - \\frac {1}{2} u ^ {2} \\right] \\tag {235}$$",
+          "next_head": "Which given that the problem is concave, we can find by setting the first derivative equal to zero:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1046,
+          "next_line": 1048,
+          "previous_tail": "$$\\frac {\\partial H}{\\partial u} = p b - u = 0 \\tag {236}\\Longrightarrow u ^ {*} (t) = p ^ {*} (t) b \\tag {237}$$",
+          "next_head": "Then, we may find the optimal $p ^ { * }$ by satisfying the following equation:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1050,
+          "next_line": 1052,
+          "previous_tail": " {*}, t ^ {*}) = - \\frac {\\partial}{\\partial x} \\left[ p (a x + b u) - \\frac {1}{2} u ^ {2} \\right] = - p a \\tag {238}$$",
+          "next_head": "Solving this simple ODE yields",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1054,
+          "next_line": 1056,
+          "previous_tail": "$$p ^ {*} (t) = c _ {1} e ^ {- a t} \\tag {239}$$",
+          "next_head": "In order to satisfy the boundary condition, we can get the value of $c _ { 1 }$ :",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1058,
+          "next_line": 1060,
+          "previous_tail": "arrow p ^ {*} (T) = c _ {1} e ^ {- a T} = - q x (T) \\tag {241}\\Longrightarrow c _ {1} = - q x (T) e ^ {a T} \\tag {243}$$",
+          "next_head": "By substituting $c _ { 1 }$ into the previous expression, we can get the value for the optimal p as",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1062,
+          "next_line": 1064,
+          "previous_tail": "$$p ^ {*} (t) = - q x ^ {*} (T) e ^ {a (T - t)} \\tag {244}$$",
+          "next_head": "In which the optimal final point $x ^ { * } ( T )$ can be obtained by solving the differential equation related to the s",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1066,
+          "next_line": 1070,
+          "previous_tail": "$$u ^ {*} (t) = - b q x ^ {*} (T) e ^ {a (T - t)} \\tag {245}$$",
+          "next_head": "Suppose we own a factory whose output we can control. Let us begin to construct a mathematical model by setting",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1070,
+          "next_line": 1072,
+          "previous_tail": "Suppose we own a factory whose output we can control. Let us begin to construct a mathematical model by setting",
+          "next_head": "1. x(t): amount of output produced at time $t \\in [ 0 , T ]$ 2. u(t): fraction of output reinvested at time $t \\in [ 0 ,",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1072,
+          "next_line": 1075,
+          "previous_tail": "t): amount of output produced at time $t \\in [ 0 , T ]$ 2. u(t): fraction of output reinvested at time $t \\in [ 0 , T ]$",
+          "next_head": "This will be our control, and is subject to the obvious constrain that",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1077,
+          "next_line": 1079,
+          "previous_tail": "$$u (t) \\in [ 0, 1 ] \\tag {246}$$",
+          "next_head": "Given such a control, the corresponding dynamics are provided by the ODE",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1081,
+          "next_line": 1083,
+          "previous_tail": "$$\\dot {x} (t) = k u (t) x (t) \\tag {247}x (0) = x _ {0} \\tag {248}$$",
+          "next_head": "where the constant $k > 0$ modeling the growth rate of our reinvestment and $u ( t ) x ( t )$ is the amount of reinveste",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1085,
+          "next_line": 1087,
+          "previous_tail": "$$J (u) = \\int_ {0} ^ {T} (1 - u (t)) x (t) d t \\tag {249}$$",
+          "next_head": "where $( 1 - u ( t ) ) x ( t )$ is our consumption. The meaning is that we want to maximize our total consumption of the",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1091,
+          "next_line": 1093,
+          "previous_tail": "et {u: [ 0, T ] \\rightarrow [ 0, 1 ]} {\\operatorname{argmax}} J (u) = \\int_ {0} ^ {T} (1 - u (t)) x (t) d t \\tag {250}$$",
+          "next_head": "subject to (251)",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1095,
+          "next_line": 1097,
+          "previous_tail": "$$\\dot {x} (t) = k u (t) x (t) \\tag {252}x (0) = x _ {0} \\tag {253}$$",
+          "next_head": "Find an optimal control policy for this problem.",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1103,
+          "next_line": 1105,
+          "previous_tail": " {u: [ 0, T ] \\rightarrow [ 0, 1 ]} {\\operatorname{argmin}} J (u) = \\int_ {0} ^ {T} - (1 - u (t)) x (t) d t \\tag {254}$$",
+          "next_head": "subject to (255)",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1107,
+          "next_line": 1109,
+          "previous_tail": "$$\\dot {x} (t) = k u (t) x (t) \\tag {256}x (0) = x _ {0} \\tag {257}$$",
+          "next_head": "where minimizing the negative cost functional is the same as maximizing the positive one. We consider the Hamiltonian fo",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1111,
+          "next_line": 1113,
+          "previous_tail": "$$H (t, x, p, u) = p k u x + (1 - u) x \\tag {258}$$",
+          "next_head": "We can write the costate equation:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1115,
+          "next_line": 1117,
+          "previous_tail": "$$\\dot {p} (t) = - H _ {x} = - p k u - (1 - u) = - 1 - u (p k - 1) \\tag {259}$$",
+          "next_head": "Let’s consider the set $\\mathcal { U } \\ : = \\ : [ 0 , 1 ]$ for which $u \\in \\mathcal { U } .$ . Then, by the Pontryagin",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1119,
+          "next_line": 1124,
+          "previous_tail": " 1 & \\text { if } p ^ {*} > \\frac {1}{k} \\\\ 0 & \\text { if } p ^ {*} \\leq \\frac {1}{k} \\end{array} \\right. \\tag {263} $$",
+          "next_head": "We notice that this is a bang-bang controller with a switching time controlled by the costate equation. By solving the c",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1126,
+          "next_line": 1128,
+          "previous_tail": "$$p (T) = K _ {x} (x (T)) = 0 \\tag {264}$$",
+          "next_head": "Therefore the ODE for the costate becomes:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1130,
+          "next_line": 1134,
+          "previous_tail": "ot {p} ^ {*} (t) = - 1 - u ^ {*} (t) \\left(p ^ {*} (t) k - 1\\right) \\\\ p ^ {*} (T) = 0 \\end{array} \\right. \\tag {265} $$",
+          "next_head": "Since $p ( T ) = 0$ and $k > 0 .$ , then by continuity for t close to the final time $T$ we have that $\\begin{array} { r",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1136,
+          "next_line": 1140,
+          "previous_tail": "*} (T) = 0 \\\\ \\Longrightarrow p ^ {*} (t) = T - t, \\quad p ^ {*} (t) \\leq \\frac {1}{k} \\end{array} \\right. \\tag {266} $$",
+          "next_head": "By which we can find the switching time $\\hat { t } { : }$",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1142,
+          "next_line": 1144,
+          "previous_tail": "$$T - \\hat {t} = \\frac {1}{k} \\tag {267}\\Longrightarrow \\hat {t} = T - \\frac {1}{k} \\tag {268}$$",
+          "next_head": "Therefore, the optimal control we found is:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1146,
+          "next_line": 1152,
+          "previous_tail": "0 & \\text { if } t \\in [ \\hat {t}, T ] \\end{array} \\right. \\quad \\text { for } \\hat {t} = T - \\frac {1}{k} \\tag {269} $$",
+          "next_head": "A young investor has earned in the stock market a large amount of money S and plans to spend it so as to maximize his en",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1154,
+          "next_line": 1156,
+          "previous_tail": "$$\\dot {x} (t) = \\alpha x (t) - u (t) \\tag {270}$$",
+          "next_head": "where $x ( 0 ) = S$ is his initial capital, $\\alpha > 0$ is a given interest rate, and $u ( t ) \\geq 0$ is his rate of e",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1158,
+          "next_line": 1160,
+          "previous_tail": "$$\\int_ {0} ^ {T} e ^ {- \\beta t} \\sqrt {u (t)} d t \\tag {271}$$",
+          "next_head": "Here $\\beta$ is some positive scalar, which serves to discount the future enjoyment. Find the optimal control $u ^ { * }",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1166,
+          "next_line": 1168,
+          "previous_tail": "rightarrow \\mathbb {R}} {\\operatorname{argmin}} J (u) = \\int_ {0} ^ {T} - e ^ {- \\beta t} \\sqrt {u (t)} d t \\tag {272}$$",
+          "next_head": "subject to (273)",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1170,
+          "next_line": 1172,
+          "previous_tail": "$$\\dot {x} (t) = \\alpha x (t) - u (t), \\quad x (0) = S, \\quad x (T) = 0 \\tag {274}$$",
+          "next_head": "where minimizing the negative enjoyment is the same as maximizing the positive one.",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1176,
+          "next_line": 1178,
+          "previous_tail": "$$H (t, x, u, p) = p (\\alpha x - u) + e ^ {- \\beta t} \\sqrt {u} \\tag {275}$$",
+          "next_head": "Then, the costate equation is as following:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1180,
+          "next_line": 1182,
+          "previous_tail": "$$\\dot {p} = - H _ {x} \\left(t, x ^ {*}, u ^ {*}, p\\right) = - \\alpha p \\tag {276}$$",
+          "next_head": "Solving this differential equation we get that $p ( t ) = c _ { 1 } e ^ { - \\alpha t }$ . The maximizing $u ^ { * }$ wil",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1184,
+          "next_line": 1186,
+          "previous_tail": " 0, T ]} {\\operatorname{argmax}} \\left(p \\left(\\alpha x ^ {*} - u\\right) + e ^ {- \\beta t} \\sqrt {u}\\right) \\tag {278}$$",
+          "next_head": "Which is a maximum if the first derivative is equal to zero and the second derivative $\\mathrm { i s } \\leq 0$ . Thus:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1188,
+          "next_line": 1190,
+          "previous_tail": "u ^ {- \\frac {1}{2}} - p = 0 \\tag {279}\\Longrightarrow u ^ {*} (t) = \\frac {1}{4 p ^ {2}} e ^ {- 2 \\beta t} \\tag {280}$$",
+          "next_head": "also",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1196,
+          "next_line": 1198,
+          "previous_tail": "$$u ^ {*} (t) = \\frac {1}{4 c _ {1} ^ {2}} e ^ {(2 \\alpha - 2 \\beta) t} \\tag {283}$$",
+          "next_head": "In order to obtain the optimal solution, we need to solve the linear ODE given by the state",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1200,
+          "next_line": 1202,
+          "previous_tail": "$$\\dot {x} = \\alpha x - \\frac {1}{4 c _ {1} ^ {2}} e ^ {(2 \\alpha - 2 \\beta) t} \\tag {284}$$",
+          "next_head": "The solution to the ODE will be in the form $x ( t ) = x _ { h } ( t ) + x _ { p } ( t )$ where $x _ { h } ( t )$ is the",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1204,
+          "next_line": 1206,
+          "previous_tail": "$$x _ {h} (t) = c _ {2} e ^ {\\alpha t}, \\quad c _ {2} = \\text { constant } \\tag {285}$$",
+          "next_head": "The particular solution can be divided in two cases:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1210,
+          "next_line": 1212,
+          "previous_tail": "} (t) = c _ {2} e ^ {\\alpha t} - \\frac {1}{4 c _ {1} ^ {2} (\\alpha - 2 \\beta)} e ^ {(2 \\alpha - 2 \\beta) t} \\tag {286}$$",
+          "next_head": "Given the initial condition of $x ( 0 ) = S$ and $x ( T ) = 0$ we get the unknown coefficients:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1214,
+          "next_line": 1216,
+          "previous_tail": "ha - 2 \\beta) T}} \\tag {287}c _ {2} = \\frac {- S e ^ {\\alpha - 2 \\beta) T}}{1 - e ^ {(\\alpha - 2 \\beta) T}} \\tag {288}$$",
+          "next_head": "2. Case $\\alpha = 2 \\beta$ : Solving the ODE we get the general solution:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1218,
+          "next_line": 1220,
+          "previous_tail": "$$x (t) = x _ {h} (t) + x _ {p} (t) = c _ {2} e ^ {\\alpha t} - \\frac {1}{4 c _ {1} ^ {2}} t e ^ {\\alpha t} \\tag {289}$$",
+          "next_head": "Given the initial condition of $x ( 0 ) = S$ and $x ( T ) = 0$ we get the unknown coefficients:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1222,
+          "next_line": 1224,
+          "previous_tail": "$$\\frac {1}{4 c _ {1} ^ {2}} = \\frac {S}{T} \\tag {290}c _ {2} = S \\tag {291}$$",
+          "next_head": "Therefore, the optimal control $u ^ { * }$ will be:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1226,
+          "next_line": 1232,
+          "previous_tail": "2 \\alpha - 2 \\beta) t} = \\frac {S}{T} e ^ {\\alpha t}, & \\text { for } \\alpha = 2 \\beta \\end{array} \\right. \\tag {292} $$",
+          "next_head": "Solve the problem",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1234,
+          "next_line": 1236,
+          "previous_tail": "0, T ] \\rightarrow \\mathbb {R}} {\\operatorname{argmin}} J (u) = \\int_ {0} ^ {T} \\sqrt {1 + u (t) ^ {2}} d t \\tag {293}$$",
+          "next_head": "subject to (294)",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1238,
+          "next_line": 1240,
+          "previous_tail": "$$\\dot {x} (t) = u (t), \\quad x (0) = x _ {0} \\tag {295}$$",
+          "next_head": "where $x _ { 0 } \\in \\mathbb { R }$ is an initial state, $T > 0$ is a fixed final time.",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1246,
+          "next_line": 1248,
+          "previous_tail": "$$H (t, x, u, p, p _ {0}) = \\langle p, f (t, x, u) \\rangle + p _ {0} L (t, x, u) \\tag {296}$$",
+          "next_head": "Given that the problem is with scalar variables only, we can write the Hamiltonian as:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1250,
+          "next_line": 1252,
+          "previous_tail": "$$H (t, x, u, p) = p u - \\sqrt {1 + u ^ {2}} \\tag {297}$$",
+          "next_head": "Since the function is concave, we can find the maximal for the Hamiltonian by setting the derivative with respect to u e",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1254,
+          "next_line": 1256,
+          "previous_tail": "left(\\frac {p ^ {2}}{1 - p ^ {2}}\\right) \\tag {300}\\Longrightarrow u = \\sqrt {\\frac {p ^ {2}}{1 - p ^ {2}}} \\tag {301}$$",
+          "next_head": "If we apply the optimality condition for $p ^ { * }$ , we get:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1258,
+          "next_line": 1260,
+          "previous_tail": "1 + u ^ {2}} \\right] = 0 \\tag {303}\\Longrightarrow p ^ {*} (t) = K, \\quad \\text { where } K \\in \\mathbb {R} \\tag {304}$$",
+          "next_head": "Moreover, given that this is a fixed-time, free-endpoint problem, we can also apply the boundary condition:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1262,
+          "next_line": 1264,
+          "previous_tail": "$$p ^ {*} (T) = p _ {0} ^ {*} K _ {x} (x ^ {*} (T)) = 0 \\tag {305}$$",
+          "next_head": "since the final cost K is 0. Therefore, since the optimal $p ^ { * } ( t )$ is constant, then $K = 0$ and we can write $",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1266,
+          "next_line": 1268,
+          "previous_tail": " ^ {*} (t) ^ {2}}{1 - p ^ {*} (t) ^ {2}}} \\tag {306}\\Longrightarrow u ^ {*} (t) = 0, \\forall t \\in [ 0, T ] \\tag {307}$$",
+          "next_head": "In this case, given that ${ \\dot { x } } ( t ) = u ( t ) = 0$ , we will have that the state variable is constant; thus $",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1274,
+          "next_line": 1276,
+          "previous_tail": "0, T ] \\rightarrow \\mathbb {R}} {\\operatorname{argmin}} J (u) = \\int_ {0} ^ {T} \\sqrt {1 + u (t) ^ {2}} d t \\tag {308}$$",
+          "next_head": "subject to",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1278,
+          "next_line": 1280,
+          "previous_tail": "$$\\dot {x} (t) = u (t), \\quad x (0) = x _ {0}, \\quad x (T) = x _ {1} \\tag {310}$$",
+          "next_head": "where $x _ { 0 } \\in \\mathbb { R }$ is an initial state, $T > 0$ is a fixed final time.",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1286,
+          "next_line": 1288,
+          "previous_tail": "$$H (t, x, u, p, p _ {0}) = \\langle p, f (t, x, u) \\rangle + p _ {0} L (t, x, u) \\tag {311}$$",
+          "next_head": "Given that the problem is with scalar variables only, we can write the Hamiltonian as:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1290,
+          "next_line": 1292,
+          "previous_tail": "$$H (t, x, u, p) = p u - \\sqrt {1 + u ^ {2}} \\tag {312}$$",
+          "next_head": "Since the function is concave, we can find the maximal for the Hamiltonian by setting the derivative with respect to u e",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1294,
+          "next_line": 1296,
+          "previous_tail": "left(\\frac {p ^ {2}}{1 - p ^ {2}}\\right) \\tag {315}\\Longrightarrow u = \\sqrt {\\frac {p ^ {2}}{1 - p ^ {2}}} \\tag {316}$$",
+          "next_head": "If we apply the optimality condition for $p ^ { * }$ , we get:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1298,
+          "next_line": 1300,
+          "previous_tail": "{1 + u ^ {2}}\\right) = 0 \\tag {318}\\Longrightarrow p ^ {*} (t) = K, \\quad \\text { where } K \\in \\mathbb {R} \\tag {319}$$",
+          "next_head": "We now need to consider the condition on $x ( T ) = x _ { 1 }$ . Hence, given that $x ( 0 ) = x _ { 0 }$ （20号",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1302,
+          "next_line": 1304,
+          "previous_tail": "ow x (T) - x (0) = \\int_ {0} ^ {T} u d t = \\int_ {0} ^ {T} \\sqrt {\\frac {p (t) ^ {2}}{1 - p (t) ^ {2}}} d t \\tag {321}$$",
+          "next_head": "since $p ( t ) = K \\in \\mathbb { R } , p$ does not depend on time t (322)",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1306,
+          "next_line": 1308,
+          "previous_tail": "$$= \\int_ {0} ^ {T} \\sqrt {\\frac {p ^ {2}}{1 - p ^ {2}}} d t = \\sqrt {\\frac {p ^ {2}}{1 - p ^ {2}}} T \\tag {323}$$",
+          "next_head": "By which we can obtain the value of $p \\colon$",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1310,
+          "next_line": 1312,
+          "previous_tail": "$$\\left(\\frac {x _ {1} - x _ {0}}{t}\\right) ^ {2} = \\frac {p ^ {2}}{1 - p ^ {2}} \\tag {325}$$",
+          "next_head": "For simplicity, we can substitute",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1314,
+          "next_line": 1316,
+          "previous_tail": "$$\\left(\\frac {x _ {1} - x _ {0}}{T}\\right) ^ {2} = \\mathcal {V} \\tag {326}$$",
+          "next_head": "which has the physical meaning of the velocity of the system. from which we get:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1318,
+          "next_line": 1320,
+          "previous_tail": "= \\frac {p ^ {2}}{1 - p ^ {2}} \\tag {327}\\Longrightarrow p = \\sqrt {\\frac {\\mathcal {V}}{1 + \\mathcal {V}}} \\tag {328}$$",
+          "next_head": "Then, plugging this $p ^ { * }$ back into the equation for the optimal control, we get:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1322,
+          "next_line": 1324,
+          "previous_tail": "u}{1 + \\nu}}} = \\sqrt {\\frac {\\frac {\\nu}{1 + \\nu}}{\\frac {1 + \\nu - \\nu}{1 + \\nu}}} = \\sqrt {\\mathcal {V}} \\tag {329}$$",
+          "next_head": "By substituting back the value of V, we get the optimal control as:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1326,
+          "next_line": 1328,
+          "previous_tail": "$$u ^ {*} (t) = \\frac {x _ {1} - x _ {0}}{T}, \\quad \\forall t \\in [ 0, T ] \\tag {330}$$",
+          "next_head": "Which means that the optimal control will be a constant velocity moving the system from $x _ { 0 }$ to $x _ { 1 }$ .",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1340,
+          "next_line": 1342,
+          "previous_tail": "$$a + \\frac {b - a}{2} \\geq b \\iff \\frac {a}{2} \\geq \\frac {b}{2} \\iff a \\geq b \\tag {331}$$",
+          "next_head": "which contradicts our assumption. Hence, $a \\geq b .$ .",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1352,
+          "next_line": 1354,
+          "previous_tail": "row U} \\left(\\int_ {t} ^ {t + \\Delta t} L (s, x (s), u (s)) d s + V (t + \\Delta t, x (t + \\Delta t))\\right) \\tag {332}$$",
+          "next_head": "We have shown that $V ( t , x ) \\geq \\overline { { V } } ( t , x )$ . We can finish the proof of the equality by proving",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1356,
+          "next_line": 1358,
+          "previous_tail": "$$V (t, x) := \\inf _ {u: [ t, t _ {1} ] \\rightarrow U, u \\in V} J (t, x, u) \\tag {333}$$",
+          "next_head": "From the previous results, we can continue the chain of inequalities:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1360,
+          "next_line": 1362,
+          "previous_tail": "g {336}= \\inf _ {u _ {\\varepsilon}: [ t, t _ {1} ] \\rightarrow U, u \\in V} J (t, x, u) \\tag {337}= V (t, x) \\tag {338}$$",
+          "next_head": "Thus, we have shown that $V ( t , x ) \\leq \\overline { { V } } ( t , x )$ . Combined with the already proved $V ( t , x ",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1364,
+          "next_line": 1370,
+          "previous_tail": "$$V (t, x) = \\overline {{V}} (t, x) \\tag {339}$$",
+          "next_head": "For completeness, we consider a slightly more general form of the linear quadratic regulator. The standard LQR derivatio",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1372,
+          "next_line": 1374,
+          "previous_tail": "$$u ^ {*} := \\underset {u: [ 0, T ] \\rightarrow \\mathbb {R} ^ {m}} {\\operatorname{argmin}} J (u) \\tag {340}$$",
+          "next_head": "subject to (341)",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1376,
+          "next_line": 1378,
+          "previous_tail": "$$\\dot {x} (t) = A x (t) + B u (t), \\quad x (0) = x _ {0} \\tag {342}$$",
+          "next_head": "where",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1390,
+          "next_line": 1394,
+          "previous_tail": "2} (t) = S _ {2} (t) ^ {T} > 0, \\quad s _ {1} (t) \\in \\mathbb {R} ^ {n}, \\quad s _ {0} (t) \\in \\mathbb {R}. \\tag {344}$$",
+          "next_head": "We first find the Hamilton-Jacobi-Bellman equation which can be written as following:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1396,
+          "next_line": 1398,
+          "previous_tail": "(t, x, u) + \\left\\langle \\frac {\\partial}{\\partial x} \\hat {V} (t, x, u), f (t, x, u) \\right\\rangle \\right] \\tag {345}$$",
+          "next_head": "A candidate value function is like in the hint:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1400,
+          "next_line": 1402,
+          "previous_tail": "{2} (t) = S _ {2} (t) ^ {T} > 0, \\quad s _ {1} (t) \\in \\mathbb {R} ^ {n}, \\quad s _ {0} (t) \\in \\mathbb {R} \\tag {346}$$",
+          "next_head": "We can calculate its partial derivatives",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1404,
+          "next_line": 1406,
+          "previous_tail": " {0} (t) \\tag {347}\\frac {\\partial \\hat {V} (x , t)}{\\partial x} = 2 x ^ {\\top} S _ {2} (t) x + s _ {1} (t) \\tag {348}$$",
+          "next_head": "and then we can rearrange the HJB by substituting. We notice that, given the problem’s convexity, we can obtain a global",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1408,
+          "next_line": 1412,
+          "previous_tail": "_ {d} (t)\\right) \\\\ \\left. + \\left(2 x ^ {\\top} S _ {2} (t) x + s _ {1} (t)\\right) (A x + B u) \\right] \\\\ \\end{array} $$",
+          "next_head": "and we can also set the first the first derivative of the HJB to zero as a sufficient condition for finding the optimal ",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1414,
+          "next_line": 1416,
+          "previous_tail": "rrow u ^ {*} (t) = u _ {d} (t) - R ^ {- 1} B ^ {\\top} \\left(S _ {2} (t) x + \\frac {1}{2} s _ {1} (t)\\right) \\tag {350}$$",
+          "next_head": "Plugging this result back in the HJB equation, we can get the conditions for the coefficients as following:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1418,
+          "next_line": 1420,
+          "previous_tail": "- \\frac {1}{4} s _ {1} ^ {\\top} (t) B R ^ {- 1} B ^ {\\top} s _ {1} (t) + s _ {1} (t) ^ {\\top} B u _ {d} (t) \\tag {353}$$",
+          "next_head": "Subject to the final conditions:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1422,
+          "next_line": 1424,
+          "previous_tail": "{355}s _ {1} (T) = - 2 Q _ {f} x _ {d} (T) \\tag {356}s _ {0} (T) = x _ {d} (T) ^ {\\top} Q _ {f} x _ {d} (T) \\tag {357}$$",
+          "next_head": "We also notice that the solution for $S _ { 2 }$ is the same as the simpler LQR problem; hence as expected it is also po",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1430,
+          "next_line": 1432,
+          "previous_tail": " 0, 1 ] \\rightarrow \\mathbb {R}} {\\operatorname{argmin}} J (u) := \\int_ {0} ^ {1} [ x (t) u (t) ] ^ {2} d t \\tag {358}$$",
+          "next_head": "subject to (359)",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1434,
+          "next_line": 1436,
+          "previous_tail": "$$\\dot {x} (t) = x (t) u (t), \\quad t \\in [ 0, 1 ] \\tag {360}x (0) = 1 \\tag {361}$$",
+          "next_head": "Obtain the optimal feedback solution by solving the associated HJB equation.",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1444,
+          "next_line": 1446,
+          "previous_tail": "(t, x, u) + \\left\\langle \\frac {\\partial}{\\partial x} \\hat {V} (t, x, u), f (t, x, u) \\right\\rangle \\right] \\tag {362}$$",
+          "next_head": "where in this case, $u \\in \\mathbb { R }$ . We can then rewrite the equation as following:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1448,
+          "next_line": 1450,
+          "previous_tail": " _ {t} (t, x) = \\min _ {u \\in R} \\left[ x (t) ^ {2} u (t) ^ {2} + \\hat {V} _ {x} (t, x) x (t) u (t) \\right] \\tag {363}$$",
+          "next_head": "where we have substituted the infimum with the minimum; this is due to the problem’s convexity. We can then find the $u ",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1452,
+          "next_line": 1454,
+          "previous_tail": " ^ {2} + \\hat {V} _ {x} x = 0 \\tag {365}\\Longrightarrow u ^ {*} (t) = - \\frac {\\hat {V} _ {x} (t , x)}{2 x} \\tag {366}$$",
+          "next_head": "We can consider a candidate for the value function that is as quadratic in x:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1456,
+          "next_line": 1458,
+          "previous_tail": "$$\\hat {V} (t, x) = s (t) x ^ {2} \\tag {368}$$",
+          "next_head": "Its derivatives then can be written as:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1460,
+          "next_line": 1462,
+          "previous_tail": "ot {s} (t) x ^ {2} \\tag {369}\\hat {V} _ {x} (t, x) = \\frac {\\partial}{\\partial x} s (t) x ^ {2} = 2 s (t) x \\tag {370}$$",
+          "next_head": "The optimal control can thus be rewritten as $\\begin{array} { r } { u ^ { * } ( t ) = - \\frac { \\hat { V } _ { x } ( t ,",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1464,
+          "next_line": 1466,
+          "previous_tail": "t, x, u ^ {*}) \\tag {372}\\Longrightarrow \\dot {s} (t) x ^ {2} = x ^ {2} u ^ {* 2} + 2 s (t) x ^ {2} u ^ {*} \\tag {373}$$",
+          "next_head": "substituting $u ^ { * }$ we obtain (374)",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1468,
+          "next_line": 1470,
+          "previous_tail": "ot {s} (t) x ^ {2} = x ^ {2} s ^ {2} (t) + 2 s (t) x ^ {2} (- s (t)) \\tag {375}\\dot {s} (t) = - s ^ {2} (t) \\tag {376}$$",
+          "next_head": "This first-order nonlinear ordinary differential equation yields the following solution:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1472,
+          "next_line": 1474,
+          "previous_tail": "$$s (t) = \\frac {1}{c _ {1} + t} \\tag {377}$$",
+          "next_head": "In order to find the value of $s ( t )$ , we can apply the boundary condition for optimality for the final time $t _ { f",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1476,
+          "next_line": 1478,
+          "previous_tail": "$$\\hat {V} (t _ {\\text { final }}, x) = K (t _ {\\text { final }}, x) \\tag {378}$$",
+          "next_head": "Since the final cost is 0, we have $\\hat { V } ( t _ { 1 } , x ) = 0$ , yielding",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1480,
+          "next_line": 1482,
+          "previous_tail": "$$s (1) = 0 \\tag {379}$$",
+          "next_head": "Combined with the nonlinear differential equation, we can notice that the only way to obtain 0 is to make $c _ { 1 } \\to",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1484,
+          "next_line": 1486,
+          "previous_tail": "$$s (t) = s = 0 \\quad \\forall t \\in [ 0, 1 ] \\tag {380}$$",
+          "next_head": "The optimal value function is therefore independent from time and will be:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1488,
+          "next_line": 1490,
+          "previous_tail": "$$\\hat {V} (x) = s x ^ {2} = 0 \\tag {381}$$",
+          "next_head": "Which yields the optimal control $u ^ { * } ( t )$ :",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1492,
+          "next_line": 1494,
+          "previous_tail": "$$u ^ {*} (t) = 0, \\quad \\forall t \\in [ 0, 1 ] \\tag {382}$$",
+          "next_head": "Since we have that ${ \\dot { x } } ( t ) = x ( t ) u ( t ) = 0$ , then the system will keep the initial state $x ( 0 ) =",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1498,
+          "next_line": 1505,
+          "previous_tail": "o the vertical position. Let’s consider the linearized inverted pendulum system (assuming θ(t) and ˙θ(t) are very small)",
+          "next_head": "m θ l y x M F",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1505,
+          "next_line": 1514,
+          "previous_tail": "m θ l y x M F",
+          "next_head": "Figure 1: The inverted pendulum model",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1516,
+          "next_line": 1520,
+          "previous_tail": "ay} \\right] + \\left[ \\begin{array}{c} 0 \\\\ \\frac {1}{M} \\\\ 0 \\\\ - \\frac {1}{M l} \\end{array} \\right] u (t) \\tag {383} $$",
+          "next_head": "where $x _ { 1 } ( t ) = x ( t )$ , $x _ { 2 } ( t ) = \\dot { x } ( t )$ , $x _ { 3 } ( t ) = \\theta ( t )$ , and x4(t) ",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1524,
+          "next_line": 1526,
+          "previous_tail": "ratorname{argmin}} J (u) := \\int_ {0} ^ {\\infty} \\left(x (t) ^ {T} Q x (t) + u (t) ^ {T} R u (t)\\right) d t \\tag {384}$$",
+          "next_head": "subject to (385)",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1528,
+          "next_line": 1530,
+          "previous_tail": "$$\\dot {x} (t) = A x (t) + B u (t), \\quad x (0) = x _ {0} \\tag {386}$$",
+          "next_head": "where A and B are appropriate system matrices with $m { = } 1$ , $M { = } 2 ,$ , $l { = } \\beta$ and $g { = } 9 . 8 .$ .",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1545,
+          "next_line": 1549,
+          "previous_tail": "ray}{c c c c} 1 & 0 & 0 & 0 \\\\ 0 & 1 & 0 & 0 \\\\ 0 & 0 & 1 0 0 & 0 \\\\ 0 & 0 & 0 & 1 0 0 \\end{array} \\right] \\tag {387} $$",
+          "next_head": "where the greater values correspond to the penalties for θ and ˙θ",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1553,
+          "next_line": 1555,
+          "previous_tail": "$$R = [ 0. 1 ] \\tag {388}$$",
+          "next_head": "The Python code for setting the matrices is as following:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1588,
+          "next_line": 1590,
+          "previous_tail": "$$K = R ^ {- 1} B ^ {T} X \\tag {389}$$",
+          "next_head": "Python code:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1614,
+          "next_line": 1616,
+          "previous_tail": " = \\left[ - 3. 1 6 2 2 7 7 6 6 - 9. 2 6 5 9 4 0 7 1 - 1 4 6. 9 4 2 6 5 7 6 9 - 8 0. 1 3 7 7 6 7 6 5 \\right] \\tag {390}$$",
+          "next_head": "In order to simulate the system, we design a class simulating the inverted pendulum and its physical behavior in time, w",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1664,
+          "next_line": 1668,
+          "previous_tail": "$$ x _ {0} = \\left[ \\begin{array}{l} 1 \\\\ 0 \\\\ 0 \\\\ 0 \\end{array} \\right] \\tag {391} $$",
+          "next_head": "The optimal control input is calculated at each time instant as",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1670,
+          "next_line": 1672,
+          "previous_tail": "$$u ^ {*} (t) = - K x (t) \\tag {392}$$",
+          "next_head": "We simulate 10 seconds with the following Python code:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1693,
+          "next_line": 1700,
+          "previous_tail": "Position and velocity plots We use the following code for plotting:",
+          "next_head": "tau = 0.02 # time of system update tot_time = tau*len(trajectory) t = np.linspace(0, tot_time, len(trajectory)) # time",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1700,
+          "next_line": 1704,
+          "previous_tail": "tau = 0.02 # time of system update tot_time = tau*len(trajectory) t = np.linspace(0, tot_time, len(trajectory)) # time",
+          "next_head": "x_traj, xdot_traj, theta_traj, thedot_traj, ctrl_traj = [], [], [], [], []",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1704,
+          "next_line": 1707,
+          "previous_tail": "x_traj, xdot_traj, theta_traj, thedot_traj, ctrl_traj = [], [], [], [], []",
+          "next_head": "for i in range(len(trajectory)): x_traj.append(trajectory[i][0][0]) xdot_traj.append(trajectory[i][1][0]) theta_traj.app",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1707,
+          "next_line": 1714,
+          "previous_tail": "heta_traj.append(trajectory[i][2][0]) thedot_traj.append(trajectory[i][3][0]) ctrl_traj.append(controls[i][0][0].item())",
+          "next_head": "fig, ax = plt.subplots(1,1, figsize=(16, 8)) ax.plot(t, x_traj, \"k\", alpha=.8, label=r' $x(t)$ $m$ ')",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1714,
+          "next_line": 1717,
+          "previous_tail": "fig, ax = plt.subplots(1,1, figsize=(16, 8)) ax.plot(t, x_traj, \"k\", alpha=.8, label=r' $x(t)$ $m$ ')",
+          "next_head": "ax.plot(t, xdot_traj, \"-k\", alpha=.8, label=r' $\\dot{x}(t)$ $m/s$ ')",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1717,
+          "next_line": 1719,
+          "previous_tail": "ax.plot(t, xdot_traj, \"-k\", alpha=.8, label=r' $\\dot{x}(t)$ $m/s$ ')",
+          "next_head": "ax.plot([0, tot_time], [0, 0], \":b\", alpha=.5, label=r'Setpoint')",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1719,
+          "next_line": 1721,
+          "previous_tail": "ax.plot([0, tot_time], [0, 0], \":b\", alpha=.5, label=r'Setpoint')",
+          "next_head": "ax.legend(loc='upper right')",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1721,
+          "next_line": 1723,
+          "previous_tail": "ax.legend(loc='upper right')",
+          "next_head": "ax.set_xlabel(r'Time [$s]')",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1723,
+          "next_line": 1725,
+          "previous_tail": "ax.set_xlabel(r'Time [$s]')",
+          "next_head": "ax.set_ylabel(r'Value')",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1725,
+          "next_line": 1727,
+          "previous_tail": "ax.set_ylabel(r'Value')",
+          "next_head": "ax.set_title(\"Position and velocity plot\")",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1727,
+          "next_line": 1729,
+          "previous_tail": "ax.set_title(\"Position and velocity plot\")",
+          "next_head": "fig.savefig('image/pendulum_pos_vel.jpg')",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1733,
+          "next_line": 1776,
+          "previous_tail": "Angular position and angular velocity plots Using the following code we obtain",
+          "next_head": "Control input plot We use the following code for plotting the control input:",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1776,
+          "next_line": 1778,
+          "previous_tail": "Control input plot We use the following code for plotting the control input:",
+          "next_head": "fig, ax = plt.subplots(1, 1, figsize=(16, 8)) ax.plot(t, u, \"r\", alpha=.8, label=r' $u(t)$ ')",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1778,
+          "next_line": 1781,
+          "previous_tail": "fig, ax = plt.subplots(1, 1, figsize=(16, 8)) ax.plot(t, u, \"r\", alpha=.8, label=r' $u(t)$ ')",
+          "next_head": "ax.plot([0, tot_time], [0, 0], \":b\", alpha=.5, label=r'Setpoint') ax.legend(loc='upper right') ax.set_xlabel(r'Time [ $s",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        },
+        {
+          "line": 1781,
+          "next_line": 1785,
+          "previous_tail": "ot([0, tot_time], [0, 0], \":b\", alpha=.5, label=r'Setpoint') ax.legend(loc='upper right') ax.set_xlabel(r'Time [ $s$ ]')",
+          "next_head": "ax.set_ylabel(r'Value') ax.set_title(r\"Control input $u(t)$ plot\") fig.savefig('image/boeing_input.jpg')",
+          "reason": "possible paragraph break or reading-order discontinuity"
+        }
+      ]
+    }
+  ]
+}

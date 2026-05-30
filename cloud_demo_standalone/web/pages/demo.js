@@ -22,7 +22,7 @@ export default function DemoPage() {
   return (
     <SectionWrapper>
       <div className="custom-screen space-y-6">
-        <PageHeader title="演示路径" desc="按评审视角组织可操作入口：先确认云端状态，再依次体验赛道一、赛道二、赛道三，最后回到来源矩阵核验产物。" />
+        <PageHeader title="展示导览" desc="按参观路径组织可操作入口：先确认云端状态，再依次浏览赛道一、赛道二、赛道三，最后回到来源矩阵查看成果与来源。" />
         <DemoRouteMap />
         <ApiPipeline />
         <Notice />

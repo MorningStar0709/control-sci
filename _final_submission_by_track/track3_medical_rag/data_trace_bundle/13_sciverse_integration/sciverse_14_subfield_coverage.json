@@ -1,0 +1,127 @@
+{
+  "generated_at": "2026-05-22T13:47:01.789264+00:00",
+  "input": {
+    "subfields": [
+      "PID控制",
+      "估计与定位",
+      "导航制导与控制",
+      "控制理论",
+      "数字控制",
+      "智能控制",
+      "最优控制",
+      "现代控制",
+      "线性系统",
+      "经典控制",
+      "自抗扰控制",
+      "自适应控制",
+      "非线性控制",
+      "鲁棒控制"
+    ]
+  },
+  "summary": {
+    "total_subfields": 14,
+    "subfields_above_100k": 14,
+    "min_total": 3544197,
+    "max_total": 12760426
+  },
+  "subfields": {
+    "PID控制": {
+      "en_query": "PID control stability",
+      "total_count": 4757042,
+      "top_title": "Analysis of Speed Servo System of Pneumatic Manipulator Based RBF Neural Network PID Control",
+      "top_year": 2010.0,
+      "top_doi": "10.4028/www.scientific.net/amm.40-41.65"
+    },
+    "估计与定位": {
+      "en_query": "Kalman filter state estimation",
+      "total_count": 3544197,
+      "top_title": "Kalman Filtering Algorithm Based on the Maximum Mixture Correntropy Criterion",
+      "top_year": 2024.0,
+      "top_doi": "10.1145/3690407.3690558"
+    },
+    "导航制导与控制": {
+      "en_query": "guidance navigation control GPS",
+      "total_count": 4349996,
+      "top_title": "Real-Time Navigation, Guidance, and Control of a UAV Using Low-Cost Sensors",
+      "top_year": 2006.0,
+      "top_doi": "10.1007/10991459_29"
+    },
+    "控制理论": {
+      "en_query": "control theory Lyapunov",
+      "total_count": 8411420,
+      "top_title": "Lyapunov equations in control theory",
+      "top_year": 2003.0,
+      "top_doi": "10.1016/s1570-579x(03)80012-5"
+    },
+    "数字控制": {
+      "en_query": "digital control discrete time",
+      "total_count": 10332615,
+      "top_title": "Digital control and signal processing systems and techniques /",
+      "top_year": 1996.0,
+      "top_doi": ""
+    },
+    "智能控制": {
+      "en_query": "intelligent control neural network",
+      "total_count": 6092163,
+      "top_title": "Intelligent Vehicle Navigation Path Recognition Model Based on Neural Network",
+      "top_year": 2018.0,
+      "top_doi": "10.2991/meees-18.2018.2"
+    },
+    "最优控制": {
+      "en_query": "optimal control Pontryagin",
+      "total_count": 4471167,
+      "top_title": "Optimal System for Controlling Paper Web Formation",
+      "top_year": 2021.0,
+      "top_doi": "10.1007/978-3-030-81619-3_95"
+    },
+    "现代控制": {
+      "en_query": "modern control state space",
+      "total_count": 8667316,
+      "top_title": "A State-Space Modeling of One-Dimensional Active Noise Control Systems",
+      "top_year": 1995.0,
+      "top_doi": "10.1115/1.2873919"
+    },
+    "线性系统": {
+      "en_query": "linear system theory",
+      "total_count": 12760426,
+      "top_title": "Linear system theory",
+      "top_year": 1979.0,
+      "top_doi": ""
+    },
+    "经典控制": {
+      "en_query": "classical control root locus",
+      "total_count": 4940400,
+      "top_title": "Research on Root Locus Correction Algorithm in Automatic Control System",
+      "top_year": 2020.0,
+      "top_doi": "10.4018/ijsppc.2020070103"
+    },
+    "自抗扰控制": {
+      "en_query": "active disturbance rejection control",
+      "total_count": 4831113,
+      "top_title": "Event-Triggered Attitude Tracking for Rigid Spacecraft",
+      "top_year": 2021.0,
+      "top_doi": "10.1007/978-981-16-0293-1_8"
+    },
+    "自适应控制": {
+      "en_query": "adaptive control nonlinear",
+      "total_count": 4572980,
+      "top_title": "Adaptive control systems /",
+      "top_year": 1999.0,
+      "top_doi": ""
+    },
+    "非线性控制": {
+      "en_query": "nonlinear control backstepping",
+      "total_count": 4286557,
+      "top_title": "Applying the Adaptive Nonlinear Backstepping Position Controller in Order to Control Angular Position of Bipolar Permanent Magnet Stepper Motors",
+      "top_year": 2018.0,
+      "top_doi": "10.1007/978-3-030-04792-4_25"
+    },
+    "鲁棒控制": {
+      "en_query": "robust control H-infinity",
+      "total_count": 5383868,
+      "top_title": "Advanced Topics in Control and Estimation of State-Multiplicative Noisy Systems",
+      "top_year": 2013.0,
+      "top_doi": ""
+    }
+  }
+}

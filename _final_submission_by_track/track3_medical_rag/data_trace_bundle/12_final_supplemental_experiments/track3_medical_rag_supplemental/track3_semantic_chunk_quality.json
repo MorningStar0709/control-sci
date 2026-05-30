@@ -1,0 +1,718 @@
+{
+  "status": "available",
+  "generated_at": "2026-05-24T15:44:18+0800",
+  "task": "Track 3 Task 5 - Semantic Chunk Quality Challenge Set",
+  "evaluation_mode": "semantic_chunk_manifest_and_markdown_audit_no_gold_accuracy_claim",
+  "chunks_root": "data/sources_medical/chunks",
+  "manifest_path": "data/sources_medical/chunks/chunks_manifest.json",
+  "manifest_summary": {
+    "total_chunks": 3348,
+    "actual_chunk_records": 3348,
+    "train_chunks": 2636,
+    "eval_chunks": 712,
+    "target_tokens": 768,
+    "min_tokens": 256,
+    "max_tokens": 1024,
+    "set_counts": {
+      "eval": 712,
+      "train": 2636
+    },
+    "top_medical_labels": {
+      "front_matter": 265,
+      "_front_matter_other": 221,
+      "references": 208,
+      "_methods_other": 197,
+      "methods": 194,
+      "_results_other": 174,
+      "other": 170,
+      "_introduction_other": 164,
+      "discussion": 159,
+      "introduction": 126,
+      "results": 101,
+      "population": 100,
+      "_population_other": 99,
+      "_intervention_other": 88,
+      "intervention": 86,
+      "statistical_analysis": 71
+    },
+    "top_medical_parents": {
+      "methods": 673,
+      "results": 243,
+      "front_matter": 221,
+      "introduction": 164,
+      "population": 127,
+      "intervention": 88,
+      "outcome_measures": 74,
+      "statistical_analysis": 71,
+      "data_collection": 71,
+      "references": 53,
+      "discussion": 49,
+      "ethical_approval": 43,
+      "pharmacokinetics": 32,
+      "study_design": 30,
+      "conclusion": 19,
+      "randomization": 16
+    }
+  },
+  "target_section_counts": {
+    "primary_outcome": {
+      "count": 24,
+      "label_counts": {
+        "_front_matter_other": 1,
+        "_primary_outcome_other": 3,
+        "_results_other": 2,
+        "primary_outcome": 16,
+        "primary_results": 2
+      },
+      "set_counts": {
+        "train": 24
+      }
+    },
+    "secondary_outcome": {
+      "count": 41,
+      "label_counts": {
+        "_discussion_other": 1,
+        "_front_matter_other": 1,
+        "_primary_results_other": 1,
+        "_results_other": 1,
+        "_secondary_outcome_other": 16,
+        "secondary_outcome": 18,
+        "secondary_results": 3
+      },
+      "set_counts": {
+        "train": 41
+      }
+    },
+    "subgroup_analysis": {
+      "count": 9,
+      "label_counts": {
+        "_data_collection_other": 1,
+        "_methods_other": 1,
+        "_outcome_measures_other": 1,
+        "_statistical_analysis_other": 1,
+        "_subgroup_analysis_other": 1,
+        "methods": 1,
+        "subgroup_analysis": 3
+      },
+      "set_counts": {
+        "train": 9
+      }
+    },
+    "sensitivity_analysis": {
+      "count": 2,
+      "label_counts": {
+        "sensitivity_analysis": 2
+      },
+      "set_counts": {
+        "train": 2
+      }
+    },
+    "adverse_events": {
+      "count": 49,
+      "label_counts": {
+        "_adverse_events_other": 4,
+        "_data_collection_other": 3,
+        "_discussion_other": 2,
+        "_ethical_approval_other": 2,
+        "_intervention_other": 1,
+        "_methods_other": 2,
+        "_outcome_measures_other": 2,
+        "_population_other": 2,
+        "_secondary_outcome_other": 1,
+        "_statistical_analysis_other": 3,
+        "adverse_events": 8,
+        "data_collection": 1,
+        "ethical_approval": 2,
+        "intervention": 1,
+        "methods": 7,
+        "other": 4,
+        "outcome_measures": 3,
+        "primary_results": 1
+      },
+      "set_counts": {
+        "eval": 5,
+        "train": 44
+      }
+    },
+    "study_design": {
+      "count": 82,
+      "label_counts": {
+        "_discussion_other": 1,
+        "_front_matter_other": 2,
+        "_introduction_other": 1,
+        "_results_other": 2,
+        "_study_design_other": 30,
+        "methods": 2,
+        "study_design": 44
+      },
+      "set_counts": {
+        "eval": 2,
+        "train": 80
+      }
+    },
+    "randomization": {
+      "count": 95,
+      "label_counts": {
+        "_introduction_other": 2,
+        "_randomization_other": 16,
+        "intervention": 8,
+        "introduction": 1,
+        "methods": 17,
+        "other": 16,
+        "population": 7,
+        "randomization": 28
+      },
+      "set_counts": {
+        "train": 95
+      }
+    },
+    "blinding": {
+      "count": 23,
+      "label_counts": {
+        "_blinding_other": 6,
+        "_exclusion_criteria_other": 1,
+        "_intervention_other": 1,
+        "_introduction_other": 1,
+        "_population_other": 1,
+        "blinding": 4,
+        "intervention": 3,
+        "methods": 2,
+        "randomization": 4
+      },
+      "set_counts": {
+        "train": 23
+      }
+    },
+    "statistical_analysis": {
+      "count": 146,
+      "label_counts": {
+        "_front_matter_other": 3,
+        "_statistical_analysis_other": 71,
+        "outcome_measures": 1,
+        "statistical_analysis": 71
+      },
+      "set_counts": {
+        "eval": 24,
+        "train": 122
+      }
+    }
+  },
+  "covered_target_sections": [
+    "primary_outcome",
+    "secondary_outcome",
+    "subgroup_analysis",
+    "sensitivity_analysis",
+    "adverse_events",
+    "study_design",
+    "randomization",
+    "blinding",
+    "statistical_analysis"
+  ],
+  "covered_target_section_count": 9,
+  "field_coverage": {
+    "chunk_id": {
+      "present": 3348,
+      "total": 3348,
+      "rate": 1.0
+    },
+    "filepath": {
+      "present": 3348,
+      "total": 3348,
+      "rate": 1.0
+    },
+    "source_section": {
+      "present": 3348,
+      "total": 3348,
+      "rate": 1.0
+    },
+    "source_line_start": {
+      "present": 3348,
+      "total": 3348,
+      "rate": 1.0
+    },
+    "source_line_end": {
+      "present": 3348,
+      "total": 3348,
+      "rate": 1.0
+    },
+    "medical_label": {
+      "present": 3348,
+      "total": 3348,
+      "rate": 1.0
+    },
+    "medical_parent": {
+      "present": 2051,
+      "total": 3348,
+      "rate": 0.6126
+    },
+    "source_file": {
+      "present": 3348,
+      "total": 3348,
+      "rate": 1.0,
+      "derived_from": "filepath"
+    },
+    "text_preview": {
+      "present": null,
+      "total": 3348,
+      "rate": null,
+      "derived_from": "chunk markdown file preview"
+    }
+  },
+  "sample_records": [
+    {
+      "challenge_category": "statistical_analysis",
+      "chunk_id": "PMC10493474_chunk_012",
+      "medical_label": "statistical_analysis",
+      "medical_parent": "methods",
+      "source_section": "Statistical analysis",
+      "source_file": "data/sources_medical/chunks/train/PMC10493474_chunk_012.md",
+      "set": "train",
+      "estimated_tokens": 816,
+      "source_line_start": 63,
+      "source_line_end": 72,
+      "text_preview": "# Statistical analysis A total of 40 consecutive patients who received the PACIFIC regimen since we started utilizing it in January 2020 were analyzed in this study. Patients were divided into two groups (earlier and later groups, n = 20/group). Patient and tumor characteristics were compared between the groups using the Student’s t-test for numerical variables and the chi-squared test for categorical variables. Dose",
+      "file_exists": true
+    },
+    {
+      "challenge_category": "randomization",
+      "chunk_id": "PMC10503150_chunk_002",
+      "medical_label": "intervention",
+      "medical_parent": "methods",
+      "source_section": "Protocol of the process evaluation of cluster randomised control trial for estimating the efectiveness and cost-efectiveness of a complex intervention to increase care home staf infuenza vaccination rates compared to usual practice (FluCare)",
+      "source_file": "data/sources_medical/chunks/train/PMC10503150_chunk_002.md",
+      "set": "train",
+      "estimated_tokens": 101,
+      "source_line_start": 5,
+      "source_line_end": 8,
+      "text_preview": "# Protocol of the process evaluation of cluster randomised control trial for estimating the efectiveness and cost-efectiveness of a complex intervention to increase care home staf infuenza vaccination rates compared to usual practice (FluCare) Linda Birt1\\* , Thando Katangwe‑Chigamba2 , Sion Scott1 , David J Wright1 , Adam P. Wagner2,3, Erika Sims2 , Veronica Bion2 , Carys Seeley2 , Faisal Alsaif4 , Allan Clarke5 , A",
+      "file_exists": true
+    },
+    {
+      "challenge_category": "study_design",
+      "chunk_id": "PMC10579102_chunk_020",
+      "medical_label": "study_design",
+      "medical_parent": "methods",
+      "source_section": "Study design and participants",
+      "source_file": "data/sources_medical/chunks/train/PMC10579102_chunk_020.md",
+      "set": "train",
+      "estimated_tokens": 493,
+      "source_line_start": 728,
+      "source_line_end": 733,
+      "text_preview": "# Study design and participants To train and validate a computational clinical decision support model, we constructed a large multi-center dataset using EHRs of hospitalized patients with T2D who received insulin therapy from January 2013 to April 2021 in the Department of Endocrinology and Metabolism, Zhongshan Hospital and Qingpu Hospital, in Shanghai, China. After an exclusion of the patients who used insulin pump",
+      "file_exists": true
+    },
+    {
+      "challenge_category": "study_design",
+      "chunk_id": "PMC10579102_chunk_021",
+      "medical_label": "_study_design_other",
+      "medical_parent": "study_design",
+      "source_section": "Development and validation of the model-based RL system",
+      "source_file": "data/sources_medical/chunks/train/PMC10579102_chunk_021.md",
+      "set": "train",
+      "estimated_tokens": 876,
+      "source_line_start": 734,
+      "source_line_end": 795,
+      "text_preview": "# Development and validation of the model-based RL system Time-series data pre-process and NLP. For time-series data representation, every patient in the dataset was represented as a temporal sequence of feature vectors. Specifically, each day was broken into seven time periods, including pre-breakfast, post-breakfast, pre-lunch, post-lunch, pre-dinner, post-dinner and pre-bedtime. All records that occurred within th",
+      "file_exists": true
+    },
+    {
+      "challenge_category": "study_design",
+      "chunk_id": "PMC10579102_chunk_022",
+      "medical_label": "_study_design_other",
+      "medical_parent": "study_design",
+      "source_section": "Development and validation of the model-based RL system",
+      "source_file": "data/sources_medical/chunks/train/PMC10579102_chunk_022.md",
+      "set": "train",
+      "estimated_tokens": 997,
+      "source_line_start": 734,
+      "source_line_end": 795,
+      "text_preview": "To solve the MDP and obtain an effective and safe policy model π, we used a model-based RL approach, RL-DITR, which consisted of a patient model to track patients’ evolving states and a policy model to learn dynamic regimen strategy. The patient model was learned from historical trajectories, approximating the transition function P and the reward function G and providing support for policy model learning and planning",
+      "file_exists": true
+    },
+    {
+      "challenge_category": "statistical_analysis",
+      "chunk_id": "PMC10579102_chunk_046",
+      "medical_label": "_front_matter_other",
+      "medical_parent": "front_matter",
+      "source_section": "Statistics",
+      "source_file": "data/sources_medical/chunks/eval/PMC10579102_chunk_046.md",
+      "set": "eval",
+      "estimated_tokens": 209,
+      "source_line_start": 1474,
+      "source_line_end": 1495,
+      "text_preview": "# Statistics Foralltatisticallyfiattflowingitmsepreentintiurelegendtablged,intextesctio n/a| Confirmed 区Theexactsample size (n)foreach experimentalgroup/condition,given asadiscrete number andunit of measurement □区Astatement onwhethermeasurements weretaken fromdistinctsamples orwhetherthesamesamplewas measuredrepeatedly 区 A description of allcovariates tested 区Adescription ofany assumptions orcorrections,such as tests",
+      "file_exists": true
+    },
+    {
+      "challenge_category": "adverse_events",
+      "chunk_id": "PMC10803438_chunk_002",
+      "medical_label": "methods",
+      "medical_parent": null,
+      "source_section": "Safety, feasibility, tolerability, and clinical effects of repeated psilocybin dosing combined with non-directive support in the treatment of obsessive-compulsive disorder: protocol for a randomized, waitlist-controlled trial with blinded ratings",
+      "source_file": "data/sources_medical/chunks/train/PMC10803438_chunk_002.md",
+      "set": "train",
+      "estimated_tokens": 719,
+      "source_line_start": 97,
+      "source_line_end": 134,
+      "text_preview": "# Safety, feasibility, tolerability, and clinical effects of repeated psilocybin dosing combined with non-directive support in the treatment of obsessive-compulsive disorder: protocol for a randomized, waitlist-controlled trial with blinded ratings Terence H. W. Ching1 \\*, Lucia Amoroso1 , Calvin Bohner1 , Elizabeth D’Amico1 , Jeffrey Eilbott1 , Tara Entezar1 , Madison Fitzpatrick1 , Geena Fram1 , Rachael Grazioplene",
+      "file_exists": true
+    },
+    {
+      "challenge_category": "randomization",
+      "chunk_id": "PMC10803438_chunk_002",
+      "medical_label": "methods",
+      "medical_parent": null,
+      "source_section": "Safety, feasibility, tolerability, and clinical effects of repeated psilocybin dosing combined with non-directive support in the treatment of obsessive-compulsive disorder: protocol for a randomized, waitlist-controlled trial with blinded ratings",
+      "source_file": "data/sources_medical/chunks/train/PMC10803438_chunk_002.md",
+      "set": "train",
+      "estimated_tokens": 719,
+      "source_line_start": 97,
+      "source_line_end": 134,
+      "text_preview": "# Safety, feasibility, tolerability, and clinical effects of repeated psilocybin dosing combined with non-directive support in the treatment of obsessive-compulsive disorder: protocol for a randomized, waitlist-controlled trial with blinded ratings Terence H. W. Ching1 \\*, Lucia Amoroso1 , Calvin Bohner1 , Elizabeth D’Amico1 , Jeffrey Eilbott1 , Tara Entezar1 , Madison Fitzpatrick1 , Geena Fram1 , Rachael Grazioplene",
+      "file_exists": true
+    },
+    {
+      "challenge_category": "randomization",
+      "chunk_id": "PMC10803438_chunk_017",
+      "medical_label": "randomization",
+      "medical_parent": "methods",
+      "source_section": "2.4.3 Enrollment confirmation and randomization",
+      "source_file": "data/sources_medical/chunks/train/PMC10803438_chunk_017.md",
+      "set": "train",
+      "estimated_tokens": 112,
+      "source_line_start": 309,
+      "source_line_end": 312,
+      "text_preview": "# 2.4.3 Enrollment confirmation and randomization After a participant has been screened to be eligible, their enrollment will be confirmed by the co-PIs via a confirmation email and/or phone call. At this time, participants will also be randomized by the co-PIs to either the immediate treatment or waitlist/delayed treatment groups and begin study visits. One of the co-PIs will generate the block randomization sequenc",
+      "file_exists": true
+    },
+    {
+      "challenge_category": "blinding",
+      "chunk_id": "PMC10803438_chunk_018",
+      "medical_label": "blinding",
+      "medical_parent": "methods",
+      "source_section": "2.4.4 Blinding",
+      "source_file": "data/sources_medical/chunks/train/PMC10803438_chunk_018.md",
+      "set": "train",
+      "estimated_tokens": 213,
+      "source_line_start": 313,
+      "source_line_end": 316,
+      "text_preview": "# 2.4.4 Blinding Given the choice of a waitlist control condition, only the independent raters will be blinded to participants’ condition assignment in this study. During the blinded ratings phase (7 weeks from randomization) for either condition, participants will be required to not disclose their assigned treatment condition to the independent raters. Additional measures to maintain blinding of independent raters i",
+      "file_exists": true
+    },
+    {
+      "challenge_category": "blinding",
+      "chunk_id": "PMC10803438_chunk_019",
+      "medical_label": "_blinding_other",
+      "medical_parent": "blinding",
+      "source_section": "2.4.5 Study visits with facilitators",
+      "source_file": "data/sources_medical/chunks/train/PMC10803438_chunk_019.md",
+      "set": "train",
+      "estimated_tokens": 154,
+      "source_line_start": 317,
+      "source_line_end": 322,
+      "text_preview": "# 2.4.5 Study visits with facilitators Over the course of several study visits, participants meet and work with their assigned pair of facilitators in preparatory, dosing, and integration sessions. Each participant will work with their assigned pair of facilitators for all sessions. Essential procedures for preparatory, dosing, and integration sessions in the treatment phase – which are identical for both the immedia",
+      "file_exists": true
+    },
+    {
+      "challenge_category": "blinding",
+      "chunk_id": "PMC10803438_chunk_020",
+      "medical_label": "_blinding_other",
+      "medical_parent": "blinding",
+      "source_section": "2.4.5.1 Non-directive approach",
+      "source_file": "data/sources_medical/chunks/train/PMC10803438_chunk_020.md",
+      "set": "train",
+      "estimated_tokens": 341,
+      "source_line_start": 323,
+      "source_line_end": 328,
+      "text_preview": "# 2.4.5.1 Non-directive approach In all sessions, facilitators provide psychological support using a non-directive approach, which we have operationalized as a participant-centered/−led process, in which facilitators are attentive, empathic, and welcoming of each participant’s unfolding and varied experiences prior to, during, and after each dosing. Through a non-directive approach, facilitators allow time for partic",
+      "file_exists": true
+    },
+    {
+      "challenge_category": "primary_outcome",
+      "chunk_id": "PMC10803438_chunk_032",
+      "medical_label": "primary_outcome",
+      "medical_parent": "outcome_measures",
+      "source_section": "2.5.1.1 Primary outcomes",
+      "source_file": "data/sources_medical/chunks/train/PMC10803438_chunk_032.md",
+      "set": "train",
+      "estimated_tokens": 649,
+      "source_line_start": 379,
+      "source_line_end": 386,
+      "text_preview": "# 2.5.1.1 Primary outcomes The primary outcome measure is the Y-BOCS-II (55), which assesses OCD symptom severity over the past week. This will be administered by an independent rater at baseline prior to the first preparatory session, at the end of each dosing week (i.e., after the second integration session for each week), and at the follow-up intervals of 1 and 4 weeks and 3, 6, and 12 months after the end of the ",
+      "file_exists": true
+    },
+    {
+      "challenge_category": "secondary_outcome",
+      "chunk_id": "PMC10803438_chunk_033",
+      "medical_label": "secondary_outcome",
+      "medical_parent": "outcome_measures",
+      "source_section": "2.5.1.2 Secondary outcome",
+      "source_file": "data/sources_medical/chunks/train/PMC10803438_chunk_033.md",
+      "set": "train",
+      "estimated_tokens": 102,
+      "source_line_start": 387,
+      "source_line_end": 390,
+      "text_preview": "# 2.5.1.2 Secondary outcome The secondary outcome in this study is also OCD symptom severity measured by the Y-BOCS-II; the difference is that we will focus on and aggregate Y-BOCS-II scores obtained from the treatment phase across groups. In other words, we will combine Y-BOCS-II data collected during the immediate treatment phase for the immediate treatment group with Y-BOCS-II data collected during the delayed tre",
+      "file_exists": true
+    },
+    {
+      "challenge_category": "statistical_analysis",
+      "chunk_id": "PMC10803438_chunk_040",
+      "medical_label": "statistical_analysis",
+      "medical_parent": "methods",
+      "source_section": "2.10 Statistical analysis",
+      "source_file": "data/sources_medical/chunks/train/PMC10803438_chunk_040.md",
+      "set": "train",
+      "estimated_tokens": 710,
+      "source_line_start": 448,
+      "source_line_end": 463,
+      "text_preview": "# 2.10 Statistical analysis We will conduct linear mixed modeling (LMM) and correlational analyses using SPSS and/or R software to test our primary and secondary hypotheses, as well as to examine our exploratory objectives. For LMMs, restricted maximum likelihood estimation will be used to handle missing data and maximize the inclusion of all randomized participants. Treatment group (immediate treatment vs. waitlist/",
+      "file_exists": true
+    },
+    {
+      "challenge_category": "adverse_events",
+      "chunk_id": "PMC10829799_chunk_017",
+      "medical_label": "adverse_events",
+      "medical_parent": "results",
+      "source_section": "Adverse Events",
+      "source_file": "data/sources_medical/chunks/train/PMC10829799_chunk_017.md",
+      "set": "train",
+      "estimated_tokens": 306,
+      "source_line_start": 153,
+      "source_line_end": 181,
+      "text_preview": "# Adverse Events No serious adverse events associated with LTFC were reported. Nine and seven ocular adverse events occurred in the morning and evening dosing groups, respectively. No differences were detected in the distribution of adverse ocular effects. The most frequent ocular adverse events, 24-hour blood pressure measurements, and heart rate values are shown in Supplementary Tables S1, S2, and S3. ![](image/1b2",
+      "file_exists": true
+    },
+    {
+      "challenge_category": "adverse_events",
+      "chunk_id": "PMC10882371_chunk_001",
+      "medical_label": "methods",
+      "medical_parent": null,
+      "source_section": "Study protocol for a randomised openlabel clinical trial examining the safety and efficacy of the Android Artificial Pancreas System (AAPS) with advanced bolus-free features in adults with type 1 diabetes: the ‘CLOSE IT’ (Closed Loop Open SourcE In Type 1 diabetes) trial",
+      "source_file": "data/sources_medical/chunks/train/PMC10882371_chunk_001.md",
+      "set": "train",
+      "estimated_tokens": 248,
+      "source_line_start": 3,
+      "source_line_end": 16,
+      "text_preview": "# Study protocol for a randomised openlabel clinical trial examining the safety and efficacy of the Android Artificial Pancreas System (AAPS) with advanced bolus-free features in adults with type 1 diabetes: the ‘CLOSE IT’ (Closed Loop Open SourcE In Type 1 diabetes) trial Tom Wilkinson ,1 Dunya Tomic,2,3 Erin Boyle,2 David Burren,2 Yasser Elghattis ,2 Alicia Jenkins,2 Celeste Keesing,1 Sonia Middleton,2 Natalie Nana",
+      "file_exists": true
+    },
+    {
+      "challenge_category": "primary_outcome",
+      "chunk_id": "PMC10882371_chunk_015",
+      "medical_label": "primary_outcome",
+      "medical_parent": "outcome_measures",
+      "source_section": "Primary outcome measures",
+      "source_file": "data/sources_medical/chunks/train/PMC10882371_chunk_015.md",
+      "set": "train",
+      "estimated_tokens": 52,
+      "source_line_start": 160,
+      "source_line_end": 163,
+      "text_preview": "# Primary outcome measures The primary outcome is the percentage of time spent in target sensor glucose range (3.9–10.0mmol/L) during the last 14 days of the trial phase, comparing FCL to HCL. Timing of all assessments is in table 4.",
+      "file_exists": true
+    },
+    {
+      "challenge_category": "secondary_outcome",
+      "chunk_id": "PMC10882371_chunk_016",
+      "medical_label": "secondary_outcome",
+      "medical_parent": "outcome_measures",
+      "source_section": "Secondary outcome measures",
+      "source_file": "data/sources_medical/chunks/train/PMC10882371_chunk_016.md",
+      "set": "train",
+      "estimated_tokens": 6,
+      "source_line_start": 164,
+      "source_line_end": 165,
+      "text_preview": "# Secondary outcome measures",
+      "file_exists": true
+    },
+    {
+      "challenge_category": "secondary_outcome",
+      "chunk_id": "PMC10882371_chunk_017",
+      "medical_label": "_secondary_outcome_other",
+      "medical_parent": "secondary_outcome",
+      "source_section": "Glycaemic control",
+      "source_file": "data/sources_medical/chunks/train/PMC10882371_chunk_017.md",
+      "set": "train",
+      "estimated_tokens": 261,
+      "source_line_start": 166,
+      "source_line_end": 181,
+      "text_preview": "# Glycaemic control Glycated haemoglobin (HbA1c) will be measured using an assay aligned to that used in the Diabetes Control and Complications Trial (DCCT) (ref: The Diabetes Control and Complications Trial Research Group. The effect of intensive treatment of diabetes on the development and progression of long-term complications in insulindependent diabetes mellitus. N Engl J Med 1993;329:977– 986) in local laborato",
+      "file_exists": true
+    },
+    {
+      "challenge_category": "subgroup_analysis",
+      "chunk_id": "PMC11529615_chunk_027",
+      "medical_label": "_methods_other",
+      "medical_parent": "methods",
+      "source_section": "Subgroup analysis",
+      "source_file": "data/sources_medical/chunks/train/PMC11529615_chunk_027.md",
+      "set": "train",
+      "estimated_tokens": 444,
+      "source_line_start": 250,
+      "source_line_end": 257,
+      "text_preview": "# Subgroup analysis We will investigate if predetermined baseline variables influence the effect of the study group on the primary outcome. To assess this, we will use a logistic regression model focused on the primary outcome of thrombocytopenia incidence. The independent variables in the model will consist of the study group assignment, the potential effect modifier of interest and the interaction between these two",
+      "file_exists": true
+    },
+    {
+      "challenge_category": "primary_outcome",
+      "chunk_id": "PMC11929207_chunk_015",
+      "medical_label": "primary_outcome",
+      "medical_parent": "outcome_measures",
+      "source_section": "Primary endpoint",
+      "source_file": "data/sources_medical/chunks/train/PMC11929207_chunk_015.md",
+      "set": "train",
+      "estimated_tokens": 394,
+      "source_line_start": 117,
+      "source_line_end": 132,
+      "text_preview": "# Primary endpoint Te primary endpoint is all cause 28-day mortality as registered in the electronic medical records. Table 1 Maximum dosages control arm <table><tr><td></td><td>Loading dosea</td><td>Daily dose</td></tr><tr><td>Cefotaxime</td><td>1000 mg</td><td>4000 mg</td></tr><tr><td>Ceftazidime</td><td>1000 mg</td><td>3000 mg</td></tr><tr><td>Ceftriaxone</td><td>2000 mg</td><td>2000 mg</td></tr><tr><td>Cefuroxime",
+      "file_exists": true
+    },
+    {
+      "challenge_category": "subgroup_analysis",
+      "chunk_id": "PMC12801964_chunk_009",
+      "medical_label": "_outcome_measures_other",
+      "medical_parent": "outcome_measures",
+      "source_section": "Subgroup analysis",
+      "source_file": "data/sources_medical/chunks/train/PMC12801964_chunk_009.md",
+      "set": "train",
+      "estimated_tokens": 128,
+      "source_line_start": 71,
+      "source_line_end": 74,
+      "text_preview": "# Subgroup analysis To evaluate the performance of the prediction model across different patient subgroups, BG were stratified by the most recent BG levels, and patients were categorized through ICU admission type, diabetes status and body mass index (BMI). BG levels were categorized as normal (100–180 mg/dL), elevated ( > 180 mg/dL), or low ( < 100 mg/dL). ICU admission types included cardiac surgery ICU, liver ICU,",
+      "file_exists": true
+    },
+    {
+      "challenge_category": "sensitivity_analysis",
+      "chunk_id": "PMC12801964_chunk_018",
+      "medical_label": "sensitivity_analysis",
+      "medical_parent": "results",
+      "source_section": "External validation underscoring model’s robustness and generalizability",
+      "source_file": "data/sources_medical/chunks/train/PMC12801964_chunk_018.md",
+      "set": "train",
+      "estimated_tokens": 763,
+      "source_line_start": 163,
+      "source_line_end": 193,
+      "text_preview": "# External validation underscoring model’s robustness and generalizability Finally, data from the publicly available MIMIC-Ⅳ database were harmonized and used as the external validation set. Table 3 showed the performance metrics of XGBoost model in the external validation set. Compared with its performance in the internal validation set, predictive accuracy did not appreciably decline in the external validation set ",
+      "file_exists": true
+    },
+    {
+      "challenge_category": "subgroup_analysis",
+      "chunk_id": "PMC12801964_chunk_019",
+      "medical_label": "subgroup_analysis",
+      "medical_parent": "results",
+      "source_section": "Subgroup analysis demonstrating heterogeneity in predictive performance",
+      "source_file": "data/sources_medical/chunks/train/PMC12801964_chunk_019.md",
+      "set": "train",
+      "estimated_tokens": 843,
+      "source_line_start": 194,
+      "source_line_end": 206,
+      "text_preview": "# Subgroup analysis demonstrating heterogeneity in predictive performance Following the selection of XGBoost as our final predictive model, we evaluated its performance metrics across subgroups defined by most recent BG values, ICU admission type, diabetes status, and BMI. Table 4 summarizes the subgroup analyses. Among the most recent BG strata, patients in the normal range exhibited the best predictive performance.",
+      "file_exists": true
+    },
+    {
+      "challenge_category": "sensitivity_analysis",
+      "chunk_id": "PMC3496732_chunk_017",
+      "medical_label": "sensitivity_analysis",
+      "medical_parent": "results",
+      "source_section": "5. Sensitivity Analysis and Interactions",
+      "source_file": "data/sources_medical/chunks/train/PMC3496732_chunk_017.md",
+      "set": "train",
+      "estimated_tokens": 1012,
+      "source_line_start": 222,
+      "source_line_end": 243,
+      "text_preview": "# 5. Sensitivity Analysis and Interactions To assess the robustness of our findings and in an attempt to further explain the observed study heterogeneity, we performed a sensitivity analysis and we investigated the effect of possible interactions by species and quality. In the analysis of outcome measures BT to the pancreas and MLN also a dog study was included. Analyzing the outcome measures without this dog study r",
+      "file_exists": true
+    }
+  ],
+  "sample_record_count": 26,
+  "risk_flags": [
+    {
+      "risk": "missing_manifest_field",
+      "field": "medical_parent",
+      "count": 1297,
+      "sample_chunk_ids": [
+        "PMC10493474_chunk_000",
+        "PMC10493474_chunk_001",
+        "PMC10493474_chunk_002",
+        "PMC10493474_chunk_004",
+        "PMC10493474_chunk_005",
+        "PMC10493474_chunk_013",
+        "PMC10493474_chunk_017",
+        "PMC10493474_chunk_018"
+      ]
+    },
+    {
+      "risk": "below_configured_min_tokens",
+      "count": 1684,
+      "sample_chunk_ids": [
+        "PMC10493474_chunk_000",
+        "PMC10493474_chunk_001",
+        "PMC10493474_chunk_003",
+        "PMC10493474_chunk_005",
+        "PMC10493474_chunk_006",
+        "PMC10493474_chunk_008",
+        "PMC10493474_chunk_009",
+        "PMC10493474_chunk_010"
+      ],
+      "note": "heading-only or short structured sections are expected in semantic slicing but should be explicit"
+    },
+    {
+      "risk": "above_configured_max_tokens",
+      "count": 109,
+      "sample_chunk_ids": [
+        "PMC10493474_chunk_014",
+        "PMC10579102_chunk_017",
+        "PMC10579102_chunk_026",
+        "PMC10579102_chunk_029",
+        "PMC10579102_chunk_038",
+        "PMC10621790_chunk_017",
+        "PMC10621790_chunk_020",
+        "PMC10621790_chunk_029"
+      ]
+    },
+    {
+      "risk": "generic_or_other_label",
+      "count": 391,
+      "rate": 0.1168,
+      "sample_chunk_ids": [
+        "PMC10493474_chunk_000",
+        "PMC10493474_chunk_001",
+        "PMC10493474_chunk_003",
+        "PMC10493474_chunk_022",
+        "PMC10503150_chunk_004",
+        "PMC10503150_chunk_025",
+        "PMC10503150_chunk_032",
+        "PMC10579102_chunk_000"
+      ]
+    },
+    {
+      "risk": "not_in_challenge_target_sections",
+      "count": 2895,
+      "rate": 0.8647,
+      "sample_chunk_ids": [
+        "PMC10493474_chunk_000",
+        "PMC10493474_chunk_001",
+        "PMC10493474_chunk_002",
+        "PMC10493474_chunk_003",
+        "PMC10493474_chunk_004",
+        "PMC10493474_chunk_005",
+        "PMC10493474_chunk_006",
+        "PMC10493474_chunk_007"
+      ]
+    }
+  ],
+  "schema_gap": null,
+  "boundary_notes": [
+    "This challenge set audits semantic section structure, metadata completeness, and sample chunk readability; it does not claim human gold-label chunking accuracy.",
+    "A target section can be matched by medical_label, medical_parent, or source_section text because existing manifest labels mix L1/L2 semantic labels and section headings.",
+    "Short heading-only chunks are counted as risk flags for review, not automatic errors, because semantic slicing intentionally preserves some structural headings."
+  ],
+  "acceptance_check": {
+    "required_top_level_fields_present": true,
+    "target_section_counts_present": true,
+    "field_coverage_present": true,
+    "sample_records_present": true,
+    "risk_flags_present": true,
+    "covered_at_least_four_target_sections": true
+  }
+}

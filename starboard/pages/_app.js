@@ -17,8 +17,8 @@ function WorkbenchApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>ControlMind 科学评测工作台</title>
-        <meta name='description' content='本地优先的科学评测工作台：解析、评测、Agent 和 Medical RAG 一体化验证。' />
+        <title>ControlMind 科学复现工作台</title>
+        <meta name='description' content='本地优先的科学复现工作台：解析、评测、Agent 和 Medical RAG 一体化验证。' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.svg?v=controlmind-20260516' type='image/svg+xml' />
       </Head>

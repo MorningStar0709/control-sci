@@ -11,7 +11,7 @@ const cards = [
 
 const metrics = [
   { v: '500', l: '核心题目', s: 'A/B/C/D 四维评测' },
-  { v: '14', l: 'Agent Intent', s: '任务路由与调度' },
+  { v: '15', l: 'Agent Intent', s: '任务路由与调度' },
   { v: '3,348', l: '医学 Chunk', s: 'FAISS + BM25' },
   { v: '730', l: '视觉描述', s: '图文来源增强' },
   { v: '5090', l: '本地算力', s: '隐私任务本地执行' },
@@ -20,8 +20,8 @@ const metrics = [
 
 const evidenceFlow = [
   { title: '努力', body: '本地小模型、5090、MinerU Docker、Agent CLI、医学索引与多轮实验。' },
-  { title: '来源', body: '数据集、排行榜、chunk 索引、dry-run 日志、验收包和三份公开报告。' },
-  { title: '评分理由', body: '把工程可复现、可解释、可信、隐私边界逐项映射到评分细则。' },
+  { title: '来源', body: '数据集、排行榜、chunk 索引、dry-run 日志、证据包和三份公开报告。' },
+  { title: '依据说明', body: '把工程可复现、可解释、可信、隐私边界逐项映射到公开材料。' },
   { title: '交付物', body: '前端工作台、demo CLI、docs/submissions 报告与可溯源数据。' },
 ];
 
@@ -34,14 +34,14 @@ export default function Home({ runtimeConfig }) {
             <div>
               <div className="flex items-center gap-2 mb-3">
                 <StatusPill status="ready" label="可复现" />
-                <span className="text-[11px] text-gray-600 font-mono">ControlMind · Local-first Scientific Evaluation Workbench</span>
+              <span className="text-[11px] text-gray-600 font-mono">ControlMind · Local-first Scientific Reproduction Workbench</span>
               </div>
-              <h1 className="text-3xl text-gray-800 font-extrabold sm:text-5xl tracking-tight">ControlMind：本地优先的科学评测工作台</h1>
+              <h1 className="text-3xl text-gray-800 font-extrabold sm:text-5xl tracking-tight">ControlMind：本地优先的科学复现工作台</h1>
               <p className="text-base text-gray-600 max-w-3xl mt-4 leading-relaxed">
-                把已经通过终端验证的解析、评测、Agent 和 Medical RAG 能力，组织成评委可点击、可复现、可追溯的交付界面。
+                把已经通过终端验证的解析、评测、Agent 和 Medical RAG 能力，组织成访问者可点击、可复现、可追溯的交付界面。
               </p>
             </div>
-            <Link href="/demo" className="px-5 py-3 bg-gray-900 text-white rounded-lg text-sm font-medium hover:bg-gray-800">进入演示路径</Link>
+            <Link href="/demo" className="px-5 py-3 bg-gray-900 text-white rounded-lg text-sm font-medium hover:bg-gray-800">进入工作台导览</Link>
           </div>
         </section>
 
@@ -60,8 +60,8 @@ export default function Home({ runtimeConfig }) {
         <section className="border rounded-lg bg-white p-5">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-2 mb-4">
             <div>
-              <h2 className="text-xl font-semibold text-gray-800">评审可确认的来源链</h2>
-              <p className="text-sm text-gray-600 mt-1">不是把工作量堆给评委，而是把工作量整理成可核验理由。</p>
+              <h2 className="text-xl font-semibold text-gray-800">可确认的来源链</h2>
+              <p className="text-sm text-gray-600 mt-1">不是把工作量堆给访问者，而是把工作量整理成可追溯依据。</p>
             </div>
             <Link href="/evidence" className="text-sm text-sky-700 hover:text-sky-800">打开完整来源矩阵</Link>
           </div>
@@ -109,10 +109,10 @@ export default function Home({ runtimeConfig }) {
           <div className="border rounded-lg p-5 bg-gray-50">
             <h3 className="text-sm font-semibold text-gray-800 mb-3">交付物定位</h3>
             <div className="space-y-2 text-sm text-gray-600">
-              <p>终端脚本负责真实计算与评测，前端负责把链路、来源和产物组织成可核验流程。</p>
+              <p>终端脚本负责真实计算与评测，前端负责把链路、来源和产物组织成可追溯流程。</p>
               <p>demo CLI 是三赛道复现基线：`python demo/cli/controlscidemo all --quick` 可独立验证关键样例。</p>
               <p>每个输出都尽量指向报告、数据集、日志或索引产物，避免只展示口号。</p>
-              <p>面向评审时可以按演示路径顺序点击，也可以直接进入任一赛道独立验证。</p>
+              <p>访问者可以按工作台导览顺序点击，也可以直接进入任一赛道独立验证。</p>
             </div>
           </div>
         </section>

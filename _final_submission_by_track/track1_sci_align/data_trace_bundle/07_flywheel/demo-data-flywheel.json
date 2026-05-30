@@ -1,0 +1,9 @@
+{
+  "flywheel_papers": "5 (via search_and_download.py)",
+  "flywheel_questions_generated": "see flywheel_questions.json",
+  "flywheel_questions_filtered": 15,
+  "flywheel_eval_results": {},
+  "baseline_questions": 500,
+  "expanded_questions": 515,
+  "generated_at": "2026-05-15 18:17:06"
+}

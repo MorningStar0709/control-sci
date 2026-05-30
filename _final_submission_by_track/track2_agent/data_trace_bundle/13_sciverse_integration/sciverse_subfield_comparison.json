@@ -1,0 +1,269 @@
+{
+  "generated_at": "2026-05-22T17:16:15.493940+00:00",
+  "config": {
+    "description": "自建 362 篇语料库与 Sciverse 14 篇全文审计的横向对比。自建数据来自 corpus_stats.json (362 篇全量)，Sciverse 数据来自 sciverse_cross_modal_audit.json (每子领域 1 篇)。"
+  },
+  "summary": {
+    "self_built": {
+      "docs": 362,
+      "formulas": 253012,
+      "images": 11554,
+      "chunks": 28475,
+      "formulas_per_doc": 698.9,
+      "images_per_doc": 31.9,
+      "corpus_formula_density": "0.0/chunk(~200chars)"
+    },
+    "sciverse": {
+      "docs": 14,
+      "formulas": 1417,
+      "images": 46,
+      "formulas_per_doc": 101.2,
+      "images_per_doc": 3.3
+    },
+    "ratio": {
+      "formulas_per_doc": 0.14,
+      "images_per_doc": 0.1,
+      "note": "Sciverse 单篇论文 vs 自建语料均值。Sciverse 每篇公式/图片更少——这是单篇 vs 362 篇均值的必然结果；但 Sciverse 覆盖了 14/14 子领域，证明管线可下推到任意来源。"
+    }
+  },
+  "per_subfield": [
+    {
+      "subfield": "PID控制",
+      "self_built": {
+        "docs": 1,
+        "chunks": 238
+      },
+      "sciverse": {
+        "papers": 1,
+        "ok": true,
+        "content_chars": 34386,
+        "content_pages": 50,
+        "formulas": 131,
+        "images": 7,
+        "formula_density_per_1k_chars": 3.8,
+        "title": "Improving the Frequency Response of Hybrid Microgrid under Renewable Sources’ Un"
+      }
+    },
+    {
+      "subfield": "估计与定位",
+      "self_built": {
+        "docs": 1,
+        "chunks": 147
+      },
+      "sciverse": {
+        "papers": 1,
+        "ok": true,
+        "content_chars": 34762,
+        "content_pages": 50,
+        "formulas": 3,
+        "images": 3,
+        "formula_density_per_1k_chars": 0.1,
+        "title": "Biomedical image understanding methods and applications"
+      }
+    },
+    {
+      "subfield": "导航制导与控制",
+      "self_built": {
+        "docs": 1,
+        "chunks": 286
+      },
+      "sciverse": {
+        "papers": 1,
+        "ok": true,
+        "content_chars": 34527,
+        "content_pages": 50,
+        "formulas": 3,
+        "images": 4,
+        "formula_density_per_1k_chars": 0.1,
+        "title": "The Supersonic BONE: A Development and Operational History of the B-1 Bomber"
+      }
+    },
+    {
+      "subfield": "控制理论",
+      "self_built": {
+        "docs": 1,
+        "chunks": 1564
+      },
+      "sciverse": {
+        "papers": 1,
+        "ok": true,
+        "content_chars": 34860,
+        "content_pages": 50,
+        "formulas": 186,
+        "images": 2,
+        "formula_density_per_1k_chars": 5.3,
+        "title": "Lyapunov Theory-Based Robust Control"
+      }
+    },
+    {
+      "subfield": "数字控制",
+      "self_built": {
+        "docs": 3,
+        "chunks": 380
+      },
+      "sciverse": {
+        "papers": 1,
+        "ok": true,
+        "content_chars": 34397,
+        "content_pages": 50,
+        "formulas": 81,
+        "images": 8,
+        "formula_density_per_1k_chars": 2.4,
+        "title": "The Control Handbook, Second Edition: Control System Fundamentals, Second Editio"
+      }
+    },
+    {
+      "subfield": "智能控制",
+      "self_built": {
+        "docs": 2,
+        "chunks": 468
+      },
+      "sciverse": {
+        "papers": 1,
+        "ok": true,
+        "content_chars": 27881,
+        "content_pages": 42,
+        "formulas": 42,
+        "images": 10,
+        "formula_density_per_1k_chars": 1.5,
+        "title": "Temperature Control Algorithm of Underground Air Conditioning in Station"
+      }
+    },
+    {
+      "subfield": "最优控制",
+      "self_built": {
+        "docs": 5,
+        "chunks": 624
+      },
+      "sciverse": {
+        "papers": 1,
+        "ok": true,
+        "content_chars": 23652,
+        "content_pages": 34,
+        "formulas": 127,
+        "images": 0,
+        "formula_density_per_1k_chars": 5.4,
+        "title": "The principle of maximum in the imitative control tasks"
+      }
+    },
+    {
+      "subfield": "现代控制",
+      "self_built": {
+        "docs": 10,
+        "chunks": 694
+      },
+      "sciverse": {
+        "papers": 1,
+        "ok": true,
+        "content_chars": 34906,
+        "content_pages": 50,
+        "formulas": 46,
+        "images": 1,
+        "formula_density_per_1k_chars": 1.3,
+        "title": "Quantum feedback: Theory, experiments, and applications"
+      }
+    },
+    {
+      "subfield": "线性系统",
+      "self_built": {
+        "docs": 1,
+        "chunks": 12
+      },
+      "sciverse": {
+        "papers": 1,
+        "ok": true,
+        "content_chars": 34766,
+        "content_pages": 50,
+        "formulas": 71,
+        "images": 3,
+        "formula_density_per_1k_chars": 2.0,
+        "title": "Quantum Field Theory III: Gauge Theory: A Bridge between Mathematicians and Phys"
+      }
+    },
+    {
+      "subfield": "经典控制",
+      "self_built": {
+        "docs": 9,
+        "chunks": 437
+      },
+      "sciverse": {
+        "papers": 1,
+        "ok": true,
+        "content_chars": 34905,
+        "content_pages": 50,
+        "formulas": 33,
+        "images": 1,
+        "formula_density_per_1k_chars": 0.9,
+        "title": "Space Vehicle Dynamics and Control (Kids Go)"
+      }
+    },
+    {
+      "subfield": "自抗扰控制",
+      "self_built": {
+        "docs": 1,
+        "chunks": 153
+      },
+      "sciverse": {
+        "papers": 1,
+        "ok": true,
+        "content_chars": 23577,
+        "content_pages": 34,
+        "formulas": 62,
+        "images": 0,
+        "formula_density_per_1k_chars": 2.6,
+        "title": "Fractional active disturbance rejection control"
+      }
+    },
+    {
+      "subfield": "自适应控制",
+      "self_built": {
+        "docs": 1,
+        "chunks": 417
+      },
+      "sciverse": {
+        "papers": 1,
+        "ok": true,
+        "content_chars": 34861,
+        "content_pages": 50,
+        "formulas": 191,
+        "images": 0,
+        "formula_density_per_1k_chars": 5.5,
+        "title": "Adaptive Control Design for n-th order Nonlinearly Multiplicative Parameterized "
+      }
+    },
+    {
+      "subfield": "非线性控制",
+      "self_built": {
+        "docs": 3,
+        "chunks": 301
+      },
+      "sciverse": {
+        "papers": 1,
+        "ok": true,
+        "content_chars": 34912,
+        "content_pages": 50,
+        "formulas": 217,
+        "images": 1,
+        "formula_density_per_1k_chars": 6.2,
+        "title": "Experimental validation of a nonlinear backstepping liquid level controller for "
+      }
+    },
+    {
+      "subfield": "鲁棒控制",
+      "self_built": {
+        "docs": 1,
+        "chunks": 280
+      },
+      "sciverse": {
+        "papers": 1,
+        "ok": true,
+        "content_chars": 34428,
+        "content_pages": 50,
+        "formulas": 224,
+        "images": 6,
+        "formula_density_per_1k_chars": 6.5,
+        "title": "Helicopter H∞ control design with robust flying quality"
+      }
+    }
+  ]
+}

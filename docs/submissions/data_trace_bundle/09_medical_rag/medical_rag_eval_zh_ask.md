@@ -5,6 +5,8 @@
 - Top-k: 3
 - Synthesis: enabled
 
+> Snapshot note: 本文件是中文 Ask case set 的评测快照，数值权威源为同目录 `medical_rag_eval_zh_ask.json` 与 `shared/DATA-TRACE.md`。新增中文改写鲁棒性补充实验见 `../12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_zh_ask_robustness.json`，其中 7 base cases、21 variants、rewrite_success_rate=1.0、intent_consistency_rate=1.0；对应 DATA-TRACE #187。
+
 ## Summary
 
 | Index | Provider | Model | Hit@K | Label Hit@K | Mean Hit Rank | Citation Coverage | Bridged | Multi-query | Query Embed Sec |

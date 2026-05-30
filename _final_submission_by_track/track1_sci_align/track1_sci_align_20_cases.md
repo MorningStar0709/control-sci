@@ -643,11 +643,11 @@
 
 ```bash
 # 验证 30 题均存在于 core.json
-conda run -n myenv python -c "import json; d=json.load(open(r'benchmark/dataset/core.json')); target=['CS-EVO-00071','CS-EVO-00746','CS-EVO-00939','CS-EVO-00293','CS-EVO-00638','CS-EVO-00251','CS-EVO-00270','CS-EVO-00242','CS-EVO-00663','CS-EVO-00461','CS-EVO-00774','CS-EVO-00356','CS-EVO-00228','CS-EVO-00754','CS-EVO-00241','CS-EVO-00450','CS-EVO-00087','CS-EVO-00288','CS-EVO-00362','CS-EVO-00644','CS-EVO-00666','CS-EVO-00011','CS-EVO-00815','CS-EVO-00377','CS-EVO-00549','CS-EVO-00825','CS-EVO-00515','CS-EVO-00129','CS-EVO-00231','CS-EVO-00768']; ids=[q['id'] for q in d['questions']]; found=[i for i in target if i in ids]; print(f'Found {len(found)}/30')"
+conda run --no-capture-output -n myenv python -c "import json; d=json.load(open(r'benchmark/dataset/core.json')); target=['CS-EVO-00071','CS-EVO-00746','CS-EVO-00939','CS-EVO-00293','CS-EVO-00638','CS-EVO-00251','CS-EVO-00270','CS-EVO-00242','CS-EVO-00663','CS-EVO-00461','CS-EVO-00774','CS-EVO-00356','CS-EVO-00228','CS-EVO-00754','CS-EVO-00241','CS-EVO-00450','CS-EVO-00087','CS-EVO-00288','CS-EVO-00362','CS-EVO-00644','CS-EVO-00666','CS-EVO-00011','CS-EVO-00815','CS-EVO-00377','CS-EVO-00549','CS-EVO-00825','CS-EVO-00515','CS-EVO-00129','CS-EVO-00231','CS-EVO-00768']; ids=[q['id'] for q in d['questions']]; found=[i for i in target if i in ids]; print(f'Found {len(found)}/30')"
 
 # 验证 evidence chunk 文件存在
-conda run -n myenv python "scripts/validate_t1_chunks.py"
+conda run --no-capture-output -n myenv python "scripts/validate_t1_chunks.py"
 ```
 
-*本样例包所有数据均基于真实评测题目和 MinerU 解析结果，每个 case 均可独立验证。数据可追溯性详见 `docs/submissions/shared/DATA-TRACE.md`。*
+*本样例包所有数据均基于真实评测题目和 MinerU 解析结果，每个 case 均可独立验证。数据可追溯性详见 `shared/DATA-TRACE.md`。*
 

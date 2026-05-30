@@ -1,0 +1,98 @@
+{
+  "total_docs": 8,
+  "total_formulas": 11170,
+  "total_tables": 599,
+  "total_images": 2078,
+  "total_chars": 8551678,
+  "total_lines": 130858,
+  "per_doc": [
+    {
+      "id": "T08",
+      "filename": "Dynamic_Systems_Modeling_Simulation_Control",
+      "formula_count": 1101,
+      "block_formula_count": 1101,
+      "inline_formula_count": 0,
+      "table_count": 131,
+      "image_count": 526,
+      "char_count": 1364525,
+      "line_count": 20868
+    },
+    {
+      "id": "D02",
+      "filename": "Essentials_of_Robust_Control_Zhou_Doyle",
+      "formula_count": 1669,
+      "block_formula_count": 1669,
+      "inline_formula_count": 0,
+      "table_count": 29,
+      "image_count": 169,
+      "char_count": 991010,
+      "line_count": 15328
+    },
+    {
+      "id": "T02",
+      "filename": "FRC_Controls_Engineering",
+      "formula_count": 491,
+      "block_formula_count": 491,
+      "inline_formula_count": 0,
+      "table_count": 52,
+      "image_count": 122,
+      "char_count": 626189,
+      "line_count": 10068
+    },
+    {
+      "id": "T09",
+      "filename": "Missile_Guidance_Control",
+      "formula_count": 1604,
+      "block_formula_count": 1604,
+      "inline_formula_count": 0,
+      "table_count": 23,
+      "image_count": 227,
+      "char_count": 1699138,
+      "line_count": 18502
+    },
+    {
+      "id": "T06",
+      "filename": "MPC_Control_Rawlings",
+      "formula_count": 2284,
+      "block_formula_count": 2284,
+      "inline_formula_count": 0,
+      "table_count": 69,
+      "image_count": 134,
+      "char_count": 1697868,
+      "line_count": 21092
+    },
+    {
+      "id": "T01",
+      "filename": "Ogata_Modern_Control_5th",
+      "formula_count": 3673,
+      "block_formula_count": 3672,
+      "inline_formula_count": 1,
+      "table_count": 293,
+      "image_count": 881,
+      "char_count": 2037318,
+      "line_count": 42650
+    },
+    {
+      "id": "T10",
+      "filename": "Optimal_Control_Exercise_Book",
+      "formula_count": 281,
+      "block_formula_count": 281,
+      "inline_formula_count": 0,
+      "table_count": 2,
+      "image_count": 18,
+      "char_count": 103849,
+      "line_count": 1793
+    },
+    {
+      "id": "D08",
+      "filename": "自动控制原理题海与考研指导_胡寿松",
+      "formula_count": 67,
+      "block_formula_count": 67,
+      "inline_formula_count": 0,
+      "table_count": 0,
+      "image_count": 1,
+      "char_count": 31781,
+      "line_count": 557
+    }
+  ]
+}

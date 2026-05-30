@@ -1,0 +1,177 @@
+{
+  "analysis": "A3_redundancy",
+  "cosine_threshold": 0.95,
+  "n_chunks": 28475,
+  "n_clusters": 500,
+  "checked_pairs": 2243189,
+  "redundant_pairs_total": 1013,
+  "same_doc_redundant": 248,
+  "cross_doc_redundant": 765,
+  "top_same_doc_sample": [
+    {
+      "chunk_a_id": "Computer_Controlled_Systems_Astrom_chunk_032",
+      "chunk_b_id": "Computer_Controlled_Systems_Astrom_chunk_413",
+      "cosine_similarity": 1.0
+    },
+    {
+      "chunk_a_id": "2406.07073_Adaptive_Control_Algorithms_Analysis_and_Applications_chunk_366",
+      "chunk_b_id": "2406.07073_Adaptive_Control_Algorithms_Analysis_and_Applications_chunk_383",
+      "cosine_similarity": 1.0
+    },
+    {
+      "chunk_a_id": "Computer_Controlled_Systems_Astrom_chunk_280",
+      "chunk_b_id": "Computer_Controlled_Systems_Astrom_chunk_702",
+      "cosine_similarity": 1.0
+    },
+    {
+      "chunk_a_id": "MPC_Control_Rawlings_chunk_018",
+      "chunk_b_id": "MPC_Control_Rawlings_chunk_020",
+      "cosine_similarity": 1.0
+    },
+    {
+      "chunk_a_id": "MPC_Control_Rawlings_chunk_220",
+      "chunk_b_id": "MPC_Control_Rawlings_chunk_226",
+      "cosine_similarity": 1.0
+    },
+    {
+      "chunk_a_id": "控制之美_chunk_001",
+      "chunk_b_id": "控制之美_chunk_004",
+      "cosine_similarity": 1.0
+    },
+    {
+      "chunk_a_id": "控制之美_chunk_001",
+      "chunk_b_id": "控制之美_chunk_230",
+      "cosine_similarity": 1.0
+    },
+    {
+      "chunk_a_id": "控制之美_chunk_004",
+      "chunk_b_id": "控制之美_chunk_230",
+      "cosine_similarity": 1.0
+    },
+    {
+      "chunk_a_id": "线性系统理论_郑大钟_chunk_011",
+      "chunk_b_id": "线性系统理论_郑大钟_chunk_030",
+      "cosine_similarity": 1.0
+    },
+    {
+      "chunk_a_id": "线性系统理论_郑大钟_chunk_018",
+      "chunk_b_id": "线性系统理论_郑大钟_chunk_240",
+      "cosine_similarity": 1.0
+    }
+  ],
+  "top_cross_doc_sample": [
+    {
+      "chunk_a_id": "Computer_Controlled_Systems_Astrom_chunk_032",
+      "chunk_b_id": "MPC_Control_Rawlings_chunk_756",
+      "cosine_similarity": 1.0
+    },
+    {
+      "chunk_a_id": "Computer_Controlled_Systems_Astrom_chunk_091",
+      "chunk_b_id": "MPC_Control_Rawlings_chunk_191",
+      "cosine_similarity": 1.0
+    },
+    {
+      "chunk_a_id": "Computer_Controlled_Systems_Astrom_chunk_157",
+      "chunk_b_id": "MPC_Control_Rawlings_chunk_335",
+      "cosine_similarity": 1.0
+    },
+    {
+      "chunk_a_id": "Computer_Controlled_Systems_Astrom_chunk_215",
+      "chunk_b_id": "MPC_Control_Rawlings_chunk_443",
+      "cosine_similarity": 1.0
+    },
+    {
+      "chunk_a_id": "Computer_Controlled_Systems_Astrom_chunk_368",
+      "chunk_b_id": "MPC_Control_Rawlings_chunk_649",
+      "cosine_similarity": 1.0
+    },
+    {
+      "chunk_a_id": "Computer_Controlled_Systems_Astrom_chunk_413",
+      "chunk_b_id": "MPC_Control_Rawlings_chunk_756",
+      "cosine_similarity": 1.0
+    },
+    {
+      "chunk_a_id": "Computer_Controlled_Systems_Astrom_chunk_813",
+      "chunk_b_id": "MPC_Control_Rawlings_chunk_816",
+      "cosine_similarity": 1.0
+    },
+    {
+      "chunk_a_id": "Dynamic_Systems_Modeling_Simulation_Control_chunk_532",
+      "chunk_b_id": "Ogata_Modern_Control_5th_chunk_014",
+      "cosine_similarity": 1.0
+    },
+    {
+      "chunk_a_id": "2203.03665_Distributed_Consensus_of_Stochastic_Multi_agent_Systems_with_chunk_003",
+      "chunk_b_id": "2206.06784_Stochastic_Event_triggered_Variational_Bayesian_Filtering_chunk_004",
+      "cosine_similarity": 1.0
+    },
+    {
+      "chunk_a_id": "2203.03665_Distributed_Consensus_of_Stochastic_Multi_agent_Systems_with_chunk_003",
+      "chunk_b_id": "2604.13394_Distributed_Resilient_Fixed_Time_Control_for_Cooperative_Out_chunk_005",
+      "cosine_similarity": 1.0
+    }
+  ],
+  "high_redundancy_docs": [
+    {
+      "filename": "2204.00995_Controllability_and_observability_of_linear_multi_agent_syst",
+      "total_chunks": 36,
+      "redundant_chunk_count": 2,
+      "redundancy_rate": 0.0556
+    },
+    {
+      "filename": "2504.02851_A_Class_of_Hierarchical_Sliding_Mode_Control_based_on_Extend",
+      "total_chunks": 47,
+      "redundant_chunk_count": 2,
+      "redundancy_rate": 0.0426
+    },
+    {
+      "filename": "2209.03186_Master_equation_of_discrete_time_Stackelberg_mean_field_game",
+      "total_chunks": 101,
+      "redundant_chunk_count": 4,
+      "redundancy_rate": 0.0396
+    },
+    {
+      "filename": "2410.07575_Self_Supervised_Meta_Learning_for_All_Layer_DNN_Based_Adapti",
+      "total_chunks": 27,
+      "redundant_chunk_count": 1,
+      "redundancy_rate": 0.037
+    },
+    {
+      "filename": "先进PID控制MATLAB仿真",
+      "total_chunks": 674,
+      "redundant_chunk_count": 24,
+      "redundancy_rate": 0.0356
+    },
+    {
+      "filename": "2207.11129_Design_of_Sliding_Mode_PID_Controller_with_Improved_reaching",
+      "total_chunks": 121,
+      "redundant_chunk_count": 4,
+      "redundancy_rate": 0.0331
+    },
+    {
+      "filename": "2511.02717_An_unscented_Kalman_filter_method_for_real_time_input_parame",
+      "total_chunks": 31,
+      "redundant_chunk_count": 1,
+      "redundancy_rate": 0.0323
+    },
+    {
+      "filename": "2210.15930_Lyapunov_based_Nonlinear_Model_Predictive_Control_for_Attitu",
+      "total_chunks": 33,
+      "redundant_chunk_count": 1,
+      "redundancy_rate": 0.0303
+    },
+    {
+      "filename": "2510.17276_Breaking_and_Fixing_Defenses_Against_Control_Flow_Hijacking",
+      "total_chunks": 104,
+      "redundant_chunk_count": 3,
+      "redundancy_rate": 0.0288
+    },
+    {
+      "filename": "2401.13801_Exploring_Adversarial_Threat_Models_in_Cyber_Physical_Batter",
+      "total_chunks": 39,
+      "redundant_chunk_count": 1,
+      "redundancy_rate": 0.0256
+    }
+  ],
+  "interpretation": "在 28475 chunks 中发现 1013 对 cos ≥ 0.95 的近似重复。同文档内 248 对 → 可能为公式/列表重复（低频，≤1% 属正常）；跨文档 765 对 → 可能为引用文字重叠或翻译一致（需人工抽查）。"
+}

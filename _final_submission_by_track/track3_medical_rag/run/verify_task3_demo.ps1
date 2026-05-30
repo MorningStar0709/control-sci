@@ -1,4 +1,4 @@
-﻿<#
+<#
 .SYNOPSIS
     Verify the local Task3 Medical RAG demo path.
 
@@ -6,6 +6,8 @@
     Checks the backend, frontend, saved RAG evaluation artifacts, and the
     Track3 page. If services are not already listening, the script starts them
     through run_frontend.ps1 using the required myenv-backed FastAPI startup.
+    In the standalone final bundle, use -EvidenceOnly to validate submitted
+    evidence JSON without requiring source repository files or running services.
 
 .EXAMPLE
     .\verify_task3_demo.ps1
@@ -17,6 +19,7 @@
 param(
     [int]$FrontendPort = 3000,
     [int]$BackendPort = 17001,
+    [switch]$EvidenceOnly,
     [switch]$NoStart
 )
 
@@ -24,11 +27,16 @@ $ErrorActionPreference = "Stop"
 $env:PYTHONUTF8 = "1"
 $env:PYTHONIOENCODING = "utf-8"
 [Console]::OutputEncoding = [System.Text.UTF8Encoding]::new($false)
-$ROOT = (Resolve-Path $PSScriptRoot).Path
+$BUNDLE_ROOT = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
+$ROOT = $BUNDLE_ROOT
 $FRONTEND_URL = "http://localhost:$FrontendPort"
 $BACKEND_URL = "http://localhost:$BackendPort"
 $EVAL_JSON = Join-Path $ROOT "benchmark\eval\results\medical_rag_eval.json"
 $SMOKE_JSON = Join-Path $ROOT "benchmark\eval\results\medical_rag_eval_synthesis_smoke.json"
+$EVIDENCE_EVAL_JSON = Join-Path $BUNDLE_ROOT "data_trace_bundle\09_medical_rag\medical_rag_eval.json"
+$EVIDENCE_ZH_ASK_JSON = Join-Path $BUNDLE_ROOT "data_trace_bundle\09_medical_rag\medical_rag_eval_zh_ask.json"
+$EVIDENCE_DEPLOYMENT_SMOKE_MATRIX_JSON = Join-Path $BUNDLE_ROOT "data_trace_bundle\12_final_supplemental_experiments\track3_medical_rag_supplemental\track3_deployment_smoke_matrix.json"
+$EVIDENCE_SUPPLEMENTAL_SUMMARY_JSON = Join-Path $BUNDLE_ROOT "data_trace_bundle\12_final_supplemental_experiments\track3_medical_rag_supplemental\track3_supplemental_summary.json"
 
 function Write-Ok { param([string]$Msg) Write-Host "[OK] $Msg" -ForegroundColor Green }
 function Write-Warn { param([string]$Msg) Write-Host "[WARN] $Msg" -ForegroundColor Yellow }
@@ -61,6 +69,49 @@ function Invoke-Check {
         Write-Err "$Name failed: $($_.Exception.Message)"
         return $false
     }
+}
+
+function Assert-File {
+    param([string]$Path, [string]$Label)
+    if (-not (Test-Path $Path)) {
+        throw "$Label missing: $Path"
+    }
+    Write-Ok "$Label ready: $Path"
+}
+
+function Invoke-EvidenceOnlyCheck {
+    Assert-File -Path $EVIDENCE_EVAL_JSON -Label "Track3 retrieval evidence JSON"
+    Assert-File -Path $EVIDENCE_ZH_ASK_JSON -Label "Track3 Chinese Ask evidence JSON"
+    Assert-File -Path $EVIDENCE_DEPLOYMENT_SMOKE_MATRIX_JSON -Label "Track3 deployment smoke matrix evidence JSON"
+    Assert-File -Path $EVIDENCE_SUPPLEMENTAL_SUMMARY_JSON -Label "Track3 supplemental summary evidence JSON"
+    $matrix = Get-Content $EVIDENCE_DEPLOYMENT_SMOKE_MATRIX_JSON -Raw -Encoding UTF8 | ConvertFrom-Json
+    $summary = Get-Content $EVIDENCE_SUPPLEMENTAL_SUMMARY_JSON -Raw -Encoding UTF8 | ConvertFrom-Json
+    if ($summary.status -notin @("available", "ok")) {
+        throw "Track3 supplemental summary status is not available: $($summary.status)"
+    }
+    $executed = @($matrix.executed_smoke_checks)
+    $notRun = @($matrix.not_run_checks)
+    if (-not ($executed | Where-Object { $_.name -eq "track3_supplemental_status_cli" -and $_.status -eq "passed" })) {
+        throw "Track3 supplemental status CLI smoke is missing or not passed."
+    }
+    if (($notRun | Where-Object { $_.status -ne "not_run_environment_dependency" }).Count -gt 0) {
+        throw "Deployment matrix has environment-dependent checks reported with an unexpected status."
+    }
+    if ([int]$summary.deployment_smoke_matrix.executed_smoke_checks -ne $executed.Count) {
+        throw "Supplemental summary executed smoke count does not match deployment matrix."
+    }
+    if ([int]$summary.deployment_smoke_matrix.not_run_checks -ne $notRun.Count) {
+        throw "Supplemental summary not-run count does not match deployment matrix."
+    }
+    Write-Ok "Task3 evidence-only verification passed."
+}
+
+if ($EvidenceOnly -or -not (Test-Path (Join-Path $BUNDLE_ROOT "starboard"))) {
+    if (-not $EvidenceOnly) {
+        Write-Warn "Source repository demo files are not present in this final bundle; switching to evidence-only validation."
+    }
+    Invoke-EvidenceOnlyCheck
+    exit 0
 }
 
 function Start-Task3ServicesIfNeeded {

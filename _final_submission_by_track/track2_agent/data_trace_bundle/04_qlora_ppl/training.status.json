@@ -1,0 +1,15 @@
+{
+  "status": "training",
+  "resumed": false,
+  "step": 89,
+  "total_steps": 89,
+  "epoch": 1.0,
+  "loss": null,
+  "eval_loss": 0.8529207706451416,
+  "learning_rate": null,
+  "elapsed_min": 23.3,
+  "rate_steps_per_min": 1.6,
+  "eta_min": 0.0,
+  "config_fingerprint": "eac5662a5a95a9ca5c9cc3e0b52fbe4f",
+  "updated_at": "2026-05-12T11:26:00.918641+00:00"
+}

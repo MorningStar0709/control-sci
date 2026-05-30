@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-05-03T22:25:26+08:00",
+  "total_docs": 362,
+  "issue_count": 5,
+  "issues": [
+    {
+      "filename": "2206.04794_Optimization_for_Infrastructure_Cyber_Physical_Systems",
+      "issue": "no_formulas"
+    },
+    {
+      "filename": "2308.00487_Data_quality_challenges_in_existing_distribution_network_dat",
+      "issue": "no_formulas"
+    },
+    {
+      "filename": "2406.12628_Large_Language_Models_based_Multi_Agent_Framework_for_Object",
+      "issue": "no_formulas"
+    },
+    {
+      "filename": "2505.04323_A_Case_Study_on_the_Application_of_Digital_Twins_for_Enhanci",
+      "issue": "no_formulas"
+    },
+    {
+      "filename": "2510.17276_Breaking_and_Fixing_Defenses_Against_Control_Flow_Hijacking",
+      "issue": "no_formulas"
+    }
+  ],
+  "checks": {
+    "metadata_json_exists": true,
+    "chunks_manifest_exists": true,
+    "all_docs_have_processed_dirs": true,
+    "all_docs_have_formulas_json": true,
+    "all_docs_have_figures_json": true,
+    "all_docs_have_chunks": true
+  }
+}

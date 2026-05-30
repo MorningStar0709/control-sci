@@ -1,11 +1,11 @@
-﻿<#
+<#
 .SYNOPSIS
   ControlSci 评委一键复现脚本 - 零 API Key 验证三赛道核心指标
 
 .DESCRIPTION
   无需外部 API Key，一条命令验证：
     Track 1: 数据集结构 (500题 schema) + 六维计分板
-    Track 2: Agent 14 Intent 注册 + dry-run 复现计划
+    Track 2: Agent 15 Intent 注册 + dry-run 复现计划
     Track 3: 医疗 Hybrid 索引 + qwen3.5 本地视觉 FAISS + RAG API
   硬件依赖: 仅 Track 3 API 健康检查需先启动服务。
              Track 1/2 纯本地，零外部依赖。
@@ -48,12 +48,11 @@ $FailCount = 0; $OkCount = 0; $SkipCount = 0
 
 $PythonCandidates = @(
     $env:CONTROLSCI_PYTHON,
-    (Join-Path $ProjectRoot ".venv\Scripts\python.exe"),
-    "python"
+    (Join-Path $ProjectRoot ".venv\Scripts\python.exe")
 ) | Where-Object { $_ -and $_.Trim() }
-$PythonExe = "python"
+$PythonExe = "conda run --no-capture-output -n myenv python"
 foreach ($candidate in $PythonCandidates) {
-    if ($candidate -eq "python" -or (Test-Path $candidate)) {
+    if (Test-Path $candidate) {
         $PythonExe = $candidate
         break
     }
@@ -69,7 +68,11 @@ function warn($m)   { Write-Host "  [WARN]  $m" -ForegroundColor Yellow }
 function run-py([string[]]$argsList) {
     $display = $argsList -join " "
     info "Running: $PythonExe $display"
-    $result = & $PythonExe @argsList 2>&1
+    if ($PythonExe -eq "conda run --no-capture-output -n myenv python") {
+        $result = & conda run --no-capture-output -n myenv python @argsList 2>&1
+    } else {
+        $result = & $PythonExe @argsList 2>&1
+    }
     $rc = $LASTEXITCODE
     if ($result -and -not $Quiet) {
         $result | ForEach-Object { Write-Host "          $_" -ForegroundColor DarkGray }
@@ -104,6 +107,42 @@ function check-any-file($paths, $desc) {
     fail "$desc - NOT FOUND ($($paths -join ' | '))"
 }
 
+function check-track3-supplemental-consistency($matrixPath, $summaryPath, $desc) {
+    $matrixFile = Join-Path $ProjectRoot $matrixPath
+    $summaryFile = Join-Path $ProjectRoot $summaryPath
+    if (-not (Test-Path $matrixFile)) {
+        fail "$desc - deployment matrix NOT FOUND ($matrixPath)"
+        return
+    }
+    if (-not (Test-Path $summaryFile)) {
+        fail "$desc - summary NOT FOUND ($summaryPath)"
+        return
+    }
+    try {
+        $matrix = read-json-utf8 $matrixFile
+        $summary = read-json-utf8 $summaryFile
+        $executed = @($matrix.executed_smoke_checks)
+        $notRun = @($matrix.not_run_checks)
+        $supplementalPassed = @($executed | Where-Object { $_.name -eq "track3_supplemental_status_cli" -and $_.status -eq "passed" }).Count -gt 0
+        $unexpectedNotRun = @($notRun | Where-Object { $_.status -ne "not_run_environment_dependency" }).Count
+        if ($summary.status -notin @("available", "ok")) {
+            fail "$desc - summary status unexpected: $($summary.status)"
+        } elseif (-not $supplementalPassed) {
+            fail "$desc - supplemental status CLI smoke missing or not passed"
+        } elseif ($unexpectedNotRun -gt 0) {
+            fail "$desc - environment-dependent checks have unexpected status"
+        } elseif ([int]$summary.deployment_smoke_matrix.executed_smoke_checks -ne $executed.Count) {
+            fail "$desc - executed smoke count mismatch"
+        } elseif ([int]$summary.deployment_smoke_matrix.not_run_checks -ne $notRun.Count) {
+            fail "$desc - not-run smoke count mismatch"
+        } else {
+            ok "$desc - deployment matrix and summary consistent"
+        }
+    } catch {
+        fail "$desc - consistency check failed: $($_.Exception.Message)"
+    }
+}
+
 Write-Host ""
 Write-Host $BANNER -ForegroundColor Magenta
 Write-Host "  ControlSci One-Click Reproduction" -ForegroundColor Magenta
@@ -133,6 +172,9 @@ if ($Track -eq 1 -or $Track -eq "All") {
         "docs/submissions/data_trace_bundle/10_charts/manifest.json",
         "docs/submissions/shared/assets/task1/track1_leaderboard_scores.png"
     ) "Scoreboard / public chart evidence"
+    check-file "docs/submissions/shared/assets/task1/track1_sciverse_validation_dashboard.png" "Track1 Sciverse validation dashboard"
+    check-file "docs/submissions/shared/assets/task1/track1_supplemental_evidence_matrix.png" "Track1 supplemental evidence matrix"
+    check-file "docs/submissions/shared/assets/task1/track1_training_utility_ablation.png" "Track1 training utility ablation"
 }
 
 # === Track 2: Agent ====================================================
@@ -142,7 +184,7 @@ if ($Track -eq 2 -or $Track -eq "All") {
     try {
         $cap = read-json-utf8 "$ProjectRoot/benchmark/agent/agent_capabilities.json"
         $intentCount = @($cap.intents).Count
-        if ($intentCount -ge 14) { ok "Agent intent registry valid ($intentCount intents)" }
+        if ($intentCount -ge 15) { ok "Agent intent registry valid ($intentCount intents)" }
         else { fail "Agent intent registry incomplete ($intentCount intents)" }
     } catch {
         fail "Agent capability registry parse failed: $($_.Exception.Message)"
@@ -156,6 +198,12 @@ if ($Track -eq 2 -or $Track -eq "All") {
     if (Test-Path "$ProjectRoot/benchmark/agent/agent_cli.py") {
         ok "agent_cli.py ($([math]::Round((Get-Item "$ProjectRoot/benchmark/agent/agent_cli.py").Length/1KB,1)) KB)"
     } else { fail "agent_cli.py - NOT FOUND" }
+    check-file "docs/submissions/shared/assets/task2/track2_agent_reliability_matrix.png" "Track2 reliability evidence matrix"
+    check-file "docs/submissions/shared/assets/task2/track2_failure_recovery_matrix.png" "Track2 failure recovery matrix"
+    check-file "docs/submissions/shared/assets/task2/track2_source_selection_ablation.png" "Track2 source selection A/B"
+    check-file "docs/submissions/shared/assets/task2/track2_resource_pareto.png" "Track2 resource scheduling Pareto"
+    check-file "docs/submissions/shared/assets/task2/track2_hard_document_stress.png" "Track2 hard document stress"
+    check-file "docs/submissions/shared/assets/task2/track2_sciverse_source_routing.png" "Track2 Sciverse source routing"
 }
 
 # === Track 3: Medical RAG ==============================================
@@ -185,6 +233,21 @@ if ($Track -eq 3 -or $Track -eq "All") {
         "data/sources_medical/index/medical_vision_qwen35.index",
         "docs/submissions/data_trace_bundle/09_medical_rag/vision_descriptions_qwen35.jsonl"
     ) "qwen3.5 vision evidence"
+    check-file "benchmark/eval/results/track3_supplemental_summary.json" "Track3 supplemental summary"
+    check-file "benchmark/eval/results/track3_deployment_smoke_matrix.json" "Track3 deployment smoke matrix"
+    check-file "docs/submissions/data_trace_bundle/12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_supplemental_summary.json" "Track3 supplemental bundle summary"
+    check-file "docs/submissions/data_trace_bundle/12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_deployment_smoke_matrix.json" "Track3 supplemental bundle deployment matrix"
+    check-file "_final_submission_by_track/track3_medical_rag/data_trace_bundle/12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_supplemental_summary.json" "Track3 final supplemental bundle summary"
+    check-file "_final_submission_by_track/track3_medical_rag/data_trace_bundle/12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_deployment_smoke_matrix.json" "Track3 final supplemental bundle deployment matrix"
+    check-track3-supplemental-consistency "benchmark/eval/results/track3_deployment_smoke_matrix.json" "benchmark/eval/results/track3_supplemental_summary.json" "Track3 local supplemental consistency"
+    check-track3-supplemental-consistency "docs/submissions/data_trace_bundle/12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_deployment_smoke_matrix.json" "docs/submissions/data_trace_bundle/12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_supplemental_summary.json" "Track3 public supplemental consistency"
+    check-track3-supplemental-consistency "_final_submission_by_track/track3_medical_rag/data_trace_bundle/12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_deployment_smoke_matrix.json" "_final_submission_by_track/track3_medical_rag/data_trace_bundle/12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_supplemental_summary.json" "Track3 final supplemental consistency"
+    check-file "docs/submissions/shared/assets/task3/track3_sciverse_rrf_matrix.png" "Track3 Sciverse RRF matrix"
+    check-file "docs/submissions/shared/assets/task3/track3_medbench_sciverse_compare.png" "Track3 MedBench Sciverse compare"
+    check-file "docs/submissions/shared/assets/task3/track3_sciverse_expansion_funnel.png" "Track3 Sciverse expansion funnel"
+    check-file "docs/submissions/shared/assets/task3/track3_vision_provider_boundary.png" "Track3 vision provider boundary"
+    check-file "docs/submissions/shared/assets/task3/track3_medbench_vlm_model_delta.png" "Track3 MedBench VLM model delta"
+    check-file "docs/submissions/shared/assets/task3/track3_supplemental_evidence_matrix.png" "Track3 supplemental evidence matrix"
 
     $visionTrace = "$ProjectRoot/data/sources_medical/vision/vision_descriptions_qwen35.jsonl"
     $publicVisionTrace = "$ProjectRoot/docs/submissions/data_trace_bundle/09_medical_rag/vision_descriptions_qwen35.jsonl"

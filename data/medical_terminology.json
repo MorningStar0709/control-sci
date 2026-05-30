@@ -1,0 +1,113 @@
+{
+  "version": "1.0.0",
+  "domain": "medical_general",
+  "last_updated": "2026-05-27",
+  "note": "从 controlsci/api/medical_rag.py _ZH_RETRIEVAL_TERMS 迁移。search_group: 1=终点/安全/生存/试验设计/统计, 2=治疗/糖尿病/闭环, generic=通用术语。",
+  "term_groups": [
+    {
+      "group_id": "endpoint",
+      "description": "临床试验终点",
+      "canonical_en": "clinical endpoint",
+      "mappings": [
+        {"zh": "主要终点", "en": "primary endpoint", "type": "specific", "search_group": "1"},
+        {"zh": "次要终点", "en": "secondary endpoint", "type": "specific", "search_group": "1"},
+        {"zh": "终点", "en": "endpoint outcome", "type": "specific", "search_group": "1"}
+      ]
+    },
+    {
+      "group_id": "safety",
+      "description": "安全性相关术语",
+      "canonical_en": "safety adverse events",
+      "mappings": [
+        {"zh": "安全性", "en": "safety adverse events", "type": "specific", "search_group": "1"},
+        {"zh": "严重不良事件", "en": "serious adverse event safety endpoint", "type": "specific", "search_group": "1"},
+        {"zh": "不良事件", "en": "adverse events", "type": "specific", "search_group": "1"}
+      ]
+    },
+    {
+      "group_id": "survival",
+      "description": "生存分析相关术语",
+      "canonical_en": "survival outcome",
+      "mappings": [
+        {"zh": "总生存", "en": "overall survival", "type": "specific", "search_group": "1", "synonyms": ["总体生存"]},
+        {"zh": "无进展生存", "en": "progression free survival", "type": "specific", "search_group": "1"},
+        {"zh": "生存曲线", "en": "survival curve", "type": "specific", "search_group": "1"},
+        {"zh": "中位生存", "en": "median overall survival", "type": "specific", "search_group": "1"}
+      ]
+    },
+    {
+      "group_id": "eligibility",
+      "description": "纳入排除标准",
+      "canonical_en": "inclusion exclusion criteria",
+      "mappings": [
+        {"zh": "纳入排除", "en": "inclusion criteria exclusion criteria", "type": "specific", "search_group": "1"},
+        {"zh": "纳入标准", "en": "inclusion criteria", "type": "specific", "search_group": "1"},
+        {"zh": "排除标准", "en": "exclusion criteria", "type": "specific", "search_group": "1"}
+      ]
+    },
+    {
+      "group_id": "trial_design",
+      "description": "试验设计",
+      "canonical_en": "randomized controlled trial",
+      "mappings": [
+        {"zh": "随机对照", "en": "randomized controlled trial", "type": "specific", "search_group": "1"},
+        {"zh": "随机试验", "en": "randomized clinical trial", "type": "specific", "search_group": "1"}
+      ]
+    },
+    {
+      "group_id": "population_analysis",
+      "description": "分析人群与统计",
+      "canonical_en": "analysis population",
+      "mappings": [
+        {"zh": "意向治疗", "en": "intention to treat population", "type": "specific", "search_group": "1"},
+        {"zh": "分析人群", "en": "analysis population", "type": "specific", "search_group": "1"},
+        {"zh": "统计分析", "en": "statistical analysis", "type": "specific", "search_group": "1"}
+      ]
+    },
+    {
+      "group_id": "treatment",
+      "description": "治疗方案与毒性",
+      "canonical_en": "treatment toxicity",
+      "mappings": [
+        {"zh": "化疗", "en": "chemotherapy", "type": "specific", "search_group": "2"},
+        {"zh": "剂量减少", "en": "dose reduction", "type": "specific", "search_group": "2"},
+        {"zh": "治疗延迟", "en": "treatment delay", "type": "specific", "search_group": "2"},
+        {"zh": "毒性", "en": "toxicity adverse events", "type": "specific", "search_group": "2"}
+      ]
+    },
+    {
+      "group_id": "closed_loop",
+      "description": "闭环胰岛素相关",
+      "canonical_en": "closed loop insulin",
+      "mappings": [
+        {"zh": "闭环胰岛素", "en": "closed loop insulin", "type": "specific", "search_group": "2"},
+        {"zh": "自适应闭环", "en": "adaptive closed loop insulin", "type": "specific", "search_group": "2"},
+        {"zh": "闭环", "en": "closed loop", "type": "specific", "search_group": "2"}
+      ]
+    },
+    {
+      "group_id": "diabetes",
+      "description": "糖尿病与血糖相关",
+      "canonical_en": "type 1 diabetes glucose",
+      "mappings": [
+        {"zh": "低血糖", "en": "hypoglycaemia hypoglycemia", "type": "specific", "search_group": "2"},
+        {"zh": "48个月", "en": "48 months insulin requirements closed loop", "type": "specific", "search_group": "2"},
+        {"zh": "胰岛素需求", "en": "insulin requirements daily insulin dose", "type": "specific", "search_group": "2"},
+        {"zh": "儿童", "en": "children adolescents type 1 diabetes", "type": "specific", "search_group": "2"},
+        {"zh": "青少年", "en": "children adolescents type 1 diabetes", "type": "specific", "search_group": "2"},
+        {"zh": "1型糖尿病", "en": "type 1 diabetes", "type": "specific", "search_group": "2"},
+        {"zh": "血糖", "en": "glucose insulin diabetes", "type": "specific", "search_group": "2"}
+      ]
+    },
+    {
+      "group_id": "generic",
+      "description": "通用医学检索术语",
+      "canonical_en": "clinical evidence",
+      "mappings": [
+        {"zh": "证据", "en": "evidence clinical trial", "type": "generic", "search_group": ""},
+        {"zh": "研究", "en": "clinical study", "type": "generic", "search_group": ""},
+        {"zh": "试验", "en": "clinical trial", "type": "generic", "search_group": ""}
+      ]
+    }
+  ]
+}

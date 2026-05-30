@@ -1,8 +1,9 @@
-import { createTask, updateTask } from '../../../lib/serverTaskStore';
+import { createTask, toPublicTask, updateTask } from '../../../lib/serverTaskStore';
 
 const ALLOWED_PREFIXES = ['/api/demo/', '/api/evidence/', '/api/medical-rag/'];
-const BACKEND = 'http://127.0.0.1:17001';
+const BACKEND = process.env.CONTROLMIND_BACKEND_URL || 'http://127.0.0.1:17001';
 const MAX_STEP_TIMEOUT_MS = 5 * 60 * 1000;
+const FORWARD_HEADER_ALLOWLIST = new Set(['accept', 'content-type', 'x-request-id', 'x-runtime-profile']);
 
 function allowedPath(path) {
   return typeof path === 'string' && ALLOWED_PREFIXES.some(prefix => path.startsWith(prefix));
@@ -19,7 +20,7 @@ async function runTask(task, origin, payload) {
   const timer = setTimeout(() => controller.abort(), effectiveTimeoutMs);
 
   try {
-    const requestHeaders = { ...headers };
+    const requestHeaders = sanitizeForwardHeaders(headers);
     const options = {
       method,
       headers: requestHeaders,
@@ -64,7 +65,7 @@ async function fetchStep(origin, step) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), effectiveTimeoutMs);
   try {
-    const requestHeaders = { ...headers };
+    const requestHeaders = sanitizeForwardHeaders(headers);
     const options = { method, headers: requestHeaders, signal: controller.signal };
     if (body !== undefined && method !== 'GET') {
       options.body = JSON.stringify(body);
@@ -85,6 +86,15 @@ async function fetchStep(origin, step) {
   } finally {
     clearTimeout(timer);
   }
+}
+
+function sanitizeForwardHeaders(headers = {}) {
+  const output = {};
+  Object.entries(headers || {}).forEach(([key, value]) => {
+    const lower = key.toLowerCase();
+    if (FORWARD_HEADER_ALLOWLIST.has(lower)) output[key] = value;
+  });
+  return output;
 }
 
 function resolveTaskUrl(origin, path) {
@@ -124,5 +134,5 @@ export default function handler(req, res) {
   const origin = `${proto}://${host}`;
   const task = createTask(req.body);
   runTask(task, origin, req.body);
-  res.status(202).json(task);
+  res.status(202).json(toPublicTask(task));
 }

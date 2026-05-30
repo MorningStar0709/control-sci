@@ -4,6 +4,7 @@
 > **赛道**：赛道一（科学数据对齐与跨模态评测赛道）
 > **覆盖类型**：text 5 题 + formula 6 题 + image_formula 6 题 + table 4 题 + chart 5 题 + design 4 题
 > **数据源**：`benchmark/dataset/core.json`（500 题全量集）+ `corpus/processed/`（MinerU 解析语料）+ `corpus/chunks/`（28,514 条 chunk 级证据）
+> **补充验收**：`docs/submissions/data_trace_bundle/12_final_supplemental_experiments/track1_sci_align_reliability/` 记录 AI-ready smoke、完整性审计、跨模态 taxonomy、四维区分度、训练可用性、格式兼容与小样本复核一致性；权威索引见 `docs/submissions/shared/DATA-TRACE.md` #174-181。
 
 ---
 
@@ -643,10 +644,10 @@
 
 ```bash
 # 验证 30 题均存在于 core.json
-conda run -n myenv python -c "import json; d=json.load(open(r'benchmark/dataset/core.json')); target=['CS-EVO-00071','CS-EVO-00746','CS-EVO-00939','CS-EVO-00293','CS-EVO-00638','CS-EVO-00251','CS-EVO-00270','CS-EVO-00242','CS-EVO-00663','CS-EVO-00461','CS-EVO-00774','CS-EVO-00356','CS-EVO-00228','CS-EVO-00754','CS-EVO-00241','CS-EVO-00450','CS-EVO-00087','CS-EVO-00288','CS-EVO-00362','CS-EVO-00644','CS-EVO-00666','CS-EVO-00011','CS-EVO-00815','CS-EVO-00377','CS-EVO-00549','CS-EVO-00825','CS-EVO-00515','CS-EVO-00129','CS-EVO-00231','CS-EVO-00768']; ids=[q['id'] for q in d['questions']]; found=[i for i in target if i in ids]; print(f'Found {len(found)}/30')"
+conda run --no-capture-output -n myenv python -c "import json; d=json.load(open(r'benchmark/dataset/core.json')); target=['CS-EVO-00071','CS-EVO-00746','CS-EVO-00939','CS-EVO-00293','CS-EVO-00638','CS-EVO-00251','CS-EVO-00270','CS-EVO-00242','CS-EVO-00663','CS-EVO-00461','CS-EVO-00774','CS-EVO-00356','CS-EVO-00228','CS-EVO-00754','CS-EVO-00241','CS-EVO-00450','CS-EVO-00087','CS-EVO-00288','CS-EVO-00362','CS-EVO-00644','CS-EVO-00666','CS-EVO-00011','CS-EVO-00815','CS-EVO-00377','CS-EVO-00549','CS-EVO-00825','CS-EVO-00515','CS-EVO-00129','CS-EVO-00231','CS-EVO-00768']; ids=[q['id'] for q in d['questions']]; found=[i for i in target if i in ids]; print(f'Found {len(found)}/30')"
 
 # 验证 evidence chunk 文件存在
-conda run -n myenv python "scripts/validate_t1_chunks.py"
+conda run --no-capture-output -n myenv python "scripts/validate_t1_chunks.py"
 ```
 
 *本样例包所有数据均基于真实评测题目和 MinerU 解析结果，每个 case 均可独立验证。数据可追溯性详见 `docs/submissions/shared/DATA-TRACE.md`。*

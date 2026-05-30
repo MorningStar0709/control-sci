@@ -1,0 +1,785 @@
+{
+  "schema_version": "1.0",
+  "experiment": "track2_source_selection_ablation",
+  "created_at": "2026-05-23 21:21:41",
+  "oracle_policy": {
+    "priority_1": "隐私与原文边界优先，私有/本地/不可上传任务不得外发。",
+    "priority_2": "明确前沿预印本或 arXiv 需求优先 arXiv。",
+    "priority_3": "正式出版、教材、手册、跨学科覆盖优先 Sciverse。",
+    "priority_4": "出题、仲裁、模型评测、排行榜进入 BenchmarkPipeline。"
+  },
+  "summary": {
+    "total_queries": 20,
+    "fixed_rule_accuracy": 0.75,
+    "agent_accuracy": 0.85,
+    "agent_minus_fixed_accuracy": 0.1,
+    "fixed_rule_privacy_violation_count": 1,
+    "agent_privacy_violation_count": 0,
+    "agent_error_count": 0,
+    "agent_avg_latency_ms": 6384.0,
+    "by_category": {
+      "frontier_preprint": {
+        "total": 4,
+        "fixed_matches": 3,
+        "agent_matches": 4,
+        "fixed_privacy_violations": 0,
+        "agent_privacy_violations": 0,
+        "fixed_rule_accuracy": 0.75,
+        "agent_accuracy": 1.0
+      },
+      "published_crossdisciplinary": {
+        "total": 4,
+        "fixed_matches": 4,
+        "agent_matches": 3,
+        "fixed_privacy_violations": 0,
+        "agent_privacy_violations": 0,
+        "fixed_rule_accuracy": 1.0,
+        "agent_accuracy": 0.75
+      },
+      "medical_clinical": {
+        "total": 4,
+        "fixed_matches": 2,
+        "agent_matches": 2,
+        "fixed_privacy_violations": 0,
+        "agent_privacy_violations": 0,
+        "fixed_rule_accuracy": 0.5,
+        "agent_accuracy": 0.5
+      },
+      "private_local": {
+        "total": 4,
+        "fixed_matches": 3,
+        "agent_matches": 4,
+        "fixed_privacy_violations": 1,
+        "agent_privacy_violations": 0,
+        "fixed_rule_accuracy": 0.75,
+        "agent_accuracy": 1.0
+      },
+      "benchmark_pipeline": {
+        "total": 4,
+        "fixed_matches": 3,
+        "agent_matches": 4,
+        "fixed_privacy_violations": 0,
+        "agent_privacy_violations": 0,
+        "fixed_rule_accuracy": 0.75,
+        "agent_accuracy": 1.0
+      }
+    }
+  },
+  "records": [
+    {
+      "case_id": "preprint_01",
+      "category": "frontier_preprint",
+      "query": "检索 2026 年 control barrier function safety filter 的最新预印本",
+      "oracle_source": "arXiv",
+      "oracle_reason": "明确要求最新预印本，优先 arXiv。",
+      "privacy_sensitive": false,
+      "fixed_rule": {
+        "source": "arXiv",
+        "reason": "关键词规则命中 arXiv / 预印本 / 未发表。",
+        "selected_intents": [],
+        "latency_ms": 0,
+        "error": ""
+      },
+      "agent_router": {
+        "source": "arXiv",
+        "reason": "Router 首个可映射 intent: arxiv_search",
+        "selected_intents": [
+          "arxiv_search"
+        ],
+        "latency_ms": 2951,
+        "error": ""
+      },
+      "oracle": {
+        "source": "arXiv",
+        "reason": "明确要求最新预印本，优先 arXiv。",
+        "selected_intents": [],
+        "latency_ms": 0,
+        "error": ""
+      },
+      "fixed_rule_match": true,
+      "agent_match": true,
+      "fixed_rule_privacy_violation": false,
+      "agent_privacy_violation": false
+    },
+    {
+      "case_id": "preprint_02",
+      "category": "frontier_preprint",
+      "query": "搜索 differentiable MPC 2025 arXiv papers",
+      "oracle_source": "arXiv",
+      "oracle_reason": "查询直接指定 arXiv 与前沿年份。",
+      "privacy_sensitive": false,
+      "fixed_rule": {
+        "source": "arXiv",
+        "reason": "关键词规则命中 arXiv / 预印本 / 未发表。",
+        "selected_intents": [],
+        "latency_ms": 0,
+        "error": ""
+      },
+      "agent_router": {
+        "source": "arXiv",
+        "reason": "Router 首个可映射 intent: arxiv_search",
+        "selected_intents": [
+          "arxiv_search"
+        ],
+        "latency_ms": 2097,
+        "error": ""
+      },
+      "oracle": {
+        "source": "arXiv",
+        "reason": "查询直接指定 arXiv 与前沿年份。",
+        "selected_intents": [],
+        "latency_ms": 0,
+        "error": ""
+      },
+      "fixed_rule_match": true,
+      "agent_match": true,
+      "fixed_rule_privacy_violation": false,
+      "agent_privacy_violation": false
+    },
+    {
+      "case_id": "preprint_03",
+      "category": "frontier_preprint",
+      "query": "找 safe reinforcement learning control 2025 未发表论文",
+      "oracle_source": "arXiv",
+      "oracle_reason": "未发表前沿论文更适合预印本源。",
+      "privacy_sensitive": false,
+      "fixed_rule": {
+        "source": "arXiv",
+        "reason": "关键词规则命中 arXiv / 预印本 / 未发表。",
+        "selected_intents": [],
+        "latency_ms": 0,
+        "error": ""
+      },
+      "agent_router": {
+        "source": "arXiv",
+        "reason": "Router 首个可映射 intent: arxiv_search",
+        "selected_intents": [
+          "arxiv_search"
+        ],
+        "latency_ms": 9428,
+        "error": ""
+      },
+      "oracle": {
+        "source": "arXiv",
+        "reason": "未发表前沿论文更适合预印本源。",
+        "selected_intents": [],
+        "latency_ms": 0,
+        "error": ""
+      },
+      "fixed_rule_match": true,
+      "agent_match": true,
+      "fixed_rule_privacy_violation": false,
+      "agent_privacy_violation": false
+    },
+    {
+      "case_id": "preprint_04",
+      "category": "frontier_preprint",
+      "query": "发现 2024 之后控制科学新论文，后续加入评测基准",
+      "oracle_source": "arXiv",
+      "oracle_reason": "数据飞轮的前沿发现入口优先 arXiv。",
+      "privacy_sensitive": false,
+      "fixed_rule": {
+        "source": "BenchmarkPipeline",
+        "reason": "关键词规则命中评测 / 排行榜 / Judge / 仲裁。",
+        "selected_intents": [],
+        "latency_ms": 0,
+        "error": ""
+      },
+      "agent_router": {
+        "source": "arXiv",
+        "reason": "Router 首个可映射 intent: arxiv_search",
+        "selected_intents": [
+          "arxiv_search",
+          "mineru_parse"
+        ],
+        "latency_ms": 9431,
+        "error": ""
+      },
+      "oracle": {
+        "source": "arXiv",
+        "reason": "数据飞轮的前沿发现入口优先 arXiv。",
+        "selected_intents": [],
+        "latency_ms": 0,
+        "error": ""
+      },
+      "fixed_rule_match": false,
+      "agent_match": true,
+      "fixed_rule_privacy_violation": false,
+      "agent_privacy_violation": false
+    },
+    {
+      "case_id": "published_01",
+      "category": "published_crossdisciplinary",
+      "query": "查找 Lyapunov stability theorem 的教材和正式出版综述",
+      "oracle_source": "Sciverse",
+      "oracle_reason": "教材、手册和正式出版综述优先 Sciverse。",
+      "privacy_sensitive": false,
+      "fixed_rule": {
+        "source": "Sciverse",
+        "reason": "默认选择覆盖面更广的 Sciverse。",
+        "selected_intents": [],
+        "latency_ms": 0,
+        "error": ""
+      },
+      "agent_router": {
+        "source": "Sciverse",
+        "reason": "Router 首个可映射 intent: sciverse_search",
+        "selected_intents": [
+          "sciverse_search"
+        ],
+        "latency_ms": 3905,
+        "error": ""
+      },
+      "oracle": {
+        "source": "Sciverse",
+        "reason": "教材、手册和正式出版综述优先 Sciverse。",
+        "selected_intents": [],
+        "latency_ms": 0,
+        "error": ""
+      },
+      "fixed_rule_match": true,
+      "agent_match": true,
+      "fixed_rule_privacy_violation": false,
+      "agent_privacy_violation": false
+    },
+    {
+      "case_id": "published_02",
+      "category": "published_crossdisciplinary",
+      "query": "搜索 Kalman filter navigation GPS 的跨学科正式出版物",
+      "oracle_source": "Sciverse",
+      "oracle_reason": "跨学科正式出版物覆盖面优先 Sciverse。",
+      "privacy_sensitive": false,
+      "fixed_rule": {
+        "source": "Sciverse",
+        "reason": "默认选择覆盖面更广的 Sciverse。",
+        "selected_intents": [],
+        "latency_ms": 0,
+        "error": ""
+      },
+      "agent_router": {
+        "source": "Sciverse",
+        "reason": "Router 首个可映射 intent: sciverse_search",
+        "selected_intents": [
+          "sciverse_search"
+        ],
+        "latency_ms": 2867,
+        "error": ""
+      },
+      "oracle": {
+        "source": "Sciverse",
+        "reason": "跨学科正式出版物覆盖面优先 Sciverse。",
+        "selected_intents": [],
+        "latency_ms": 0,
+        "error": ""
+      },
+      "fixed_rule_match": true,
+      "agent_match": true,
+      "fixed_rule_privacy_violation": false,
+      "agent_privacy_violation": false
+    },
+    {
+      "case_id": "published_03",
+      "category": "published_crossdisciplinary",
+      "query": "找 AI 控制交叉领域的会议和期刊结果",
+      "oracle_source": "Sciverse",
+      "oracle_reason": "会议、期刊与跨学科覆盖需要 Sciverse。",
+      "privacy_sensitive": false,
+      "fixed_rule": {
+        "source": "Sciverse",
+        "reason": "默认选择覆盖面更广的 Sciverse。",
+        "selected_intents": [],
+        "latency_ms": 0,
+        "error": ""
+      },
+      "agent_router": {
+        "source": "Sciverse",
+        "reason": "Router 首个可映射 intent: sciverse_search",
+        "selected_intents": [
+          "sciverse_search"
+        ],
+        "latency_ms": 4534,
+        "error": ""
+      },
+      "oracle": {
+        "source": "Sciverse",
+        "reason": "会议、期刊与跨学科覆盖需要 Sciverse。",
+        "selected_intents": [],
+        "latency_ms": 0,
+        "error": ""
+      },
+      "fixed_rule_match": true,
+      "agent_match": true,
+      "fixed_rule_privacy_violation": false,
+      "agent_privacy_violation": false
+    },
+    {
+      "case_id": "published_04",
+      "category": "published_crossdisciplinary",
+      "query": "检索 model predictive control industrial applications review",
+      "oracle_source": "Sciverse",
+      "oracle_reason": "工业应用综述与正式出版文献优先 Sciverse。",
+      "privacy_sensitive": false,
+      "fixed_rule": {
+        "source": "Sciverse",
+        "reason": "关键词规则命中医学或临床，选择正式出版文献。",
+        "selected_intents": [],
+        "latency_ms": 0,
+        "error": ""
+      },
+      "agent_router": {
+        "source": "arXiv",
+        "reason": "Router 首个可映射 intent: arxiv_search",
+        "selected_intents": [
+          "arxiv_search"
+        ],
+        "latency_ms": 2801,
+        "error": ""
+      },
+      "oracle": {
+        "source": "Sciverse",
+        "reason": "工业应用综述与正式出版文献优先 Sciverse。",
+        "selected_intents": [],
+        "latency_ms": 0,
+        "error": ""
+      },
+      "fixed_rule_match": true,
+      "agent_match": false,
+      "fixed_rule_privacy_violation": false,
+      "agent_privacy_violation": false
+    },
+    {
+      "case_id": "medical_01",
+      "category": "medical_clinical",
+      "query": "检索闭环胰岛素临床试验证据",
+      "oracle_source": "Sciverse",
+      "oracle_reason": "公开临床证据检索优先正式出版医学文献。",
+      "privacy_sensitive": false,
+      "fixed_rule": {
+        "source": "Sciverse",
+        "reason": "关键词规则命中医学或临床，选择正式出版文献。",
+        "selected_intents": [],
+        "latency_ms": 0,
+        "error": ""
+      },
+      "agent_router": {
+        "source": "Sciverse",
+        "reason": "Router 首个可映射 intent: sciverse_search",
+        "selected_intents": [
+          "sciverse_search",
+          "mineru_parse",
+          "medical_rag"
+        ],
+        "latency_ms": 6513,
+        "error": ""
+      },
+      "oracle": {
+        "source": "Sciverse",
+        "reason": "公开临床证据检索优先正式出版医学文献。",
+        "selected_intents": [],
+        "latency_ms": 0,
+        "error": ""
+      },
+      "fixed_rule_match": true,
+      "agent_match": true,
+      "fixed_rule_privacy_violation": false,
+      "agent_privacy_violation": false
+    },
+    {
+      "case_id": "medical_02",
+      "category": "medical_clinical",
+      "query": "closed loop artificial pancreas insulin glucose control clinical trial",
+      "oracle_source": "Sciverse",
+      "oracle_reason": "公开英文临床试验查询适合 Sciverse。",
+      "privacy_sensitive": false,
+      "fixed_rule": {
+        "source": "Sciverse",
+        "reason": "关键词规则命中医学或临床，选择正式出版文献。",
+        "selected_intents": [],
+        "latency_ms": 0,
+        "error": ""
+      },
+      "agent_router": {
+        "source": "Sciverse",
+        "reason": "Router 首个可映射 intent: sciverse_search",
+        "selected_intents": [
+          "sciverse_search"
+        ],
+        "latency_ms": 3461,
+        "error": ""
+      },
+      "oracle": {
+        "source": "Sciverse",
+        "reason": "公开英文临床试验查询适合 Sciverse。",
+        "selected_intents": [],
+        "latency_ms": 0,
+        "error": ""
+      },
+      "fixed_rule_match": true,
+      "agent_match": true,
+      "fixed_rule_privacy_violation": false,
+      "agent_privacy_violation": false
+    },
+    {
+      "case_id": "medical_03",
+      "category": "medical_clinical",
+      "query": "在本地医疗文献库里合成闭环胰岛素证据，不要上传原文",
+      "oracle_source": "PMC_local",
+      "oracle_reason": "本地医疗文献与原文边界要求触发本地医疗 RAG。",
+      "privacy_sensitive": true,
+      "fixed_rule": {
+        "source": "LocalCorpus",
+        "reason": "关键词规则命中私有 / 内部 / 本地 / 不能上传。",
+        "selected_intents": [],
+        "latency_ms": 0,
+        "error": ""
+      },
+      "agent_router": {
+        "source": "LocalCorpus",
+        "reason": "Router 首个可映射 intent: mineru_parse",
+        "selected_intents": [
+          "mineru_parse",
+          "medical_rag"
+        ],
+        "latency_ms": 8695,
+        "error": ""
+      },
+      "oracle": {
+        "source": "PMC_local",
+        "reason": "本地医疗文献与原文边界要求触发本地医疗 RAG。",
+        "selected_intents": [],
+        "latency_ms": 0,
+        "error": ""
+      },
+      "fixed_rule_match": false,
+      "agent_match": false,
+      "fixed_rule_privacy_violation": false,
+      "agent_privacy_violation": false
+    },
+    {
+      "case_id": "medical_04",
+      "category": "medical_clinical",
+      "query": "用私有医院资料做 glucose control 文献问答",
+      "oracle_source": "PMC_local",
+      "oracle_reason": "私有医疗资料必须本地处理。",
+      "privacy_sensitive": true,
+      "fixed_rule": {
+        "source": "LocalCorpus",
+        "reason": "关键词规则命中私有 / 内部 / 本地 / 不能上传。",
+        "selected_intents": [],
+        "latency_ms": 0,
+        "error": ""
+      },
+      "agent_router": {
+        "source": "LocalCorpus",
+        "reason": "Router 首个可映射 intent: mineru_parse",
+        "selected_intents": [
+          "mineru_parse",
+          "medical_rag"
+        ],
+        "latency_ms": 3204,
+        "error": ""
+      },
+      "oracle": {
+        "source": "PMC_local",
+        "reason": "私有医疗资料必须本地处理。",
+        "selected_intents": [],
+        "latency_ms": 0,
+        "error": ""
+      },
+      "fixed_rule_match": false,
+      "agent_match": false,
+      "fixed_rule_privacy_violation": false,
+      "agent_privacy_violation": false
+    },
+    {
+      "case_id": "private_01",
+      "category": "private_local",
+      "query": "解析企业内部控制系统报告，不能上传到云端",
+      "oracle_source": "LocalCorpus",
+      "oracle_reason": "私有企业原文应走本地解析。",
+      "privacy_sensitive": true,
+      "fixed_rule": {
+        "source": "LocalCorpus",
+        "reason": "关键词规则命中私有 / 内部 / 本地 / 不能上传。",
+        "selected_intents": [],
+        "latency_ms": 0,
+        "error": ""
+      },
+      "agent_router": {
+        "source": "LocalCorpus",
+        "reason": "Router 首个可映射 intent: mineru_parse",
+        "selected_intents": [
+          "mineru_parse"
+        ],
+        "latency_ms": 16698,
+        "error": ""
+      },
+      "oracle": {
+        "source": "LocalCorpus",
+        "reason": "私有企业原文应走本地解析。",
+        "selected_intents": [],
+        "latency_ms": 0,
+        "error": ""
+      },
+      "fixed_rule_match": true,
+      "agent_match": true,
+      "fixed_rule_privacy_violation": false,
+      "agent_privacy_violation": false
+    },
+    {
+      "case_id": "private_02",
+      "category": "private_local",
+      "query": "把本地 Word、PPTX、XLSX 统一转成科学文档 schema",
+      "oracle_source": "LocalCorpus",
+      "oracle_reason": "本地多格式文档解析属于 LocalCorpus。",
+      "privacy_sensitive": true,
+      "fixed_rule": {
+        "source": "LocalCorpus",
+        "reason": "关键词规则命中私有 / 内部 / 本地 / 不能上传。",
+        "selected_intents": [],
+        "latency_ms": 0,
+        "error": ""
+      },
+      "agent_router": {
+        "source": "LocalCorpus",
+        "reason": "Router 首个可映射 intent: multi_format_parse",
+        "selected_intents": [
+          "multi_format_parse"
+        ],
+        "latency_ms": 2783,
+        "error": ""
+      },
+      "oracle": {
+        "source": "LocalCorpus",
+        "reason": "本地多格式文档解析属于 LocalCorpus。",
+        "selected_intents": [],
+        "latency_ms": 0,
+        "error": ""
+      },
+      "fixed_rule_match": true,
+      "agent_match": true,
+      "fixed_rule_privacy_violation": false,
+      "agent_privacy_violation": false
+    },
+    {
+      "case_id": "private_03",
+      "category": "private_local",
+      "query": "审计这批私有 PDF 的公式和图片对应关系",
+      "oracle_source": "LocalCorpus",
+      "oracle_reason": "私有 PDF 原文与图像审计应保持本地语料边界。",
+      "privacy_sensitive": true,
+      "fixed_rule": {
+        "source": "LocalCorpus",
+        "reason": "关键词规则命中私有 / 内部 / 本地 / 不能上传。",
+        "selected_intents": [],
+        "latency_ms": 0,
+        "error": ""
+      },
+      "agent_router": {
+        "source": "LocalCorpus",
+        "reason": "Router 首个可映射 intent: mineru_parse",
+        "selected_intents": [
+          "mineru_parse",
+          "corpus_parse",
+          "cross_modal_audit"
+        ],
+        "latency_ms": 10633,
+        "error": ""
+      },
+      "oracle": {
+        "source": "LocalCorpus",
+        "reason": "私有 PDF 原文与图像审计应保持本地语料边界。",
+        "selected_intents": [],
+        "latency_ms": 0,
+        "error": ""
+      },
+      "fixed_rule_match": true,
+      "agent_match": true,
+      "fixed_rule_privacy_violation": false,
+      "agent_privacy_violation": false
+    },
+    {
+      "case_id": "private_04",
+      "category": "private_local",
+      "query": "把公司技术手册解析成 Markdown 并生成质量报告",
+      "oracle_source": "LocalCorpus",
+      "oracle_reason": "公司手册原文优先本地解析和本地派生统计。",
+      "privacy_sensitive": true,
+      "fixed_rule": {
+        "source": "Sciverse",
+        "reason": "默认选择覆盖面更广的 Sciverse。",
+        "selected_intents": [],
+        "latency_ms": 0,
+        "error": ""
+      },
+      "agent_router": {
+        "source": "LocalCorpus",
+        "reason": "Router 首个可映射 intent: mineru_parse",
+        "selected_intents": [
+          "mineru_parse",
+          "corpus_parse",
+          "cross_modal_audit",
+          "corpus_quality_report"
+        ],
+        "latency_ms": 9555,
+        "error": ""
+      },
+      "oracle": {
+        "source": "LocalCorpus",
+        "reason": "公司手册原文优先本地解析和本地派生统计。",
+        "selected_intents": [],
+        "latency_ms": 0,
+        "error": ""
+      },
+      "fixed_rule_match": false,
+      "agent_match": true,
+      "fixed_rule_privacy_violation": true,
+      "agent_privacy_violation": false
+    },
+    {
+      "case_id": "benchmark_01",
+      "category": "benchmark_pipeline",
+      "query": "基于现有语料生成 500 道评测题并跑模型评测",
+      "oracle_source": "BenchmarkPipeline",
+      "oracle_reason": "出题、仲裁、评测属于 benchmark pipeline。",
+      "privacy_sensitive": false,
+      "fixed_rule": {
+        "source": "BenchmarkPipeline",
+        "reason": "关键词规则命中评测 / 排行榜 / Judge / 仲裁。",
+        "selected_intents": [],
+        "latency_ms": 0,
+        "error": ""
+      },
+      "agent_router": {
+        "source": "BenchmarkPipeline",
+        "reason": "Router 首个可映射 intent: benchmark_build",
+        "selected_intents": [
+          "benchmark_build",
+          "quality_arbitrate",
+          "model_evaluate"
+        ],
+        "latency_ms": 8453,
+        "error": ""
+      },
+      "oracle": {
+        "source": "BenchmarkPipeline",
+        "reason": "出题、仲裁、评测属于 benchmark pipeline。",
+        "selected_intents": [],
+        "latency_ms": 0,
+        "error": ""
+      },
+      "fixed_rule_match": true,
+      "agent_match": true,
+      "fixed_rule_privacy_violation": false,
+      "agent_privacy_violation": false
+    },
+    {
+      "case_id": "benchmark_02",
+      "category": "benchmark_pipeline",
+      "query": "对新生成的问题做质量仲裁，再评测三个模型",
+      "oracle_source": "BenchmarkPipeline",
+      "oracle_reason": "质量仲裁与模型评测不是外部检索源。",
+      "privacy_sensitive": false,
+      "fixed_rule": {
+        "source": "BenchmarkPipeline",
+        "reason": "关键词规则命中评测 / 排行榜 / Judge / 仲裁。",
+        "selected_intents": [],
+        "latency_ms": 0,
+        "error": ""
+      },
+      "agent_router": {
+        "source": "BenchmarkPipeline",
+        "reason": "Router 首个可映射 intent: quality_arbitrate",
+        "selected_intents": [
+          "quality_arbitrate",
+          "model_evaluate",
+          "model_evaluate",
+          "model_evaluate"
+        ],
+        "latency_ms": 9757,
+        "error": ""
+      },
+      "oracle": {
+        "source": "BenchmarkPipeline",
+        "reason": "质量仲裁与模型评测不是外部检索源。",
+        "selected_intents": [],
+        "latency_ms": 0,
+        "error": ""
+      },
+      "fixed_rule_match": true,
+      "agent_match": true,
+      "fixed_rule_privacy_violation": false,
+      "agent_privacy_violation": false
+    },
+    {
+      "case_id": "benchmark_03",
+      "category": "benchmark_pipeline",
+      "query": "更新控制科学排行榜并生成可视化",
+      "oracle_source": "BenchmarkPipeline",
+      "oracle_reason": "排行榜和可视化属于本地评测结果聚合。",
+      "privacy_sensitive": false,
+      "fixed_rule": {
+        "source": "BenchmarkPipeline",
+        "reason": "关键词规则命中评测 / 排行榜 / Judge / 仲裁。",
+        "selected_intents": [],
+        "latency_ms": 0,
+        "error": ""
+      },
+      "agent_router": {
+        "source": "BenchmarkPipeline",
+        "reason": "Router 首个可映射 intent: leaderboard_viz",
+        "selected_intents": [
+          "leaderboard_viz"
+        ],
+        "latency_ms": 4246,
+        "error": ""
+      },
+      "oracle": {
+        "source": "BenchmarkPipeline",
+        "reason": "排行榜和可视化属于本地评测结果聚合。",
+        "selected_intents": [],
+        "latency_ms": 0,
+        "error": ""
+      },
+      "fixed_rule_match": true,
+      "agent_match": true,
+      "fixed_rule_privacy_violation": false,
+      "agent_privacy_violation": false
+    },
+    {
+      "case_id": "benchmark_04",
+      "category": "benchmark_pipeline",
+      "query": "对比 API Judge 和本地 Ollama Judge 的评分差异",
+      "oracle_source": "BenchmarkPipeline",
+      "oracle_reason": "Judge 对比属于评测执行链路。",
+      "privacy_sensitive": false,
+      "fixed_rule": {
+        "source": "LocalCorpus",
+        "reason": "关键词规则命中私有 / 内部 / 本地 / 不能上传。",
+        "selected_intents": [],
+        "latency_ms": 0,
+        "error": ""
+      },
+      "agent_router": {
+        "source": "BenchmarkPipeline",
+        "reason": "Router 首个可映射 intent: multi_judge_compare",
+        "selected_intents": [
+          "multi_judge_compare"
+        ],
+        "latency_ms": 5668,
+        "error": ""
+      },
+      "oracle": {
+        "source": "BenchmarkPipeline",
+        "reason": "Judge 对比属于评测执行链路。",
+        "selected_intents": [],
+        "latency_ms": 0,
+        "error": ""
+      },
+      "fixed_rule_match": false,
+      "agent_match": true,
+      "fixed_rule_privacy_violation": false,
+      "agent_privacy_violation": false
+    }
+  ]
+}

@@ -1,0 +1,388 @@
+{
+  "generated_at": "2026-05-22T16:15:00.000000+00:00",
+  "config": {
+    "subfields": [
+      "PID控制",
+      "估计与定位",
+      "导航制导与控制",
+      "控制理论",
+      "数字控制",
+      "智能控制",
+      "最优控制",
+      "现代控制",
+      "线性系统",
+      "经典控制",
+      "自抗扰控制",
+      "自适应控制",
+      "非线性控制",
+      "鲁棒控制"
+    ],
+    "content_chunk_size": 700,
+    "max_content_pages": 50,
+    "context_window": 200,
+    "note": "Sciverse content 端点返回 MinerU 结构化 Markdown。图片引用为 hash 文件名（可通过 resource 端点下载）。公式-上下文对齐审计基于关键词匹配。"
+  },
+  "summary": {
+    "papers_attempted": 14,
+    "papers_ok": 14,
+    "total_image_refs": 46,
+    "papers_with_images": 11,
+    "total_formulas": 1417,
+    "formulas_audited": 1417,
+    "consistent": 273,
+    "partial": 566,
+    "inconsistent": 578,
+    "consistent_pct": 19.3
+  },
+  "per_paper": {
+    "PID控制": {
+      "doc_id": "f4d5c5ed0d9a1eb34f35b551c65d5a0979dfe1da873c3b637e5eb94b282605e4",
+      "title": "Improving the Frequency Response of Hybrid Microgrid under Renewable Sources’ Uncertainties Using a Robust LFC-Based African Vulture Optimization Algorithm",
+      "en_query": "PID control stability",
+      "agentic_score": 0.9708633422851562,
+      "content_chars": 34386,
+      "content_pages": 50,
+      "content_ok": true,
+      "content_error": "",
+      "image_count": 7,
+      "image_refs_sample": [
+        "74ccb7b06a5dd3de5b18ac2ba8f69ccc4310cd21a720ca59aead3968509eb426.jpg",
+        "12438b0905b63462d8b01336819190603bbc92edf3ad948dd20be5e8470fe132.jpg",
+        "b481ccf3cbfaa2c45ebe311e70dafb64becf17cdb67f3aa0b37551b899298f72.jpg",
+        "88be8164443ce7bd15bd50457675b7f26cd3f7ef069f36ba0d96d10f6d61a595.jpg",
+        "1806f2a9b8aaf6b1b25b67147ff00bd7d10a20b67dc4b694569718d463b69191.jpg"
+      ],
+      "formula_count": 131,
+      "formula_audit_summary": {
+        "c": 45,
+        "p": 41,
+        "i": 45,
+        "total": 131,
+        "pct": 34.4
+      }
+    },
+    "估计与定位": {
+      "doc_id": "92f31daf7cb95740f119872880df96b729400b3cb90adf481c6d316eca34d07e",
+      "title": "Biomedical image understanding methods and applications",
+      "en_query": "Kalman filter state estimation",
+      "agentic_score": 0.9982865452766418,
+      "content_chars": 34762,
+      "content_pages": 50,
+      "content_ok": true,
+      "content_error": "",
+      "image_count": 3,
+      "image_refs_sample": [
+        "90190518e8f1f0dccb1c46179b94d35b77b7ae43b60f104732586622d7d1b55a.jpg",
+        "3d6515999b35ad84c7b65d609c39793f66f19f33117047d0015a23c8c7906127.jpg",
+        "fc0f6f3d3a64a90124afc7fa3435df0242587022ba83085e683b82d8ca55f13b.jpg"
+      ],
+      "formula_count": 3,
+      "formula_audit_summary": {
+        "c": 0,
+        "p": 0,
+        "i": 3,
+        "total": 3,
+        "pct": 0.0
+      }
+    },
+    "导航制导与控制": {
+      "doc_id": "a9c6906d581efbd8476faa6aa391260fc08514a3eb96b2af9c49272e16d9c092",
+      "title": "The Supersonic BONE: A Development and Operational History of the B-1 Bomber",
+      "en_query": "guidance navigation control GPS",
+      "agentic_score": 0.9364194273948669,
+      "content_chars": 34527,
+      "content_pages": 50,
+      "content_ok": true,
+      "content_error": "",
+      "image_count": 4,
+      "image_refs_sample": [
+        "9cfed3b73257d6b4ef3b8eeb339f4bbbc734bb06ab91d873299a0ce504cf9603.jpg",
+        "1d377236fb0bd7d1fb14148d02e6a0d9e27f3a7968b4a3d744e006c26f026693.jpg",
+        "86c3568b8b985ba378bc5935e67e82c515446b0b0760e2a13be63d7208f9628a.jpg",
+        "cbe27447e952ad73a7d3536765cbabe5fb3684f23f4c3699f31626c0dbcb087d.jpg"
+      ],
+      "formula_count": 3,
+      "formula_audit_summary": {
+        "c": 0,
+        "p": 0,
+        "i": 3,
+        "total": 3,
+        "pct": 0.0
+      },
+      "formula_audit": [
+        {
+          "type": "paren",
+          "latex": "9^{\\text{th}}",
+          "context_preview": "trying to contact any aircraft flying over the area that could provide close air support\n\n\n\n. Fortun",
+          "keyword_matches": 0,
+          "alignment": "inconsistent"
+        },
+        {
+          "type": "paren",
+          "latex": "1^{\\mathrm{st}}",
+          "context_preview": "d access to official US Air Force support and facilitated my visit to Dyess AFB. Thank you to Major ",
+          "keyword_matches": 0,
+          "alignment": "inconsistent"
+        },
+        {
+          "type": "paren",
+          "latex": "1^{\\mathrm{st}}",
+          "context_preview": "d access to official US Air Force support and facilitated my visit to Dyess AFB. Thank you to Major ",
+          "keyword_matches": 0,
+          "alignment": "inconsistent"
+        }
+      ]
+    },
+    "控制理论": {
+      "doc_id": "444ecde2aeefcb7979ccec3b6ea5b55d988289fadf427afcecd5db94b369637b",
+      "title": "Lyapunov Theory-Based Robust Control",
+      "en_query": "control theory Lyapunov",
+      "agentic_score": 0.8005179166793823,
+      "content_chars": 34860,
+      "content_pages": 50,
+      "content_ok": true,
+      "content_error": "",
+      "image_count": 2,
+      "image_refs_sample": [
+        "9b39f871a827a7cda631c8b45cc458a0a2d320f94834981ff1fe4a767e920866.jpg",
+        "42e80cc6825ad75f9c8233f564747603ed46a8514a3bb14959e870d355a75650.jpg"
+      ],
+      "formula_count": 186,
+      "formula_audit_summary": {
+        "c": 23,
+        "p": 71,
+        "i": 92,
+        "total": 186,
+        "pct": 12.4
+      }
+    },
+    "数字控制": {
+      "doc_id": "8ee0b669c73ed753fc71743ff6bf35f916b4f7c4a3af094faa43401c8abb41dc",
+      "title": "The Control Handbook, Second Edition: Control System Fundamentals, Second Edition (Electrical Engineering Handbook)",
+      "en_query": "digital control discrete time",
+      "agentic_score": 0.9898253083229065,
+      "content_chars": 34397,
+      "content_pages": 50,
+      "content_ok": true,
+      "content_error": "",
+      "image_count": 8,
+      "image_refs_sample": [
+        "8af66842371a9ca39c06bb8089b928f7eaccfab1db219db63e159b7ed23a953f.jpg",
+        "dcd45ab0d1a90d20cbc422ca2c6fb975bd619fad08ac65f9906a2ba150bc24e5.jpg",
+        "92899227a9dad03b9390e10318e1421888c13c2ffd26500105cc982584214091.jpg",
+        "dda934a680eaf32e1380987752ad8af22d6c864a0f51ff50ca1b7e92313e96d4.jpg",
+        "013a9beca73f42b3f1b24c164fbbad317701bf0982468bf09e14f24ccaeaefdd.jpg"
+      ],
+      "formula_count": 81,
+      "formula_audit_summary": {
+        "c": 1,
+        "p": 31,
+        "i": 49,
+        "total": 81,
+        "pct": 1.2
+      }
+    },
+    "智能控制": {
+      "doc_id": "8fdb17583c52ac120af5a8a4f159d05e04275173c52b7c56b9a0d62516ab2070",
+      "title": "Temperature Control Algorithm of Underground Air Conditioning in Station",
+      "en_query": "intelligent control neural network",
+      "agentic_score": 0.8381535410881042,
+      "content_chars": 27881,
+      "content_pages": 42,
+      "content_ok": true,
+      "content_error": "",
+      "image_count": 10,
+      "image_refs_sample": [
+        "53cfad53360d658f5bfad51df0dddaacab2e78b963404326ed2ba485b303496a.jpg",
+        "e314127890ccb81a8acb771a08ca71cae319105a6872eecb752576839a30815d.jpg",
+        "d741a9b2874062d4a1b7cb3732c68f0ebafd8d2f06a7ea3c41b3f26f71d128e7.jpg",
+        "3ee2b679047e72ebfe444adb860441e24cad12f17787d9ad0b69be70832381cb.jpg",
+        "efe7fc4b58c2eb065b5400a6fc85af15b877ee771c332cc09e22f685c7d5964b.jpg"
+      ],
+      "formula_count": 42,
+      "formula_audit_summary": {
+        "c": 12,
+        "p": 21,
+        "i": 9,
+        "total": 42,
+        "pct": 28.6
+      }
+    },
+    "最优控制": {
+      "doc_id": "dbf670320419217052239b887afc69081fcf0bb588177908ade5daeb385aea11",
+      "title": "The principle of maximum in the imitative control tasks",
+      "en_query": "optimal control Pontryagin",
+      "agentic_score": 0.9805037975311279,
+      "content_chars": 23652,
+      "content_pages": 34,
+      "content_ok": true,
+      "content_error": "",
+      "image_count": 0,
+      "image_refs_sample": [],
+      "formula_count": 127,
+      "formula_audit_summary": {
+        "c": 38,
+        "p": 66,
+        "i": 23,
+        "total": 127,
+        "pct": 29.9
+      }
+    },
+    "现代控制": {
+      "doc_id": "de95e80dcad86151e271321b30aa3091ad6768b024799d249a6e8609ac6df7c5",
+      "title": "Quantum feedback: Theory, experiments, and applications",
+      "en_query": "modern control state space",
+      "agentic_score": 0.9798328876495361,
+      "content_chars": 34906,
+      "content_pages": 50,
+      "content_ok": true,
+      "content_error": "",
+      "image_count": 1,
+      "image_refs_sample": [
+        "987843a645c05ad00e3745cd5b852b9b9d03ab5ab3f88864869f3ce9e6b4c932.jpg"
+      ],
+      "formula_count": 46,
+      "formula_audit_summary": {
+        "c": 30,
+        "p": 2,
+        "i": 14,
+        "total": 46,
+        "pct": 65.2
+      }
+    },
+    "线性系统": {
+      "doc_id": "7a3cbdb356786f9ed6ad952b986c088f4e8dd646e15458b8dc4a25dcbd87adab",
+      "title": "Quantum Field Theory III: Gauge Theory: A Bridge between Mathematicians and Physicists",
+      "en_query": "linear system theory",
+      "agentic_score": 0.9526525735855103,
+      "content_chars": 34766,
+      "content_pages": 50,
+      "content_ok": true,
+      "content_error": "",
+      "image_count": 3,
+      "image_refs_sample": [
+        "8d6239a43470ef83a5d8906daa990efa485fc8a7125f98e68fc4d5a6839fb77f.jpg",
+        "46a307c8936a2dfbb70ce81f0f82a077cb1b292e6c8181f60923e0869141b9c8.jpg",
+        "dd6ec520d26a0f10c0742f1ea52e7b5661420695a689280ff74249862996e147.jpg"
+      ],
+      "formula_count": 71,
+      "formula_audit_summary": {
+        "c": 0,
+        "p": 20,
+        "i": 51,
+        "total": 71,
+        "pct": 0.0
+      }
+    },
+    "经典控制": {
+      "doc_id": "0388b1a89e76ccf34f73bb7e5b62a4bbf540b3e521093772fa21e5f15d7e63b5",
+      "title": "Space Vehicle Dynamics and Control (Kids Go)",
+      "en_query": "classical control root locus",
+      "agentic_score": 0.994270920753479,
+      "content_chars": 34905,
+      "content_pages": 50,
+      "content_ok": true,
+      "content_error": "",
+      "image_count": 1,
+      "image_refs_sample": [
+        "a130734ead2c63a623ce2f0325606594ac49241c38c21f41f1ca6f7cd23bef70.jpg"
+      ],
+      "formula_count": 33,
+      "formula_audit_summary": {
+        "c": 0,
+        "p": 6,
+        "i": 27,
+        "total": 33,
+        "pct": 0.0
+      }
+    },
+    "自抗扰控制": {
+      "doc_id": "c152fe5cf9facec77c6a5013d7ad87b90509550f12b35c54bd572d957787361c",
+      "title": "Fractional active disturbance rejection control",
+      "en_query": "active disturbance rejection control",
+      "agentic_score": 0.9769670963287354,
+      "content_chars": 23577,
+      "content_pages": 34,
+      "content_ok": true,
+      "content_error": "",
+      "image_count": 0,
+      "image_refs_sample": [],
+      "formula_count": 62,
+      "formula_audit_summary": {
+        "c": 10,
+        "p": 35,
+        "i": 17,
+        "total": 62,
+        "pct": 16.1
+      }
+    },
+    "自适应控制": {
+      "doc_id": "84f6e4d17f9a4b121189adcfef60e05d4724671c0b13073e1f6c1d46242b4df4",
+      "title": "Adaptive Control Design for n-th order Nonlinearly Multiplicative Parameterized Systems with Triangular Structure and Application",
+      "en_query": "adaptive control nonlinear",
+      "agentic_score": 0.9736695289611816,
+      "content_chars": 34861,
+      "content_pages": 50,
+      "content_ok": true,
+      "content_error": "",
+      "image_count": 0,
+      "image_refs_sample": [],
+      "formula_count": 191,
+      "formula_audit_summary": {
+        "c": 30,
+        "p": 56,
+        "i": 105,
+        "total": 191,
+        "pct": 15.7
+      }
+    },
+    "非线性控制": {
+      "doc_id": "8aa79330e3ebbc68efde9b4098f8abb381601b1d46243e37e2ea0ed197bdba9f",
+      "title": "Experimental validation of a nonlinear backstepping liquid level controller for a state coupled two tank system",
+      "en_query": "nonlinear control backstepping",
+      "agentic_score": 0.9922049641609192,
+      "content_chars": 34912,
+      "content_pages": 50,
+      "content_ok": true,
+      "content_error": "",
+      "image_count": 1,
+      "image_refs_sample": [
+        "e1bc6201a497021f1e7af099a4937905fb53cc392a7a4e844aa936de7636b6be.jpg"
+      ],
+      "formula_count": 217,
+      "formula_audit_summary": {
+        "c": 40,
+        "p": 107,
+        "i": 70,
+        "total": 217,
+        "pct": 18.4
+      }
+    },
+    "鲁棒控制": {
+      "doc_id": "01a65332e4241387937be3b1fffe114feafa4bcacc1880d2f45ae4b418948198",
+      "title": "Helicopter H∞ control design with robust flying quality",
+      "en_query": "robust control H-infinity",
+      "agentic_score": 0.8188436031341553,
+      "content_chars": 34428,
+      "content_pages": 50,
+      "content_ok": true,
+      "content_error": "",
+      "image_count": 6,
+      "image_refs_sample": [
+        "7ff15961270ad3ea1473fd01412a1a59ae728792be22b03ab6f5abf8df6b6800.jpg",
+        "73013a49bbcb9abb3d763ad0b2b1972c7a38e11901db4206e49cac8e08e88792.jpg",
+        "d02627e2c58690307237aad9b2a7720dc0bb3a5d8841d19c54e20f20298aaa22.jpg",
+        "e178bba5754938cf3ffa2a70a2121c7cf7f816af5cb1568f43d3b54d19140f2a.jpg",
+        "f16aaf73b77170d150295ffc4de75ebf212d20b03d467c347326277e917663b4.jpg"
+      ],
+      "formula_count": 224,
+      "formula_audit_summary": {
+        "c": 44,
+        "p": 110,
+        "i": 70,
+        "total": 224,
+        "pct": 19.6
+      }
+    }
+  }
+}

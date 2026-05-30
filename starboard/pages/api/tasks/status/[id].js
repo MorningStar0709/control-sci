@@ -1,4 +1,4 @@
-import { getTask } from '../../../../lib/serverTaskStore';
+import { getTask, toPublicTask, verifyTaskOwner } from '../../../../lib/serverTaskStore';
 
 export default function handler(req, res) {
   res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
@@ -13,5 +13,10 @@ export default function handler(req, res) {
     res.status(404).json({ error: 'task not found' });
     return;
   }
-  res.status(200).json(task);
+  const token = req.headers['x-task-token'] || req.query.token;
+  if (!verifyTaskOwner(task, token)) {
+    res.status(403).json({ error: 'task token required' });
+    return;
+  }
+  res.status(200).json(toPublicTask(task));
 }

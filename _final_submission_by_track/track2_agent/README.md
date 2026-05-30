@@ -1,6 +1,6 @@
 # 赛道二提交包：Data Agent
 
-本目录是赛道二“智能进化 / Agent 能力评测”独立提交包。这里是最终提交副本，权威编辑源仍保留在项目根目录的 `docs/submissions/`。
+本目录是赛道二“智能进化 / Agent 能力评测”独立提交包，提供技术报告、代表案例、部署说明、结构化日志样例与可审计证据索引；完整代码与可执行复现环境见 GitHub 仓库。
 
 ## 一屏入口
 
@@ -8,25 +8,25 @@
 |:---|:---|
 | 快速验证指南 | [quickstart.md](quickstart.md) |
 | 主技术报告 | [track2_agent_report.md](track2_agent_report.md) |
-| 代表案例 | [track2_agent_20_cases.md](track2_agent_20_cases.md) |
+| 25 个代表案例 | [track2_agent_20_cases.md](track2_agent_20_cases.md) |
 | 部署与运行说明 | [track2_agent_deploy.md](track2_agent_deploy.md) |
 | Agent 能力注册表 | [agent/agent_capabilities.json](agent/agent_capabilities.json) |
 | 结构化日志样例 | [agent/examples/logs/](agent/examples/logs/) |
 | 数据溯源 | [shared/DATA-TRACE.md](shared/DATA-TRACE.md) |
 | 证据包 | [data_trace_bundle/](data_trace_bundle/) |
-| 图表资产 | [assets/task2/](assets/task2/) |
+| 图表资产 | [shared/assets/](shared/assets/) |
 | 演示 PPT 与视频 | [bonus/](bonus/) |
 | 可选 npm 启动壳 | [npm/controlmind/](npm/controlmind/) |
 
-> 演示视频（约 114 MB）因超过 GitHub 单文件 100 MB 限制，未上传至 GitHub 仓库。PPT 已在 bonus/ 中。
+> 本地最终提交包的 `bonus/` 目录包含 PPT 与演示视频。若同步到 GitHub 仓库，视频可能因超过单文件 100 MB 限制而不随仓库上传，评审以本地最终提交包内容为准。
 
 ## 公开入口
 
 | 项目 | 链接 |
 |:---|:---|
-| GitHub | https://github.com/MorningStar0709/control-sci |
-| HuggingFace 数据集 | https://huggingface.co/datasets/MorningStar0709/control-sci-corpus |
-| 云端 Demo | https://demo.askiler.com/ |
+| GitHub | [https://github.com/MorningStar0709/control-sci](https://github.com/MorningStar0709/control-sci) |
+| HuggingFace 数据集 | [https://huggingface.co/datasets/MorningStar0709/control-sci-corpus](https://huggingface.co/datasets/MorningStar0709/control-sci-corpus) |
+| 云端 Demo | [https://demo.askiler.com/](https://demo.askiler.com/) |
 | Demo 访问码 | `ControlMind@2026` |
 
 ## 最小验证命令
@@ -49,8 +49,8 @@ controlmind track2 validate --artifact all
 快速查看样例：
 
 ```powershell
-conda run -n myenv python demo/cli/controlscidemo track2 --quick
-.\run_reviewer_demo.ps1 -Track 2
+conda run --no-capture-output -n myenv python demo/cli/controlscidemo track2 --quick
+.\run\run_reviewer_demo.ps1 -Track 2
 ```
 
 ## 提交说明

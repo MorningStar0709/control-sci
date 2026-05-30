@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "project": "ControlSci — 控制科学结构化语料库与 Sci-Evo 推理评测基准",
+    "version": "1.0",
+    "updated": "2026-05-04",
+    "total_questions": 1,
+    "dimensions": {
+      "A": 1,
+      "B": 0,
+      "C": 0,
+      "D": 0
+    },
+    "source": "AI-generated via deepseek/deepseek-v4-flash from ControlSci corpus chunks"
+  },
+  "questions": [
+    {
+      "id": "CS-EVO-00001",
+      "dimension": "A",
+      "difficulty_level": "L1",
+      "control_category": [
+        "modern"
+      ],
+      "question": "请写出卡尔曼滤波中径向残差的数学定义式。",
+      "answer": "径向残差定义为导弹由地形相关算法确定的位置与惯性导航系统确定的位置之差，即 \\( r = p_{\\text{terrain}} - p_{\\text{INS}} \\)，其中 \\( p_{\\text{terrain}} \\) 为地形相关定位结果，\\( p_{\\text{INS}} \\) 为惯导系统给出的位置。",
+      "reasoning_steps": [
+        "径向残差是卡尔曼滤波中用于校正惯性导航系统的一项指标。",
+        "其定义为地形相关算法确定的导弹位置与惯性导航系统确定的位置之差。",
+        "因此，数学表达式为 \\( r = p_{\\text{terrain}} - p_{\\text{INS}} \\)。"
+      ],
+      "source_ref": "Missile_Guidance_Control_chunk_735",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    }
+  ]
+}

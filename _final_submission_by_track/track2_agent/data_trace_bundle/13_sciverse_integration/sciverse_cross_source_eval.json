@@ -1,0 +1,1342 @@
+{
+  "analysis": "cross_source_evaluation",
+  "generated_at": "2026-05-23T15:35:10",
+  "config": {
+    "n_questions_target": 30
+  },
+  "summary": {
+    "sciverse": {
+      "n_questions": 30,
+      "deepseek_baseline": {
+        "mean": 0.1833,
+        "median": 0.0,
+        "n": 30
+      },
+      "ollama_consensus": {
+        "mean": 0.4667,
+        "median": 0.5,
+        "n": 30
+      }
+    },
+    "arxiv": {
+      "n_questions": 30,
+      "deepseek_baseline": {
+        "mean": 0.075,
+        "median": 0.0,
+        "n": 30
+      },
+      "ollama_consensus": {
+        "mean": 0.3833,
+        "median": 0.5,
+        "n": 30
+      }
+    },
+    "delta_deepseek_mean": 0.1083,
+    "delta_pct": 144.4,
+    "comparable": false
+  },
+  "per_question": [
+    {
+      "source": "sciverse",
+      "question_id": "CS-EVO-00001",
+      "question": "请写出热电厂调节参数R1和R2的数学定义式（用频率变化和功率变化表示），并说明其物理意义。",
+      "gold_answer": "调节参数R1和R2的定义式为：\nR1 = -Δf1 / ΔP1，R2 = -Δf2 / ΔP2。\n其中，Δf1、Δf2分别为两个区域频率的变化量（单位：Hz），ΔP1、ΔP2分别为两个区域发电功率的变化量（单位：MW）。负号表示频率下降时功率增加。物理意义：R的数值表示单位功率变化引起的频率变化量（即调差率），反映了发电机组对频率变化的响应灵敏度。",
+      "generated_answer": "在热电厂（及电力系统）的频率控制中，调节参数 $R_1$ 和 $R_2$ 通常对应于**一次调频**（Primary Frequency Control）中的两个关键系数：**频率调整率**（Frequency Regulation）和**无差调节系数**（或称为频率偏差系数）。\n\n以下是它们的数学定义式及物理意义：\n\n### 1. 数学定义式\n\n假设：\n*   $\\Delta f$ 为系统频率变化量（单位：Hz）。\n*   $\\Delta P$ 为机组有功功率变化量（单位：MW）。\n*   $P_N$ 为机组额定有功功率（单位：MW）。\n*   $f_N$ 为系统额定频率（通常为 50Hz ",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 0.0,
+          "qwen3.5:35b": 0.0
+        },
+        "median": 0.0
+      }
+    },
+    {
+      "source": "sciverse",
+      "question_id": "CS-EVO-00002",
+      "question": "考虑一个单位负反馈控制系统，其开环传递函数为G(s)=K/[s(s+2)(s+5)]。使用Routh-Hurwitz判据确定使闭环系统稳定的K的取值范围。",
+      "gold_answer": "闭环特征方程为1+G(s)=0，即s^3+7s^2+10s+K=0。Routh阵列：第一列：s^3:1,10；s^2:7,K；s^1:(70-K)/7,0；s^0:K。系统稳定要求第一列所有元素同号且均正，故(70-K)/7>0且K>0，解得0<K<70。",
+      "generated_answer": "为了确定使闭环系统稳定的 $K$ 的取值范围，我们需要先推导闭环传递函数的特征方程，然后应用劳斯 - 赫尔维茨（Routh-Hurwitz）判据进行分析。\n\n### 1. 推导闭环特征方程\n\n对于单位负反馈系统，闭环传递函数 $T(s)$ 为：\n$$ T(s) = \\frac{G(s)}{1 + G(s)} $$\n\n系统的稳定性取决于分母（即特征方程）的根是否全部位于 $s$ 平面的左半平面。特征方程为：\n$$ 1 + G(s) = 0 $$\n\n代入给定的开环传递函数 $G(s) = \\frac{K}{s(s+2)(s+5)}$：\n$$ 1 + \\frac{K}{s(s+2)(s+5)} = ",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 0.5,
+          "qwen3.5:35b": 0.5
+        },
+        "median": 0.5
+      }
+    },
+    {
+      "source": "sciverse",
+      "question_id": "CS-EVO-00003",
+      "question": "考虑一个发电机组，其涡轮机和调速器的传递函数分别为 \\(G_T(s)=\\frac{K_T}{1+sT_T}\\) 和 \\(G_g(s)=\\frac{K_g}{1+sT_g}\\)。假设发电机负载变化导致频率偏差，要求设计一个自动发电控制（AGC）方案，使频率偏差在阶跃负载扰动下的响应时间（2%准则）小于5秒，稳态误差为零，且对参数摄动（±20%变化）具有鲁棒性。请说明建模方法、控制方法选择理由、参数设计步骤和验证指标。",
+      "gold_answer": "建模：将涡轮机和调速器串联，得开环传递函数 \\(G(s)=K_T K_g/((1+sT_T)(1+sT_g))\\)。选择PI控制器 \\(C(s)=K_p+K_i/s\\) 以消除稳态误差。参数设计：根据响应时间要求，闭环主导极点实部 \\(\\sigma \\geq 4/5=0.8\\) rad/s（由2%准则，\\(t_s=4/\\sigma\\)）。通过根轨迹或频率法调整\\(K_p\\)、\\(K_i\\)使闭环极点满足实部要求，并确保相角裕度≥45°、幅值裕度≥6 dB以应对参数摄动。验证指标：阶跃响应超调量≤10%，稳态误差=0，参数摄动±20%时系统稳定且响应时间仍满足要求。",
+      "generated_answer": "### 1. 建模方法 (Modeling Methodology)\n\n为了设计满足要求的 AGC 方案，首先需要对发电机组及其控制回路进行准确的数学建模。\n\n*   **被控对象模型**：\n    根据题目给定，发电机组（包含原动机、汽轮机/水轮机及调速器）的传递函数为两个一阶惯性环节的串联：\n    $$ G_p(s) = G_T(s) \\cdot G_g(s) = \\frac{K_T K_g}{(1+sT_T)(1+sT_g)} $$\n    其中：\n    *   $K_T, T_T$ 分别为汽轮机增益和时间常数。\n    *   $K_g, T_g$ 分别为调速器增益和时间常数。\n ",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: {\"score\": 0.75, \"reason\": \"回答",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 0.5,
+          "qwen3.5:35b": 0.5
+        },
+        "median": 0.5
+      }
+    },
+    {
+      "source": "sciverse",
+      "question_id": "CS-EVO-00004",
+      "question": "假设一个PID控制器参数为Kp1, Kd1, Kp2, Ki, Kd2，导数滤波器系数N1和N2，基准条件下闭环系统稳定。若将N1和N2同时减小至原值的一半，其他参数不变，原稳定性结论是否仍成立？请分析变化前后差异，并解释敏感性来源。",
+      "gold_answer": "原稳定性结论可能不成立。导数滤波器系数N减小会降低高频噪声抑制能力，同时引入额外的相位滞后，减小相位裕度，可能导致系统不稳定。具体地，N减半使得滤波器时间常数加倍，在穿越频率处相位滞后增大，若原裕度不足则稳定性丧失。",
+      "generated_answer": "### 最终结论\n\n**原稳定性结论不再成立（系统极可能失稳）。**\n\n将导数滤波器系数 $N_1$ 和 $N_2$ 同时减小至原值的一半，会显著增加闭环系统的相位滞后，导致相位裕度（Phase Margin）大幅下降。在基准条件下原本稳定的系统，在参数减半后极易跨越奈奎斯特判据的临界点，从而引发振荡甚至发散。\n\n---\n\n### 详细分析过程\n\n#### 1. 导数滤波器的数学模型\n在标准的 PID 控制器实现中（通常用于数字控制或高频噪声抑制），导数项 $K_d \\cdot \\frac{d e(t)}{dt}$ 通常通过一阶低通滤波器进行近似，其传递函数形式为：\n$$ G_{derivat",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 0.5,
+          "qwen3.5:35b": 0.5
+        },
+        "median": 0.5
+      }
+    },
+    {
+      "source": "sciverse",
+      "question_id": "CS-EVO-00005",
+      "question": "在环境噪声幅值增大的情况下，为保持控制系统对噪声的抑制能力，微分滤波器系数N1和N2应如何调整？请写出微分项的频域传递函数并分析N对高频增益的影响。",
+      "gold_answer": "应减小N1和N2。微分项的频域传递函数为 G(s) = K_d * s / (1 + s/N)。当s = jω且ω很大时，|G(jω)| ≈ K_d * N，即高频增益与N成正比。增大N会放大高频噪声，降低抗干扰能力；因此，噪声增大时应减小N以抑制噪声。",
+      "generated_answer": "### 1. 微分项的频域传递函数\n\n在控制理论中，微分环节（或微分滤波器）通常用于抑制高频噪声。其时域表达式通常为 $u_d(t) = -N_1 \\frac{d e(t)}{dt} - N_2 \\frac{d^2 e(t)}{dt^2}$（具体形式取决于系统定义，但核心在于微分增益 $N$ 与频率的关系）。\n\n假设微分滤波器在频域中的传递函数形式为 $G_d(s)$，其中 $s = j\\omega$。对于标准的微分环节（含一阶低通滤波以抑制噪声），其传递函数通常表示为：\n$$ G_d(s) = -K_d \\frac{s}{1 + s T_f} $$\n或者在更复杂的二阶微分滤波器中，形式可能涉",
+      "deepseek_baseline": {
+        "score": 1.0,
+        "reason": "回答准确：微分滤波器系数N应减小，传递函数G(s)=K_d*s/(1+s/N)正确，分析了高频增益与N成正比，噪声增大时减小N以抑制噪声。表达清晰，无遗漏。",
+        "issues": []
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 0.5,
+          "qwen3.5:35b": 0.5
+        },
+        "median": 0.5
+      }
+    },
+    {
+      "source": "sciverse",
+      "question_id": "CS-EVO-00006",
+      "question": "一个电力系统频率控制模型的开环传递函数为 G(s)=K(1+0.5s)/[s(0.2s+1)(0.1s+1)]，其中K为增益。系统采用单位负反馈。试用Routh-Hurwitz判据求使闭环系统稳定的K值范围。",
+      "gold_answer": "闭环特征方程为：1+G(s)=0，即 s(0.2s+1)(0.1s+1)+K(1+0.5s)=0。展开得：0.02s^3 + 0.3s^2 + s + K(1+0.5s)=0 → 0.02s^3 + 0.3s^2 + (1+0.5K)s + K=0。乘以50得：s^3 + 15s^2 + 50(1+0.5K)s + 50K=0 → s^3 + 15s^2 + (50+25K)s + 50K=0。Routh表：第一列：1, 15, (50+25K - 50K/15) = (750+375K-50K)/15 = (750+325K)/15, 50K。要求第一列所有元素为正：15>0恒成立； (75",
+      "generated_answer": "这是一个经典的控制理论问题。我们将按照以下步骤，利用 Routh-Hurwitz 判据求解使闭环系统稳定的 $K$ 值范围。\n\n### 1. 确定闭环传递函数\n\n已知开环传递函数为：\n$$G(s) = \\frac{K(1+0.5s)}{s(0.2s+1)(0.1s+1)}$$\n\n系统采用单位负反馈，即 $H(s) = 1$。\n闭环传递函数 $\\Phi(s)$ 为：\n$$ \\Phi(s) = \\frac{G(s)}{1+G(s)} $$\n\n闭环系统的特征方程由分母决定，即 $1 + G(s) = 0$：\n$$ 1 + \\frac{K(1+0.5s)}{s(0.2s+1)(0.1s+1)} = 0",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 0.5,
+          "qwen3.5:35b": 0.0
+        },
+        "median": 0.5
+      }
+    },
+    {
+      "source": "sciverse",
+      "question_id": "CS-EVO-00007",
+      "question": "设计一个基于AVOA优化的PID控制器用于两区域互联电力系统的负荷频率控制（LFC），目标是在阶跃负荷扰动下使频率偏差Δf1、Δf2和联络线功率偏差ΔPtie满足：调节时间≤5秒，超调量≤5%，稳态误差=0。请给出完整设计方案，包括系统建模、控制器结构、AVOA优化目标函数、参数设计步骤及验证指标。",
+      "gold_answer": "采用线性化两区域LFC模型，每区域含调速器、汽轮机和发电机惯性，联络线耦合。控制器为PID：u_i(s)=Kp_i+Ki_i/s+Kd_i·s，i=1,2。AVOA优化目标函数J=∫_0^T [α(Δf1^2+Δf2^2)+βΔPtie^2] dt，T足够长。设计步骤：1)建立状态空间模型；2)设定AVOA参数（种群数、迭代次数）；3)运行优化得到Kp_i, Ki_i, Kd_i；4)仿真验证。验证指标：时域响应调节时间、超调量、稳态误差，以及参数摄动下鲁棒性。",
+      "generated_answer": "### 基于 AVOA 优化的 PID 控制器两区域互联电力系统 LFC 设计方案\n\n#### 1. 系统建模 (System Modeling)\n\n考虑一个包含两个区域（Area 1 和 Area 2）的互联电力系统，每个区域包含一个热电厂和一个水电厂。系统采用线性化模型，忽略调速器死区和非线性特性。\n\n**状态空间方程：**\n对于第 $i$ 个区域 ($i=1, 2$)，负荷频率控制（LFC）的动态方程为：\n$$ \\frac{d\\Delta f_i(t)}{dt} = \\frac{1}{R_i} \\Delta P_{tie,i}(t) - \\frac{1}{2H_i} \\Delta P_{",
+      "deepseek_baseline": {
+        "score": 0.5,
+        "reason": "回答正确指出了基本方案（线性模型、PID控制器、AVOA优化目标函数和设计步骤），但缺乏具体细节（如模型参数、AVOA参数设置、权重选择、调节时间/超调量的具体约束处理），完整性不足。",
+        "issues": []
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.0,
+          "qwen3.5:9b": 0.5,
+          "qwen3.5:35b": 0.0
+        },
+        "median": 0.0
+      }
+    },
+    {
+      "source": "sciverse",
+      "question_id": "CS-EVO-00008",
+      "question": "请写出(1+PD)-PID控制器的传递函数标准形式，并说明各参数的含义。",
+      "gold_answer": "(1+PD)-PID控制器的传递函数标准形式为：\n\n$$C(s) = K_p \\left(1 + \\frac{1}{T_i s} + T_d s\\right) \\cdot \\left(1 + T_{pd} s\\right)$$\n\n其中：\n- $K_p$：比例增益，决定控制器对误差的即时响应强度。\n- $T_i$：积分时间常数，控制积分作用的快慢，$T_i$越小积分作用越强。\n- $T_d$：微分时间常数，控制微分作用的快慢，$T_d$越大微分作用越强。\n- $T_{pd}$：(1+PD)部分的微分时间常数，用于增强超前补偿，改善系统响应速度与稳定性。",
+      "generated_answer": "### (1+PD)-PID 控制器的传递函数标准形式\n\n在控制理论中，**(1+PD)-PID** 控制器通常被称为**带前馈作用的 PID 控制器**或**改进型 PID 控制器**。其核心思想是在传统的 PID 反馈回路基础上，增加一个与误差信号成比例的“前馈”项（即 $1 \\cdot e(t)$ 或 $K_p e(t)$ 中的单位增益部分），以加快系统的响应速度并改善稳态性能。\n\n其传递函数 $G_c(s)$ 的标准形式如下：\n\n$$ G_c(s) = K_p \\left( 1 + \\frac{1}{T_i s} + T_d s \\right) + K_f $$\n\n或者展开写为：\n\n$",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 0.5,
+          "qwen3.5:35b": 0.5
+        },
+        "median": 0.5
+      }
+    },
+    {
+      "source": "sciverse",
+      "question_id": "CS-EVO-00009",
+      "question": "给定PID控制器的传递函数为 \\(G_{PID}(s) = K_p + \\frac{K_i}{s} + K_d s\\)，(1+PD)控制器的传递函数为 \\(G_{1PD}(s) = 1 + \\tau s\\)，两者串联构成(1+PD)-PID控制器，其传递函数为 \\(G_c(s) = G_{1PD}(s) \\cdot G_{PID}(s)\\)。假设 \\(K_p = 2\\)，\\(K_i = 3\\)，\\(K_d = 0.5\\)，\\(\\tau = 0.1\\)。请写出 \\(G_c(s)\\) 的表达式，并将其化简为标准多项式形式，说明它包含了哪些类型的控制项（例如比例、积分、微分、二阶微分等），并计算在频",
+      "gold_answer": "G_c(s) = (1+0.1s)(2 + 3/s + 0.5s) = 2 + 3/s + 0.5s + 0.2s + 0.3 + 0.05s^2 = 2.3 + 3/s + 0.7s + 0.05s^2。包含比例项 (2.3)、积分项 (3/s)、微分项 (0.7s) 和二阶微分项 (0.05s^2)。将 s=jω 代入，ω=1 时，G_c(j1) = 2.3 + 3/j + 0.7j + 0.05(j)^2 = 2.3 - 0.05 + (0.7 - 3)j = 2.25 - 2.3j。幅值 |G_c(j1)| = sqrt(2.25^2 + 2.3^2) ≈ 3.218，相位 φ = -",
+      "generated_answer": "### 1. 推导 $G_c(s)$ 的表达式\n\n根据题目定义，控制器由两部分串联构成：\n- PID 部分：$G_{PID}(s) = K_p + \\frac{K_i}{s} + K_d s$\n- (1+PD) 部分：$G_{1PD}(s) = 1 + \\tau s$\n\n总传递函数为两者的乘积：\n$$G_c(s) = G_{1PD}(s) \\cdot G_{PID}(s) = (1 + \\tau s) \\left( K_p + \\frac{K_i}{s} + K_d s \\right)$$\n\n代入给定的参数值：$K_p = 2$, $K_i = 3$, $K_d = 0.5$, $\\tau =",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 0.0,
+          "qwen3.5:35b": 0.0
+        },
+        "median": 0.0
+      }
+    },
+    {
+      "source": "sciverse",
+      "question_id": "CS-EVO-00010",
+      "question": "基于提供的教材内容（仅包含出版信息），无法生成控制科学评测题目，因为内容不涉及任何控制科学概念、模型或应用。请提供与技术相关的教材内容。",
+      "gold_answer": "无有效答案。",
+      "generated_answer": "收到。作为控制科学专家，我已准备好基于您提供的**具体技术内容**（如系统模型、传递函数、状态空间方程、稳定性判据、控制器设计方法等）来生成精准的评测题目。\n\n由于您目前的输入仅包含出版信息，缺乏实质性的控制科学知识点，我暂时无法生成题目。\n\n**请提供以下任一形式的内容，我将立即为您生成评测题目：**\n\n1.  **具体章节或段落文本**：例如关于“根轨迹法”、“频域分析”或“现代控制理论”的描述。\n2.  **数学模型或公式**：例如某个系统的传递函数 $G(s)$ 或状态方程 $\\dot{x} = Ax + Bu$。\n3.  **应用场景描述**：例如“电机速度控制”、“倒立摆平衡”或“",
+      "deepseek_baseline": {
+        "score": 1.0,
+        "reason": "回答准确指出了问题中教材内容不涉及控制科学，无法生成题目，逻辑正确，表达清晰，完全符合要求。",
+        "issues": []
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 1.0,
+          "qwen3.5:35b": 1.0
+        },
+        "median": 1.0
+      }
+    },
+    {
+      "source": "sciverse",
+      "question_id": "CS-EVO-00011",
+      "question": "什么是线性时不变系统的传递函数？请写出其数学表达式。",
+      "gold_answer": "线性时不变系统的传递函数定义为在零初始条件下，系统输出拉普拉斯变换与输入拉普拉斯变换之比，即 G(s) = Y(s)/U(s)。",
+      "generated_answer": "线性时不变（LTI）系统的**传递函数**（Transfer Function）是描述系统输入与输出之间动态关系的复频域模型。\n\n### 定义\n在零初始条件下（即系统在 $t=0$ 时刻之前处于静止状态），线性时不变系统的**输出量的拉普拉斯变换**与**输入量的拉普拉斯变换**之比，称为该系统的传递函数。它是系统本身的固有属性，仅取决于系统的结构和参数，与具体的输入信号或初始状态无关。\n\n### 数学表达式\n\n设线性时不变系统的输入信号为 $f(t)$，输出信号为 $y(t)$。\n对微分方程两边进行拉普拉斯变换，并假设所有初始条件为零（$y(0)=y'(0)=\\dots=0$ 等），得到：\n",
+      "deepseek_baseline": {
+        "score": 1.0,
+        "reason": "定义准确，数学表达式正确，表达清晰无遗漏。",
+        "issues": []
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 1.0,
+          "qwen3.5:9b": 1.0,
+          "qwen3.5:35b": 1.0
+        },
+        "median": 1.0
+      }
+    },
+    {
+      "source": "sciverse",
+      "question_id": "CS-EVO-00012",
+      "question": "给定开环传递函数G(s)=K/[s(s+2)(s+5)]，用Routh-Hurwitz判据求闭环稳定的K范围。",
+      "gold_answer": "闭环特征方程为1+G(s)=0，即s(s+2)(s+5)+K=0，展开得s^3+7s^2+10s+K=0。Routh阵列：第一列s^3:1,10；s^2:7,K；s^1:(70-K)/7,0；s^0:K。要求第一列均正：K>0且70-K>0，故0<K<70。",
+      "generated_answer": "这是一个经典的控制理论问题。我们将使用 **Routh-Hurwitz 判据** 来确定使闭环系统稳定的增益 $K$ 的范围。\n\n### 1. 建立闭环传递函数\n\n给定开环传递函数：\n$$G(s) = \\frac{K}{s(s+2)(s+5)}$$\n\n假设这是一个单位负反馈系统（$H(s)=1$），则闭环传递函数 $\\Phi(s)$ 为：\n$$ \\Phi(s) = \\frac{G(s)}{1 + G(s)} = \\frac{\\frac{K}{s(s+2)(s+5)}}{1 + \\frac{K}{s(s+2)(s+5)}} $$\n\n整理得到闭环特征方程（分母为零）：\n$$ 1 + G(s) = ",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 0.5,
+          "qwen3.5:35b": 0.5
+        },
+        "median": 0.5
+      }
+    },
+    {
+      "source": "sciverse",
+      "question_id": "CS-EVO-00013",
+      "question": "基于教材中提供的客户支持联系方式，设计一个自动呼叫路由控制系统的状态反馈控制器，目标是使呼叫平均等待时间不超过30秒，稳态误差小于5%，且系统对呼叫量突增的鲁棒性应保证超调量不超过20%。请描述建模方法、控制器设计选择理由、参数设计步骤及验证指标。",
+      "gold_answer": "建模：将呼叫系统建模为M/M/1排队模型，状态变量为队列长度x，控制输入u为路由速率，目标等待时间y=x/λ（λ为到达率）。控制方法选择状态反馈极点配置，理由是可精确调节响应速度。参数设计：期望闭环极点设为-0.2±0.1i（对应2%调整时间约20秒），通过求解可观测标准型的反馈增益k=[k1 k2]使得det(sI-(A-Bk))=s^2+0.4s+0.05。验证指标：时域响应（阶跃响应下等待时间）；稳态误差通过增加积分器消除；鲁棒性通过参数摄动测试。",
+      "generated_answer": "### 自动呼叫路由控制系统状态反馈控制器设计方案\n\n作为控制科学专家，针对您提出的基于客户支持联系方式的自动呼叫路由（ACD）系统控制问题，我将构建一个基于**状态空间模型**的反馈控制系统。该系统旨在平衡服务效率（等待时间）、服务质量（稳态误差）与系统稳定性（鲁棒性）。\n\n以下是完整的建模、设计、参数整定及验证方案：\n\n---\n\n### 1. 建模方法 (Modeling Methodology)\n\n为了将物理世界的呼叫过程转化为可控制的数学模型，我们采用**排队论与线性化状态空间模型**相结合的方法。\n\n#### 1.1 状态变量定义\n定义系统状态向量 $x(t)$ 为：\n$$ x(t)",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 0.5,
+          "qwen3.5:35b": 0.5
+        },
+        "median": 0.5
+      }
+    },
+    {
+      "source": "sciverse",
+      "question_id": "CS-EVO-00014",
+      "question": "在数字控制系统中，假设系统状态空间模型为 dx/dt = Ax + Bu，其中 A = [[0, 1], [0, 0]], B = [[0], [1]]。基准条件下，所有状态可测（模拟印刷版），设计全状态反馈控制器 u = -Kx，K = [1, 2]，使闭环极点配置在 -1（双重根）。现变化条件：受电子格式限制（类似某些内容在电子版中缺失），只能测量状态 x1，状态 x2 不可测。若原控制器增益 K 保持不变但仅利用可测的 x1 进行反馈（即实际控制律 u = -1*x1），问闭环系统是否仍能保持渐近稳定？请说明理由。",
+      "gold_answer": "变化后闭环系统状态矩阵为 A - B[1, 0] = [[0, 1], [-1, 0]]，其特征多项式为 λ² + 1 = 0，特征根为 ±j，系统临界稳定，不是渐近稳定。变化前闭环特征多项式为 λ² + 2λ + 1 = (λ+1)²，系统渐近稳定。因此原结论不保持。敏感性来源：系统结构对状态 x2 的反馈依赖性，当 x2 不可测时，原反馈律无法提供阻尼，导致稳定性丧失。",
+      "generated_answer": "### 逻辑推导过程\n\n**1. 系统模型与参数定义**\n根据题目描述，连续时间系统的状态空间模型为：\n$$ \\dot{x} = Ax + Bu $$\n其中：\n$$ A = \\begin{bmatrix} 0 & 1 \\\\ 0 & 0 \\end{bmatrix}, \\quad B = \\begin{bmatrix} 0 \\\\ 1 \\end{bmatrix} $$\n状态向量为 $x = [x_1, x_2]^T$。\n\n**2. 基准条件下的控制器设计**\n题目指出原控制器增益为 $K = [1, 2]$，即 $u = -Kx = -x_1 - 2x_2$。\n此时闭环系统矩阵为 $A_{cl\\_f",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 0.5,
+          "qwen3.5:35b": 0.5
+        },
+        "median": 0.5
+      }
+    },
+    {
+      "source": "sciverse",
+      "question_id": "CS-EVO-00015",
+      "question": "在数字控制系统中，将连续时间信号转换为离散时间信号时，常用零阶保持器。写出零阶保持器的传递函数表达式。",
+      "gold_answer": "零阶保持器的传递函数为 G_{ZOH}(s) = \\frac{1 - e^{-Ts}}{s}，其中 T 为采样周期。",
+      "generated_answer": "在数字控制系统中，零阶保持器（Zero-Order Hold, ZOH）的作用是将离散的脉冲信号转换为阶梯状的连续时间信号。其传递函数 $G_{ZOH}(s)$ 的推导基于对理想采样脉冲进行零阶保持后的拉普拉斯变换结果。\n\n零阶保持器的传递函数表达式为：\n\n$$G_{ZOH}(s) = \\frac{1 - e^{-Ts}}{s}$$\n\n其中：\n*   $T$ 为采样周期（Sampling Period）。\n*   $e^{-Ts}$ 项反映了信号在采样周期内的延迟特性。",
+      "deepseek_baseline": {
+        "score": 1.0,
+        "reason": "回答完全正确，准确写出了零阶保持器的传递函数表达式，并指明了参数T的含义，表达清晰无遗漏。",
+        "issues": []
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 1.0,
+          "qwen3.5:35b": 1.0
+        },
+        "median": 1.0
+      }
+    },
+    {
+      "source": "sciverse",
+      "question_id": "CS-EVO-00016",
+      "question": "在生物医学图像理解中，一个用于图像增强的线性系统开环传递函数为G(s)=K/(s^2+3s+2)。设单位负反馈，使用Routh-Hurwitz判据确定闭环系统稳定的K值范围。",
+      "gold_answer": "闭环特征方程为1+G(s)=0，即s^2+3s+2+K=0。Routh表：第一行s^2: 1, 2+K；第二行s^1: 3, 0；第三行s^0: (3*(2+K)-0)/3=2+K。系统稳定要求第一列符号相同：1>0, 3>0, 2+K>0，即K>-2。",
+      "generated_answer": "这是一个经典的控制理论问题，涉及线性时不变（LTI）系统的稳定性分析。我们将按照以下步骤进行推导：\n\n### 1. 确定闭环传递函数\n\n已知开环传递函数为：\n$$G(s) = \\frac{K}{s^2 + 3s + 2}$$\n\n系统采用**单位负反馈**，其闭环传递函数 $T(s)$ 定义为：\n$$T(s) = \\frac{G(s)}{1 + G(s)}$$\n\n代入 $G(s)$ 的表达式：\n$$T(s) = \\frac{\\frac{K}{s^2 + 3s + 2}}{1 + \\frac{K}{s^2 + 3s + 2}} = \\frac{K}{s^2 + 3s + 2 + K}$$\n\n###",
+      "deepseek_baseline": {
+        "score": 1.0,
+        "reason": "答案正确推导出闭环特征方程，并应用Routh-Hurwitz判据得到K>-2，表达清晰完整。",
+        "issues": []
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 0.5,
+          "qwen3.5:35b": 0.5
+        },
+        "median": 0.5
+      }
+    },
+    {
+      "source": "sciverse",
+      "question_id": "CS-EVO-00017",
+      "question": "设计一个用于维持血糖水平的闭环胰岛素输注系统。控制目标是使血糖浓度在餐后2小时内恢复到正常范围（70-180 mg/dL），且稳态误差小于5%。工程约束：系统响应时间（从血糖偏离到校正开始）不超过30分钟，对胰岛素敏感性变化（±20%）具有鲁棒性。请给出完整的控制方案设计。",
+      "gold_answer": "建模采用Bergman最小模型（血糖-胰岛素动力学三阶模型）：dG/dt = -p1(G-Gb) - X*G + D(t), dX/dt = -p2*X + p3*I, dI/dt = -n*I + u(t)/V1，其中G为血糖浓度，X为作用胰岛素，I为血浆胰岛素，u为胰岛素输注率。控制器选择模型预测控制（MPC），理由：可处理多变量约束和时滞，且能显式包含鲁棒性。参数设计：预测时域Np=10（步长5分钟），控制时域Nc=3，权重矩阵Q=diag(1,0.1), R=0.01；利用开环标称模型离线求解，在线优化时加入终端约束确保稳定性。验证指标：闭环系统在±20%胰岛素敏感性摄动下，血糖超调量",
+      "generated_answer": "### 闭环胰岛素输注系统控制方案设计\n\n作为控制科学专家，针对您提出的维持血糖水平的闭环胰岛素输注系统需求，我设计了一套基于**模型预测控制（MPC）**架构的混合智能控制系统。该方案结合了生理模型、多变量预测算法及鲁棒性优化策略，旨在满足餐后快速恢复、稳态高精度及参数变化鲁棒性的工程约束。\n\n---\n\n#### 1. 系统架构与核心组件\n\n系统由感知层、决策层（控制器）和执行层组成，采用**模型预测控制（MPC）**作为核心算法，辅以**自适应参数辨识**模块。\n\n*   **感知层**：连续葡萄糖监测（CGM）传感器，采样频率 $\\ge 5$ Hz，提供血糖浓度 $G(t)$ 及其导数信",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 0.5,
+          "qwen3.5:35b": 0.0
+        },
+        "median": 0.5
+      }
+    },
+    {
+      "source": "sciverse",
+      "question_id": "CS-EVO-00018",
+      "question": "请写出PID控制器参数的Ziegler-Nichols第二法（闭环整定）的整定公式，并解释其适用条件。",
+      "gold_answer": "Ziegler-Nichols第二法：首先将控制器设为纯比例，增大Kp至系统临界稳定（输出等幅振荡），记录此时增益Ku和振荡周期Tu。则PID参数整定为：Kp=0.6Ku，Ti=0.5Tu，Td=0.125Tu。适用条件：系统允许临界振荡且可测量Ku和Tu，适用于一阶或二阶系统，对高阶系统需谨慎。",
+      "generated_answer": "### Ziegler-Nichols 第二法（闭环整定法）整定公式\n\nZiegler-Nichols 第二法是一种基于**临界振荡法**（Ultimate Sine Method）的整定方法。该方法通过让系统在不稳定边缘产生持续等幅振荡，获取临界增益 $K_u$ 和临界振荡周期 $T_u$，进而确定 PID 控制器的参数。\n\n对于 **PID 控制器**，其参数整定公式如下：\n\n| 控制器参数 | 整定公式 |\n| :--- | :--- |\n| **比例增益 ($K_p$)** | $K_p = 0.6 K_u$ |\n| **积分时间 ($T_i$)** | $T_i = 0.5 T_u$",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 0.5,
+          "qwen3.5:35b": 0.5
+        },
+        "median": 0.5
+      }
+    },
+    {
+      "source": "sciverse",
+      "question_id": "CS-EVO-00019",
+      "question": "给定开环传递函数G(s)=K/[s(s+2)(s+5)]，用Routh-Hurwitz判据求闭环稳定的K范围。",
+      "gold_answer": "闭环特征方程为1+G(s)=0，即s^3+7s^2+10s+K=0。根据Routh判据，劳斯阵列为：s^3: 1 10; s^2: 7 K; s^1: (70-K)/7; s^0: K。系统稳定要求第一列均正，即(70-K)/7>0且K>0，故0<K<70。",
+      "generated_answer": "这是一个经典的控制理论问题。我们将使用 **Routh-Hurwitz 判据** 来确定使闭环系统稳定的增益 $K$ 的范围。\n\n### 1. 建立闭环传递函数\n\n给定开环传递函数：\n$$G(s) = \\frac{K}{s(s+2)(s+5)}$$\n\n假设这是一个单位负反馈系统（$H(s)=1$），则闭环传递函数 $\\Phi(s)$ 为：\n$$ \\Phi(s) = \\frac{G(s)}{1 + G(s)} = \\frac{\\frac{K}{s(s+2)(s+5)}}{1 + \\frac{K}{s(s+2)(s+5)}} $$\n\n整理得到闭环特征方程（分母为零）：\n$$ 1 + G(s) = ",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: {\"score\": 1.0, \"reason\": \"回答正确推导了闭环",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 0.5,
+          "qwen3.5:35b": 0.5
+        },
+        "median": 0.5
+      }
+    },
+    {
+      "source": "sciverse",
+      "question_id": "CS-EVO-00020",
+      "question": "基于教材内容（版权声明），设计一个版权保护控制系统，确保只有授权用户才能访问作品。控制目标：在用户请求时验证授权，若未授权则拒绝访问，授权用户则允许访问。工程约束：响应时间<1秒，拒绝未授权请求的准确率>99%，授权用户误拒率<0.1%。请设计完整控制方案，包括建模、控制器设计、验证指标。",
+      "gold_answer": "建模：将版权验证看作二元分类问题。输入为用户特征向量x（如IP、设备ID、证书），输出为授权状态y∈{0,1}。系统模型可表示为y=f(x;θ)，其中f为分类器（如神经网络），θ为参数。控制器设计：采用监督学习训练f，用历史授权数据最小化交叉熵损失L=-∑[y_true log(y_pred)+(1-y_true)log(1-y_pred)]。用Adam优化器更新θ。验证指标：准确率、查全率、查准率、ROC-AUC。参数设计步骤：1) 收集数据，2) 划分训练/验证集，3) 训练至损失收敛，4) 调整超参数（学习率0.001、批大小32）",
+      "generated_answer": "### 版权保护控制系统设计方案\n\n作为控制科学专家，针对您提出的版权保护需求，我将基于**状态机模型**与**逻辑控制器**理论，结合工程约束（响应时间、准确率、误拒率），设计一套完整的控制方案。本方案将版权访问过程建模为典型的**二值决策控制问题**。\n\n---\n\n### 1. 系统建模 (System Modeling)\n\n我们将版权访问系统抽象为一个离散时间动态系统，核心在于构建状态空间与逻辑映射。\n\n#### 1.1 状态定义\n定义系统状态 $S(t)$ 为当前请求的处理状态：\n- $S_{idle}$：空闲/等待请求状态。\n- $S_{auth}$：正在验证授权状态（读取令牌、比对",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 0.5,
+          "qwen3.5:35b": 0.5
+        },
+        "median": 0.5
+      }
+    },
+    {
+      "source": "sciverse",
+      "question_id": "CS-EVO-00021",
+      "question": "请根据提供的教材内容，写出本书版权声明中明确禁止的三种行为。",
+      "gold_answer": "禁止复制、传播、电子或机械方式（包括影印、录音）以及未经出版商书面许可的信息存储检索。",
+      "generated_answer": "由于您**未提供具体的教材内容或文本**，作为控制科学专家，我无法直接引用“本书”中特定的版权声明条款。\n\n不过，根据全球通用的出版规范及控制科学领域主流教材（如 Ogata、Frank、Slotine 等经典著作）的版权声明惯例，这类声明中**明确禁止**的三种典型行为通常如下：\n\n1.  **未经授权的复制与分发**：禁止将书中的任何部分（包括图表、公式、代码片段）以任何形式（电子或纸质）进行复制、扫描、上传至网络或分发给他人，除非获得版权持有者的书面许可。\n2.  **改编与二次创作**：禁止对书中的内容进行修改、翻译、改编或将其作为新作品的基础进行再创作，除非获得明确授权。\n3.  *",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: {\"score\": 0.5, \"reason\": \"回答列出了版权声明禁止的多种行为，但未明确区",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 0.5,
+          "qwen3.5:35b": 0.5
+        },
+        "median": 0.5
+      }
+    },
+    {
+      "source": "sciverse",
+      "question_id": "CS-EVO-00022",
+      "question": "给定开环传递函数 G(s) = K / [s(s+2)(s+5)]，求闭环系统稳定的 K 的取值范围。",
+      "gold_answer": "K 的取值范围是 0 < K < 70。推导：闭环特征方程为 1 + G(s) = 0，即 s(s+2)(s+5) + K = 0，展开得 s^3 + 7s^2 + 10s + K = 0。应用 Routh-Hurwitz 判据，构造 Routh 表：第一列 s^3: 1, 10；s^2: 7, K；s^1: (7*10 - 1*K)/7 = (70 - K)/7；s^0: K。系统稳定要求第一列元素均大于 0：1>0 成立，7>0 成立，(70-K)/7>0 得 K<70，K>0 得 K>0。综上，0<K<70。",
+      "generated_answer": "为了确定闭环系统稳定的 $K$ 的取值范围，我们需要分析系统的特征方程，并利用劳斯判据（Routh-Hurwitz criterion）进行判断。\n\n### 1. 建立闭环特征方程\n对于单位负反馈系统（通常默认情况），闭环传递函数为：\n$$ \\Phi(s) = \\frac{G(s)}{1 + G(s)} $$\n闭环稳定的充要条件是特征方程 $1 + G(s) = 0$ 的所有根均具有负实部。\n\n给定开环传递函数：\n$$ G(s) = \\frac{K}{s(s+2)(s+5)} $$\n\n特征方程为：\n$$ 1 + \\frac{K}{s(s+2)(s+5)} = 0 $$\n$$ s(s+2)(s+",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 0.5,
+          "qwen3.5:35b": 0.5
+        },
+        "median": 0.5
+      }
+    },
+    {
+      "source": "sciverse",
+      "question_id": "CS-EVO-00023",
+      "question": "针对Pen & Sword Books Limited的图书印刷与库存管理，设计一个库存跟踪控制系统，使得图书库存量能够跟踪市场需求变化。给定市场需求为阶跃信号，要求系统响应时间小于2个月，稳态误差为零，且对市场需求波动具有鲁棒性。请设计完整的控制方案，包括建模、控制器设计、参数设计步骤和验证指标。",
+      "gold_answer": "建模：将库存动态视为一阶连续系统，状态变量x(t)为库存量，输入u(t)为印刷速率，输出y(t)=x(t)，扰动d(t)为市场需求率。系统模型：dx/dt = u - d。控制器采用PI控制：u = Kp e + Ki ∫ e dt，其中e = r - y，r为设定库存。参数设计：基于期望闭环带宽ω=2 rad/month（对应响应时间约1.5个月），取Kp=ω=2，Ki=ω^2/4=1，使闭环极点位于-1±j1。验证指标：阶跃响应超调量≈4.3%，调节时间（2%误差带）≈2.1个月，稳态误差为零；对单位阶跃扰动，最大偏差0.5，恢复时间约2个月。",
+      "generated_answer": "针对 Pen & Sword Books Limited 的图书印刷与库存管理问题，这是一个典型的**供应链库存控制问题**。由于图书产品具有“长尾效应”（即一旦印刷完成，若滞销则难以退货或销毁，造成巨大损失），且市场需求呈现阶跃变化（如新书发布或季节性畅销），我们需要设计一个能够**快速响应、零稳态误差且具备鲁棒性**的控制方案。\n\n以下是完整的控制方案设计：\n\n---\n\n### 1. 系统建模 (System Modeling)\n\n我们将库存系统建模为一个带有时间延迟和不确定性的动态系统。\n\n#### 1.1 状态变量定义\n*   $x(t)$：当前库存量 (Inventory Level",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 0.5,
+          "qwen3.5:35b": 0.5
+        },
+        "median": 0.5
+      }
+    },
+    {
+      "source": "sciverse",
+      "question_id": "CS-EVO-00024",
+      "question": "考虑一个单位反馈系统，其开环传递函数为G(s)=K/(s+47)，其中47来源于出版社地址的数字。当K从1变化到10时，系统的相位裕度如何变化？是否会影响系统的稳定性？请分析相位裕度对参数K的敏感性。",
+      "gold_answer": "当K=1时，截止频率ω_c满足|G(jω_c)|=1/√(ω_c^2+47^2)=1，但无解（因为K<47），实际系统过阻尼，稳定。当K=10时，同样K<47，ω_c无实数解，系统仍稳定。一阶系统相位裕度始终大于0，稳定性不随K变化。但相位裕度计算需注意：当K<47时，增益裕度无穷大，系统对K变化不敏感。敏感性来源：系统极点固定为-47，根轨迹在左半平面，K变化不影响稳定性。",
+      "generated_answer": "### 1. 系统相位裕度计算\n\n首先，我们需要确定系统的开环频率特性。\n已知开环传递函数为：\n$$G(s) = \\frac{K}{s+47}$$\n\n这是一个典型的**0 型一阶系统**。\n将其转换为频率响应（令 $s = j\\omega$）：\n$$G(j\\omega) = \\frac{K}{j\\omega + 47}$$\n\n**相位角 $\\phi(\\omega)$ 的计算：**\n一阶系统的相位角公式为：\n$$\\phi(\\omega) = -\\arctan\\left(\\frac{\\omega}{47}\\right)$$\n\n**相位裕度 (Phase Margin, PM) 的定义：**\n相位裕",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.0,
+          "qwen3.5:9b": 0.0,
+          "qwen3.5:35b": 0.0
+        },
+        "median": 0.0
+      }
+    },
+    {
+      "source": "sciverse",
+      "question_id": "CS-EVO-00025",
+      "question": "考虑一个库存控制系统，其传递函数为G(s)=1/(s+1)，控制器为C(s)=K。若环境变化导致系统增益增加20%，即G(s)变为1.2/(s+1)，分析闭环系统的鲁棒稳定性，并写出鲁棒稳定性条件（使用小增益定理）。",
+      "gold_answer": "鲁棒稳定性条件为：||Δ(s) * T(s)||_∞ < 1，其中Δ(s)是乘性不确定性，Δ(s)=0.2，T(s)=K/(s+1+K)是补灵敏度函数。代入得|0.2 * K/(s+1+K)|_∞ < 1，即|K/(1+K)| < 5，因此K满足K>0时，条件等价于K/(1+K)<5，恒成立。所以系统鲁棒稳定。",
+      "generated_answer": "### 1. 系统建模与开环传递函数分析\n\n首先，我们需要确定原系统的开环传递函数 $L(s)$。\n*   **控制器**：$C(s) = K$\n*   **原被控对象**：$G(s) = \\frac{1}{s+1}$\n*   **原开环传递函数**：\n    $$L(s) = C(s)G(s) = \\frac{K}{s+1}$$\n\n当环境变化导致系统增益增加 20% 时，新的被控对象为：\n*   **新被控对象**：$G_{new}(s) = \\frac{1.2}{s+1} = 1.2 G(s)$\n*   **新开环传递函数**：\n    $$L_{new}(s) = C(s)G_{new}",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.0,
+          "qwen3.5:9b": 0.5,
+          "qwen3.5:35b": 0.0
+        },
+        "median": 0.0
+      }
+    },
+    {
+      "source": "sciverse",
+      "question_id": "CS-EVO-00026",
+      "question": "给定开环传递函数G(s)=K/[s(s+2)(s+5)]，用Routh-Hurwitz判据求闭环稳定的K范围。",
+      "gold_answer": "闭环特征方程为1+G(s)=0，即s^3+7s^2+10s+K=0。Routh阵列：第一列：1, 7, (70-K)/7, K。稳定要求第一列同号：70-K>0且K>0，故0<K<70。",
+      "generated_answer": "这是一个经典的控制理论问题。我们将使用 **Routh-Hurwitz 判据** 来确定使闭环系统稳定的增益 $K$ 的范围。\n\n### 1. 建立闭环传递函数\n\n给定开环传递函数：\n$$G(s) = \\frac{K}{s(s+2)(s+5)}$$\n\n假设这是一个单位负反馈系统（$H(s)=1$），则闭环传递函数 $\\Phi(s)$ 为：\n$$ \\Phi(s) = \\frac{G(s)}{1 + G(s)} = \\frac{\\frac{K}{s(s+2)(s+5)}}{1 + \\frac{K}{s(s+2)(s+5)}} $$\n\n整理得到闭环特征方程（分母为零）：\n$$ 1 + G(s) = ",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 0.5,
+          "qwen3.5:35b": 0.5
+        },
+        "median": 0.5
+      }
+    },
+    {
+      "source": "sciverse",
+      "question_id": "CS-EVO-00027",
+      "question": "针对B-1B轰炸机在超音速巡航时的纵向飞行控制问题，设计一个线性二次型调节器（LQR）控制器。控制目标：在10000米高空以马赫数1.2巡航时，保持纵向姿态稳定，俯仰角阶跃响应上升时间<2秒，稳态误差<1%，并具备至少6dB的增益裕度和45°的相位裕度。已知飞机纵向短周期模态的简化模型为：G(s)=10/(s^2+2s+10)。请设计完整的控制方案（包括建模、控制器设计、验证指标）。",
+      "gold_answer": "建模方法：采用小扰动线性化假设，状态空间模型为ẋ=Ax+Bu, y=Cx, 其中A=[0 1; -10 -2], B=[0;10], C=[1 0]。控制器选择理由：LQR能同时优化状态响应与控制能量，适合多变量鲁棒设计。参数设计步骤：选择加权矩阵Q=diag([100,1])强调俯仰角，R=1；解代数Riccati方程AᵀP+PA−PBR⁻¹BᵀP+Q=0得P，进而K=R⁻¹BᵀP；仿真验证闭环极点与响应。验证指标：阶跃响应上升时间<2s，稳态误差<1%；开环传递函数增益裕度≥6dB，相位裕度≥45°。",
+      "generated_answer": "### B-1B 轰炸机纵向 LQR 控制器设计方案\n\n针对您提出的 B-1B 轰炸机在超音速巡航（马赫数 1.2，高度 10000 米）条件下的纵向飞行控制问题，基于给定的简化短周期模态模型 $G(s) = \\frac{10}{s^2+2s+10}$，以下是完整的控制方案设计。\n\n---\n\n### 1. 系统建模与状态空间转换\n\n首先，将给定的传递函数模型转换为状态空间形式，以便进行 LQR 设计。\n给定传递函数：\n$$ G(s) = \\frac{Y(s)}{U(s)} = \\frac{10}{s^2 + 2s + 10} $$\n其中，$Y(s)$ 代表俯仰角 $\\theta$（或攻角 $\\",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 0.5,
+          "qwen3.5:35b": 0.0
+        },
+        "median": 0.5
+      }
+    },
+    {
+      "source": "sciverse",
+      "question_id": "CS-EVO-00028",
+      "question": "请写出系统(1)的解为指数稳定性的定义，并给出数学表达式。",
+      "gold_answer": "存在常数r>0，使得对任意ε>0和任意初始时刻t0≥0，存在σ>0，当初始扰动满足‖δ‖<σ时，系统(1)的解X(t)=x(t,t0,φ)满足‖X(t)‖<ε·e^{-r(t-t0)}对所有t≥t0成立，则称该解是指数稳定的。",
+      "generated_answer": "在控制科学中，对于系统 (1)（通常指一个非线性自治系统 $\\dot{x} = f(x)$，其中 $f(0)=0$），其解为**指数稳定**（Exponentially Stable）的定义如下：\n\n### 定义\n平衡点 $x=0$ 是指数稳定的，如果存在正常数 $\\alpha > 0$ 和 $\\beta > 0$，使得对于任意初始状态 $x_0$，系统状态轨迹 $x(t)$ 满足以下不等式：\n$$ \\|x(t)\\| \\leq \\beta \\|x_0\\| e^{-\\alpha t}, \\quad \\forall t \\geq 0 $$\n\n### 数学表达式\n$$ \\|x(t)\\| \\leq \\",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 1.0,
+          "qwen3.5:9b": 1.0,
+          "qwen3.5:35b": 1.0
+        },
+        "median": 1.0
+      }
+    },
+    {
+      "source": "sciverse",
+      "question_id": "CS-EVO-00029",
+      "question": "给定线性定常系统的状态方程 dx/dt = A x，其中 A = [[0, 1], [-2, -3]]，初始状态为 x(0) = x0。求系统的状态转移矩阵 Φ(t) = exp(At)，并验证其满足初始条件 Φ(0) = I（单位矩阵）。",
+      "gold_answer": "Φ(t) = e^{At} = [[2e^{-t} - e^{-2t}, e^{-t} - e^{-2t}], [-2e^{-t} + 2e^{-2t}, -e^{-t} + 2e^{-2t}]]。当 t=0 时，Φ(0)=[[1,0],[0,1]]=I，满足初始条件。",
+      "generated_answer": "### 1. 系统矩阵特征值分析\n\n给定系统矩阵：\n$$ A = \\begin{bmatrix} 0 & 1 \\\\ -2 & -3 \\end{bmatrix} $$\n\n首先计算矩阵 $A$ 的特征值 $\\lambda$，通过求解特征方程 $\\det(\\lambda I - A) = 0$：\n$$\n\\det \\begin{bmatrix} \\lambda & -1 \\\\ 2 & \\lambda + 3 \\end{bmatrix} = \\lambda(\\lambda + 3) - (-1)(2) = \\lambda^2 + 3\\lambda + 2 = 0\n$$\n因式分解得：\n$$ (\\lambd",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.0,
+          "qwen3.5:9b": 0.5,
+          "qwen3.5:35b": 0.0
+        },
+        "median": 0.0
+      }
+    },
+    {
+      "source": "sciverse",
+      "question_id": "CS-EVO-00030",
+      "question": "请为一个二阶非线性系统设计一个基于李雅普诺夫直接法的状态反馈控制器，使得闭环系统在原点全局渐近稳定，且从初始状态到稳定状态的时间不超过2秒（调节时间），并确保对±10%的参数摄动具有鲁棒稳定性。给出建模过程、控制器设计理由、参数选择步骤及验证指标。",
+      "gold_answer": "建模：考虑系统 dx1/dt = x2, dx2/dt = -x1 - x2 + u。选择李雅普诺夫候选函数 V(x)=0.5(x1^2 + x2^2)，则 Vdot = x1 x2 + x2(-x1 - x2 + u) = -x2^2 + x2 u。设计 u = -k x2，得 Vdot = -(1+k)x2^2 ≤ 0。为使 Vdot 负定且满足调节时间，选择 k 使得闭环极点阻尼适当。系统线性化后特征方程 s^2 + (1+k)s +1=0，调节时间 ts ≈ 4/(ζωn) = 8/(1+k)。令 ts ≤ 2，得 k ≥ 3。取 k=10。验证：V 正定、径向无界，Vdot 负定，故",
+      "generated_answer": "作为一个控制科学专家，针对您提出的二阶非线性系统设计需求，我将采用**李雅普诺夫直接法（Lyapunov Direct Method）**结合**鲁棒控制理论**进行设计。\n\n由于您未提供具体的非线性函数形式，为了保证设计的通用性和严谨性，我将构建一个包含**参数不确定性和非线性摄动**的标准二阶系统模型，并设计一个**非线性状态反馈控制器**。该方案将确保全局渐近稳定、满足 2 秒的调节时间要求，并对±10% 的参数摄动具有鲁棒性。\n\n---\n\n### 1. 系统建模 (System Modeling)\n\n#### 1.1 标称系统定义\n考虑一个标准的二阶非线性系统，状态变量为 $x_1$ ",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.0,
+          "qwen3.5:9b": 0.5,
+          "qwen3.5:35b": 0.5
+        },
+        "median": 0.5
+      }
+    },
+    {
+      "source": "arxiv",
+      "question_id": "CS-EVO-00001",
+      "question": "请写出运算放大器的输出电压与输入电压之间的关系式。",
+      "gold_answer": "e_o = K(e2 - e1) = -K(e1 - e2)，其中K为差分增益（电压增益），e1和e2分别为反相输入端和同相输入端的电压。",
+      "generated_answer": "运算放大器（Operational Amplifier，简称 Op-Amp）是一个高增益的直流耦合电压放大器。其输出电压 $V_{out}$ 与输入电压差（即同相输入端电压 $V_+$ 与反相输入端电压 $V_-$ 之差）之间的关系由以下公式描述：\n\n$$V_{out} = A_{OL} \\times (V_+ - V_-)$$\n\n其中：\n*   $V_{out}$ 是输出电压。\n*   $A_{OL}$ 是运算放大器的**开环电压增益**（Open-Loop Gain），通常是一个非常大的数值（理想情况下视为无穷大）。\n*   $V_+$ 是同相输入端（Non-inverting input",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 1.0,
+          "qwen3.5:9b": 1.0,
+          "qwen3.5:35b": 1.0
+        },
+        "median": 1.0
+      }
+    },
+    {
+      "source": "arxiv",
+      "question_id": "CS-EVO-00002",
+      "question": "给定线性定常系统：\n\\[\\dot{x} = \\begin{bmatrix} 0 & 1 \\\\ 0 & 0 \\end{bmatrix} x + \\begin{bmatrix} 0 \\\\ 1 \\end{bmatrix} u,\\quad x(0)=x_0\\]\n性能指标：\\[J = \\frac{1}{2}\\int_0^{\\infty} (x^T \\begin{bmatrix} 1 & 0 \\\\ 0 & 1 \\end{bmatrix} x + u^2) dt\\]\n求最优控制 \\(u^*(t)\\) 的表达式（即反馈增益矩阵 \\(K\\)）。",
+      "gold_answer": "设黎卡提代数方程的解为 \\(\\boldsymbol{P} = \\begin{bmatrix} p_{11} & p_{12} \\\\ p_{12} & p_{22} \\end{bmatrix}\\)，代入 \\(\\boldsymbol{A}^\\mathrm{T}\\boldsymbol{P}+\\boldsymbol{P}\\boldsymbol{A}-\\boldsymbol{P}\\boldsymbol{B}\\boldsymbol{R}^{-1}\\boldsymbol{B}^\\mathrm{T}\\boldsymbol{P}+\\boldsymbol{Q}=0\\) 得：\n\\(-p_{12}^2=0\\)，\\(p",
+      "generated_answer": "这是一个典型的线性定常系统无限时间 horizon 的线性二次型调节器（LQR）问题。我们需要求解黎卡提代数方程（ARE）来得到最优反馈增益矩阵 $K$。\n\n### 1. 系统参数定义\n\n根据题目给出的系统方程和性能指标：\n- 系统矩阵 $A = \\begin{bmatrix} 0 & 1 \\\\ 0 & 0 \\end{bmatrix}$\n- 输入矩阵 $B = \\begin{bmatrix} 0 \\\\ 1 \\end{bmatrix}$\n- 状态权重矩阵 $Q = \\begin{bmatrix} 1 & 0 \\\\ 0 & 1 \\end{bmatrix} = I$\n- 控制权重矩阵 $R = 1$",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 0.5,
+          "qwen3.5:35b": 0.5
+        },
+        "median": 0.5
+      }
+    },
+    {
+      "source": "arxiv",
+      "question_id": "CS-EVO-00003",
+      "question": "考虑一个不确定系统，其传递函数模型为 P(s, α, β) ∈ {P0(s) + W(s)Δ(s) | ‖Δ‖∞ ≤ 1}，其中 P0(s) = P(s, 0, 0)，W(s) = P(s, 1, 1) - P(s, 0, 0) 且已知 W(s) = 10(0.2s^2 + 0.7s + 0.2) / [(s^2 + 0.5s + 1)(s^2 + 2s + 3)(s^2 + 3s + 6)]。请设计一个鲁棒控制器 K(s)，使得闭环系统满足以下约束：\n- 闭环内部稳定；\n- 对单位阶跃参考输入的稳态跟踪误差小于 1%，且调节时间（2% 准则）小于 2 秒；\n- 对所有允许的不确定性 Δ，闭环",
+      "gold_answer": "采用 H∞ 混合灵敏度方法。建模：将被控对象视为标称模型 P0(s) 与加性不确定性 W(s)Δ(s) 的集合。控制器选择理由：能同时保证鲁棒稳定性和标称性能。参数设计步骤：1) 选择性能加权函数 W1(s) = 100/(s+0.01) 以抑制低频跟踪误差；2) 选择鲁棒性加权函数 W2(s) = 0.5(s+10)/(s+100) 使其幅值在频域≥ |W(jω)|；3) 求解 H∞ 优化问题 min ‖[W1S; W2T]‖∞，其中 S = (I+P0K)^{-1}, T = P0K(I+P0K)^{-1}，得到控制器 K(s)。验证指标：1) 时域：阶跃响应调节时间 <2s，稳态误差 <",
+      "generated_answer": "这是一个典型的**鲁棒控制（Robust Control）**设计问题，具体属于**结构化不确定性（Structured Uncertainty）**下的 $H_\\infty$ 控制或 $\\mu$ 合成范畴。由于不确定性 $\\Delta(s)$ 是乘性的且受 $H_\\infty$ 范数约束（$\\|\\Delta\\|_\\infty \\le 1$），我们可以将其转化为标准的加权 $H_\\infty$ 控制问题。\n\n以下是完整的控制设计方案：\n\n---\n\n### 1. 系统建模与不确定性描述\n\n#### 1.1 名义模型与不确定性加权\n已知传递函数模型集合为：\n$$ P(s, \\alpha, \\bet",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.0,
+          "qwen3.5:9b": 0.0,
+          "qwen3.5:35b": 0.0
+        },
+        "median": 0.0
+      }
+    },
+    {
+      "source": "arxiv",
+      "question_id": "CS-EVO-00004",
+      "question": "在基准情景下，多智能体系统采用无向通信图，控制律基于对称的 $\\Delta_{i,j}^s$（满足 $\\Delta_{i,j}^s = \\Delta_{j,i}^s$）。现假设通信图变为有向，且各智能体 $i$ 对其邻居 $j$ 的权重 $\\beta_{i_j}$ 不再等于 $\\beta_{j_i}$（即 $\\beta_{i_j} \\neq \\beta_{j_i}$），且 $\\Delta_{i,j}$ 由 (4.42) 定义但不再满足对称性。是否仍能直接采用原文中基于 $\\Delta_{i,j}^s$ 对称性的控制方案扩展至有向图？请分析敏感性来源。",
+      "gold_answer": "不能直接使用。原方案依赖 $\\Delta_{i,j}^s = \\Delta_{j,i}^s$，当 $\\beta_{i_j} \\neq \\beta_{j_i}$ 时，$\\Delta_{i,j}$ 与 $\\Delta_{j,i}$ 一般不等，导致 $\\Delta_{i,j}^s = \\frac{\\Delta_{i,j} + \\Delta_{j,i}}{2}$ 不再满足对称性，即 $\\Delta_{i,j}^s \\neq \\Delta_{j,i}^s$。因此，直接扩展会破坏控制律的一致性保证。需修改控制律，例如分别处理入边和出边，或确保权重匹配。敏感性来源为权重参数 $\\beta_{i_j}$ 的不",
+      "generated_answer": "**结论：不能直接采用。**\n\n在通信图变为有向且权重不再对称（$\\beta_{i,j} \\neq \\beta_{j,i}$）的情况下，原有的基于对称性 $\\Delta_{i,j}^s$ 的控制方案将失效。必须重新定义控制律中的耦合项，以适配非对称的交互拓扑。\n\n以下是详细的敏感性来源分析：\n\n### 1. 对称性破缺导致的数学性质失效\n原文方案的核心依赖于 $\\Delta_{i,j}^s = \\Delta_{j,i}^s$ 这一对称性质。该性质通常用于简化李雅普诺夫（Lyapunov）函数的构造或保证误差动力学的稳定性。\n- **敏感性来源**：当 $\\beta_{i,j} \\neq \\be",
+      "deepseek_baseline": {
+        "score": 1.0,
+        "reason": "回答准确指出不能直接扩展，解释了对称性破坏的原因，并明确了敏感性来源，表达清晰无歧义。",
+        "issues": []
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 0.5,
+          "qwen3.5:35b": 0.5
+        },
+        "median": 0.5
+      }
+    },
+    {
+      "source": "arxiv",
+      "question_id": "CS-EVO-00005",
+      "question": "写出有向通信图下，第i个智能体控制律中系数b_{i,j}的表达式。",
+      "gold_answer": "b_{i,j} = b_{i,j}(β_{i_j}(Δ_{i,j}(x_{s_i}, x_{s_j}))), ∀j ∈ N \\ {i}, 其中Δ_{i,j}(x_{s_i}, x_{s_j})如式(4.42), β_{i_j}如式(4.44), 且利用对称性Δ_{i,j}^s = Δ_{j,i}^s。",
+      "generated_answer": "在有向通信图（Directed Communication Graph）的多智能体系统控制问题中，系数 $b_{i,j}$ 通常出现在基于邻居信息的分布式控制律中，其形式一般为：\n$$ u_i = \\sum_{j \\in \\mathcal{N}_i} b_{i,j} (x_j - x_i) $$\n其中 $\\mathcal{N}_i$ 是智能体 $i$ 的邻居集合。\n\n系数 $b_{i,j}$ 的具体表达式取决于所采用的控制协议类型（如一致性协议、编队控制或含领导者的协议）：\n\n1.  **对于无领导者的共识问题（Consensus Problem）**：\n    若通信图是**无向图**，通常",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 0.0,
+          "qwen3.5:35b": 0.0
+        },
+        "median": 0.0
+      }
+    },
+    {
+      "source": "arxiv",
+      "question_id": "CS-EVO-00006",
+      "question": "考虑一个过驱动线性系统，其虚拟控制输入v与物理控制输入u满足v = Bu，其中B = [[1, 0, 1], [0, 1, 1]]，期望虚拟控制v_d = [1; 2]。假设执行器权重矩阵W = diag(1, 2, 1)。通过求解加权最小能量优化问题 min_u u^T W u  s.t. Bu = v_d，利用拉格朗日乘子法推导最优控制分配u*的表达式，并计算其数值解。",
+      "gold_answer": "构造拉格朗日函数L(u,λ)=u^T W u + λ^T(v_d - Bu)。对u求导得2Wu - B^T λ=0，得u = (1/2)W^{-1}B^T λ。代入约束得B(1/2)W^{-1}B^T λ = v_d，解得λ = 2(B W^{-1}B^T)^{-1}v_d。代入得u* = W^{-1}B^T (B W^{-1}B^T)^{-1}v_d。代入数值：W^{-1}=diag(1,0.5,1)，B W^{-1}B^T = [[2,1],[1,1.5]]，其逆为[[0.75,-0.5],[-0.5,1]]。则B^T (B W^{-1}B^T)^{-1}v_d = [-0.25; 1.5",
+      "generated_answer": "这是一个典型的过驱动（over-actuated）系统控制分配问题。我们需要在满足虚拟控制约束的前提下，最小化控制输入的能量（加权平方和）。\n\n### 1. 问题建模\n\n**已知条件：**\n*   虚拟控制输入向量：$v_d = \\begin{bmatrix} 1 \\\\ 2 \\end{bmatrix}$\n*   分配矩阵：$B = \\begin{bmatrix} 1 & 0 & 1 \\\\ 0 & 1 & 1 \\end{bmatrix}$\n*   执行器权重矩阵：$W = \\text{diag}(1, 2, 1) = \\begin{bmatrix} 1 & 0 & 0 \\\\ 0 & 2 & 0 ",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 0.5,
+          "qwen3.5:35b": 0.5
+        },
+        "median": 0.5
+      }
+    },
+    {
+      "source": "arxiv",
+      "question_id": "CS-EVO-00007",
+      "question": "考虑一个离散时间随机系统，其状态$\\xi_k$满足$E[\\xi_{k+1}|\\mathcal{F}_k] \\ge \\xi_k + u_k$，其中$u_k\\ge 0$为控制输入，且$\\{\\xi_k\\}$为下鞅。给定区间$(a,b)$，设计一个控制器$u_k = \\phi(\\xi_k)$使得穿越次数$\\beta(a,b)$的期望满足$E\\beta \\le \\frac{1}{b-a}$。请写出：建模方法、控制器设计理由和步骤、验证指标。",
+      "gold_answer": "建模：取$\\xi_k$为状态，由下鞅定义$E[\\xi_{k+1}|\\mathcal{F}_k] \\ge \\xi_k + u_k \\ge \\xi_k$。控制目标：$E\\beta \\le 1/(b-a)$。由Doob不等式$E\\beta \\le (E\\xi_N^+ + |a|)/(b-a)$，需$E\\xi_N^+ + |a| \\le 1$。控制器设计：为最小化$E\\xi_N^+$，选择$u_k=0$（开环）。若$\\xi_0=0$且无噪声，则$\\xi_N=0$，$E\\xi_N^+=0$，只需$|a|\\le 1$。若系统有随机性，可引入常数偏移$c$，使$\\eta_k = \\xi_k - c$为下鞅，",
+      "generated_answer": "这是一个典型的随机系统控制与鞅理论结合的问题。我们需要利用给定的下鞅性质（submartingale property）和期望漂移条件，设计一个反馈控制器来限制随机过程穿越特定区间的频率。\n\n以下是针对该问题的详细解答：\n\n### 1. 建模方法 (Modeling Method)\n\n我们将系统建模为一个**带漂移的离散时间随机过程**。\n\n*   **状态空间**：设状态 $\\xi_k \\in \\mathbb{R}$，初始状态 $\\xi_0$ 给定。\n*   **动力学方程**：\n    $$ \\xi_{k+1} = \\xi_k + u_k + \\eta_k $$\n    其中 $\\eta_",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.0,
+          "qwen3.5:9b": 0.5,
+          "qwen3.5:35b": 0.0
+        },
+        "median": 0.0
+      }
+    },
+    {
+      "source": "arxiv",
+      "question_id": "CS-EVO-00008",
+      "question": "请写出神经反馈环（NFL）中，神经网络控制器的前向传播数学表达式（包括输入、隐藏层和输出层的计算）。",
+      "gold_answer": "神经网络控制器为前馈全连接网络，其数学表达式如下：设系统状态z(t)作为网络输入x^0(t)=z(t)，对于k=0,…,ℓ-1层，有v^k(t)=W^k x^k(t)+b^k，x^{k+1}(t)=φ(v^k(t))，其中φ为逐元素激活函数；输出层π(z(t))=W^ℓ x^ℓ(t)+b^ℓ。这里W^k、b^k分别为第k+1层的权重矩阵和偏置，n_k为第k层神经元数量。",
+      "generated_answer": "在神经反馈环（Neural Feedback Loop, NFL）或基于神经网络的控制系统中，神经网络控制器通常采用多层前馈结构（如多层感知机 MLP）。其前向传播过程将系统状态误差映射为控制输入。\n\n以下是标准的数学表达式推导：\n\n### 1. 符号定义\n*   **输入层 ($x$)**：通常由系统状态误差向量组成，即 $x = e(t) = [e_1(t), e_2(t), \\dots, e_n(t)]^T$，其中 $e(t) = r(t) - y(t)$（$r$为参考轨迹，$y$为系统输出）。\n*   **隐藏层 ($h$)**：包含 $m$ 个神经元。\n*   **输出层 ($u$)",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: {\"score\": 1.0, \"reason\": \"回答准确给出了神经反馈环中神经网络控制器的标准前向传播数学表达式，包括输入、隐藏层和输出层的",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 0.0,
+          "qwen3.5:35b": 0.5
+        },
+        "median": 0.5
+      }
+    },
+    {
+      "source": "arxiv",
+      "question_id": "CS-EVO-00009",
+      "question": "给定批量最小二乘估计θ̂(k)=(Φ_k^T Φ_k)^{-1} Φ_k^T Y_k，其中Φ_k=[φ(1),...,φ(k)]^T，Y_k=[y(1),...,y(k)]^T，推导递归最小二乘估计的参数更新公式。",
+      "gold_answer": "递归最小二乘参数更新公式为：θ̂(k+1)=θ̂(k)+K(k+1)(y(k+1)-φ(k+1)^T θ̂(k))，其中K(k+1)=P(k)φ(k+1)/(1+φ(k+1)^T P(k) φ(k+1))，P(k+1)=(I-K(k+1)φ(k+1)^T)P(k)，P(k)=(Φ_k^T Φ_k)^{-1}。",
+      "generated_answer": "作为控制科学专家，我将为您推导从批量最小二乘（Batch Least Squares）到递归最小二乘（Recursive Least Squares, RLS）的参数更新公式。\n\n### 1. 定义与符号说明\n\n给定时刻 $k$ 的批量最小二乘估计公式为：\n$$ \\hat{\\theta}(k) = (\\Phi_k^T \\Phi_k)^{-1} \\Phi_k^T Y_k $$\n\n其中：\n- $\\Phi_k = \\begin{bmatrix} \\varphi(1) \\\\ \\vdots \\\\ \\varphi(k) \\end{bmatrix}$ 是 $k \\times n$ 维的回归矩阵（$\\varp",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 0.0,
+          "qwen3.5:35b": 0.0
+        },
+        "median": 0.0
+      }
+    },
+    {
+      "source": "arxiv",
+      "question_id": "CS-EVO-00010",
+      "question": "基于结构为2-5-1的RBF网络，设计一个自适应控制器，使一个未知非线性单输入单输出系统（输出y，输入u）跟踪期望轨迹yd(t)=2sin(0.2πt)。要求：跟踪误差在5秒内收敛到±0.1以内，稳态误差小于0.01。请简述建模方法、控制器设计、参数更新律和验证指标。",
+      "gold_answer": "建模方法：采用RBF网络在线逼近未知非线性函数f(x)，网络结构2-5-1，输入为x=[e, e_dot]^T，输出为f_hat(x)=w^T h(x)。控制器设计：基于趋近律滑模控制，选取滑模面s=ce+e_dot，控制器u=1/b0*(−c e_dot − η sign(s) − f_hat(x) + y_d_dot)，其中b0为已知控制增益。参数更新律：采用梯度下降法，w_dot = γ s h(x)，γ>0。验证指标：跟踪误差|e(t)|≤0.1 for t≥5s，且稳态误差|e_ss|<0.01。",
+      "generated_answer": "### 自适应 RBF 神经网络控制器设计方案\n\n针对未知非线性单输入单输出（SISO）系统的轨迹跟踪问题，基于结构为 **2-5-1** 的径向基函数（RBF）神经网络，设计自适应控制器的完整方案如下：\n\n#### 1. 建模方法 (Modeling Method)\n采用**通用逼近定理**（Universal Approximation Theorem）构建非线性系统模型。\n- **网络结构**：输入层 2 个节点，隐含层 5 个节点，输出层 1 个节点。\n- **输入变量**：选取系统状态向量作为输入，通常包含当前误差 $e(t) = y_d(t) - y(t)$ 及其导数 $\\dot{",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 0.5,
+          "qwen3.5:35b": 0.5
+        },
+        "median": 0.5
+      }
+    },
+    {
+      "source": "arxiv",
+      "question_id": "CS-EVO-00011",
+      "question": "请写出公式(11.203)中定义的死区函数 f[ε̄⁰(t+1)] 的完整分段表达式。",
+      "gold_answer": "f[ε̄⁰(t+1)] = \n{\n  ε̄⁰(t+1) - δ̄(t+1),  if ε̄⁰(t+1) > δ̄(t+1)\n  0,                  if |ε̄⁰(t+1)| ≤ δ̄(t+1)\n  ε̄⁰(t+1) + δ̄(t+1),  if ε̄⁰(t+1) < -δ̄(t+1)\n}\n其中δ̄(t+1)由(11.204)定义：δ̄(t+1)=d₂+d₁/m(t) ≥ |w̄(t+1)|。",
+      "generated_answer": "在控制科学与模糊逻辑控制（特别是基于死区补偿的模糊控制器设计）的语境下，公式 (11.203) 通常出自 **《模糊控制与模糊决策》（Fuzzy Control and Fuzzy Decision）** 或类似的经典教材（如 Wang 或 Lee 的著作），用于描述**死区函数（Dead-zone Function）**，以处理执行机构的死区非线性。\n\n该函数 $f[\\bar{\\epsilon}^0(t+1)]$ 的作用是将误差信号 $\\bar{\\epsilon}^0(t+1)$ 映射到一个修正后的信号，当误差绝对值小于死区阈值 $\\delta$ 时，输出为零；否则输出误差本身。\n\n其完整的",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 1.0,
+          "qwen3.5:9b": 1.0,
+          "qwen3.5:35b": 0.0
+        },
+        "median": 1.0
+      }
+    },
+    {
+      "source": "arxiv",
+      "question_id": "CS-EVO-00012",
+      "question": "已知某移动机器人采用扩展卡尔曼滤波进行状态估计，其测量模型如教材中公式(28)-(32)所示。系统参数W=0.1m, D=0.05m。某一时刻的预测状态为：\n$$\\left[ x_p, y_p, \\theta_p, \\dot{x}_p, \\dot{y}_p, \\dot{\\theta}_p \\right]^T = \\left[ 1.0, 2.0, 0.2, 0.3, 0.1, 0.15 \\right]^T$$\n其中位置单位为m，角度为rad，速度为m/s和rad/s。实测时机器人距离目标图像的距离 $d_{image} = 2.0$ m。假设实际编码器测量值可用预测编码器值近似。请计算该时刻测量",
+      "gold_answer": "预测的编码器读数由公式(30)计算：\n$$E_L = \\dot{x}_p - W\\dot{\\theta}_p = 0.3 - 0.1\\times0.15 = 0.285\\,\\text{m/s}$$\n$$E_R = \\dot{x}_p + W\\dot{\\theta}_p = 0.3 + 0.1\\times0.15 = 0.315\\,\\text{m/s}$$\n$$E_a = \\dot{y}_p - D\\dot{\\theta}_p = 0.1 - 0.05\\times0.15 = 0.0925\\,\\text{m/s}$$\n测量协方差矩阵对角元素由公式(32)计算：\n$$d_{\\text{var}} ",
+      "generated_answer": "作为控制科学专家，针对您提出的关于移动机器人扩展卡尔曼滤波（EKF）中测量协方差矩阵 $\\mathbf{R}$ 的计算问题，我们需要结合控制理论中关于噪声建模的标准实践进行分析。\n\n### 1. 问题分析与参数梳理\n\n*   **系统背景**：移动机器人状态估计，使用扩展卡尔曼滤波（EKF）。\n*   **已知参数**：\n    *   系统几何参数：$W = 0.1\\,\\text{m}$ (通常指车宽或传感器基线), $D = 0.05\\,\\text{m}$ (通常指传感器安装高度或相关特征尺寸)。\n    *   预测状态向量：$\\mathbf{x}_p = [1.0, 2.0, 0.2,",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.0,
+          "qwen3.5:9b": 0.0,
+          "qwen3.5:35b": 0.0
+        },
+        "median": 0.0
+      }
+    },
+    {
+      "source": "arxiv",
+      "question_id": "CS-EVO-00013",
+      "question": "针对一个具有非凸约束集合U的控制系统，其代价函数为可微函数f(·)。已知在可行点u处，切锥T_U(u)非凸，导致法锥N_U(u)={0}，经典最优性条件失效。请设计一个控制方案，通过近似或修正约束来恢复最优性条件，并给出建模方法、控制器设计理由、参数设计步骤和验证指标。",
+      "gold_answer": "建模：将非凸约束U近似为凸包conv(U)，从而T_{conv(U)}(u)为凸锥，法锥N_{conv(U)}(u)非平凡。控制器设计：采用基于梯度投影的MPC，代价函数为f(u)，控制律为u_{k+1}=Π_{conv(U)}(u_k - α∇f(u_k))，其中Π为到凸包上的投影。参数设计：步长α选择满足0<α<2/L，L为∇f的Lipschitz常数。验证指标：闭环系统渐近收敛到满足KKT条件的点，稳态误差≤ε，响应时间≤T_s。",
+      "generated_answer": "### 控制方案：基于光滑近似与正则化法锥的约束修正策略\n\n针对非凸约束集合 $U$ 导致切锥 $T_U(u)$ 非凸、法锥 $N_U(u)=\\{0\\}$ 从而使经典库恩 - 塔克（KKT）条件失效的问题，本方案采用**光滑近似（Smooth Approximation）**结合**正则化法锥构造**的方法。通过引入一个严格凸的近似约束集合 $\\tilde{U}_\\epsilon$，使得在近似约束下的法锥非空且包含梯度信息，从而恢复最优性条件。\n\n---\n\n### 1. 建模方法：光滑近似与正则化\n\n#### 1.1 约束集合的近似重构\n设原非凸约束集合为 $U = \\{u \\mid g(u)",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 0.5,
+          "qwen3.5:35b": 0.0
+        },
+        "median": 0.5
+      }
+    },
+    {
+      "source": "arxiv",
+      "question_id": "CS-EVO-00014",
+      "question": "在给定的神经半中心振荡器（HCO）模型中，基准输入电流设置如下：除了在时段t<600时u1=-8, u4=-7外，其余时间u1=u2=-3.5, u3=38, u4=u5=-3.2。在此基准下，神经元能够通过抑制释放产生交替爆发。现改变输入电流条件，使得所有时间均采用u1=u2=-3.5, u3=38, u4=u5=-3.2（即取消t<600的特殊时段）。请问，神经元是否仍能产生交替爆发？请结合抑制电流的数学表达式解释原因。",
+      "gold_answer": "不能。原因：基准条件下，在t<600时段，抑制性输入电流u1=-8和u4=-7提供更强的抑制，其综合抑制电流为I_inh = u1 + u4 = -8 + (-7) = -15。释放后产生更强的去抑制，从而引发爆发。变化条件下，所有时间抑制电流为I_inh = u1 + u4 = -3.5 + (-3.2) = -6.7，抑制较弱，释放后无法产生足够强的去抑制，神经元保持静息，无法产生交替爆发。因此，原结论不保持，系统对输入电流的环境变化敏感。",
+      "generated_answer": "### 最终答案\n\n**不能**。在取消 $t<600$ 的特殊时段后，神经元**无法**产生交替爆发。\n\n### 详细推导与解释\n\n在神经半中心振荡器（HCO）模型中，交替爆发（Alternating Bursts）的产生依赖于两个核心机制的精确配合：\n1.  **兴奋性驱动**：由 $u_3$ 提供，使神经元去极化并触发爆发。\n2.  **抑制性切换**：由 $u_4$ 和 $u_5$ 提供，用于在爆发结束后迅速超极化神经元，使其进入静息期，并防止其过早再次兴奋。\n\n#### 1. 抑制电流的数学表达式分析\n在标准的 HCO 模型（如 Izhikevich 模型或类似的简化 HCO 模型）",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 0.5,
+          "qwen3.5:35b": 0.5
+        },
+        "median": 0.5
+      }
+    },
+    {
+      "source": "arxiv",
+      "question_id": "CS-EVO-00015",
+      "question": "在t<600期间，外部输入电流u1和u4分别由稳态值-3.5和-3.2变为-8和-7。若系统通过调整兴奋性输入u3来补偿其他输入的变化，以维持总输入电流恒定（即五个神经元输入电流之和不变），试计算u3应调整的量（包括数值和方向）。",
+      "gold_answer": "稳态总输入I_steady = (-3.5)+(-3.5)+38+(-3.2)+(-3.2)=24.6；扰动总输入I_disturb = (-8)+(-3.5)+38+(-7)+(-3.2)=16.3；差值ΔI = I_disturb - I_steady = -8.3。为保持总输入恒定，u3需增加8.3，即调整为38+8.3=46.3，方向为增加。",
+      "generated_answer": "### 逻辑推导过程\n\n1.  **明确系统约束条件**：\n    题目要求维持“五个神经元输入电流之和不变”。设五个输入电流分别为 $u_1, u_2, u_3, u_4, u_5$。\n    约束方程为：\n    $$ \\sum_{i=1}^{5} u_i = \\text{常数} $$\n    这意味着，当任意其他输入发生变化时，调整量 $\\Delta u_3$ 必须满足：\n    $$ \\Delta u_1 + \\Delta u_2 + \\Delta u_3 + \\Delta u_4 + \\Delta u_5 = 0 $$\n    即：\n    $$ \\Delta u_3 = -(\\De",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 0.5,
+          "qwen3.5:35b": 0.5
+        },
+        "median": 0.5
+      }
+    },
+    {
+      "source": "arxiv",
+      "question_id": "CS-EVO-00016",
+      "question": "考虑一阶参考模型：\\(\\dot{x}_{ref} = -x_{ref} + r\\)，其中 \\(r\\) 是参考输入。被控对象未知，但最优控制器参数 \\(\\theta^*\\) 未知。定义跟踪误差 \\(e = x - x_{ref}\\)，回归向量 \\(\\omega = [x; r]^\\mathrm{T}\\)，误差动态方程为 \\(\\dot{e} = -e + \\tilde{\theta}^\\mathrm{T} \\omega\\)，其中 \\(\\tilde{\theta} = \\hat{\theta} - \\theta^*\\)。选取 Lyapunov 函数 \\(V = e^2 + \\tilde{\theta}^\\m",
+      "gold_answer": "由 \\(V = e^2 + \\tilde{\theta}^\\mathrm{T} \\tilde{\theta}\\) 求导得 \\(\\dot{V} = 2e\\dot{e} + 2\\tilde{\theta}^\\mathrm{T} \\dot{\\tilde{\\theta}}\\)。代入 \\(\\dot{e} = -e + \\tilde{\theta}^\\mathrm{T} \\omega\\) 和 \\(\\dot{\\tilde{\\theta}} = \\dot{\\hat{\\theta}}\\)（因为 \\(\\theta^*\\) 为常值），得 \\(\\dot{V} = 2e(-e + \\tilde{\theta}^\\mathrm{T",
+      "generated_answer": "### 推导过程\n\n**1. 计算 Lyapunov 函数的时间导数**\n\n给定的 Lyapunov 函数为：\n\\[ V = e^2 + \\tilde{\\theta}^\\mathrm{T} \\tilde{\\theta} \\]\n\n对其求时间导数：\n\\[ \\dot{V} = \\frac{d}{dt}(e^2) + \\frac{d}{dt}(\\tilde{\\theta}^\\mathrm{T} \\tilde{\\theta}) \\]\n\\[ \\dot{V} = 2e\\dot{e} + (\\dot{\\tilde{\\theta}}^\\mathrm{T} \\tilde{\\theta} + \\tilde{\\the",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.0,
+          "qwen3.5:9b": 0.5,
+          "qwen3.5:35b": 0.5
+        },
+        "median": 0.5
+      }
+    },
+    {
+      "source": "arxiv",
+      "question_id": "CS-EVO-00017",
+      "question": "给定双积分系统 dx1/dt = x2, dx2/dt = u，控制约束 |u| ≤ 1，性能指标 J = ∫_0^tf (1/2 u^2) dt。设计一个最优控制器，使系统从任意初始状态 (x1(0), x2(0)) 到达原点 (0,0)。请给出你的完整设计方案，包括系统建模、控制律推导、参数确定方法以及性能验证指标。",
+      "gold_answer": "系统建模：状态方程 x1' = x2, x2' = u，控制约束 |u| ≤ 1。性能指标 J = ∫_0^tf (1/2 u^2) dt。控制方法选择：采用庞特里亚金最小值原理处理有约束最优控制问题。推导最优控制律：构造哈密顿函数 H = 0.5 u^2 + λ1 x2 + λ2 u。最优条件 ∂H/∂u = 0 得无约束最优控制 u* = -λ2。考虑约束，使用饱和函数 u* = -sat(λ2)，其中 sat(λ2) = λ2 当 |λ2|≤1，否则为 sign(λ2)。协态方程：λ1' = -∂H/∂x1 = 0，λ2' = -∂H/∂x2 = -λ1，故 λ1 = c1，λ2(t) ",
+      "generated_answer": "这是一个经典的**双积分系统（Double Integrator System）**在混合约束下的最优控制问题。该系统同时受到**控制幅度约束**（$|u| \\le 1$）和**二次型性能指标**（$J = \\int \\frac{1}{2}u^2 dt$）的影响。\n\n由于存在控制约束 $|u| \\le 1$，单纯使用线性二次调节器（LQR）无法得到全局最优解（因为 LQR 产生的控制律 $u = -Kx$ 在状态较大时可能超出 $[-1, 1]$）。因此，必须采用**时间最优控制（Time-Optimal Control）**与**能量最优控制**相结合的混合策略，或者使用**广义脉冲函数（G",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 0.5,
+          "qwen3.5:35b": 0.5
+        },
+        "median": 0.5
+      }
+    },
+    {
+      "source": "arxiv",
+      "question_id": "CS-EVO-00018",
+      "question": "请写出连续时间非线性系统在平衡点处渐近稳定的李雅普诺夫稳定性定理的标准数学表述，包括所有条件。",
+      "gold_answer": "对于非线性自治系统 dx/dt = f(x)，其中 x 为 n 维状态向量，f(0)=0，原点为平衡点。若存在一个标量函数 V(x) 满足：(1) V(0)=0；(2) V(x) 在原点邻域内正定，即对于所有 x≠0 有 V(x)>0；(3) V(x) 沿系统轨线的导数 dV/dt = ∂V/∂x * f(x) 在原点邻域内负定，即对于所有 x≠0 有 dV/dt < 0。则原点（平衡点）是渐近稳定的。",
+      "generated_answer": "对于连续时间非线性系统 $\\dot{x} = f(x)$，其中 $f(0)=0$ 且 $f$ 在平衡点 $x=0$ 的邻域内连续可微，其**渐近稳定**的李雅普诺夫稳定性定理（通常称为李雅普诺夫第二法或直接法）的标准数学表述如下：\n\n### 定理陈述\n\n设 $V(x)$ 是定义在平衡点 $x=0$ 的某个邻域 $\\mathcal{D}$ 上的标量函数（李雅普诺夫函数），若满足以下三个条件，则平衡点 $x=0$ 是**渐近稳定**的：\n\n1.  **正定性 (Positive Definiteness)**：\n    $$V(0) = 0$$\n    且对于所有 $x \\in \\mathcal{",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 1.0,
+          "qwen3.5:35b": 0.5
+        },
+        "median": 0.5
+      }
+    },
+    {
+      "source": "arxiv",
+      "question_id": "CS-EVO-00019",
+      "question": "考虑一个非线性系统，其微分方程为 y'' = 2y y' + u，其中 u 为输入，y 为输出，初始条件为零。试构造该系统的1阶积分逆系统（即令 φ = y'），并写出由此得到的伪线性系统的输入输出关系（即从 φ 到 y 的微分方程或传递函数）。",
+      "gold_answer": "由原方程解出 u = y'' - 2y y'。令 φ = y'，则 y'' = φ'，且 y = ∫φ dt（零初值）。代入得逆系统表达式：u = φ' - 2 (∫φ dt) φ。将逆系统与原系统串联，输入为 φ，输出为 y，复合系统满足 y' = φ，即 y = ∫φ dt，因此伪线性系统为一个积分器，其传递函数为 1/s。",
+      "generated_answer": "这是一个关于非线性系统积分逆系统（Integral Inverse System）构造的问题。我们将按照控制理论中处理非线性系统的标准步骤进行推导。\n\n### 1. 系统分析与变量代换\n\n给定的非线性系统微分方程为：\n$$ y'' = 2y y' + u $$\n初始条件：$y(0) = 0, y'(0) = 0$。\n\n题目要求构造 **1 阶积分逆系统**，并定义中间变量 $\\phi = y'$。\n这意味着我们需要将原方程中的 $y''$ 替换为 $\\phi'$（即 $\\frac{d\\phi}{dt}$），从而将二阶非线性方程转化为一阶形式。\n\n### 2. 构造积分逆系统\n\n原方程可以重写为",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.0,
+          "qwen3.5:9b": 0.5,
+          "qwen3.5:35b": 0.5
+        },
+        "median": 0.5
+      }
+    },
+    {
+      "source": "arxiv",
+      "question_id": "CS-EVO-00020",
+      "question": "针对一个具有模型不确定性的离散时间线性时不变系统，设计一个鲁棒遗憾最优输出反馈控制器。要求：1）控制目标：最小化相对于名义系统上最优非因果控制器的性能的鲁棒遗憾（Robust Regret）；2）工程约束：闭环系统对参数不确定性具有鲁棒稳定性，且干扰抑制性能优于H∞控制器。请写出完整的控制方案设计，包括建模方法、控制器设计方法的选择理由、参数设计步骤以及性能验证指标。",
+      "gold_answer": "建模：采用线性分式变换(LFT)表示不确定性：P(s)=F_l(P_nom, Δ)，其中Δ为范数有界不确定块，||Δ||_∞≤1。控制器设计：求解鲁棒遗憾最优问题min_K max_Δ Regret，其中Regret定义为实际性能与名义最优非因果控制器性能之差。理由：该方法通过谱分解将鲁棒遗憾问题转化为鲁棒综合问题，并利用DK迭代（μ综合）求解次优解。参数设计步骤：1) 建立广义被控对象，包含性能权重W_p和不确定性权重W_u；2) 求解名义最优非因果控制器K_nom；3) 计算谱因子，构建等效鲁棒综合问题；4) 运用DK迭代迭代求解D尺度化和H∞综合直到收敛。验证指标：鲁棒稳定性（结构化奇异",
+      "generated_answer": "针对具有模型不确定性的离散时间线性时不变（LTI）系统，设计满足鲁棒遗憾最优（Robust Regret Optimal）且兼顾鲁棒稳定性与干扰抑制性能的输出反馈控制器，是一个典型的混合优化问题。该问题结合了**鲁棒控制理论**（处理不确定性）、**动态规划/最优控制**（处理遗憾指标）以及**$H_\\infty$控制**（处理干扰抑制）。\n\n以下是完整的控制方案设计：\n\n---\n\n### 1. 系统建模与不确定性描述\n\n#### 1.1 名义系统模型\n设离散时间 LTI 系统的状态空间方程为：\n$$\n\\begin{cases}\nx_{k+1} = A x_k + B u_k + B_w w_",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.0,
+          "qwen3.5:9b": 0.0,
+          "qwen3.5:35b": 0.5
+        },
+        "median": 0.0
+      }
+    },
+    {
+      "source": "arxiv",
+      "question_id": "CS-EVO-00021",
+      "question": "关于继电器系统中极限环的稳定性，教材中给出了什么结论？",
+      "gold_answer": "一般稳定性条件仍然未知，但Åström和Hägglund (1984) 在自动整定调节器中给出了一些指导。",
+      "generated_answer": "在控制科学教材中，关于继电器系统（或称开关系统、理想非线性系统）中极限环稳定性的核心结论通常基于**描述函数法（Describing Function Method）**和**相平面分析法（Phase Plane Analysis）**。\n\n对于继电器系统，其非线性特性是奇对称的（即 $f(-x) = -f(x)$），因此描述函数 $N(A)$ 为纯虚数，形式为 $N(A) = \\frac{4M}{\\pi A}j$。根据描述函数法，自激振荡（极限环）存在的条件是开环频率特性 $G(j\\omega)$ 与 $-1/N(A)$ 相交。\n\n关于**稳定性**的具体结论如下：\n\n1.  **交点处的稳",
+      "deepseek_baseline": {
+        "score": 0.25,
+        "reason": "回答未具体说明教材中的结论，仅提及一般条件未知和文献，缺乏对教材常见内容（如描述函数法稳定性判据）的覆盖，且表达不完整。",
+        "issues": []
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 1.0,
+          "qwen3.5:35b": 0.5
+        },
+        "median": 0.5
+      }
+    },
+    {
+      "source": "arxiv",
+      "question_id": "CS-EVO-00022",
+      "question": "在连续时间FRNN系统的稳定性分析中，已知Lur'e系统参数为A=-I_n, B=I_n, H=W，且非线性属于MONE类。根据Lemma 1，MONE非线性允许矩阵乘子M = [[0, Q]; [Q, -2Q]]，其中Q为正定对角矩阵。将这些代入稳定性条件(5)可得到(25)。请写出(25)的具体表达式（必须用P、W、Q表示），并说明该条件为何被称为收缩证书。",
+      "gold_answer": "代入后得到线性矩阵不等式：[-2P, P+W^TQ; P+QW, -2Q] < 0，且P>0。该LMI保证了系统是收缩的（即状态轨迹指数收敛），因此被称为收缩证书。进一步等价于存在P>0使得P - (P+W^TQ)(2Q)^{-1}(P+QW) > 0，若取P=I，则得到I - (I+W^TQ)(2Q)^{-1}(I+QW) > 0，整理得I - W^TQ W > 0。",
+      "generated_answer": "基于您提供的连续时间 FRNN（模糊递归神经网络）系统参数及 MONE（单调非扩张非线性）类约束条件，以下是针对稳定性条件 (25) 的推导及其被称为“收缩证书”的解释。\n\n### 1. 稳定性条件 (25) 的具体表达式\n\n在连续时间 Lur'e 系统的稳定性分析中，通常采用 Lyapunov-Krasovskii 泛函方法。对于系统 $\\dot{x} = Ax + B\\sigma(Hx)$，其中 $A=-I_n, B=I_n, H=W$，且非线性 $\\sigma(\\cdot)$ 属于 MONE 类。\n\n根据 Lemma 1，MONE 类非线性允许使用特定的矩阵乘子 $M = \\begin{",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 0.5,
+          "qwen3.5:35b": 0.0
+        },
+        "median": 0.5
+      }
+    },
+    {
+      "source": "arxiv",
+      "question_id": "CS-EVO-00023",
+      "question": "针对教材中给出的三阶系统（加入控制输入u，使其成为y'''+8y''+17y'+10y=u），设计一个状态反馈控制器u=-Kx，使得闭环系统在初始条件y(0)=2, y'(0)=1, y''(0)=0.5下的零输入响应满足：超调量小于5%，调节时间（2%准则）小于2秒。请写出完整的控制方案，包括建模、状态反馈设计、参数计算和验证方法。",
+      "gold_answer": "建模：选取状态变量x1=y, x2=y', x3=y''，得状态空间方程：x'=Ax+Bu, y=Cx，其中A=[0 1 0; 0 0 1; -10 -17 -8], B=[0;0;1], C=[1 0 0]。控制器设计：选择极点配置，期望主导极点满足ζ≥0.707, ωn≥2.83 rad/s，取s1,2=-2±j2，另一极点s3=-10。计算反馈增益K=acker(A,B,[-2+2j -2-2j -10])得K=[? ? ?]。验证：闭环系统矩阵Acl=A-BK的特征值为期望极点，仿真零输入响应，测量超调量和调节时间，确保满足指标。",
+      "generated_answer": "### 控制方案：三阶系统状态反馈设计\n\n针对您提供的三阶系统 $y''' + 8y'' + 17y' + 10y = u$，我们需要设计状态反馈控制器 $u = -Kx$，使得闭环系统在特定初始条件下的零输入响应满足超调量 $\\sigma\\% < 5\\%$ 且调节时间 $t_s < 2s$（2%准则）。\n\n以下是完整的控制方案，包含建模、极点配置设计、参数计算及验证方法。\n\n---\n\n### 1. 系统建模与状态空间表示\n\n首先，将给定的微分方程转化为状态空间形式。\n系统方程：\n$$ \\dddot{y} + 8\\ddot{y} + 17\\dot{y} + 10y = u $$\n\n定义状态变量",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 0.0,
+          "qwen3.5:35b": 0.0
+        },
+        "median": 0.0
+      }
+    },
+    {
+      "source": "arxiv",
+      "question_id": "CS-EVO-00024",
+      "question": "给定一个CPS的因果模型签名 S_C = <U, V, R>，其中 U={u}，V={x}，基准条件下轨迹集 R 仅包含一条轨迹：x(t) = e^{-t} u(0)。如果环境变化导致传感器噪声，使得可接受的轨迹集变为 R' = { (u, x) : u(t)=U0, |x(t) - e^{-t}U0| ≤ ε }，其中 ε>0。原控制结论为：在 R 下，初始扰动 u(0)=δ 必然导致 x(t)= e^{-t}δ。问：在 R' 下，该结论是否仍然保持？并解释敏感性来源。",
+      "gold_answer": "否。在 R' 下，原结论不保持，因为轨迹集的不确定性使得 x(t) 不再是唯一确定的值，而是包含在区间 [e^{-t}δ - ε, e^{-t}δ + ε] 内的任意轨迹。反事实推理仅能在 R' 内搜索，无法保证必然性。敏感性来源于环境噪声导致轨迹集 R 的扩展，破坏了原确定性结论的成立条件。",
+      "generated_answer": "### 最终答案\n\n**结论保持（成立）。**\n\n在引入传感器噪声后的新轨迹集 $R'$ 下，原控制结论**仍然保持**。即：在 $R'$ 下，初始扰动 $u(0)=\\delta$ 依然导致系统状态 $x(t)$ 落在以 $e^{-t}\\delta$ 为中心、半径为 $\\varepsilon$ 的邻域内（具体为 $|x(t) - e^{-t}\\delta| \\le \\varepsilon$）。\n\n---\n\n### 详细推导与敏感性来源解释\n\n#### 1. 逻辑推导过程\n\n**步骤一：分析基准模型 $R$ 下的行为**\n在基准条件 $R$ 下，系统轨迹定义为 $x(t) = e^{-t}u(0",
+      "deepseek_baseline": {
+        "score": 1.0,
+        "reason": "回答完全正确：准确判断原结论不保持，并解释了轨迹不确定性导致必然性丧失，敏感性来源正确（环境噪声扩展轨迹集），表达清晰无遗漏。",
+        "issues": []
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 0.5,
+          "qwen3.5:35b": 0.5
+        },
+        "median": 0.5
+      }
+    },
+    {
+      "source": "arxiv",
+      "question_id": "CS-EVO-00025",
+      "question": "在CPS因果模型签名S_C = ⟨U, V, R⟩中，R ⊆ Trajs(U ∪ V)。若外生变量U的环境发生变化，导致其可能轨迹集从原Trajs(U)变为T ⊆ Trajs(U)，请写出在新的环境下，为了保持因果模型的一致性，新的轨迹集R'应满足的约束关系（用R、T和Trajs表示）。",
+      "gold_answer": "R'必须满足：R' ⊆ Trajs(U ∪ V)，且Proj_U(R') ⊆ T。为保留原系统中的反事实信息，应包含原R中U部分仍在T内的轨迹，即 { (r_u, r_v) ∈ R | r_u ∈ T } ⊆ R'。同时，R'中不能包含U部分不在T内的轨迹。通常取最小改变，即R' = { (r_u, r_v) ∈ R | r_u ∈ T }。",
+      "generated_answer": "在控制科学（Control Science）与因果推断（Causal Inference）的交叉领域，特别是针对**CPS（Cyber-Physical Systems）因果模型** $S_C = \\langle U, V, R \\rangle$ 的分析中，我们需要理解各符号的含义及其在环境变化下的约束逻辑：\n\n1.  **符号定义**：\n    *   $U$：外生变量（Exogenous variables），代表环境输入或不可控因素。\n    *   $V$：内生变量（Endogenous variables），代表系统状态或输出。\n    *   $R \\subseteq \\text{",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 0.5,
+          "qwen3.5:35b": 0.5
+        },
+        "median": 0.5
+      }
+    },
+    {
+      "source": "arxiv",
+      "question_id": "CS-EVO-00026",
+      "question": "给定线性定常系统：\n$$\n\\dot{\\boldsymbol{x}}(t) = \\begin{bmatrix} 0 & 1 \\\\ 0 & 0 \\end{bmatrix} \\boldsymbol{x}(t) + \\begin{bmatrix} 0 \\\\ 1 \\end{bmatrix} u(t), \\quad \\boldsymbol{y}(t) = \\begin{bmatrix} 1 & 0 \\end{bmatrix} \\boldsymbol{x}(t)\n$$\n理想输出 \\(\\hat{z}=1\\)，性能指标\n$$\nJ = \\int_0^\\infty \\left[ (1 - y(t))^2 + u^2",
+      "gold_answer": "近似最优控制为 \\(\\hat{u}^*(t) = 1 - x_1(t) - \\sqrt{2} x_2(t)\\)。推导过程见推理步骤。",
+      "generated_answer": "这是一个典型的**线性二次型调节器（LQR）问题**，但目标函数中包含了一个非零的理想输出 $\\hat{z}=1$。标准的 LQR 问题通常要求系统稳定地跟踪零输出或平衡点。\n\n为了求解该问题，我们需要先确定系统的平衡点，然后通过坐标变换将问题转化为标准的零平衡点 LQR 问题，最后求解黎卡提方程（Riccati Equation）得到最优控制律。\n\n### 1. 确定平衡点与坐标变换\n\n系统的状态方程为：\n$$ \\dot{\\boldsymbol{x}} = A\\boldsymbol{x} + B u $$\n$$ A = \\begin{bmatrix} 0 & 1 \\\\ 0 & 0 \\end{",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.0,
+          "qwen3.5:9b": 0.5,
+          "qwen3.5:35b": 0.0
+        },
+        "median": 0.0
+      }
+    },
+    {
+      "source": "arxiv",
+      "question_id": "CS-EVO-00027",
+      "question": "对于一个一阶系统 dx/dt = -x + u，初始条件 x(0)=1，终端时刻 t_f=1 固定。要求设计一个最优控制方案，使得终端状态 x(1) 尽可能接近 0 且控制能量最小，性能指标为 J = (1/2) x(1)^2 + (1/2) ∫_0^1 u^2 dt。请给出完整的控制方案，包括系统建模、控制方法选择理由、参数设计步骤（如权重确定）以及验证指标。",
+      "gold_answer": "系统建模为线性定常系统。选择变分法（最优控制理论）求解，因为性能指标为波尔扎型，且无终端不等式约束。构造哈密顿函数 H = (1/2) u^2 + ψ(-x+u)，协态方程 dψ/dt = -∂H/∂x = ψ，边界条件 ψ(1)=∂φ/∂x|_1 = x(1)，最优控制条件 ∂H/∂u = u + ψ = 0 ⇒ u = -ψ。求解两点边值问题：由协态方程得 ψ(t)=Ce^t，由终端条件得 C e = x(1)；状态方程 dx/dt = -x - Ce^t，解得 x(t)= (1+C/2)e^{-t} - (C/2)e^t，由 x(0)=1 得 1+C/2 - C/2 =1 恒等，故需用终",
+      "generated_answer": "### 系统建模与控制方案设计\n\n针对您提出的一阶系统最优控制问题，以下是完整的控制方案，包含系统建模、方法选择、参数设计及验证过程。\n\n#### 1. 系统建模与问题定义\n\n**系统动力学方程：**\n$$ \\dot{x}(t) = -x(t) + u(t), \\quad x(0) = 1 $$\n其中：\n- $x(t)$ 为系统状态。\n- $u(t)$ 为控制输入。\n- 终端时刻 $t_f = 1$ 固定。\n\n**性能指标函数（Cost Function）：**\n$$ J = \\frac{1}{2} x(1)^2 + \\frac{1}{2} \\int_{0}^{1} u(t)^2 dt $$\n",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 0.5,
+          "qwen3.5:35b": 0.5
+        },
+        "median": 0.5
+      }
+    },
+    {
+      "source": "arxiv",
+      "question_id": "CS-EVO-00028",
+      "question": "请写出教材中估计问题(4.10)的最优终端状态递归表达式，并说明式中各符号的物理含义。",
+      "gold_answer": "最优终端状态递归表达式为 \\(\\tilde{x}^0(k+1;a) = (A - \\tilde{L}(k)C) \\tilde{x}^0(k;a)\\)。其中 \\(\\tilde{x}^0(k;a)\\) 是参数 \\(a\\) 下的第 \\(k\\) 步最优终端估计状态；\\(A\\) 和 \\(C\\) 是系统状态转移矩阵和输出矩阵；\\(\\tilde{L}(k)\\) 是估计器增益矩阵，通常由卡尔曼滤波或类似方法确定。该递归式通过前向动态规划求解估计问题得到，描述了终端估计误差随时间的动态衰减过程。",
+      "generated_answer": "在控制科学（特别是随机控制与滤波理论）的经典教材（如 *Stochastic Control and Estimation Theory* by H. J. Kushner 或 *Estimation and Control* by J. A. B. Fortescue 等）中，**估计问题 (4.10)** 通常指代基于卡尔曼滤波（Kalman Filter）框架下的**最优状态估计**问题。该问题旨在通过观测数据 $y(t)$ 递归地估计系统状态 $x(t)$，使得估计误差的均方值最小。\n\n以下是该问题的最优终端状态（即最优状态估计）的递归表达式及其符号物理含义：\n\n### 1. 最优终端",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.0,
+          "qwen3.5:9b": 0.5,
+          "qwen3.5:35b": 0.0
+        },
+        "median": 0.0
+      }
+    },
+    {
+      "source": "arxiv",
+      "question_id": "CS-EVO-00029",
+      "question": "给定一维非线性系统：状态方程 x_{k+1}=x_k^2+u_k，测量方程 y_k=x_k^3+v_k。已知在时刻 k，后验估计 x_{k|k}=1，后验协方差 Σ_{k|k}=0.1，控制输入 u_k=0，过程噪声协方差 Σ_w=0.01，测量噪声协方差 Σ_v=0.04。请计算EKF的一步预测协方差 Σ_{k+1|k} 以及卡尔曼增益 Ω_{k+1}（假设在k+1时刻测量值 y_{k+1} 尚未得到，但需要计算 Ω_{k+1} 用于后续更新）。",
+      "gold_answer": "Σ_{k+1|k}=0.41，Ω_{k+1}=1.23/3.73≈0.3298。推导过程见步骤。",
+      "generated_answer": "这是一个关于扩展卡尔曼滤波（EKF）状态预测和卡尔曼增益计算的问题。我们将按照 EKF 的标准步骤进行推导。\n\n### 1. 定义已知参数\n\n*   **状态方程**：$x_{k+1} = f(x_k, u_k) = x_k^2 + u_k$\n*   **测量方程**：$y_k = h(x_k) + v_k = x_k^3 + v_k$\n*   **时刻 $k$ 的后验估计**：$\\hat{x}_{k|k} = 1$\n*   **时刻 $k$ 的后验协方差**：$P_{k|k} = \\Sigma_{k|k} = 0.1$\n*   **控制输入**：$u_k = 0$\n*   **过程噪声协方差",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 0.5,
+          "qwen3.5:35b": 0.5
+        },
+        "median": 0.5
+      }
+    },
+    {
+      "source": "arxiv",
+      "question_id": "CS-EVO-00030",
+      "question": "基于教材内容中系统z(t)的动态（方程(107)），设计控制器参数κ1, κ2, κ3, c，使得输出Γ^p*(t)指数稳定，且收敛速率不低于e^{-ηt}。给出参数选择步骤和验证指标。",
+      "gold_answer": "建模：系统状态z(t)=[Γ^p*(t); m^p(t)]^T，动态ż=Az+ν，A特征值-η和1+ε0，ν包含可调参数。控制器设计：选择参数满足θκ1-ε1>0, θκ2-ε2>0, θκ3-ε3>0, c>0，使得ν(t)包含反馈项抵消正特征值。由(111)和(110)，D e^{A(t-ξ)}ν(ξ)积分被负定函数控制导致指数衰减。验证指标：构造Lyapunov函数V=||z||^2，得V̇≤-2ηV，故||Γ^p*(t)||≤K e^{-η(t-nh)}||z(nh)||，满足收敛速率要求。",
+      "generated_answer": "由于您未提供具体的教材原文、方程 (107) 的数学表达式以及系统 $z(t)$ 的具体结构（例如状态空间形式、非线性项或外部扰动形式），作为控制科学专家，我将基于**线性时不变 (LTI) 系统极点配置**或**线性化后的指数稳定控制**这一最通用的控制理论框架，为您构建一套严谨的参数设计步骤与验证指标。\n\n假设方程 (107) 描述的系统在平衡点附近可线性化为如下标准状态空间形式：\n$$ \\dot{z}(t) = A z(t) + B u(t) $$\n$$ \\Gamma^p(t) = C z(t) $$\n其中控制器设计为状态反馈形式 $u(t) = -K z(t) = -[\\kappa_1",
+      "deepseek_baseline": {
+        "score": 0.0,
+        "reason": "LLM 返回格式异常，无法解析: ",
+        "issues": [
+          "LLM judge response parse failure"
+        ]
+      },
+      "ollama_consensus": {
+        "scores": {
+          "qwen3.5:4b": 0.5,
+          "qwen3.5:9b": 0.5,
+          "qwen3.5:35b": 0.5
+        },
+        "median": 0.5
+      }
+    }
+  ]
+}

@@ -2,12 +2,20 @@ import { PROFILE_LABELS, privacyBoundaryText } from '../../lib/runtimeDefaults';
 
 export default function RuntimeSummary({ runtimeConfig, variant = 'default', extraItems = [] }) {
   const isMedical = variant === 'medical';
+  const isTrack1 = variant === 'track1';
   const items = isMedical ? [
     ['策略', PROFILE_LABELS[runtimeConfig?.profile] || runtimeConfig?.profile || '-'],
     ['RAG 后端', '本地私有'],
     ['本地模型', runtimeConfig?.local_model || '未选择'],
     ['检索索引', displayRetrievalIndex(runtimeConfig?.retrieval_index)],
     ['来源合成', runtimeConfig?.t3_synthesis || runtimeConfig?.local_model || '本地模型'],
+    ...extraItems,
+  ] : isTrack1 ? [
+    ['策略', PROFILE_LABELS[runtimeConfig?.profile] || runtimeConfig?.profile || '-'],
+    ['解析', runtimeConfig?.parser_backend || 'replay'],
+    ['答题模型', runtimeConfig?.t1_answer_model || 'replay'],
+    ['Judge', runtimeConfig?.t1_judge_model || 'replay'],
+    ['云端授权', runtimeConfig?.allow_cloud_upload ? '已授权' : '未授权'],
     ...extraItems,
   ] : [
     ['策略', PROFILE_LABELS[runtimeConfig?.profile] || runtimeConfig?.profile || '-'],
@@ -29,7 +37,7 @@ export default function RuntimeSummary({ runtimeConfig, variant = 'default', ext
         ))}
       </div>
       <div className="mt-2 text-[11px] text-gray-600 leading-relaxed">
-        {isMedical ? '医学 RAG 的检索上下文、chunk、索引与合成均在后端私有环境内完成，不依赖云端 API。' : privacyBoundaryText(runtimeConfig)}
+        {isMedical ? '医学 RAG 的检索上下文、chunk、索引与合成均在后端私有环境内完成，不依赖云端 API。' : isTrack1 ? `Track1 工作台只呈现最小复现链路；${privacyBoundaryText(runtimeConfig)}` : privacyBoundaryText(runtimeConfig)}
       </div>
     </div>
   );

@@ -17,11 +17,11 @@ export const PROFILE_PRESETS = {
 };
 
 export const PROFILE_LABELS = {
-  pure_cloud_demo: '公开云端 Demo',
+  pure_cloud_demo: '在线展示版',
 };
 
 export function privacyBoundaryText() {
-  return '公开演示工作台只处理公开或脱敏材料；私有原文、chunk、向量索引和批量实验不进入云端。';
+  return '在线展示版只处理公开或脱敏材料；私有原文、chunk、向量索引和批量实验不进入云端。';
 }
 
 export function mergeRuntimeDefaults(options, current) {

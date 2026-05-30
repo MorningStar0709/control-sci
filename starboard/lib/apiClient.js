@@ -118,8 +118,13 @@ export async function startApiSequenceTask(steps, options = {}) {
   }, { timeoutMs: 12000 });
 }
 
-export async function getApiTask(taskId, options = {}) {
-  return apiGet(`/api/tasks/status/${encodeURIComponent(taskId)}`, options);
+export async function getApiTask(task, options = {}) {
+  const taskId = typeof task === 'string' ? task : task?.id;
+  const ownerToken = typeof task === 'string' ? options.ownerToken : (task?.owner_token || options.ownerToken);
+  const headers = ownerToken
+    ? { ...(options.headers || {}), 'x-task-token': ownerToken }
+    : options.headers;
+  return apiGet(`/api/tasks/status/${encodeURIComponent(taskId)}`, { ...options, headers });
 }
 
 export function toFailure(message, data = {}) {

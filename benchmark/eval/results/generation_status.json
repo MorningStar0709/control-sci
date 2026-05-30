@@ -1,0 +1,30 @@
+{
+  "progress": "30/30",
+  "percent": 100.0,
+  "rate": 1.3,
+  "eta_min": 0,
+  "dimensions": {
+    "A": 6,
+    "B": 9,
+    "C": 6,
+    "D": 9
+  },
+  "consecutive_failures": 0,
+  "questions_since_reset": 12,
+  "token_usage": {
+    "prompt": 82076,
+    "completion": 127242
+  },
+  "elapsed_sec": 1406.0,
+  "provider": "deepseek",
+  "seed": 42,
+  "status": "completed",
+  "quality": {
+    "total_checks": 60,
+    "bad_checks": 0,
+    "reset_count": 1,
+    "consecutive_bad": 0,
+    "bad_ratio": 0.0
+  },
+  "last_updated": "15:05:37"
+}

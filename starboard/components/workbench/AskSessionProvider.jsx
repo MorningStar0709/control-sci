@@ -38,6 +38,7 @@ export function AskSessionProvider({ children }) {
   const [error, setError] = useState('');
   const [pendingQuestion, setPendingQuestion] = useState('');
   const [pendingTaskId, setPendingTaskId] = useState('');
+  const [pendingTaskToken, setPendingTaskToken] = useState('');
   const [pendingTaskStartedAt, setPendingTaskStartedAt] = useState(0);
   const [hydrated, setHydrated] = useState(false);
   const sessionIdRef = useRef(createSessionId());
@@ -98,6 +99,7 @@ export function AskSessionProvider({ children }) {
       setLoading(false);
       setPendingQuestion('');
       setPendingTaskId('');
+      setPendingTaskToken('');
       setPendingTaskStartedAt(0);
       inFlightRef.current = null;
       return true;
@@ -114,7 +116,7 @@ export function AskSessionProvider({ children }) {
     return false;
   }, []);
 
-  const pollTask = useCallback(async (taskId, startedAt) => {
+  const pollTask = useCallback(async (taskId, ownerToken, startedAt) => {
     if (!taskId) return;
     if (isClientTaskExpired(startedAt)) {
       finishTask({ status: 'failed', error: '任务状态已过期，请重新提问。' });
@@ -125,7 +127,7 @@ export function AskSessionProvider({ children }) {
         finishTask({ status: 'failed', error: '任务超时，请重新提问。' });
         return;
       }
-      const response = await getApiTask(taskId, { timeoutMs: 12000 });
+      const response = await getApiTask({ id: taskId, owner_token: ownerToken }, { timeoutMs: 12000 });
       if (!response.ok) {
         finishTask({ status: 'failed', error: response.error || '任务状态恢复失败' });
         return;
@@ -137,9 +139,9 @@ export function AskSessionProvider({ children }) {
 
   useEffect(() => {
     if (hydrated && pendingTaskId && loading) {
-      pollTask(pendingTaskId, pendingTaskStartedAt);
+      pollTask(pendingTaskId, pendingTaskToken, pendingTaskStartedAt);
     }
-  }, [hydrated, loading, pendingTaskId, pendingTaskStartedAt, pollTask]);
+  }, [hydrated, loading, pendingTaskId, pendingTaskStartedAt, pendingTaskToken, pollTask]);
 
   const clearChat = useCallback(() => {
     if (inFlightRef.current) return;
@@ -148,6 +150,7 @@ export function AskSessionProvider({ children }) {
     setError('');
     setPendingQuestion('');
     setPendingTaskId('');
+    setPendingTaskToken('');
     setPendingTaskStartedAt(0);
     setQuestion(DEFAULT_QUESTION);
   }, []);
@@ -167,6 +170,8 @@ export function AskSessionProvider({ children }) {
     setQuestion('');
     setError('');
     setPendingQuestion(text);
+    setPendingTaskId('');
+    setPendingTaskToken('');
 
     if (localFollowup) {
       setMessages(prev => [
@@ -177,6 +182,7 @@ export function AskSessionProvider({ children }) {
       setLoading(false);
       setPendingQuestion('');
       setPendingTaskId('');
+      setPendingTaskToken('');
       setPendingTaskStartedAt(0);
       inFlightRef.current = null;
       return;
@@ -201,6 +207,7 @@ export function AskSessionProvider({ children }) {
       setLoading(false);
       setPendingQuestion('');
       setPendingTaskId('');
+      setPendingTaskToken('');
       setPendingTaskStartedAt(0);
       inFlightRef.current = null;
       return;
@@ -229,6 +236,7 @@ export function AskSessionProvider({ children }) {
       setLoading(false);
       setPendingQuestion('');
       setPendingTaskStartedAt(0);
+      setPendingTaskToken('');
       inFlightRef.current = null;
       return;
     }
@@ -236,6 +244,7 @@ export function AskSessionProvider({ children }) {
     const taskId = response.data.id;
     inFlightRef.current = taskId;
     setPendingTaskStartedAt(Date.now());
+    setPendingTaskToken(response.data.owner_token || '');
     setPendingTaskId(taskId);
   }, [indexId, mode, question]);
 

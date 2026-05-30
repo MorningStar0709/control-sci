@@ -1,0 +1,31 @@
+{
+  "paper_count": 339,
+  "year_distribution": {
+    "2022": 82,
+    "2023": 75,
+    "2024": 72,
+    "2025": 76,
+    "2026": 34
+  },
+  "paper_formula_distribution": {
+    "无公式": 5,
+    "1-50": 12,
+    "51-200": 113,
+    "201-500": 156,
+    "501-1000": 40,
+    "1000+": 13
+  },
+  "paper_token_distribution": {
+    "0-5K": 0,
+    "5K-10K": 3,
+    "10K-20K": 117,
+    "20K-50K": 188,
+    "50K-100K": 27,
+    "100K+": 4
+  },
+  "paper_avg_tokens": 31926.0,
+  "paper_total_tokens": 10822970,
+  "paper_avg_formulas": 345.0,
+  "paper_total_formulas": 116883,
+  "paper_avg_images": 12.7
+}

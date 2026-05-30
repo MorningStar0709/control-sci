@@ -1,0 +1,74 @@
+[
+  {
+    "doc_name": "自动控制原理_胡寿松",
+    "pdf_size_mb": 69.6,
+    "total_pages": 635,
+    "pymupdf": {
+      "processing_seconds": 0.303,
+      "seconds_per_page": 0.0005,
+      "total_chars": 634,
+      "math_unicode_chars": 0,
+      "formula_dense_pages": [
+        {
+          "page": 1,
+          "parse_time_ms": 0.0,
+          "char_count": 0,
+          "math_unicode_chars": 0,
+          "latex_keyword_count": 0,
+          "short_line_count": 0,
+          "whitespace_ratio": 0.0,
+          "raw_text_snippet": "[empty page]"
+        },
+        {
+          "page": 2,
+          "parse_time_ms": 0.0,
+          "char_count": 0,
+          "math_unicode_chars": 0,
+          "latex_keyword_count": 0,
+          "short_line_count": 0,
+          "whitespace_ratio": 0.0,
+          "raw_text_snippet": "[empty page]"
+        },
+        {
+          "page": 3,
+          "parse_time_ms": 0.0,
+          "char_count": 0,
+          "math_unicode_chars": 0,
+          "latex_keyword_count": 0,
+          "short_line_count": 0,
+          "whitespace_ratio": 0.0,
+          "raw_text_snippet": "[empty page]"
+        },
+        {
+          "page": 4,
+          "parse_time_ms": 0.0,
+          "char_count": 0,
+          "math_unicode_chars": 0,
+          "latex_keyword_count": 0,
+          "short_line_count": 0,
+          "whitespace_ratio": 0.0,
+          "raw_text_snippet": "[empty page]"
+        },
+        {
+          "page": 5,
+          "parse_time_ms": 0.0,
+          "char_count": 0,
+          "math_unicode_chars": 0,
+          "latex_keyword_count": 0,
+          "short_line_count": 0,
+          "whitespace_ratio": 0.0,
+          "raw_text_snippet": "[empty page]"
+        }
+      ]
+    },
+    "mineru": {
+      "total_chars": 1312750,
+      "formula_count": 9970,
+      "block_formulas": 2845,
+      "inline_formulas": 7125,
+      "formulas_with_tag": 8,
+      "chars_per_formula": 131.7
+    },
+    "match_rate_pct": 0.0
+  }
+]

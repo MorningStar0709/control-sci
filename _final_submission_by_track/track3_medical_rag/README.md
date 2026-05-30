@@ -1,6 +1,6 @@
 # 赛道三提交包：Medical RAG
 
-本目录是赛道三“行业应用转化 / 医疗文献 RAG”独立提交包。这里是最终提交副本，权威编辑源仍保留在项目根目录的 `docs/submissions/`。
+本目录是赛道三“行业应用转化 / 医疗文献 RAG”独立提交包，提供技术报告、26 个代表案例、部署说明、云端 / 本地边界说明、运行脚本与可审计证据索引；完整代码与可执行复现环境见 GitHub 仓库。
 
 ## 一屏入口
 
@@ -8,26 +8,26 @@
 |:---|:---|
 | 快速验证指南 | [quickstart.md](quickstart.md) |
 | 主技术报告 | [track3_medical_rag_report.md](track3_medical_rag_report.md) |
-| 代表案例 | [track3_medical_rag_20_cases.md](track3_medical_rag_20_cases.md) |
+| 26 个代表案例 | [track3_medical_rag_20_cases.md](track3_medical_rag_20_cases.md) |
 | 部署与 API 说明 | [track3_medical_deploy.md](track3_medical_deploy.md) |
 | 云端 Demo 导览 | [shared/cloud_demo_walkthrough.md](shared/cloud_demo_walkthrough.md) |
 | 公开云端 / 本地私有边界 | [shared/public_cloud_boundary.md](shared/public_cloud_boundary.md) |
 | 数据溯源 | [shared/DATA-TRACE.md](shared/DATA-TRACE.md) |
 | 证据包 | [data_trace_bundle/](data_trace_bundle/) |
-| 图表资产 | [assets/task3/](assets/task3/) |
+| 图表资产 | [shared/assets/](shared/assets/) |
 | Docker 与运行脚本 | [run/](run/) |
 | 演示 PPT 与视频 | [bonus/](bonus/) |
 | 可选 npm 启动壳 | [npm/controlmind/](npm/controlmind/) |
 
-> 演示视频（约 114 MB）因超过 GitHub 单文件 100 MB 限制，未上传至 GitHub 仓库。PPT 已在 bonus/ 中。
+> 本地最终提交包的 `bonus/` 目录包含 PPT 与演示视频。若同步到 GitHub 仓库，视频可能因超过单文件 100 MB 限制而不随仓库上传，评审以本地最终提交包内容为准。
 
 ## 公开入口
 
 | 项目 | 链接 |
 |:---|:---|
-| GitHub | https://github.com/MorningStar0709/control-sci |
-| HuggingFace 数据集 | https://huggingface.co/datasets/MorningStar0709/control-sci-corpus |
-| 云端 Demo | https://demo.askiler.com/ |
+| GitHub | [https://github.com/MorningStar0709/control-sci](https://github.com/MorningStar0709/control-sci) |
+| HuggingFace 数据集 | [https://huggingface.co/datasets/MorningStar0709/control-sci-corpus](https://huggingface.co/datasets/MorningStar0709/control-sci-corpus) |
+| 云端 Demo | [https://demo.askiler.com/](https://demo.askiler.com/) |
 | Demo 访问码 | `ControlMind@2026` |
 
 ## 最小验证命令
@@ -47,11 +47,17 @@ controlmind wrapper-doctor
 controlmind track3 eval --case-set zh_ask
 ```
 
-快速查看样例：
+完整源码仓库 quick demo：
 
 ```powershell
-conda run -n myenv python demo/cli/controlscidemo track3 --quick
-.\run_reviewer_demo.ps1 -Track 3
+conda run --no-capture-output -n myenv python demo/cli/controlscidemo track3 --quick
+```
+
+**EvidenceOnly 复核**：final bundle 作为独立包时，无需源码或完整环境即可核验已复制证据、manifest、supplemental summary 与 deployment smoke matrix：
+
+```powershell
+.\run\verify_task3_demo.ps1 -EvidenceOnly
+.\run\run_task3_rag_flywheel.ps1 -EvidenceOnly -SkipSupplemental
 ```
 
 ## 提交说明

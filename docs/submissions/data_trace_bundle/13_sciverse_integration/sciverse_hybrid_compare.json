@@ -1,0 +1,617 @@
+{
+  "generated_at": "2026-05-22T13:38:11.194987+00:00",
+  "input": {
+    "trace_path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\eval\\results\\medical_rag_zh_ask_traces.jsonl",
+    "manifest_path": "D:\\WorkPlace\\AI\\MinerU\\data\\sources_medical\\chunks\\chunks_manifest.json",
+    "index_dir": "D:\\WorkPlace\\AI\\MinerU\\data\\sources_medical\\index",
+    "top_k": 5
+  },
+  "summary": {
+    "case_count": 6,
+    "local_hybrid": {
+      "claim_support_rate": 1.0,
+      "avg_hits": 5.0
+    },
+    "sciverse": {
+      "claim_support_rate": 1.0,
+      "avg_hits": 5.0
+    },
+    "avg_overlap_rate": 0.0
+  },
+  "cases": [
+    {
+      "case_id": "zh_primary_endpoint_safety",
+      "query_zh": "主要终点和安全性证据",
+      "search_query": "primary endpoint outcome safety adverse events",
+      "target_terms": [
+        "primary endpoint",
+        "adverse event",
+        "adverse events",
+        "safety"
+      ],
+      "target_labels": [
+        "primary_outcome",
+        "secondary_outcome",
+        "outcome_measures",
+        "adverse_events"
+      ],
+      "overlap": {
+        "overlap": 0,
+        "overlap_rate": 0.0,
+        "hybrid_only": 5,
+        "sciverse_only": 5
+      },
+      "local_hybrid": {
+        "results": [
+          {
+            "rank": 1,
+            "chunk_id": "PMC3002358_chunk_012",
+            "score": 0.016393,
+            "preview": "# Primary outcome measures",
+            "medical_label": "primary_outcome"
+          },
+          {
+            "rank": 2,
+            "chunk_id": "PMC8600696_chunk_007",
+            "score": 0.016393,
+            "preview": "# Endpoints\n\nThe primary endpoint is overall survival after R0/R1 resection (OS-res) (only patients with R0/R1 resection).\n\nSecondary efficacy endpoints are OS of the entire patients cohort, R0/R1 res",
+            "medical_label": "_introduction_other"
+          },
+          {
+            "rank": 3,
+            "chunk_id": "PMC12574440_chunk_034",
+            "score": 0.016129,
+            "preview": "# Other secondary efficacy endpoints",
+            "medical_label": "outcome_measures"
+          },
+          {
+            "rank": 4,
+            "chunk_id": "PMC11622436_chunk_008",
+            "score": 0.016129,
+            "preview": "# PK Efficacy and PK Safety Analysis\n\nWe used steady-state area under the concentration–time curve $( \\mathrm { A U C } _ { \\mathrm { s s } } )$ and peak concentration $\\mathrm { ( C _ { m a x } ) }$ ",
+            "medical_label": "_statistical_analysis_other"
+          },
+          {
+            "rank": 5,
+            "chunk_id": "PMC10882371_chunk_016",
+            "score": 0.015873,
+            "preview": "# Secondary outcome measures",
+            "medical_label": "secondary_outcome"
+          }
+        ],
+        "claim_support": true,
+        "hit_count": 5
+      },
+      "sciverse": {
+        "results": [
+          {
+            "rank": 1,
+            "score": 0.9948447942733765,
+            "chunk_id": "b2a6728b59bc76b36c3efa35ae757544fc1b8335c20486bb26e5f07bf1c37a5d",
+            "preview": "\n\nThe primary safety endpoint was a composite of major adverse events (MAEs) comprising death, any major amputation performed on the index limb, and CDTLR through 30 days. The primary effectiveness ou"
+          },
+          {
+            "rank": 2,
+            "score": 0.9936445951461792,
+            "chunk_id": "c7cc1c42eaefa47430ac7c647b10461dddc839fc40a755454cc7f048cf0726f7",
+            "preview": "\n\nThe primary outcome measures pertained to efficacy and safety of HCQ to prevent SARS-CoV-2 infection up to 4  weeks after randomisation. The primary efficacy endpoint was a positive polymerase chain"
+          },
+          {
+            "rank": 3,
+            "score": 0.9928221106529236,
+            "chunk_id": "f08ca49ceee544fb400f0bb62dd5b46945dcdcb0ecb718cb9fc70c8497f02e4a",
+            "preview": "\n\nPrimary and secondary outcome measures  The primary endpoint was safety, assessed by incidence of treatment-­emergent adverse events (TEAEs). Progressionfree survival (PFS) per investigator was the "
+          },
+          {
+            "rank": 4,
+            "score": 0.9913561344146729,
+            "chunk_id": "4922383f41f0317299d165aff9f6876ea7b3432bfe8f4aa5ba06fb8517f7cc36",
+            "preview": "\n\nPrimary outcome The requirement of noninvasive ventilation, intubation, or death. When a patient died after ventilator requirement, the timing of the primary endpoint was defined as the time of the "
+          },
+          {
+            "rank": 5,
+            "score": 0.9909408688545227,
+            "chunk_id": "ac23b5e92c9f55715d70b539e66183ff281ba566e2f4dfe966602a07e9f6c63d",
+            "preview": "\n\nThe primary efficacy endpoint was change in M. tuberculosis $\\mathrm{log_{10}C F U/m L}$ in sputum at 8 weeks on 7H11 Middlebrook medium. The secondary efficacy endpoint reported here is culture neg"
+          }
+        ],
+        "claim_support": true,
+        "hit_count": 5
+      }
+    },
+    {
+      "case_id": "zh_survival_endpoint",
+      "query_zh": "总生存和无进展生存证据",
+      "search_query": "overall survival progression free",
+      "target_terms": [
+        "overall survival",
+        "progression-free survival",
+        "progression free survival"
+      ],
+      "target_labels": [
+        "primary_outcome",
+        "secondary_outcome",
+        "outcome_measures",
+        "statistical_analysis"
+      ],
+      "overlap": {
+        "overlap": 0,
+        "overlap_rate": 0.0,
+        "hybrid_only": 5,
+        "sciverse_only": 5
+      },
+      "local_hybrid": {
+        "results": [
+          {
+            "rank": 1,
+            "chunk_id": "PMC12928687_chunk_024",
+            "score": 0.030679,
+            "preview": "# Secondary End Points\n\nTwelve- and 24-month overall survival as well as distant progression-free survival will be evaluated by Kaplan-Meier analysis. All other secondary end points will be descriptiv",
+            "medical_label": "_statistical_analysis_other"
+          },
+          {
+            "rank": 2,
+            "chunk_id": "PMC6937062_chunk_006",
+            "score": 0.016393,
+            "preview": "# Background\n\nProstate cancer (PC) is the most common male cancer in the UK and the second highest cause of male cancer death.1 In large part, PC is a slowly progressive disease and when detected at a",
+            "medical_label": "introduction"
+          },
+          {
+            "rank": 3,
+            "chunk_id": "PMC10882371_chunk_024",
+            "score": 0.016129,
+            "preview": "# Tertiary outcome measures",
+            "medical_label": "outcome_measures"
+          },
+          {
+            "rank": 4,
+            "chunk_id": "PMC6937062_chunk_026",
+            "score": 0.016129,
+            "preview": "# Clinical outcome measures\n\n1. Time to PSA progression; Confirmed rising PSA more than 12 weeks after randomisation. (Where there has been a decline in PSA from baseline, progression will be a 25% or",
+            "medical_label": "outcome_measures"
+          },
+          {
+            "rank": 5,
+            "chunk_id": "PMC10829799_chunk_008",
+            "score": 0.015873,
+            "preview": "# Outcome Measures",
+            "medical_label": "outcome_measures"
+          }
+        ],
+        "claim_support": true,
+        "hit_count": 5
+      },
+      "sciverse": {
+        "results": [
+          {
+            "rank": 1,
+            "score": 0.9858076572418213,
+            "chunk_id": "eadd643b4c15363b5323365c1a1b3a42a35b40528676298bb4048697d991c219",
+            "preview": "\n\nProgression-free survival was calculated as the time from diagnosis to recurrence or death from any cause in the absence of known recurrence. Patients not recurring were censored at the time of last"
+          },
+          {
+            "rank": 2,
+            "score": 0.9790703058242798,
+            "chunk_id": "140f2db1fe9fc166b610c2069444a0748362a23f82c0e69422d5458a32d85176",
+            "preview": "\n\n# Statistical analysis\n\nPatient characteristics were summarized using median and interquartile range (IQR) for continuous variables and percentage for categorical variables. Progression-free surviva"
+          },
+          {
+            "rank": 3,
+            "score": 0.9771684408187866,
+            "chunk_id": "13271cb98bd2117d7f0b09ff41163948d7f5065dd4b496d824272a5593c8330a",
+            "preview": "# Andrea Necchi et al\n\nFigure 1 Kaplan-Meier Curves. These Graphs Show Progression-Free Survival (A) and Overall Survival (B) for the Entire Series (n [ 157) and Progression-Free Survival (C) and Over"
+          },
+          {
+            "rank": 4,
+            "score": 0.9764915108680725,
+            "chunk_id": "8622f23796ab9bf026a259b058dacf26553d70ce1cb47c7e4c4bd57551e9659c",
+            "preview": "ble III. Multivariate analysis of progression-free and overall survival in 60 patients with mucinous ovarian carcinomas.\n\n![](dt=2025-06-16/ht=21/8d8771a93883b7c72d5fe74db49f1cea0d9a645f1d8a9d7aa0dfd5"
+          },
+          {
+            "rank": 5,
+            "score": 0.9692423939704895,
+            "chunk_id": "59789c9f144affab05b17d1a826a7933aaa42d6085e62760e0d2aecb5f6f5eef",
+            "preview": "Figure 2. (a) Overall survival and abscopal progression free survival in all the patients. (b) Overall survival according to abscopal progression free response\n\n![](dt=2025-06-18/ht=16/0e8a82876daea6a"
+          }
+        ],
+        "claim_support": true,
+        "hit_count": 5
+      }
+    },
+    {
+      "case_id": "zh_chemo_toxicity",
+      "query_zh": "化疗剂量减少和治疗延迟的不良事件证据",
+      "search_query": "chemotherapy dose reduction treatment delay adverse events",
+      "target_terms": [
+        "chemotherapy",
+        "dose reduction",
+        "treatment delay",
+        "adverse events",
+        "toxicit"
+      ],
+      "target_labels": [
+        "intervention",
+        "secondary_outcome",
+        "adverse_events"
+      ],
+      "overlap": {
+        "overlap": 0,
+        "overlap_rate": 0.0,
+        "hybrid_only": 5,
+        "sciverse_only": 5
+      },
+      "local_hybrid": {
+        "results": [
+          {
+            "rank": 1,
+            "chunk_id": "PMC5490215_chunk_019",
+            "score": 0.032522,
+            "preview": "# Secondary outcomes\n\nSecondary endpoints include adverse events (registered for every chemotherapy cycle after CTC criteria version 4.0), dose reductions, treatment delays (which follow the standardi",
+            "medical_label": "secondary_outcome"
+          },
+          {
+            "rank": 2,
+            "chunk_id": "PMC5490215_chunk_016",
+            "score": 0.03101,
+            "preview": "# The oncological treatment\n\nThe standard adjuvant chemotherapy is outlined in Table 2. The standard dose is based on body surface area (BSA), with a possible 25% primary dose reduction in frail patie",
+            "medical_label": "intervention"
+          },
+          {
+            "rank": 3,
+            "chunk_id": "PMC8600696_chunk_015",
+            "score": 0.016393,
+            "preview": "# Dose modifications and prerequisites for the start of a new cycle\n\nDoses will be reduced for haematological and nonhaematological toxicities. In case of concurrent toxicities, all dose modifications",
+            "medical_label": "intervention"
+          },
+          {
+            "rank": 4,
+            "chunk_id": "PMC11466402_chunk_015",
+            "score": 0.016129,
+            "preview": "# Extension Regimen Determination",
+            "medical_label": "intervention"
+          },
+          {
+            "rank": 5,
+            "chunk_id": "PMC10829799_chunk_000",
+            "score": 0.015873,
+            "preview": "# Clinical Trials",
+            "medical_label": "other"
+          }
+        ],
+        "claim_support": true,
+        "hit_count": 5
+      },
+      "sciverse": {
+        "results": [
+          {
+            "rank": 1,
+            "score": 0.9974331259727478,
+            "chunk_id": "1788eccfb7b2a2b1a7687f7e8adca26f4a7ff95f4d70a17285ca55de3ab4ba14",
+            "preview": "\n\nThe majority of these patients \\((70\\%)\\) required some form of dose reduction or delay during nPG. Hematologic adverse events were the most common etiologies for dose reduction or delay, with \\(62\\"
+          },
+          {
+            "rank": 2,
+            "score": 0.9967781901359558,
+            "chunk_id": "e8fb2dcf960faf2a7c10765c371cbff3a45cd72a60a86a9243c0eb7931caeeae",
+            "preview": "\n\n# 3.4 | Compliance, dose delay and dose reduction\n\nCompliance with chemotherapy over the study period was \\(100\\%\\) in all patients. Delay in the administration of chemotherapy was seen in four pati"
+          },
+          {
+            "rank": 3,
+            "score": 0.9959661960601807,
+            "chunk_id": "baff76b2c594c89c43388f7d12eaee10002cd3280752725f3ee5794094f03ce4",
+            "preview": "\n\n. A dose delay was defined as a ${>}5$ -day delay for any subsequent cycle after cycle 1. A dose reduction was defined as $20\\%$ reduction from the planned standard dose for cyclophosphamide, doxoru"
+          },
+          {
+            "rank": 4,
+            "score": 0.9956735968589783,
+            "chunk_id": "3cf79f0f9b08d647342802dea61617381e9e46cc1c5bb7cf9f510747eb852398",
+            "preview": "\n\nIn contrast to the previous reports [4, 16], haematological toxicity was the main adverse advent recorded for dose reduction, followed by neuropathy plus haematological toxicity and neuropathy alone"
+          },
+          {
+            "rank": 5,
+            "score": 0.9940882921218872,
+            "chunk_id": "e669d42c3bdc405e7981450ff7ecd2362039c089e0449b021dc262e824d4b5eb",
+            "preview": "\n\n. Single or multiple episodes of care were created from the adverse events. Chart review was conducted to establish whether the adverse event was related to chemotherapy and if any modification to t"
+          }
+        ],
+        "claim_support": true,
+        "hit_count": 5
+      }
+    },
+    {
+      "case_id": "zh_serious_adverse_event",
+      "query_zh": "严重不良事件的安全性终点证据",
+      "search_query": "serious adverse event safety endpoint events outcome",
+      "target_terms": [
+        "serious adverse event",
+        "safety",
+        "endpoint"
+      ],
+      "target_labels": [
+        "adverse_events",
+        "secondary_outcome",
+        "_data_collection_other"
+      ],
+      "overlap": {
+        "overlap": 0,
+        "overlap_rate": 0.0,
+        "hybrid_only": 5,
+        "sciverse_only": 5
+      },
+      "local_hybrid": {
+        "results": [
+          {
+            "rank": 1,
+            "chunk_id": "PMC8600696_chunk_021",
+            "score": 0.030798,
+            "preview": "# Assessment of severity/intensity\n\nFor the grading of the severity/intensity of an adverse event (AE), the National Cancer Institute Common Toxicity Criteria for Adverse Events (NCI CTCAE) version 5.",
+            "medical_label": "data_collection"
+          },
+          {
+            "rank": 2,
+            "chunk_id": "PMC8982306_chunk_019",
+            "score": 0.029412,
+            "preview": "# Safety\n\nParticipants will be reviewed for use of study devices and adverse events including a skin assessment at all study visits. All adverse events and device defciencies will be recorded on a web",
+            "medical_label": "_data_collection_other"
+          },
+          {
+            "rank": 3,
+            "chunk_id": "PMC11529615_chunk_024",
+            "score": 0.016393,
+            "preview": "# Safety analysis\n\nAdverse events (AEs) will be assessed since the inclusion of the patient, at each study visit and until the end of the follow-up. AE will be analysed by a treatment group using desc",
+            "medical_label": "_outcome_measures_other"
+          },
+          {
+            "rank": 4,
+            "chunk_id": "PMC6448906_chunk_007",
+            "score": 0.016393,
+            "preview": "The exercise protocol was performed on a cycle ergometer (Power Cube LF8.5G with Schiller software; Ganshorn, Niederlauer, Germany).\n\nThe $\\mathrm { H b A } _ { \\mathrm { 1 c } }$ level was determined",
+            "medical_label": "methods"
+          },
+          {
+            "rank": 5,
+            "chunk_id": "PMC6921499_chunk_024",
+            "score": 0.016129,
+            "preview": "# Safety monitoring\n\nIn this population and within this clinical context, events that can be considered serious adverse events (SAEs), suspected unexpected serious adverse reactions (SUSA Rs) or serio",
+            "medical_label": "_data_collection_other"
+          }
+        ],
+        "claim_support": true,
+        "hit_count": 5
+      },
+      "sciverse": {
+        "results": [
+          {
+            "rank": 1,
+            "score": 0.9823909401893616,
+            "chunk_id": "835bd8ac8c3707ca31c182c57dbe099481bd43d2392786505a1c17f3e3a41c6d",
+            "preview": "\n\n. The safety endpoint was evaluated in all subjects. This endpoint was defined on the basis of a physician's judgment after examination or observation that a serious adverse event had occurred. Adve"
+          },
+          {
+            "rank": 2,
+            "score": 0.9811574816703796,
+            "chunk_id": "729c91a786ba9a6fd4dc6b0968f3d36239bef2b836eb048310e6c7d5e1f322c2",
+            "preview": "\n\n. The safety endpoint was evaluated in all subjects. This endpoint was defined on the basis of a physician’s judgment after examination or observation that a serious adverse event had occurred. Adve"
+          },
+          {
+            "rank": 3,
+            "score": 0.9800781011581421,
+            "chunk_id": "6cc8d3836cfba25943ab9217a13020116bc31043602da6dbcc909d9009a8930f",
+            "preview": "\n\nA safety endpoint is a clinically relevant measure or an outcome of the study that can be used to assess the safety of the experimental drug. Safety endpoints are defined based on assessments such a"
+          },
+          {
+            "rank": 4,
+            "score": 0.9694386720657349,
+            "chunk_id": "37081164b70c103475f4b72cbd3a76ac263e85f46f7ab564da662d58faa6b7af",
+            "preview": "\n\n. We also recorded whether the trial outcome was a hard outcome (ie, a clinical endpoint such as major adverse cardiovascular event or mortality) or soft outcome (ie, a surrogate marker such as chan"
+          },
+          {
+            "rank": 5,
+            "score": 0.9675979614257812,
+            "chunk_id": "f984248a0ed655c07b5e30872131c6dfeea8add3d3b862fce2fbba9b18a252b0",
+            "preview": "\n\nAnalysis 2.5. Comparison 2 Studies with parallel group design: withdrawal & safety outcomes, Outcome 5 Death (all cause) - SMART all participants. 197   \nAnalysis 2.6. Comparison 2 Studies with para"
+          }
+        ],
+        "claim_support": true,
+        "hit_count": 5
+      }
+    },
+    {
+      "case_id": "zh_itt_population",
+      "query_zh": "意向治疗分析人群的统计分析证据",
+      "search_query": "intention to treat population analysis statistical",
+      "target_terms": [
+        "intention-to-treat",
+        "intention to treat",
+        "statistical analysis"
+      ],
+      "target_labels": [
+        "statistical_analysis",
+        "_statistical_analysis_other",
+        "population"
+      ],
+      "overlap": {
+        "overlap": 0,
+        "overlap_rate": 0.0,
+        "hybrid_only": 5,
+        "sciverse_only": 5
+      },
+      "local_hybrid": {
+        "results": [
+          {
+            "rank": 1,
+            "chunk_id": "PMC13019998_chunk_022",
+            "score": 0.016393,
+            "preview": "# Assignment of interventions: allocation",
+            "medical_label": "intervention"
+          },
+          {
+            "rank": 2,
+            "chunk_id": "PMC12742169_chunk_024",
+            "score": 0.016393,
+            "preview": "# Statistical analysis plan\n\nDescriptive statistics will be calculated as percentages for discrete variables, and median with IQR or mean with SE of the mean for continuous variables, as appropriate.\n",
+            "medical_label": "statistical_analysis"
+          },
+          {
+            "rank": 3,
+            "chunk_id": "PMC12574440_chunk_031",
+            "score": 0.016129,
+            "preview": "# Statistical analysis\n\nAll randomised participants with/without protocol violation and including dropouts and withdrawals will be included in the analysis according to intention-totreat principle.",
+            "medical_label": "statistical_analysis"
+          },
+          {
+            "rank": 4,
+            "chunk_id": "PMC11929207_chunk_018",
+            "score": 0.016129,
+            "preview": "# Statistical analysis\n\nIn general, p-values < 0.05 are considered to indicate statistical signifcance (2-tailed test). Te p-values for the secondary endpoints will be presented but considered descrip",
+            "medical_label": "statistical_analysis"
+          },
+          {
+            "rank": 5,
+            "chunk_id": "PMC9842495_chunk_011",
+            "score": 0.015873,
+            "preview": "# Methods: participants, interventions, and outcomes",
+            "medical_label": "methods"
+          }
+        ],
+        "claim_support": true,
+        "hit_count": 5
+      },
+      "sciverse": {
+        "results": [
+          {
+            "rank": 1,
+            "score": 0.9861866235733032,
+            "chunk_id": "f6ea85d07f5f5dd913966387983f15b2be9ac9ac561c09cc49cdac2d2d312697",
+            "preview": "\n\nStatistical analyses were performed using SAS Version 6.12 or above (SAS Institute, Cary, NC, USA) and StatXact Version 7 (Cytel, Cambridge, MA, USA). All statistical tests were performed as two-tai"
+          },
+          {
+            "rank": 2,
+            "score": 0.9684487581253052,
+            "chunk_id": "2898f8b7a290e4f4d9240618548c5949c599407d549f710ac08f7462b66c0311",
+            "preview": "\n\nIntention-to-treat population will be all subjects who were randomized except patients secondary excluded from the study due to:\n\n-Transfer to another ICU not participating to the study\n\n-Consent wi"
+          },
+          {
+            "rank": 3,
+            "score": 0.9651722311973572,
+            "chunk_id": "e423890e3cef58497b37a4b7d9f44358ee002ea8151662ebfffcd94c8abc3a32",
+            "preview": "\n\n. Analyses were done on the intention-to-treat (ITT) population (all randomized participants). Missing data were replaced using multiple imputation. A repeated measures mixed model was used to analy"
+          },
+          {
+            "rank": 4,
+            "score": 0.9630226492881775,
+            "chunk_id": "d7f9bd3568ff21c4a83a3d08db126e1930e1f750144818acdf9c2caa8481e4a2",
+            "preview": "\n\nIntention-to-treat (ITT) and per protocol (PP) analyses will be conducted. The ITT population will include all subjects who are randomised whereas the PP population will include those subjects who r"
+          },
+          {
+            "rank": 5,
+            "score": 0.9542180299758911,
+            "chunk_id": "eef859c3c4d78d1447482a6d8f4bef0547d2141a0259c70471bd6860ec0cba84",
+            "preview": "\n\n# Statistical analyses\n\nThe safety analysis set included all randomized patients who took at least one dose of study medication. The intentto-treat (ITT) analysis set included all randomized patient"
+          }
+        ],
+        "claim_support": true,
+        "hit_count": 5
+      }
+    },
+    {
+      "case_id": "zh_eligibility",
+      "query_zh": "随机对照试验的纳入排除标准",
+      "search_query": "randomized controlled trial inclusion criteria exclusion",
+      "target_terms": [
+        "randomized controlled trial",
+        "inclusion criteria",
+        "exclusion criteria",
+        "eligible"
+      ],
+      "target_labels": [
+        "population",
+        "_methods_other",
+        "_randomization_other"
+      ],
+      "overlap": {
+        "overlap": 0,
+        "overlap_rate": 0.0,
+        "hybrid_only": 5,
+        "sciverse_only": 5
+      },
+      "local_hybrid": {
+        "results": [
+          {
+            "rank": 1,
+            "chunk_id": "PMC6561428_chunk_012",
+            "score": 0.032266,
+            "preview": "# Box 1 Inclusion and exclusion criteria",
+            "medical_label": "_randomization_other"
+          },
+          {
+            "rank": 2,
+            "chunk_id": "PMC6091910_chunk_007",
+            "score": 0.016393,
+            "preview": "# Methods\n\nThis is a multicentre, unblinded, parallel, randomised controlled phase III home trial, conducted by five tertiary paediatric diabetes centres in Australia. The trial has been approved. Eth",
+            "medical_label": "methods"
+          },
+          {
+            "rank": 3,
+            "chunk_id": "PMC5439542_chunk_000",
+            "score": 0.016129,
+            "preview": "# Translating U-500R Randomized Clinical Trial Evidence to the Practice Setting",
+            "medical_label": "other"
+          },
+          {
+            "rank": 4,
+            "chunk_id": "PMC12603884_chunk_005",
+            "score": 0.016129,
+            "preview": "# 2.1 | Patient Recruitment\n\nThe CloSed trial (EudraCT: 2014–003582-24, Clinicaltrials.gov: NCT02509273) was a double-blind, multicenter, phase III randomized controlled trial with two parallel groups",
+            "medical_label": "population"
+          },
+          {
+            "rank": 5,
+            "chunk_id": "PMC7118863_chunk_013",
+            "score": 0.015873,
+            "preview": "# Eligibility criteria\n\nThe randomization process in C–RCTs consists of two levels: first, the clusters where the randomization takes place, here: the hospitals; then, the individual participants, her",
+            "medical_label": "inclusion_criteria"
+          }
+        ],
+        "claim_support": true,
+        "hit_count": 5
+      },
+      "sciverse": {
+        "results": [
+          {
+            "rank": 1,
+            "score": 0.9985402822494507,
+            "chunk_id": "8b00609bda08d767ebafeed840ac51d32ed5d46b18d106c2f4d71e1f6df2e2dd",
+            "preview": "\n\n. Table 1 presents the inclusion and exclusion criteria for the randomized controlled trial (RCT). Specific inclusion criteria for this cohort study were patients with adequate imaging documentation"
+          },
+          {
+            "rank": 2,
+            "score": 0.9974417686462402,
+            "chunk_id": "5d71d1716cbe51433f2ff6f762c4ba838e8e49e42f6925424cf4a78955b73fef",
+            "preview": "\n\nThe inclusion criteria included: (1) study design: randomized controlled trial (RCT); (2) interventions: placebo, ropinirole, rasagiline, rotigotine, entacapone, apomorphine, pramipexole, sumanirole"
+          },
+          {
+            "rank": 3,
+            "score": 0.9948805570602417,
+            "chunk_id": "f4b86e855bb52b763b24cd7a5cd0597f3dc85b72ca21786b4c00b8fb7f6d8a0d",
+            "preview": "\n\n• P—Patients (age 18–79 years, females who showed AGA in stages I–III controlled by the Ludwig classification scale);   \n• I—Intervention (local application of autologous PRP);   \n• C—Comparator (an"
+          },
+          {
+            "rank": 4,
+            "score": 0.9943076968193054,
+            "chunk_id": "85e6d4d22d65c94f6e0ddcb248c628cfb82d66a4b5adbc0c76d8ae38307bf015",
+            "preview": "\n\nControlled Trial</td><td>Randomized Controlled Trial</td><td>Randomized Controlled Trial</td></tr><tr><td>Participants</td><td>40 patients (mean age 78 ± 6 years)</td><td>30 healthy participants (20"
+          },
+          {
+            "rank": 5,
+            "score": 0.9927440881729126,
+            "chunk_id": "de791130beb9da90f156a9b8008ffe12dfb3e0bdda6ed3f29d839f1b283e2509",
+            "preview": "\n\nP—Patients (ages 18–79 years, who suffered CSW and STDs); I—Intervention (local application of autologous PRP, AD-MSCs, and biomaterials as a dermal substitute, and hyaluronic acid);\n\nC—Comparator ("
+          }
+        ],
+        "claim_support": true,
+        "hit_count": 5
+      }
+    }
+  ]
+}

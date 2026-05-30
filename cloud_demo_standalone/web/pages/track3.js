@@ -31,7 +31,7 @@ const indexOptions = [
 const useCases = [
   { label: '临床研究者', text: '终点、安全性、ITT 和纳排标准快速追溯', color: 'blue' },
   { label: '药企医学事务', text: '剂量调整、不良事件和治疗延迟来源核验', color: 'emerald' },
-  { label: '受控医学资产', text: '原文、文段和问答上下文不进入公开云端演示', color: 'purple' },
+  { label: '受控医学资产', text: '原文、文段和问答上下文不进入在线展示版', color: 'purple' },
 ];
 
 const promptGroups = [
@@ -141,7 +141,7 @@ export default function Track3Page({ runtimeConfig }) {
               </div>
               <h1 className="text-3xl font-semibold text-gray-900 sm:text-4xl">赛道三：医学 RAG 来源回放</h1>
               <p className="mt-3 text-sm leading-relaxed text-gray-600">
-                将医学 RAG 的已验证 trace 压缩为公开演示：中文问题、英文文献来源、片段回溯、结论引用校验和安全拒答边界保持一致。
+                将医学 RAG 的已验证 trace 转化为在线展示：中文问题、英文文献来源、片段回溯、结论引用校验和安全拒答边界保持一致。
               </p>
             </div>
             <button onClick={loadStats} className="rounded border px-4 py-2 text-xs text-gray-700 hover:bg-gray-50">刷新指标</button>
@@ -252,7 +252,7 @@ export default function Track3Page({ runtimeConfig }) {
                           <div>文段 ID：<span className="font-mono">{item.chunk_id}</span></div>
                           <div>章节：{item.source_section || '-'}</div>
                           <div>医学层级：{item.medical_parent || '-'} / {item.medical_label || '-'}</div>
-                          <div>边界：原文、文段和检索上下文不进入公开云端演示。</div>
+                          <div>边界：原文、文段和检索上下文不进入在线展示版。</div>
                         </div>
                       )}
                     </div>
@@ -278,7 +278,7 @@ export default function Track3Page({ runtimeConfig }) {
           </main>
 
           <aside className="space-y-4">
-            <StepCard index="A" title="回放资产" desc="随云端演示包提供的 trace、案例和来源摘要。" status={stats ? 'done' : 'pending'} actions={<button onClick={loadStats} className="rounded border px-3 py-1.5 text-xs hover:bg-white">刷新</button>}>
+            <StepCard index="A" title="回放资产" desc="随在线展示版提供的 trace、案例和来源摘要。" status={stats ? 'done' : 'pending'} actions={<button onClick={loadStats} className="rounded border px-3 py-1.5 text-xs hover:bg-white">刷新</button>}>
               {stats ? (
                 <div className="space-y-3 text-xs">
                   <MetricRow label="医学文段" value={stats.total_chunks || 0} />
@@ -321,13 +321,16 @@ export default function Track3Page({ runtimeConfig }) {
               ) : (
                 <div className="text-xs text-gray-500">{evalSummary?.reason || '生成 medical_rag_eval.json 后展示评测摘要。'}</div>
               )}
+              <div className="mt-3 border-t border-gray-100 pt-2 text-[10px] text-gray-400 leading-relaxed">
+                完整补充实验（阶段消融、安全拒答、EI taxonomy、隐私边界、语义切片、中文 Ask 鲁棒性、Evidence Card、部署 smoke）见 DATA-TRACE #182-190 与来源矩阵。
+              </div>
             </StepCard>
 
             <div className="rounded-lg border bg-gray-50 p-4 text-xs leading-relaxed text-gray-600">
               <div className="mb-2 font-semibold text-gray-900">为什么可信</div>
               <div className="space-y-2">
                 <p>先检索后回答，不凭模型记忆直接生成医学结论。</p>
-                <p>回答包含文段引用与结论支撑状态，便于评审逐条复核。</p>
+                <p>回答包含文段引用与结论支撑状态，便于访问者逐条查看。</p>
                 <p>来源不足、个人诊疗和急症问题不会强行进入 RAG。</p>
               </div>
             </div>
@@ -419,11 +422,21 @@ function SmallMetric({ label, value }) {
 }
 
 function buildPrimaryStats(stats, evalSummary, synthesis) {
+  const bestEvalRow = evalSummary?.eval?.rows?.find(r => r.label === 'index_bge_m3') || evalSummary?.eval?.rows?.find(r => r.label === evalSummary?.eval?.best_label);
+  const hitValue = Number.isFinite(bestEvalRow?.hit_at_k) && Number.isFinite(evalSummary?.eval?.case_count)
+    ? `${bestEvalRow.hit_at_k}/${evalSummary.eval.case_count}`
+    : '待加载';
+  const claimValue = synthesis?.claims?.length
+    ? `${synthesis.claims.filter(c => c.supported).length}/${synthesis.claims.length}`
+    : '待加载';
+  const citationValue = synthesis?.citation_coverage !== undefined
+    ? `${Math.round((synthesis.citation_coverage || 0) * 100)}%`
+    : '待加载';
   return [
-    { label: '医学文段', value: stats?.total_chunks ? String(stats.total_chunks) : '3348' },
-    { label: '中文 Ask Hit@3', value: evalSummary?.eval?.rows?.find(r => r.label === 'index_bge_m3') ? '6/6' : '6/6' },
-    { label: '结论支撑', value: synthesis?.claims?.length ? `${synthesis.claims.filter(c => c.supported).length}/${synthesis.claims.length}` : '25/25' },
-    { label: '引用覆盖', value: synthesis?.citation_coverage !== undefined ? `${Math.round((synthesis.citation_coverage || 0) * 100)}%` : '100%' },
+    { label: '医学文段', value: stats?.total_chunks ? String(stats.total_chunks) : '待加载' },
+    { label: '中文 Ask Hit@3', value: hitValue },
+    { label: '结论支撑', value: claimValue },
+    { label: '引用覆盖', value: citationValue },
   ];
 }
 

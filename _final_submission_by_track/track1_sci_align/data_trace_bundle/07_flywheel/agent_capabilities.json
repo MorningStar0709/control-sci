@@ -1,0 +1,1347 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "meta": {
+    "project": "ControlSci Data Agent",
+    "schema_version": "1.0",
+    "intent_version": "1.0.0",
+    "updated": "2026-05-08",
+    "total_intents": 14,
+    "description": "科学文档跨模态语料智能体 — 14 intent 能力注册表",
+    "source": "docs/plans/track2-final-push-plan.md §五",
+    "architecture": {
+      "layer_1": "Intent Router (LLM few-shot — DeepSeek v4-flash)",
+      "layer_2": "Resource Scheduler (四路径: API / MiMo-V2.5 视觉 / Ollama 本地 / MinerU)",
+      "layer_3": "Executor + Verifier (Execute → Verify → Auto-fallback)",
+      "data_boundary": "云端处理公开/脱敏派生任务；原文解析按数据分级路由，公开资料可显式使用官方 API，私有/涉密资料默认本地"
+    },
+    "privacy_policy": {
+      "principle": "cloud_for_public_or_sanitized_local_for_private",
+      "cloud_allowed": [
+        "公开论文检索",
+        "公开分级文档解析（需显式 allow_cloud_upload）",
+        "脱敏统计分析",
+        "评测题生成与仲裁",
+        "排行榜与报告生成"
+      ],
+      "local_only": [
+        "医疗文献 RAG",
+        "私有/涉密/企业原文解析",
+        "QLoRA 微调数据",
+        "原始 PDF/图像/中间 chunk"
+      ]
+    }
+  },
+  "intents": [
+    {
+      "intent_id": "arxiv_search",
+      "rank": 0,
+      "name": "arXiv 论文检索",
+      "description": "使用自研 searching-arxiv-papers Skill 在 arXiv 上检索 2025-2026 年控制科学前沿论文并下载 PDF。这是 Agent 数据飞轮的起点——「从论文检索到排行榜更新」全自动闭环的第 0 步。",
+      "trigger_examples": [
+        "检索 2025 年控制科学新论文加入评测基准",
+        "搜索 control barrier function 方向的 arXiv 论文",
+        "自动发现并下载 5 篇控制科学前沿论文"
+      ],
+      "toolchain": [
+        "searching-arxiv-papers Skill",
+        "arXiv API"
+      ],
+      "resource_type": "script",
+      "data_source": "arXiv API (export.arxiv.org)",
+      "depends_on": [],
+      "auto_fallback": [],
+      "provider_requirements": {
+        "provider": "arXiv API",
+        "endpoint_required": false,
+        "capabilities": [
+          "paper_search",
+          "pdf_download",
+          "deduplication"
+        ]
+      },
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [],
+        "properties": {
+          "keywords": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "检索关键词列表",
+            "default": [
+              "control barrier function",
+              "differentiable MPC"
+            ]
+          },
+          "max_papers": {
+            "type": "integer",
+            "description": "下载论文数上限",
+            "default": 5,
+            "minimum": 1,
+            "maximum": 10
+          },
+          "output_dir": {
+            "type": "string",
+            "description": "PDF 输出目录",
+            "default": "data/sources_flywheel/"
+          }
+        }
+      },
+      "output": {
+        "type": "arxiv_papers",
+        "format": "pdf",
+        "description": "下载的 arXiv 论文 PDF 文件",
+        "artifacts": [
+          "{arxiv_id}_{title}.pdf",
+          "flywheel_papers.json"
+        ]
+      }
+    },
+    {
+      "intent_id": "mineru_parse",
+      "rank": 1,
+      "name": "文档解析",
+      "description": "使用 mineru-to-md Skill 调用本地 MinerU API 将 PDF/WORD/PPT 文档解析为结构化 Markdown，含公式提取、图片导出、表格识别。",
+      "trigger_examples": [
+        "把这批 PDF 解析为 Markdown",
+        "调用 MinerU 解析下载的论文",
+        "将 arXiv 论文转为结构化文本"
+      ],
+      "toolchain": [
+        "mineru-to-md Skill",
+        "MinerU API"
+      ],
+      "resource_type": "local_api",
+      "data_source": "本地 PDF 文件",
+      "depends_on": [],
+      "auto_fallback": [],
+      "provider_requirements": {
+        "provider": "MinerU API (127.0.0.1:8000)",
+        "endpoint_required": true,
+        "capabilities": [
+          "pdf_parse",
+          "formula_extraction",
+          "image_export",
+          "table_recognition"
+        ]
+      },
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source"
+        ],
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "PDF 文件目录",
+            "default": "data/sources_flywheel/"
+          },
+          "output_dir": {
+            "type": "string",
+            "description": "Markdown 输出目录",
+            "default": "data/sources_flywheel/md/"
+          },
+          "lang": {
+            "type": "string",
+            "description": "OCR 语言",
+            "enum": [
+              "ch",
+              "en"
+            ],
+            "default": "ch"
+          }
+        }
+      },
+      "output": {
+        "type": "markdown",
+        "format": "md",
+        "description": "结构化 Markdown 文件，含公式、图片引用、表格",
+        "artifacts": [
+          "{doc_name}.md",
+          "image/"
+        ]
+      }
+    },
+    {
+      "intent_id": "corpus_parse",
+      "rank": 2,
+      "name": "语料解析",
+      "description": "使用 MinerU API 将科学文档（PDF/WORD/PPT）解析为结构化 Markdown 语料",
+      "trigger_examples": [
+        "解析这 23 本教材为结构化语料",
+        "把这批 arXiv 论文转成结构化文本",
+        "帮我解析控制科学教材"
+      ],
+      "toolchain": [
+        "MinerU API",
+        "mineru-to-md Skill"
+      ],
+      "resource_type": "local_api",
+      "data_source": "data/sources/source_list.json (23 教材 + 339 论文)",
+      "depends_on": [],
+      "auto_fallback": [],
+      "provider_requirements": {
+        "provider": "MinerU",
+        "endpoint_required": true,
+        "capabilities": [
+          "pdf_parse",
+          "doc_parse",
+          "image_extraction",
+          "formula_extraction"
+        ]
+      },
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source"
+        ],
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "文档路径或目录，支持 PDF/WORD/PPT"
+          },
+          "output_dir": {
+            "type": "string",
+            "description": "输出目录，默认为 data/processed/"
+          },
+          "recursive": {
+            "type": "boolean",
+            "description": "是否递归扫描子目录",
+            "default": true
+          },
+          "max_files": {
+            "type": "integer",
+            "description": "最大文件数限制，0 表示不限制",
+            "default": 0,
+            "minimum": 0
+          }
+        }
+      },
+      "output": {
+        "type": "corpus_chunks",
+        "format": "markdown",
+        "description": "结构化 Markdown 语料块，按文档分片存储于 output_dir",
+        "metrics": [
+          "total_documents",
+          "total_chunks",
+          "total_images",
+          "total_formulas",
+          "parse_success_rate"
+        ],
+        "artifacts": [
+          "{doc_name}_chunk_*.md",
+          "{doc_name}_img_*.png",
+          "{doc_name}_formulas.tex"
+        ]
+      }
+    },
+    {
+      "intent_id": "cross_modal_audit",
+      "rank": 3,
+      "name": "跨模态对齐审计",
+      "description": "使用 MiMo-V2.5 原生视觉模型审计语料中图片-公式的跨模态语义对齐质量，支持全量扫描和断点续跑",
+      "trigger_examples": [
+        "审计这批 arXiv 论文的公式-图片跨模态对齐质量",
+        "检查语料的图片和公式是否语义一致",
+        "运行跨模态质量审计"
+      ],
+      "toolchain": [
+        "visual_audit.py",
+        "MiMo-V2.5 原生视觉"
+      ],
+      "resource_type": "api",
+      "data_source": "corpus/chunks/ (85K 图片, 253K 公式)",
+      "depends_on": [
+        "corpus_parse"
+      ],
+      "auto_fallback": [
+        "MiniMax Vision API"
+      ],
+      "provider_requirements": {
+        "provider": "MiMo-V2.5",
+        "endpoint_required": true,
+        "capabilities": [
+          "vision_understanding",
+          "formula_image_alignment",
+          "semantic_consistency_judgment"
+        ],
+        "model_hint": "mimo-v2.5 (全模态) — 不可用 mimo-v2.5-pro (长推理, 不支持视觉)",
+        "api_notes": "必须 raw httpx + api-key header + thinking:disabled, 严禁 OpenAI SDK"
+      },
+      "provider_defaults": {
+        "temperature": 1.0,
+        "max_tokens": 4096
+      },
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source"
+        ],
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "语料 chunk 目录路径"
+          },
+          "max_images": {
+            "type": "integer",
+            "description": "最大审计图片数，0 表示全量",
+            "default": 0,
+            "minimum": 0
+          },
+          "concurrency": {
+            "type": "integer",
+            "description": "并发线程数",
+            "default": 5,
+            "minimum": 1,
+            "maximum": 16
+          },
+          "resume": {
+            "type": "boolean",
+            "description": "启用断点续跑（从 checkpoint 恢复）",
+            "default": false
+          },
+          "retry_failed": {
+            "type": "boolean",
+            "description": "重试失败的条目",
+            "default": false
+          },
+          "output_dir": {
+            "type": "string",
+            "description": "审计结果输出目录"
+          }
+        }
+      },
+      "output": {
+        "type": "audit_report",
+        "format": "JSON",
+        "description": "跨模态对齐质量审计报告，每条目含图片引用、对应公式、语义一致性判决",
+        "metrics": [
+          "alignment_pass_rate",
+          "per_image_judgment",
+          "failure_reasons"
+        ],
+        "artifacts": [
+          "audit_report.json",
+          "visual_audit_checkpoint.json"
+        ]
+      }
+    },
+    {
+      "intent_id": "corpus_quality_report",
+      "rank": 4,
+      "name": "语料质量报告",
+      "description": "基于统计脚本和 LLM 分析生成语料全维度质量报告，覆盖 chunk 语义完整度、公式提取率、图片匹配度等",
+      "trigger_examples": [
+        "生成语料质量全维度报告",
+        "分析当前语料库的质量指标",
+        "输出语料质量审计摘要"
+      ],
+      "toolchain": [
+        "DeepSeek v4-flash",
+        "统计脚本"
+      ],
+      "resource_type": "api",
+      "data_source": "corpus/stats/ (chunk 统计 + 审计结果)",
+      "depends_on": [
+        "corpus_parse",
+        "cross_modal_audit"
+      ],
+      "auto_fallback": [
+        "Ollama qwen3.5:9b（--local 模式）"
+      ],
+      "provider_requirements": {
+        "provider": "DeepSeek",
+        "endpoint_required": true,
+        "capabilities": [
+          "text_generation",
+          "data_analysis",
+          "report_generation"
+        ],
+        "model_hint": "deepseek-v4-flash"
+      },
+      "provider_defaults": {
+        "temperature": 0.1,
+        "max_tokens": 8192
+      },
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source"
+        ],
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "语料统计数据的目录或 JSON 文件路径"
+          },
+          "granularity": {
+            "type": "string",
+            "enum": [
+              "summary",
+              "detailed",
+              "full"
+            ],
+            "description": "报告粒度：summary=摘要, detailed=各维度详析, full=完整报告",
+            "default": "full"
+          },
+          "output_format": {
+            "type": "string",
+            "enum": [
+              "markdown",
+              "json",
+              "both"
+            ],
+            "description": "输出格式",
+            "default": "both"
+          },
+          "include_visualizations": {
+            "type": "boolean",
+            "description": "是否包含可视化图表",
+            "default": true
+          }
+        }
+      },
+      "output": {
+        "type": "report",
+        "format": "Markdown + JSON",
+        "description": "语料质量全维度报告，含统计指标和 LLM 分析结论",
+        "metrics": [
+          "formula_extraction_rate",
+          "image_match_rate",
+          "chunk_semantic_completeness",
+          "cooccurrence_distribution"
+        ],
+        "artifacts": [
+          "quality_report.md",
+          "quality_metrics.json",
+          "visualization_charts.png"
+        ]
+      }
+    },
+    {
+      "intent_id": "benchmark_build",
+      "rank": 5,
+      "name": "评测数据集构建",
+      "description": "基于结构化语料 chunk，使用三 Provider（DeepSeek/MiMo/MiniMax）生成 500 题评测数据集，含四维度覆盖",
+      "trigger_examples": [
+        "基于语料生成 500 题评测数据集",
+        "构建 benchmark 数据集",
+        "从语料生成控制科学考题"
+      ],
+      "toolchain": [
+        "build_benchmark.py",
+        "DeepSeek API",
+        "MiMo API",
+        "MiniMax API"
+      ],
+      "resource_type": "api",
+      "data_source": "corpus/chunks/ (28K chunk 全量)",
+      "depends_on": [
+        "corpus_parse"
+      ],
+      "auto_fallback": [
+        "单 Provider 可继续（降级至 DeepSeek 优先）"
+      ],
+      "provider_requirements": {
+        "provider": "DeepSeek / MiMo / MiniMax",
+        "endpoint_required": true,
+        "capabilities": [
+          "question_generation",
+          "domain_knowledge",
+          "multi_dimension_control"
+        ],
+        "model_hint": "deepseek-v4-flash (主), mimo-v2-flash (补充), minimax-2.5 (补充)"
+      },
+      "provider_defaults": {
+        "temperature": 0.7,
+        "max_tokens": 4096,
+        "questions_per_call": 5
+      },
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source"
+        ],
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "语料 chunk 目录或索引 JSON 路径"
+          },
+          "target_size": {
+            "type": "integer",
+            "description": "目标题目数量",
+            "default": 500,
+            "minimum": 100,
+            "maximum": 2000
+          },
+          "providers": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "deepseek",
+                "mimo",
+                "minimax"
+              ]
+            },
+            "description": "使用哪些 Provider 生成题目",
+            "default": [
+              "deepseek",
+              "mimo",
+              "minimax"
+            ]
+          },
+          "dimensions": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ]
+            },
+            "description": "需要覆盖的评测维度",
+            "default": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          },
+          "difficulty_distribution": {
+            "type": "object",
+            "description": "难度分布配置，各层级占比",
+            "properties": {
+              "L1": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "L2": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "L3": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "L4": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              }
+            }
+          },
+          "output": {
+            "type": "string",
+            "description": "输出 JSON 文件路径",
+            "default": "benchmark/dataset/core.json"
+          }
+        }
+      },
+      "output": {
+        "type": "dataset",
+        "format": "JSON (schema: benchmark/dataset/schema.json)",
+        "description": "500 题评测数据集，四维度 A/B/C/D 各 125 题，含跨模态索引",
+        "metrics": [
+          "total_questions",
+          "dimension_coverage",
+          "difficulty_distribution",
+          "cooccurrence_distribution"
+        ],
+        "artifacts": [
+          "core.json",
+          "multimodal_index.json",
+          "distribution_report.json"
+        ]
+      }
+    },
+    {
+      "intent_id": "quality_arbitrate",
+      "rank": 6,
+      "name": "质量仲裁",
+      "description": "对生成的评测题目做双层 LLM 仲裁，确保答案准确性和推理步骤质量，支持一致性筛选",
+      "trigger_examples": [
+        "对生成题目做双层 LLM 仲裁",
+        "仲裁这批题目的质量",
+        "用双层 Judge 验证数据质量"
+      ],
+      "toolchain": [
+        "arbiter.py",
+        "DeepSeek API",
+        "Ollama qwen3.5:9b"
+      ],
+      "resource_type": "api",
+      "data_source": "benchmark/dataset/core.json (仲裁前候选集)",
+      "depends_on": [
+        "benchmark_build"
+      ],
+      "auto_fallback": [
+        "DeepSeek 双路径（单 Provider 做两层）",
+        "Ollama 本地（--local 模式）"
+      ],
+      "provider_requirements": {
+        "provider": "DeepSeek v4-flash (主), Ollama qwen3.5:9b (辅)",
+        "endpoint_required": true,
+        "capabilities": [
+          "quality_judgment",
+          "answer_verification",
+          "reasoning_check"
+        ],
+        "model_hint": "api: deepseek-v4-flash; local: qwen3.5:9b",
+        "local_notes": "Ollama 必须用原生 /api/chat + think:false, 不可用 OpenAI-compatible 口"
+      },
+      "provider_defaults": {
+        "temperature": 0.1,
+        "max_tokens": 4096,
+        "judge_prompt_version": "v2"
+      },
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source"
+        ],
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "待仲裁的评测数据集 JSON 路径"
+          },
+          "judge_providers": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "deepseek",
+                "ollama"
+              ]
+            },
+            "description": "使用的 Judge Provider 列表",
+            "default": [
+              "deepseek",
+              "deepseek"
+            ]
+          },
+          "consistency_filter": {
+            "type": "boolean",
+            "description": "启用双 Judge 一致性过滤（仅保留双方一致同意的题目）",
+            "default": true
+          },
+          "max_tokens_per_judge": {
+            "type": "integer",
+            "description": "每个 Judge 的最大 token 数",
+            "default": 4096,
+            "minimum": 2048
+          },
+          "output": {
+            "type": "string",
+            "description": "仲裁结果输出路径"
+          }
+        }
+      },
+      "output": {
+        "type": "arbitrated_dataset",
+        "format": "JSON",
+        "description": "经过 LLM 仲裁的评测数据集，每条目含双 Judge 评分和一致性标签",
+        "metrics": [
+          "consistency_rate",
+          "avg_quality_score",
+          "passed_ratio"
+        ],
+        "artifacts": [
+          "arbitrated_dataset.json",
+          "arbitration_summary.md"
+        ]
+      }
+    },
+    {
+      "intent_id": "model_evaluate",
+      "rank": 7,
+      "name": "模型评测",
+      "description": "在 ControlSci benchmark 上评测指定的 LLM 模型，自动选择合适的 Judge Provider 并生成四维评分",
+      "trigger_examples": [
+        "评测 deepseek-v4-flash",
+        "在控制科学数据集上测试 mimo-v2-flash",
+        "跑模型评测"
+      ],
+      "toolchain": [
+        "evaluate.py",
+        "judge.py",
+        "DeepSeek API / Ollama"
+      ],
+      "resource_type": "api",
+      "data_source": "benchmark/dataset/core.json (500 题评测集)",
+      "depends_on": [
+        "quality_arbitrate"
+      ],
+      "auto_fallback": [
+        "Ollama 本地 Judge（--local 模式）"
+      ],
+      "provider_requirements": {
+        "provider": "DeepSeek v4-flash (Judge 主), Ollama qwen3.5:9b (Judge 本地)",
+        "endpoint_required": true,
+        "capabilities": [
+          "model_evaluation",
+          "multi_dimension_scoring",
+          "cross_provider_judge"
+        ],
+        "model_hint": "评测目标模型可指定任意; Judge 自动选 deepseek-v4-flash (API) 或 qwen3.5:9b (local)"
+      },
+      "provider_defaults": {
+        "temperature": 0.1,
+        "max_tokens": 4096
+      },
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "model"
+        ],
+        "properties": {
+          "model": {
+            "type": "string",
+            "description": "待评测的模型名称，如 deepseek-v4-flash, mimo-v2-flash, qwen3.5:9b"
+          },
+          "model_type": {
+            "type": "string",
+            "enum": [
+              "api",
+              "ollama"
+            ],
+            "description": "模型类型：api=外部 API, ollama=本地 Ollama",
+            "default": "api"
+          },
+          "dataset": {
+            "type": "string",
+            "description": "评测数据集 JSON 路径，默认为 core.json",
+            "default": "benchmark/dataset/core.json"
+          },
+          "judge_provider": {
+            "type": "string",
+            "enum": [
+              "auto",
+              "deepseek",
+              "ollama"
+            ],
+            "description": "Judge Provider，auto 根据 --local 标志自动选择",
+            "default": "auto"
+          },
+          "mode": {
+            "type": "string",
+            "enum": [
+              "model",
+              "reference"
+            ],
+            "description": "评测模式：model=调模型 API, reference=走 A/B 规则不调 API",
+            "default": "model"
+          },
+          "output_dir": {
+            "type": "string",
+            "description": "评测结果输出目录",
+            "default": "benchmark/eval/results/"
+          },
+          "max_questions": {
+            "type": "integer",
+            "description": "最大评测题数，0 表示全量",
+            "default": 0,
+            "minimum": 0
+          }
+        }
+      },
+      "output": {
+        "type": "evaluation_results",
+        "format": "JSON",
+        "description": "模型在四维度 A/B/C/D 上的评分结果，含每题得分和汇总统计",
+        "metrics": [
+          "overall_score",
+          "dimension_a",
+          "dimension_b",
+          "dimension_c",
+          "dimension_d",
+          "accuracy",
+          "consistency"
+        ],
+        "artifacts": [
+          "results_{model}.json",
+          "judge_log.json"
+        ]
+      }
+    },
+    {
+      "intent_id": "multi_judge_compare",
+      "rank": 8,
+      "name": "多 Judge 对比",
+      "description": "对比 API Judge (DeepSeek) 和本地 Ollama Judge (qwen3.5:9b) 在相同评测任务上的评分一致性，生成双榜对比表",
+      "trigger_examples": [
+        "对比 API Judge 和本地 Ollama Judge",
+        "生成双 Judge 排行榜对比",
+        "看看 API 和本地评测结果差多少"
+      ],
+      "toolchain": [
+        "evaluate.py",
+        "DeepSeek API",
+        "Ollama qwen3.5:9b"
+      ],
+      "resource_type": "api",
+      "data_source": "benchmark/dataset/core.json (双 Judge 共用评测集)",
+      "depends_on": [
+        "model_evaluate"
+      ],
+      "auto_fallback": [
+        "仅可用路径降级至单路径对比"
+      ],
+      "provider_requirements": {
+        "provider": "DeepSeek v4-flash (API Judge) + Ollama qwen3.5:9b (Local Judge)",
+        "endpoint_required": true,
+        "capabilities": [
+          "cross_judge_comparison",
+          "consistency_analysis",
+          "dual_leaderboard"
+        ],
+        "dual_path_required": true
+      },
+      "provider_defaults": {
+        "api_judge": {
+          "temperature": 0.1,
+          "max_tokens": 4096
+        },
+        "local_judge": {
+          "temperature": 0.1,
+          "max_tokens": 4096
+        }
+      },
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "models"
+        ],
+        "properties": {
+          "models": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "待评测的模型列表，如 ['deepseek-v4-flash', 'mimo-v2-flash', 'qwen3.5:9b']"
+          },
+          "api_judge": {
+            "type": "string",
+            "description": "API Judge 模型",
+            "default": "deepseek-v4-flash"
+          },
+          "local_judge": {
+            "type": "string",
+            "description": "本地 Ollama Judge 模型",
+            "default": "qwen3.5:9b"
+          },
+          "dataset": {
+            "type": "string",
+            "description": "评测数据集路径",
+            "default": "benchmark/dataset/core.json"
+          },
+          "output": {
+            "type": "string",
+            "description": "双榜对比结果输出路径",
+            "default": "benchmark/eval/results/judge_comparison.json"
+          }
+        }
+      },
+      "output": {
+        "type": "judge_comparison",
+        "format": "JSON + Markdown",
+        "description": "API Judge 与 Local Judge 的双榜评分对比，含一致性分析和排名差异",
+        "metrics": [
+          "spearman_correlation",
+          "score_delta_avg",
+          "rank_consistency",
+          "dimension_bias"
+        ],
+        "artifacts": [
+          "judge_comparison.json",
+          "dual_leaderboard.md"
+        ]
+      }
+    },
+    {
+      "intent_id": "leaderboard_viz",
+      "rank": 9,
+      "name": "排行榜可视化",
+      "description": "基于评测结果生成排行榜 JSON 数据和可视化 HTML 页面，含表格、柱状图、热力图",
+      "trigger_examples": [
+        "生成排行榜和可视化图表",
+        "把所有模型的评测结果做成排行榜",
+        "更新 leaderboard"
+      ],
+      "toolchain": [
+        "summarize_multi.py",
+        "report_viz.py"
+      ],
+      "resource_type": "script",
+      "data_source": "benchmark/eval/results/ (各模型评测结果)",
+      "depends_on": [
+        "model_evaluate"
+      ],
+      "auto_fallback": [],
+      "provider_requirements": {
+        "provider": "none (本地脚本)",
+        "capabilities": [
+          "data_aggregation",
+          "statistics",
+          "visualization"
+        ]
+      },
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source"
+        ],
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "评测结果目录或 JSON 文件路径"
+          },
+          "formats": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "json",
+                "html"
+              ]
+            },
+            "description": "输出格式",
+            "default": [
+              "json",
+              "html"
+            ]
+          },
+          "sort_by": {
+            "type": "string",
+            "description": "排序指标",
+            "default": "overall_score"
+          },
+          "output_dir": {
+            "type": "string",
+            "description": "输出目录",
+            "default": "benchmark/eval/results/"
+          }
+        }
+      },
+      "output": {
+        "type": "leaderboard",
+        "format": "JSON + HTML",
+        "description": "模型排行榜，含四维分数、排名和可视化图表",
+        "metrics": [
+          "model_count",
+          "dimensions",
+          "ranking_method"
+        ],
+        "artifacts": [
+          "leaderboard.json",
+          "leaderboard.html"
+        ]
+      }
+    },
+    {
+      "intent_id": "local_finetune",
+      "rank": 10,
+      "name": "本地微调",
+      "description": "使用 QLoRA 在控制科学语料上对小型 LLM 进行领域微调，并通过 Perplexity 探针验证语料信息密度",
+      "trigger_examples": [
+        "QLoRA 领域微调 + Perplexity 验证",
+        "微调模型看看语料质量提升",
+        "做 QLoRA 微调实验"
+      ],
+      "toolchain": [
+        "train_qlora.py",
+        "Ollama qwen3.5:9b"
+      ],
+      "resource_type": "local_gpu",
+      "data_source": "finetune/data/ (微调训练集)",
+      "depends_on": [
+        "corpus_parse"
+      ],
+      "auto_fallback": [],
+      "provider_requirements": {
+        "provider": "Ollama qwen3.5:9b (Perplexity Judge), QLoRA (24GB GPU)",
+        "capabilities": [
+          "qlora_training",
+          "perplexity_evaluation",
+          "domain_adaptation"
+        ],
+        "hardware_required": "RTX 5090 24GB (或等效 24GB+ GPU)",
+        "notes": "QLoRA 4-bit 量化, rank=8-64, 训练完成后自动运行 Perplexity 探针比较微调前后困惑度变化"
+      },
+      "provider_defaults": {
+        "epochs": 3,
+        "lora_rank": 16,
+        "learning_rate": 0.0002,
+        "perplexity_batch_size": 10
+      },
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "dataset"
+        ],
+        "properties": {
+          "dataset": {
+            "type": "string",
+            "description": "微调数据集路径（JSON 或 JSONL）"
+          },
+          "base_model": {
+            "type": "string",
+            "description": "基础模型名称",
+            "default": "qwen3.5:9b"
+          },
+          "epochs": {
+            "type": "integer",
+            "description": "训练轮数",
+            "default": 3,
+            "minimum": 1,
+            "maximum": 10
+          },
+          "lora_rank": {
+            "type": "integer",
+            "description": "LoRA rank 参数",
+            "default": 16,
+            "enum": [
+              8,
+              16,
+              32,
+              64
+            ]
+          },
+          "perplexity_validation": {
+            "type": "boolean",
+            "description": "是否在训练后运行 Perplexity 验证",
+            "default": true
+          },
+          "output_dir": {
+            "type": "string",
+            "description": "微调模型和日志输出目录",
+            "default": "finetune/output/"
+          }
+        }
+      },
+      "output": {
+        "type": "finetuned_model + validation_report",
+        "format": "模型权重 (adapter) + JSON 报告",
+        "description": "QLoRA 微调后的 LoRA adapter 权重和 Perplexity 探针验证报告",
+        "metrics": [
+          "train_loss",
+          "perplexity_before",
+          "perplexity_after",
+          "perplexity_delta"
+        ],
+        "artifacts": [
+          "lora_adapter.safetensors",
+          "training_log.json",
+          "perplexity_report.md"
+        ]
+      }
+    },
+    {
+      "intent_id": "multi_format_parse",
+      "rank": 11,
+      "name": "多格式文档解析",
+      "description": "解析非 PDF 格式文档（PPTX/图片扫描件），通过 MinerU API 统一转为 Markdown 后进行解析质量对比",
+      "trigger_examples": [
+        "把 PPTX 课件转成结构化文本",
+        "多格式文档解析并对比质量"
+      ],
+      "toolchain": [
+        "MinerU API",
+        "tools/mineru_to_md.py"
+      ],
+      "resource_type": "local_api",
+      "data_source": "用户提供的多格式文件（PPTX/图片）",
+      "depends_on": [],
+      "auto_fallback": [],
+      "provider_requirements": {
+        "provider": "MinerU API",
+        "endpoint_required": true,
+        "capabilities": [
+            "multi_format_parse",
+            "pptx_to_md",
+            "image_to_md"
+          ]
+      },
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [],
+        "properties": {
+          "files": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "要解析的文件路径列表（支持 PPTX/PNG/JPG 等）",
+            "default": []
+          },
+          "input_dir": {
+            "type": "string",
+            "description": "要解析的文件所在目录（与 files 二选一）",
+            "default": "benchmark/agent/test_materials/"
+          },
+          "output_dir": {
+            "type": "string",
+            "description": "Markdown 输出目录",
+            "default": "benchmark/agent/test_materials/md/"
+          },
+          "lang": {
+            "type": "string",
+            "enum": ["ch", "en"],
+            "description": "OCR 语言（ch=中文, en=英文）",
+            "default": "ch"
+          }
+        }
+      },
+      "output": {
+        "type": "parse_results",
+        "format": "JSON",
+        "description": "多格式解析结果对比（格式 → chunk 数 → 公式提取率 → 图片保留率）",
+        "metrics": [
+          "chunk_count",
+          "formula_extraction_rate",
+          "image_preservation_rate"
+        ],
+        "artifacts": [
+          "parse_result_{format}.md",
+          "multi_format_comparison.json"
+        ]
+      }
+    },
+    {
+      "intent_id": "medical_rag",
+      "rank": 12,
+      "name": "临床证据自动化合成",
+      "description": "基于MinerU解析医疗文献→IMRAD语义切片→QLoRA领域微调→FAISS索引→RAG检索→smoke/report 分层评估→官方QA格式输出的端到端临床证据合成管线",
+      "trigger_examples": ["构建医疗知识库", "临床证据合成", "医学文献解析检索"],
+      "toolchain": ["build_medical_index.py", "prepare_medical_instructions.py", "MinerU Docker", "Ollama qwen3-embedding:4b", "judge.py (MEDICAL)"],
+      "resource_type": "local_gpu",
+      "data_source": "data/sources_medical/",
+      "depends_on": ["mineru_parse"],
+      "provider_requirements": {
+        "provider": "ollama",
+        "endpoint_required": true,
+        "capabilities": ["embedding", "chat"],
+        "model_hint": "qwen3-embedding:4b",
+        "hardware_required": "GPU 8GB+"
+      },
+      "output": {
+        "type": "clinical_evidence_synthesis",
+        "format": "MinerU Official QA Format + smoke/report KB quality report",
+        "description": "端到端临床证据合成系统，按官方QA格式输出(问题→Mermaid流程图+表格+数值→来源→说明)，附带多文献证据一致性判断+微调前后量化对比",
+        "metrics": ["retrieval_accuracy", "judge_score", "medbench_score", "finetune_delta"],
+        "artifacts": ["data/sources_medical/index/medical.index", "benchmark/eval/results/medical/*.json"]
+      }
+    },
+    {
+      "intent_id": "reproduce_all",
+      "rank": 13,
+      "name": "全量复现",
+      "description": "一键复现流程：默认 smoke 执行最小真实闭环；report 显式执行完整评测、排行榜、可视化与长任务",
+      "trigger_examples": [
+        "一键复现全部流程",
+        "从零开始完整跑一遍所有评测",
+        "全量复现"
+      ],
+      "toolchain": [
+        "run_evaluation.ps1",
+        "全链路"
+      ],
+      "resource_type": "script",
+      "data_source": "全链路（依次消费各下游 intent 产出）",
+      "depends_on": [],
+      "auto_fallback": [],
+      "provider_requirements": {
+        "provider": "全部（DeepSeek / MiMo / MinerU / Ollama / 本地脚本）",
+        "endpoint_required": true,
+        "capabilities": [
+          "full_pipeline_execution",
+          "step_orchestration",
+          "checkpoint_recovery"
+        ],
+        "all_dependencies_required": true
+      },
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [],
+        "properties": {
+          "profile": {
+            "type": "string",
+            "enum": ["smoke", "report"],
+            "description": "运行策略。smoke 为高可用最小真实闭环，report 为完整报告级复现。",
+            "default": "smoke"
+          },
+          "steps": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "arxiv_search",
+                "mineru_parse",
+                "corpus_parse",
+                "cross_modal_audit",
+                "corpus_quality_report",
+                "benchmark_build",
+                "quality_arbitrate",
+                "model_evaluate",
+                "multi_judge_compare",
+                "leaderboard_viz",
+                "local_finetune",
+                "multi_format_parse",
+                "medical_rag"
+              ]
+            },
+            "description": "要执行的步骤列表，为空时执行全部",
+            "default": []
+          },
+          "local_mode": {
+            "type": "boolean",
+            "description": "启用本地模式（Ollama + 本地 MinerU，不依赖外部 API）",
+            "default": false
+          },
+          "skip_existing": {
+            "type": "boolean",
+            "description": "跳过已有产出的步骤（断点续跑）",
+            "default": true
+          },
+          "output_dir": {
+            "type": "string",
+            "description": "全量复现的输出根目录",
+            "default": "benchmark/reproduce/"
+          }
+        }
+      },
+      "output": {
+        "type": "pipeline_execution_log",
+        "format": "JSON",
+        "description": "全链路执行日志，包含每步的启动时间、结束时间、状态、产出文件路径和错误信息",
+        "metrics": [
+          "steps_total",
+          "steps_passed",
+          "steps_failed",
+          "total_duration_min"
+        ],
+        "artifacts": [
+          "execution_log.json",
+          "pipeline_summary.md"
+        ]
+      }
+    }
+  ],
+  "resource_scheduler_config": {
+    "resource_types": {
+      "api": {
+        "description": "外部 API 调用（DeepSeek / MiMo / MiniMax）",
+        "health_check": "环境变量验证 + 连通性 ping",
+        "default_timeout": 120
+      },
+      "local_api": {
+        "description": "本地 API 服务（MinerU API）",
+        "health_check": "端口检测 + 健康端点",
+        "default_timeout": 300
+      },
+      "local_gpu": {
+        "description": "本地 GPU 任务（Ollama / QLoRA 训练）",
+        "health_check": "GPU 可用性检测 + Ollama 进程检查",
+        "default_timeout": 3600
+      },
+      "script": {
+        "description": "纯本地脚本（无外部依赖）",
+        "health_check": "文件存在性检查",
+        "default_timeout": 600
+      }
+    },
+    "fallback_order": {
+      "api": [
+        "script"
+      ],
+      "local_api": [
+        "script"
+      ],
+      "local_gpu": [
+        "script"
+      ],
+      "script": []
+    },
+    "provider_parameter_map": {
+      "deepseek": {
+        "chat": {
+          "model": "deepseek-v4-flash",
+          "base_url": "https://api.deepseek.com",
+          "default_temperature": 0.1,
+          "default_max_tokens": 4096,
+          "client_type": "openai",
+          "proxy_required": false,
+          "notes": "所有 OpenAI client 显式设置 proxy=None"
+        }
+      },
+      "mimo": {
+        "vision": {
+          "model": "mimo-v2.5",
+          "base_url": "https://api.xiaomimimo.com/v1",
+          "default_temperature": 1.0,
+          "default_max_tokens": 4096,
+          "client_type": "raw_httpx",
+          "auth_type": "api-key header",
+          "notes": "必须 raw httpx + thinking:disabled, 不可用 OpenAI SDK"
+        },
+        "text": {
+          "model": "mimo-v2-flash",
+          "base_url": "https://api.xiaomimimo.com/v1",
+          "default_temperature": 0.7,
+          "default_max_tokens": 4096,
+          "client_type": "openai",
+          "proxy_required": false
+        }
+      },
+      "minimax": {
+        "chat": {
+          "model": "minimax-2.5",
+          "base_url": "https://api.minimaxi.com/anthropic",
+          "client_type": "anthropic",
+          "default_temperature": 0.7,
+          "default_max_tokens": 4096,
+          "proxy_required": false,
+          "notes": "MiniMax Anthropic 兼容接口"
+        }
+      },
+      "ollama": {
+        "chat": {
+          "model": "qwen3.5:9b",
+          "base_url": "http://localhost:11434",
+          "api_path": "/api/chat",
+          "default_temperature": 0.1,
+          "default_max_tokens": 4096,
+          "client_type": "raw_httpx",
+          "notes": "思考模型必须用 /api/chat + think:false, OpenAI-compatible 口返回空 content"
+        },
+        "completions": {
+          "model": "qwen3.5:9b",
+          "base_url": "http://localhost:11434",
+          "api_path": "/v1/chat/completions",
+          "default_temperature": 0.1,
+          "default_max_tokens": 4096,
+          "client_type": "openai",
+          "notes": "仅用于非思考场景的兼容模式"
+        }
+      }
+    }
+  }
+}

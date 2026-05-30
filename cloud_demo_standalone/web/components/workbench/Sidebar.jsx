@@ -6,7 +6,7 @@ const navGroups = [
     title: '工作台',
     items: [
       { href: '/home', label: '总览', desc: '云端能力地图', icon: 'overview' },
-      { href: '/demo', label: '演示路径', desc: '公开闭环入口', icon: 'route' },
+      { href: '/demo', label: '展示导览', desc: '公开闭环入口', icon: 'route' },
     ],
   },
   {
@@ -18,9 +18,9 @@ const navGroups = [
     ],
   },
   {
-    title: '核验',
+    title: '查看',
     items: [
-      { href: '/evidence', label: '来源矩阵', desc: '评分理由与产物', icon: 'evidence' },
+      { href: '/evidence', label: '来源矩阵', desc: '依据说明与产物', icon: 'evidence' },
       { href: '/boundary', label: '公开边界', desc: '云端与完整系统', icon: 'boundary' },
       { href: '/health', label: '云端状态', desc: 'API 与额度状态', icon: 'health' },
     ],
@@ -70,7 +70,7 @@ export default function Sidebar() {
         ))}
       </nav>
       <div className="px-4 py-3 border-t text-[11px] text-gray-500 bg-white leading-snug">
-        <div className="font-mono text-gray-600">Cloud Demo</div>
+        <div className="font-mono text-gray-600">Online Showcase</div>
         <div>仅公开 / 脱敏材料</div>
       </div>
     </aside>

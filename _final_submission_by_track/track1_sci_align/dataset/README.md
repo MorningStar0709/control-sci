@@ -54,7 +54,7 @@ pretty_name: ControlSci Sci-Align Benchmark (Dataset)
 {
   "meta": {
     "project": "ControlSci — 控制科学结构化语料库与 Sci-Align 跨模态对齐评测基准",
-    "version": "1.0",
+    "version": "1.0",  <!-- 核心评测集版本。Sciverse 扩展数据（metadata/SFT/图片）以附加模块形式发布，见 HF 仓库 v2.0 tag -->
     "updated": "2026-05-05",
     "total_questions": 500,
     "dimensions": { "A": 125, "B": 125, "C": 125, "D": 125 },
@@ -76,7 +76,7 @@ pretty_name: ControlSci Sci-Align Benchmark (Dataset)
 | 元字段 | 类型 | 说明 |
 |--------|------|------|
 | `project` | string | 项目名称 |
-| `version` | string | 数据集版本号（full.json/core.json = `1.0`，merged.json = `1.0-candidate`） |
+| `version` | string | 数据集版本号（full.json/core.json = `1.0`，merged.json = `1.0-candidate`）。Sciverse 扩展数据（14 论文 metadata + 924 SFT + 99 图）以附加模块形式推送到 HF，对应 `v2.0` tag |
 | `updated` | string | 最后更新日期 (ISO 8601，全部为 `2026-05-05`) |
 | `total_questions` | int | 题目总数 |
 | `dimensions` | object | 各维度题数 `{A,B,C,D}` |

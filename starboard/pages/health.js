@@ -11,7 +11,7 @@ const runtimeServiceDefs = [
 
 const artifactDefs = [
   { key: 'medical_index', label: '医学索引', critical: true, action: '生成或恢复 FAISS/BM25 索引' },
-  { key: 'evidence_bundle', label: '验收来源包', critical: false, action: '检查 docs/submissions/data_trace_bundle' },
+  { key: 'evidence_bundle', label: '证据来源包', critical: false, action: '检查 docs/submissions/data_trace_bundle' },
   { key: 'track1_dataset', label: '赛道一数据集', critical: true, action: '检查 benchmark/dataset/core.json' },
 ];
 

@@ -21,14 +21,19 @@
 | `10_charts_large/` | 十 | 语料嵌入矩阵缓存 |
 | `11_throughput/` | 十一 / 附录性能 | GPU 吞吐与 HF embedding 短测 (#145-146) |
 | `12_final_supplemental_experiments/` | 附录补充验收 | 三赛道最小入口、Track1 本地 JSON 加载、Track2 本地 DAG dry-run、Track3 安全拒答边界 |
+| `13_sciverse_integration/` | 十六 | Sciverse 覆盖、检索、跨源评测、医学闭环、排行榜与 Agent 飞轮 (#151-168) |
 
 ## 完整清单
 
-所有文件的 SHA-256 校验值见 `manifest.json`。
+`manifest.json` 是本数据包的文件完整性清单：记录生成时间、复制策略、总大小、每个文件的原始路径、包内路径、size 与 SHA-256。当前全量导航包由 `scripts/build_data_trace_bundle.py` 于 `2026-05-24T16:22:20` 生成，`total_size_mb=400.96`。
+
+Manifest 只回答“证据文件是否存在且内容未漂移”，不替代实验数字的权威来源。报告中的精确数值仍以 [DATA-TRACE.md](../shared/DATA-TRACE.md) 登记的 JSON / JSONL / log 及对应复现命令为准；三赛道 final bundle 下的 manifest 另按赛道裁剪，评审应优先核验各自包内 manifest 与实体文件是否一致。
+
+字段语义如下：`bundle_path` 表示当前数据包内的相对路径；`source_path` 表示该文件在项目仓库中的原始来源路径；`size_bytes` / `size_mb` / `sha256` 表示复制后的包内文件状态。赛道级 final bundle 继承同一语义，但只覆盖对应包内实际存在的裁剪文件。
 
 ## 排除文件
 
-无。三份主报告和 DATA-TRACE 中引用的可定位数据源文件均已复制入本包；报告、脚本、命令、git log 等非数据源不重复复制。
+无。三份主报告和 DATA-TRACE 中引用的可定位数据源文件均已复制入本包；报告、脚本、命令、git log 等非数据源不重复复制。赛道级 final bundle 会按 Track 1 / Track 2 / Track 3 裁剪本包内容，因此其 `data_trace_bundle/README.md` 与 `manifest.json` 只描述对应赛道的 included / excluded 范围。
 
 ## 许可
 

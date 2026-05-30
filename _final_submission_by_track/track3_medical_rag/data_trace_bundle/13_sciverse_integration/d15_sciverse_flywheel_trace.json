@@ -1,0 +1,151 @@
+{
+  "schema_version": "1.0",
+  "task_id": "d15-sciverse-flywheel-20260523-194124",
+  "task_name": "Agent Sciverse Flywheel: 3 queries to structured trace",
+  "steps": [
+    {
+      "step_id": 1,
+      "step_name": "sciverse_search #1",
+      "tool": "Sciverse API (api.sciverse.space)",
+      "status": "success",
+      "duration_ms": 2980,
+      "input_summary": "query=robust model predictive control safety constraints for auton",
+      "output_summary": "total_hits=5, top=ROTEC: Robust to Early Termination Command Governor for Systems with Limited Com",
+      "timestamp": "2026-05-23T19:41:15"
+    },
+    {
+      "step_id": 2,
+      "step_name": "sciverse_search #2",
+      "tool": "Sciverse API (api.sciverse.space)",
+      "status": "success",
+      "duration_ms": 3312,
+      "input_summary": "query=reinforcement learning model-free adaptive control convergen",
+      "output_summary": "total_hits=5, top=[IEEE 2019 IEEE 58th Conference on Decision and Control (CDC) - Nice, France (20",
+      "timestamp": "2026-05-23T19:41:18"
+    },
+    {
+      "step_id": 3,
+      "step_name": "sciverse_search #3",
+      "tool": "Sciverse API (api.sciverse.space)",
+      "status": "success",
+      "duration_ms": 6362,
+      "input_summary": "query=distributed optimization consensus control multi-agent netwo",
+      "output_summary": "total_hits=5, top=Receding Horizon Control Based Consensus Scheme in General Linear Multi-agent Sy",
+      "timestamp": "2026-05-23T19:41:24"
+    }
+  ],
+  "total_duration_ms": 12657,
+  "final_status": "completed",
+  "created_at": "2026-05-23T19:41:24",
+  "all_hits": {
+    "query_1": {
+      "query": "robust model predictive control safety constraints for autonomous systems",
+      "total_hits": 5,
+      "sample_titles": [
+        "ROTEC: Robust to Early Termination Command Governor for Systems with Limited Com",
+        "Stability Constraints for Robust Model Predictive Control",
+        "Stability Constraints for Robust Model Predictive Control"
+      ],
+      "sample_hits": [
+        {
+          "abstract": "A Command Governor (CG) is an optimization-based add-on scheme to a nominal\nclosed-loop system. It is used to enforce state and control constraints by\nmodifying reference commands. This paper considers the implementation of a CG\non embedded processors that have limited computing resources and must execute\nmultiple control and diagnostics functions; consequently, the time available\nfor CG computations is limited and may vary over time. To address this issue, a\nrobust to early termination command governor is developed which embeds the\nsolution of a CG problem into the internal states of a virtual continuous-time\ndynamical system which runs in parallel to the process. This virtual system is\nbuilt so that its trajectory converges to the optimal solution (with a tunable\nconvergence rate), and provides a sub-optimal but feasible solution whenever\nits evolution is terminated. This allows the designer to implement a CG\nstrategy with a small sampling period (and consequently with a minimum\ndegradation in its performance), while maintaining its constraint-handling\ncapabilities. Simulations are carried out to assess the effectiveness of the\ndeveloped scheme in satisfying performance requirements and real-time\nschedulability conditions for a practical vehicle rollover example.",
+          "chunk": "\n\n# 1.2. Prior Work on Optimization-Based Constrained Control of Systems With Limited Computing Capacity\n\nAs mentioned above, safety in this paper is related to the constraint enforcement. The literature on constrained control has been dominated by optimization-based techniques, such as Model Predictive Control (MPC) [24, 25], Reference/Command Governors (RG/CG) [26], and Control Barrier Functions [27]. However, the use of online optimization is computationally intensive and creates practical challenges when they are employed in a CPS with limited computational power.",
+          "chunk_id": "7dce22503669a0b0713f45eddaa8dabbaa8f53c267b8ca24646cb7b65c98b785",
+          "doc_id": "176e72c4fa8e7d89ba98d5fce340509b59a7d4fa3bcdd643df0b6a751bb1b0b2",
+          "model_name": "mineru",
+          "model_version": "2",
+          "offset": 9359,
+          "page_no": 1,
+          "score": 0.523825466632843,
+          "title": "ROTEC: Robust to Early Termination Command Governor for Systems with Limited Computing Capacity"
+        },
+        {
+          "abstract": "",
+          "chunk": "Research Article\n\n# Stability Constraints for Robust Model Predictive Control\n\nAmanda G. S. Ottoni,1 Ricardo H. C. Takahashi,2 and Guilherme V. Raffo3\n\n$^{I}$ Department of Physics and Mathematics, Federal University of Sa˜o Joa˜o del-Rei, Campus Alto Paraopeba, Rodovia MG 443,   \nKM 7, 36420-000 Ouro Branco, MG, Brazil   \n2Department of Mathematics, Federal University of Minas Gerais, Campus da Pampulha, Avenida Antoˆnio Carlos 6627,   \n31270-901 Belo Horizonte, MG, Brazil   \n3Department of Electronic Engineering, Federal University of Minas Gerais, Campus da Pampulha, Avenida Antoˆnio Carlos 6627,   \n31270-901 Belo Horizonte, MG, Brazil",
+          "chunk_id": "77d087e78a6e350a8c05a3dd8d8450cd7b3dd0935d50870c118a9ede02502ab3",
+          "doc_id": "4433c33c58d087da72260f23f834e48a12773f5dec00a3955426acca182a5fcc",
+          "model_name": "mineru",
+          "model_version": "1.3.1",
+          "offset": 0,
+          "page_no": 0,
+          "score": 0.448898047208786,
+          "title": "Stability Constraints for Robust Model Predictive Control"
+        }
+      ]
+    },
+    "query_2": {
+      "query": "reinforcement learning model-free adaptive control convergence guarantees",
+      "total_hits": 5,
+      "sample_titles": [
+        "[IEEE 2019 IEEE 58th Conference on Decision and Control (CDC) - Nice, France (20",
+        "Toward a Theoretical Foundation of Policy Optimization for Learning Control Poli",
+        "A New Approach for Resource Scheduling with Deep Reinforcement Learning"
+      ],
+      "sample_hits": [
+        {
+          "abstract": "",
+          "chunk": "\n\nIn this paper, we provide two novel adaptive optimal control algorithms for continuous-time nonlinear affine systems using reinforcement learning ideas, i.e. GPI and $\\mathrm{Q}\\mathrm{-}$ learning. The adaptive critic and actor are continuously and simultaneously updating each other without neither iterative steps nor an initial stabilising policy. The two approaches can online approximate the value function/Q-function and are partially/completely model-free. The new adaptive approach enables the online verification of PE condition and guarantees the overall stability and the finite-time convergence.",
+          "chunk_id": "ecc0d53126238292b20277c8e2d82c19df79e4f8ce71412ba49929e0cfea77df",
+          "doc_id": "ee0b1ce6b5963ab0ff52391a9488bc29b95101436ed75ba8fc95fd824a13cfd4",
+          "model_name": "mineru",
+          "model_version": "1.3.1",
+          "offset": 37695,
+          "page_no": 5,
+          "score": 0.9839906692504883,
+          "title": "[IEEE 2019 IEEE 58th Conference on Decision and Control (CDC) - Nice, France (2019.12.11-2019.12.13)] 2019 IEEE 58th Conference on Decision and Control (CDC) - Adaptive Optimal Control via Continuous-Time Q-Learning for Unknown Nonlinear Affine Systems"
+        },
+        {
+          "abstract": "Gradient-based methods have been widely used for system design and optimization in diverse application domains. Recently, there has been a renewed interest in studying theoretical properties of these methods in the context of control and reinforcement learning. This article surveys some of the recent developments on policy optimization, a gradient-based iterative approach for feedback control synthesis that has been popularized by successes of reinforcement learning. We take an interdisciplinary perspective in our exposition that connects control theory, reinforcement learning, and large-scale optimization. We review a number of recently developed theoretical results on the optimization landscape, global convergence, and sample complexityof gradient-based methods for various continuous control problems, such as the linear quadratic regulator (LQR),  control, risk-sensitive control, linear quadratic Gaussian (LQG) control, and output feedback synthesis. In conjunction with these optimization results, we also discuss how direct policy optimization handles stability and robustness concerns in learning-based control, two main desiderata in control engineering. We conclude the survey by pointing out several challenges and opportunities at the intersection of learning and control.",
+          "chunk": "\n\n. 2022. Model-free \\(\\mu\\) synthesis via adversarial reinforcement learning. In 2022 American Control Conference, pp. 3335–41. Piscataway, NJ: IEEE56. Jansch-Porto JP, Hu B, Dullerud GE. 2020. Convergence guarantees of policy optimization methods for Markovian jump linear systems. In 2020 American Control Conference, pp. 2882–87. Piscataway, NJ: IEEE57. Jansch-Porto JP, Hu B, Dullerud G. 2020. Policy learning of MDPs with mixed continuous/discrete variables: a case study on model-free control of Markovian jump systems",
+          "chunk_id": "2044be8b2f880ae143bd2e85c18d76034f3693ef7cc6a720dd85300d4d8e1878",
+          "doc_id": "659e52ac482fed225a60125778e4f5d7e5957be8c2221986d4cac663ddb31d3b",
+          "model_name": "mineru",
+          "model_version": "2",
+          "offset": 118107,
+          "page_no": 31,
+          "score": 0.8967846632003784,
+          "title": "Toward a Theoretical Foundation of Policy Optimization for Learning Control Policies"
+        }
+      ]
+    },
+    "query_3": {
+      "query": "distributed optimization consensus control multi-agent network topology",
+      "total_hits": 5,
+      "sample_titles": [
+        "Receding Horizon Control Based Consensus Scheme in General Linear Multi-agent Sy",
+        "Observer-Based Consensus of Nonlinear Positive Multi-Agent Systems with Saturate",
+        "Leader-following H∞ consensus of discrete-time nonlinear multi-agent systems bas"
+      ],
+      "sample_hits": [
+        {
+          "abstract": "This paper investigates the consensus problem of general linear multi-agent\nsystems under the framework of optimization. A novel distributed receding\nhorizon control (RHC) strategy for consensus is proposed. We show that the\nconsensus protocol generated by the unconstrained distributed RHC can be\nexpressed in an explicit form. Based on the resulting consensus protocol the\nnecessary and sufficient conditions for ensuring consensus are developed.\nFurthermore, we specify more detailed consensus conditions for multi-agent\nsystem with general and one-dimensional linear dynamics depending on the\ndifference Riccati equations (DREs), respectively. Finally, two case studies\nverify the proposed scheme and the corresponding theoretical results.",
+          "chunk": "\n\n# Index Terms\n\nConsensus, receding horizon control (RHC), multi-agent systems, general linear systems, optimization, diagraph.\n\n# I. INTRODUCTION\n\nIn last two decades, the cooperative control of networked multi-agent systems has received a lot of attention due to its wide applications. In particular, the consensus problem is of significant importance, and has inspired much progress, e.g., [1]–[3]. In this paper, we are interested in solving the consensus problem of multi-agent systems from the distributed optimal control perspective. The multi-agent system under study is of fixed directed network topology and general",
+          "chunk_id": "e7c5c520ba40c76a2fa02f2f4e77d01b88dd6f03469a3247b2fca1d8eb8cb0ea",
+          "doc_id": "50f2a986fac067fc32dbb0fd24974550bafb71b54fd0a98d2c857b41f7bb7708",
+          "model_name": "mineru",
+          "model_version": "2",
+          "offset": 885,
+          "page_no": 0,
+          "score": 0.975456714630127,
+          "title": "Receding Horizon Control Based Consensus Scheme in General Linear Multi-agent Systems"
+        },
+        {
+          "abstract": "This paper presents the distributed pinning consensus solution for nonlinear\npositive multi-agent systems with nonlinear control input by applying\nobserver-based control protocols. The network topology is considered as a\ndirected and fully connected structure. By considering sector input\nnonlinearities and various forms of topologies, two kinds of state observers\ninvolving standard observer and distributed pinning observer are presented for\neach regarded nonlinear agent by applying a novel analysis directly dealing\nwith the nonlinear input and nonlinear system dynamics. The measured local\noutput detail outlines the first observer, and the other observer is achieved\nvia the corresponding output detail of its adjacent agents. Based on further\nobserved state details, a distributed pinning observer-based strategy is\nderived for the leader-follower non-negative global consensus of the nonlinear\npositive multi-agent system. Additionally, two multi-step algorithms are\nproposed to set up the observer gains and each protocol criterion. Performance\nevaluations are provided to confirm the proposed control method and illustrate\nthe effectiveness of the derived non-negative consensus observer-based\nprotocols.",
+          "chunk": "\n\nKeywords: Convex optimization; directed topology; distributed pinning observer; linear matrix inequality(LMI); nonlinear control input; nonlinear positive multi-agent systems.\n\n# 1. Introduction\n\nThe distributed cooperative control approach of multi-agent systems (MASs) has been investigated previously in many cases. These systems are applicable in control, sensing, communication network technologies, and district heating and cooling networks. Other substantial perspectives of analyzing distributed MASs are using consensus or synchronization control problems in recent years [1] since most of the coordination control problems can be stated into consensus problems [2]",
+          "chunk_id": "dba38d485684c1ed51899c4104785c89c2fe25bb3896e706ce37ea5e9ce78a2e",
+          "doc_id": "1d05a5fd13421bd9b1d4ae62b626515df0a4af15ba3ddd99e8b475bff50f96d1",
+          "model_name": "miner0415__qwen2_5_vl_72b",
+          "model_version": "1.0",
+          "offset": 1529,
+          "page_no": 0,
+          "score": 0.9720296263694763,
+          "title": "Observer-Based Consensus of Nonlinear Positive Multi-Agent Systems with Saturated Control Input"
+        }
+      ]
+    }
+  },
+  "analysis": "Agent sciverse_search intent executed via handle_sciverse_search; 3 queries covering robust MPC, RL control convergence, distributed optimization.",
+  "n_queries": 3,
+  "n_successful": 3,
+  "conclusion": "Agent consumed Sciverse API autonomously — 3/3 queries returned hits."
+}

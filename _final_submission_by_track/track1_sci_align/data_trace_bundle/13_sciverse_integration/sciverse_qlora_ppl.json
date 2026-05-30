@@ -1,0 +1,113 @@
+{
+  "analysis": "sciverse_qlora_ppl_probe",
+  "base_model": "Qwen/Qwen3.5-9B",
+  "qlora_adapter": "D:\\WorkPlace\\AI\\MinerU\\finetune\\output\\qlora-final",
+  "n_papers": 14,
+  "total_fragments": 112,
+  "overall": {
+    "base_avg_ppl": 17.55,
+    "qlora_avg_ppl": 17.83,
+    "delta_ppl": 0.28,
+    "delta_percent": 1.6
+  },
+  "per_paper": {
+    "PID控制": {
+      "base_ppl": 105.0,
+      "qlora_ppl": 100.63,
+      "delta_ppl": -4.37,
+      "delta_pct": -4.2,
+      "n_fragments": 8
+    },
+    "估计与定位": {
+      "base_ppl": 8.25,
+      "qlora_ppl": 8.68,
+      "delta_ppl": 0.43,
+      "delta_pct": 5.2,
+      "n_fragments": 8
+    },
+    "导航制导与控制": {
+      "base_ppl": 13.09,
+      "qlora_ppl": 13.5,
+      "delta_ppl": 0.41,
+      "delta_pct": 3.2,
+      "n_fragments": 8
+    },
+    "控制理论": {
+      "base_ppl": 9.54,
+      "qlora_ppl": 10.59,
+      "delta_ppl": 1.04,
+      "delta_pct": 10.9,
+      "n_fragments": 8
+    },
+    "数字控制": {
+      "base_ppl": 12.6,
+      "qlora_ppl": 14.15,
+      "delta_ppl": 1.55,
+      "delta_pct": 12.3,
+      "n_fragments": 8
+    },
+    "智能控制": {
+      "base_ppl": 9.92,
+      "qlora_ppl": 10.58,
+      "delta_ppl": 0.65,
+      "delta_pct": 6.6,
+      "n_fragments": 8
+    },
+    "最优控制": {
+      "base_ppl": 20.4,
+      "qlora_ppl": 20.97,
+      "delta_ppl": 0.56,
+      "delta_pct": 2.8,
+      "n_fragments": 8
+    },
+    "现代控制": {
+      "base_ppl": 10.42,
+      "qlora_ppl": 11.58,
+      "delta_ppl": 1.15,
+      "delta_pct": 11.1,
+      "n_fragments": 8
+    },
+    "线性系统": {
+      "base_ppl": 9.79,
+      "qlora_ppl": 10.58,
+      "delta_ppl": 0.79,
+      "delta_pct": 8.1,
+      "n_fragments": 8
+    },
+    "经典控制": {
+      "base_ppl": 10.49,
+      "qlora_ppl": 11.09,
+      "delta_ppl": 0.6,
+      "delta_pct": 5.8,
+      "n_fragments": 8
+    },
+    "自抗扰控制": {
+      "base_ppl": 9.88,
+      "qlora_ppl": 9.72,
+      "delta_ppl": -0.16,
+      "delta_pct": -1.6,
+      "n_fragments": 8
+    },
+    "自适应控制": {
+      "base_ppl": 11.58,
+      "qlora_ppl": 11.9,
+      "delta_ppl": 0.32,
+      "delta_pct": 2.7,
+      "n_fragments": 8
+    },
+    "非线性控制": {
+      "base_ppl": 7.24,
+      "qlora_ppl": 7.57,
+      "delta_ppl": 0.33,
+      "delta_pct": 4.6,
+      "n_fragments": 8
+    },
+    "鲁棒控制": {
+      "base_ppl": 7.51,
+      "qlora_ppl": 8.13,
+      "delta_ppl": 0.62,
+      "delta_pct": 8.3,
+      "n_fragments": 8
+    }
+  }
+}

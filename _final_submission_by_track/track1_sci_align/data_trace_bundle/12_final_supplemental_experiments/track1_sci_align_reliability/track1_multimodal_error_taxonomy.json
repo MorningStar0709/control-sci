@@ -1,0 +1,241 @@
+{
+  "schema_version": "1.0",
+  "experiment": "track1_multimodal_error_taxonomy",
+  "created_at": "2026-05-23 22:58:32",
+  "evaluation_mode": "replay_existing_cross_modal_audit_no_new_api_calls",
+  "inputs": {
+    "cooccurrence": "benchmark/eval/results/image_formula_cooccurrence.json",
+    "audit_summary": "benchmark/eval/results/cross_modal_audit_summary.json",
+    "sciverse_optional": "benchmark/eval/results/sciverse_cross_modal_audit.json"
+  },
+  "source_audit_summary": {
+    "total_judged": 29,
+    "consistent": 22,
+    "partially_consistent": 1,
+    "inconsistent": 6,
+    "file_not_found": 1,
+    "alignment_quality": 79.3
+  },
+  "cooccurrence_summary": {
+    "total_chunks_manifest": 28475,
+    "chunks_scanned": 28475,
+    "read_errors": 0,
+    "has_both": 4935,
+    "has_both_pct": 17.3,
+    "image_only": 1223,
+    "image_only_pct": 4.3,
+    "formula_only": 14648,
+    "formula_only_pct": 51.4,
+    "neither": 7669,
+    "neither_pct": 26.9,
+    "subdomain_count": 14
+  },
+  "sample_count": 20,
+  "taxonomy_counts": {
+    "by_label": {
+      "consistent": 10,
+      "inconsistent": 9,
+      "partial": 1
+    },
+    "by_reason": {
+      "aligned_semantic_match": 10,
+      "chunk_boundary_mismatch": 2,
+      "formula_context_missing": 1,
+      "image_semantic_mismatch": 1,
+      "model_or_label_ambiguity": 1,
+      "multi_role_figure": 2,
+      "unknown_alignment_gap": 3
+    },
+    "label_reason_matrix": {
+      "consistent": {
+        "aligned_semantic_match": 10
+      },
+      "inconsistent": {
+        "chunk_boundary_mismatch": 2,
+        "formula_context_missing": 1,
+        "image_semantic_mismatch": 1,
+        "multi_role_figure": 2,
+        "unknown_alignment_gap": 3
+      },
+      "partial": {
+        "model_or_label_ambiguity": 1
+      }
+    },
+    "covered_reason_categories": [
+      "aligned_semantic_match",
+      "chunk_boundary_mismatch",
+      "formula_context_missing",
+      "image_semantic_mismatch",
+      "model_or_label_ambiguity",
+      "multi_role_figure",
+      "unknown_alignment_gap"
+    ]
+  },
+  "sample_records": [
+    {
+      "sample_id": "summary_consistent_01",
+      "source_bucket": "consistent",
+      "original_label": "consistent",
+      "reason_category": "aligned_semantic_match",
+      "description": "tank fluid dynamics + level response curve",
+      "evidence_source": "cross_modal_audit_summary.detailed_results"
+    },
+    {
+      "sample_id": "summary_consistent_02",
+      "source_bucket": "consistent",
+      "original_label": "consistent",
+      "reason_category": "aligned_semantic_match",
+      "description": "fuzzy PID flowchart + plant transfer function",
+      "evidence_source": "cross_modal_audit_summary.detailed_results"
+    },
+    {
+      "sample_id": "summary_consistent_03",
+      "source_bucket": "consistent",
+      "original_label": "consistent",
+      "reason_category": "aligned_semantic_match",
+      "description": "trust domain visualization + set inclusion",
+      "evidence_source": "cross_modal_audit_summary.detailed_results"
+    },
+    {
+      "sample_id": "summary_consistent_04",
+      "source_bucket": "consistent",
+      "original_label": "consistent",
+      "reason_category": "aligned_semantic_match",
+      "description": "H∞/RMPC torque-speed curves + suspension control",
+      "evidence_source": "cross_modal_audit_summary.detailed_results"
+    },
+    {
+      "sample_id": "summary_consistent_05",
+      "source_bucket": "consistent",
+      "original_label": "consistent",
+      "reason_category": "aligned_semantic_match",
+      "description": "7DOF arm state estimation + error bound",
+      "evidence_source": "cross_modal_audit_summary.detailed_results"
+    },
+    {
+      "sample_id": "summary_consistent_06",
+      "source_bucket": "consistent",
+      "original_label": "consistent",
+      "reason_category": "aligned_semantic_match",
+      "description": "Wigner function quantum state + time markers",
+      "evidence_source": "cross_modal_audit_summary.detailed_results"
+    },
+    {
+      "sample_id": "summary_consistent_07",
+      "source_bucket": "consistent",
+      "original_label": "consistent",
+      "reason_category": "aligned_semantic_match",
+      "description": "multi-agent connectivity potential function",
+      "evidence_source": "cross_modal_audit_summary.detailed_results"
+    },
+    {
+      "sample_id": "summary_consistent_08",
+      "source_bucket": "consistent",
+      "original_label": "consistent",
+      "reason_category": "aligned_semantic_match",
+      "description": "queueing system diagram + Lindley recursion",
+      "evidence_source": "cross_modal_audit_summary.detailed_results"
+    },
+    {
+      "sample_id": "summary_consistent_09",
+      "source_bucket": "consistent",
+      "original_label": "consistent",
+      "reason_category": "aligned_semantic_match",
+      "description": "time-delay ZOH sampling waveform + discretization",
+      "evidence_source": "cross_modal_audit_summary.detailed_results"
+    },
+    {
+      "sample_id": "summary_consistent_10",
+      "source_bucket": "consistent",
+      "original_label": "consistent",
+      "reason_category": "aligned_semantic_match",
+      "description": "Nyquist D-contour + phase/magnitude calculation",
+      "evidence_source": "cross_modal_audit_summary.detailed_results"
+    },
+    {
+      "sample_id": "summary_partial_01",
+      "source_bucket": "partially_consistent",
+      "original_label": "partial",
+      "reason_category": "model_or_label_ambiguity",
+      "description": "hyperbolic equilibrium classification: image shows stable node, matrix has degenerate Jordan form",
+      "evidence_source": "cross_modal_audit_summary.detailed_results"
+    },
+    {
+      "sample_id": "summary_inconsistent_01",
+      "source_bucket": "inconsistent",
+      "original_label": "inconsistent",
+      "reason_category": "multi_role_figure",
+      "description": "generic note icon vs angle calculation formulas",
+      "evidence_source": "cross_modal_audit_summary.detailed_results"
+    },
+    {
+      "sample_id": "summary_inconsistent_02",
+      "source_bucket": "inconsistent",
+      "original_label": "inconsistent",
+      "reason_category": "formula_context_missing",
+      "description": "stability physics model vs Laplace transform properties",
+      "evidence_source": "cross_modal_audit_summary.detailed_results"
+    },
+    {
+      "sample_id": "summary_inconsistent_03",
+      "source_bucket": "inconsistent",
+      "original_label": "inconsistent",
+      "reason_category": "chunk_boundary_mismatch",
+      "description": "gradient convergence proof vs unrelated image",
+      "evidence_source": "cross_modal_audit_summary.detailed_results"
+    },
+    {
+      "sample_id": "summary_inconsistent_04",
+      "source_bucket": "inconsistent",
+      "original_label": "inconsistent",
+      "reason_category": "chunk_boundary_mismatch",
+      "description": "circuit diagram vs generic controllability proof (no specific mapping)",
+      "evidence_source": "cross_modal_audit_summary.detailed_results"
+    },
+    {
+      "sample_id": "summary_inconsistent_05",
+      "source_bucket": "inconsistent",
+      "original_label": "inconsistent",
+      "reason_category": "multi_role_figure",
+      "description": "dynamic network node labels mismatch (numbers vs letters G₁,V₁)",
+      "evidence_source": "cross_modal_audit_summary.detailed_results"
+    },
+    {
+      "sample_id": "summary_inconsistent_06",
+      "source_bucket": "inconsistent",
+      "original_label": "inconsistent",
+      "reason_category": "image_semantic_mismatch",
+      "description": "mass-spring-damper vs RLC circuit description (mechanical vs electrical)",
+      "evidence_source": "cross_modal_audit_summary.detailed_results"
+    },
+    {
+      "sample_id": "sciverse_inconsistent_01",
+      "source_bucket": "sciverse_formula_audit",
+      "original_label": "inconsistent",
+      "reason_category": "unknown_alignment_gap",
+      "description": "导航制导与控制: 9^{\\text{th}} | trying to contact any aircraft flying over the area that could provide close air support . Fortun",
+      "evidence_source": "sciverse_cross_modal_audit.per_paper.formula_audit"
+    },
+    {
+      "sample_id": "sciverse_inconsistent_02",
+      "source_bucket": "sciverse_formula_audit",
+      "original_label": "inconsistent",
+      "reason_category": "unknown_alignment_gap",
+      "description": "导航制导与控制: 1^{\\mathrm{st}} | d access to official US Air Force support and facilitated my visit to Dyess AFB. Thank you to Major",
+      "evidence_source": "sciverse_cross_modal_audit.per_paper.formula_audit"
+    },
+    {
+      "sample_id": "sciverse_inconsistent_03",
+      "source_bucket": "sciverse_formula_audit",
+      "original_label": "inconsistent",
+      "reason_category": "unknown_alignment_gap",
+      "description": "导航制导与控制: 1^{\\mathrm{st}} | d access to official US Air Force support and facilitated my visit to Dyess AFB. Thank you to Major",
+      "evidence_source": "sciverse_cross_modal_audit.per_paper.formula_audit"
+    }
+  ],
+  "boundary_notes": [
+    "This taxonomy replays existing cross-modal audit artifacts and does not call a new vision model.",
+    "Reason categories are rule-based labels over existing audit descriptions, intended for boundary analysis rather than metric improvement claims.",
+    "If a label has fewer than 10 samples, the matrix reports available evidence without fabricating additional cases."
+  ]
+}

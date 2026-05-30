@@ -1,6 +1,6 @@
 # Medical RAG Knowledge Base — 部署指南
 
-> **版本**：v1.1 | **更新日期**：2026-05-15
+> **版本**：v1.2 | **更新日期**：2026-05-24
 > **适用环境**：Windows/Linux + Docker (Ollama + Python 3.12) | 可选：GPU + conda myenv
 > **核心交付**：CLI + REST API + Docker Compose 三接口统一部署
 
@@ -41,6 +41,8 @@ CLI                  REST API               Docker
 
 ## 2. Docker 部署（推荐，零环境依赖）
 
+Track3 Docker 有两种边界：在源码仓库根目录运行时是 `source repo live mode`，可构建并启动真实 API；在 `_final_submission_by_track/track3_medical_rag` 独立包内运行时是 `final bundle EvidenceOnly mode`，用于检查已复制证据、manifest、supplemental summary 与 deployment smoke matrix，不承诺离线包单独包含完整源码和索引构建上下文。
+
 ### 2.1 前置条件
 
 - Docker Desktop
@@ -59,7 +61,7 @@ docker compose up
 2. FAISS 索引自动加载（34 MB text + 7 MB vision）
 3. REST API 在 `http://localhost:8001` 就绪
 
-> 端口说明：`8001` 是独立 Docker/CLI 部署示例端口；本地 Starboard 工作台默认连接 `17001`，可用 `run_reviewer_demo.ps1 -Track 3 -ApiPort 17001` 复核。
+> 端口说明：`8001` 是独立 Docker/CLI 部署示例端口；本地 Starboard 工作台默认连接 `17001`。standalone final bundle 可用 `_final_submission_by_track\track3_medical_rag\run\verify_task3_demo.ps1 -EvidenceOnly` 复核已提交证据，完整源码仓库可通过统一 reviewer demo 复核 live mode。
 
 ### 2.3 验证
 
@@ -97,8 +99,7 @@ curl http://localhost:8001/api/health
 ```powershell
 # Conda 环境（Python 3.12）
 conda create -n myenv python=3.12
-conda activate myenv
-conda run -n myenv pip install fastapi uvicorn httpx numpy faiss-cpu rank-bm25 scikit-learn scipy matplotlib
+conda run --no-capture-output -n myenv pip install fastapi uvicorn httpx numpy faiss-cpu rank-bm25 scikit-learn scipy matplotlib
 
 # Ollama 本地服务（用于 qwen3-embedding:4b）
 ollama pull qwen3-embedding:4b
@@ -111,11 +112,7 @@ ollama pull qwen3-embedding:4b
 $env:PYTHONIOENCODING='utf-8'
 
 # 1. 医疗文献切片（medical_mode）
-conda run --no-capture-output -n myenv python -c "
-from pipeline.chunk_corpus import build_chunks
-build_chunks('data/sources_medical/md', medical_mode=True,
-             chunks_dir='data/sources_medical/chunks')
-"
+conda run --no-capture-output -n myenv python -m pipeline.chunk_corpus --corpus data/sources_medical --medical-mode
 
 # 2. 构建索引（文本 + 视觉，需先完成 MinerU 解析）
 conda run --no-capture-output -n myenv python -m controlsci.medical.indexing
@@ -127,19 +124,32 @@ conda run --no-capture-output -n myenv uvicorn controlsci.api.medical_rag:app --
 本地 Starboard 工作台同机联调时可改用：
 
 ```powershell
-conda run -n myenv python -m controlsci.api.medical_rag --host 127.0.0.1 --port 17001
+conda run --no-capture-output -n myenv python -m controlsci.api.medical_rag --host 127.0.0.1 --port 17001
 ```
+
+Track3 补充实验和 final bundle EvidenceOnly 复核入口：
+
+```powershell
+conda run --no-capture-output -n myenv python -m controlsci.cli track3 supplemental status --json
+conda run --no-capture-output -n myenv python -m controlsci.cli track3 supplemental summary --json
+.\_final_submission_by_track\track3_medical_rag\run\verify_task3_demo.ps1 -EvidenceOnly
+```
+
+EvidenceOnly 主要核验 `track3_deployment_smoke_matrix.json`、`track3_supplemental_summary.json`、`medical_rag_eval.json`、`medical_rag_eval_zh_ask.json` 与赛道级 `manifest.json`。其中 Docker / frontend / live API 等环境依赖项若未运行，应保持 `not_run_environment_dependency`，不得写成 passed。
 
 ---
 
 ## 4. 一键复现（全流程）
 
 ```powershell
-# 从 PMC 文献下载到 RAG 检索的全部步骤
+# standalone final bundle evidence-only 复核
+.\_final_submission_by_track\track3_medical_rag\run\run_task3_rag_flywheel.ps1 -EvidenceOnly
+
+# 完整源码仓库中的 PMC 下载到 RAG 检索全流程入口
 run_medical_agent.ps1
 ```
 
-`run_medical_agent.ps1` 执行内容：
+`run_medical_agent.ps1` 是完整源码仓库入口，执行内容：
 1. PMC E-utilities API 检索 → 下载 100 篇文献
 2. MinerU 批量解析 → 结构化 .md
 3. 医疗章节本体切片 → 3,348 chunks

@@ -1,25 +1,25 @@
 # ControlSci Data Agent 部署指南
 
-> **版本**：v4.0 | **更新日期**：2026-05-10
+> **版本**：v4.1 | **更新日期**：2026-05-24
 > **适用环境**：Windows 10/11 + Conda + Python 3.12+ | 可选：Ollama（本地模型）、vLLM WSL2（1.2B VLM 文档解析）、RTX 5090 24GB（QLoRA 微调 + 35B 推理）
-> **架构**：14 intent × LLM Intent Router × 三轨资源调度 (API/MiMo-V2.5 视觉/Ollama 本地/MinerU/vLLM)
+> **架构**：15 intents × LLM Intent Router × 四路径资源调度 (API/MiMo-V2.5 视觉/Ollama 本地/MinerU)
 
 ---
 
 ## 1. 系统概述
 
-ControlSci Data Agent 是面向 AGI4S 的科学文档跨模态语料智能体。它能自主理解科学文档处理需求、规划多步执行路径、调用三轨推理引擎（轨道 1：API DeepSeek/MiMo/MiniMax 含 MiMo-V2.5 原生视觉；轨道 2：Ollama 本地 9B/35B；轨道 3：vLLM WSL2 MinerU-1.2B VLM 公式识别）+ MinerU 文档解析，完成从原始 PDF 到结构化跨模态评测数据集的全链路自主生产。
+ControlSci Data Agent 是面向 AGI4S 的科学文档跨模态语料智能体。它能自主理解科学文档处理需求、规划多步执行路径、调用四路径推理引擎（API DeepSeek/MiMo/MiniMax 含 MiMo-V2.5 原生视觉、Ollama 本地 9B/35B、Ollama Vision、vLLM WSL2 MinerU-1.2B VLM 公式识别）+ MinerU 文档解析，完成从原始 PDF 到结构化跨模态评测数据集的全链路自主生产。
 
 ### 1.1 核心能力
 
 | 能力 | 说明 |
 |------|------|
-| **14 intent × LLM Intent Router** | 自然语言 → few-shot 拆解为多步 plan → 自动调度执行路径 → Verify 闭环 |
-| **三轨推理引擎** | 轨道 1（API：DeepSeek/MiMo/MiniMax）、轨道 2（Ollama 本地：9B/35B）、轨道 3（vLLM WSL2：MinerU-1.2B VLM 文档解析） → ResourceScheduler 按任务类型自动路由 |
+| **15 intents × LLM Intent Router** | 自然语言 → few-shot 拆解为多步 plan → 自动调度执行路径 → Verify 闭环；新增 `sciverse_search` 作为跨源文献检索 intent |
+| **四路径推理引擎** | API（DeepSeek/MiMo/MiniMax）、Ollama 本地（9B/35B）、Ollama Vision、vLLM WSL2（MinerU-1.2B VLM 文档解析） → ResourceScheduler 按任务类型自动路由 |
 | **跨模态对齐审计** | MiMo-V2.5 原生全模态视觉模型（~4.7s/图），6,204 含图 chunk × 11,554 张图片全量扫描，断点续跑 |
 | **三 Provider 并行生成** | DeepSeek / MiMo / MiniMax 三路同时生成评测题 |
 | **数据飞轮闭环** | arxiv_search → mineru_parse → benchmark_build → quality_arbitrate → model_evaluate → leaderboard_viz：从论文检索到排行榜更新的全自动 6-step |
-| **多格式文档解析** | 支持 PDF/PPTX/HTML/扫描件图片四种格式统一解析，chunk 数/公式提取率/图片保留率 三维度对比 |
+| **多格式文档解析** | 支持 PDF/PPTX/DOCX/XLSX/PNG/扫描件图片统一解析，chunk 数/公式提取率/图片保留率三维度对比；HTML 不作为当前 MinerU 路径承诺 |
 | **LLM-as-Judge 仲裁** | 两层仲裁（Embedding 快速通道 + LLM 深度仲裁）筛选高质量题目 |
 | **隐私双路径** | `--local` 模式：Resource Scheduler 降级至 Ollama（Intent Router 仍用 DeepSeek） |
 | **多 Judge 一致性** | API 8 Judge + 本地 6 Judge → Fleiss' κ 三角验证 + 评分者反规模定律 |
@@ -38,10 +38,11 @@ ControlSci Data Agent 是面向 AGI4S 的科学文档跨模态语料智能体。
 │  每步标注: tool / resource_type / depends_on
 │
 ├─ Layer 2: Resource Scheduler (resource_scheduler.py)
-│  三轨决策 (优先级: 可复现性 > 隐私 > 成本):
-│  ├─ 轨道 1 (API) → DeepSeek/MiMo/MiniMax — 文本/Judge + MiMo-V2.5 视觉
-│  ├─ 轨道 2 (Ollama) → qwen3.5:9b/35b — 本地推理 + Judge
-│  └─ 轨道 3 (vLLM WSL2) → MinerU-1.2B VLM — 公式识别专用
+│  四路径决策 (优先级: 可复现性 > 隐私 > 成本):
+│  ├─ API → DeepSeek/MiMo/MiniMax — 文本/Judge + MiMo-V2.5 视觉
+│  ├─ Ollama → qwen3.5:9b/35b — 本地推理 + Judge
+│  ├─ Ollama Vision → qwen3.5:9b — 医学图片描述与视觉检索增强
+│  └─ vLLM WSL2 → MinerU-1.2B VLM — 公式识别专用
 │  可选 --local: Layer 2 降级至 Ollama/MinerU（Layer 1 Intent Router 仍用 DeepSeek）
 │
 ├─ Layer 3: Executor + Verifier
@@ -54,7 +55,7 @@ ControlSci Data Agent 是面向 AGI4S 的科学文档跨模态语料智能体。
 └─ Output: execution_log.json + artifacts
 ```
 
-### 1.3 14 intent 概览
+### 1.3 15 intents 概览
 
 | # | intent_id | 功能 | 工具链 | 资源类型 |
 |:--:|------|------|------|:--------:|
@@ -69,8 +70,12 @@ ControlSci Data Agent 是面向 AGI4S 的科学文档跨模态语料智能体。
 | 8 | `multi_judge_compare` | 多 Judge 对比 — API vs 本地双榜 | evaluate.py (API + Ollama 双路径) | api |
 | 9 | `leaderboard_viz` | 排行榜可视化 — 表格+柱状图+热力图 | summarize_multi.py + report_viz.py | script |
 | 10 | `local_finetune` | 本地微调 — QLoRA + Perplexity 验证 | train_qlora.py + Ollama | local_gpu |
-| 11 | `reproduce_all` | 全量复现 — 一键端到端全链路 | run_agent.ps1 全链路 | script |
-| 12 | `multi_format_parse` | 多格式文档解析 — PPTX/HTML/扫描件 → Markdown 质量对比 | MinerU API + tools/mineru_to_md.py | local_api |
+| 11 | `multi_format_parse` | 多格式文档解析 — PPTX/DOCX/XLSX/PNG/扫描件 → Markdown 质量对比 | MinerU API + tools/mineru_to_md.py | local_api |
+| 12 | `medical_rag` | 临床证据自动化合成 — 医学文献切片、索引、检索与 evidence synthesis | controlsci.medical + FAISS/BM25 + Ollama | local_only |
+| 13 | `sciverse_search` | Sciverse 文献检索 — 跨学科正式出版物语义检索，与 arXiv 预印本检索互补 | Sciverse agentic-search API + source selection | api |
+| 14 | `reproduce_all` | 全量复现 — 一键端到端全链路 | run_agent.ps1 全链路 | script |
+
+完整注册表见 `benchmark/agent/agent_capabilities.json`，其中 `meta.total_intents=15`。补充可靠性验收见 `docs/submissions/data_trace_bundle/12_final_supplemental_experiments/track2_agent_reliability/`：router robustness、failure injection、多源选择 A/B、资源 Pareto 与 hard-document stress 均已登记到 DATA-TRACE #169-173。
 
 ---
 
@@ -173,8 +178,7 @@ Ollama 默认监听 `http://localhost:11434`。可通过 `OLLAMA_HOST` 环境变
 
 ```bash
 # WSL 内
-conda activate myenv
-pip install vllm
+conda run --no-capture-output -n myenv pip install vllm
 vllm serve opendatalab/MinerU2.5-2509-1.2B --port 8000 --gpu-memory-utilization 0.3
 ```
 
@@ -200,7 +204,7 @@ curl -X POST http://localhost:8000/v1/completions \
 
 ---
 
-## 3. 三轨资源调度器部署
+## 3. 四路径资源调度器部署
 
 `resource_scheduler.py`（`benchmark/agent/resource_scheduler.py`）是系统的 Layer 2 核心组件。它负责：
 
@@ -209,23 +213,24 @@ curl -X POST http://localhost:8000/v1/completions \
 - **客户端工厂**：每 Provider 独立客户端实例
 - **自动降级**：按 resource_type 级联回退
 
-### 3.1 三轨五 Provider 决策
+### 3.1 四路径 Provider 决策
 
-| 轨道 | Provider | 用途 | 认证方式 |
+| 路径 | Provider | 用途 | 认证方式 |
 |:----:|----------|------|----------|
-| 1 | **DeepSeek API** | Intent Router / Judge / 文本生成 | `OPENAI_API_KEY` → `Authorization: Bearer` |
-| 1 | **MiMo-V2.5 原生视觉** | 跨模态审计 — 图片→公式语义判决 | `MIMO_API_KEY` → `api-key` header (raw httpx) |
-| 1 | **MiMo / MiniMax 文本** | 补充题目生成 | `MIMO_API_KEY` / `MINIMAX_API_KEY` |
-| 2 | **Ollama 本地** | 本地 Judge / 本地评测 / --local 模式 | 无密钥 |
-| 3 | **vLLM WSL2** | MinerU-1.2B VLM 公式识别 | 无密钥（本机端口） |
-| — | **MinerU 本地 API** | 科学文档 PDF/PPTX/HTML 解析 | `MINERU_API_BASE` |
+| API | **DeepSeek API** | Intent Router / Judge / 文本生成 | `OPENAI_API_KEY` → `Authorization: Bearer` |
+| API | **MiMo-V2.5 原生视觉** | 跨模态审计 — 图片→公式语义判决 | `MIMO_API_KEY` → `api-key` header (raw httpx) |
+| API | **MiMo / MiniMax 文本** | 补充题目生成 | `MIMO_API_KEY` / `MINIMAX_API_KEY` |
+| Ollama | **Ollama 本地** | 本地 Judge / 本地评测 / --local 模式 | 无密钥 |
+| Ollama Vision | **qwen3.5:9b vision** | 医学图片描述与视觉检索增强 | 无密钥 |
+| vLLM | **vLLM WSL2** | MinerU-1.2B VLM 公式识别 | 无密钥（本机端口） |
+| MinerU | **MinerU 本地 API** | 科学文档 PDF/PPTX/DOCX/XLSX/PNG/扫描件解析 | `MINERU_API_BASE` |
 
 ### 3.2 健康检查验证
 
 Agent 启动时自动执行 8 路健康检查：
 
 ```powershell
-conda run -n myenv python -c "
+conda run --no-capture-output -n myenv python -c "
 from benchmark.agent.resource_scheduler import get_global_scheduler
 s = get_global_scheduler()
 status = s.check_health()
@@ -265,14 +270,15 @@ ResourceStatus @ 2026-05-10T09:30:00
 ### 3.4 验证调度器
 
 ```powershell
-# 验证调度器能正确解析所有 12 个 intent 的资源需求
-conda run -n myenv python -c "
+# 验证调度器能正确解析注册表中的 15 个 intent 资源需求
+conda run --no-capture-output -n myenv python -c "
 from benchmark.agent.resource_scheduler import get_global_scheduler
 s = get_global_scheduler()
 for intent_id in ['arxiv_search','mineru_parse','corpus_parse','cross_modal_audit',
                    'corpus_quality_report','benchmark_build','quality_arbitrate',
                    'model_evaluate','multi_judge_compare','leaderboard_viz',
-                   'local_finetune','reproduce_all','multi_format_parse']:
+                   'local_finetune','multi_format_parse','medical_rag',
+                   'sciverse_search','reproduce_all']:
     r = s.resolve(intent_id)
     print(f'{intent_id:25s} → {r.provider:12s} {r.sub_type:10s} {r.model}')
 "
@@ -312,13 +318,13 @@ $env:VISION_PROVIDER = "minimax"
 
 ```powershell
 # 全量扫描（默认 5 线程，断点续跑）
-conda run -n myenv python benchmark/agent/visual_audit.py --workers 5 --resume
+conda run --no-capture-output -n myenv python benchmark/agent/visual_audit.py --workers 5 --resume
 
 # 限量调试（审计前 100 张图片）
-conda run -n myenv python benchmark/agent/visual_audit.py --max-items 100
+conda run --no-capture-output -n myenv python benchmark/agent/visual_audit.py --max-items 100
 
 # 单图测试验证 MiMo 识别能力
-conda run -n myenv python benchmark/agent/visual_audit.py --test
+conda run --no-capture-output -n myenv python benchmark/agent/visual_audit.py --test
 ```
 
 > `--resume` 本身就会自动跳过已完成条目，无需单独的 `--retry-failed` 参数。
@@ -357,7 +363,7 @@ conda run --no-capture-output -n myenv python benchmark/agent/agent_cli.py `
 
 ---
 
-## 5. Agent CLI — 14 intent × LLM Intent Router
+## 5. Agent CLI — 15 intents × LLM Intent Router
 
 `agent_cli.py`（`benchmark/agent/agent_cli.py`）是系统的 Layer 1+3 核心入口。它将用户的自然语言请求通过 LLM few-shot 拆解为可执行的 intent 序列，然后逐步执行并验证。
 
@@ -485,16 +491,28 @@ conda run --no-capture-output -n myenv python benchmark/agent/agent_cli.py `
     --intents local_finetune
 ```
 
-**intent 11 — 全量复现**
-```powershell
-conda run --no-capture-output -n myenv python benchmark/agent/agent_cli.py `
-    --intents reproduce_all
-```
-
-**intent 12 — 多格式文档解析（PPTX/HTML/扫描件）**
+**intent 11 — 多格式文档解析（PPTX/DOCX/XLSX/PNG/扫描件）**
 ```powershell
 conda run --no-capture-output -n myenv python benchmark/agent/agent_cli.py `
     --intents multi_format_parse
+```
+
+**intent 12 — 医学文献 RAG**
+```powershell
+conda run --no-capture-output -n myenv python benchmark/agent/agent_cli.py `
+    --intents medical_rag
+```
+
+**intent 13 — Sciverse 文献检索**
+```powershell
+conda run --no-capture-output -n myenv python benchmark/agent/agent_cli.py `
+    --intents sciverse_search
+```
+
+**intent 14 — 全量复现**
+```powershell
+conda run --no-capture-output -n myenv python benchmark/agent/agent_cli.py `
+    --intents reproduce_all
 ```
 
 ### 5.5 执行日志
@@ -664,13 +682,14 @@ conda run --no-capture-output -n myenv magic-pdf -p data/pdf/arXiv/ -o corpus/pa
 
 ### 7.3 多格式解析测试素材
 
-对应 intent `multi_format_parse`，需准备以下三类测试文件：
+对应 intent `multi_format_parse`，需准备以下测试文件：
 
 | 格式 | 建议来源 | 存储位置 |
 |:----:|---------|---------|
 | PPTX | 控制科学课件（教材配套幻灯片） | `benchmark/agent/test_materials/` |
-| HTML | arXiv 论文页面（保存为 .html） | `benchmark/agent/test_materials/` |
-| 扫描件图片 | 公式密集页（教材截图） | `benchmark/agent/test_materials/` |
+| DOCX | 技术说明或实验记录文档 | `benchmark/agent/test_materials/` |
+| XLSX | 结构化表格或评测结果表 | `benchmark/agent/test_materials/` |
+| PNG / 扫描件图片 | 公式密集页（教材截图） | `benchmark/agent/test_materials/` |
 
 ```powershell
 # 多格式解析：指定文件列表
@@ -851,14 +870,14 @@ MinerU/
 │   ├── agent/                    # Data Agent 核心层
 │   │   ├── __init__.py
 │   │   ├── agent_cli.py          # Layer 1+3: Intent Router + Executor + Verifier
-│   │   ├── agent_capabilities.json  # 14 intent 能力注册表
-│   │   ├── resource_scheduler.py # Layer 2: 三轨资源调度器
+│   │   ├── agent_capabilities.json  # 15 intents 能力注册表
+│   │   ├── resource_scheduler.py # Layer 2: 四路径资源调度器
 │   │   ├── visual_audit.py       # 跨模态审计引擎（MiMo-V2.5 原生视觉）
 │   │   ├── log_schema.py         # 日志 Schema 定义
 │   │   ├── agent.py              # 原 v1 ControlSciAgent（向后兼容）
 │   │   ├── _validate_capabilities.py  # capabilities.json 校验
-│   │   ├── _verify_10_intents.py      # 14 intent 验收脚本
-│   │   ├── test_materials/       # 多格式解析测试素材（PPTX/HTML/图片）
+│   │   ├── _verify_10_intents.py      # intent dry-run 验收脚本（历史文件名保留）
+│   │   ├── test_materials/       # 多格式解析测试素材（PPTX/DOCX/XLSX/PNG/图片）
 │   │   ├── logs/                 # 执行日志 JSON
 │   │   ├── results/              # visual_audit 审计产出
 │   │   └── examples/             # 12 个示例脚本
@@ -909,25 +928,25 @@ MinerU/
 
 ```powershell
 # 1. 环境检查
-conda run -n myenv python -c "import openai; import anthropic; import httpx; print('deps OK')"
+conda run --no-capture-output -n myenv python -c "import openai; import anthropic; import httpx; print('deps OK')"
 
 # 2. Provider 健康检查（8 路）
-conda run -n myenv python -c "
+conda run --no-capture-output -n myenv python -c "
 from benchmark.agent.resource_scheduler import get_global_scheduler
 s = get_global_scheduler()
 print(s.check_health().summary)
 "
 
 # 3. Agent CLI 模块 import
-conda run -n myenv python -c "
+conda run --no-capture-output -n myenv python -c "
 from benchmark.agent.agent_cli import ControlSciAgentCLI, IntentRegistry, IntentRouter, Executor, Verifier
 print('agent OK')
 "
 
-# 4. 14 intent 能力注册表验证
-conda run -n myenv python benchmark/agent/_validate_capabilities.py
+# 4. 15 intents 能力注册表验证
+conda run --no-capture-output -n myenv python benchmark/agent/_validate_capabilities.py
 
-# 5. 14 intent dry-run 验收
+# 5. intent dry-run 验收
 conda run --no-capture-output -n myenv python benchmark/agent/_verify_10_intents.py
 
 # 6. agent_cli.py dry-run（自然语言）
@@ -937,7 +956,7 @@ conda run --no-capture-output -n myenv python benchmark/agent/agent_cli.py --dry
 conda run --no-capture-output -n myenv python benchmark/agent/agent_cli.py --dry-run --local "生成语料质量报告"
 
 # 8. visual_audit 单图测试
-conda run -n myenv python benchmark/agent/visual_audit.py --test
+conda run --no-capture-output -n myenv python benchmark/agent/visual_audit.py --test
 
 # 9. 数据校验
 conda run --no-capture-output -n myenv python benchmark/pipeline/validate_benchmark.py --input benchmark/dataset/core.json
@@ -951,7 +970,7 @@ conda run --no-capture-output -n myenv python benchmark/pipeline/build_benchmark
 Remove-Item test_mock.json, test_review.json -ErrorAction SilentlyContinue
 
 # 12. (可选) vLLM WSL2 独立连通性（非 HealthCheck 内置，需单独验证）
-conda run -n myenv python -c "
+conda run --no-capture-output -n myenv python -c "
 import httpx
 r = httpx.get('http://localhost:8000/v1/models', timeout=5)
 print(f'vLLM: {r.status_code}')

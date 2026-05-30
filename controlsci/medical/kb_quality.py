@@ -148,16 +148,17 @@ def generate_queries(sampled_chunks, client, model_name, n_queries=None):
     return queries
 
 
-def dense_only_search(query, index_dir, manifest, k=5):
+def dense_only_search(query, index_dir, manifest, k=5,
+                      embedding_provider="ollama", embedding_model="qwen3-embedding:4b"):
     import faiss
-    from benchmark.eval.chunk_embedding_analysis import get_embeddings
+    from controlsci.medical.embedding_providers import embed_texts
 
     dense_path = Path(index_dir) / "medical.index"
     if not dense_path.exists():
         raise FileNotFoundError(f"FAISS 索引不存在: {dense_path}")
 
     index = faiss.read_index(str(dense_path))
-    q_emb = get_embeddings([query])
+    q_emb = embed_texts([query], provider=embedding_provider, model=embedding_model)
     q_emb_norm = q_emb.copy()
     faiss.normalize_L2(q_emb_norm)
     scores, indices = index.search(q_emb_norm, k)
@@ -176,7 +177,8 @@ def dense_only_search(query, index_dir, manifest, k=5):
     return results
 
 
-def run_retrieval_comparison(queries, index_dir, manifest, top_k=5):
+def run_retrieval_comparison(queries, index_dir, manifest, top_k=5,
+                             embedding_provider="ollama", embedding_model="qwen3-embedding:4b"):
     comparison = []
     for qi, q in enumerate(queries):
         question = q["question"]
@@ -189,7 +191,9 @@ def run_retrieval_comparison(queries, index_dir, manifest, top_k=5):
             hybrid_results = []
 
         try:
-            dense_results = dense_only_search(question, index_dir, manifest, k=top_k)
+            dense_results = dense_only_search(question, index_dir, manifest, k=top_k,
+                                                embedding_provider=embedding_provider,
+                                                embedding_model=embedding_model)
         except Exception as e:
             print(f"    [WARN] Dense-only 检索失败: {e}", flush=True)
             dense_results = []
@@ -635,6 +639,10 @@ def main():
     parser.add_argument("--skip-query-gen", action=argparse.BooleanOptionalAction, default=None,
                         help="跳过 LLM 查询生成，使用 section 标题作为查询")
     parser.add_argument("--dry-run", action="store_true", help="仅验证配置和索引可用性，不运行完整评测")
+    parser.add_argument("--embedding-provider", default="ollama", choices=["ollama", "hf", "hf_local", "transformers"],
+                        help="嵌入向量 Provider (默认 ollama)")
+    parser.add_argument("--embedding-model", default="qwen3-embedding:4b",
+                        help="嵌入模型名 (ollama) 或 HuggingFace 路径 (hf)")
 
     args = parser.parse_args()
     args = _resolve_profile(args)
@@ -708,7 +716,9 @@ def main():
             print(f"    [{q['query_id']}] {q['question'][:80]} (label={q['source_label']})", flush=True)
 
     print(f"\n[Phase 3] 检索对比 (Hybrid vs Dense-only, k={args.top_k})...", flush=True)
-    retrieval_comparison = run_retrieval_comparison(queries, index_dir, manifest, top_k=args.top_k)
+    retrieval_comparison = run_retrieval_comparison(queries, index_dir, manifest, top_k=args.top_k,
+                                                     embedding_provider=args.embedding_provider,
+                                                     embedding_model=args.embedding_model)
 
     print(f"\n[Phase 4] Judge 矩阵评分...", flush=True)
     models_config = []

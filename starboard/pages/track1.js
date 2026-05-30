@@ -15,7 +15,7 @@ const CLIENT_TASK_TIMEOUT_MS = 6 * 60 * 1000;
 const TRACK1_SESSION_VERSION = 3;
 
 const dimensionNames = {
-  A: '概念检索',
+  A: '概念回溯',
   B: '多步推理',
   C: '条件敏感',
   D: '开放设计',
@@ -132,7 +132,7 @@ export default function Track1Page({ runtimeConfig }) {
         patchPersisted({ loading: '', pendingTask: null, error: toFailure('任务超时，请重新执行当前步骤。') });
         return;
       }
-      const response = await getApiTask(task.id, { timeoutMs: 12000 });
+      const response = await getApiTask(task, { timeoutMs: 12000 });
       if (!response.ok) {
         patchPersisted({ loading: '', pendingTask: null, error: toFailure(response.error) });
         return;
@@ -217,7 +217,7 @@ export default function Track1Page({ runtimeConfig }) {
         judge_model: runtimeConfig.t1_judge_model || 'replay',
       }, timeoutMs: 90000 },
     ], { runtimeConfig, timeoutMs: 210000 });
-    if (task.ok) patchPersisted({ loading: 'demo', pendingTask: createPendingTask(task.data.id, 'demo', 240000) });
+    if (task.ok) patchPersisted({ loading: 'demo', pendingTask: createPendingTask(task.data, 'demo', 240000) });
     else { setError(toFailure(task.error)); setLoading(''); }
   }
 
@@ -254,7 +254,7 @@ export default function Track1Page({ runtimeConfig }) {
       filename: uploadResult.filename,
       parser_backend: runtimeConfig.parser_backend,
     }, { runtimeConfig, timeoutMs: 240000 });
-    if (result.ok) patchPersisted({ loading: 'parse', pendingTask: createPendingTask(result.data.id, 'parse', 270000) });
+    if (result.ok) patchPersisted({ loading: 'parse', pendingTask: createPendingTask(result.data, 'parse', 270000) });
     else { setParseResult(toFailure(result.error)); setLoading(''); }
   }
 
@@ -267,7 +267,7 @@ export default function Track1Page({ runtimeConfig }) {
       model_version: 'vlm',
     }, { runtimeConfig, timeoutMs: 45000 });
     if (result.ok) {
-      patchPersisted({ loading: 'official_url', pendingTask: createPendingTask(result.data.id, 'parse', 75000) });
+      patchPersisted({ loading: 'official_url', pendingTask: createPendingTask(result.data, 'parse', 75000) });
       setSelected('');
       setSource('official_url');
       setUploadResult(null);
@@ -294,7 +294,7 @@ export default function Track1Page({ runtimeConfig }) {
       model_choice: runtimeConfig.t1_answer_model || runtimeConfig.local_model || 'replay',
       judge_model: runtimeConfig.t1_judge_model || 'replay',
     }, { runtimeConfig, timeoutMs: 180000 });
-    if (task.ok) patchPersisted({ loading: 'continue', pendingTask: createPendingTask(task.data.id, 'continue', 210000) });
+    if (task.ok) patchPersisted({ loading: 'continue', pendingTask: createPendingTask(task.data, 'continue', 210000) });
     else { setQuestions(toFailure(task.error)); setLoading(''); }
   }
 
@@ -306,7 +306,7 @@ export default function Track1Page({ runtimeConfig }) {
       paper_id: selected,
       mode: runtimeConfig.parser_backend || 'replay',
     }, { runtimeConfig, timeoutMs: 30000 });
-    if (result.ok) patchPersisted({ loading: 'parse', pendingTask: createPendingTask(result.data.id, 'parse', 60000) });
+    if (result.ok) patchPersisted({ loading: 'parse', pendingTask: createPendingTask(result.data, 'parse', 60000) });
     else { setParseResult(toFailure(result.error)); setLoading(''); }
   }
 
@@ -318,7 +318,7 @@ export default function Track1Page({ runtimeConfig }) {
       ? { source: 'uploaded', uploaded_filename: uploadResult.filename, n: 4 }
       : { source: 'core_json', paper_id: selected, n: 4 };
     const result = await startApiTask('/api/demo/track1/generate_questions/v2', body, { runtimeConfig, timeoutMs: 90000 });
-    if (result.ok) patchPersisted({ loading: 'questions', pendingTask: createPendingTask(result.data.id, 'questions', 120000) });
+    if (result.ok) patchPersisted({ loading: 'questions', pendingTask: createPendingTask(result.data, 'questions', 120000) });
     else { setQuestions(toFailure(result.error)); setLoading(''); }
   }
 
@@ -333,7 +333,7 @@ export default function Track1Page({ runtimeConfig }) {
       uploaded_filename: source === 'uploaded' ? uploadResult?.filename : '',
       questions: questions?.questions || [],
     }, { runtimeConfig, timeoutMs: 90000 });
-    if (result.ok) patchPersisted({ loading: 'score', pendingTask: createPendingTask(result.data.id, 'score', 120000) });
+    if (result.ok) patchPersisted({ loading: 'score', pendingTask: createPendingTask(result.data, 'score', 120000) });
     else { setScoreResult(toFailure(result.error)); setLoading(''); }
   }
 
@@ -347,6 +347,7 @@ export default function Track1Page({ runtimeConfig }) {
     () => scoreResult ? adaptTrack1ScoreResult(scoreResult) : null,
     [scoreResult],
   );
+  const runMode = buildTrack1RunMode(runtimeConfig, scoreResult);
 
   return (
     <SectionWrapper>
@@ -354,17 +355,21 @@ export default function Track1Page({ runtimeConfig }) {
         <div>
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-3">
             <div>
-              <h1 className="text-gray-800 text-3xl font-semibold sm:text-4xl mb-2">赛道一：ControlMind Sci-Align 评测基座</h1>
-              <p className="text-gray-600 text-sm">把控制科学 PDF 资产转化为可训练、可评测、可追溯的数据基础设施。</p>
-              <p className="mt-1 text-[11px] text-gray-500">前台展示行业痛点、语料规模、四维 Benchmark 和最小真实闭环；下方保留上传、解析、出题、评分等完整操作入口。</p>
+              <h1 className="text-gray-800 text-3xl font-semibold sm:text-4xl mb-2">赛道一：Sci-Align 最小复现工作台</h1>
+              <p className="text-gray-600 text-sm">本地体验 PDF 结构化、四维出题、模型答题和评分绑定；完整实验论证保留在报告一与 DATA-TRACE。</p>
+              <p className="mt-1 text-[11px] text-gray-500">工作台负责可感知的最小闭环，不复刻报告 dashboard；批量排行榜、Judge 校准与训练探针请从复核入口进入。</p>
             </div>
             <button onClick={runTrack1Demo} disabled={loading === 'demo'} className="px-4 py-2 bg-gray-900 text-white rounded text-xs disabled:opacity-50">
-              {loading === 'demo' ? '最小验收执行中' : '运行最小验收链路'}
+              {loading === 'demo' ? '最小复现执行中' : '运行最小复现链路'}
             </button>
           </div>
         </div>
 
-        <RuntimeSummary runtimeConfig={runtimeConfig} />
+        <RuntimeSummary runtimeConfig={runtimeConfig} variant="track1" extraItems={runMode.items} />
+        <div className="rounded-lg border border-amber-100 bg-amber-50 px-4 py-3 text-xs leading-5 text-amber-900">
+          <div className="font-semibold">运行边界：{runMode.label}</div>
+          <div className="mt-1">{runMode.desc}</div>
+        </div>
         {error?.message && (
           <ErrorCallout message={error.message} hint="如果后端服务不在线，页面会保留当前状态并允许继续使用已验证产物路径。" />
         )}
@@ -414,9 +419,12 @@ export default function Track1Page({ runtimeConfig }) {
         <div className="rounded-lg border border-sky-100 bg-sky-50 px-5 py-4">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
             <div>
-              <div className="text-sm font-semibold text-sky-950">评审验收路径</div>
+              <div className="text-sm font-semibold text-sky-950">推荐复现路径</div>
               <div className="mt-1 text-xs leading-5 text-sky-900">
-                默认先看语料规模、四维 Benchmark 和排行榜结论；需要动手时，点击右上角“运行最小验收链路”，查看同一来源下的解析、出题、答题和评分绑定。下方按钮用于手动分步复核。
+                本页只证明交互闭环可运行；完整报告、DATA-TRACE、证据包和 CLI 入口统一收敛到“来源矩阵”，避免在最小工作台里分散跳转。需要动手时，点击右上角“运行最小复现链路”。
+              </div>
+              <div className="mt-3 rounded border border-sky-200 bg-white/70 px-3 py-2 text-[11px] leading-5 text-sky-900">
+                复核入口：请使用顶部 / 侧栏的“来源矩阵”查看报告、DATA-TRACE、manifest 与复现命令；本页不直接打开磁盘文档。
               </div>
             </div>
             <button onClick={continueQuestionAndScore} disabled={!inputReady || loading === 'continue'} className="w-full md:w-auto px-4 py-2 bg-sky-700 text-white rounded text-xs disabled:opacity-50">
@@ -535,7 +543,7 @@ export default function Track1Page({ runtimeConfig }) {
         <StepCard
           index="3"
           title="出题与评分"
-          desc="生成 A/B/C/D 四维题目，并把本轮题目、回答和评分绑定到同一验收链路。"
+          desc="生成 A/B/C/D 四维题目，并把本轮题目、回答和评分绑定到同一复现链路。"
           status={scoreResult ? 'done' : loading === 'questions' || loading === 'score' || loading === 'continue' || loading === 'demo' ? 'running' : questions ? 'ready' : 'pending'}
           actions={
             <div className="flex gap-2">
@@ -647,9 +655,11 @@ export default function Track1Page({ runtimeConfig }) {
   );
 }
 
-function createPendingTask(id, kind, timeoutMs = CLIENT_TASK_TIMEOUT_MS) {
+function createPendingTask(task, kind, timeoutMs = CLIENT_TASK_TIMEOUT_MS) {
+  const id = typeof task === 'string' ? task : task?.id;
   return {
     id,
+    owner_token: typeof task === 'string' ? undefined : task?.owner_token,
     kind,
     timeoutMs,
     startedAt: Date.now(),
@@ -659,6 +669,34 @@ function createPendingTask(id, kind, timeoutMs = CLIENT_TASK_TIMEOUT_MS) {
 function isClientTaskExpired(task) {
   if (!task?.startedAt) return true;
   return Date.now() - task.startedAt > (task.timeoutMs || CLIENT_TASK_TIMEOUT_MS);
+}
+
+function buildTrack1RunMode(runtimeConfig, scoreResult) {
+  const answerModel = runtimeConfig?.t1_answer_model || 'replay';
+  const judgeModel = runtimeConfig?.t1_judge_model || 'replay';
+  const usage = scoreResult?.usage || scoreResult?.token_usage || null;
+  const provider = usage?.provider || runtimeConfig?.api_provider || '未启用';
+  if (answerModel === 'replay' && judgeModel === 'replay') {
+    return {
+      label: '产物复现 · 0 API tokens',
+      desc: '当前使用已验证产物复现最小链路，不调用云端模型，不上传原文。完整大规模实验仍以报告与证据包为准。',
+      items: [['T1 模式', 'replay'], ['API tokens', '0']],
+    };
+  }
+  if (usage) {
+    const tokens = usage.total_tokens ?? usage.tokens ?? '-';
+    const cost = usage.cost_cny ?? usage.estimated_cost_cny;
+    return {
+      label: `${provider} · ${tokens} tokens`,
+      desc: cost !== undefined ? `本轮由后端返回 token usage，估算成本 ${cost} CNY；仅公开或脱敏派生任务允许进入云端。` : '本轮由后端返回 token usage；仅公开或脱敏派生任务允许进入云端。',
+      items: [['T1 模式', 'api'], ['API tokens', String(tokens)]],
+    };
+  }
+  return {
+    label: '混合/本地模式 · usage 待后端返回',
+    desc: '页面会显示当前模型选择；若后端返回 usage，将在本区块更新 token 与成本。未授权原文不会上传云端。',
+    items: [['T1 Answer', answerModel], ['T1 Judge', judgeModel]],
+  };
 }
 
 function ExpandableMarkdown({ text, collapsedLines = 8, defaultExpanded = false }) {

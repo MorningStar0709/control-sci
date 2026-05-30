@@ -1,4 +1,4 @@
-﻿<#
+<#
 .SYNOPSIS
     Task3 Medical RAG reproducible flywheel.
 
@@ -8,6 +8,7 @@
       2. local answer-synthesis smoke test on one evidence query
       3. Chinese Ask reproducibility trace
       4. optional demo/API verification
+      5. supplemental deployment smoke matrix and summary refresh
 
     PMC online download is intentionally out of this main loop because it
     depends on short-lived browser PoW cookies. Keep download experiments in
@@ -33,6 +34,7 @@ param(
     [switch]$SkipSynthesis,
     [switch]$SkipZhAsk,
     [switch]$SkipDemoVerify,
+    [switch]$SkipSupplemental,
     [switch]$NoStartServices,
     [switch]$DryRun
 )
@@ -48,6 +50,8 @@ $EvalJson = Join-Path $ROOT "benchmark\eval\results\medical_rag_eval.json"
 $SmokeJson = Join-Path $ROOT "benchmark\eval\results\medical_rag_eval_synthesis_smoke.json"
 $ZhAskJson = Join-Path $ROOT "benchmark\eval\results\medical_rag_eval_zh_ask.json"
 $ZhAskTrace = Join-Path $ROOT "benchmark\eval\results\medical_rag_zh_ask_traces.jsonl"
+$SupplementalMatrixJson = Join-Path $ROOT "benchmark\eval\results\track3_deployment_smoke_matrix.json"
+$SupplementalSummaryJson = Join-Path $ROOT "benchmark\eval\results\track3_supplemental_summary.json"
 $VerifyScript = Join-Path $ROOT "verify_task3_demo.ps1"
 $ChunksManifest = Join-Path $ROOT "data\sources_medical\chunks\chunks_manifest.json"
 $PublicEvidenceManifest = Join-Path $ROOT "docs\submissions\data_trace_bundle\manifest.json"
@@ -125,6 +129,11 @@ if ($DryRun) {
     } else {
         Write-Warn "Demo verification skipped by -SkipDemoVerify."
     }
+    if (-not $SkipSupplemental) {
+        Write-Info "Would refresh supplemental deployment smoke matrix -> $SupplementalMatrixJson / $SupplementalSummaryJson"
+    } else {
+        Write-Warn "Supplemental refresh skipped by -SkipSupplemental."
+    }
     Write-Ok "Dry-run finished without touching evaluation artifacts."
     exit 0
 }
@@ -145,7 +154,7 @@ if (-not ($SkipRetrieval -and $SkipSynthesis -and $SkipZhAsk)) {
 }
 
 if (-not $SkipRetrieval) {
-    Write-Step "Step 1/4: fixed multi-index retrieval evaluation"
+    Write-Step "Step 1/5: fixed multi-index retrieval evaluation"
     Invoke-MyEnvPython -ArgsList @(
         $EvalScript,
         "--k", "$TopK",
@@ -165,7 +174,7 @@ if (-not $SkipRetrieval) {
 }
 
 if (-not $SkipSynthesis) {
-    Write-Step "Step 2/4: local evidence-bounded synthesis smoke"
+    Write-Step "Step 2/5: local evidence-bounded synthesis smoke"
     Invoke-MyEnvPython -ArgsList @(
         $EvalScript,
         "--k", "$TopK",
@@ -191,7 +200,7 @@ if (-not $SkipSynthesis) {
 }
 
 if (-not $SkipZhAsk) {
-    Write-Step "Step 3/4: Chinese Ask bridge and trace evaluation"
+    Write-Step "Step 3/5: Chinese Ask bridge and trace evaluation"
     Invoke-MyEnvPython -ArgsList @(
         $EvalScript,
         "--k", "$TopK",
@@ -233,7 +242,7 @@ if (-not $SkipZhAsk) {
 }
 
 if (-not $SkipDemoVerify) {
-    Write-Step "Step 4/4: demo/API verification"
+    Write-Step "Step 4/5: demo/API verification"
     Assert-File -Path $VerifyScript -Label "Task3 demo verifier"
     $verifyArgs = @()
     if ($NoStartServices) {
@@ -245,10 +254,26 @@ if (-not $SkipDemoVerify) {
     Write-Warn "Skipping demo verification."
 }
 
+if (-not $SkipSupplemental) {
+    Write-Step "Step 5/5: supplemental deployment smoke matrix refresh"
+    Invoke-MyEnvPython -ArgsList @(
+        "-m", "benchmark.eval.track3_deployment_smoke_matrix",
+        "--output", $SupplementalMatrixJson,
+        "--summary-output", $SupplementalSummaryJson
+    )
+    Assert-File -Path $SupplementalMatrixJson -Label "Track3 supplemental deployment smoke matrix"
+    Assert-File -Path $SupplementalSummaryJson -Label "Track3 supplemental summary"
+    Write-Ok "Supplemental deployment smoke matrix refreshed."
+} else {
+    Write-Warn "Skipping supplemental refresh."
+}
+
 Write-Step "Summary"
 Write-Ok "Task3 RAG flywheel finished."
 Write-Info "Retrieval artifact: benchmark\eval\results\medical_rag_eval.json"
 Write-Info "Synthesis artifact: benchmark\eval\results\medical_rag_eval_synthesis_smoke.json"
 Write-Info "Chinese Ask artifact: benchmark\eval\results\medical_rag_eval_zh_ask.json"
 Write-Info "Chinese Ask trace: benchmark\eval\results\medical_rag_zh_ask_traces.jsonl"
+Write-Info "Supplemental deployment matrix: benchmark\eval\results\track3_deployment_smoke_matrix.json"
+Write-Info "Supplemental summary: benchmark\eval\results\track3_supplemental_summary.json"
 Write-Info "Traceability docs: docs\submissions\shared\DATA-TRACE.md and docs\submissions\track3_medical_rag_report.md"

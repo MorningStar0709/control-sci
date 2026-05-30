@@ -18,7 +18,7 @@ const agentPainPoints = [
   },
   {
     title: '脚本流水线不可恢复',
-    desc: '固定 pipeline 只能按顺序跑，缺少失败降级、checkpoint 和质量验收协议。',
+    desc: '固定 pipeline 只能按顺序跑，缺少失败降级、checkpoint 和质量闭环协议。',
   },
   {
     title: '云本地边界难执行',
@@ -31,12 +31,12 @@ const agentPainPoints = [
 ];
 
 const agentMetrics = [
-  ['14', 'Intent 能力'],
+  ['15', 'Intent 能力'],
   ['4', '推理轨道'],
   ['9,207', '视觉审计判决'],
   ['391s', '数据飞轮闭环'],
   ['62ms', '故障降级案例'],
-  ['17', '跨领域零改动模块'],
+  ['17', '跨领域协议复用'],
 ];
 
 const validationDimensions = [
@@ -90,7 +90,7 @@ export default function Track2Page({ runtimeConfig }) {
         patchSession({ loading: false, pendingTask: null, pendingTaskId: '', error: '任务超时，请重新生成计划。', result: { status: 'failed', message: '任务超时，请重新生成计划。', steps: [] } });
         return;
       }
-      const response = await getApiTask(task.id, { timeoutMs: 12000 });
+      const response = await getApiTask(task, { timeoutMs: 12000 });
       if (!response.ok) {
         patchSession({ loading: false, pendingTask: null, pendingTaskId: '', error: response.error, result: { status: 'failed', message: response.error, steps: [] } });
         return;
@@ -131,7 +131,7 @@ export default function Track2Page({ runtimeConfig }) {
         patchSession({ loading: false, error: response.error, result: { status: 'failed', message: response.error, steps: [] } });
         return;
       }
-      patchSession({ loading: true, pendingTask: createPendingTask(response.data.id), pendingTaskId: '' });
+      patchSession({ loading: true, pendingTask: createPendingTask(response.data), pendingTaskId: '' });
     } finally {
     }
   }, [patchSession, runtimeConfig, selectedTemplateId]);
@@ -154,7 +154,7 @@ export default function Track2Page({ runtimeConfig }) {
   }
 
   async function validateChain() {
-    const task = query?.trim() || '验收赛道二 Agent 工作流：意图识别 → DAG 生成 → 资源调度 → 执行摘要 → 来源产物核验';
+    const task = query?.trim() || '复现赛道二 Agent 工作流：意图识别 → DAG 生成 → 资源调度 → 执行摘要 → 来源产物追溯';
     patchSession({ result: null, error: null, query: task, pendingTask: null, pendingTaskId: '' });
     const response = await startApiTask('/api/demo/track2/validate_chain', {
       query: task,
@@ -167,7 +167,7 @@ export default function Track2Page({ runtimeConfig }) {
       patchSession({ loading: false, error: response.error, result: { status: 'failed', message: response.error, steps: [] } });
       return;
     }
-    patchSession({ loading: true, pendingTask: createPendingTask(response.data.id), pendingTaskId: '' });
+    patchSession({ loading: true, pendingTask: createPendingTask(response.data), pendingTaskId: '' });
   }
 
   const steps = result?.steps || [];
@@ -182,7 +182,7 @@ export default function Track2Page({ runtimeConfig }) {
         <div>
           <h1 className="text-gray-800 text-3xl font-semibold sm:text-4xl mb-2">赛道二：ControlMind Data Agent</h1>
           <p className="text-gray-600 text-sm">把科学文档语料生产从脚本流水线升级为可规划、可恢复、可审计的 Agent 执行协议。</p>
-          <p className="mt-1 text-[11px] text-gray-500">前台以来源核验为主，默认不把评审页变成长任务控制台；主按钮只核验 Agent 协议闭环。</p>
+          <p className="mt-1 text-[11px] text-gray-500">前台以协议回放和来源追溯为主，默认不把本地工作台变成长任务控制台；完整证据统一回到来源矩阵。</p>
         </div>
 
         <RuntimeSummary runtimeConfig={runtimeConfig} />
@@ -202,9 +202,9 @@ export default function Track2Page({ runtimeConfig }) {
             <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3">
               <div>
                 <div className="text-sm font-semibold text-gray-900">Agent 执行协议</div>
-                <div className="mt-1 text-xs text-gray-500">不是固定 pipeline，而是目标解析、资源调度、执行验收和日志审计的组合协议。</div>
+                <div className="mt-1 text-xs text-gray-500">不是固定 pipeline，而是目标解析、资源调度、执行验证和日志审计的组合协议。</div>
               </div>
-              <StatusPill status="validated" label="调度与验收层" />
+              <StatusPill status="validated" label="调度与验证层" />
             </div>
             <div className="mt-4 grid grid-cols-1 md:grid-cols-4 gap-3">
               {executionProtocol.map(([title, desc]) => (
@@ -225,7 +225,7 @@ export default function Track2Page({ runtimeConfig }) {
           </div>
 
           <div className="rounded-lg border border-gray-200 bg-white p-5">
-            <div className="text-sm font-semibold text-gray-900">能力验收维度</div>
+            <div className="text-sm font-semibold text-gray-900">能力验证维度</div>
             <div className="mt-1 text-xs text-gray-500">概括系统在复杂文档处理、Agent 编排、可靠执行和开放复用方面的主要验证依据。</div>
             <div className="mt-4 space-y-2">
               {validationDimensions.map(([id, title, desc]) => (
@@ -244,9 +244,9 @@ export default function Track2Page({ runtimeConfig }) {
         <div className="rounded-lg border border-emerald-100 bg-emerald-50 px-5 py-4">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
             <div>
-              <div className="text-sm font-semibold text-emerald-950">评审验收路径</div>
+              <div className="text-sm font-semibold text-emerald-950">推荐复现路径</div>
               <div className="mt-1 text-xs leading-5 text-emerald-900">
-                默认先看 Agent 协议、能力矩阵和关键验证依据；模板按钮只核验既有产物，主按钮用于核验 intent、DAG、资源选择、输出摘要和来源产物。
+                默认先看 Agent 协议、能力矩阵和关键验证依据；模板按钮只追溯既有产物，主按钮用于回放 intent、DAG、资源选择、输出摘要和来源路径，真实文件检查交给来源模板和来源矩阵。
               </div>
             </div>
             <button onClick={validateChain} disabled={loading} className="w-full md:w-auto px-4 py-2 bg-emerald-700 text-white text-xs rounded disabled:opacity-50">{loading ? '核验中' : '核验 Agent 协议'}</button>
@@ -273,7 +273,7 @@ export default function Track2Page({ runtimeConfig }) {
             <StepCard index="B" title="能力注册表" desc="来自 agent_capabilities.json。" status={capabilities ? 'done' : 'pending'}>
               <div className="grid grid-cols-2 gap-2 text-xs">
                 <div className="border rounded p-2 bg-gray-50">
-                  <div className="font-mono text-gray-800">{intents.length || 14}</div>
+                  <div className="font-mono text-gray-800">{intents.length || 15}</div>
                   <div className="text-gray-400">Intent</div>
                 </div>
                 <div className="border rounded p-2 bg-gray-50">
@@ -353,12 +353,12 @@ export default function Track2Page({ runtimeConfig }) {
                 </div>
               ) : (
                 <div className="text-xs text-gray-500">
-                  {result?.raw_stderr || result?.plan_output || '生成计划后会在这里展示 DAG；未执行前先展示左侧 14 个 intent 与资源类型。'}
+                  {result?.raw_stderr || result?.plan_output || '生成计划后会在这里展示 DAG；未执行前先展示左侧 15 个 intent 与资源类型。'}
                 </div>
               )}
             </StepCard>
 
-            <StepCard index="3" title="核验摘要与来源" desc="显示来源核验摘要、输出文件和可复现命令。" status={result ? (result.status === 'ok' ? 'done' : 'degraded') : loading ? 'running' : 'pending'}>
+            <StepCard index="3" title="协议摘要与来源" desc="显示协议回放或来源核验摘要、输出文件和可复现命令。" status={result ? (result.status === 'ok' ? 'done' : 'degraded') : loading ? 'running' : 'pending'}>
               {loading && !result ? (
                 <WorkbenchLoadingCard
                   title="正在等待核验摘要"
@@ -439,7 +439,7 @@ export default function Track2Page({ runtimeConfig }) {
                   </div>
                   {result.sources?.length > 0 && (
                     <div className="border rounded-lg p-3 bg-white">
-                      <div className="text-[11px] text-gray-400 mb-2">验收来源</div>
+                      <div className="text-[11px] text-gray-400 mb-2">来源路径</div>
                       <div className="space-y-1.5">
                         {result.sources.map(item => (
                           <div key={item.path} className="flex items-center justify-between gap-3 text-xs">
@@ -462,9 +462,11 @@ export default function Track2Page({ runtimeConfig }) {
   );
 }
 
-function createPendingTask(id) {
+function createPendingTask(task) {
+  const id = typeof task === 'string' ? task : task?.id;
   return {
     id,
+    owner_token: typeof task === 'string' ? undefined : task?.owner_token,
     timeoutMs: CLIENT_TASK_TIMEOUT_MS,
     startedAt: Date.now(),
   };
@@ -521,9 +523,9 @@ function resolveTrack2Action(templateId, text) {
     evidence_bundle: {
       path: '/api/demo/track2/artifact_check',
       artifactKind: 'evidence_bundle',
-      button: '查看验收包',
+      button: '查看证据包',
       label: '来源核验：DATA-TRACE / bundle manifest / README',
-      explain: '默认查看和核验已生成验收包；重建脚本作为可复现命令展示。',
+      explain: '默认查看和追溯已生成证据包；重建脚本作为可复现命令展示。',
       status: 'artifact_reuse',
       loadingSteps: ['检查 DATA-TRACE', '检查 manifest', '检查 README'],
       timeoutMs: 45000,
@@ -573,7 +575,7 @@ function getResultModeMeta(result) {
     return {
       status: 'live_execute',
       label: '专项执行',
-      explain: '本次执行验收包生成脚本；它主要复制和校验已有来源文件，所以耗时短是正常的。',
+      explain: '本次执行证据包生成脚本；它主要复制和校验已有来源文件，所以耗时短是正常的。',
     };
   }
   if (mode === 'live_check' || mode === 'live_sample') {
@@ -587,8 +589,8 @@ function getResultModeMeta(result) {
     if (mode === 'acceptance') {
       return {
         status: 'validated',
-        label: '协议核验',
-        explain: '本次核验 Agent 协议闭环：意图、DAG、资源调度、执行摘要和来源产物都能回指到注册表、代码和报告。',
+        label: '协议回放',
+        explain: '本次回放 Agent 协议闭环：意图、DAG、资源调度和执行摘要能回指到注册表、代码和报告；真实文件存在性由来源核验模板负责。',
       };
     }
     return {

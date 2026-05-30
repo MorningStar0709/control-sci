@@ -248,7 +248,8 @@ export default function EvidencePage({ initialMatrix = null, initialError = '' }
 
 export async function getServerSideProps() {
   try {
-    const response = await fetch('http://127.0.0.1:17001/api/demo/evidence/matrix');
+    const backend = process.env.CONTROLMIND_BACKEND_URL || 'http://127.0.0.1:17001';
+    const response = await fetch(`${backend}/api/demo/evidence/matrix`);
     if (!response.ok) {
       return { props: { initialMatrix: null, initialError: `HTTP ${response.status}` } };
     }

@@ -8,6 +8,7 @@
 | Track 3 refusal boundary | 医疗问答高风险边界与证据不足拒答 | 3/3 safety-refusal cases returned without retrieval or cloud context transfer | `track3_refusal/` |
 | Track 2 fallback / replay trace | Agent 本地模式、依赖 DAG 与一键复现入口 | dry-run completed; local plan expanded to 8 DAG steps; reproduce_all entrypoint resolved | `track2_fallback/` |
 | Track 1 local dataset loading | ControlSci 本地 JSON 作为 HuggingFace datasets 输入 | `load_dataset("json")` loaded 500 rows with expected schema | `track1_load/` |
+| Track 3 Medical RAG supplemental | 阶段消融、安全拒答、EI taxonomy、隐私边界、语义切片、中文 Ask 鲁棒性、Evidence Card 与部署 smoke matrix | 9 个 JSON evidence files；deployment smoke executed_passed_count=2，not_run_count=3；supplemental summary status=available | `track3_medical_rag_supplemental/` |
 
 ## Interpretation
 

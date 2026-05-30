@@ -1,0 +1,337 @@
+{
+  "schema_version": "1.0",
+  "experiment": "track2_failure_injection_matrix",
+  "created_at": "2026-05-23 21:13:44",
+  "safety_mode": "mock_or_local_env_only",
+  "summary": {
+    "total_cases": 18,
+    "failure_types": 6,
+    "recovered_cases": 18,
+    "failed_cases": 0,
+    "recovery_success_rate": 1.0,
+    "average_recovery_duration_ms": 76.94,
+    "unrecovered_reasons": [],
+    "by_failure_type": {
+      "ollama_unavailable": {
+        "total": 3,
+        "recovered": 3,
+        "failed": 0,
+        "unrecovered_reasons": [],
+        "recovery_rate": 1.0
+      },
+      "api_key_missing": {
+        "total": 3,
+        "recovered": 3,
+        "failed": 0,
+        "unrecovered_reasons": [],
+        "recovery_rate": 1.0
+      },
+      "missing_input": {
+        "total": 3,
+        "recovered": 3,
+        "failed": 0,
+        "unrecovered_reasons": [],
+        "recovery_rate": 1.0
+      },
+      "schema_missing": {
+        "total": 3,
+        "recovered": 3,
+        "failed": 0,
+        "unrecovered_reasons": [],
+        "recovery_rate": 1.0
+      },
+      "tool_timeout": {
+        "total": 3,
+        "recovered": 3,
+        "failed": 0,
+        "unrecovered_reasons": [],
+        "recovery_rate": 1.0
+      },
+      "resume_skip_existing": {
+        "total": 3,
+        "recovered": 3,
+        "failed": 0,
+        "unrecovered_reasons": [],
+        "recovery_rate": 1.0
+      }
+    }
+  },
+  "records": [
+    {
+      "case_id": "ollama_unavailable_01",
+      "failure_type": "ollama_unavailable",
+      "trigger": "Ollama health check against unavailable local endpoint",
+      "expected_recovery": "fallback_or_warning",
+      "actual_recovery": "fallback_or_warning",
+      "status": "recovered",
+      "duration_ms": 280,
+      "log_path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\agent\\logs\\failure_injection\\ollama_unavailable_01.json",
+      "detail": {
+        "host": "http://127.0.0.1:9",
+        "error": "ReadTimeout: timed out"
+      }
+    },
+    {
+      "case_id": "ollama_unavailable_02",
+      "failure_type": "ollama_unavailable",
+      "trigger": "Ollama health check against unavailable local endpoint",
+      "expected_recovery": "fallback_or_warning",
+      "actual_recovery": "fallback_or_warning",
+      "status": "recovered",
+      "duration_ms": 242,
+      "log_path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\agent\\logs\\failure_injection\\ollama_unavailable_02.json",
+      "detail": {
+        "host": "http://127.0.0.1:9",
+        "error": "ReadTimeout: timed out"
+      }
+    },
+    {
+      "case_id": "ollama_unavailable_03",
+      "failure_type": "ollama_unavailable",
+      "trigger": "Ollama health check against unavailable local endpoint",
+      "expected_recovery": "fallback_or_warning",
+      "actual_recovery": "fallback_or_warning",
+      "status": "recovered",
+      "duration_ms": 235,
+      "log_path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\agent\\logs\\failure_injection\\ollama_unavailable_03.json",
+      "detail": {
+        "host": "http://127.0.0.1:9",
+        "error": "ReadTimeout: timed out"
+      }
+    },
+    {
+      "case_id": "api_key_missing_01",
+      "failure_type": "api_key_missing",
+      "trigger": "Router call with OPENAI_API_KEY and DEEPSEEK_API_KEY removed in subprocess-local environment",
+      "expected_recovery": "clear_error",
+      "actual_recovery": "clear_error",
+      "status": "recovered",
+      "duration_ms": 283,
+      "log_path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\agent\\logs\\failure_injection\\api_key_missing_01.json",
+      "detail": {
+        "error": "OPENAI_API_KEY 或 DEEPSEEK_API_KEY 环境变量未设置"
+      }
+    },
+    {
+      "case_id": "api_key_missing_02",
+      "failure_type": "api_key_missing",
+      "trigger": "Router call with OPENAI_API_KEY and DEEPSEEK_API_KEY removed in subprocess-local environment",
+      "expected_recovery": "clear_error",
+      "actual_recovery": "clear_error",
+      "status": "recovered",
+      "duration_ms": 0,
+      "log_path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\agent\\logs\\failure_injection\\api_key_missing_02.json",
+      "detail": {
+        "error": "OPENAI_API_KEY 或 DEEPSEEK_API_KEY 环境变量未设置"
+      }
+    },
+    {
+      "case_id": "api_key_missing_03",
+      "failure_type": "api_key_missing",
+      "trigger": "Router call with OPENAI_API_KEY and DEEPSEEK_API_KEY removed in subprocess-local environment",
+      "expected_recovery": "clear_error",
+      "actual_recovery": "clear_error",
+      "status": "recovered",
+      "duration_ms": 0,
+      "log_path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\agent\\logs\\failure_injection\\api_key_missing_03.json",
+      "detail": {
+        "error": "OPENAI_API_KEY 或 DEEPSEEK_API_KEY 环境变量未设置"
+      }
+    },
+    {
+      "case_id": "missing_input_01",
+      "failure_type": "missing_input",
+      "trigger": "Corpus parse receives a non-existent input path",
+      "expected_recovery": "skip_with_clear_error",
+      "actual_recovery": "skip_with_clear_error",
+      "status": "recovered",
+      "duration_ms": 0,
+      "log_path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\agent\\logs\\failure_injection\\missing_input_01.json",
+      "detail": {
+        "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\eval\\results\\missing-input-for-failure-injection.pdf",
+        "exists": false
+      }
+    },
+    {
+      "case_id": "missing_input_02",
+      "failure_type": "missing_input",
+      "trigger": "Corpus parse receives a non-existent input path",
+      "expected_recovery": "skip_with_clear_error",
+      "actual_recovery": "skip_with_clear_error",
+      "status": "recovered",
+      "duration_ms": 0,
+      "log_path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\agent\\logs\\failure_injection\\missing_input_02.json",
+      "detail": {
+        "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\eval\\results\\missing-input-for-failure-injection.pdf",
+        "exists": false
+      }
+    },
+    {
+      "case_id": "missing_input_03",
+      "failure_type": "missing_input",
+      "trigger": "Corpus parse receives a non-existent input path",
+      "expected_recovery": "skip_with_clear_error",
+      "actual_recovery": "skip_with_clear_error",
+      "status": "recovered",
+      "duration_ms": 0,
+      "log_path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\agent\\logs\\failure_injection\\missing_input_03.json",
+      "detail": {
+        "path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\eval\\results\\missing-input-for-failure-injection.pdf",
+        "exists": false
+      }
+    },
+    {
+      "case_id": "schema_missing_01",
+      "failure_type": "schema_missing",
+      "trigger": "Structured record misses required JSON fields",
+      "expected_recovery": "schema_validation_error_recorded",
+      "actual_recovery": "schema_validation_error_recorded",
+      "status": "recovered",
+      "duration_ms": 0,
+      "log_path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\agent\\logs\\failure_injection\\schema_missing_01.json",
+      "detail": {
+        "missing_fields": [
+          "actual_recovery",
+          "duration_ms",
+          "expected_recovery",
+          "log_path",
+          "trigger"
+        ]
+      }
+    },
+    {
+      "case_id": "schema_missing_02",
+      "failure_type": "schema_missing",
+      "trigger": "Structured record misses required JSON fields",
+      "expected_recovery": "schema_validation_error_recorded",
+      "actual_recovery": "schema_validation_error_recorded",
+      "status": "recovered",
+      "duration_ms": 0,
+      "log_path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\agent\\logs\\failure_injection\\schema_missing_02.json",
+      "detail": {
+        "missing_fields": [
+          "actual_recovery",
+          "duration_ms",
+          "expected_recovery",
+          "log_path",
+          "trigger"
+        ]
+      }
+    },
+    {
+      "case_id": "schema_missing_03",
+      "failure_type": "schema_missing",
+      "trigger": "Structured record misses required JSON fields",
+      "expected_recovery": "schema_validation_error_recorded",
+      "actual_recovery": "schema_validation_error_recorded",
+      "status": "recovered",
+      "duration_ms": 0,
+      "log_path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\agent\\logs\\failure_injection\\schema_missing_03.json",
+      "detail": {
+        "missing_fields": [
+          "actual_recovery",
+          "duration_ms",
+          "expected_recovery",
+          "log_path",
+          "trigger"
+        ]
+      }
+    },
+    {
+      "case_id": "tool_timeout_01",
+      "failure_type": "tool_timeout",
+      "trigger": "Subprocess exceeds configured timeout",
+      "expected_recovery": "timeout_captured",
+      "actual_recovery": "timeout_captured",
+      "status": "recovered",
+      "duration_ms": 118,
+      "log_path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\agent\\logs\\failure_injection\\tool_timeout_01.json",
+      "detail": {
+        "cmd": [
+          "D:\\APP\\Develop\\miniconda3\\envs\\myenv\\python.exe",
+          "-c",
+          "import time; time.sleep(2)"
+        ],
+        "timeout": 0.1
+      }
+    },
+    {
+      "case_id": "tool_timeout_02",
+      "failure_type": "tool_timeout",
+      "trigger": "Subprocess exceeds configured timeout",
+      "expected_recovery": "timeout_captured",
+      "actual_recovery": "timeout_captured",
+      "status": "recovered",
+      "duration_ms": 119,
+      "log_path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\agent\\logs\\failure_injection\\tool_timeout_02.json",
+      "detail": {
+        "cmd": [
+          "D:\\APP\\Develop\\miniconda3\\envs\\myenv\\python.exe",
+          "-c",
+          "import time; time.sleep(2)"
+        ],
+        "timeout": 0.1
+      }
+    },
+    {
+      "case_id": "tool_timeout_03",
+      "failure_type": "tool_timeout",
+      "trigger": "Subprocess exceeds configured timeout",
+      "expected_recovery": "timeout_captured",
+      "actual_recovery": "timeout_captured",
+      "status": "recovered",
+      "duration_ms": 98,
+      "log_path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\agent\\logs\\failure_injection\\tool_timeout_03.json",
+      "detail": {
+        "cmd": [
+          "D:\\APP\\Develop\\miniconda3\\envs\\myenv\\python.exe",
+          "-c",
+          "import time; time.sleep(2)"
+        ],
+        "timeout": 0.1
+      }
+    },
+    {
+      "case_id": "resume_skip_existing_01",
+      "failure_type": "resume_skip_existing",
+      "trigger": "Output artifact already exists before execution",
+      "expected_recovery": "skip_existing",
+      "actual_recovery": "skip_existing",
+      "status": "recovered",
+      "duration_ms": 9,
+      "log_path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\agent\\logs\\failure_injection\\resume_skip_existing_01.json",
+      "detail": {
+        "path": "C:\\Users\\skyler\\AppData\\Local\\Temp\\controlsci-resume-sdgq4sul\\result.json",
+        "exists": true
+      }
+    },
+    {
+      "case_id": "resume_skip_existing_02",
+      "failure_type": "resume_skip_existing",
+      "trigger": "Output artifact already exists before execution",
+      "expected_recovery": "skip_existing",
+      "actual_recovery": "skip_existing",
+      "status": "recovered",
+      "duration_ms": 1,
+      "log_path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\agent\\logs\\failure_injection\\resume_skip_existing_02.json",
+      "detail": {
+        "path": "C:\\Users\\skyler\\AppData\\Local\\Temp\\controlsci-resume-ovioxnbg\\result.json",
+        "exists": true
+      }
+    },
+    {
+      "case_id": "resume_skip_existing_03",
+      "failure_type": "resume_skip_existing",
+      "trigger": "Output artifact already exists before execution",
+      "expected_recovery": "skip_existing",
+      "actual_recovery": "skip_existing",
+      "status": "recovered",
+      "duration_ms": 0,
+      "log_path": "D:\\WorkPlace\\AI\\MinerU\\benchmark\\agent\\logs\\failure_injection\\resume_skip_existing_03.json",
+      "detail": {
+        "path": "C:\\Users\\skyler\\AppData\\Local\\Temp\\controlsci-resume-wpggl53k\\result.json",
+        "exists": true
+      }
+    }
+  ]
+}

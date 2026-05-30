@@ -6,7 +6,7 @@
 
 1. 打开 [README.md](README.md) 了解本包结构。
 2. 阅读 [主技术报告](track1_sci_align_report.md) 的摘要、数据构建与 AI-ready schema 部分。
-3. 抽查 [20 个代表案例](track1_sci_align_20_cases.md)。
+3. 抽查 [30 个代表案例](track1_sci_align_20_cases.md)。
 4. 需要复核数字时，查看 [DATA-TRACE](shared/DATA-TRACE.md) 与 [证据包](data_trace_bundle/)。
 
 ## 核心文件
@@ -27,7 +27,7 @@
 
 ```powershell
 conda run --no-capture-output -n myenv python -m controlsci.cli track1 validate --sample 4 --output _scratch/track1_validate.json
-conda run -n myenv python demo/cli/controlscidemo track1 --quick
+conda run --no-capture-output -n myenv python demo/cli/controlscidemo track1 --quick
 ```
 
 `_scratch/` 是本地临时输出目录，可删除、可重建，不属于权威数据源。

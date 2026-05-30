@@ -13,7 +13,19 @@ from controlsci.cli.common import console, print_json
 app = typer.Typer(help="Agent 工作流规划、验收与来源产物核验。")
 
 
-ARTIFACTS = ["flywheel", "eval40", "check_index", "evidence_bundle", "visual_audit"]
+ARTIFACTS = [
+    "flywheel",
+    "eval40",
+    "check_index",
+    "evidence_bundle",
+    "visual_audit",
+    "router_robustness",
+    "failure_recovery",
+    "source_selection_ablation",
+    "resource_pareto",
+    "hard_document_stress",
+    "sciverse_source_routing",
+]
 
 
 @app.command("plan")

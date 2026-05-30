@@ -27,7 +27,7 @@ const TRACK1_DEMO_SOURCE = [
 ].join('\n');
 
 const dimensionNames = {
-  A: '概念检索',
+  A: '概念回溯',
   B: '多步推理',
   C: '条件敏感',
   D: '开放设计',
@@ -48,7 +48,7 @@ const painPoints = [
   },
   {
     title: '私有资料不能默认上云',
-    desc: '原文、chunk、向量索引和微调样本属于受控资产，公开或脱敏任务才允许进入云端演示。',
+    desc: '原文、chunk、向量索引和微调样本属于受控资产，公开或脱敏任务才允许进入在线展示版。',
   },
 ];
 
@@ -145,7 +145,7 @@ export default function Track1Page({ runtimeConfig }) {
         patchPersisted({ loading: '', pendingTask: null, error: toFailure('任务超时，请重新执行当前步骤。') });
         return;
       }
-      const response = await getApiTask(task.id, { timeoutMs: 12000 });
+      const response = await getApiTask(task, { timeoutMs: 12000 });
       if (!response.ok) {
         patchPersisted({ loading: '', pendingTask: null, error: toFailure(response.error) });
         return;
@@ -239,7 +239,7 @@ export default function Track1Page({ runtimeConfig }) {
       filename: uploadResult.filename,
       parser_backend: runtimeConfig.parser_backend,
     }, { runtimeConfig, timeoutMs: 240000 });
-    if (result.ok) patchPersisted({ loading: 'parse', pendingTask: createPendingTask(result.data.id, 'parse', 270000) });
+    if (result.ok) patchPersisted({ loading: 'parse', pendingTask: createPendingTask(result.data, 'parse', 270000) });
     else { setParseResult(toFailure(result.error)); setLoading(''); }
   }
 
@@ -272,7 +272,7 @@ export default function Track1Page({ runtimeConfig }) {
       paper_id: selected,
       mode: runtimeConfig.parser_backend || 'replay',
     }, { runtimeConfig, timeoutMs: 30000 });
-    if (result.ok) patchPersisted({ loading: 'parse', pendingTask: createPendingTask(result.data.id, 'parse', 60000) });
+    if (result.ok) patchPersisted({ loading: 'parse', pendingTask: createPendingTask(result.data, 'parse', 60000) });
     else { setParseResult(toFailure(result.error)); setLoading(''); }
   }
 
@@ -400,7 +400,7 @@ export default function Track1Page({ runtimeConfig }) {
         <div className="rounded-lg border border-sky-100 bg-sky-50 px-5 py-4">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
             <div>
-              <div className="text-sm font-semibold text-sky-950">评审验收路径</div>
+              <div className="text-sm font-semibold text-sky-950">推荐浏览路径</div>
               <div className="mt-1 text-xs leading-5 text-sky-900">
                 默认先看语料规模、四维 Benchmark 和排行榜结论；需要现场核验时，按顺序上传公开 PDF 或提交公开 URL，再执行云端解析、出题和评分，查看同一来源下的解析、题目、作答和评分绑定。
               </div>
@@ -459,7 +459,7 @@ export default function Track1Page({ runtimeConfig }) {
                   <BusyLabel active={loading === 'official_url'} busyText="提交中" idleText="提交官方解析" />
                 </button>
               </div>
-              <div className="mt-2 text-[11px] text-gray-500">仅适合公开/脱敏 URL；敏感文档不进入公开云端演示。</div>
+              <div className="mt-2 text-[11px] text-gray-500">仅适合公开/脱敏 URL；敏感文档不进入在线展示版。</div>
             </div>
 
             <div className="border rounded-lg p-4 bg-gray-50">
@@ -473,7 +473,7 @@ export default function Track1Page({ runtimeConfig }) {
                 <option value="">选择一篇样例论文</option>
                 {papers.map(p => <option key={p.id} value={p.id}>{p.arxiv_id} - {p.title}</option>)}
               </select>
-              <div className="mt-2 text-[11px] text-gray-500">样例用于快速展示完整页面结构；正式云端验收请使用上传或公开 URL。</div>
+              <div className="mt-2 text-[11px] text-gray-500">样例用于快速展示完整页面结构；如需体验实时解析，请使用上传或公开 URL。</div>
             </div>
           </div>
         </StepCard>
@@ -637,9 +637,11 @@ export default function Track1Page({ runtimeConfig }) {
   );
 }
 
-function createPendingTask(id, kind, timeoutMs = CLIENT_TASK_TIMEOUT_MS) {
+function createPendingTask(task, kind, timeoutMs = CLIENT_TASK_TIMEOUT_MS) {
+  const id = typeof task === 'string' ? task : task?.id;
   return {
     id,
+    owner_token: typeof task === 'string' ? undefined : task?.owner_token,
     kind,
     timeoutMs,
     startedAt: Date.now(),
@@ -694,7 +696,7 @@ function getTrack1Activity(loading) {
       steps: ['生成题目', '模型作答', '评分汇总'],
     },
     demo: {
-      title: '正在载入演示闭环',
+      title: '正在载入展示闭环',
       desc: '页面正在读取公开样例的解析、题目和评分回放。',
       steps: ['载入解析', '载入题目', '载入评分'],
     },

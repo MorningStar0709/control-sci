@@ -44,7 +44,7 @@ export default function TopStatusBar() {
         <ControlMindLogo size="sm" />
         <span className="leading-tight">
           <span className="block text-[15px] font-semibold tracking-tight">ControlMind</span>
-          <span className="block text-[11px] text-gray-600 font-normal leading-snug">科学评测工作台</span>
+          <span className="block text-[11px] text-gray-600 font-normal leading-snug">成果展示台</span>
         </span>
       </span>
 
@@ -52,7 +52,7 @@ export default function TopStatusBar() {
         {health ? (
           <>
             <div className="flex items-center gap-2 whitespace-nowrap">
-              <StatusPill status={ready ? 'ready' : 'replay'} label={ready ? '公开演示就绪' : backendDisconnected ? '后端未连接' : '回放模式'} />
+              <StatusPill status={ready ? 'ready' : 'replay'} label={ready ? '在线展示就绪' : backendDisconnected ? '后端未连接' : '回放模式'} />
               <span className="hidden lg:inline text-gray-500">公开/脱敏材料 · 服务端密钥</span>
             </div>
 
@@ -92,7 +92,7 @@ export default function TopStatusBar() {
             placeholder="访问码"
             autoComplete="off"
             className="h-7 w-28 rounded border border-gray-300 bg-white px-2 text-xs text-gray-800 outline-none focus:border-sky-500"
-            title="评委访问码，仅保存在当前浏览器"
+            title="访问码，仅保存在当前浏览器"
           />
           <button onClick={saveAccessCode} className={`h-7 px-2 rounded border text-xs ${hasAccessCode ? 'bg-emerald-50 text-emerald-700 border-emerald-200' : 'text-gray-600 hover:bg-gray-100'}`} title="保存到当前浏览器">
             {hasAccessCode ? '已保存' : '保存'}
@@ -103,7 +103,7 @@ export default function TopStatusBar() {
             </button>
           ) : null}
         </div>
-        <span className="hidden sm:inline rounded bg-gray-900 px-2 py-1 text-white text-xs" title="公开演示模式">云端演示</span>
+        <span className="hidden sm:inline rounded bg-gray-900 px-2 py-1 text-white text-xs" title="在线展示模式">在线展示</span>
         <button onClick={refreshHealth} className="px-2 py-1 rounded border text-gray-600 hover:bg-gray-100 hover:text-gray-900 text-xs transition-colors" title="刷新依赖状态">
           刷新
         </button>

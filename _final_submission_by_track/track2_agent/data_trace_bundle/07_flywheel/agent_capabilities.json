@@ -4,10 +4,10 @@
     "project": "ControlSci Data Agent",
     "schema_version": "1.0",
     "intent_version": "1.0.0",
-    "updated": "2026-05-08",
-    "total_intents": 14,
-    "description": "科学文档跨模态语料智能体 — 14 intent 能力注册表",
-    "source": "docs/plans/track2-final-push-plan.md §五",
+    "updated": "2026-05-22",
+    "total_intents": 15,
+    "description": "科学文档跨模态语料智能体 — 15 intent 能力注册表",
+    "source": "docs/plans/track2-final-push-plan.md §五, docs/plans/sciverse-integration-plan.md T4",
     "architecture": {
       "layer_1": "Intent Router (LLM few-shot — DeepSeek v4-flash)",
       "layer_2": "Resource Scheduler (四路径: API / MiMo-V2.5 视觉 / Ollama 本地 / MinerU)",
@@ -1150,6 +1150,44 @@
       }
     },
     {
+      "intent_id": "sciverse_search",
+      "rank": 12.5,
+      "name": "Sciverse 文献检索",
+      "description": "通过 Sciverse agentic-search API 在 5.16 亿条科学文献记录中进行语义检索，返回高相关度文献段落与元数据。适用于需要最新文献、跨学科文献或快速文献发现的场景。与 arxiv_search 互补：arxiv_search 覆盖 arXiv 预印本（控制科学为主），sciverse_search 覆盖全部学科正式出版物。",
+      "trigger_examples": [
+        "搜索最新的模型预测控制论文",
+        "检索闭环胰岛素临床试验证据",
+        "找 2024 年后的卡尔曼滤波前沿文献"
+      ],
+      "toolchain": ["Sciverse API (api.sciverse.space)"],
+      "resource_type": "api",
+      "data_source": "Sciverse (5.16 亿知识记录, 814 语言)",
+      "depends_on": [],
+      "auto_fallback": [],
+      "data_policy": "public_or_sanitized",
+      "provider_requirements": {
+        "provider": "Sciverse API",
+        "endpoint_required": true,
+        "capabilities": ["semantic_search", "citation_retrieval", "metadata_search"]
+      },
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["query"],
+        "properties": {
+          "query": {"type": "string", "description": "检索查询"},
+          "top_k": {"type": "integer", "default": 10, "minimum": 1, "maximum": 100},
+          "sub_queries": {"type": "integer", "default": 0, "minimum": 0, "maximum": 4}
+        }
+      },
+      "output": {
+        "type": "search_results",
+        "format": "JSON",
+        "description": "含标题、段落、doc_id、score 和页码的检索结果",
+        "artifacts": ["sciverse_hits.json"]
+      }
+    },
+    {
       "intent_id": "reproduce_all",
       "rank": 13,
       "name": "全量复现",
@@ -1205,7 +1243,8 @@
                 "leaderboard_viz",
                 "local_finetune",
                 "multi_format_parse",
-                "medical_rag"
+                "medical_rag",
+                "sciverse_search"
               ]
             },
             "description": "要执行的步骤列表，为空时执行全部",

@@ -1,0 +1,394 @@
+{
+  "schema_version": "1.0",
+  "experiment": "track1_ai_ready_smoke",
+  "created_at": "2026-05-23 22:47:40",
+  "evaluation_mode": "local_json_schema_and_format_export_smoke",
+  "scope": {
+    "included": [
+      "local JSON loading",
+      "schema required field coverage",
+      "dimension and difficulty distributions",
+      "format conversion smoke"
+    ],
+    "excluded": [
+      "remote HuggingFace availability claim",
+      "model training",
+      "external API judge"
+    ]
+  },
+  "core_count": 500,
+  "full_count": 889,
+  "schema_required_question_fields": [
+    "id",
+    "dimension",
+    "difficulty_level",
+    "control_category",
+    "question",
+    "answer",
+    "reasoning_steps",
+    "source_ref",
+    "consistency_status"
+  ],
+  "core": {
+    "path": "benchmark/dataset/core.json",
+    "meta_total_questions": 500,
+    "question_count": 500,
+    "required_field_coverage": {
+      "complete_records": 500,
+      "complete_rate": 1.0,
+      "by_field": {
+        "id": {
+          "present": 500,
+          "coverage": 1.0
+        },
+        "dimension": {
+          "present": 500,
+          "coverage": 1.0
+        },
+        "difficulty_level": {
+          "present": 500,
+          "coverage": 1.0
+        },
+        "control_category": {
+          "present": 500,
+          "coverage": 1.0
+        },
+        "question": {
+          "present": 500,
+          "coverage": 1.0
+        },
+        "answer": {
+          "present": 500,
+          "coverage": 1.0
+        },
+        "reasoning_steps": {
+          "present": 500,
+          "coverage": 1.0
+        },
+        "source_ref": {
+          "present": 500,
+          "coverage": 1.0
+        },
+        "consistency_status": {
+          "present": 500,
+          "coverage": 1.0
+        }
+      }
+    },
+    "dimension_distribution": {
+      "A": 125,
+      "B": 125,
+      "C": 125,
+      "D": 125
+    },
+    "difficulty_distribution": {
+      "L1": 40,
+      "L2": 153,
+      "L3": 163,
+      "L4": 144
+    },
+    "reasoning_steps_coverage": {
+      "present": 500,
+      "coverage": 1.0
+    },
+    "source_ref_coverage": {
+      "present": 500,
+      "coverage": 1.0
+    }
+  },
+  "full": {
+    "path": "benchmark/dataset/full.json",
+    "meta_total_questions": 889,
+    "question_count": 889,
+    "required_field_coverage": {
+      "complete_records": 889,
+      "complete_rate": 1.0,
+      "by_field": {
+        "id": {
+          "present": 889,
+          "coverage": 1.0
+        },
+        "dimension": {
+          "present": 889,
+          "coverage": 1.0
+        },
+        "difficulty_level": {
+          "present": 889,
+          "coverage": 1.0
+        },
+        "control_category": {
+          "present": 889,
+          "coverage": 1.0
+        },
+        "question": {
+          "present": 889,
+          "coverage": 1.0
+        },
+        "answer": {
+          "present": 889,
+          "coverage": 1.0
+        },
+        "reasoning_steps": {
+          "present": 889,
+          "coverage": 1.0
+        },
+        "source_ref": {
+          "present": 889,
+          "coverage": 1.0
+        },
+        "consistency_status": {
+          "present": 889,
+          "coverage": 1.0
+        }
+      }
+    },
+    "dimension_distribution": {
+      "A": 185,
+      "B": 251,
+      "C": 191,
+      "D": 262
+    },
+    "difficulty_distribution": {
+      "L1": 70,
+      "L2": 245,
+      "L3": 328,
+      "L4": 246
+    },
+    "reasoning_steps_coverage": {
+      "present": 889,
+      "coverage": 1.0
+    },
+    "source_ref_coverage": {
+      "present": 889,
+      "coverage": 1.0
+    }
+  },
+  "required_field_coverage": {
+    "complete_records": 500,
+    "complete_rate": 1.0,
+    "by_field": {
+      "id": {
+        "present": 500,
+        "coverage": 1.0
+      },
+      "dimension": {
+        "present": 500,
+        "coverage": 1.0
+      },
+      "difficulty_level": {
+        "present": 500,
+        "coverage": 1.0
+      },
+      "control_category": {
+        "present": 500,
+        "coverage": 1.0
+      },
+      "question": {
+        "present": 500,
+        "coverage": 1.0
+      },
+      "answer": {
+        "present": 500,
+        "coverage": 1.0
+      },
+      "reasoning_steps": {
+        "present": 500,
+        "coverage": 1.0
+      },
+      "source_ref": {
+        "present": 500,
+        "coverage": 1.0
+      },
+      "consistency_status": {
+        "present": 500,
+        "coverage": 1.0
+      }
+    }
+  },
+  "dimension_distribution": {
+    "A": 125,
+    "B": 125,
+    "C": 125,
+    "D": 125
+  },
+  "difficulty_distribution": {
+    "L1": 40,
+    "L2": 153,
+    "L3": 163,
+    "L4": 144
+  },
+  "reasoning_steps_coverage": {
+    "present": 500,
+    "coverage": 1.0
+  },
+  "source_ref_coverage": {
+    "present": 500,
+    "coverage": 1.0
+  },
+  "format_exports": {
+    "instruction_response": {
+      "format_name": "instruction_response",
+      "status": "success",
+      "sample_count": 10,
+      "preserved_fields": [
+        "id",
+        "question",
+        "answer",
+        "dimension",
+        "source_ref"
+      ],
+      "example_keys": [
+        "id",
+        "instruction",
+        "response",
+        "metadata"
+      ],
+      "error": ""
+    },
+    "chatml": {
+      "format_name": "chatml",
+      "status": "success",
+      "sample_count": 10,
+      "preserved_fields": [
+        "id",
+        "question",
+        "answer",
+        "dimension",
+        "source_ref"
+      ],
+      "example_keys": [
+        "id",
+        "messages",
+        "metadata"
+      ],
+      "error": ""
+    },
+    "simple_qa_jsonl": {
+      "format_name": "simple_qa_jsonl",
+      "status": "success",
+      "sample_count": 10,
+      "preserved_fields": [
+        "id",
+        "question",
+        "answer",
+        "dimension",
+        "source_ref"
+      ],
+      "example_keys": [
+        "id",
+        "question",
+        "answer",
+        "dimension",
+        "source_ref"
+      ],
+      "error": ""
+    }
+  },
+  "export_examples": {
+    "instruction_response": [
+      {
+        "id": "CS-EVO-00071",
+        "instruction": "什么是RUDER_MBOT_RL算法？请写出其核心控制目标函数。",
+        "response": "RUDER_MBOT_RL是一种基于强化学习的移动机器人控制算法，其核心控制目标函数为 J(π) = E[∑_{t=0}^{T} γ^t r(s_t, a_t)]，其中π为策略，γ为折扣因子，r为奖励函数。",
+        "metadata": {
+          "dimension": "A",
+          "difficulty_level": "L1",
+          "source_ref": "2201.05599_Smart_Magnetic_Microrobots_Learn_to_Swim_with_Deep_Reinforce_chunk_047",
+          "reasoning_steps": [
+            "根据提供的教材内容，RUDER_MBOT_RL是一种基于强化学习的移动机器人控制算法。",
+            "强化学习的目标是最大化累积折扣奖励，因此核心控制目标函数为 J(π) = E[∑γ^t r(s_t, a_t)]。"
+          ]
+        }
+      },
+      {
+        "id": "CS-EVO-00011",
+        "instruction": "请写出基于状态的事件触发机制中，触发条件(9)的数学表达式，并说明各符号的含义。",
+        "response": "触发条件为 $(e_i(t))^2 \\geq \\eta_i \\left( \\sum_{j \\in N_i^I} (x_i(t) - x_j(t)) \\right)^2$，其中 $0 < \\eta_i < 1$，$e_i(t) = x_i(t_k^i) - x_i(t)$ 是测量误差，$x_i(t)$ 是代理i当前时刻的状态，$x_j(t)$ 是邻居代理j的当前状态，$N_i^I$ 是代理i的邻居集。",
+        "metadata": {
+          "dimension": "A",
+          "difficulty_level": "L3",
+          "source_ref": "2201.02997_Performance_Analysis_of_Event_Triggered_Consensus_Control_fo_chunk_010",
+          "reasoning_steps": [
+            "识别基于状态的事件触发机制的触发条件公式为(9)。",
+            "写出触发条件的数学表达式：$(e_i(t))^2 \\geq \\eta_i \\left( \\sum_{j \\in N_i^I} (x_i(t) - x_j(t)) \\right)^2$。",
+            "说明参数 $\\eta_i$ 的范围是 $0 < \\eta_i < 1$。",
+            "解释 $e_i(t)$ 的定义：$e_i(t) = x_i(t_k^i) - x_i(t)$，表示当前时刻状态与最近触发时刻状态的差值。",
+            "解释 $x_i(t)$ 和 $x_j(t)$ 分别为代理i和其邻居j的当前状态。",
+            "指出 $N_i^I$ 表示代理i的邻居集合。"
+          ]
+        }
+      }
+    ],
+    "chatml": [
+      {
+        "id": "CS-EVO-00071",
+        "messages": [
+          {
+            "role": "system",
+            "content": "You are a control science reasoning assistant."
+          },
+          {
+            "role": "user",
+            "content": "什么是RUDER_MBOT_RL算法？请写出其核心控制目标函数。"
+          },
+          {
+            "role": "assistant",
+            "content": "RUDER_MBOT_RL是一种基于强化学习的移动机器人控制算法，其核心控制目标函数为 J(π) = E[∑_{t=0}^{T} γ^t r(s_t, a_t)]，其中π为策略，γ为折扣因子，r为奖励函数。"
+          }
+        ],
+        "metadata": {
+          "dimension": "A",
+          "source_ref": "2201.05599_Smart_Magnetic_Microrobots_Learn_to_Swim_with_Deep_Reinforce_chunk_047"
+        }
+      },
+      {
+        "id": "CS-EVO-00011",
+        "messages": [
+          {
+            "role": "system",
+            "content": "You are a control science reasoning assistant."
+          },
+          {
+            "role": "user",
+            "content": "请写出基于状态的事件触发机制中，触发条件(9)的数学表达式，并说明各符号的含义。"
+          },
+          {
+            "role": "assistant",
+            "content": "触发条件为 $(e_i(t))^2 \\geq \\eta_i \\left( \\sum_{j \\in N_i^I} (x_i(t) - x_j(t)) \\right)^2$，其中 $0 < \\eta_i < 1$，$e_i(t) = x_i(t_k^i) - x_i(t)$ 是测量误差，$x_i(t)$ 是代理i当前时刻的状态，$x_j(t)$ 是邻居代理j的当前状态，$N_i^I$ 是代理i的邻居集。"
+          }
+        ],
+        "metadata": {
+          "dimension": "A",
+          "source_ref": "2201.02997_Performance_Analysis_of_Event_Triggered_Consensus_Control_fo_chunk_010"
+        }
+      }
+    ],
+    "simple_qa_jsonl": [
+      {
+        "id": "CS-EVO-00071",
+        "question": "什么是RUDER_MBOT_RL算法？请写出其核心控制目标函数。",
+        "answer": "RUDER_MBOT_RL是一种基于强化学习的移动机器人控制算法，其核心控制目标函数为 J(π) = E[∑_{t=0}^{T} γ^t r(s_t, a_t)]，其中π为策略，γ为折扣因子，r为奖励函数。",
+        "dimension": "A",
+        "source_ref": "2201.05599_Smart_Magnetic_Microrobots_Learn_to_Swim_with_Deep_Reinforce_chunk_047"
+      },
+      {
+        "id": "CS-EVO-00011",
+        "question": "请写出基于状态的事件触发机制中，触发条件(9)的数学表达式，并说明各符号的含义。",
+        "answer": "触发条件为 $(e_i(t))^2 \\geq \\eta_i \\left( \\sum_{j \\in N_i^I} (x_i(t) - x_j(t)) \\right)^2$，其中 $0 < \\eta_i < 1$，$e_i(t) = x_i(t_k^i) - x_i(t)$ 是测量误差，$x_i(t)$ 是代理i当前时刻的状态，$x_j(t)$ 是邻居代理j的当前状态，$N_i^I$ 是代理i的邻居集。",
+        "dimension": "A",
+        "source_ref": "2201.02997_Performance_Analysis_of_Event_Triggered_Consensus_Control_fo_chunk_010"
+      }
+    ]
+  },
+  "datasets_loader_status": {
+    "status": "error",
+    "library": "datasets",
+    "scope": "local_json_optional_check",
+    "error": "ValueError: Expected object or value"
+  },
+  "boundary_notes": [
+    "This smoke test proves local AI-ready consumption and format conversion only.",
+    "Remote HuggingFace availability is not claimed unless checked by a separate network-enabled audit.",
+    "Format examples are sampled from the first 10 local core records and do not duplicate the full dataset."
+  ]
+}

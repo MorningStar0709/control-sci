@@ -6,7 +6,7 @@
 
 1. 打开 [README.md](README.md) 了解本包结构。
 2. 阅读 [主技术报告](track2_agent_report.md) 的 Agent 定位、执行协议与工程可靠性部分。
-3. 抽查 [20 个代表案例](track2_agent_20_cases.md)。
+3. 抽查 [25 个代表案例](track2_agent_20_cases.md)。
 4. 查看 [部署与运行说明](track2_agent_deploy.md)。
 5. 需要复核数字时，查看 [DATA-TRACE](shared/DATA-TRACE.md) 与 [证据包](data_trace_bundle/)。
 

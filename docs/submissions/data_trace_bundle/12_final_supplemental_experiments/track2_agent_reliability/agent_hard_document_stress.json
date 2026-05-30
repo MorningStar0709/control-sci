@@ -1,0 +1,373 @@
+{
+  "schema_version": "1.0",
+  "experiment": "track2_hard_document_stress_eval",
+  "created_at": "2026-05-23 22:07:23",
+  "evaluation_mode": "repository_artifact_and_schema_replay",
+  "scope": {
+    "included": [
+      "sample availability",
+      "schema consistency",
+      "derived corpus metrics",
+      "cached visual audit evidence"
+    ],
+    "excluded": [
+      "new external document collection",
+      "copyright-unclear sample ingestion",
+      "fresh OCR re-parse"
+    ]
+  },
+  "summary": {
+    "total_samples": 15,
+    "challenge_types": 6,
+    "success_samples": 11,
+    "partial_samples": 4,
+    "not_available_samples": 0,
+    "coverage_rate": 1.0,
+    "schema_consistency_rate": 1.0,
+    "failure_samples": [],
+    "by_challenge": {
+      "numeric_dense": {
+        "total": 3,
+        "success": 3,
+        "partial": 0,
+        "not_available": 0,
+        "sample_paths": [
+          "benchmark/agent/test_materials/test_xlsx.xlsx",
+          "corpus/stats/corpus_stats.json",
+          "corpus/stats/corpus_stats.json"
+        ],
+        "coverage_rate": 1.0
+      },
+      "cross_page": {
+        "total": 2,
+        "success": 2,
+        "partial": 0,
+        "not_available": 0,
+        "sample_paths": [
+          "corpus/stats/corpus_stats.json",
+          "corpus/stats/corpus_stats.json"
+        ],
+        "coverage_rate": 1.0
+      },
+      "flow_engineering_diagram": {
+        "total": 3,
+        "success": 2,
+        "partial": 1,
+        "not_available": 0,
+        "sample_paths": [
+          "benchmark/data/sciverse_images/PID控制/74ccb7b06a5dd3de5b18ac2ba8f69ccc4310cd21a720ca59aead3968509eb426.jpg",
+          "benchmark/data/sciverse_images/PID控制/b481ccf3cbfaa2c45ebe311e70dafb64becf17cdb67f3aa0b37551b899298f72.jpg",
+          "benchmark/agent/test_materials/test_ppt.pptx"
+        ],
+        "coverage_rate": 1.0
+      },
+      "low_quality_scan": {
+        "total": 2,
+        "success": 2,
+        "partial": 0,
+        "not_available": 0,
+        "sample_paths": [
+          "data/sources_flywheel/2605.02370_Robust Adaptive Predictive Control for Hook-Based Aerial Tra.pdf",
+          "data/sources_flywheel/2605.03662_Feasibility-aware Hybrid Control for Motion Planning under S.pdf"
+        ],
+        "coverage_rate": 1.0
+      },
+      "complex_chart": {
+        "total": 2,
+        "success": 2,
+        "partial": 0,
+        "not_available": 0,
+        "sample_paths": [
+          "benchmark/data/sciverse_images/PID控制/c7b87943f386c49554c1be9d90ad3f9a3e747441a9979533de9338d91f139e65.jpg",
+          "benchmark/data/sciverse_images/PID控制/12438b0905b63462d8b01336819190603bbc92edf3ad948dd20be5e8470fe132.jpg"
+        ],
+        "coverage_rate": 1.0
+      },
+      "standard_spec": {
+        "total": 3,
+        "success": 0,
+        "partial": 3,
+        "not_available": 0,
+        "sample_paths": [
+          "benchmark/dataset/schema.json",
+          "benchmark/dataset/README.md",
+          "benchmark/agent/test_materials/test_docx.docx"
+        ],
+        "coverage_rate": 1.0
+      }
+    },
+    "boundary_note": "样本均来自仓库内文件或既有审计产物；standard_spec 使用 schema/README 做结构规范覆盖，不伪装为行业标准 PDF。"
+  },
+  "records": [
+    {
+      "sample_id": "numeric_dense_xlsx",
+      "challenge_type": "numeric_dense",
+      "sample_path": "benchmark/agent/test_materials/test_xlsx.xlsx",
+      "artifact_type": "xlsx",
+      "source_policy": "repository_test_material",
+      "exists": true,
+      "status": "success",
+      "expected_signal": "zip table workbook is present and structurally readable",
+      "observed_signal": "zip_entries=14, media_entries=0, xml_entries=12",
+      "schema_consistent": true,
+      "metrics": {
+        "zip_entries": 14,
+        "media_entries": 0,
+        "xml_entries": 12
+      },
+      "failure_reason": "",
+      "fallback_note": ""
+    },
+    {
+      "sample_id": "numeric_dense_formula_1",
+      "challenge_type": "numeric_dense",
+      "sample_path": "corpus/stats/corpus_stats.json",
+      "artifact_type": "corpus_stats_record",
+      "source_policy": "derived_repository_metric",
+      "exists": true,
+      "status": "success",
+      "expected_signal": "formula_count=22134 from 控制理论导论_郭雷",
+      "observed_signal": "formula_count=22134 from 控制理论导论_郭雷",
+      "schema_consistent": true,
+      "metrics": {
+        "source": "corpus/stats/corpus_stats.json"
+      },
+      "failure_reason": "",
+      "fallback_note": ""
+    },
+    {
+      "sample_id": "numeric_dense_formula_2",
+      "challenge_type": "numeric_dense",
+      "sample_path": "corpus/stats/corpus_stats.json",
+      "artifact_type": "corpus_stats_record",
+      "source_policy": "derived_repository_metric",
+      "exists": true,
+      "status": "success",
+      "expected_signal": "formula_count=15467 from 非线性系统_Khalil",
+      "observed_signal": "formula_count=15467 from 非线性系统_Khalil",
+      "schema_consistent": true,
+      "metrics": {
+        "source": "corpus/stats/corpus_stats.json"
+      },
+      "failure_reason": "",
+      "fallback_note": ""
+    },
+    {
+      "sample_id": "cross_page_chunk_1",
+      "challenge_type": "cross_page",
+      "sample_path": "corpus/stats/corpus_stats.json",
+      "artifact_type": "corpus_stats_record",
+      "source_policy": "derived_repository_metric",
+      "exists": true,
+      "status": "success",
+      "expected_signal": "chunk_count=1028 from MPC_Control_Rawlings",
+      "observed_signal": "chunk_count=1028 from MPC_Control_Rawlings",
+      "schema_consistent": true,
+      "metrics": {
+        "source": "corpus/stats/corpus_stats.json"
+      },
+      "failure_reason": "",
+      "fallback_note": ""
+    },
+    {
+      "sample_id": "cross_page_chunk_2",
+      "challenge_type": "cross_page",
+      "sample_path": "corpus/stats/corpus_stats.json",
+      "artifact_type": "corpus_stats_record",
+      "source_policy": "derived_repository_metric",
+      "exists": true,
+      "status": "success",
+      "expected_signal": "chunk_count=935 from 自动控制原理_胡寿松",
+      "observed_signal": "chunk_count=935 from 自动控制原理_胡寿松",
+      "schema_consistent": true,
+      "metrics": {
+        "source": "corpus/stats/corpus_stats.json"
+      },
+      "failure_reason": "",
+      "fallback_note": ""
+    },
+    {
+      "sample_id": "flow_engineering_1",
+      "challenge_type": "flow_engineering_diagram",
+      "sample_path": "benchmark/data/sciverse_images/PID控制/74ccb7b06a5dd3de5b18ac2ba8f69ccc4310cd21a720ca59aead3968509eb426.jpg",
+      "artifact_type": "sciverse_image",
+      "source_policy": "sciverse_cached_image",
+      "exists": true,
+      "status": "success",
+      "expected_signal": "判断: 一致\n理由: 图片展示了包含控制器、调速器、汽轮机、功率系统的双区域LFC框图，与公式中的传递函数、ACE定义及控制律高度对应。",
+      "observed_signal": "image_size_bytes=124220",
+      "schema_consistent": true,
+      "metrics": {
+        "size_bytes": 124220,
+        "suffix": ".jpg"
+      },
+      "failure_reason": "",
+      "fallback_note": ""
+    },
+    {
+      "sample_id": "flow_engineering_2",
+      "challenge_type": "flow_engineering_diagram",
+      "sample_path": "benchmark/data/sciverse_images/PID控制/b481ccf3cbfaa2c45ebe311e70dafb64becf17cdb67f3aa0b37551b899298f72.jpg",
+      "artifact_type": "sciverse_image",
+      "source_policy": "sciverse_cached_image",
+      "exists": true,
+      "status": "success",
+      "expected_signal": "判断: 部分一致  \n理由: 图片是参数表，包含公式中部分传递函数的增益和时间常数，但未体现公式整体结构与优化算法。",
+      "observed_signal": "image_size_bytes=52678",
+      "schema_consistent": true,
+      "metrics": {
+        "size_bytes": 52678,
+        "suffix": ".jpg"
+      },
+      "failure_reason": "",
+      "fallback_note": ""
+    },
+    {
+      "sample_id": "low_quality_scan_1",
+      "challenge_type": "low_quality_scan",
+      "sample_path": "data/sources_flywheel/2605.02370_Robust Adaptive Predictive Control for Hook-Based Aerial Tra.pdf",
+      "artifact_type": "pdf",
+      "source_policy": "repository_or_flywheel_pdf",
+      "exists": true,
+      "status": "success",
+      "expected_signal": "PDF exists for OCR/scan boundary replay",
+      "observed_signal": "pdf_size_bytes=4898895",
+      "schema_consistent": true,
+      "metrics": {
+        "size_bytes": 4898895,
+        "suffix": ".pdf"
+      },
+      "failure_reason": "",
+      "fallback_note": ""
+    },
+    {
+      "sample_id": "low_quality_scan_2",
+      "challenge_type": "low_quality_scan",
+      "sample_path": "data/sources_flywheel/2605.03662_Feasibility-aware Hybrid Control for Motion Planning under S.pdf",
+      "artifact_type": "pdf",
+      "source_policy": "repository_or_flywheel_pdf",
+      "exists": true,
+      "status": "success",
+      "expected_signal": "PDF exists for OCR/scan boundary replay",
+      "observed_signal": "pdf_size_bytes=649571",
+      "schema_consistent": true,
+      "metrics": {
+        "size_bytes": 649571,
+        "suffix": ".pdf"
+      },
+      "failure_reason": "",
+      "fallback_note": ""
+    },
+    {
+      "sample_id": "complex_chart_1",
+      "challenge_type": "complex_chart",
+      "sample_path": "benchmark/data/sciverse_images/PID控制/c7b87943f386c49554c1be9d90ad3f9a3e747441a9979533de9338d91f139e65.jpg",
+      "artifact_type": "sciverse_image",
+      "source_policy": "sciverse_cached_image",
+      "exists": true,
+      "status": "success",
+      "expected_signal": "判断: 不一致\n理由: 图片展示日太阳辐射和光伏输出曲线，与公式中的系统传递函数、控制算法等数学模型无直接语义关联。",
+      "observed_signal": "image_size_bytes=115308",
+      "schema_consistent": true,
+      "metrics": {
+        "size_bytes": 115308,
+        "suffix": ".jpg"
+      },
+      "failure_reason": "",
+      "fallback_note": ""
+    },
+    {
+      "sample_id": "complex_chart_2",
+      "challenge_type": "complex_chart",
+      "sample_path": "benchmark/data/sciverse_images/PID控制/12438b0905b63462d8b01336819190603bbc92edf3ad948dd20be5e8470fe132.jpg",
+      "artifact_type": "sciverse_image",
+      "source_policy": "sciverse_cached_image",
+      "exists": true,
+      "status": "success",
+      "expected_signal": "判断: 不一致  \n理由: 图片显示风速与风功率时序曲线，而公式描述系统传递函数、控制算法及优化参数。",
+      "observed_signal": "image_size_bytes=211912",
+      "schema_consistent": true,
+      "metrics": {
+        "size_bytes": 211912,
+        "suffix": ".jpg"
+      },
+      "failure_reason": "",
+      "fallback_note": ""
+    },
+    {
+      "sample_id": "standard_schema_01",
+      "challenge_type": "standard_spec",
+      "sample_path": "benchmark/dataset/schema.json",
+      "artifact_type": "json_schema",
+      "source_policy": "repository_schema",
+      "exists": true,
+      "status": "partial",
+      "expected_signal": "JSON Schema required fields and enum constraints are readable",
+      "observed_signal": "required_fields=2, defs_count=4",
+      "schema_consistent": true,
+      "metrics": {
+        "required_fields": 2,
+        "defs_count": 4,
+        "has_question_def": true
+      },
+      "failure_reason": "",
+      "fallback_note": "这是结构规范样本，不等价于行业标准 PDF。"
+    },
+    {
+      "sample_id": "standard_readme_01",
+      "challenge_type": "standard_spec",
+      "sample_path": "benchmark/dataset/README.md",
+      "artifact_type": "markdown_spec",
+      "source_policy": "repository_documentation",
+      "exists": true,
+      "status": "partial",
+      "expected_signal": "dataset README is present",
+      "observed_signal": "line_count=272, size_bytes=11434",
+      "schema_consistent": true,
+      "metrics": {
+        "line_count": 272,
+        "size_bytes": 11434
+      },
+      "failure_reason": "",
+      "fallback_note": "这是数据集规范说明，不等价于行业标准 PDF。"
+    },
+    {
+      "sample_id": "multi_format_docx",
+      "challenge_type": "standard_spec",
+      "sample_path": "benchmark/agent/test_materials/test_docx.docx",
+      "artifact_type": "docx",
+      "source_policy": "repository_test_material",
+      "exists": true,
+      "status": "partial",
+      "expected_signal": "DOCX package is structurally readable",
+      "observed_signal": "zip_entries=41, media_entries=17, xml_entries=17",
+      "schema_consistent": true,
+      "metrics": {
+        "zip_entries": 41,
+        "media_entries": 17,
+        "xml_entries": 17
+      },
+      "failure_reason": "",
+      "fallback_note": "补充多格式规范结构覆盖。"
+    },
+    {
+      "sample_id": "multi_format_pptx",
+      "challenge_type": "flow_engineering_diagram",
+      "sample_path": "benchmark/agent/test_materials/test_ppt.pptx",
+      "artifact_type": "pptx",
+      "source_policy": "repository_test_material",
+      "exists": true,
+      "status": "partial",
+      "expected_signal": "PPTX package is structurally readable",
+      "observed_signal": "zip_entries=257, media_entries=112, xml_entries=54",
+      "schema_consistent": true,
+      "metrics": {
+        "zip_entries": 257,
+        "media_entries": 112,
+        "xml_entries": 54
+      },
+      "failure_reason": "",
+      "fallback_note": "补充流程/图文结构覆盖。"
+    }
+  ]
+}

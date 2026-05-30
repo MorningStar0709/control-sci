@@ -3,6 +3,7 @@ const DEFAULT_MAX_RUNTIME_MS = 5 * 60 * 1000;
 const MAX_TASK_RUNTIME_MS = 10 * 60 * 1000;
 const TASK_SWEEP_MS = 30 * 60 * 1000;
 const SECRET_KEYS = /^(authorization|x-demo-code|api[_-]?key|.*token.*|.*secret.*|password)$/i;
+const SHOW_TASK_INPUT = process.env.STARBOARD_DEBUG_TASK_INPUT === 'true';
 
 function getStore() {
   if (!globalThis[STORE_KEY]) {
@@ -15,10 +16,12 @@ export function createTask(input) {
   const store = getStore();
   sweepOldTasks(store);
   const id = `task_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 10)}`;
+  const owner_token = createOwnerToken();
   const task = {
     id,
+    owner_token,
     status: 'running',
-    input: redactSecrets(input),
+    input: SHOW_TASK_INPUT ? redactSecrets(input) : undefined,
     data: null,
     error: null,
     max_runtime_ms: getMaxRuntimeMs(input),
@@ -27,6 +30,21 @@ export function createTask(input) {
   };
   store.set(id, task);
   return task;
+}
+
+function createOwnerToken() {
+  return `tok_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 14)}`;
+}
+
+export function verifyTaskOwner(task, token) {
+  return Boolean(task?.owner_token && token && task.owner_token === token);
+}
+
+export function toPublicTask(task) {
+  if (!task) return null;
+  const { owner_token, input, ...publicTask } = task;
+  if (SHOW_TASK_INPUT && input !== undefined) publicTask.input = input;
+  return publicTask;
 }
 
 function redactSecrets(value) {

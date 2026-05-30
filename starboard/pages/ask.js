@@ -19,7 +19,7 @@ const caseGroups = [
   },
   {
     title: '研究者验证',
-    desc: '面向评委或研究人员，用于验证章节定位、统计设计和来源追溯。',
+    desc: '面向研究者或复现者，用于验证章节定位、统计设计和来源追溯。',
     items: [
       { label: '主要终点与安全性', text: '主要终点和安全性文献依据' },
       { label: 'ITT 分析人群', text: '意向治疗分析人群的统计分析依据' },
@@ -190,7 +190,7 @@ export default function AskPage({ runtimeConfig }) {
                   <p>PDF 解析产物、chunk、嵌入索引和检索上下文留在本地。</p>
                 </div>
                 <div>
-                  <div className="font-semibold text-gray-800">公开演示入口</div>
+                  <div className="font-semibold text-gray-800">公开展示入口</div>
                   <p>前端页面可以部署到云端展示；医学来源链仍在后端私有环境内完成。</p>
                 </div>
                 <div>

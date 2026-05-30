@@ -512,7 +512,7 @@ def track2_validate_chain(req: AgentPlanRequest):
     )
     result.update({
         "mode": "acceptance",
-        "validation_summary": "Track2 验收链路已闭环：自然语言目标被拆成 intent/DAG，资源调度策略可解释，执行摘要和来源产物可核验。",
+        "validation_summary": "Track2 协议链路已回放：自然语言目标被拆成 intent/DAG，资源调度策略可解释，执行摘要能回指到来源路径；真实文件存在性请使用来源核验模板或来源矩阵。",
         "sources": [
             {"label": "能力注册表", "path": "benchmark/agent/agent_capabilities.json"},
             {"label": "Agent CLI", "path": "benchmark/agent/agent_cli.py"},
@@ -524,7 +524,7 @@ def track2_validate_chain(req: AgentPlanRequest):
             "dag": True,
             "resource_scheduler": True,
             "reproducible_command": True,
-            "artifact_trace": True,
+            "artifact_trace": "listed_paths",
         },
     })
     return result
@@ -534,7 +534,7 @@ TRACK2_ARTIFACTS = {
     "flywheel": {
         "title": "数据飞轮 Quick Proof 来源",
         "summary": "核验 arXiv PDF、MinerU Markdown、ABCD 快速题集和已保存评测结果；不在页面默认触发现场出题/评测。",
-        "command": "python data/sources_flywheel/run_flywheel.py  # full reproduction outside UI",
+        "command": "conda run --no-capture-output -n myenv python data/sources_flywheel/run_flywheel.py  # full reproduction outside UI",
         "sources": [
             {"label": "arXiv PDF", "path": "data/sources_flywheel"},
             {"label": "MinerU Markdown", "path": "data/sources_flywheel/md"},
@@ -546,7 +546,7 @@ TRACK2_ARTIFACTS = {
     "eval40": {
         "title": "Track1 均衡抽样评测来源",
         "summary": "核验 core.json、leaderboard 与四维评测产物；页面不重新跑 40 题模型答题和 Judge。",
-        "command": "python benchmark/eval/run_eval_pipeline.py  # full evaluation outside UI",
+        "command": "conda run --no-capture-output -n myenv python benchmark/eval/run_eval_pipeline.py  # full evaluation outside UI",
         "sources": [
             {"label": "题库", "path": "benchmark/dataset/core.json"},
             {"label": "排行榜", "path": "benchmark/eval/results/leaderboard_complete.json"},
@@ -557,7 +557,7 @@ TRACK2_ARTIFACTS = {
     "check_index": {
         "title": "Medical RAG 索引来源",
         "summary": "核验 manifest、FAISS 与 BM25 索引文件是否存在；不重建向量索引。",
-        "command": "python -m controlsci.medical.indexing  # rebuild outside UI",
+        "command": "conda run --no-capture-output -n myenv python -m controlsci.medical.indexing  # rebuild outside UI",
         "sources": [
             {"label": "chunk manifest", "path": "data/sources_medical/chunks/chunks_manifest.json"},
             {"label": "FAISS index", "path": "data/sources_medical/index/medical.index"},
@@ -568,7 +568,7 @@ TRACK2_ARTIFACTS = {
     "evidence_bundle": {
         "title": "DATA-TRACE 验收包来源",
         "summary": "核验公开提交包与 manifest；不在默认模板中重建文件包。",
-        "command": "python scripts/build_data_trace_bundle.py",
+        "command": "conda run --no-capture-output -n myenv python scripts/build_data_trace_bundle.py",
         "sources": [
             {"label": "DATA-TRACE", "path": "docs/submissions/shared/DATA-TRACE.md"},
             {"label": "bundle manifest", "path": "docs/submissions/data_trace_bundle/manifest.json"},
@@ -579,13 +579,79 @@ TRACK2_ARTIFACTS = {
     "visual_audit": {
         "title": "视觉审计来源",
         "summary": "核验跨模态视觉审计结果；不默认调用视觉模型。",
-        "command": "python benchmark/agent/visual_audit.py --max-items 1 --workers 1",
+        "command": "conda run --no-capture-output -n myenv python benchmark/agent/visual_audit.py --max-items 1 --workers 1",
         "sources": [
             {"label": "视觉审计结果", "path": "benchmark/agent/results/visual_audit_results.jsonl"},
             {"label": "审计配置/能力", "path": "benchmark/agent/agent_capabilities.json"},
             {"label": "技术报告", "path": "docs/submissions/track2_agent_report.md"},
         ],
         "intents": ["cross_modal_audit", "artifact_trace"],
+    },
+    "router_robustness": {
+        "title": "Agent Router 鲁棒性补充证据",
+        "summary": "核验 25 条自然语言任务变体的 router baseline、冻结清单和报告图；不重新执行 Agent 管道。",
+        "command": "conda run --no-capture-output -n myenv python -m benchmark.agent.router_robustness_eval --output benchmark/eval/results/agent_router_robustness.json",
+        "sources": [
+            {"label": "router baseline", "path": "benchmark/eval/results/agent_router_robustness.json"},
+            {"label": "冻结清单", "path": "benchmark/eval/results/agent_router_robustness.freeze.json"},
+            {"label": "可靠性矩阵图", "path": "docs/submissions/shared/assets/task2/track2_agent_reliability_matrix.png"},
+        ],
+        "intents": ["intent_router", "artifact_trace", "submission_package"],
+    },
+    "failure_recovery": {
+        "title": "故障注入恢复矩阵补充证据",
+        "summary": "核验 6 类故障、18 次恢复记录和报告图；不修改真实服务或密钥。",
+        "command": "conda run --no-capture-output -n myenv python -m benchmark.agent.failure_injection_eval --output benchmark/eval/results/agent_failure_injection_matrix.json",
+        "sources": [
+            {"label": "故障注入矩阵", "path": "benchmark/eval/results/agent_failure_injection_matrix.json"},
+            {"label": "补充证据包", "path": "docs/submissions/data_trace_bundle/12_final_supplemental_experiments/track2_agent_reliability/agent_failure_injection_matrix.json"},
+            {"label": "故障恢复图", "path": "docs/submissions/shared/assets/task2/track2_failure_recovery_matrix.png"},
+        ],
+        "intents": ["failure_recovery", "resource_scheduler", "artifact_trace"],
+    },
+    "source_selection_ablation": {
+        "title": "多源选择 A/B 补充证据",
+        "summary": "核验 Agent Router、固定规则和 Oracle 的多源选择对照；只检查既有 JSON 与报告图。",
+        "command": "conda run --no-capture-output -n myenv python -m benchmark.agent.source_selection_ablation --output benchmark/eval/results/agent_source_selection_ablation.json",
+        "sources": [
+            {"label": "多源选择 A/B", "path": "benchmark/eval/results/agent_source_selection_ablation.json"},
+            {"label": "补充证据包", "path": "docs/submissions/data_trace_bundle/12_final_supplemental_experiments/track2_agent_reliability/agent_source_selection_ablation.json"},
+            {"label": "A/B 图", "path": "docs/submissions/shared/assets/task2/track2_source_selection_ablation.png"},
+        ],
+        "intents": ["source_selection", "privacy_boundary", "artifact_trace"],
+    },
+    "resource_pareto": {
+        "title": "资源调度 Pareto 补充证据",
+        "summary": "核验 provider availability、call count、latency 与不可用边界；不写成本金额。",
+        "command": "conda run --no-capture-output -n myenv python -m benchmark.agent.resource_pareto_eval --output benchmark/eval/results/agent_resource_pareto.json",
+        "sources": [
+            {"label": "资源 Pareto JSON", "path": "benchmark/eval/results/agent_resource_pareto.json"},
+            {"label": "补充证据包", "path": "docs/submissions/data_trace_bundle/12_final_supplemental_experiments/track2_agent_reliability/agent_resource_pareto.json"},
+            {"label": "资源 Pareto 图", "path": "docs/submissions/shared/assets/task2/track2_resource_pareto.png"},
+        ],
+        "intents": ["resource_scheduler", "cost_boundary", "artifact_trace"],
+    },
+    "hard_document_stress": {
+        "title": "复杂文档压力覆盖补充证据",
+        "summary": "核验 6 类复杂文档挑战、15 个样本和覆盖率；不声称行业标准 PDF 合规。",
+        "command": "conda run --no-capture-output -n myenv python -m benchmark.agent.hard_document_stress_eval --output benchmark/eval/results/agent_hard_document_stress.json",
+        "sources": [
+            {"label": "复杂文档压力测试", "path": "benchmark/eval/results/agent_hard_document_stress.json"},
+            {"label": "补充证据包", "path": "docs/submissions/data_trace_bundle/12_final_supplemental_experiments/track2_agent_reliability/agent_hard_document_stress.json"},
+            {"label": "压力覆盖图", "path": "docs/submissions/shared/assets/task2/track2_hard_document_stress.png"},
+        ],
+        "intents": ["document_stress", "visual_audit", "artifact_trace"],
+    },
+    "sciverse_source_routing": {
+        "title": "Sciverse 三源路由决策证据",
+        "summary": "核验 Track2 报告中的 Sciverse/local/replay 路由边界图及其 router/source-selection 原始证据。",
+        "command": "conda run --no-capture-output -n myenv python -m benchmark.agent.router_robustness_eval --output benchmark/eval/results/agent_router_robustness.json",
+        "sources": [
+            {"label": "Agent capabilities", "path": "benchmark/agent/agent_capabilities.json"},
+            {"label": "router baseline", "path": "benchmark/eval/results/agent_router_robustness.json"},
+            {"label": "Sciverse 路由图", "path": "docs/submissions/shared/assets/task2/track2_sciverse_source_routing.png"},
+        ],
+        "intents": ["sciverse_search", "source_selection", "artifact_trace"],
     },
 }
 
@@ -789,7 +855,7 @@ def track2_flywheel_quick_proof(req: AgentPlanRequest):
         "mode": "quick_proof",
         "query": query_text,
         "runtime": runtime.dict(),
-        "command": "python data/sources_flywheel/run_flywheel.py  # full flywheel; this UI runs the 1-paper quick proof artifact check",
+        "command": "conda run --no-capture-output -n myenv python data/sources_flywheel/run_flywheel.py  # full flywheel; this UI runs the 1-paper quick proof artifact check",
         "summary": summary,
         "steps": steps,
         "validation_summary": "Quick Proof 已闭环：本地存在 arXiv PDF、MinerU Markdown、ABCD 快速题集和已保存评测结果；界面不再返回纯 dry-run。",
@@ -890,7 +956,7 @@ def track2_flywheel_live_smoke(req: Track2ActionRequest):
         "mode": "live_smoke",
         "query": query_text,
         "runtime": runtime.dict(),
-        "command": "python data/sources_flywheel/run_flywheel.py  # full; UI smoke runs 1 chunk / 1 eval in _scratch",
+        "command": "conda run --no-capture-output -n myenv python data/sources_flywheel/run_flywheel.py  # full; UI smoke runs 1 chunk / 1 eval in _scratch",
         "summary": summary,
         "steps": steps,
         "validation_summary": "最小真实飞轮已执行：本次不是 dry-run，已现场调用出题与评测，并把结果写入 _scratch。",
@@ -954,7 +1020,7 @@ def track2_check_index_live(req: Track2ActionRequest):
         "mode": "live_check",
         "query": req.query,
         "runtime": runtime.dict(),
-        "command": "python -m controlsci.medical.indexing  # rebuild; UI performs lightweight live index validation",
+        "command": "conda run --no-capture-output -n myenv python -m controlsci.medical.indexing  # rebuild; UI performs lightweight live index validation",
         "summary": summary,
         "steps": steps,
         "validation_summary": "索引检查是真实文件与 manifest 统计，不是 dry-run。",
@@ -996,7 +1062,7 @@ def track2_eval_sample_live(req: Track2ActionRequest):
         "mode": "live_sample",
         "query": req.query,
         "runtime": runtime.dict(),
-        "command": "python benchmark/eval/run_eval_pipeline.py  # full; UI validates a minimal stratified sample",
+        "command": "conda run --no-capture-output -n myenv python benchmark/eval/run_eval_pipeline.py  # full; UI validates a minimal stratified sample",
         "summary": summary,
         "steps": steps,
         "validation_summary": "本次执行真实读取 core.json 做最小分层抽样，并回指排行榜产物；不是空计划。",
@@ -1054,7 +1120,7 @@ def track2_evidence_bundle_live(req: Track2ActionRequest):
         "mode": "live_build",
         "query": req.query,
         "runtime": runtime.dict(),
-        "command": "python scripts/build_data_trace_bundle.py",
+        "command": "conda run --no-capture-output -n myenv python scripts/build_data_trace_bundle.py",
         "summary": summary,
         "steps": [{"step": 1, "intent_id": "artifact_trace", "intent_name": "生成验收包", "resource": "script", "tools": "scripts/build_data_trace_bundle.py", "status": "done" if status == "ok" else "failed"}],
         "validation_summary": "验收包已通过脚本真实重建。",
@@ -1115,7 +1181,7 @@ def track2_visual_audit_live(req: Track2ActionRequest):
         "mode": mode,
         "query": req.query,
         "runtime": runtime.dict(),
-        "command": "python benchmark/agent/visual_audit.py --max-items 1 --workers 1",
+        "command": "conda run --no-capture-output -n myenv python benchmark/agent/visual_audit.py --max-items 1 --workers 1",
         "summary": summary,
         "steps": [{"step": 1, "intent_id": "cross_modal_audit", "intent_name": "视觉审计最小检查", "resource": "api", "tools": "visual_audit.py / visual_audit_results.jsonl", "status": "done" if status == "ok" else "validated_artifact" if status == "degraded" else "failed"}],
         "validation_summary": "视觉审计执行最小化：有视觉 API Key 时跑 1 条；无 Key 时明确降级为既有产物核验。",
@@ -1222,7 +1288,7 @@ def demo_medical_rag_eval_summary():
         return {
             "available": False,
             "reason": "medical_rag_eval.json 尚未生成",
-            "command": "python benchmark/eval/medical_rag_eval.py --k 3",
+            "command": "conda run --no-capture-output -n myenv python benchmark/eval/medical_rag_eval.py --k 3",
         }
 
     smoke_case = None
@@ -1250,8 +1316,8 @@ def demo_medical_rag_eval_summary():
         "synthesis_smoke": smoke_payload,
         "smoke_case": smoke_case,
         "report_path": str(report_path.relative_to(ROOT)) if report_path.exists() else None,
-        "command": "python benchmark/eval/medical_rag_eval.py --k 3",
-        "synthesis_command": "python benchmark/eval/medical_rag_eval.py --indexes bge_small --k 3 --limit-cases 1 --with-synthesis",
+        "command": "conda run --no-capture-output -n myenv python benchmark/eval/medical_rag_eval.py --k 3",
+        "synthesis_command": "conda run --no-capture-output -n myenv python benchmark/eval/medical_rag_eval.py --indexes bge_small --k 3 --limit-cases 1 --with-synthesis",
     }
 
 
@@ -1404,6 +1470,12 @@ def track2_templates():
             {"id": "check_index", "label": "核验 Medical RAG 索引", "goal": "核验 FAISS + BM25 + chunk manifest 的存在性和来源路径", "mode": "validated_artifact"},
             {"id": "evidence_bundle", "label": "查看验收包来源", "goal": "核验 data_trace_bundle、manifest 和 DATA-TRACE 来源文件", "mode": "validated_artifact"},
             {"id": "visual_audit", "label": "核验视觉审计产物", "goal": "核验 visual_audit_results.jsonl 与跨模态审计来源", "mode": "validated_artifact"},
+            {"id": "router_robustness", "label": "核验 Router 鲁棒性", "goal": "核验 25 条任务变体、冻结清单与可靠性矩阵图", "mode": "validated_artifact"},
+            {"id": "failure_recovery", "label": "核验故障恢复矩阵", "goal": "核验 6 类故障注入、18 次恢复记录与图表", "mode": "validated_artifact"},
+            {"id": "source_selection_ablation", "label": "核验多源选择 A/B", "goal": "核验 Agent Router 相对固定规则的 source selection 对照", "mode": "validated_artifact"},
+            {"id": "resource_pareto", "label": "核验资源 Pareto", "goal": "核验 provider availability、latency 和不可用边界", "mode": "validated_artifact"},
+            {"id": "hard_document_stress", "label": "核验复杂文档压力", "goal": "核验 6 类挑战、15 个样本和覆盖图", "mode": "validated_artifact"},
+            {"id": "sciverse_source_routing", "label": "核验 Sciverse 路由", "goal": "核验 Sciverse/local/replay 三源边界与路由图", "mode": "validated_artifact"},
         ]
     }
 
@@ -1417,11 +1489,14 @@ def evidence_matrix():
             {
                 "track": "Track1",
                 "title": "Sci-Align",
-                "effort": "500 题构建实验 · 4维 × 125 · 6 模型评测 · 跨模态对齐审计",
+                "effort": "500 题构建实验 · 4维 × 125 · 9 模型评测 · 跨模态对齐审计 · Sciverse 14 子领域 · 7 项 reliability",
                 "evidence": [
                     {"file": "core.json", "path": "benchmark/dataset/core.json", "size_kb": _file_size_kb("benchmark", "dataset", "core.json")},
                     {"file": "leaderboard_complete.json", "path": "benchmark/eval/results/leaderboard_complete.json", "size_kb": _file_size_kb("benchmark", "eval", "results", "leaderboard_complete.json")},
                     {"file": "cross_modal_audit_summary.json", "path": "benchmark/eval/results/cross_modal_audit_summary.json", "size_kb": _file_size_kb("benchmark", "eval", "results", "cross_modal_audit_summary.json")},
+                    {"file": "sciverse_14_subfield_coverage.json", "path": "benchmark/eval/results/sciverse_14_subfield_coverage.json", "size_kb": _file_size_kb("benchmark", "eval", "results", "sciverse_14_subfield_coverage.json")},
+                    {"file": "sciverse_cross_source_eval.json", "path": "benchmark/eval/results/sciverse_cross_source_eval.json", "size_kb": _file_size_kb("benchmark", "eval", "results", "sciverse_cross_source_eval.json")},
+                    {"file": "track1_supplemental_summary.json", "path": "docs/submissions/data_trace_bundle/12_final_supplemental_experiments/track1_sci_align_reliability/track1_supplemental_summary.json", "size_kb": _file_size_kb("docs", "submissions", "data_trace_bundle", "12_final_supplemental_experiments", "track1_sci_align_reliability", "track1_supplemental_summary.json")},
                 ],
                 "scoring": "科学对齐评分：数据严谨性 + 跨模态覆盖 + 评测体系完整",
                 "deliverable": "track1_sci_align_report.md + data_trace_bundle",
@@ -1430,11 +1505,19 @@ def evidence_matrix():
             {
                 "track": "Track2",
                 "title": "Data Agent",
-                "effort": "14 Intent · Resource Scheduler · 失败回退 · 飞轮 5 论文",
+                "effort": "15 Intent · Resource Scheduler · 失败回退 · 飞轮 · 5 项 reliability",
                 "evidence": [
+                    {"file": "track2_agent_report.md", "path": "docs/submissions/track2_agent_report.md", "size_kb": _file_size_kb("docs", "submissions", "track2_agent_report.md")},
+                    {"file": "DATA-TRACE.md", "path": "docs/submissions/shared/DATA-TRACE.md", "size_kb": _file_size_kb("docs", "submissions", "shared", "DATA-TRACE.md")},
+                    {"file": "manifest.json", "path": "docs/submissions/data_trace_bundle/manifest.json", "size_kb": _file_size_kb("docs", "submissions", "data_trace_bundle", "manifest.json")},
                     {"file": "agent_capabilities.json", "path": "benchmark/agent/agent_capabilities.json", "size_kb": _file_size_kb("benchmark", "agent", "agent_capabilities.json")},
                     {"file": "agent_cli.py", "path": "benchmark/agent/agent_cli.py", "size_kb": _file_size_kb("benchmark", "agent", "agent_cli.py")},
                     {"file": "resource_scheduler.py", "path": "benchmark/agent/resource_scheduler.py", "size_kb": _file_size_kb("benchmark", "agent", "resource_scheduler.py")},
+                    {"file": "agent_router_robustness.json", "path": "docs/submissions/data_trace_bundle/12_final_supplemental_experiments/track2_agent_reliability/agent_router_robustness.json", "size_kb": _file_size_kb("docs", "submissions", "data_trace_bundle", "12_final_supplemental_experiments", "track2_agent_reliability", "agent_router_robustness.json")},
+                    {"file": "agent_failure_injection_matrix.json", "path": "docs/submissions/data_trace_bundle/12_final_supplemental_experiments/track2_agent_reliability/agent_failure_injection_matrix.json", "size_kb": _file_size_kb("docs", "submissions", "data_trace_bundle", "12_final_supplemental_experiments", "track2_agent_reliability", "agent_failure_injection_matrix.json")},
+                    {"file": "agent_source_selection_ablation.json", "path": "docs/submissions/data_trace_bundle/12_final_supplemental_experiments/track2_agent_reliability/agent_source_selection_ablation.json", "size_kb": _file_size_kb("docs", "submissions", "data_trace_bundle", "12_final_supplemental_experiments", "track2_agent_reliability", "agent_source_selection_ablation.json")},
+                    {"file": "agent_resource_pareto.json", "path": "docs/submissions/data_trace_bundle/12_final_supplemental_experiments/track2_agent_reliability/agent_resource_pareto.json", "size_kb": _file_size_kb("docs", "submissions", "data_trace_bundle", "12_final_supplemental_experiments", "track2_agent_reliability", "agent_resource_pareto.json")},
+                    {"file": "agent_hard_document_stress.json", "path": "docs/submissions/data_trace_bundle/12_final_supplemental_experiments/track2_agent_reliability/agent_hard_document_stress.json", "size_kb": _file_size_kb("docs", "submissions", "data_trace_bundle", "12_final_supplemental_experiments", "track2_agent_reliability", "agent_hard_document_stress.json")},
                 ],
                 "scoring": "Agent 自动化评分：Intent 覆盖 · 调度合理性 · 鲁棒性",
                 "deliverable": "track2_agent_report.md + agent_cli.py",
@@ -1443,11 +1526,21 @@ def evidence_matrix():
             {
                 "track": "Track3",
                 "title": "Medical RAG",
-                "effort": "医学检索 · 视觉注入 · 双通道 RRF · QLoRA 微调",
+                "effort": "医学检索 · 视觉注入 · 双通道 RRF · QLoRA 微调 · 安全拒答 · 8 项 supplemental",
                 "evidence": [
                     {"file": "chunks_manifest.json", "path": "data/sources_medical/chunks/chunks_manifest.json", "size_kb": _file_size_kb("data", "sources_medical", "chunks", "chunks_manifest.json")},
                     {"file": "vision_ab_comparison.json", "path": "benchmark/eval/results/medical/vision_ab_comparison.json", "size_kb": _file_size_kb("benchmark", "eval", "results", "medical", "vision_ab_comparison.json")},
                     {"file": "qa_output.json", "path": "data/sources_medical/qa/qa_output.json", "size_kb": _file_size_kb("data", "sources_medical", "qa", "qa_output.json")},
+                    {"file": "safety refusal 3/3 SUMMARY", "path": "docs/submissions/data_trace_bundle/12_final_supplemental_experiments/track3_refusal/SUMMARY.md", "size_kb": _file_size_kb("docs", "submissions", "data_trace_bundle", "12_final_supplemental_experiments", "track3_refusal", "SUMMARY.md")},
+                    {"file": "track3_rag_pipeline_ablation.json", "path": "docs/submissions/data_trace_bundle/12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_rag_pipeline_ablation.json", "size_kb": _file_size_kb("docs", "submissions", "data_trace_bundle", "12_final_supplemental_experiments", "track3_medical_rag_supplemental", "track3_rag_pipeline_ablation.json")},
+                    {"file": "track3_safety_refusal_stress.json", "path": "docs/submissions/data_trace_bundle/12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_safety_refusal_stress.json", "size_kb": _file_size_kb("docs", "submissions", "data_trace_bundle", "12_final_supplemental_experiments", "track3_medical_rag_supplemental", "track3_safety_refusal_stress.json")},
+                    {"file": "track3_medbench_ei_taxonomy.json", "path": "docs/submissions/data_trace_bundle/12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_medbench_ei_taxonomy.json", "size_kb": _file_size_kb("docs", "submissions", "data_trace_bundle", "12_final_supplemental_experiments", "track3_medical_rag_supplemental", "track3_medbench_ei_taxonomy.json")},
+                    {"file": "track3_privacy_boundary_audit.json", "path": "docs/submissions/data_trace_bundle/12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_privacy_boundary_audit.json", "size_kb": _file_size_kb("docs", "submissions", "data_trace_bundle", "12_final_supplemental_experiments", "track3_medical_rag_supplemental", "track3_privacy_boundary_audit.json")},
+                    {"file": "track3_semantic_chunk_quality.json", "path": "docs/submissions/data_trace_bundle/12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_semantic_chunk_quality.json", "size_kb": _file_size_kb("docs", "submissions", "data_trace_bundle", "12_final_supplemental_experiments", "track3_medical_rag_supplemental", "track3_semantic_chunk_quality.json")},
+                    {"file": "track3_zh_ask_robustness.json", "path": "docs/submissions/data_trace_bundle/12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_zh_ask_robustness.json", "size_kb": _file_size_kb("docs", "submissions", "data_trace_bundle", "12_final_supplemental_experiments", "track3_medical_rag_supplemental", "track3_zh_ask_robustness.json")},
+                    {"file": "track3_evidence_card_completeness.json", "path": "docs/submissions/data_trace_bundle/12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_evidence_card_completeness.json", "size_kb": _file_size_kb("docs", "submissions", "data_trace_bundle", "12_final_supplemental_experiments", "track3_medical_rag_supplemental", "track3_evidence_card_completeness.json")},
+                    {"file": "track3_supplemental_summary.json", "path": "docs/submissions/data_trace_bundle/12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_supplemental_summary.json", "size_kb": _file_size_kb("docs", "submissions", "data_trace_bundle", "12_final_supplemental_experiments", "track3_medical_rag_supplemental", "track3_supplemental_summary.json")},
+                    {"file": "track3_deployment_smoke_matrix.json", "path": "docs/submissions/data_trace_bundle/12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_deployment_smoke_matrix.json", "size_kb": _file_size_kb("docs", "submissions", "data_trace_bundle", "12_final_supplemental_experiments", "track3_medical_rag_supplemental", "track3_deployment_smoke_matrix.json")},
                 ],
                 "scoring": "Medical RAG 评分：检索质量 + 视觉注入有效性 + 隐私合规",
                 "deliverable": "track3_medical_rag_report.md + FastAPI endpoint",

@@ -1,0 +1,765 @@
+{
+  "status": "available",
+  "generated_at": "2026-05-24T16:02:09+0800",
+  "task": "Track 3 Task 7 - Evidence Card Completeness Audit",
+  "evaluation_mode": "existing_structured_rag_evidence_card_audit_no_new_api_call",
+  "sources": [
+    "benchmark/eval/results/medical_rag_eval_zh_ask_structured.json",
+    "benchmark/eval/results/medical_rag_eval_audit_smoke.json"
+  ],
+  "case_count": 8,
+  "card_count": 24,
+  "card_field_coverage": {
+    "card_id": {
+      "present": 21,
+      "total": 21,
+      "rate": 1.0
+    },
+    "chunk_id": {
+      "present": 21,
+      "total": 21,
+      "rate": 1.0
+    },
+    "role": {
+      "present": 21,
+      "total": 21,
+      "rate": 1.0
+    },
+    "support_level": {
+      "present": 21,
+      "total": 21,
+      "rate": 1.0
+    },
+    "label": {
+      "present": 21,
+      "total": 21,
+      "rate": 1.0
+    },
+    "section": {
+      "present": 21,
+      "total": 21,
+      "rate": 1.0
+    },
+    "source_file": {
+      "present": 21,
+      "total": 21,
+      "rate": 1.0
+    },
+    "key_text": {
+      "present": 21,
+      "total": 21,
+      "rate": 1.0
+    },
+    "score": {
+      "present": 21,
+      "total": 21,
+      "rate": 1.0
+    }
+  },
+  "claim_binding_coverage": 1.0,
+  "citation_whitelist_pass_rate": 1.0,
+  "audit_status_distribution": {
+    "missing": 7,
+    "passed": 1
+  },
+  "dataset_audits": [
+    {
+      "source_role": "structured_zh_ask",
+      "source": "benchmark/eval/results/medical_rag_eval_zh_ask_structured.json",
+      "case_count": 7,
+      "card_count": 21,
+      "card_field_coverage": {
+        "card_id": {
+          "present": 21,
+          "total": 21,
+          "rate": 1.0
+        },
+        "chunk_id": {
+          "present": 21,
+          "total": 21,
+          "rate": 1.0
+        },
+        "role": {
+          "present": 21,
+          "total": 21,
+          "rate": 1.0
+        },
+        "support_level": {
+          "present": 21,
+          "total": 21,
+          "rate": 1.0
+        },
+        "label": {
+          "present": 21,
+          "total": 21,
+          "rate": 1.0
+        },
+        "section": {
+          "present": 21,
+          "total": 21,
+          "rate": 1.0
+        },
+        "source_file": {
+          "present": 21,
+          "total": 21,
+          "rate": 1.0
+        },
+        "key_text": {
+          "present": 21,
+          "total": 21,
+          "rate": 1.0
+        },
+        "score": {
+          "present": 21,
+          "total": 21,
+          "rate": 1.0
+        }
+      },
+      "audit_status_distribution": {
+        "missing": 7
+      },
+      "case_audits": [
+        {
+          "source_role": "structured_zh_ask",
+          "index": "index_bge_m3",
+          "case_id": "zh_primary_endpoint_safety",
+          "card_count": 3,
+          "evidence_cards_count_field": 3,
+          "evidence_card_count_matches_top_results": true,
+          "answer_audit_status": null,
+          "answer_audit_issue_count": 0,
+          "direct_source_cards": null,
+          "claim_binding": {
+            "claim_count": 5,
+            "supported_claims": 5,
+            "unsupported_claims": 0,
+            "citation_coverage": 1.0,
+            "claim_binding_rate": 1.0,
+            "explicit_claim_records": 0,
+            "explicit_claims_with_citations": 0,
+            "reasoning_steps": 3,
+            "reasoning_steps_with_supported_citations": 3,
+            "citation_whitelist_check": {
+              "top_result_chunk_count": 3,
+              "citation_count": 2,
+              "reasoning_citation_count": 5,
+              "all_citations_in_top_results": true,
+              "out_of_whitelist_citations": []
+            }
+          }
+        },
+        {
+          "source_role": "structured_zh_ask",
+          "index": "index_bge_m3",
+          "case_id": "zh_survival_endpoint",
+          "card_count": 3,
+          "evidence_cards_count_field": 3,
+          "evidence_card_count_matches_top_results": true,
+          "answer_audit_status": null,
+          "answer_audit_issue_count": 0,
+          "direct_source_cards": null,
+          "claim_binding": {
+            "claim_count": 3,
+            "supported_claims": 3,
+            "unsupported_claims": 0,
+            "citation_coverage": 1.0,
+            "claim_binding_rate": 1.0,
+            "explicit_claim_records": 0,
+            "explicit_claims_with_citations": 0,
+            "reasoning_steps": 3,
+            "reasoning_steps_with_supported_citations": 3,
+            "citation_whitelist_check": {
+              "top_result_chunk_count": 3,
+              "citation_count": 3,
+              "reasoning_citation_count": 6,
+              "all_citations_in_top_results": true,
+              "out_of_whitelist_citations": []
+            }
+          }
+        },
+        {
+          "source_role": "structured_zh_ask",
+          "index": "index_bge_m3",
+          "case_id": "zh_chemo_toxicity",
+          "card_count": 3,
+          "evidence_cards_count_field": 3,
+          "evidence_card_count_matches_top_results": true,
+          "answer_audit_status": null,
+          "answer_audit_issue_count": 0,
+          "direct_source_cards": null,
+          "claim_binding": {
+            "claim_count": 4,
+            "supported_claims": 4,
+            "unsupported_claims": 0,
+            "citation_coverage": 1.0,
+            "claim_binding_rate": 1.0,
+            "explicit_claim_records": 0,
+            "explicit_claims_with_citations": 0,
+            "reasoning_steps": 4,
+            "reasoning_steps_with_supported_citations": 4,
+            "citation_whitelist_check": {
+              "top_result_chunk_count": 3,
+              "citation_count": 3,
+              "reasoning_citation_count": 8,
+              "all_citations_in_top_results": true,
+              "out_of_whitelist_citations": []
+            }
+          }
+        },
+        {
+          "source_role": "structured_zh_ask",
+          "index": "index_bge_m3",
+          "case_id": "zh_serious_adverse_event",
+          "card_count": 3,
+          "evidence_cards_count_field": 3,
+          "evidence_card_count_matches_top_results": true,
+          "answer_audit_status": null,
+          "answer_audit_issue_count": 0,
+          "direct_source_cards": null,
+          "claim_binding": {
+            "claim_count": 3,
+            "supported_claims": 3,
+            "unsupported_claims": 0,
+            "citation_coverage": 1.0,
+            "claim_binding_rate": 1.0,
+            "explicit_claim_records": 0,
+            "explicit_claims_with_citations": 0,
+            "reasoning_steps": 3,
+            "reasoning_steps_with_supported_citations": 3,
+            "citation_whitelist_check": {
+              "top_result_chunk_count": 3,
+              "citation_count": 3,
+              "reasoning_citation_count": 7,
+              "all_citations_in_top_results": true,
+              "out_of_whitelist_citations": []
+            }
+          }
+        },
+        {
+          "source_role": "structured_zh_ask",
+          "index": "index_bge_m3",
+          "case_id": "zh_itt_population",
+          "card_count": 3,
+          "evidence_cards_count_field": 3,
+          "evidence_card_count_matches_top_results": true,
+          "answer_audit_status": null,
+          "answer_audit_issue_count": 0,
+          "direct_source_cards": null,
+          "claim_binding": {
+            "claim_count": 4,
+            "supported_claims": 4,
+            "unsupported_claims": 0,
+            "citation_coverage": 1.0,
+            "claim_binding_rate": 1.0,
+            "explicit_claim_records": 0,
+            "explicit_claims_with_citations": 0,
+            "reasoning_steps": 3,
+            "reasoning_steps_with_supported_citations": 3,
+            "citation_whitelist_check": {
+              "top_result_chunk_count": 3,
+              "citation_count": 3,
+              "reasoning_citation_count": 4,
+              "all_citations_in_top_results": true,
+              "out_of_whitelist_citations": []
+            }
+          }
+        },
+        {
+          "source_role": "structured_zh_ask",
+          "index": "index_bge_m3",
+          "case_id": "zh_closed_loop_mechanism",
+          "card_count": 3,
+          "evidence_cards_count_field": 3,
+          "evidence_card_count_matches_top_results": true,
+          "answer_audit_status": null,
+          "answer_audit_issue_count": 0,
+          "direct_source_cards": null,
+          "claim_binding": {
+            "claim_count": 3,
+            "supported_claims": 3,
+            "unsupported_claims": 0,
+            "citation_coverage": 1.0,
+            "claim_binding_rate": 1.0,
+            "explicit_claim_records": 0,
+            "explicit_claims_with_citations": 0,
+            "reasoning_steps": 3,
+            "reasoning_steps_with_supported_citations": 3,
+            "citation_whitelist_check": {
+              "top_result_chunk_count": 3,
+              "citation_count": 3,
+              "reasoning_citation_count": 6,
+              "all_citations_in_top_results": true,
+              "out_of_whitelist_citations": []
+            }
+          }
+        },
+        {
+          "source_role": "structured_zh_ask",
+          "index": "index_bge_m3",
+          "case_id": "zh_eligibility",
+          "card_count": 3,
+          "evidence_cards_count_field": 3,
+          "evidence_card_count_matches_top_results": true,
+          "answer_audit_status": null,
+          "answer_audit_issue_count": 0,
+          "direct_source_cards": null,
+          "claim_binding": {
+            "claim_count": 3,
+            "supported_claims": 3,
+            "unsupported_claims": 0,
+            "citation_coverage": 1.0,
+            "claim_binding_rate": 1.0,
+            "explicit_claim_records": 0,
+            "explicit_claims_with_citations": 0,
+            "reasoning_steps": 3,
+            "reasoning_steps_with_supported_citations": 3,
+            "citation_whitelist_check": {
+              "top_result_chunk_count": 3,
+              "citation_count": 3,
+              "reasoning_citation_count": 5,
+              "all_citations_in_top_results": true,
+              "out_of_whitelist_citations": []
+            }
+          }
+        }
+      ],
+      "sample_cards": [
+        {
+          "card_id": "E1",
+          "chunk_id": "PMC8600696_chunk_007",
+          "role": "endpoint",
+          "support_level": "direct",
+          "label": "_introduction_other",
+          "section": "Endpoints",
+          "source_file": "data/sources_medical/chunks/train/PMC8600696_chunk_007.md",
+          "key_text": "# Endpoints  The primary endpoint is overall survival after R0/R1 resection (OS-res) (only patients with R0/R1 resection).  Secondary efficacy endpoints are OS of the entire patients cohort, R0/R1 resection rate and prog",
+          "score": 0.032522
+        },
+        {
+          "card_id": "E2",
+          "chunk_id": "PMC9443636_chunk_010",
+          "role": "endpoint",
+          "support_level": "direct",
+          "label": "outcome_measures",
+          "section": "Outcomes",
+          "source_file": "data/sources_medical/chunks/train/PMC9443636_chunk_010.md",
+          "key_text": "# Outcomes  All outcome defnitions were prespecifed and described in detail in the published study protocol [17]. Te primary endpoint was PK target attainment (TA), during the frst 24 h following randomisation for the pr",
+          "score": 0.030536
+        },
+        {
+          "card_id": "E3",
+          "chunk_id": "PMC3002358_chunk_012",
+          "role": "endpoint",
+          "support_level": "direct",
+          "label": "primary_outcome",
+          "section": "Primary outcome measures",
+          "source_file": "data/sources_medical/chunks/train/PMC3002358_chunk_012.md",
+          "key_text": "# Primary outcome measures",
+          "score": 0.016393
+        },
+        {
+          "card_id": "E1",
+          "chunk_id": "PMC6937062_chunk_031",
+          "role": "analysis",
+          "support_level": "direct",
+          "label": "statistical_analysis",
+          "section": "Data analysis plan",
+          "source_file": "data/sources_medical/chunks/train/PMC6937062_chunk_031.md",
+          "key_text": "# Data analysis plan  Analyses will be conducted on an intention-to-treat basis, with sensitivity analyses used to investigate the impact of non-compliance to allocated arm. Given the feasibility status of this study, al",
+          "score": 0.030536
+        },
+        {
+          "card_id": "E2",
+          "chunk_id": "PMC12487728_chunk_008",
+          "role": "endpoint",
+          "support_level": "direct",
+          "label": "_front_matter_other",
+          "section": "Secondary Endpoints",
+          "source_file": "data/sources_medical/chunks/train/PMC12487728_chunk_008.md",
+          "key_text": "# Secondary Endpoints  The secondary endpoints included the following.  1. To evaluate the safety of a flexible dosing schedule of [177Lu]Lu-PSMA-617 including up to 12 cycles and “treatment holiday” periods by Common Te",
+          "score": 0.030536
+        },
+        {
+          "card_id": "E3",
+          "chunk_id": "PMC12928687_chunk_024",
+          "role": "analysis",
+          "support_level": "direct",
+          "label": "_statistical_analysis_other",
+          "section": "Secondary End Points",
+          "source_file": "data/sources_medical/chunks/train/PMC12928687_chunk_024.md",
+          "key_text": "# Secondary End Points  Twelve- and 24-month overall survival as well as distant progression-free survival will be evaluated by Kaplan-Meier analysis. All other secondary end points will be descriptively summarized.",
+          "score": 0.016393
+        },
+        {
+          "card_id": "E1",
+          "chunk_id": "PMC8600696_chunk_015",
+          "role": "intervention",
+          "support_level": "context",
+          "label": "intervention",
+          "section": "Dose modifications and prerequisites for the start of a new cycle",
+          "source_file": "data/sources_medical/chunks/train/PMC8600696_chunk_015.md",
+          "key_text": "# Dose modifications and prerequisites for the start of a new cycle  Doses will be reduced for haematological and nonhaematological toxicities. In case of concurrent toxicities, all dose modifications should be based on ",
+          "score": 0.032522
+        },
+        {
+          "card_id": "E2",
+          "chunk_id": "PMC9502603_chunk_003",
+          "role": "context",
+          "support_level": "context",
+          "label": "front_matter",
+          "section": "Abstract",
+          "source_file": "data/sources_medical/chunks/train/PMC9502603_chunk_003.md",
+          "key_text": "# Abstract  Background: Adverse events of chemotherapy may be caused by pharmacodynamics or psychological factors such as negative expectations, which constitute nocebo efects. In a randomized controlled trial, we examin",
+          "score": 0.031025
+        },
+        {
+          "card_id": "E3",
+          "chunk_id": "PMC5490215_chunk_019",
+          "role": "endpoint",
+          "support_level": "direct",
+          "label": "secondary_outcome",
+          "section": "Secondary outcomes",
+          "source_file": "data/sources_medical/chunks/train/PMC5490215_chunk_019.md",
+          "key_text": "# Secondary outcomes  Secondary endpoints include adverse events (registered for every chemotherapy cycle after CTC criteria version 4.0), dose reductions, treatment delays (which follow the standardized guidelines of th",
+          "score": 0.016393
+        },
+        {
+          "card_id": "E1",
+          "chunk_id": "PMC12574440_chunk_039",
+          "role": "safety",
+          "support_level": "direct",
+          "label": "_intervention_other",
+          "section": "Safety analysis",
+          "source_file": "data/sources_medical/chunks/train/PMC12574440_chunk_039.md",
+          "key_text": "# Safety analysis  For each of the following safety outcomes, mean±SD or summary statistics appropriate to the distribution will be tabulated by treatment group:  ► Number of severe hypoglycaemia events.    ► Number of p",
+          "score": 0.030777
+        },
+        {
+          "card_id": "E2",
+          "chunk_id": "PMC6921499_chunk_024",
+          "role": "safety",
+          "support_level": "direct",
+          "label": "_data_collection_other",
+          "section": "Safety monitoring",
+          "source_file": "data/sources_medical/chunks/train/PMC6921499_chunk_024.md",
+          "key_text": "# Safety monitoring  In this population and within this clinical context, events that can be considered serious adverse events (SAEs), suspected unexpected serious adverse reactions (SUSA Rs) or serious adverse device ev",
+          "score": 0.016393
+        },
+        {
+          "card_id": "E3",
+          "chunk_id": "PMC6448906_chunk_007",
+          "role": "context",
+          "support_level": "context",
+          "label": "methods",
+          "section": "Methods",
+          "source_file": "data/sources_medical/chunks/train/PMC6448906_chunk_007.md",
+          "key_text": "The exercise protocol was performed on a cycle ergometer (Power Cube LF8.5G with Schiller software; Ganshorn, Niederlauer, Germany).  The $\\mathrm { H b A } _ { \\mathrm { 1 c } }$ level was determined by an immunochemica",
+          "score": 0.016393
+        }
+      ]
+    },
+    {
+      "source_role": "audit_smoke",
+      "source": "benchmark/eval/results/medical_rag_eval_audit_smoke.json",
+      "case_count": 1,
+      "card_count": 3,
+      "card_field_coverage": {
+        "card_id": {
+          "present": 3,
+          "total": 3,
+          "rate": 1.0
+        },
+        "chunk_id": {
+          "present": 3,
+          "total": 3,
+          "rate": 1.0
+        },
+        "role": {
+          "present": 3,
+          "total": 3,
+          "rate": 1.0
+        },
+        "support_level": {
+          "present": 3,
+          "total": 3,
+          "rate": 1.0
+        },
+        "label": {
+          "present": 3,
+          "total": 3,
+          "rate": 1.0
+        },
+        "section": {
+          "present": 3,
+          "total": 3,
+          "rate": 1.0
+        },
+        "source_file": {
+          "present": 3,
+          "total": 3,
+          "rate": 1.0
+        },
+        "key_text": {
+          "present": 3,
+          "total": 3,
+          "rate": 1.0
+        },
+        "score": {
+          "present": 3,
+          "total": 3,
+          "rate": 1.0
+        }
+      },
+      "audit_status_distribution": {
+        "passed": 1
+      },
+      "case_audits": [
+        {
+          "source_role": "audit_smoke",
+          "index": "index_bge_m3",
+          "case_id": "zh_primary_endpoint_safety",
+          "card_count": 3,
+          "evidence_cards_count_field": 3,
+          "evidence_card_count_matches_top_results": true,
+          "answer_audit_status": "passed",
+          "answer_audit_issue_count": 0,
+          "direct_source_cards": [
+            "E3"
+          ],
+          "claim_binding": {
+            "claim_count": 4,
+            "supported_claims": 4,
+            "unsupported_claims": 0,
+            "citation_coverage": 1.0,
+            "claim_binding_rate": 1.0,
+            "explicit_claim_records": 0,
+            "explicit_claims_with_citations": 0,
+            "reasoning_steps": 4,
+            "reasoning_steps_with_supported_citations": 4,
+            "citation_whitelist_check": {
+              "top_result_chunk_count": 3,
+              "citation_count": 2,
+              "reasoning_citation_count": 6,
+              "all_citations_in_top_results": true,
+              "out_of_whitelist_citations": []
+            }
+          }
+        }
+      ],
+      "sample_cards": [
+        {
+          "card_id": "E1",
+          "chunk_id": "PMC8600696_chunk_007",
+          "role": "endpoint",
+          "support_level": "direct",
+          "label": "_introduction_other",
+          "section": "Endpoints",
+          "source_file": "data/sources_medical/chunks/train/PMC8600696_chunk_007.md",
+          "key_text": "# Endpoints  The primary endpoint is overall survival after R0/R1 resection (OS-res) (only patients with R0/R1 resection).  Secondary efficacy endpoints are OS of the entire patients cohort, R0/R1 resection rate and prog",
+          "score": 0.032522
+        },
+        {
+          "card_id": "E2",
+          "chunk_id": "PMC9443636_chunk_010",
+          "role": "endpoint",
+          "support_level": "direct",
+          "label": "outcome_measures",
+          "section": "Outcomes",
+          "source_file": "data/sources_medical/chunks/train/PMC9443636_chunk_010.md",
+          "key_text": "# Outcomes  All outcome defnitions were prespecifed and described in detail in the published study protocol [17]. Te primary endpoint was PK target attainment (TA), during the frst 24 h following randomisation for the pr",
+          "score": 0.030536
+        },
+        {
+          "card_id": "E3",
+          "chunk_id": "PMC3002358_chunk_012",
+          "role": "endpoint",
+          "support_level": "direct",
+          "label": "primary_outcome",
+          "section": "Primary outcome measures",
+          "source_file": "data/sources_medical/chunks/train/PMC3002358_chunk_012.md",
+          "key_text": "# Primary outcome measures",
+          "score": 0.016393
+        }
+      ]
+    }
+  ],
+  "sample_cards": [
+    {
+      "card_id": "E1",
+      "chunk_id": "PMC8600696_chunk_007",
+      "role": "endpoint",
+      "support_level": "direct",
+      "label": "_introduction_other",
+      "section": "Endpoints",
+      "source_file": "data/sources_medical/chunks/train/PMC8600696_chunk_007.md",
+      "key_text": "# Endpoints  The primary endpoint is overall survival after R0/R1 resection (OS-res) (only patients with R0/R1 resection).  Secondary efficacy endpoints are OS of the entire patients cohort, R0/R1 resection rate and prog",
+      "score": 0.032522
+    },
+    {
+      "card_id": "E2",
+      "chunk_id": "PMC9443636_chunk_010",
+      "role": "endpoint",
+      "support_level": "direct",
+      "label": "outcome_measures",
+      "section": "Outcomes",
+      "source_file": "data/sources_medical/chunks/train/PMC9443636_chunk_010.md",
+      "key_text": "# Outcomes  All outcome defnitions were prespecifed and described in detail in the published study protocol [17]. Te primary endpoint was PK target attainment (TA), during the frst 24 h following randomisation for the pr",
+      "score": 0.030536
+    },
+    {
+      "card_id": "E3",
+      "chunk_id": "PMC3002358_chunk_012",
+      "role": "endpoint",
+      "support_level": "direct",
+      "label": "primary_outcome",
+      "section": "Primary outcome measures",
+      "source_file": "data/sources_medical/chunks/train/PMC3002358_chunk_012.md",
+      "key_text": "# Primary outcome measures",
+      "score": 0.016393
+    },
+    {
+      "card_id": "E1",
+      "chunk_id": "PMC6937062_chunk_031",
+      "role": "analysis",
+      "support_level": "direct",
+      "label": "statistical_analysis",
+      "section": "Data analysis plan",
+      "source_file": "data/sources_medical/chunks/train/PMC6937062_chunk_031.md",
+      "key_text": "# Data analysis plan  Analyses will be conducted on an intention-to-treat basis, with sensitivity analyses used to investigate the impact of non-compliance to allocated arm. Given the feasibility status of this study, al",
+      "score": 0.030536
+    },
+    {
+      "card_id": "E2",
+      "chunk_id": "PMC12487728_chunk_008",
+      "role": "endpoint",
+      "support_level": "direct",
+      "label": "_front_matter_other",
+      "section": "Secondary Endpoints",
+      "source_file": "data/sources_medical/chunks/train/PMC12487728_chunk_008.md",
+      "key_text": "# Secondary Endpoints  The secondary endpoints included the following.  1. To evaluate the safety of a flexible dosing schedule of [177Lu]Lu-PSMA-617 including up to 12 cycles and “treatment holiday” periods by Common Te",
+      "score": 0.030536
+    },
+    {
+      "card_id": "E3",
+      "chunk_id": "PMC12928687_chunk_024",
+      "role": "analysis",
+      "support_level": "direct",
+      "label": "_statistical_analysis_other",
+      "section": "Secondary End Points",
+      "source_file": "data/sources_medical/chunks/train/PMC12928687_chunk_024.md",
+      "key_text": "# Secondary End Points  Twelve- and 24-month overall survival as well as distant progression-free survival will be evaluated by Kaplan-Meier analysis. All other secondary end points will be descriptively summarized.",
+      "score": 0.016393
+    },
+    {
+      "card_id": "E1",
+      "chunk_id": "PMC8600696_chunk_015",
+      "role": "intervention",
+      "support_level": "context",
+      "label": "intervention",
+      "section": "Dose modifications and prerequisites for the start of a new cycle",
+      "source_file": "data/sources_medical/chunks/train/PMC8600696_chunk_015.md",
+      "key_text": "# Dose modifications and prerequisites for the start of a new cycle  Doses will be reduced for haematological and nonhaematological toxicities. In case of concurrent toxicities, all dose modifications should be based on ",
+      "score": 0.032522
+    },
+    {
+      "card_id": "E2",
+      "chunk_id": "PMC9502603_chunk_003",
+      "role": "context",
+      "support_level": "context",
+      "label": "front_matter",
+      "section": "Abstract",
+      "source_file": "data/sources_medical/chunks/train/PMC9502603_chunk_003.md",
+      "key_text": "# Abstract  Background: Adverse events of chemotherapy may be caused by pharmacodynamics or psychological factors such as negative expectations, which constitute nocebo efects. In a randomized controlled trial, we examin",
+      "score": 0.031025
+    },
+    {
+      "card_id": "E3",
+      "chunk_id": "PMC5490215_chunk_019",
+      "role": "endpoint",
+      "support_level": "direct",
+      "label": "secondary_outcome",
+      "section": "Secondary outcomes",
+      "source_file": "data/sources_medical/chunks/train/PMC5490215_chunk_019.md",
+      "key_text": "# Secondary outcomes  Secondary endpoints include adverse events (registered for every chemotherapy cycle after CTC criteria version 4.0), dose reductions, treatment delays (which follow the standardized guidelines of th",
+      "score": 0.016393
+    },
+    {
+      "card_id": "E1",
+      "chunk_id": "PMC12574440_chunk_039",
+      "role": "safety",
+      "support_level": "direct",
+      "label": "_intervention_other",
+      "section": "Safety analysis",
+      "source_file": "data/sources_medical/chunks/train/PMC12574440_chunk_039.md",
+      "key_text": "# Safety analysis  For each of the following safety outcomes, mean±SD or summary statistics appropriate to the distribution will be tabulated by treatment group:  ► Number of severe hypoglycaemia events.    ► Number of p",
+      "score": 0.030777
+    },
+    {
+      "card_id": "E2",
+      "chunk_id": "PMC6921499_chunk_024",
+      "role": "safety",
+      "support_level": "direct",
+      "label": "_data_collection_other",
+      "section": "Safety monitoring",
+      "source_file": "data/sources_medical/chunks/train/PMC6921499_chunk_024.md",
+      "key_text": "# Safety monitoring  In this population and within this clinical context, events that can be considered serious adverse events (SAEs), suspected unexpected serious adverse reactions (SUSA Rs) or serious adverse device ev",
+      "score": 0.016393
+    },
+    {
+      "card_id": "E3",
+      "chunk_id": "PMC6448906_chunk_007",
+      "role": "context",
+      "support_level": "context",
+      "label": "methods",
+      "section": "Methods",
+      "source_file": "data/sources_medical/chunks/train/PMC6448906_chunk_007.md",
+      "key_text": "The exercise protocol was performed on a cycle ergometer (Power Cube LF8.5G with Schiller software; Ganshorn, Niederlauer, Germany).  The $\\mathrm { H b A } _ { \\mathrm { 1 c } }$ level was determined by an immunochemica",
+      "score": 0.016393
+    },
+    {
+      "card_id": "E1",
+      "chunk_id": "PMC8600696_chunk_007",
+      "role": "endpoint",
+      "support_level": "direct",
+      "label": "_introduction_other",
+      "section": "Endpoints",
+      "source_file": "data/sources_medical/chunks/train/PMC8600696_chunk_007.md",
+      "key_text": "# Endpoints  The primary endpoint is overall survival after R0/R1 resection (OS-res) (only patients with R0/R1 resection).  Secondary efficacy endpoints are OS of the entire patients cohort, R0/R1 resection rate and prog",
+      "score": 0.032522
+    },
+    {
+      "card_id": "E2",
+      "chunk_id": "PMC9443636_chunk_010",
+      "role": "endpoint",
+      "support_level": "direct",
+      "label": "outcome_measures",
+      "section": "Outcomes",
+      "source_file": "data/sources_medical/chunks/train/PMC9443636_chunk_010.md",
+      "key_text": "# Outcomes  All outcome defnitions were prespecifed and described in detail in the published study protocol [17]. Te primary endpoint was PK target attainment (TA), during the frst 24 h following randomisation for the pr",
+      "score": 0.030536
+    },
+    {
+      "card_id": "E3",
+      "chunk_id": "PMC3002358_chunk_012",
+      "role": "endpoint",
+      "support_level": "direct",
+      "label": "primary_outcome",
+      "section": "Primary outcome measures",
+      "source_file": "data/sources_medical/chunks/train/PMC3002358_chunk_012.md",
+      "key_text": "# Primary outcome measures",
+      "score": 0.016393
+    }
+  ],
+  "boundary_notes": [
+    "Evidence cards are reconstructed from top_results using the same public fields required by the API card schema because benchmark JSON stores card counts/roles rather than full card objects.",
+    "Claim binding is checked through claim_count/supported_claims, reasoning_trace citations, synthesis citations, and the top_results chunk whitelist.",
+    "This audit verifies evidence-card data structure and citation binding integrity, not medical correctness of the answer content."
+  ],
+  "acceptance_check": {
+    "required_top_level_fields_present": true,
+    "card_field_coverage_present": true,
+    "claim_binding_coverage_present": true,
+    "audit_status_distribution_present": true,
+    "sample_cards_present": true
+  }
+}

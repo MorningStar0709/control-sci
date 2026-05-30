@@ -1,0 +1,4758 @@
+{
+  "schema_version": "1.0",
+  "experiment": "track1_sample_review_consistency",
+  "created_at": "2026-05-23 23:25:34",
+  "status": "ok",
+  "evaluation_mode": "stratified_small_sample_existing_judge_matrix_replay_no_new_judge_calls",
+  "inputs": {
+    "dataset": "benchmark/dataset/core.json",
+    "judge_dir": "benchmark/eval/results/judge_matrix",
+    "sample_size_requested": 30,
+    "answer_model_filter": "deepseek-v4-flash"
+  },
+  "dataset_question_count": 500,
+  "mapped_question_count": 500,
+  "sample_size": 30,
+  "dimension_sample_counts": {
+    "A": 8,
+    "B": 8,
+    "C": 7,
+    "D": 7
+  },
+  "judge_agreement": {
+    "status": "ok",
+    "mapped_sample_count": 30,
+    "mean_judge_count": 10.9667,
+    "min_judge_count": 8,
+    "max_judge_count": 15,
+    "mean_bucket_agreement_rate": 0.7345,
+    "mean_dimension_label_agreement_rate": 1.0,
+    "source_ref_present_rate": 1.0,
+    "reasoning_steps_present_rate": 1.0,
+    "majority_bucket_distribution": {
+      "high": 13,
+      "low": 10,
+      "medium": 7
+    }
+  },
+  "human_review": "not_performed",
+  "review_records": [
+    {
+      "sample_id": "CS-EVO-00071",
+      "dimension": "A",
+      "difficulty_level": "L1",
+      "judge_count": 15,
+      "score_mean": 0.5467,
+      "score_std": 0.3538,
+      "score_min": 0.0,
+      "score_max": 1.0,
+      "bucket_counts": {
+        "high": 5,
+        "low": 6,
+        "medium": 4
+      },
+      "majority_bucket": "low",
+      "bucket_agreement_rate": 0.4,
+      "dimension_label_agreement_rate": 1.0,
+      "source_support_proxy": {
+        "source_ref_present": true,
+        "reasoning_steps_present": true,
+        "note": "This proxy checks dataset traceability fields only; it does not re-read source documents."
+      },
+      "judges": [
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-flash",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "A",
+          "difficulty_level": "L1",
+          "reason": "模型回答完整包含了标准答案的核心目标函数（期望累计折扣奖励），并提供了算法背景和扩展细节，核心结论正确，表述不同但不影响语义等价。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-pro",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "A",
+          "difficulty_level": "L1",
+          "reason": "模型回答在解释算法名称后，给出了基于强化学习的核心控制目标函数，其中包含标准答案所要求的 J(π)=E[∑γ^t r_t + ...] 形式，语义完全等价，且涵盖了策略 π、折扣因子 γ 和奖励 r 等关键元素。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/gemma3_4b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "gemma3:4b",
+          "scoring_mode": "sample",
+          "score": 0.6,
+          "dimension": "A",
+          "difficulty_level": "L1",
+          "reason": "模型答案虽然解释了缩写含义，但未能准确回答题目要求的核心控制目标函数，且框架描述过于宽泛，与标准答案的精确性相差较大。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/llama3.2_3b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "llama3.2:3b",
+          "scoring_mode": "sample",
+          "score": 0.8,
+          "dimension": "A",
+          "difficulty_level": "L1",
+          "reason": "正确回答了RUDER_MBOT_RL的核心控制目标函数，尽管没有确切文献依据，但基于控制科学与强化学习的交叉领域提供了一种典型结合模型预测控制（MPC）与强化学习（RL）的算法框架及其核心控制目标函数。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5",
+          "scoring_mode": "llm_judge",
+          "score": 0.3,
+          "dimension": "A",
+          "difficulty_level": "L1",
+          "reason": "模型回答的核心问题是：它没有直接回答‘什么是RUDER_MBOT_RL算法’，而是承认这是一个非标准名称，并转而提供了一个通用的、基于模型的强化学习框架。虽然其提供的目标函数形式（J(π) = E[∑γ^t r_t]）在强化学习中是正确的，但这并非针对‘RUDER_MBOT_RL’这一特定算法的标准答案。标准答案明确给出了该算法的定义和其核心目标函数。模型回答虽然包含部分正确信息（如强化学习目标函数的一般形式），但未能提供标准答案中关于该算法的具体定义和核心公式，存在关键信息遗漏。",
+          "issues": [
+            "未能直接定义‘RUDER_MBOT_RL’算法，而是假设其为非标准名称并转向通用框架。",
+            "提供的核心控制目标函数是通用的强化学习目标函数，而非标准答案中针对该算法的特定形式（J(π) = E[∑_{t=0}^{T} γ^t r(s_t, a_t)]）。",
+            "回答内容过于冗长和发散，包含了大量与问题核心无关的细节（如MPC混合形式、不确定性惩罚等）。"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5-pro",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "A",
+          "difficulty_level": "L1",
+          "reason": "模型回答的核心内容与标准答案一致，明确指出算法是基于强化学习的移动机器人控制算法，并给出了核心控制目标函数为期望折扣累积奖励，关键公式 J(π) = E[∑ γ^t r_t] 正确，尽管表述略有不同（如添加终端代价），但语义等价。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "mimo-v2-flash",
+          "scoring_mode": "llm_judge",
+          "score": 0.6,
+          "dimension": "A",
+          "difficulty_level": "L1",
+          "reason": "模型回答的核心结论与标准答案一致，即核心控制目标函数为最大化期望折扣累积奖励 J(π) = E[∑ γ^t r(s_t, a_t)]。模型回答中明确给出了这一标准形式，并解释了其与二次型代价、不确定性惩罚等的关系。然而，模型回答的主要问题在于：1. 对算法名称进行了过度推测和解释，偏离了问题直接要求；2. 提供了额外的、非标准的复杂目标函数形式（如包含模型不确定性惩罚的二次型代价），这并非标准答案所要求的简洁核心函数。尽管模型最终给出了标准形式，但其回答冗长且包含次要细节，导致核心信息不够突出。根据评分规则，核心结论正确但缺少简洁性，属于核心正确但有遗漏",
+          "issues": [
+            "回答过于冗长，包含对算法名称的非必要推测和解释",
+            "提供了额外的复杂目标函数形式，可能分散对核心标准函数的注意力"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2-pro",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "A",
+          "difficulty_level": "L1",
+          "reason": "模型回答的核心控制目标函数与标准答案语义等价。两者都定义了基于强化学习的移动机器人控制算法，核心目标函数为期望折扣累积奖励形式，关键元素（策略π、折扣因子γ、奖励函数r）一致。模型回答的强化学习标准形式 J(π) = E[∑ γ^t r_t + 终端项] 本质上与标准答案 J(π) = E[∑ γ^t r(s_t, a_t)] 相同，额外细节（如终端代价、模型不确定性）是扩展，不损害核心等价性。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.5-highspeed",
+          "scoring_mode": "llm_judge",
+          "score": 0.6,
+          "dimension": "A",
+          "difficulty_level": "L1",
+          "reason": "模型诚实地指出RUDER_MBOT_RL并非标准公开算法名称，并基于控制科学与强化学习的通用框架给出了核心控制目标函数。给出的强化学习标准形式J(π)=E[∑γ^t r_t]与标准答案的J(π)=E[∑_{t=0}^{T} γ^t r(s_t,a_t)]在本质上等价，都包含期望、折扣累积奖励、策略等关键要素，核心公式正确。但模型回答采用了更复杂的带状态代价、控制代价、不确定性惩罚和终端代价的二次型形式，与标准答案的简洁表达有所差异，且未直接针对'RUDER_MBOT_RL'这一特定算法给出定义，因此扣去部分分数。",
+          "issues": [
+            "模型未给出标准答案中简洁的J(π)=E[∑_{t=0}^{T}γ^t r(s_t,a_t)]形式，而是给出了更复杂的二次型代价框架",
+            "模型回答的MPC-RL混合形式等额外内容与标准答案不完全对应"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.7_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.7",
+          "scoring_mode": "llm_judge",
+          "score": 0.6,
+          "dimension": "A",
+          "difficulty_level": "L1",
+          "reason": "模型回答识别出这是一个移动机器人强化学习控制算法，并给出了正确的RL标准形式目标函数J(π) = E[∑γ^t r_t]，与标准答案的核心公式J(π) = E[∑_{t=0}^{T} γ^t r(s_t, a_t)]在本质上一致（离散时间累积折扣奖励）。但模型回答在开头质疑'RUDER_MBOT_RL'是否是标准公开算法，要求提供参考文献，这与标准答案直接承认该算法存在并给出定义的做法不一致。此外，模型回答给出了过于复杂的目标函数形式（含模型不确定性惩罚、终端代价等），而标准答案的公式更为简洁直接，模型回答没有直接采用标准答案给出的标准形式。",
+          "issues": [
+            "模型回答质疑RUDER_MBOT_RL是否为标准公开算法，与标准答案直接定义该算法的态度不一致",
+            "模型回答未直接采用标准答案给出的简洁标准形式J(π) = E[∑_{t=0}^{T} γ^t r(s_t, a_t)]",
+            "模型回答的目标函数形式过于复杂，包含了标准答案未提及的模型不确定性惩罚、终端代价等项"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/ollama_35b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:35b",
+          "scoring_mode": "sample",
+          "score": 0.0,
+          "dimension": "A",
+          "difficulty_level": "L1",
+          "reason": "模型未能识别出题目中可能存在的特定算法名称或事实性错误，转而编造了一个不存在的算法框架并中断了回答，完全未提供题目要求的核心目标函数。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_2b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:2b",
+          "scoring_mode": "sample",
+          "score": 0.3,
+          "dimension": "A",
+          "difficulty_level": "L1",
+          "reason": "模型答案承认算法名称非标准且存在不确定性，但强行构建了一个虚构的通用框架，缺乏对题目具体算法的针对性分析。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_35b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:35b",
+          "scoring_mode": "sample",
+          "score": 0.0,
+          "dimension": "A",
+          "difficulty_level": "L1",
+          "reason": "模型未能识别出题目中可能存在的特定算法名称或虚构概念，转而编造了不存在的算法定义并中断了回答，完全未提供题目要求的标准答案内容。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_4b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:4b",
+          "scoring_mode": "sample",
+          "score": 0.1,
+          "dimension": "A",
+          "difficulty_level": "L1",
+          "reason": "模型未能识别题目中特定的算法名称，而是将其视为虚构概念进行发散性猜测，导致回答偏离了题目要求的特定目标函数。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_9b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:9b",
+          "scoring_mode": "sample",
+          "score": 0.3,
+          "dimension": "A",
+          "difficulty_level": "L1",
+          "reason": "模型答案未能直接回答题目中关于特定算法名称及目标函数的询问，而是以该名称非标准为由进行推测并给出了通用框架，导致核心信息缺失。",
+          "issues": []
+        }
+      ]
+    },
+    {
+      "sample_id": "CS-EVO-00011",
+      "dimension": "A",
+      "difficulty_level": "L3",
+      "judge_count": 8,
+      "score_mean": 0.075,
+      "score_std": 0.1299,
+      "score_min": 0.0,
+      "score_max": 0.3,
+      "bucket_counts": {
+        "low": 8
+      },
+      "majority_bucket": "low",
+      "bucket_agreement_rate": 1.0,
+      "dimension_label_agreement_rate": 1.0,
+      "source_support_proxy": {
+        "source_ref_present": true,
+        "reasoning_steps_present": true,
+        "note": "This proxy checks dataset traceability fields only; it does not re-read source documents."
+      },
+      "judges": [
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-flash",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "A",
+          "difficulty_level": "L3",
+          "reason": "模型回答给出了一个集中式的事件触发条件，而标准答案是分布式触发条件，涉及邻居状态差，两者核心内容不一致，模型回答完全错误。",
+          "issues": [
+            "触发条件公式不匹配",
+            "符号含义描述不同"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "A",
+          "difficulty_level": "L3",
+          "reason": "模型回答给出的触发条件为单个系统的相对误差条件，而标准答案是针对多智能体系统的分布式触发条件，包含邻居状态和特定参数η_i，两者表达式和符号含义完全不同，不是同义表达。",
+          "issues": [
+            "触发条件表达式错误，不是标准答案中与邻居状态相关的形式",
+            "缺少标准答案中的关键符号如η_i、邻域N_i^I和邻居状态差求和项",
+            "引入了标准答案中没有的符号σ和不同范数形式"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5",
+          "scoring_mode": "llm_judge",
+          "score": 0.3,
+          "dimension": "A",
+          "difficulty_level": "L3",
+          "reason": "模型回答给出了一个通用的、基于状态的事件触发条件范数形式，但该形式与标准答案中针对多智能体系统、基于邻居状态差的特定触发条件（9）在数学表达式和符号含义上存在显著差异。标准答案的触发条件是标量形式的二次不等式，涉及邻居集和状态差；而模型回答给出的是向量范数形式的不等式，且未提及邻居集、状态差等关键概念。因此，模型回答仅包含部分正确信息（如误差定义），但核心公式和关键结论错误，无法作为对标准答案的正确描述。",
+          "issues": [
+            "触发条件的数学表达式与标准答案不一致（模型为向量范数不等式，标准答案为标量二次不等式）",
+            "未提及标准答案中的关键符号：邻居集 N_i^I、状态差 (x_i(t) - x_j(t))、参数 η_i",
+            "模型回答描述的是单智能体或集中式系统的通用触发条件，而非标准答案中针对多智能体系统的特定触发条件"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.3,
+          "dimension": "A",
+          "difficulty_level": "L3",
+          "reason": "模型回答给出了一个不同的事件触发条件表达式，与标准答案的数学形式不一致。标准答案的触发条件涉及邻居状态的和，而模型回答只涉及当前状态的范数，核心公式错误。但模型回答中包含了误差定义和阈值参数等部分正确信息。",
+          "issues": [
+            "触发条件表达式与标准答案不符",
+            "缺少邻居集和邻居状态的描述"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "mimo-v2-flash",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "A",
+          "difficulty_level": "L3",
+          "reason": "模型回答的触发条件与标准答案的触发条件在数学形式和符号含义上完全不同。标准答案的触发条件是基于状态误差的平方与邻居状态差的平方和的比较，而模型回答的触发条件是基于误差向量范数与状态向量范数的比较。两者在核心公式和关键符号（如邻居集、测量误差定义）上均不一致，因此无法视为语义等价。",
+          "issues": [
+            "触发条件的数学表达式与标准答案完全不同",
+            "符号含义（如邻居集、测量误差定义）与标准答案不一致",
+            "模型回答未提及标准答案中的关键元素（如邻居状态差、代理索引i）"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "A",
+          "difficulty_level": "L3",
+          "reason": "模型回答提供的触发条件表达式与标准答案完全不匹配。标准答案中的触发条件涉及邻居代理状态和分布式交互，而模型回答给出了一个通用的单系统事件触发条件，未包含邻居状态、邻居集等关键元素，核心公式和符号含义均错误。",
+          "issues": [
+            "触发条件表达式错误，未包含邻居状态和邻居集",
+            "符号含义与标准答案不符，如缺少η_i、N_i^I等关键符号"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.5-highspeed",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "A",
+          "difficulty_level": "L3",
+          "reason": "模型回答的数学表达式与标准答案完全不同。标准答案是分布式多智能体系统中基于邻居状态差值的触发条件：$(e_i(t))^2 \\geq \\eta_i \\left( \\sum_{j \\in N_i^I} (x_i(t) - x_j(t)) \\right)^2$，包含邻居集$N_i^I$和邻居状态$x_j(t)$。而模型回答给出的是集中式事件触发条件$\\|\\mathbf{e}(t)\\| \\geq \\sigma \\|\\mathbf{x}(t)\\|$，完全缺少多智能体一致性控制中的邻居交互项。这不是同义表达或不同措辞的问题，而是两种截然不同的触发机制。",
+          "issues": [
+            "数学表达式完全错误，未给出基于邻居状态差值的触发条件",
+            "缺少邻居代理状态$x_j(t)$和邻居集$N_i^I$等核心符号",
+            "模型回答的是集中式事件触发，标准答案是分布式多智能体事件触发机制"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.7_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.7",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "A",
+          "difficulty_level": "L3",
+          "reason": "模型回答给出的触发条件是集中式单系统形式 $\\|\\mathbf{e}(t)\\| \\geq \\sigma \\|\\mathbf{x}(t)\\|$，而标准答案是多智能体分布式触发条件 $(e_i(t))^2 \\geq \\eta_i \\left( \\sum_{j \\in N_i^I} (x_i(t) - x_j(t)) \\right)^2$。两者在系统模型（集中式vs分布式）、公式结构（全局范数vs邻居状态差异）、触发机制逻辑（基于自身状态vs基于邻居通信）上完全不同。模型回答的公式无法用于多智能体系统的分布式协调控制场景，与标准答案的语义不等价。",
+          "issues": [
+            "系统模型错误：标准答案是多智能体分布式设置，模型回答是集中式单系统",
+            "触发条件结构完全不同：标准答案基于邻居状态差异，模型回答基于全局状态范数",
+            "缺少关键要素：标准答案中的邻居集 $N_i^I$、代理索引 $i$、邻居代理状态 $x_j(t)$ 均未体现",
+            "公式形式完全不同：标准答案使用平方形式和相对测量，模型回答使用向量范数",
+            "语义不等价：模型回答的触发条件无法用于分布式多智能体系统的设计"
+          ]
+        }
+      ]
+    },
+    {
+      "sample_id": "CS-EVO-00666",
+      "dimension": "A",
+      "difficulty_level": "L2",
+      "judge_count": 8,
+      "score_mean": 0.45,
+      "score_std": 0.4664,
+      "score_min": 0.0,
+      "score_max": 1.0,
+      "bucket_counts": {
+        "high": 3,
+        "low": 4,
+        "medium": 1
+      },
+      "majority_bucket": "low",
+      "bucket_agreement_rate": 0.5,
+      "dimension_label_agreement_rate": 1.0,
+      "source_support_proxy": {
+        "source_ref_present": true,
+        "reasoning_steps_present": true,
+        "note": "This proxy checks dataset traceability fields only; it does not re-read source documents."
+      },
+      "judges": [
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-flash",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "A",
+          "difficulty_level": "L2",
+          "reason": "模型回答正确给出了滑模面的数学表达式（s = de/dt + c e），并准确说明了参数c的作用（决定收敛速度、影响控制增益、保证稳定性），与标准答案核心内容一致，允许不同措辞和更详细的解释。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "A",
+          "difficulty_level": "L2",
+          "reason": "LLM parse error: {\"score\": 1.0, \"reason\": \"模型回答给出了滑模面的表达式 s = c e + \\dot{e}，并详细阐述了参数 c 决定了滑模运动的收敛速度，c 越大收敛越快但可能增大控制输入，与标准答案的核心结论完全一致。虽然误差定义符号不同（标准答案为 e = x1 - xd，模型回答为 e = x_d - x），但滑模面 s=0 等价，语义等价。\", \"issues\": []}",
+          "issues": [
+            "judge parse failure"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "A",
+          "difficulty_level": "L2",
+          "reason": "模型回答的核心内容与标准答案完全一致。滑模面表达式 s = c e + ė（或等价形式）正确，参数c的作用（决定收敛速度，c越大收敛越快，但可能增大控制输入）也准确阐述。模型回答还提供了更详细的解释和扩展，但这不影响其核心正确性。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "A",
+          "difficulty_level": "L2",
+          "reason": "LLM parse error: {\"score\": 1.0, \"reason\": \"模型回答正确给出了滑模面的数学表达式 s = c e + \\dot{e}，其中 e 为跟踪误差，c 为正常数，并详细说明了参数 c 的作用，包括决定收敛速度、c 越大收敛越快但可能增大控制输入等，与标准答案核心内容一致。误差定义符号差异（e = x_d - x 与 e = x1 - xd）不影响滑模面 s=0 的本质，且模型回答扩展了 n 阶系统",
+          "issues": [
+            "judge parse failure"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "mimo-v2-flash",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "A",
+          "difficulty_level": "L2",
+          "reason": "LLM parse error: {\"score\": 1.0, \"reason\": \"模型回答的核心内容与标准答案完全一致。模型正确给出了滑模面s的数学表达式 s = c e + \\dot{e}（与标准答案 s = c e + d e/dt 语义等价），并明确说明了参数c的作用：c为正的常数，决定了滑模面的收敛速度，c越大误差收敛越快，但可能增大控制输入。模型还提供了更详细的解释和扩展（如n阶系统形式），这并未偏离标准答案，反而丰",
+          "issues": [
+            "judge parse failure"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "A",
+          "difficulty_level": "L2",
+          "reason": "LLM parse error: {\"score\": 1.0, \"reason\": \"模型回答的核心内容与标准答案一致：滑模面表达式为 s = c e + \\dot{e}（形式相同），参数 c 为正，决定了收敛速度，c 越大误差收敛越快，但可能增大控制输入。尽管误差定义符号（e = x_d - x 与标准答案 e = x1 - xd 相反）存在约定差异，但这是同义表达，不影响语义等价。模型回答还提供了额外细节，但关键公式和结论正确",
+          "issues": [
+            "judge parse failure"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.5-highspeed",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "A",
+          "difficulty_level": "L2",
+          "reason": "模型回答完全正确。滑模面表达式 s = c e + ė 与标准答案一致，误差定义清晰，c为正常数且c>0的条件正确。c的作用描述完整准确：决定收敛速度（e(t)=e(0)e^{-ct}），c越大误差收敛越快但会增大控制输入。模型回答还提供了额外的扩展内容（n阶系统形式、相平面分析、抖振现象等），这些内容正确且有助于理解，但不影响评分。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.7_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.7",
+          "scoring_mode": "llm_judge",
+          "score": 0.6,
+          "dimension": "A",
+          "difficulty_level": "L2",
+          "reason": "模型回答正确给出了滑模面表达式 s = c·e + ė，以及参数c的作用（c越大收敛越快、可能增大控制输入/加剧抖振），核心公式和关键结论与标准答案一致。但存在两处细节遗漏：(1) 标准答案明确c=15，模型回答未给出此具体参数值；(2) 标准答案明确说明e为位置跟踪误差(x1-xd)、ė为速度跟踪误差(x2-ẋd)，模型回答仅笼统说明为跟踪误差，未具体说明是位置和速度跟踪误差。此外，模型回答还扩展了n阶系统形式和稳定性分析等次要内容。",
+          "issues": [
+            "未给出参数c的具体数值（标准答案为c=15）",
+            "未明确说明e为位置跟踪误差、ė为速度跟踪误差的具体形式"
+          ]
+        }
+      ]
+    },
+    {
+      "sample_id": "CS-EVO-00704",
+      "dimension": "A",
+      "difficulty_level": "L4",
+      "judge_count": 14,
+      "score_mean": 0.4607,
+      "score_std": 0.3965,
+      "score_min": 0.0,
+      "score_max": 1.0,
+      "bucket_counts": {
+        "high": 5,
+        "low": 9
+      },
+      "majority_bucket": "low",
+      "bucket_agreement_rate": 0.6429,
+      "dimension_label_agreement_rate": 1.0,
+      "source_support_proxy": {
+        "source_ref_present": true,
+        "reasoning_steps_present": true,
+        "note": "This proxy checks dataset traceability fields only; it does not re-read source documents."
+      },
+      "judges": [
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-flash",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "A",
+          "difficulty_level": "L4",
+          "reason": "模型回答将CFH-Hard错误地解释为Centralized-Federated-Hierarchical Hard，而标准答案明确指出CFH-Hard是一类难以通过最小权限防御和提示注入检测器抵御的安全攻击属性，其核心是攻击者使用的代理和工具与合法用户任务高度重叠。模型回答完全偏离了标准答案的核心定义和关键结论，关键概念错误，因此判为0.0分。",
+          "issues": [
+            "对CFH-Hard的定义完全错误，将与标准答案无关的集中式、联邦式、层次式架构概念强加于CFH-Hard",
+            "未提及标准答案中攻击者与用户任务代理工具高度重叠的核心特征",
+            "未说明该属性与delegation机制导致基于代理分组的权限隔离失效的关系"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "A",
+          "difficulty_level": "L4",
+          "reason": "模型回答对CFH-Hard的定义与标准答案根本不同。标准答案将CFH-Hard定义为攻击者与合法用户使用相同代理和工具导致的难以防御的攻击属性，而模型回答将其定义为一个系统安全性属性（攻击者无法通过委托链获得禁止权限）。核心概念完全错误，导致整个答案无效。",
+          "issues": [
+            "模型给出的是安全属性定义，而标准答案定义的是攻击属性，两者语义相反。",
+            "模型的形式化方法基于委托闭包与禁止集无交集，而标准答案基于代理与任务重叠，完全不匹配。",
+            "对委托机制影响的解释基于错误定义，因此与标准答案不符。"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/gemma3_4b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "gemma3:4b",
+          "scoring_mode": "sample",
+          "score": 0.95,
+          "dimension": "A",
+          "difficulty_level": "L4",
+          "reason": "模型答案准确地定义了CFH-Hard属性，并提供了清晰的解释和形式化表述，体现了对题目的深刻理解。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/llama3.2_3b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "llama3.2:3b",
+          "scoring_mode": "sample",
+          "score": 0.9,
+          "dimension": "A",
+          "difficulty_level": "L4",
+          "reason": "答案准确且全面，提供了CFH-Hard安全属性的定义和解释，表明对主题有深入的理解。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5",
+          "scoring_mode": "llm_judge",
+          "score": 0.3,
+          "dimension": "A",
+          "difficulty_level": "L4",
+          "reason": "模型回答的核心概念（CFH-Hard与委托机制相关）正确，但其给出的定义与标准答案存在根本性差异。标准答案将CFH-Hard定义为攻击者与合法用户任务高度重叠（使用相同代理和工具）的攻击属性，而模型回答将其定义为系统抵抗控制流劫持攻击的鲁棒性属性，并给出了一个基于委托关系传递闭包的形式化定义。两者在核心定义、形式化表述和解释角度上均不一致。模型回答虽然详细，但偏离了标准答案的核心内容。",
+          "issues": [
+            "核心定义错误：模型将CFH-Hard定义为系统抵抗控制流劫持攻击的鲁棒性属性，而标准答案定义为攻击者与合法用户任务高度重叠的攻击属性。",
+            "形式化表述不一致：模型给出了基于委托关系传递闭包的复杂形式化定义，而标准答案给出了基于任务代理重叠的简单形式化定义。",
+            "解释角度偏离：模型从委托链风险、安全策略全局性等角度解释，而标准答案从代理分组权限隔离机制失效、需从代理内部行为检测等角度解释。"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5-pro",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "A",
+          "difficulty_level": "L4",
+          "reason": "模型回答的核心结论与标准答案一致，正确解释了CFH-Hard属性的定义及其反映委托机制对安全防御的根本性影响。定义部分虽然形式化表述不同，但语义等价，均强调代理重叠或委托链导致攻击难以防御；解释部分详细覆盖了委托机制如何使权限隔离失效、需要内部行为检测等关键点。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "mimo-v2-flash",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "A",
+          "difficulty_level": "L4",
+          "reason": "模型回答的核心内容与标准答案完全一致。模型给出了CFH-Hard安全属性的完整定义，包括形式化表述（代理、权限、委托关系、安全策略、攻击者控制集、状态空间等），并明确指出该属性反映了委托机制对安全防御的根本性影响（如攻击面扩展、信任链风险、安全策略全局性、鲁棒性权衡等）。虽然模型回答的表述比标准答案更详细、更形式化，但核心结论和关键公式（如CFH-Hard的定义和形式化条件）与标准答案语义等价，且正确解释了委托机制的影响。因此，根据评分规则，应判为完全正确。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2-pro",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "A",
+          "difficulty_level": "L4",
+          "reason": "模型回答的核心内容与标准答案一致，正确阐述了CFH-Hard属性的定义及其反映委托机制对安全防御的根本性影响。定义中强调了攻击者通过委托链或代理重叠获得非法权限，关键结论指向权限隔离失效和防御需转向内部检测。形式化表述虽有差异，但语义等价，符合宽松评判原则。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.5-highspeed",
+          "scoring_mode": "llm_judge",
+          "score": 0.3,
+          "dimension": "A",
+          "difficulty_level": "L4",
+          "reason": "模型回答提供了详细的数学形式化定义（传递闭包、不动点条件等），但这些形式化内容与标准答案中CFH-Hard的核心定义存在根本性语义偏差。标准答案明确定义CFH-Hard为'攻击者所需调用的代理和工具与合法用户任务完全或高度重叠'的攻击，这类攻击难以通过最小权限防御和提示注入检测器抵御，但模型回答中完全没有体现这一核心定义。模型回答将CFH-Hard理解为'控制流劫持硬度'并引入委托链传递闭包等概念，这与标准答案中'攻击面重叠导致权限隔离失效'的核心理念不一致。关于delegation机制的根本影响，标准答案强调'当代理本身成为攻击面时，基于代理分组的权限",
+          "issues": [
+            "CFH-Hard的核心定义缺失：标准答案强调'攻击者使用的代理和工具与合法用户任务高度重叠'，模型回答未体现此定义",
+            "CFH-Hard与delegation机制关联表述不当：标准答案指出delegation使代理本身成为攻击面导致权限隔离失效，模型回答侧重于委托链传递风险而非此核心影响",
+            "模型引入的'控制流劫持'概念在标准答案中未出现，两者可能基于不同的CFH-Hard概念框架"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.7_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.7",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "A",
+          "difficulty_level": "L4",
+          "reason": "模型回答完全误解了CFH-Hard的定义。标准答案将CFH-Hard定义为攻击者使用与合法用户相同的代理和工具（即攻击任务与用户任务高度重叠）时的安全属性，而模型却将其理解为'Control-Flow Hijack Hardness'（控制流劫持难度），完全偏离了核心概念。模型用了大量篇幅讨论委托链传递闭包、权限可达性等，但完全遗漏了标准答案中关于'用户任务和攻击任务使用相同代理'这一核心定义，以及'当代理本身成为攻击面时，基于代理分组的权限隔离机制失效'这一关键结论。两者讨论的是完全不同的安全概念。",
+          "issues": [
+            "CFH-Hard定义根本性错误：将'攻击者使用与用户相同的代理/工具'误解为'控制流劫持难度'",
+            "完全遗漏核心概念：攻击任务与用户任务的高度重叠性",
+            "遗漏关键结论：代理本身成为攻击面时权限隔离机制失效",
+            "安全影响分析偏离主题：未讨论delegation机制如何导致最小权限防御和提示注入检测失效",
+            "形式化定义完全基于不同概念：模型关注委托链传递闭包，而非任务重叠性"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_2b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:2b",
+          "scoring_mode": "sample",
+          "score": 0.3,
+          "dimension": "A",
+          "difficulty_level": "L4",
+          "reason": "模型答案仅提供了部分定义要素且未包含题目要求的完整定义及委托机制影响分析，内容严重缺失。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_35b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:35b",
+          "scoring_mode": "sample",
+          "score": 0.1,
+          "dimension": "A",
+          "difficulty_level": "L4",
+          "reason": "模型未能回答题目核心概念，错误地将CFH-Hard解释为不存在的'控制流劫持硬度'，且回答在定义未完成时即中断，与标准答案中关于委托机制和最小权限防御的实质内容完全不符。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_4b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:4b",
+          "scoring_mode": "sample",
+          "score": 0.3,
+          "dimension": "A",
+          "difficulty_level": "L4",
+          "reason": "模型未能完整回答题目要求，仅给出了定义开头而缺失了关于委托机制根本性影响的核心解释。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_9b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:9b",
+          "scoring_mode": "sample",
+          "score": 0.3,
+          "dimension": "A",
+          "difficulty_level": "L4",
+          "reason": "模型答案未能完整给出CFH-Hard的定义（仅给出名称和要素，缺少核心判定条件），且对‘根本性影响’的阐述完全缺失，仅提供了部分形式化定义的开头。",
+          "issues": []
+        }
+      ]
+    },
+    {
+      "sample_id": "CS-EVO-00825",
+      "dimension": "A",
+      "difficulty_level": "L1",
+      "judge_count": 14,
+      "score_mean": 0.9464,
+      "score_std": 0.1342,
+      "score_min": 0.5,
+      "score_max": 1.0,
+      "bucket_counts": {
+        "high": 13,
+        "medium": 1
+      },
+      "majority_bucket": "high",
+      "bucket_agreement_rate": 0.9286,
+      "dimension_label_agreement_rate": 1.0,
+      "source_support_proxy": {
+        "source_ref_present": true,
+        "reasoning_steps_present": true,
+        "note": "This proxy checks dataset traceability fields only; it does not re-read source documents."
+      },
+      "judges": [
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-flash",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "A",
+          "difficulty_level": "L1",
+          "reason": "模型回答与标准答案语义等价，核心结论一致，即状态反馈不改变系统的可控性，开环系统可控当且仅当闭环系统可控。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-pro",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "A",
+          "difficulty_level": "L1",
+          "reason": "模型回答准确表述了状态反馈不改变可控性，开环可控当且仅当闭环可控，与标准答案语义完全等价。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/gemma3_4b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "gemma3:4b",
+          "scoring_mode": "sample",
+          "score": 0.95,
+          "dimension": "A",
+          "difficulty_level": "L1",
+          "reason": "模型答案的陈述与标准答案完全一致，表达清晰准确，体现了对定理7.2的理解，因此给予高分。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/llama3.2_3b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "llama3.2:3b",
+          "scoring_mode": "sample",
+          "score": 0.5,
+          "dimension": "A",
+          "difficulty_level": "L1",
+          "reason": "答案正确，但不准确表达",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "A",
+          "difficulty_level": "L1",
+          "reason": "模型回答的核心内容与标准答案完全一致，都准确陈述了定理7.2的核心结论：状态反馈不改变系统的可控性，开环系统可控与闭环系统可控是等价关系。虽然措辞略有不同（如使用了'不改变'和'当且仅当'），但语义完全等价。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5-pro",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "A",
+          "difficulty_level": "L1",
+          "reason": "模型回答的核心结论与标准答案一致，都正确陈述了状态反馈下系统可控性的等价关系：开环系统可控当且仅当闭环系统可控。表述虽有差异，但语义等价。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "mimo-v2-flash",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "A",
+          "difficulty_level": "L1",
+          "reason": "模型回答的核心结论与标准答案完全一致，均指出状态反馈不改变系统可控性，且开环系统可控当且仅当闭环系统可控。表述虽略有不同（如‘状态反馈不改变系统的可控性’），但语义等价，关键公式和结论正确。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2-pro",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "A",
+          "difficulty_level": "L1",
+          "reason": "模型回答的核心结论与标准答案完全一致，都精确表达了状态反馈下闭环系统可控性与开环系统可控性的等价关系（即开环系统可控当且仅当闭环系统可控），且表述为同义表达，符合语义等价要求。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.5-highspeed",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "A",
+          "difficulty_level": "L1",
+          "reason": "模型回答与标准答案在核心内容和关键结论上完全一致。两者都表达了：状态反馈闭环系统可控的充要条件是开环系统可控，即'开环系统可控当且仅当状态反馈闭环系统可控'。模型回答还用'状态反馈不改变系统的可控性'这一更精炼的表述准确概括了同一关系，语义完全等价。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.7_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.7",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "A",
+          "difficulty_level": "L1",
+          "reason": "模型回答的核心内容与标准答案完全一致，正确陈述了状态反馈下开环系统可控性与闭环系统可控性之间的当且仅当关系。模型回答还额外补充了'状态反馈不改变系统的可控性'这一关键理解，属于对定理的完整且正确的表述。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_2b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:2b",
+          "scoring_mode": "sample",
+          "score": 0.8,
+          "dimension": "A",
+          "difficulty_level": "L1",
+          "reason": "模型答案准确复述了定理7.2的核心结论，即状态反馈不改变系统的可控性，开环与闭环系统可控性等价，表述清晰且符合题意。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_35b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:35b",
+          "scoring_mode": "sample",
+          "score": 1.0,
+          "dimension": "A",
+          "difficulty_level": "L1",
+          "reason": "模型答案准确且精炼地陈述了状态反馈不改变系统可控性的核心结论，与标准答案在数学含义和逻辑上完全一致。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_4b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:4b",
+          "scoring_mode": "sample",
+          "score": 1.0,
+          "dimension": "A",
+          "difficulty_level": "L1",
+          "reason": "模型答案准确复述了定理 7.2 的核心内容，逻辑清晰且表述严谨。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_9b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:9b",
+          "scoring_mode": "sample",
+          "score": 1.0,
+          "dimension": "A",
+          "difficulty_level": "L1",
+          "reason": "模型答案准确且简洁地复述了定理7.2的核心内容，与参考答案在数学含义上完全等价。",
+          "issues": []
+        }
+      ]
+    },
+    {
+      "sample_id": "CS-EVO-00471",
+      "dimension": "A",
+      "difficulty_level": "L2",
+      "judge_count": 8,
+      "score_mean": 1.0,
+      "score_std": 0.0,
+      "score_min": 1.0,
+      "score_max": 1.0,
+      "bucket_counts": {
+        "high": 8
+      },
+      "majority_bucket": "high",
+      "bucket_agreement_rate": 1.0,
+      "dimension_label_agreement_rate": 1.0,
+      "source_support_proxy": {
+        "source_ref_present": true,
+        "reasoning_steps_present": true,
+        "note": "This proxy checks dataset traceability fields only; it does not re-read source documents."
+      },
+      "judges": [
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-flash",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "A",
+          "difficulty_level": "L2",
+          "reason": "模型回答中全局操作符和最终操作符的形式化语义定义与标准答案完全一致，使用了不同的符号表示但语义等价。核心公式和结论准确无误。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-pro",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "A",
+          "difficulty_level": "L2",
+          "reason": "模型回答准确给出了□和⋄操作符的形式化语义，核心公式与标准答案完全一致，且表述清晰正确。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "A",
+          "difficulty_level": "L2",
+          "reason": "模型回答的核心内容与标准答案完全一致。它正确地给出了全局操作符□（或G）和最终操作符⋄（或F）在无限路径上的形式化语义定义：π ⊨ □φ 当且仅当对所有 i≥0，π[i:] ⊨ φ；π ⊨ ⋄φ 当且仅当存在 i≥0 使得 π[i:] ⊨ φ。模型使用了不同的符号（如 π[i:] 代替 π[i..]，□/⋄ 代替 □/⋄），并提供了更详细的背景（如原子命题赋值、其他算子的语义），但这属于同义表达和补充说明，不影响核心定义的正确性。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5-pro",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "A",
+          "difficulty_level": "L2",
+          "reason": "模型回答的核心语义定义与标准答案完全一致，关键公式正确，且表述清晰。模型提供了额外上下文，但核心结论和公式与标准答案语义等价。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "mimo-v2-flash",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "A",
+          "difficulty_level": "L2",
+          "reason": "模型回答的核心内容与标准答案完全一致，正确给出了全局操作符□和最终操作符⋄在无限路径上的形式化语义定义。模型使用了同义表达（如π[i:]代替π[i..]），并补充了LTL语义的上下文（如原子命题、其他算子），但这些补充不影响核心结论的正确性。关键公式和结论均正确，符合语义等价的要求。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2-pro",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "A",
+          "difficulty_level": "L2",
+          "reason": "模型正确给出了全局操作符□和最终操作符⋄的语义定义，与标准答案完全一致，核心公式和结论正确。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.5-highspeed",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "A",
+          "difficulty_level": "L2",
+          "reason": "模型回答完整准确地给出了LTL中全局操作符□和最终操作符⋄的形式化语义。核心内容与标准答案完全一致：全局操作符定义为'对所有i≥0，后缀π[i:]满足φ'；最终操作符定义为'存在i≥0使得后缀π[i:]满足φ'。虽然使用了不同的符号表示（π[i:]而非π[i..]，s_i而非π_i），但语义等价。模型回答还额外补充了原子命题、Next算子、Until算子的语义定义以及与全局/最终操作符的关系，这些内容正确且有助于理解，但不改变核心语义的正确性。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.7_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.7",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "A",
+          "difficulty_level": "L2",
+          "reason": "模型回答给出了与标准答案完全一致的核心语义定义：全局操作符□表示公式在路径的所有无限后缀上成立（∀i≥0, π[i:] ⊨ φ），最终操作符⋄表示公式在路径的某个无限后缀上成立（∃i≥0, π[i:] ⊨ φ）。两处核心公式与标准答案语义等价。虽然使用了不同的符号表示（π[i:] vs π[i..]）和额外的背景说明（如原子命题集合、状态序列定义），但这些都是形式化语义的常见等价表述方式。额外补充的原子命题、Next算子、Until算子的语义定义以及□和⋄与Until的关系，均正确且有助于理解，属于有益的补充而非错误信息。",
+          "issues": []
+        }
+      ]
+    },
+    {
+      "sample_id": "CS-EVO-00815",
+      "dimension": "A",
+      "difficulty_level": "L3",
+      "judge_count": 14,
+      "score_mean": 0.7464,
+      "score_std": 0.2622,
+      "score_min": 0.3,
+      "score_max": 1.0,
+      "bucket_counts": {
+        "high": 8,
+        "low": 2,
+        "medium": 4
+      },
+      "majority_bucket": "high",
+      "bucket_agreement_rate": 0.5714,
+      "dimension_label_agreement_rate": 1.0,
+      "source_support_proxy": {
+        "source_ref_present": true,
+        "reasoning_steps_present": true,
+        "note": "This proxy checks dataset traceability fields only; it does not re-read source documents."
+      },
+      "judges": [
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-flash",
+          "scoring_mode": "llm_judge",
+          "score": 0.6,
+          "dimension": "A",
+          "difficulty_level": "L3",
+          "reason": "模型回答正确给出了稳态误差表达式为1/Kv，且指出稳态误差与Kv成反比，核心结论正确。但模型回答中Kv的定义为通用的lim sG(s)，而标准答案中Kv定义为lim Gc(s)/50，两者在表达上不一致，模型回答缺少了标准答案中的具体分母因子，属于次要细节遗漏。",
+          "issues": [
+            "模型回答中的Kv定义与标准答案不完全一致，缺少分母50的因子"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-pro",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "A",
+          "difficulty_level": "L3",
+          "reason": "模型回答正确给出了单位斜坡输入下的稳态误差表达式 e_ss = 1/Kv，定义了速度误差系数 Kv = lim_{s→0} s G(s)，并明确指出了稳态误差与 Kv 成反比关系。这些核心内容与标准答案语义等价，符合题目要求。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/gemma3_4b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "gemma3:4b",
+          "scoring_mode": "sample",
+          "score": 0.85,
+          "dimension": "A",
+          "difficulty_level": "L3",
+          "reason": "模型答案的稳态误差表达式计算错误，但对速度误差系数的定义和与稳态误差的关系描述基本正确。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/llama3.2_3b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "llama3.2:3b",
+          "scoring_mode": "sample",
+          "score": 0.8,
+          "dimension": "A",
+          "difficulty_level": "L3",
+          "reason": "答案正确，系统对单位斜坡输入响应的稳态误差表达式为e(∞) = 1/Kv，速度误差系数Kv的定义式为Kv = lim(s→0) Gc(s)/50，且稳态误差与Kv成反比关系",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "A",
+          "difficulty_level": "L3",
+          "reason": "模型回答的核心内容与标准答案完全一致。它正确给出了单位斜坡输入下I型系统的稳态误差表达式 e_ss = 1/Kv，并正确给出了速度误差系数 Kv 的定义 Kv = lim(s→0) sG(s)。虽然模型回答中 Kv 的定义式与标准答案中的 Kv = lim(s→0) Gc(s)/50 在形式上不同，但这是由于标准答案中包含了特定的系统参数（50），而模型回答给出了更通用的定义。模型回答正确阐述了稳态误差与 Kv 的反比关系，且所有关键公式和结论均正确。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.6,
+          "dimension": "A",
+          "difficulty_level": "L3",
+          "reason": "模型回答的核心结论和公式正确，包括稳态误差表达式 e_ss = 1/Kv 和稳态误差与 Kv 成反比的关系。但遗漏了标准答案中的特定细节：Kv 定义中除以 50 的因子，以及稳态误差小于 10% 时 Kv ≥ 10 的具体条件。",
+          "issues": [
+            "Kv 定义与标准答案不一致，标准答案中 Kv = lim(s→0) Gc(s)/50，而模型使用通用定义 Kv = lim(s→0) s G(s)",
+            "未提及稳态误差小于 10% 时 Kv ≥ 10 的具体条件"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "mimo-v2-flash",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "A",
+          "difficulty_level": "L3",
+          "reason": "模型回答的核心内容与标准答案完全一致。模型正确给出了单位斜坡输入的稳态误差表达式 e_ss = 1/K_v，正确给出了速度误差系数 K_v 的定义 K_v = lim_{s→0} s G(s)，并正确阐述了稳态误差与 K_v 成反比的关系。虽然模型回答中开环传递函数的具体形式与标准答案中的 G_c(s)/50 不同，但根据评判原则，只要核心结论和公式正确，即视为语义等价。模型回答的推导过程清晰，结论正确，因此得分为 1.0。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2-pro",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "A",
+          "difficulty_level": "L3",
+          "reason": "模型回答正确给出了稳态误差表达式 e_ss = 1/K_v，速度误差系数 K_v 的定义 K_v = lim(s→0) s G(s)，以及稳态误差与 K_v 成反比的关系。核心内容与标准答案一致，尽管 K_v 定义的具体形式略有差异（标准答案中除以 50 且使用 Gc(s)），但根据宽松评判原则，同义表达和不同措辞可接受，且关键结论正确。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.5-highspeed",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "A",
+          "difficulty_level": "L3",
+          "reason": "模型回答完整正确地给出了三个核心要点：(1)稳态误差表达式e_ss = 1/Kv与标准答案一致；(2)给出了I型系统Kv的标准定义Kv = lim s→0 s G(s)，这与控制理论的标准定义一致（标准答案中的Gc(s)/50是该特定系统的参数形式，本质相同）；(3)明确指出稳态误差与Kv成反比的关系。此外，模型回答还提供了详细的推导过程，展示了I型系统的开环传递函数形式和终值定理的应用过程。核心公式和结论均正确，属于语义等价。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.7_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.7",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "A",
+          "difficulty_level": "L3",
+          "reason": "模型回答完全正确。核心内容与标准答案一致：1) 给出了正确的稳态误差表达式 e_ss = 1/K_v；2) 正确给出了Kv的定义 K_v = lim(s→0) s G(s)；3) 正确说明了稳态误差与Kv成反比的关系；4) 还提供了详细的数学推导过程。虽然标准答案中Kv定义带有特定系数(50Gc(s))，但这是针对具体系统的特定形式，而模型回答给出的是I型系统的一般性定义，两者在语义上等价。关键结论和公式完全正确。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_2b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:2b",
+          "scoring_mode": "sample",
+          "score": 0.5,
+          "dimension": "A",
+          "difficulty_level": "L3",
+          "reason": "模型答案未给出完整的稳态误差表达式，且速度误差系数定义中的分母50与题目已知条件不符。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_35b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:35b",
+          "scoring_mode": "sample",
+          "score": 0.3,
+          "dimension": "A",
+          "difficulty_level": "L3",
+          "reason": "模型答案在推导稳态误差公式时出现严重截断，导致表达式不完整且未给出最终结论，同时未能正确回答题目中关于特定系统（转子绕线机）的Kv定义细节。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_4b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:4b",
+          "scoring_mode": "sample",
+          "score": 0.3,
+          "dimension": "A",
+          "difficulty_level": "L3",
+          "reason": "模型仅推导了公式的一半且未给出完整的 Kv 定义式及具体的数值关系，而标准答案包含完整定义和具体计算要求。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_9b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:9b",
+          "scoring_mode": "sample",
+          "score": 0.5,
+          "dimension": "A",
+          "difficulty_level": "L3",
+          "reason": "模型正确推导了稳态误差公式但未能完成计算并给出最终数值结果，且未回答题目关于 Kv 定义的具体要求。",
+          "issues": []
+        }
+      ]
+    },
+    {
+      "sample_id": "CS-EVO-00068",
+      "dimension": "A",
+      "difficulty_level": "L4",
+      "judge_count": 8,
+      "score_mean": 0.9,
+      "score_std": 0.1732,
+      "score_min": 0.6,
+      "score_max": 1.0,
+      "bucket_counts": {
+        "high": 6,
+        "medium": 2
+      },
+      "majority_bucket": "high",
+      "bucket_agreement_rate": 0.75,
+      "dimension_label_agreement_rate": 1.0,
+      "source_support_proxy": {
+        "source_ref_present": true,
+        "reasoning_steps_present": true,
+        "note": "This proxy checks dataset traceability fields only; it does not re-read source documents."
+      },
+      "judges": [
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-flash",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "A",
+          "difficulty_level": "L4",
+          "reason": "模型回答明确给出了与标准答案完全一致的经典Q学习更新公式，并对所有符号含义进行了准确解释。虽然主要内容围绕深度Q学习的损失函数形式，但核心公式和符号说明与标准答案语义等价，且补充了标准答案的公式。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-pro",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "A",
+          "difficulty_level": "L4",
+          "reason": "模型回答精确给出了深度Q学习中基于梯度下降的参数更新形式，核心的时序差分误差项与标准答案完全一致，符号含义解释正确且更详细，同时补充了目标网络等深度Q学习特有的机制。尽管未直接写出Q值的增量式表格更新，但所给的损失函数与参数更新公式涵盖了标准答案的核心内容，语义等价。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5",
+          "scoring_mode": "llm_judge",
+          "score": 0.6,
+          "dimension": "A",
+          "difficulty_level": "L4",
+          "reason": "模型回答的核心内容（损失函数和参数梯度更新公式）与标准答案的Q值更新公式在数学上是等价的，都表达了贝尔曼误差的最小化。模型回答正确解释了深度Q学习中通过优化网络参数来更新Q值的本质，并提供了详细的符号说明。然而，模型回答没有直接给出标准答案中那个最经典、最直接的Q值更新公式（Q(s, a) ← Q(s, a) + α [ r + γ max_{a'} Q(s', a') - Q(s, a) ]），而是给出了其在深度学习框架下的等价形式（损失函数和梯度更新）。这属于核心正确但有遗漏，因为问题明确要求“Q值的更新公式”，而模型回答侧重于参数更新，虽然本质相同",
+          "issues": [
+            "未直接给出标准答案中的经典Q值更新公式 Q(s, a) ← Q(s, a) + α [ r + γ max_{a'} Q(s', a') - Q(s, a) ]，而是给出了其在深度学习框架下的等价形式。"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5-pro",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "A",
+          "difficulty_level": "L4",
+          "reason": "模型回答准确描述了深度Q学习的更新机制，核心公式（损失函数和梯度更新）与标准答案中的TD误差一致，并详细解释了各符号含义，包括目标网络等关键概念，语义等价。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "mimo-v2-flash",
+          "scoring_mode": "llm_judge",
+          "score": 0.6,
+          "dimension": "A",
+          "difficulty_level": "L4",
+          "reason": "模型回答的核心内容正确，提供了深度Q学习中Q值更新的标准形式（损失函数和参数梯度更新），并正确解释了各符号的含义，包括学习率、折扣因子、TD误差等关键概念。然而，标准答案要求的是Q值的直接更新公式（类似于表格型Q-learning的迭代形式），而模型回答侧重于神经网络参数更新的损失函数和梯度下降形式，这与标准答案的表述方式不同，但核心思想（TD误差驱动更新）一致。模型回答遗漏了标准答案中明确给出的Q(s, a) ← Q(s, a) + α [ r + γ max_{a'} Q(s', a') - Q(s, a) ] 这一具体公式，尽管其损失函数形式在语义",
+          "issues": [
+            "未直接给出标准答案中的Q值迭代更新公式，而是提供了神经网络参数更新的损失函数形式，表述方式与标准答案不完全一致"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2-pro",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "A",
+          "difficulty_level": "L4",
+          "reason": "模型回答正确给出了深度Q学习的更新公式，以损失函数和梯度下降的形式，并详细解释了各符号含义。核心内容与标准答案一致，关键公式（如TD误差、学习率、折扣因子、最大Q值等）和结论正确，符合语义等价要求。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.5-highspeed",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "A",
+          "difficulty_level": "L4",
+          "reason": "模型回答完全正确。模型给出的损失函数形式（L(θ) = E[(r + γ max_{a'} Q(s', a'; θ⁻) - Q(s, a; θ))²]）与标准答案的更新公式在数学上完全等价，只是从神经网络参数更新的角度进行了表述。深度Q学习正是通过最小化这个损失函数来更新Q值的。各符号含义（Q(s,a;θ)、α、r、γ、s'、a'、θ⁻等）均正确说明。模型还额外补充了目标网络、经验回放等关键概念，这些是深度Q学习的重要组成部分，不构成偏离。核心的时间差分（TD）误差概念在两种表述中都正确体现。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.7_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.7",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "A",
+          "difficulty_level": "L4",
+          "reason": "模型回答完全正确。核心TD误差公式 r + γ max_{a'} Q(s', a') - Q(s, a) 与标准答案一致，这是Q-learning/DQN最核心的更新思想。模型不仅给出了标准形式，还扩展到神经网络参数化形式（损失函数和梯度更新），这是深度Q学习应有的完整表述。各符号含义（Q值、学习率α、折扣因子γ、奖励r、状态s'、目标网络θ⁻等）与标准答案完全对应。虽然模型回答更详细、更现代（引入了经验回放缓冲D、目标网络θ⁻等DQN特有概念），但这正是深度Q学习区别于表格型Q-learning的关键，所有内容都与标准答案语义等价，不存在矛盾或错误。",
+          "issues": []
+        }
+      ]
+    },
+    {
+      "sample_id": "CS-EVO-00638",
+      "dimension": "B",
+      "difficulty_level": "L3",
+      "judge_count": 8,
+      "score_mean": 0.0,
+      "score_std": 0.0,
+      "score_min": 0.0,
+      "score_max": 0.0,
+      "bucket_counts": {
+        "low": 8
+      },
+      "majority_bucket": "low",
+      "bucket_agreement_rate": 1.0,
+      "dimension_label_agreement_rate": 1.0,
+      "source_support_proxy": {
+        "source_ref_present": true,
+        "reasoning_steps_present": true,
+        "note": "This proxy checks dataset traceability fields only; it does not re-read source documents."
+      },
+      "judges": [
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-flash",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "B",
+          "difficulty_level": "L3",
+          "reason": "模型回答没有给出任何有效的推理步骤来计算Ξ_0，而是不断猜测定义，最终没有得出结论。回答完全偏离了标准推理链，没有利用给定条件进行正确的推导。",
+          "issues": [
+            "没有根据定义进行计算",
+            "推理方向错误，没有使用标准步骤中的L_i等概念",
+            "回答不完整，未给出最终数值结果"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "B",
+          "difficulty_level": "L3",
+          "reason": "模型回答没有进行任何有效的推理步骤来计算Ξ_0，而是大量猜测定义，并未给出具体的计算过程和数值结果，完全未按照问题要求完成计算。",
+          "issues": [
+            "没有根据定义给出任何推理步骤",
+            "未计算出Ξ_0的数值结果",
+            "回答内容为无关的猜测和不确定陈述"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "B",
+          "difficulty_level": "L3",
+          "reason": "模型回答没有提供任何有效的推理步骤来计算Ξ_0。它只是表达了对定义的不确定性，并尝试猜测可能的上下文，但没有基于给定的矩阵值进行任何具体的数学推导或计算。因此，回答中没有有效的推理步骤。",
+          "issues": [
+            "没有基于给定的矩阵值进行任何计算",
+            "没有尝试应用任何定义或公式",
+            "回答完全偏离了计算具体标量表达式的要求"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "B",
+          "difficulty_level": "L3",
+          "reason": "模型没有提供任何有效的推理步骤来计算Ξ_0，而是讨论了定义缺失和猜测可能的定义，与标准推理链的逻辑不一致。标准推理步骤基于给定定义进行了具体计算，而模型回答未涉及任何计算过程。",
+          "issues": [
+            "没有进行任何计算或推理步骤，而是质疑定义"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "mimo-v2-flash",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "B",
+          "difficulty_level": "L3",
+          "reason": "模型回答的推理步骤没有提供任何有效的推理。模型承认不知道Ξ_0的定义，没有尝试基于给定条件进行计算，而是进行了无关的猜测和搜索，最终没有得出任何数值结果。这与标准推理步骤（基于定义直接计算并得出Ξ_0=0）完全不一致。",
+          "issues": [
+            "模型没有基于给定条件进行推理，而是承认缺乏定义并进行无关猜测",
+            "没有提供任何有效的计算步骤或数值结果",
+            "推理过程与问题要求完全无关"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "B",
+          "difficulty_level": "L3",
+          "reason": "模型没有提供任何计算Ξ_0的推理步骤，只是猜测定义，没有基于给定条件进行实际计算。",
+          "issues": [
+            "缺乏具体的推理步骤",
+            "没有计算Ξ_0的数值结果"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.5-highspeed",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "B",
+          "difficulty_level": "L3",
+          "reason": "模型回答的推理步骤未包含任何具体的计算或结论，而是以缺乏Ξ_0的定义为理由拒绝回答。模型虽然进行了一些推测和讨论，但最终没有给出标量表达式的数值结果，也未按照标准推理步骤进行计算。因此，没有有效的推理步骤。",
+          "issues": [
+            "模型未提供具体的标量表达式计算过程，而是要求更多定义信息。"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.7_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.7",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "B",
+          "difficulty_level": "L3",
+          "reason": "模型未进行任何有效的推理步骤，仅请求用户澄清定义，而标准推理步骤已经明确给出了Ξ_0的定义和计算过程。模型没有尝试根据已知条件（S=1, N1=1, N2=1, R1=1, R2=1, P=1, Ω=1, n=1）进行计算，也未使用任何矩阵运算或推导。",
+          "issues": [
+            "模型未进行任何推理，直接要求用户提供定义",
+            "模型未利用给定的矩阵值进行计算",
+            "模型未理解n=1时的特殊情况进行推导",
+            "模型未尝试从标准推理步骤中学习或应用相关方法"
+          ]
+        }
+      ]
+    },
+    {
+      "sample_id": "CS-EVO-00381",
+      "dimension": "B",
+      "difficulty_level": "L4",
+      "judge_count": 8,
+      "score_mean": 0.2625,
+      "score_std": 0.2997,
+      "score_min": 0.0,
+      "score_max": 0.7,
+      "bucket_counts": {
+        "low": 5,
+        "medium": 3
+      },
+      "majority_bucket": "low",
+      "bucket_agreement_rate": 0.625,
+      "dimension_label_agreement_rate": 1.0,
+      "source_support_proxy": {
+        "source_ref_present": true,
+        "reasoning_steps_present": true,
+        "note": "This proxy checks dataset traceability fields only; it does not re-read source documents."
+      },
+      "judges": [
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-flash",
+          "scoring_mode": "llm_judge",
+          "score": 0.5,
+          "dimension": "B",
+          "difficulty_level": "L4",
+          "reason": "模型回答正确给出了J指标的定义、计算方法和平均步骤，推理逻辑正确，但未使用标准数据计算具体数值和结论，导致关键步骤缺失，整体完成度不足。",
+          "issues": [
+            "未根据标准数据实际计算J值和平均J值",
+            "未给出最终结论判断哪个控制器更优"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "B",
+          "difficulty_level": "L4",
+          "reason": "模型回答未使用题目指定的教材步进响应比较表数据，而是自行虚构数据进行计算，导致所有推理步骤均基于错误输入，无有效步骤，结论错误。",
+          "issues": [
+            "未使用教材提供的步进响应比较表数据",
+            "所有计算基于假设数据，与标准答案完全不符"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5",
+          "scoring_mode": "llm_judge",
+          "score": 0.2,
+          "dimension": "B",
+          "difficulty_level": "L4",
+          "reason": "模型回答的推理步骤在逻辑框架上基本正确（定义了J的计算公式、计算步骤、比较方法），但存在关键问题：1. 模型没有使用标准推理步骤中提供的真实数据（t_s, t_r, σ%的具体数值），而是假设了一组完全不同的数据进行计算，导致最终的J值和平均J值与标准答案完全不同。2. 基于假设数据得出的结论（RL性能更优）与标准答案（ANN性能更优）相反。虽然模型强调了“实际计算需代入教材表中的真实数值”，但其示例计算本身是错误的，且未展示任何基于真实数据的计算。因此，模型回答的大部分推理步骤（基于假设数据的计算）是错误的，只有少量步骤（如公式定义、计算流程）是正确的",
+          "issues": [
+            "未使用标准推理步骤中的真实数据进行计算，而是使用了假设数据",
+            "基于假设数据得出的结论与标准答案相反",
+            "未展示任何基于真实数据的计算步骤"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.7,
+          "dimension": "B",
+          "difficulty_level": "L4",
+          "reason": "模型的推理步骤在逻辑上与标准推理链一致，正确理解了性能指标J的定义、计算公式、平均J值的计算方法以及性能比较原则。推理链条完整，步骤基本正确，但模型未使用标准推理步骤中的具体数据，而是假设了示例数据进行计算，导致最终结论（RL控制器更优）与标准结论（ANN控制器更优）不一致。",
+          "issues": [
+            "模型使用了假设数据而非教材提供的标准数据进行计算，导致结论与标准结论不一致。"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "mimo-v2-flash",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "B",
+          "difficulty_level": "L4",
+          "reason": "模型回答没有使用标准推理步骤中的具体数据进行计算，而是假设了一组完全不同的数据，并基于这些假设数据得出了与标准答案相反的结论（RL优于ANN）。虽然模型展示了计算步骤的逻辑框架，但其核心任务是根据教材提供的具体数据计算J值并比较性能，而模型未能执行这一任务，其推理步骤与标准推理链在数据和结论上均不一致。因此，模型回答属于无效推理步骤。",
+          "issues": [
+            "未使用标准推理步骤中的具体数据（如t_s、t_r、σ%的值）进行计算",
+            "基于假设数据得出了与标准答案相反的结论",
+            "未能完成问题要求的计算任务"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.7,
+          "dimension": "B",
+          "difficulty_level": "L4",
+          "reason": "模型推理步骤逻辑正确，完整描述了计算J值、平均J值和比较性能的方法，但未使用教材中的真实数据，而是假设了示例数据进行计算，导致最终结论与标准答案不一致。",
+          "issues": [
+            "未使用教材提供的真实数据，假设了示例数据进行计算"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.5-highspeed",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "B",
+          "difficulty_level": "L4",
+          "reason": "模型回答完全未使用标准推理步骤中的实际数据（ANN的ts=0.179/0.435、tr=0.041/0.186、σ%=0；RL的ts=0.123/0.360、tr=0.056/0.239、σ%=0.364/0.275），而是使用了一组完全虚构的假设数据进行计算。虽然模型的计算步骤（公式应用、平均值计算方法）逻辑正确，但由于数据错误，最终得出RL控制器性能更优的结论，与标准答案的结论（ANN性能更优）完全相反。因此没有任何有效推理步骤与标准推理链一致。",
+          "issues": [
+            "未使用标准答案提供的实际数据（ts、tr、σ%）进行计算",
+            "使用虚构的假设数据（0.45、0.18、9等）替代标准数据",
+            "由于数据错误，得出与标准答案相反的结论（RL优而非ANN优）"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.7_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.7",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "B",
+          "difficulty_level": "L4",
+          "reason": "模型回答完全未能使用标准推理步骤中的具体数据。模型承认'未提供具体的步进响应比较表数据'，并使用了自己编造的假设数据（t_s、t_r、σ%值均与标准数据完全不同），最终计算出RL优于ANN的结论，而标准结论是ANN优于RL。虽然模型给出了正确的计算步骤框架，但关键问题在于：1) 未使用题目要求的教材表格数据；2) 编造了完全不同的数值；3) 得出了与标准答案相反的结论。这不是'不同的推理路径'问题，而是完全回避了题目要求的核心数据，属于无效推理。",
+          "issues": [
+            "未使用题目中教材表格的实际数据，而是编造假设数据",
+            "编造的数据与标准数据完全不同（标准ANN48V: t_s=0.179 vs 模型假设0.45）",
+            "结论与标准答案相反（模型得出RL更优，标准结论是ANN更优）",
+            "σ%值处理不一致（标准数据ANN的σ%=0，模型假设为9）",
+            "虽然给出了计算步骤框架，但核心数据和结论完全错误"
+          ]
+        }
+      ]
+    },
+    {
+      "sample_id": "CS-EVO-00607",
+      "dimension": "B",
+      "difficulty_level": "L2",
+      "judge_count": 15,
+      "score_mean": 0.4867,
+      "score_std": 0.4717,
+      "score_min": 0.0,
+      "score_max": 1.0,
+      "bucket_counts": {
+        "high": 7,
+        "low": 7,
+        "medium": 1
+      },
+      "majority_bucket": "high",
+      "bucket_agreement_rate": 0.4667,
+      "dimension_label_agreement_rate": 1.0,
+      "source_support_proxy": {
+        "source_ref_present": true,
+        "reasoning_steps_present": true,
+        "note": "This proxy checks dataset traceability fields only; it does not re-read source documents."
+      },
+      "judges": [
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-flash",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "B",
+          "difficulty_level": "L2",
+          "reason": "模型推理步骤完整、逻辑清晰，每一步推理正确，结论正确，与标准推理链逻辑一致。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-pro",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "B",
+          "difficulty_level": "L2",
+          "reason": "模型回答的推理步骤与标准推理链完全一致：先采用恒等变形将平方差转化为内积，再使用柯西-施瓦茨不等式和三角不等式放缩，代入给定的各上界，最终整理得到目标不等式。每一步逻辑正确、推导完整，结论无误。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/gemma3_4b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "gemma3:4b",
+          "scoring_mode": "sample",
+          "score": 0.8,
+          "dimension": "B",
+          "difficulty_level": "L2",
+          "reason": "答案正确地使用了Cauchy-Schwarz不等式，并正确地应用了给定的上界，推导出了目标不等式。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/llama3.2_3b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "llama3.2:3b",
+          "scoring_mode": "sample",
+          "score": 0.0,
+          "dimension": "B",
+          "difficulty_level": "L2",
+          "reason": "parse_failed: 根据给定的上界：\n\n- $\\|y_t\\| \\leq R_y$  \n- $\\|\\hat{y}_t^{\\mathrm{TK}}\\| \\leq \\sqrt{h} R_",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "B",
+          "difficulty_level": "L2",
+          "reason": "模型回答的推理步骤完整、逻辑清晰，每一步都正确。它正确使用了恒等式变形、柯西-施瓦茨不等式、三角不等式，并代入给定的上界，最终推导出与标准推理链一致的结论。推理路径与标准答案完全一致，没有错误或缺失。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5-pro",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "B",
+          "difficulty_level": "L2",
+          "reason": "模型回答的推理步骤完整、逻辑清晰，每一步都正确：正确使用了恒等式、柯西-施瓦茨不等式和三角不等式，并正确代入给定上界进行代数整理，最终结论与目标不等式一致。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "mimo-v2-flash",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "B",
+          "difficulty_level": "L2",
+          "reason": "模型回答的推理步骤完整、逻辑清晰，每一步推理都正确，结论与标准推理链一致。模型正确使用了恒等变形、柯西-施瓦茨不等式、三角不等式，并代入给定上界，最终推导出目标不等式。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2-pro",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "B",
+          "difficulty_level": "L2",
+          "reason": "模型推理步骤与标准推理链逻辑完全一致，所有步骤正确，结论正确。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.5-highspeed",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "B",
+          "difficulty_level": "L2",
+          "reason": "LLM parse error: {\"score\": 1.0, \"reason\": \"模型推理步骤与标准推理链完全一致，每一步都正确：1) 正确使用恒等式 $\\|a\\|^2 - \\|b\\|^2 = (a-b)^\\\\top(a+b)$ 变形；2) 正确应用 Cauchy-Schwarz 不等式；3) 正确使用三角不等式处理 $\\|2y_t - \\\\hat{y}_t^{\\\\mathrm{TK}} - \\\\hat{y}_t^{\\\\mat",
+          "issues": [
+            "judge parse failure"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.7_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.7",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "B",
+          "difficulty_level": "L2",
+          "reason": "LLM parse error: {\"score\": 1.0, \"reason\": \"模型的推理步骤与标准推理链完全一致。模型首先正确应用了恒等式 $\\|a\\|^2 - \\|b\\|^2 = (a-b)^\\top(a+b)$ 将差值变形，然后正确应用柯西-施瓦茨不等式和三角不等式，逐步代入所有给定的上界，最后正确整理得到目标不等式。每一推理步骤都正确，最终结论也正确。\", \"issues\": []}",
+          "issues": [
+            "judge parse failure"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/ollama_35b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:35b",
+          "scoring_mode": "sample",
+          "score": 0.0,
+          "dimension": "B",
+          "difficulty_level": "L2",
+          "reason": "模型答案仅复述了题目条件并中断，未进行任何推导步骤，且未给出最终结论，属于严重未完成。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_2b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:2b",
+          "scoring_mode": "sample",
+          "score": 0.5,
+          "dimension": "B",
+          "difficulty_level": "L2",
+          "reason": "模型正确复述了已知上界，但回答中缺失了待证明的不等式右侧完整表达式，导致无法完成推导验证。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_35b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:35b",
+          "scoring_mode": "sample",
+          "score": 0.0,
+          "dimension": "B",
+          "difficulty_level": "L2",
+          "reason": "模型答案仅复述了题目条件并中断，未进行任何推导步骤，且未给出最终结论，完全不符合答题要求。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_4b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:4b",
+          "scoring_mode": "sample",
+          "score": 0.0,
+          "dimension": "B",
+          "difficulty_level": "L2",
+          "reason": "模型答案在推导过程中完全中断，未能完成证明并给出最终结果。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_9b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:9b",
+          "scoring_mode": "sample",
+          "score": 0.0,
+          "dimension": "B",
+          "difficulty_level": "L2",
+          "reason": "模型答案未提供任何推导过程或结论，仅重复了题目已知条件，导致无法完成证明任务。",
+          "issues": []
+        }
+      ]
+    },
+    {
+      "sample_id": "CS-EVO-00754",
+      "dimension": "B",
+      "difficulty_level": "L3",
+      "judge_count": 8,
+      "score_mean": 0.1625,
+      "score_std": 0.1576,
+      "score_min": 0.0,
+      "score_max": 0.5,
+      "bucket_counts": {
+        "low": 7,
+        "medium": 1
+      },
+      "majority_bucket": "low",
+      "bucket_agreement_rate": 0.875,
+      "dimension_label_agreement_rate": 1.0,
+      "source_support_proxy": {
+        "source_ref_present": true,
+        "reasoning_steps_present": true,
+        "note": "This proxy checks dataset traceability fields only; it does not re-read source documents."
+      },
+      "judges": [
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-flash",
+          "scoring_mode": "llm_judge",
+          "score": 0.2,
+          "dimension": "B",
+          "difficulty_level": "L3",
+          "reason": "模型回答虽然正确识别了系统参数并尝试代入计算，但其推理路径使用了不等式形式（与标准等式不符），且最终未能得出与标准推理链一致的结论（未发现p=1的解），而是陷入了对HJB方程形式的质疑，没有完成验证任务。仅少量初始步骤正确（如设J*(x)=px^2、求导等），大部分推理偏离正确方向。",
+          "issues": [
+            "模型使用了不等式而非等式形式的HJB方程，导致计算表达式与标准不同",
+            "模型未给出明确结论，未验证J*(x)=x^2是否满足方程",
+            "模型推理方向与标准答案不一致，未能识别p=1"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.2,
+          "dimension": "B",
+          "difficulty_level": "L3",
+          "reason": "模型回答仅完成了假设J*(x)=px^2并求导这些初始步骤，但未能使用正确的HJB方程形式（问题中明确引用式(7.5.27)，标准答案使用的是1/(2γ0)系数而非模型反复假设的1/(4γ^2)等形式），导致后续推导全部偏离标准推理链，未得出p=1的非负解，也未正确判断系统满足L2增益不等式。正确步骤占比较低，整体推理与标准答案不一致。",
+          "issues": [
+            "未使用题目中应有的HJB方程(7.5.27)的正确形式，错误地尝试了多种其他系数形式，导致方程展开错误。",
+            "未能得出p=1使得方程在x=0附近成立的关键结论。",
+            "未最终正确判断系统是否满足L2增益不等式，推理方向偏差严重。"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5",
+          "scoring_mode": "llm_judge",
+          "score": 0.2,
+          "dimension": "B",
+          "difficulty_level": "L3",
+          "reason": "模型回答的推理步骤存在严重问题。首先，模型没有明确给出HJB方程(7.5.27)的具体形式，而是进行了大量推测，这导致后续推理缺乏明确依据。其次，模型在推导过程中使用了多种可能的方程形式，但最终未能得出一个确定的结论。虽然模型提到了构造J*(x)=px^2并尝试验证，但整个推理过程混乱，没有清晰地展示代入方程、计算各项、求解p值等关键步骤。模型最终没有给出明确的验证结果，也没有判断系统是否满足L2增益不等式。因此，只有少量步骤（如提到构造形式、尝试代入）是正确的，但大部分推理错误或缺失。",
+          "issues": [
+            "未明确给出HJB方程(7.5.27)的具体形式，导致推理缺乏依据",
+            "推理过程混乱，使用了多种可能的方程形式，未得出确定结论",
+            "未清晰展示代入方程、计算各项、求解p值等关键步骤",
+            "最终未给出明确的验证结果和判断"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.5,
+          "dimension": "B",
+          "difficulty_level": "L3",
+          "reason": "模型的推理步骤部分正确，包括设置 J^*(x)=px^2、计算导数、代入HJB方程并分析 x^4 项的问题，但未使用标准推理中的具体HJB方程形式，且未得出明确的 p 值或结论，推理不完整。",
+          "issues": [
+            "未使用标准推理中的HJB方程形式（7.5.27）",
+            "未得出具体的 p 值或结论，推理过程涉及多种可能性但未聚焦于标准路径",
+            "未明确验证解是否满足方程并据此判断L2增益不等式"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "mimo-v2-flash",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "B",
+          "difficulty_level": "L3",
+          "reason": "模型回答的推理步骤没有提供任何有效的推理过程。它只是重复了问题，并开始讨论HJB方程的可能形式，但没有进行任何具体的计算或验证。它没有构造J*(x)=px^2，没有代入HJB方程，也没有得出任何结论。整个回答是探索性的，没有完成任务要求的步骤。",
+          "issues": [
+            "没有构造J*(x)=px^2",
+            "没有代入HJB方程进行验证",
+            "没有判断系统是否满足L2增益不等式",
+            "回答内容与问题要求无关，只是对HJB方程形式的猜测"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "B",
+          "difficulty_level": "L3",
+          "reason": "LLM parse error: {\"score\": 0.2, \"reason\": \"模型回答的推理步骤中，只有初始设置 \\( J^*(x) = px^2 \\) 和导数计算 \\( \\frac{\\partial J^*}{\\partial x} = 2px \\) 正确，但后续使用的HJB方程形式与标准推理链不一致（标准使用系数 \\( \\frac{1}{2\\gamma_0} = \\frac{1}{4} \\)，而模型使用 \\( \\fra",
+          "issues": [
+            "judge parse failure"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.5-highspeed",
+          "scoring_mode": "llm_judge",
+          "score": 0.2,
+          "dimension": "B",
+          "difficulty_level": "L3",
+          "reason": "模型回答使用了与标准推理步骤不同的HJB方程形式，导致计算出的方程与标准不符。标准步骤中HJB方程的第二项为 $\\frac{1}{2\\gamma_0}\\left(\\frac{\\partial J}{\\partial x}\\right)^2$，代入 $\\gamma_0=2$ 得 $\\frac{1}{4}(2px)^2=px^2$；而模型回答使用了 $\\frac{1}{4\\gamma^2}\\nabla V G G^T \\nabla V^T$，代入后得 $(p^2/4)x^2$，系数不同。此外，模型回答未通过构造 $p=1$ 得到 $J^*(x)=x^2$ 为",
+          "issues": [
+            "HJB方程形式理解错误：模型使用了 $\\frac{1}{4\\gamma^2}$ 而非标准的 $\\frac{1}{2\\gamma_0}=\\frac{1}{4}$",
+            "计算错误：模型中二次项系数为 $(p^2/4)x^2$，而标准为 $px^2$",
+            "未得出正确结论：未判断 $J^*(x)=x^2$ 是否为解，也未判断系统是否满足 $L_2$-增益不等式",
+            "推理逻辑不一致：模型认为方程无解，而标准推理步骤认为 $J^*(x)=x^2$ 在 $x=0$ 附近满足HJB方程"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.7_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.7",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "B",
+          "difficulty_level": "L3",
+          "reason": "模型回答未提供有效的推理过程，缺少关键步骤如HJB方程的明确、方程的代入验证、p值的求解等，无法判断推理是否正确。",
+          "issues": [
+            "缺少对HJB方程(7.5.27)的明确",
+            "未进行代入验证计算",
+            "未得出p的具体取值和结论",
+            "推理链条不完整"
+          ]
+        }
+      ]
+    },
+    {
+      "sample_id": "CS-EVO-00708",
+      "dimension": "B",
+      "difficulty_level": "L4",
+      "judge_count": 8,
+      "score_mean": 0.0,
+      "score_std": 0.0,
+      "score_min": 0.0,
+      "score_max": 0.0,
+      "bucket_counts": {
+        "low": 8
+      },
+      "majority_bucket": "low",
+      "bucket_agreement_rate": 1.0,
+      "dimension_label_agreement_rate": 1.0,
+      "source_support_proxy": {
+        "source_ref_present": true,
+        "reasoning_steps_present": true,
+        "note": "This proxy checks dataset traceability fields only; it does not re-read source documents."
+      },
+      "judges": [
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-flash",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "B",
+          "difficulty_level": "L4",
+          "reason": "模型的第一步求解follower最优反应得到x_j*=(x1+x2)/4+1/2，与标准答案的x_j*=2-(x1+x2)/2不一致，后续推导完全基于此错误前提，且未完成全部步骤，因此与标准推理链逻辑不一致，无有效步骤。",
+          "issues": [
+            "follower最优反应求解结果错误",
+            "领导者代价函数表达式与标准不同"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "B",
+          "difficulty_level": "L4",
+          "reason": "模型回答仅复述了问题描述和公式，没有给出任何实质性的推理步骤，如对追随者求导、求解最优响应、代入领导者代价等关键步骤均缺失。",
+          "issues": [
+            "没有进行任何推理，仅重复问题"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "B",
+          "difficulty_level": "L4",
+          "reason": "模型回答仅重复了问题描述，没有提供任何推理步骤，未对follower条件极值求导、未计算最优响应、未代入均值场、未对领导者求导、未联立方程组，也未得出任何均衡策略。",
+          "issues": [
+            "无有效推理步骤",
+            "未进行任何数学推导",
+            "未给出均衡解"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "B",
+          "difficulty_level": "L4",
+          "reason": "模型回答仅重复了问题设置，没有提供任何推理步骤或计算过程，因此没有有效的推理步骤。",
+          "issues": [
+            "没有提供推理步骤",
+            "回答不完整，缺少求解过程"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "mimo-v2-flash",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "B",
+          "difficulty_level": "L4",
+          "reason": "模型回答的推理步骤不完整，仅重复了问题描述和部分定义，没有进行任何有效的推导或计算。标准推理链包含从follower最优响应求解、均值场计算、领导者一阶条件到最终均衡求解的完整步骤，而模型回答完全没有执行这些步骤。",
+          "issues": [
+            "未对follower代价函数求导以找到最优响应",
+            "未计算均值场xMF*",
+            "未将均值场代入领导者代价函数",
+            "未对领导者代价函数求一阶条件",
+            "未求解领导者策略的均衡值",
+            "未给出最终均衡组合"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "B",
+          "difficulty_level": "L4",
+          "reason": "模型回答未提供任何推理步骤，仅陈述了问题设置和代价函数定义，没有进行任何求解或逻辑推导，因此无有效推理逻辑。",
+          "issues": [
+            "缺少推理步骤"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.5-highspeed",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "B",
+          "difficulty_level": "L4",
+          "reason": "模型回答只是重新陈述了问题设定（领导者、follower的策略空间和均值场定义），列出了代价函数的形式，但完全没有进行任何实质性的数学推理。缺少所有关键步骤：对follower条件极值求导、求解最优响应、代入均值场、对领导者求一阶条件、联立求解方程组，以及最终计算均衡结果。模型回答没有任何有效的推理过程，因此无法得分。",
+          "issues": [
+            "未对follower代价函数求导",
+            "未求解follower最优响应xj*",
+            "未代入均值场xMF*",
+            "未对领导者代价函数求导",
+            "未联立求解领导者策略",
+            "未给出最终均衡结果(x1*, x2*, xMF*)"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.7_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.7",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "B",
+          "difficulty_level": "L4",
+          "reason": "模型回答仅给出了问题的背景描述和代价函数的定义，但完全没有进行任何实质性的数学推理。缺少所有关键的推理步骤：(1)对follower条件极值求导得到最优响应 (2)代入求xMF* (3)将xMF*代入领导者代价函数 (4)对领导者一阶条件求导 (5)联立方程组 (6)求解均衡。最终回答在'代价函数为：...'之后就直接结束，没有完成任何计算过程，属于完全没有有效推理步骤的情况。",
+          "issues": [
+            "模型回答不完整，在给出问题描述后即结束",
+            "缺少对follower条件极值求导的步骤",
+            "缺少代入求xMF*的步骤",
+            "缺少将xMF*代入领导者代价函数的步骤",
+            "缺少对领导者一阶条件求导的步骤",
+            "缺少联立方程组求解的步骤",
+            "缺少最终均衡结果的计算",
+            "整个回答没有任何实质性的数学推导或计算"
+          ]
+        }
+      ]
+    },
+    {
+      "sample_id": "CS-EVO-00368",
+      "dimension": "B",
+      "difficulty_level": "L2",
+      "judge_count": 14,
+      "score_mean": 0.7036,
+      "score_std": 0.2608,
+      "score_min": 0.3,
+      "score_max": 1.0,
+      "bucket_counts": {
+        "high": 6,
+        "low": 2,
+        "medium": 6
+      },
+      "majority_bucket": "medium",
+      "bucket_agreement_rate": 0.4286,
+      "dimension_label_agreement_rate": 1.0,
+      "source_support_proxy": {
+        "source_ref_present": true,
+        "reasoning_steps_present": true,
+        "note": "This proxy checks dataset traceability fields only; it does not re-read source documents."
+      },
+      "judges": [
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-flash",
+          "scoring_mode": "llm_judge",
+          "score": 0.5,
+          "dimension": "B",
+          "difficulty_level": "L2",
+          "reason": "模型进行了能控性矩阵计算、基的选取、变换矩阵构造以及部分A_bar的计算，这些步骤与标准推理链一致；但回答在最后中断，未能完成B_bar、C_bar的计算以及传递函数的求解，导致推理不完整。根据宽松原则，正确步骤约占一半以上，给予0.5分。",
+          "issues": [
+            "回答不完整，中断于A_bar的讨论，未计算B_bar、C_bar和传递函数"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-pro",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "B",
+          "difficulty_level": "L2",
+          "reason": "模型完整体现了能控性分解和传递函数计算的关键步骤：验证能控性矩阵秩为2，选取变换矩阵T，计算变换后的系统矩阵，提取能控子系统并正确求得传递函数1/s^2。虽然中间变换后的A矩阵形式与标准答案略有差异，但这不影响能控子系统的识别，且传递函数结果正确，推理逻辑一致。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/gemma3_4b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "gemma3:4b",
+          "scoring_mode": "sample",
+          "score": 0.85,
+          "dimension": "B",
+          "difficulty_level": "L2",
+          "reason": "答案正确地识别了问题，并正确计算了能控性矩阵和进行了一部分能控性分解，但缺少了将分解后的系统转化为标准形式的完整步骤和最终传递函数矩阵的计算。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/llama3.2_3b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "llama3.2:3b",
+          "scoring_mode": "sample",
+          "score": 0.5,
+          "dimension": "B",
+          "difficulty_level": "L2",
+          "reason": "题目描述不够详细，缺乏具体的计算步骤和结果",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "B",
+          "difficulty_level": "L2",
+          "reason": "模型回答的推理步骤完整、逻辑清晰，与标准推理链在逻辑上完全一致。模型正确计算了能控性矩阵，选取了线性无关列构成变换矩阵T，计算了变换后的系统矩阵，并正确识别了能控子系统，最终推导出传递函数为1/s^2。所有关键步骤均正确，结论正确。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5-pro",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "B",
+          "difficulty_level": "L2",
+          "reason": "模型回答的推理步骤完整、逻辑清晰，每一步都正确：验证了能控性矩阵秩为2，正确选择变换矩阵进行能控性分解，得到标准结构，并准确计算出传递函数为1/s^2，与标准推理链一致。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "mimo-v2-flash",
+          "scoring_mode": "llm_judge",
+          "score": 0.7,
+          "dimension": "B",
+          "difficulty_level": "L2",
+          "reason": "模型回答的推理步骤完整，逻辑清晰，正确计算了能控性矩阵、变换矩阵T、变换后的系统矩阵，并正确推导出能控子系统及其传递函数。然而，模型在计算传递函数时，中间步骤有误：在计算(sI - A_c)^{-1}时，模型写为[[1/s, 0], [1/s^2, 1/s]]，但随后在计算C_c (sI - A_c)^{-1} B_c时，模型中断了，未完成最终计算。标准推理链中明确给出了传递函数为1/s^2，而模型虽未明确写出最终结果，但推导过程指向同一结论。由于模型未完成最终计算步骤，但关键步骤正确，结论正确，因此评为0.7分。",
+          "issues": [
+            "模型在计算传递函数时未完成最终计算步骤，中断了推导。"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2-pro",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "B",
+          "difficulty_level": "L2",
+          "reason": "模型回答的推理步骤完整且逻辑正确，与标准推理链一致。正确计算了能控性矩阵、变换矩阵、变换后的系统、能控子系统及其传递函数，最终得出传递函数为1/s^2。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.5-highspeed",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "B",
+          "difficulty_level": "L2",
+          "reason": "模型推理步骤完整且逻辑正确。首先正确计算了能控性矩阵并验证其秩为2，然后通过选取变换矩阵T=[B, AB, e3]进行能控性分解，得到标准结构下的系统矩阵(A_bar, B_bar, C_bar)，识别出能控子系统并正确计算其传递函数G1(s)=1/s^2，最终得出系统传递函数矩阵G(s)=1/s^2。所有推理步骤与标准答案一致，计算过程无误。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.7_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.7",
+          "scoring_mode": "llm_judge",
+          "score": 0.7,
+          "dimension": "B",
+          "difficulty_level": "L2",
+          "reason": "推理链条完整，包括能控性矩阵计算、变换矩阵选择、系统变换、能控子系统提取和传递函数计算，且最终传递函数正确。但模型在计算 A_tilde = T^{-1}AT 时得到 [[0,0,1],[1,0,0],[0,0,0]]，与标准推理的 [[0,0,0],[1,0,0],[0,0,0]] 不一致，说明变换矩阵计算有误。然而，模型仍正确提取了能控子系统 (A1,B1,C1) 并计算了传递函数，说明其可能独立识别了能控子系统，而非严格依赖 A_tilde 的块结构。因此，推理步骤基本完整但存在计算错误。",
+          "issues": [
+            "模型在计算变换后的系统矩阵 A_tilde 时出错，得到 [[0,0,1],[1,0,0],[0,0,0]]，而标准答案为 [[0,0,0],[1,0,0],[0,0,0]]，导致 A_tilde 不具备标准能控性分解的块上三角形式。"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_2b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:2b",
+          "scoring_mode": "sample",
+          "score": 0.5,
+          "dimension": "B",
+          "difficulty_level": "L2",
+          "reason": "模型正确识别了系统维度并指出传递函数为标量，但未能准确执行能控性分解得到标准结构，且推导过程存在逻辑跳跃和计算错误。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_35b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:35b",
+          "scoring_mode": "sample",
+          "score": 0.3,
+          "dimension": "B",
+          "difficulty_level": "L2",
+          "reason": "模型仅复述了题目并进行了部分分析，未能完成能控性分解的具体计算，且未给出最终的系统标准结构及传递函数矩阵。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_4b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:4b",
+          "scoring_mode": "sample",
+          "score": 0.3,
+          "dimension": "B",
+          "difficulty_level": "L2",
+          "reason": "模型仅识别出系统维度，未执行能控性分解或计算传递函数，且对 B 的维度描述存在事实性错误。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_9b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:9b",
+          "scoring_mode": "sample",
+          "score": 0.5,
+          "dimension": "B",
+          "difficulty_level": "L2",
+          "reason": "模型正确识别了系统为 SISO 并给出了正确的传递函数结果，但未能完成题目要求的能控性分解步骤，且对 B 矩阵维度的标注不完整。",
+          "issues": []
+        }
+      ]
+    },
+    {
+      "sample_id": "CS-EVO-00836",
+      "dimension": "B",
+      "difficulty_level": "L3",
+      "judge_count": 8,
+      "score_mean": 1.0,
+      "score_std": 0.0,
+      "score_min": 1.0,
+      "score_max": 1.0,
+      "bucket_counts": {
+        "high": 8
+      },
+      "majority_bucket": "high",
+      "bucket_agreement_rate": 1.0,
+      "dimension_label_agreement_rate": 1.0,
+      "source_support_proxy": {
+        "source_ref_present": true,
+        "reasoning_steps_present": true,
+        "note": "This proxy checks dataset traceability fields only; it does not re-read source documents."
+      },
+      "judges": [
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-flash",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "B",
+          "difficulty_level": "L3",
+          "reason": "模型给出的推理步骤完整、逻辑清晰，传递函数计算正确，H∞范数推导正确，结论与标准推理链一致。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-pro",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "B",
+          "difficulty_level": "L3",
+          "reason": "推理步骤完整，逻辑清晰，所有步骤均正确，结论正确。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "B",
+          "difficulty_level": "L3",
+          "reason": "模型回答的推理步骤完整、逻辑清晰，与标准推理链在逻辑上完全一致。首先正确计算了传递函数，然后正确定义了H∞范数，接着通过分析幅值平方函数的单调性（或等价地，通过求导分析）得出最大值在ω=0处取得，最终得到正确的H∞范数2/3。所有关键步骤均正确，结论正确。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5-pro",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "B",
+          "difficulty_level": "L3",
+          "reason": "模型推理步骤完整、逻辑清晰，传递函数计算正确，H∞范数定义准确，幅值计算和最大值求解过程与标准推理链一致，结论正确。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "mimo-v2-flash",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "B",
+          "difficulty_level": "L3",
+          "reason": "模型回答的推理步骤与标准推理链在逻辑上完全一致。模型正确计算了传递函数，正确应用了H∞范数的定义，正确推导了幅值表达式，并通过分析分母单调性正确得出最大值在ω=0处，最终得到正确结论。所有步骤完整、逻辑清晰，结论正确。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2-pro",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "B",
+          "difficulty_level": "L3",
+          "reason": "模型正确计算了传递函数，给出了H∞范数定义，并通过幅值分析正确得出范数为2/3。推理逻辑与标准一致，尽管省略了求导步骤，但单调性分析正确，关键步骤存在且结论正确。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.5-highspeed",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "B",
+          "difficulty_level": "L3",
+          "reason": "模型推理步骤完整且正确。传递函数计算正确：G(s) = 2/[(s+1)(s+3)]。H∞范数定义正确：||G||∞ = sup_{ω∈R} |G(jω)|。频率响应幅值计算正确：|G(jω)|² = 4/((1+ω²)(9+ω²))。虽然模型采用了'分母随|ω|增大而单调递增'的简化论证（未显式求导），但逻辑上等价于标准答案中通过求导f'(ω)=4ω(ω²+5)=0找极值点的过程，最终都在ω=0处取得最大值，|G(0)|=2/3。模型还正确指出了ω→∞时幅值趋近于0。所有关键步骤与标准推理链在逻辑上完全一致，结论正确。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.7_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.7",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "B",
+          "difficulty_level": "L3",
+          "reason": "模型回答的推理步骤与标准推理链在逻辑上完全一致。传递函数计算正确：G(s) = 2/((s+1)(s+3)) = 2/(s²+4s+3)。H∞范数计算也正确：|G(jω)|² = 4/((1+ω²)(9+ω²))，由于分母随|ω|增大单调递增，幅值在ω=0处取得最大值|G(0)|=2/3，因此||G||∞=2/3。虽然模型使用了'幅值平方'的方法而非标准答案的'求最小值'方法，但两种方法逻辑等价、结论一致。",
+          "issues": []
+        }
+      ]
+    },
+    {
+      "sample_id": "CS-EVO-00156",
+      "dimension": "B",
+      "difficulty_level": "L4",
+      "judge_count": 8,
+      "score_mean": 0.0625,
+      "score_std": 0.1654,
+      "score_min": 0.0,
+      "score_max": 0.5,
+      "bucket_counts": {
+        "low": 7,
+        "medium": 1
+      },
+      "majority_bucket": "low",
+      "bucket_agreement_rate": 0.875,
+      "dimension_label_agreement_rate": 1.0,
+      "source_support_proxy": {
+        "source_ref_present": true,
+        "reasoning_steps_present": true,
+        "note": "This proxy checks dataset traceability fields only; it does not re-read source documents."
+      },
+      "judges": [
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-flash",
+          "scoring_mode": "llm_judge",
+          "score": 0.5,
+          "dimension": "B",
+          "difficulty_level": "L4",
+          "reason": "模型正确求解了状态响应，得到了与标准答案一致的表达式并指出逃逸时间，但未能完成L2增益的证明部分，缺少关键的计算和比较步骤，因此只有约一半的推理步骤有效。",
+          "issues": [
+            "证明部分不完整，没有计算输出和输入的L2范数及比较，无法得出系统不具有有限L2增益的结论。"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "B",
+          "difficulty_level": "L4",
+          "reason": "模型回答仅复述了问题的一部分，未展开任何推理步骤，无法构成有效的推理链。",
+          "issues": [
+            "回答不完整，未提供任何推理步骤"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "B",
+          "difficulty_level": "L4",
+          "reason": "模型回答的推理步骤不完整，仅给出了问题描述和部分初始条件，没有完成状态响应的求解，也没有进行L2增益的证明。整个回答缺乏有效的推理步骤，无法与标准推理链进行逻辑一致性比较。",
+          "issues": [
+            "推理步骤严重缺失，未完成状态响应求解",
+            "未进行L2增益的证明",
+            "回答不完整，无法评估逻辑一致性"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "B",
+          "difficulty_level": "L4",
+          "reason": "模型回答不完整，仅给出了问题陈述的一部分，没有提供任何推理步骤来求解状态响应或证明L2增益，因此没有有效的推理内容。",
+          "issues": [
+            "推理步骤不完整，未完成状态响应求解和L2增益证明"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "mimo-v2-flash",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "B",
+          "difficulty_level": "L4",
+          "reason": "模型回答的推理步骤不完整，仅给出了问题陈述和部分方程，未提供任何有效的求解或证明过程。与标准推理链相比，缺少关键步骤（如代入求解、计算逃逸时间、分析L2范数等），因此无法判断逻辑一致性。",
+          "issues": [
+            "推理步骤缺失，未求解状态响应表达式",
+            "未证明系统不具有有限的L2增益",
+            "回答不完整，仅包含问题陈述"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "B",
+          "difficulty_level": "L4",
+          "reason": "模型回答不完整，仅提供了问题陈述的一部分，没有展示任何求解过程或证明步骤，因此无有效推理步骤可评估。",
+          "issues": [
+            "推理步骤缺失"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.5-highspeed",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "B",
+          "difficulty_level": "L4",
+          "reason": "模型回答仅给出了系统方程和输入的部分表述，甚至没有完整写出初始状态x(0)=3，推理即中断。没有任何实质性的推理步骤：未给出状态响应x(t)的表达式，未计算逃逸时间，未分析L2范数，更未进行L2增益不存在的证明。回答完全不完整，无有效推理内容。",
+          "issues": [
+            "回答未完成，推理中断在第一部分开头",
+            "未给出状态响应x(t)的表达式",
+            "未计算逃逸时间t_p",
+            "未分析输出y的L2范数发散性",
+            "未证明输入u的L2范数有限性",
+            "未进行L2增益不存在的论证"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.7_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.7",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "B",
+          "difficulty_level": "L4",
+          "reason": "模型回答仅给出了问题陈述的开头（系统方程、输入、初始状态），但并未完成任何实际的数学推导。回答在'初始状态 $x(0)$'之后就中断了，完全没有给出状态响应 $x(t)$ 的表达式，更没有涉及 $L_2$ 增益的证明。该回答不包含任何有效的推理步骤。",
+          "issues": [
+            "回答不完整，仅写出问题条件后中断，未进行任何数学推导",
+            "未给出状态响应 $x(t)$ 的表达式",
+            "未涉及 $L_2$ 增益分析",
+            "未证明系统不具有有限 $L_2$ 增益"
+          ]
+        }
+      ]
+    },
+    {
+      "sample_id": "CS-EVO-00251",
+      "dimension": "C",
+      "difficulty_level": "L2",
+      "judge_count": 15,
+      "score_mean": 0.8167,
+      "score_std": 0.2767,
+      "score_min": 0.0,
+      "score_max": 1.0,
+      "bucket_counts": {
+        "high": 11,
+        "low": 1,
+        "medium": 3
+      },
+      "majority_bucket": "high",
+      "bucket_agreement_rate": 0.7333,
+      "dimension_label_agreement_rate": 1.0,
+      "source_support_proxy": {
+        "source_ref_present": true,
+        "reasoning_steps_present": true,
+        "note": "This proxy checks dataset traceability fields only; it does not re-read source documents."
+      },
+      "judges": [
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-flash",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "模型回答与标准答案核心结论一致，均指出原结论因ρ与pz_max_actual的比值仅为5、不满足10倍条件而不再成立，并给出了详细理由和计算，表述准确完整。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-pro",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "模型回答的核心结论与标准答案完全一致，均明确指出原结论不再成立，并给出相同的关键理由：实际ρ与pz_max_actual之比为5，不满足10倍条件，高频极点影响不可忽略。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/gemma3_4b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "gemma3:4b",
+          "scoring_mode": "sample",
+          "score": 0.95,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "答案准确地分析了实际情况与设计假设之间的差异，并清晰地阐述了高频极点影响不可忽略的理由。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/llama3.2_3b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "llama3.2:3b",
+          "scoring_mode": "sample",
+          "score": 0.0,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "模型回答的核心结论与标准答案完全一致，均明确指出原结论不再成立，并给出了相同的理由：实际设计中ρ与实际最高频率的比值为5，不满足10倍条件，因此高频极点的影响不可忽略。模型回答还提供了更详细的解释和计算，但核心逻辑与标准答案完全对应。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5-pro",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "模型回答的核心结论与标准答案完全一致，都指出原结论'高频极点不会影响系统响应'不成立，因为ρ相对于实际最高频率的倍数只有5，不满足10倍条件，高频极点的影响不可忽略。",
+          "issues": [
+            "无"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "mimo-v2-flash",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "模型回答与标准答案的核心结论完全一致，均明确指出原结论不成立，并基于相同的数学推导（ρ/pz_max_actual = 5）和设计原则（10倍条件不满足）进行论证。模型回答还补充了相位滞后和幅值衰减的具体计算，进一步支持了结论，未偏离标准答案的逻辑。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2-pro",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "模型回答与标准答案核心结论完全一致，都正确判断原结论不成立，理由基于ρ/pz_max_actual=5不满足10倍条件，高频极点影响不可忽略。模型回答详细扩展了相位滞后和幅值衰减分析，但未偏离核心论点。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.5-highspeed",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "模型回答与标准答案的核心结论完全一致：都认为原结论不再成立。理由逻辑相同：计算得出ρ/pz_max_actual = 5，不满足10倍条件，高频极点的影响不可忽略。模型回答还进一步补充了相位滞后（约11.31°vs 5.71°）和幅值衰减的具体计算，使论证更加完整，这是额外的补充说明，不影响评分为满分。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.7_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.7",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "模型回答与标准答案的核心结论完全一致：高频极点影响不可忽略，原结论失效。关键推理链条正确：(1)原结论成立条件是ρ≥10×pz_max；(2)实际ρ/pz_max_actual = 5，不满足10倍条件；(3)因此高频极点影响不可忽略。模型回答额外提供了相位滞后和幅值衰减的定量分析，虽非必需但增强了说服力，不影响核心正确性。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/ollama_35b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:35b",
+          "scoring_mode": "sample",
+          "score": 0.6,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "模型正确判断结论不成立并阐述了高频极点的作用，但回答在关键计算步骤处中断，未完成具体的倍数推导和最终结论的完整论述。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_2b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:2b",
+          "scoring_mode": "sample",
+          "score": 0.8,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "模型正确指出了结论不成立，并准确复述了教材建议及核心判断逻辑（ρ/pz_max_actual=5<10），但回答格式未按要求输出为JSON格式。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_35b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:35b",
+          "scoring_mode": "sample",
+          "score": 0.6,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "模型正确判断结论不成立并阐述了高频极点的作用，但回答在关键计算步骤处中断，未完成具体的倍数推导和最终结论的完整论证。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_4b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:4b",
+          "scoring_mode": "sample",
+          "score": 0.8,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "模型正确判断结论不成立并给出了核心逻辑，但回答在关键计算步骤和最终数值推导上缺失，导致论证不完整。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_9b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:9b",
+          "scoring_mode": "sample",
+          "score": 0.5,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "模型答案正确判断了结论不成立并给出了部分理由，但内容在'实际参数'处中断，未完整阐述计算过程和最终结论，导致回答不完整。",
+          "issues": []
+        }
+      ]
+    },
+    {
+      "sample_id": "CS-EVO-00231",
+      "dimension": "C",
+      "difficulty_level": "L3",
+      "judge_count": 15,
+      "score_mean": 0.8867,
+      "score_std": 0.2486,
+      "score_min": 0.0,
+      "score_max": 1.0,
+      "bucket_counts": {
+        "high": 14,
+        "low": 1
+      },
+      "majority_bucket": "high",
+      "bucket_agreement_rate": 0.9333,
+      "dimension_label_agreement_rate": 1.0,
+      "source_support_proxy": {
+        "source_ref_present": true,
+        "reasoning_steps_present": true,
+        "note": "This proxy checks dataset traceability fields only; it does not re-read source documents."
+      },
+      "judges": [
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-flash",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "C",
+          "difficulty_level": "L3",
+          "reason": "模型回答与标准答案的核心结论一致，均明确指出零解的稳定性不再保持，且通过线性化分析得出存在正实部特征根导致不稳定，理由完整正确。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-pro",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "C",
+          "difficulty_level": "L3",
+          "reason": "模型回答的核心结论与标准答案完全一致，均明确指出将f(x)改为-x后系统零解的渐近稳定性不再保持，变为不稳定。分析过程也正确，通过线性化得到特征根有正实部，从而判定不稳定。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/gemma3_4b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "gemma3:4b",
+          "scoring_mode": "sample",
+          "score": 0.95,
+          "dimension": "C",
+          "difficulty_level": "L3",
+          "reason": "答案逻辑清晰，分析准确，对稳定性变化原因的解释也充分，且使用了 Hartman-Grobman 定理进行推导，细节完善。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/llama3.2_3b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "llama3.2:3b",
+          "scoring_mode": "sample",
+          "score": 0.8,
+          "dimension": "C",
+          "difficulty_level": "L3",
+          "reason": "正确，分析了系统的稳定性变化",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "C",
+          "difficulty_level": "L3",
+          "reason": "LLM parse error: {\"score\": 1.0, \"reason\": \"模型回答的核心结论与标准答案完全一致：当 \\(f(x) = -x\\) 时，零解不稳定，稳定性不再保持。模型正确地进行了线性化分析，指出特征根为 \\(\\pm 1\\)（存在正实部根），并引用 Hartman-Grobman 定理得出非线性系统不稳定的结论。虽然模型未提及原系统的李雅普诺夫函数分析和耗散性破坏，但这不影响对问题核心结论的判断。\", \"i",
+          "issues": [
+            "judge parse failure"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5-pro",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "C",
+          "difficulty_level": "L3",
+          "reason": "模型回答与标准答案核心结论一致，均正确分析出当f(x)改为-x时零解稳定性不保持，从渐近稳定变为不稳定。分析过程均基于线性化方法，特征根有正实部导致不稳定，且模型回答合理应用了Hartman-Grobman定理，无关键遗漏或错误。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "mimo-v2-flash",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "C",
+          "difficulty_level": "L3",
+          "reason": "模型回答与标准答案的核心结论完全一致，均指出当 f(x) = -x 时，零解不再保持渐近稳定，而是变为不稳定。两者都通过线性化分析得出特征根包含正实部，并引用了相关定理（标准答案用不变集原理，模型回答用 Hartman-Grobman 定理）来支持结论。虽然具体表述和引用的定理略有不同，但核心逻辑和结论无差异。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2-pro",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "C",
+          "difficulty_level": "L3",
+          "reason": "模型回答正确分析了当f(x) = -x时系统的线性化，得出特征根有正实部，因此零解不稳定，与标准答案的核心结论完全一致。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.5-highspeed",
+          "scoring_mode": "llm_judge",
+          "score": 0.75,
+          "dimension": "C",
+          "difficulty_level": "L3",
+          "reason": "模型回答的结论正确，线性化分析和稳定性判定与标准答案一致。但模型回答使用了Hartman-Grobman定理，而标准答案更完整地说明了原系统渐近稳定的机理（李雅普诺夫函数与不变集原理）以及敏感性的来源（耗散性被破坏）。模型回答虽正确但理论框架的阐述不如标准答案全面。",
+          "issues": [
+            "模型回答缺少对原系统稳定性的完整分析框架",
+            "模型回答使用了Hartman-Grobman定理（该定理要求双曲平衡点，模型回答未严格验证此条件）",
+            "未解释稳定性的敏感性来源（耗散性破坏）"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.7_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.7",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "C",
+          "difficulty_level": "L3",
+          "reason": "模型回答与标准答案在核心结论和关键分析上完全一致。两者都正确指出：(1) 当 $f(x) = -x$ 时，零解的稳定性不再保持；(2) 线性化方程为 $\\ddot{x} - x = 0$；(3) 特征根为 $\\pm 1$（或 $\\pm 1$）；(4) 存在正实部特征根导致零解不稳定。模型回答额外使用Hartman-Grobman定理说明非线性系统与线性化系统的关系，虽然表述方式略有不同，但分析正确、结论一致。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/ollama_35b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:35b",
+          "scoring_mode": "sample",
+          "score": 1.0,
+          "dimension": "C",
+          "difficulty_level": "L3",
+          "reason": "模型准确识别了系统方程变化，正确运用线性化方法和特征根分析得出不稳定结论，逻辑严密且与标准答案一致。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_2b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:2b",
+          "scoring_mode": "sample",
+          "score": 0.9,
+          "dimension": "C",
+          "difficulty_level": "L3",
+          "reason": "模型正确识别了线性化后的特征根符号变化导致稳定性反转，并准确应用了 Hartman-Grobman 定理进行定性分析，与参考答案结论一致。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_35b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:35b",
+          "scoring_mode": "sample",
+          "score": 0.95,
+          "dimension": "C",
+          "difficulty_level": "L3",
+          "reason": "模型答案正确判断了稳定性不再保持，且线性化分析与结论均准确无误，仅未提及原系统李雅普诺夫分析作为对比背景。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_4b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:4b",
+          "scoring_mode": "sample",
+          "score": 0.95,
+          "dimension": "C",
+          "difficulty_level": "L3",
+          "reason": "模型答案准确推导了线性化特征根并正确应用稳定性判据，逻辑清晰且结论正确。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_9b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:9b",
+          "scoring_mode": "sample",
+          "score": 1.0,
+          "dimension": "C",
+          "difficulty_level": "L3",
+          "reason": "模型答案准确运用了线性化方法和 Hartman-Grobman 定理，逻辑严密且结论正确，完全符合标准答案的核心要点。",
+          "issues": []
+        }
+      ]
+    },
+    {
+      "sample_id": "CS-EVO-00182",
+      "dimension": "C",
+      "difficulty_level": "L4",
+      "judge_count": 8,
+      "score_mean": 0.9062,
+      "score_std": 0.121,
+      "score_min": 0.75,
+      "score_max": 1.0,
+      "bucket_counts": {
+        "high": 8
+      },
+      "majority_bucket": "high",
+      "bucket_agreement_rate": 1.0,
+      "dimension_label_agreement_rate": 1.0,
+      "source_support_proxy": {
+        "source_ref_present": true,
+        "reasoning_steps_present": true,
+        "note": "This proxy checks dataset traceability fields only; it does not re-read source documents."
+      },
+      "judges": [
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-flash",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "C",
+          "difficulty_level": "L4",
+          "reason": "模型回答与标准答案核心结论一致，均证明预测误差方差J(m)是预测步数m的单调递增函数，且证明逻辑正确、完整。模型回答使用了Wold分解和更通用的符号，但本质相同，表述差异不影响正确性。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-pro",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "C",
+          "difficulty_level": "L4",
+          "reason": "模型回答从平稳时间序列的Wold分解出发，推导出预测误差方差J(m) = σ²∑ψ_j²，并证明J(m+1) = J(m) + σ²ψ_m² ≥ 0，得到J(m)关于m单调非递减的结论，且指出在实际常见情况下常称为单调递增函数。这与标准答案中J(m)随m增加而单调递增的核心结论完全一致，证明思路和表达式本质相同，仅是措辞上区分了严格与非严格递增，未改变结论的正确性。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5",
+          "scoring_mode": "llm_judge",
+          "score": 0.75,
+          "dimension": "C",
+          "difficulty_level": "L4",
+          "reason": "模型回答的核心结论与标准答案一致，都证明了J(m)是单调递增（或非递减）函数。但模型回答在表述上存在差异：1) 使用了更一般的Wold分解和ψ_j系数，而标准答案使用了特定的f_i系数；2) 模型回答强调了“单调非递减”并补充了“通常严格递增”的说明，而标准答案直接得出“单调递增”。这些差异属于表述和严谨性上的细微差别，不影响核心结论的正确性。",
+          "issues": [
+            "使用了不同的符号表示（ψ_j vs f_i）",
+            "对单调性的表述略有不同（非递减 vs 递增）",
+            "补充了关于严格递增的额外说明"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.75,
+          "dimension": "C",
+          "difficulty_level": "L4",
+          "reason": "模型回答正确推导了预测误差方差J(m)的表达式，并证明了J(m+1) - J(m) = σ² ψ_m² ≥ 0，因此J(m)是预测步数m的单调非递减函数，核心结论与标准答案一致。但模型回答在结论表述上使用了'单调非递减'而非标准答案的'单调递增'，并补充了严格递增的条件，这属于少量表述差异。",
+          "issues": [
+            "结论表述略有差异：模型回答称'单调非递减函数'，而标准答案直接称'单调递增函数'。"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "mimo-v2-flash",
+          "scoring_mode": "llm_judge",
+          "score": 0.75,
+          "dimension": "C",
+          "difficulty_level": "L4",
+          "reason": "模型回答的核心结论与标准答案一致，即预测误差方差J(m)是预测步数m的单调递增函数。模型通过Wold分解和线性预测推导出J(m)的表达式，并证明了J(m+1) - J(m) = σ²ψₘ² ≥ 0，从而得出单调性。然而，模型回答中使用了ψ_j符号，而标准答案使用f_j，这属于符号差异，不影响结论。此外，模型回答额外讨论了“通常ψₘ² > 0”和“单调非递减”等表述，虽与标准答案的“单调递增”略有差异，但整体结论一致。",
+          "issues": [
+            "符号差异（ψ_j vs f_j）",
+            "额外讨论了单调非递减与严格递增的条件，略有表述差异"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2-pro",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "C",
+          "difficulty_level": "L4",
+          "reason": "模型回答正确推导了预测误差方差J(m)的表达式，并通过比较J(m+1)和J(m)证明了J(m+1) - J(m) = σ² ψ_m² ≥ 0，因此J(m)是预测步数m的单调非递减函数。这与标准答案的核心结论完全一致，尽管符号（ψ_j vs f_i）和表述细节略有差异，但证明逻辑和结论相同。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.5-highspeed",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "C",
+          "difficulty_level": "L4",
+          "reason": "模型回答完整证明了预测误差方差J(m)是预测步数m的单调递增函数。核心推导过程与标准答案完全一致：都从Wold分解出发，正确推导出预测误差的表达式，通过计算方差得到J(m)的通式，并利用递推关系J(m+1) = J(m) + σ²ψ_m²证明单调性。两者的唯一差异仅在于符号表示（标准答案用f_j，模型回答用ψ_j），这是等价的表示方法，不影响结论的正确性。模型回答甚至更严谨地指出了'单调非递减'与'严格递增'的区别。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.7_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.7",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "C",
+          "difficulty_level": "L4",
+          "reason": "模型回答给出了完整的证明过程，与标准答案的核心逻辑完全一致。两者都从分解表达式出发，推导出预测误差方差J(m)的递推关系J(m+1) = J(m) + σ²·ψ_m²（或f_m²），并据此证明J(m)关于m单调递增。符号使用（ψ_j vs f_j）只是记号差异，本质相同。模型回答的论证更加严谨，明确区分了'单调非递减'与'严格递增'两种情况，并给出了当ψ_m² > 0时严格递增的补充说明。",
+          "issues": []
+        }
+      ]
+    },
+    {
+      "sample_id": "CS-EVO-00340",
+      "dimension": "C",
+      "difficulty_level": "L2",
+      "judge_count": 14,
+      "score_mean": 0.3607,
+      "score_std": 0.2929,
+      "score_min": 0.0,
+      "score_max": 0.85,
+      "bucket_counts": {
+        "high": 3,
+        "low": 8,
+        "medium": 3
+      },
+      "majority_bucket": "low",
+      "bucket_agreement_rate": 0.5714,
+      "dimension_label_agreement_rate": 1.0,
+      "source_support_proxy": {
+        "source_ref_present": true,
+        "reasoning_steps_present": true,
+        "note": "This proxy checks dataset traceability fields only; it does not re-read source documents."
+      },
+      "judges": [
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-flash",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "模型回答未正确识别Kessler-Sørensen噪声模型的标准形式，而是猜测了错误的模型形式，没有给出参数b3与b2的关系，也没有完成证明，回答与标准答案完全不符。",
+          "issues": [
+            "模型回答假设的模型形式与标准答案中的模型不一致，导致推理偏离",
+            "未给出参数b3与b2的正确关系",
+            "没有完成强解保持在区间(-1,1)内的证明"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "模型回答错误地假定了模型形式，没有给出标准答案中的正确模型、证明和参数关系，回答不完整且与标准答案核心结论不一致。",
+          "issues": [
+            "错误地假设模型为dX_t = b1(b2-X_t)dt + b3√(1-X_t^2)dW_t，而标准答案为dZ'_t = -(b3/(πb1)) tan(π/2·Z'_t) dt + (2/(π√(b1(b2+1)))) dB_t",
+            "未给出参数关系b3=(2b2+1)/(b2+1)",
+            "未完成证明",
+            "结论完全错误"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/gemma3_4b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "gemma3:4b",
+          "scoring_mode": "sample",
+          "score": 0.85,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "答案基本正确，包含了证明过程和参数关系，但对模型本身的描述略显冗余，可以更精炼。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/llama3.2_3b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "llama3.2:3b",
+          "scoring_mode": "sample",
+          "score": 0.8,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "答案正确，提到了Kessler-Sørensen噪声模型的参数满足b1>0且b2≥0，证明其强解始终保持在区间(-1,1)内，并给出参数b3与b2的关系。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5",
+          "scoring_mode": "llm_judge",
+          "score": 0.25,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "模型回答试图分析Kessler-Sørensen噪声模型，但未能正确识别标准答案中的具体SDE形式和参数关系。模型回答中提出的SDE形式（dX_t = b1 (b2 - X_t) dt + b3 √(1 - X_t^2) dW_t）与标准答案中的形式（dZ'_t = -(b3/(πb1)) tan(π/2·Z'_t) dt + (2/(π√(b1(b2+1)))) dB_t）不一致，且未给出正确的参数关系b3 = (2b2 + 1)/(b2 + 1)。模型回答虽然讨论了边界行为和Feller条件，但未得出标准答案中的具体结论，整体不完整。",
+          "issues": [
+            "SDE形式与标准答案不一致",
+            "未给出正确的参数关系b3 = (2b2 + 1)/(b2 + 1)",
+            "证明过程未基于标准答案中的漂移项设计（tan函数）",
+            "结论未明确指出强解始终保持在(-1,1)内"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.25,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "模型回答尝试分析Kessler-Sørensen噪声模型，但基于错误的模型形式（猜测为Jacobi扩散模型），未识别标准答案中的具体SDE形式。回答讨论了边界分类和Feller条件，但未得出标准答案中的参数关系b3 = (2b2 + 1)/(b2 + 1)，也未完成强解保持在(-1,1)内的证明。整体不完整，仅有部分正确元素。",
+          "issues": [
+            "模型形式错误，未采用标准答案中的SDE",
+            "未给出参数b3与b2的正确关系",
+            "证明不完整，未明确结论"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "mimo-v2-flash",
+          "scoring_mode": "llm_judge",
+          "score": 0.5,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "模型回答部分正确，但存在明显遗漏和错误。标准答案明确给出了参数关系 b3 = (2b2 + 1)/(b2 + 1)，而模型回答未给出此关系，反而在推导中错误地假设了扩散项形式（如 b3√(1-X_t^2)），这与标准答案中的扩散项 (2/(π√(b1(b2+1)))) dB_t 不符。模型回答尝试通过边界分类分析证明解保持在 (-1,1) 内，但未完成证明，且未正确引用标准答案中的关键漂移项设计（tan(π/2·Z'_t)）。核心结论（解保持在区间内）部分正确，但参数关系缺失，证明不完整。",
+          "issues": [
+            "未给出参数 b3 与 b2 的关系（标准答案为 b3 = (2b2 + 1)/(b2 + 1)）",
+            "扩散项假设错误（模型假设 b3√(1-X_t^2)，标准答案为 (2/(π√(b1(b2+1)))) dB_t）",
+            "证明不完整，未完成边界分类分析，且未引用标准答案中的漂移项设计"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.25,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "模型回答尝试处理Kessler-Sørensen模型，但使用了不正确的SDE形式（dX_t = b1 (b2 - X_t) dt + b3 √(1 - X_t^2) dW_t），而标准答案中的SDE为dZ'_t = -(b3/(πb1)) tan(π/2·Z'_t) dt + (2/(π√(b1(b2+1)))) dB_t。模型回答未证明强解保持在(-1,1)内的核心结论，也未给出参数b3与b2的关系（b3 = (2b2 + 1)/(b2 + 1)）。虽然讨论了边界分类的条件，但整体不完整且偏离标准答案。",
+          "issues": [
+            "SDE形式错误",
+            "未提供参数关系",
+            "未证明强解保持在区间内"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.5-highspeed",
+          "scoring_mode": "llm_judge",
+          "score": 0.5,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "模型回答对Kessler-Sørensen噪声模型进行了边界行为分析，通过尺度函数和CIR过程类比讨论了边界不可达的条件，但未给出标准答案中的具体参数关系b3与b2的关系。标准答案明确给出参数关系b3=(2b2+1)/(b2+1)，而模型回答仅停留在一般性边界分析，缺少关键的参数关系推导。",
+          "issues": [
+            "缺少参数b3与b2的具体关系式",
+            "边界分析过于一般化，未针对具体参数关系进行讨论",
+            "未明确给出强解保持在(-1,1)内的充分条件与参数关系的联系"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.7_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.7",
+          "scoring_mode": "llm_judge",
+          "score": 0.75,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "模型回答对Kessler-Sørensen噪声模型的边界行为分析基本正确，推导了保证边界不可达的条件b1(1-b2) > b3^2和b1(b2+1) > b3^2，并尝试给出参数关系，但未准确推导出标准答案中的简洁关系b3 = (2b2+1)/(b2+1)。同时，模型回答中的SDE形式与标准答案不同，标准答案给出了特定的变换形式，而非常见的平方根形式。整体上核心结论一致，但存在明显遗漏。",
+          "issues": [
+            "参数关系推导不完整，未得到b3 = (2b2+1)/(b2+1)的简洁形式",
+            "SDE形式与标准答案不一致，标准答案给出了特定的反正切形式",
+            "模型回答中的边界条件分析正确，但未与标准答案的参数关系结合"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_2b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:2b",
+          "scoring_mode": "sample",
+          "score": 0.6,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "模型答案正确识别了模型形式并给出了关键参数关系，但推导过程缺失严谨的数学证明，仅凭直觉描述边界行为，缺乏对强解存在性与唯一性的严格论证。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_35b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:35b",
+          "scoring_mode": "sample",
+          "score": 0.2,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "模型未能正确识别并写出Kessler-Sørensen噪声模型的具体SDE形式，导致无法完成证明及参数关系推导，且回答在关键处中断。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_4b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:4b",
+          "scoring_mode": "sample",
+          "score": 0.1,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "模型答案未能识别题目中的具体 SDE 形式，错误地假设了模型结构，且未给出正确的参数关系式。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_9b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:9b",
+          "scoring_mode": "sample",
+          "score": 0.0,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "模型答案未能正确识别Kessler-Sørensen噪声模型的具体形式，且给出的SDE方程与题目描述的漂移项结构（涉及tan函数）完全不符，导致无法进行后续证明或推导。",
+          "issues": []
+        }
+      ]
+    },
+    {
+      "sample_id": "CS-EVO-00838",
+      "dimension": "C",
+      "difficulty_level": "L3",
+      "judge_count": 14,
+      "score_mean": 0.4536,
+      "score_std": 0.2709,
+      "score_min": 0.0,
+      "score_max": 0.85,
+      "bucket_counts": {
+        "high": 3,
+        "low": 4,
+        "medium": 7
+      },
+      "majority_bucket": "medium",
+      "bucket_agreement_rate": 0.5,
+      "dimension_label_agreement_rate": 1.0,
+      "source_support_proxy": {
+        "source_ref_present": true,
+        "reasoning_steps_present": true,
+        "note": "This proxy checks dataset traceability fields only; it does not re-read source documents."
+      },
+      "judges": [
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-flash",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "C",
+          "difficulty_level": "L3",
+          "reason": "模型回答与标准答案结论完全相反，标准答案明确指出性质不成立，而模型回答声称仍然成立，因此模型回答错误。",
+          "issues": [
+            "模型回答错误地认为时变参数不破坏局部鞅性质，忽略了强度测度变化导致补偿泊松随机测度失效的关键点。"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "C",
+          "difficulty_level": "L3",
+          "reason": "模型回答的结论为‘不一定仍然成立’，认为在确定性且可积条件下原期望性质可能依然成立，这与标准答案明确指出的‘不成立’核心结论矛盾。标准答案强调当 q_{ij} 变为 q_{ij}(t) 时，补偿泊松随机测度的强度测度被改变，局部鞅性质根本不再成立，因此期望性质必然失效，而不是有条件地成立。",
+          "issues": [
+            "结论与标准答案完全相反",
+            "未能识别强度测度改变导致 ν 不再是补偿泊松随机测度这一关键原因",
+            "错误地认为在确定性时变函数下局部鞅性质仍可能保持"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/gemma3_4b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "gemma3:4b",
+          "scoring_mode": "sample",
+          "score": 0.85,
+          "dimension": "C",
+          "difficulty_level": "L3",
+          "reason": "模型答案正确地指出了改变区间长度导致过程失去时齐性，从而影响了原结论的成立，但缺乏对关键补偿泊松测度的详细解释和证明，因此评分略低。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/llama3.2_3b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "llama3.2:3b",
+          "scoring_mode": "sample",
+          "score": 0.0,
+          "dimension": "C",
+          "difficulty_level": "L3",
+          "reason": "parse_failed",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5",
+          "scoring_mode": "llm_judge",
+          "score": 0.75,
+          "dimension": "C",
+          "difficulty_level": "L3",
+          "reason": "模型回答的核心结论与标准答案一致，即原结论不一定成立，但模型回答的表述存在差异和过度复杂化。标准答案明确指出原结论不成立，原因是强度测度改变导致补偿泊松随机测度性质失效。模型回答则认为“不一定成立”，并讨论了多种可能性（如确定性函数可能仍成立），这与标准答案的明确否定有差异。模型回答正确指出了时变性破坏了时齐性和补偿器形式，但引入了额外的、非必要的讨论（如强马尔可夫性、一致可积性），这些在标准答案中未提及，且可能偏离核心原因。",
+          "issues": [
+            "模型回答的结论是“不一定成立”，而标准答案是“不成立”，存在表述差异。",
+            "模型回答过度讨论了强马尔可夫性、一致可积性等细节，这些在标准答案中未涉及，可能分散对核心原因（强度测度改变）的注意力。"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.5,
+          "dimension": "C",
+          "difficulty_level": "L3",
+          "reason": "模型回答正确识别了 q_{ij}(t) 的变化会影响原结论，并讨论了补偿器形式、强马尔可夫性等因素，但未准确捕捉标准答案的核心点：变化导致 h(i, z) 定义改变，从而改变泊松随机测度的强度测度，使 ν(dt, dz) 不再是补偿泊松随机测度，因此原结论不成立。模型回答的结论为“不一定成立”，与标准答案的“不成立”不一致，且分析中遗漏了强度测度改变的关键机制。",
+          "issues": [
+            "遗漏了强度测度改变导致补偿泊松随机测度性质失效的关键点",
+            "结论不明确，与标准答案的直接否定不一致"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "mimo-v2-flash",
+          "scoring_mode": "llm_judge",
+          "score": 0.5,
+          "dimension": "C",
+          "difficulty_level": "L3",
+          "reason": "模型回答承认了原结论可能不成立，并指出了时齐性变化的影响，但整体分析过于宽泛和不确定，未能明确对应标准答案的核心结论（即不成立）。标准答案明确指出由于补偿泊松随机测度的强度测度改变，导致局部鞅性质破坏，期望性质不成立。模型回答则给出了多种可能性（如可能成立或不成立），缺乏明确的结论，且未直接引用标准答案中的关键概念（如补偿泊松随机测度、强度测度变化）。",
+          "issues": [
+            "结论不明确，未直接断言不成立",
+            "未准确引用标准答案中的核心概念（如补偿泊松随机测度）",
+            "分析过于宽泛，存在多种假设情况，而非聚焦于标准答案的确定性结论"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.75,
+          "dimension": "C",
+          "difficulty_level": "L3",
+          "reason": "模型回答正确识别了条件变化对原结论的影响，指出时齐性丧失和补偿器形式变化可能导致期望性质不成立，与标准答案的否定结论基本一致。但模型回答的结论表述为'不一定成立'，而非标准答案的直接'不成立'，且未明确提及'补偿泊松随机测度'等关键术语，存在少量表述差异。",
+          "issues": [
+            "结论表述为'不一定成立'而非直接'不成立'，与标准答案的绝对否定有细微差异。",
+            "未明确引用标准答案中的'补偿泊松随机测度'概念，理由侧重时齐性和强马尔可夫性，而非强度测度改变。"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.5-highspeed",
+          "scoring_mode": "llm_judge",
+          "score": 0.5,
+          "dimension": "C",
+          "difficulty_level": "L3",
+          "reason": "模型回答承认了原结论可能失效（在某些情况下），但结论不够明确坚定，表述为‘不一定成立’、‘可能仍然成立’、‘可能失效’等模糊措辞。标准答案明确指出‘不成立’，立场坚定。在核心机制上，标准答案明确指出q_ij(t)导致h(i,z)定义变化，进而改变℘(dt,dz)的强度测度，使其不再是dt⊗m(dz)，ν不再是补偿泊松随机测度；而模型回答虽提及补偿器形式变化、强马尔可夫性失效、一致可积性等问题，但未能明确指出补偿泊松随机测度结构被破坏这一本质原因，且分析过于分散。",
+          "issues": [
+            "结论不够明确坚定，使用了'不一定'、'可能'等模糊表述",
+            "未明确指出补偿泊松随机测度结构被破坏这一核心机制",
+            "分析过于分散，未抓住本质原因",
+            "错误地认为在确定性局部可积情况下可能仍然成立"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.7_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.7",
+          "scoring_mode": "llm_judge",
+          "score": 0.5,
+          "dimension": "C",
+          "difficulty_level": "L3",
+          "reason": "模型回答对结论的判断部分正确（认为不一定成立），也提及了补偿器形式变化、强马尔可夫性等可能影响因素。但回答缺乏明确的核心判断，且理由不充分：(1) 未能指出原结论成立的根本原因是 ν(dt, dz) = ℘(dt, dz) - dt⊗m(dz) 作为补偿泊松随机测度的结构；(2) 没有明确说明 q_{ij}(t) 的变化如何破坏 ℘(dt, dz) 的强度测度使其不再是 dt⊗m(dz)；(3) 回答中'不一定成立'的表述过于模糊，且花了大量篇幅讨论可能成立的条件，而没有给出确定性结论；(4) 没有将局部鞅期望性质与补偿泊松随机测度的结构性破坏直接联系起",
+          "issues": [
+            "核心判断模糊：回答中'不一定成立'的表述过于犹豫，未给出确定性判断",
+            "未明确指出原结论依赖的关键数学结构——补偿泊松随机测度的强度测度",
+            "未能说明 q_{ij}(t) 如何具体破坏 ℘(dt, dz) 的强度测度结构",
+            "花费过多篇幅讨论可能成立的条件，偏离了标准答案的确定性否定结论",
+            "强马尔可夫性的讨论是次要的，关键在于随机测度的结构性变化"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_2b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:2b",
+          "scoring_mode": "sample",
+          "score": 0.5,
+          "dimension": "C",
+          "difficulty_level": "L3",
+          "reason": "模型答案指出了时齐性变化导致结论不成立，但未深入分析补偿泊松随机测度强度测度改变这一核心机制，与参考答案的关键逻辑缺失。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_35b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:35b",
+          "scoring_mode": "sample",
+          "score": 0.3,
+          "dimension": "C",
+          "difficulty_level": "L3",
+          "reason": "模型仅分析了条件变化对过程时齐性的影响，但未明确指出核心数学机制（补偿泊松随机测度的强度测度改变导致其不再是局部鞅），因此未能完整回答结论是否成立及其根本理由。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_4b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:4b",
+          "scoring_mode": "sample",
+          "score": 0.6,
+          "dimension": "C",
+          "difficulty_level": "L3",
+          "reason": "模型正确指出了非时齐性对鞅性质的影响，但未能像标准答案那样具体阐述补偿泊松随机测度强度改变导致结论失效的数学机制。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_9b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:9b",
+          "scoring_mode": "sample",
+          "score": 0.6,
+          "dimension": "C",
+          "difficulty_level": "L3",
+          "reason": "模型答案正确指出了时齐性被破坏导致结论不成立，但缺乏对补偿测度强度变化这一核心数学理由的阐述，且未明确给出最终结论。",
+          "issues": []
+        }
+      ]
+    },
+    {
+      "sample_id": "CS-EVO-00671",
+      "dimension": "C",
+      "difficulty_level": "L4",
+      "judge_count": 8,
+      "score_mean": 0.625,
+      "score_std": 0.2795,
+      "score_min": 0.0,
+      "score_max": 1.0,
+      "bucket_counts": {
+        "high": 5,
+        "low": 1,
+        "medium": 2
+      },
+      "majority_bucket": "high",
+      "bucket_agreement_rate": 0.625,
+      "dimension_label_agreement_rate": 1.0,
+      "source_support_proxy": {
+        "source_ref_present": true,
+        "reasoning_steps_present": true,
+        "note": "This proxy checks dataset traceability fields only; it does not re-read source documents."
+      },
+      "judges": [
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-flash",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "C",
+          "difficulty_level": "L4",
+          "reason": "模型回答没有给出明确结论，与标准答案'不保持'完全不一致，且回答不完整，无法判断其对应同一结论。",
+          "issues": [
+            "未判断原点是否仍然全局渐近稳定",
+            "回答不完整，结尾被截断"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.5,
+          "dimension": "C",
+          "difficulty_level": "L4",
+          "reason": "模型回答的最终结论（原点不再全局渐近稳定）与标准答案一致，并指出了导数变为负半定、不满足负定条件这一核心原因。但回答擅自假设了一个与例4.6不同的一维饱和系统进行推导，未基于原题的系统结构；此外回答在解释过程中被截断，内容不完整。因此整体部分正确，但存在明显问题。",
+          "issues": [
+            "回答中假设的系统（一维饱和非线性系统）与题目中例4.6的系统不符，未基于原系统导数表达式进行分析。",
+            "回答未完成，在提及LaSalle不变集原理时截断，缺乏完整解释。",
+            "未能准确指出不符合Barbashin-Krasovskii定理中\\(\\dot{V}\\)负定的条件，推理的严谨性不足。"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5",
+          "scoring_mode": "llm_judge",
+          "score": 0.75,
+          "dimension": "C",
+          "difficulty_level": "L4",
+          "reason": "模型回答的核心结论（原点不再全局渐近稳定）与标准答案一致，且正确指出了导数变为负半定而非负定。但模型回答在系统背景和具体推导上与标准答案存在差异：标准答案基于一个二维系统（涉及x1和x2），而模型回答假设为一个一维系统（饱和非线性控制），并给出了具体的李雅普诺夫函数和导数计算。虽然模型回答的推理逻辑正确，但系统假设与标准答案不完全对应，导致表述差异。",
+          "issues": [
+            "模型回答假设系统为一维饱和非线性控制，而标准答案涉及二维系统（x1和x2），系统背景不一致。",
+            "模型回答中李雅普诺夫函数和导数的具体形式与标准答案不同，但核心结论（导数负半定）一致。"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.75,
+          "dimension": "C",
+          "difficulty_level": "L4",
+          "reason": "模型回答正确判断了原点不全局渐近稳定的结论，并解释了导数负半定的原因，与标准答案核心结论一致。但模型回答未明确提及Barbashin-Krasovskii定理，且系统假设为一维饱和非线性系统，可能与标准答案的二维系统背景略有差异，属于表述上的少量差异。",
+          "issues": [
+            "模型回答假设了一维系统，而标准答案可能涉及更一般的系统（如二维系统）；未直接引用Barbashin-Krasovskii定理，而是使用了李雅普诺夫稳定性理论和LaSalle不变集原理进行解释。"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "mimo-v2-flash",
+          "scoring_mode": "llm_judge",
+          "score": 0.75,
+          "dimension": "C",
+          "difficulty_level": "L4",
+          "reason": "模型回答的核心结论与标准答案一致，均指出当k=1时原点不再全局渐近稳定，且原因在于李雅普诺夫函数导数变为负半定而非负定。然而，模型回答在系统假设（一维饱和非线性系统）和具体导数计算上与标准答案的通用形式存在差异，标准答案未指定具体系统，而模型回答假设了特定系统并进行了详细计算，这属于表述差异但不影响核心结论。",
+          "issues": [
+            "模型回答假设了具体的系统形式（一维饱和非线性系统），而标准答案未指定系统，仅基于一般参数变化进行分析，这可能导致与标准答案的表述不完全对应。",
+            "模型回答未明确引用Barbashin-Krasovskii定理，而是通过LaSalle不变集原理进行解释，但结论一致。"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2-pro",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "C",
+          "difficulty_level": "L4",
+          "reason": "模型回答正确判断了原点不再全局渐近稳定的结论，并准确解释了原因：当k=1时，李雅普诺夫函数导数负半定而非负定，不满足渐近稳定性的条件。这与标准答案的核心结论完全一致。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.5-highspeed",
+          "scoring_mode": "llm_judge",
+          "score": 0.75,
+          "dimension": "C",
+          "difficulty_level": "L4",
+          "reason": "模型回答的结论正确（k=1时原点不再全局渐近稳定），核心机制正确（导数从负定变为负半定），但表述形式与标准答案有差异。标准答案采用抽象符号(x_1, x_2)描述系统，强调Barbashin-Krasovskii定理中负定条件的重要性；模型回答则构造了一个具体的一维饱和系统形式，并引入了LaSalle不变集原理作为补充分析框架。两种表述本质上对应同一分析逻辑。",
+          "issues": [
+            "系统形式表述差异：标准答案采用抽象形式x_1, x_2，模型回答自行构造了一维饱和系统形式sat(x)",
+            "理论依据表述差异：标准答案强调Barbashin-Krasovskii定理中负定条件不满足，模型回答提及LaSalle不变集原理",
+            "模型回答在结尾处分析未完成（'检查集合'后中断），虽然前文已充分论证"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.7_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.7",
+          "scoring_mode": "llm_judge",
+          "score": 0.5,
+          "dimension": "C",
+          "difficulty_level": "L4",
+          "reason": "模型回答的最终结论正确（不全局渐近稳定），且正确识别了当k=1时导数负半定的性质。但存在两个关键问题：（1）模型回答自行构造了一个一维饱和系统作为例4.6的系统模型，而标准答案使用的是二维系统（涉及x_1, x_2, a, δ, h(x_1)等变量），系统模型不一致；（2）回答被截断，未能完成LaSalle不变集原理的后续分析来严格判断k=1时原点是否仍然稳定。这些差异表明回答者对原系统的理解与分析框架与标准答案存在偏差。",
+          "issues": [
+            "系统模型不匹配：自行构造了一维饱和系统而非原例4.6的二维系统",
+            "分析不完整：LaSalle不变集原理分析被截断",
+            "虽然结论正确但推导过程基于错误的系统模型",
+            "未明确指出需要用LaSalle定理重新分析而非直接套用Barbashin-Krasovskii定理"
+          ]
+        }
+      ]
+    },
+    {
+      "sample_id": "CS-EVO-00615",
+      "dimension": "C",
+      "difficulty_level": "L2",
+      "judge_count": 14,
+      "score_mean": 0.7464,
+      "score_std": 0.3009,
+      "score_min": 0.0,
+      "score_max": 1.0,
+      "bucket_counts": {
+        "high": 10,
+        "low": 2,
+        "medium": 2
+      },
+      "majority_bucket": "high",
+      "bucket_agreement_rate": 0.7143,
+      "dimension_label_agreement_rate": 1.0,
+      "source_support_proxy": {
+        "source_ref_present": true,
+        "reasoning_steps_present": true,
+        "note": "This proxy checks dataset traceability fields only; it does not re-read source documents."
+      },
+      "judges": [
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-flash",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "模型回答正确推导了K值相对误差的表达式，并给出了Δ=2 dB时的数值0.26，与标准答案一致。同时考虑了正负误差的情况，提供了-0.21的数值，虽然标准答案未明确给出，但符合问题中±Δ dB的表述，整体结论一致且更全面。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-pro",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "模型回答的推导过程与标准答案核心结论一致，相对误差表达式为10^{δ/20}-1，当δ=+Δ时即为10^{Δ/20}-1。计算得到的正误差相对误差0.26与标准答案完全吻合，且推导严谨，未出现错误。虽然模型额外讨论了负误差情况，但不影响与标准答案在核心结论上的一致性。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/gemma3_4b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "gemma3:4b",
+          "scoring_mode": "sample",
+          "score": 0.95,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "模型答案推导过程完整且正确，计算结果也准确，表达清晰。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/llama3.2_3b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "llama3.2:3b",
+          "scoring_mode": "sample",
+          "score": 0.9,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "正确的推导和计算，仅有一个小错误",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5",
+          "scoring_mode": "llm_judge",
+          "score": 0.75,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "模型回答的核心结论与标准答案一致，都推导出了相对误差表达式为10^{Δ/20}-1，并计算出Δ=2 dB时相对误差约为0.26。但模型回答额外考虑了误差方向（正负Δ），给出了两个可能的相对误差值（0.26和-0.21），而标准答案仅给出了正误差情况下的0.26。这属于表述差异，不影响核心结论的正确性。",
+          "issues": [
+            "模型回答引入了误差方向δ=±Δ，给出了两个相对误差值，而标准答案仅考虑正误差情况，表述上存在差异。"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.0,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "LLM parse error: {\"score\": 1.0, \"reason\": \"模型回答的核心结论与标准答案一致，正确推导了相对误差表达式为 \\(10^{\\delta/20} - 1\\)（其中 \\(\\delta = \\pm \\Delta\\)），并计算了当 \\(\\Delta = 2\\) dB 时的相对误差数值，正误差时为 0.26，负误差时为 -0.21，与标准答案的 0.26 相符。模型回答更全面地考虑了误差的正负方向，但核",
+          "issues": [
+            "judge parse failure"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "mimo-v2-flash",
+          "scoring_mode": "llm_judge",
+          "score": 0.75,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "模型回答的核心结论与标准答案一致，推导了相对误差表达式并计算了Δ=2 dB时的数值。但模型回答引入了δ（±Δ）的概念，区分了正负误差方向，而标准答案仅考虑了幅值偏高（Δ）的情况，导致模型回答在表述和数值结果上更详细，但与标准答案的单一结论（仅正误差）存在差异。",
+          "issues": [
+            "模型回答考虑了正负误差方向，而标准答案仅考虑幅值偏高（Δ）的情况，导致数值结果不完全一致。",
+            "模型回答的表达式为10^{δ/20} - 1（δ=±Δ），而标准答案为10^{Δ/20} - 1，存在表述差异。"
+          ]
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2-pro",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "模型回答正确推导了相对误差表达式10^{δ/20}-1（其中δ=±Δ），当δ=+Δ时与标准答案表达式10^{Δ/20}-1完全一致，且计算了Δ=2 dB时的数值0.26，核心结论完全一致。模型还考虑了误差方向，提供了更全面的分析，但未偏离标准答案的核心结论。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.5-highspeed",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "模型回答与标准答案的核心推导完全一致。两者都基于type 1系统的低频渐近线方程20log|G|=20logK-20logω建立了交点频率与K的关系，正确推导出相对误差表达式10^{Δ/20}-1，且在Δ=2 dB时都得到约0.26的数值结果。模型回答还额外讨论了负误差情况，虽然标准答案只给出了正误差的结果，但核心结论一致。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.7_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.7",
+          "scoring_mode": "llm_judge",
+          "score": 1.0,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "模型回答正确推导了K值相对误差的表达式为10^(δ/20)-1，其中δ=±Δ。当Δ=2 dB时，正误差情况下的相对误差为0.26，与标准答案完全一致。模型回答额外给出了负误差情况的分析，虽然标准答案只讨论了正误差情况，但这不构成错误，反而提供了更完整的分析。所有核心结论和数值计算都与标准答案一致。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_2b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:2b",
+          "scoring_mode": "sample",
+          "score": 0.8,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "模型正确复述了低频渐近线公式及交点频率定义，但推导过程中断且未完成相对误差公式的完整推导，导致最终计算步骤缺失。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_35b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:35b",
+          "scoring_mode": "sample",
+          "score": 0.3,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "模型回答在推导过程中突然中断，未给出完整的误差表达式推导及最终数值计算结果。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_4b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:4b",
+          "scoring_mode": "sample",
+          "score": 0.5,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "模型仅完成了推导过程的开头，未完整给出相对误差表达式及最终数值结果。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_9b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:9b",
+          "scoring_mode": "sample",
+          "score": 0.5,
+          "dimension": "C",
+          "difficulty_level": "L2",
+          "reason": "模型答案推导了前半部分公式但未能完成最终计算步骤，导致结果缺失。",
+          "issues": []
+        }
+      ]
+    },
+    {
+      "sample_id": "CS-EVO-00270",
+      "dimension": "D",
+      "difficulty_level": "L3",
+      "judge_count": 8,
+      "score_mean": 0.795,
+      "score_std": 0.1542,
+      "score_min": 0.42,
+      "score_max": 0.92,
+      "bucket_counts": {
+        "high": 7,
+        "medium": 1
+      },
+      "majority_bucket": "high",
+      "bucket_agreement_rate": 0.875,
+      "dimension_label_agreement_rate": 1.0,
+      "source_support_proxy": {
+        "source_ref_present": true,
+        "reasoning_steps_present": true,
+        "note": "This proxy checks dataset traceability fields only; it does not re-read source documents."
+      },
+      "judges": [
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-flash",
+          "scoring_mode": "llm_judge",
+          "score": 0.42,
+          "dimension": "D",
+          "difficulty_level": "L3",
+          "reason": "Rubric weighted score: feasibility: 0.6; method_choice: 0.6; completeness: 0.3; innovation: 0.0; clarity: 0.6",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.84,
+          "dimension": "D",
+          "difficulty_level": "L3",
+          "reason": "Rubric weighted score: feasibility: 1.0; method_choice: 1.0; completeness: 1.0; innovation: 0.6; clarity: 0.6",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5",
+          "scoring_mode": "llm_judge",
+          "score": 0.92,
+          "dimension": "D",
+          "difficulty_level": "L3",
+          "reason": "Rubric weighted score: feasibility: 1.0; method_choice: 1.0; completeness: 1.0; innovation: 0.6; clarity: 1.0",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.78,
+          "dimension": "D",
+          "difficulty_level": "L3",
+          "reason": "Rubric weighted score: feasibility: 1.0; method_choice: 1.0; completeness: 0.6; innovation: 0.3; clarity: 1.0",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "mimo-v2-flash",
+          "scoring_mode": "llm_judge",
+          "score": 0.92,
+          "dimension": "D",
+          "difficulty_level": "L3",
+          "reason": "Rubric weighted score: feasibility: 1.0; method_choice: 1.0; completeness: 1.0; innovation: 0.6; clarity: 1.0",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.78,
+          "dimension": "D",
+          "difficulty_level": "L3",
+          "reason": "Rubric weighted score: feasibility: 1.0; method_choice: 1.0; completeness: 0.6; innovation: 0.3; clarity: 1.0",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.5-highspeed",
+          "scoring_mode": "llm_judge",
+          "score": 0.78,
+          "dimension": "D",
+          "difficulty_level": "L3",
+          "reason": "Rubric weighted score: feasibility: 1.0; method_choice: 1.0; completeness: 0.6; innovation: 0.3; clarity: 1.0",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.7_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.7",
+          "scoring_mode": "llm_judge",
+          "score": 0.92,
+          "dimension": "D",
+          "difficulty_level": "L3",
+          "reason": "Rubric weighted score: feasibility: 1.0; method_choice: 1.0; completeness: 1.0; innovation: 0.6; clarity: 1.0",
+          "issues": []
+        }
+      ]
+    },
+    {
+      "sample_id": "CS-EVO-00918",
+      "dimension": "D",
+      "difficulty_level": "L4",
+      "judge_count": 14,
+      "score_mean": 0.5286,
+      "score_std": 0.2409,
+      "score_min": 0.1,
+      "score_max": 0.85,
+      "bucket_counts": {
+        "high": 3,
+        "low": 4,
+        "medium": 7
+      },
+      "majority_bucket": "medium",
+      "bucket_agreement_rate": 0.5,
+      "dimension_label_agreement_rate": 1.0,
+      "source_support_proxy": {
+        "source_ref_present": true,
+        "reasoning_steps_present": true,
+        "note": "This proxy checks dataset traceability fields only; it does not re-read source documents."
+      },
+      "judges": [
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-flash",
+          "scoring_mode": "llm_judge",
+          "score": 0.68,
+          "dimension": "D",
+          "difficulty_level": "L4",
+          "reason": "Rubric weighted score: feasibility: 0.6; method_choice: 0.6; completeness: 0.6; innovation: 1.0; clarity: 0.6",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.42,
+          "dimension": "D",
+          "difficulty_level": "L4",
+          "reason": "Rubric weighted score: feasibility: 0.3; method_choice: 0.6; completeness: 0.3; innovation: 0.6; clarity: 0.3",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/gemma3_4b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "gemma3:4b",
+          "scoring_mode": "sample",
+          "score": 0.85,
+          "dimension": "D",
+          "difficulty_level": "L4",
+          "reason": "答案部分正确地描述了卡尔曼滤波框架和 Riccati 方程的构建，并给出了观测器增益 L 的计算公式，体现了对问题的理解和建模方法的选择，但缺少对参数选择依据的讨论和稳态误差协方差约束验证的说明，因此评分略有欠缺。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/llama3.2_3b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "llama3.2:3b",
+          "scoring_mode": "sample",
+          "score": 0.8,
+          "dimension": "D",
+          "difficulty_level": "L4",
+          "reason": "方案基于教材内容可行，考虑了实际系统约束如噪声和计算复杂度。然而，缺少了详细的参数选择依据和验证步骤。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5",
+          "scoring_mode": "llm_judge",
+          "score": 0.48,
+          "dimension": "D",
+          "difficulty_level": "L4",
+          "reason": "Rubric weighted score: feasibility: 0.6; method_choice: 0.6; completeness: 0.3; innovation: 0.3; clarity: 0.6",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.6,
+          "dimension": "D",
+          "difficulty_level": "L4",
+          "reason": "Rubric weighted score: feasibility: 0.6; method_choice: 0.6; completeness: 0.6; innovation: 0.6; clarity: 0.6",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "mimo-v2-flash",
+          "scoring_mode": "llm_judge",
+          "score": 0.7,
+          "dimension": "D",
+          "difficulty_level": "L4",
+          "reason": "Rubric weighted score: feasibility: 0.6; method_choice: 1.0; completeness: 0.6; innovation: 0.3; clarity: 1.0",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.68,
+          "dimension": "D",
+          "difficulty_level": "L4",
+          "reason": "Rubric weighted score: feasibility: 0.6; method_choice: 0.6; completeness: 0.6; innovation: 0.6; clarity: 1.0",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.5-highspeed",
+          "scoring_mode": "llm_judge",
+          "score": 0.6,
+          "dimension": "D",
+          "difficulty_level": "L4",
+          "reason": "Rubric weighted score: feasibility: 0.6; method_choice: 0.6; completeness: 0.6; innovation: 0.6; clarity: 0.6",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.7_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.7",
+          "scoring_mode": "llm_judge",
+          "score": 0.24,
+          "dimension": "D",
+          "difficulty_level": "L4",
+          "reason": "Rubric weighted score: feasibility: 0.6; method_choice: 0.6; completeness: 0.0; innovation: 0.0; clarity: 0.0",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_2b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:2b",
+          "scoring_mode": "sample",
+          "score": 0.8,
+          "dimension": "D",
+          "difficulty_level": "L4",
+          "reason": "方案正确识别了状态估计问题与二次型代价函数的关联，并给出了基于卡尔曼滤波框架的完整设计步骤，但缺失了稳态协方差约束 P ≤ P_max 的具体求解方法（如求解 Riccati 方程或迭代算法）。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_35b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:35b",
+          "scoring_mode": "sample",
+          "score": 0.15,
+          "dimension": "D",
+          "difficulty_level": "L4",
+          "reason": "模型答案在关键处截断，未给出完整的观测器设计方案、参数选择依据及验证步骤，且未回应题目中关于稳态协方差约束 P ≤ P_max 的核心要求。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_4b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:4b",
+          "scoring_mode": "sample",
+          "score": 0.1,
+          "dimension": "D",
+          "difficulty_level": "L4",
+          "reason": "模型答案在输入处截断，未能提供完整的观测器设计方案、设计步骤及验证方法，导致无法评估其完整性和正确性。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_9b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:9b",
+          "scoring_mode": "sample",
+          "score": 0.3,
+          "dimension": "D",
+          "difficulty_level": "L4",
+          "reason": "模型答案内容严重截断，仅提供了问题描述的前半部分，完全缺失了建模方法、设计步骤、参数选择依据及验证方法等核心内容，无法进行有效评分。",
+          "issues": []
+        }
+      ]
+    },
+    {
+      "sample_id": "CS-EVO-00431",
+      "dimension": "D",
+      "difficulty_level": "L2",
+      "judge_count": 15,
+      "score_mean": 0.74,
+      "score_std": 0.2039,
+      "score_min": 0.35,
+      "score_max": 0.92,
+      "bucket_counts": {
+        "high": 11,
+        "low": 2,
+        "medium": 2
+      },
+      "majority_bucket": "high",
+      "bucket_agreement_rate": 0.7333,
+      "dimension_label_agreement_rate": 1.0,
+      "source_support_proxy": {
+        "source_ref_present": true,
+        "reasoning_steps_present": true,
+        "note": "This proxy checks dataset traceability fields only; it does not re-read source documents."
+      },
+      "judges": [
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-flash",
+          "scoring_mode": "llm_judge",
+          "score": 0.84,
+          "dimension": "D",
+          "difficulty_level": "L2",
+          "reason": "Rubric weighted score: feasibility: 1.0; method_choice: 1.0; completeness: 0.6; innovation: 0.6; clarity: 1.0",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.78,
+          "dimension": "D",
+          "difficulty_level": "L2",
+          "reason": "Rubric weighted score: feasibility: 1.0; method_choice: 1.0; completeness: 1.0; innovation: 0.3; clarity: 0.6",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/gemma3_4b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "gemma3:4b",
+          "scoring_mode": "sample",
+          "score": 0.9,
+          "dimension": "D",
+          "difficulty_level": "L2",
+          "reason": "模型构建思路清晰，明确了不确定性的表示方法，并使用了标准的线性状态空间模型，符合控制系统的建模要求。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/llama3.2_3b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "llama3.2:3b",
+          "scoring_mode": "sample",
+          "score": 0.8,
+          "dimension": "D",
+          "difficulty_level": "L2",
+          "reason": "方案在工程上可行，控制方法选择基于系统特性，且提供了详细的建模和参数设计步骤。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5",
+          "scoring_mode": "llm_judge",
+          "score": 0.84,
+          "dimension": "D",
+          "difficulty_level": "L2",
+          "reason": "Rubric weighted score: feasibility: 1.0; method_choice: 1.0; completeness: 1.0; innovation: 0.6; clarity: 0.6",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.92,
+          "dimension": "D",
+          "difficulty_level": "L2",
+          "reason": "Rubric weighted score: feasibility: 1.0; method_choice: 1.0; completeness: 1.0; innovation: 0.6; clarity: 1.0",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "mimo-v2-flash",
+          "scoring_mode": "llm_judge",
+          "score": 0.92,
+          "dimension": "D",
+          "difficulty_level": "L2",
+          "reason": "Rubric weighted score: feasibility: 1.0; method_choice: 1.0; completeness: 1.0; innovation: 0.6; clarity: 1.0",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.92,
+          "dimension": "D",
+          "difficulty_level": "L2",
+          "reason": "Rubric weighted score: feasibility: 1.0; method_choice: 1.0; completeness: 1.0; innovation: 0.6; clarity: 1.0",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.5-highspeed",
+          "scoring_mode": "llm_judge",
+          "score": 0.76,
+          "dimension": "D",
+          "difficulty_level": "L2",
+          "reason": "Rubric weighted score: feasibility: 1.0; method_choice: 1.0; completeness: 0.6; innovation: 0.6; clarity: 0.6",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.7_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.7",
+          "scoring_mode": "llm_judge",
+          "score": 0.92,
+          "dimension": "D",
+          "difficulty_level": "L2",
+          "reason": "Rubric weighted score: feasibility: 1.0; method_choice: 1.0; completeness: 1.0; innovation: 0.6; clarity: 1.0",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/ollama_35b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:35b",
+          "scoring_mode": "sample",
+          "score": 0.35,
+          "dimension": "D",
+          "difficulty_level": "L2",
+          "reason": "模型答案在关键的控制方法选择理由、参数设计步骤及验证指标部分严重缺失，仅提供了建模公式且未完整呈现，无法构成完整的控制方案设计。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_2b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:2b",
+          "scoring_mode": "sample",
+          "score": 0.8,
+          "dimension": "D",
+          "difficulty_level": "L2",
+          "reason": "模型答案完整覆盖了建模、方法选择、设计步骤和验证指标，逻辑清晰且符合题目要求，仅因未明确写出 LMI 的具体形式导致细节略逊于参考答案。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_35b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:35b",
+          "scoring_mode": "sample",
+          "score": 0.35,
+          "dimension": "D",
+          "difficulty_level": "L2",
+          "reason": "模型答案在关键的控制方法选择理由、参数设计步骤及验证指标部分严重缺失，且建模公式存在明显错误（将控制输入u误写为扰动w），导致方案不完整且不可行。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_4b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:4b",
+          "scoring_mode": "sample",
+          "score": 0.4,
+          "dimension": "D",
+          "difficulty_level": "L2",
+          "reason": "模型答案在建模和控制方法选择上基本正确，但参数设计步骤缺失且未给出完整的 LMI 推导过程，导致方案不完整。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_9b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:9b",
+          "scoring_mode": "sample",
+          "score": 0.6,
+          "dimension": "D",
+          "difficulty_level": "L2",
+          "reason": "模型答案在建模部分引入了多输入多输出及加权矩阵结构，体现了对干扰抑制指标γ的考虑，但在控制方法选择理由、具体参数设计步骤（如LMI推导过程）以及验证指标方面内容缺失，导致方案不完整。",
+          "issues": []
+        }
+      ]
+    },
+    {
+      "sample_id": "CS-EVO-00230",
+      "dimension": "D",
+      "difficulty_level": "L3",
+      "judge_count": 8,
+      "score_mean": 0.46,
+      "score_std": 0.1676,
+      "score_min": 0.24,
+      "score_max": 0.76,
+      "bucket_counts": {
+        "high": 1,
+        "low": 3,
+        "medium": 4
+      },
+      "majority_bucket": "medium",
+      "bucket_agreement_rate": 0.5,
+      "dimension_label_agreement_rate": 1.0,
+      "source_support_proxy": {
+        "source_ref_present": true,
+        "reasoning_steps_present": true,
+        "note": "This proxy checks dataset traceability fields only; it does not re-read source documents."
+      },
+      "judges": [
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-flash",
+          "scoring_mode": "llm_judge",
+          "score": 0.3,
+          "dimension": "D",
+          "difficulty_level": "L3",
+          "reason": "Rubric weighted score: feasibility: 0.6; method_choice: 0.3; completeness: 0.0; innovation: 0.6; clarity: 0.0",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.3,
+          "dimension": "D",
+          "difficulty_level": "L3",
+          "reason": "Rubric weighted score: feasibility: 0.3; method_choice: 0.3; completeness: 0.0; innovation: 0.6; clarity: 0.3",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5",
+          "scoring_mode": "llm_judge",
+          "score": 0.54,
+          "dimension": "D",
+          "difficulty_level": "L3",
+          "reason": "Rubric weighted score: feasibility: 0.6; method_choice: 0.6; completeness: 0.6; innovation: 0.3; clarity: 0.6",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.62,
+          "dimension": "D",
+          "difficulty_level": "L3",
+          "reason": "Rubric weighted score: feasibility: 0.6; method_choice: 0.6; completeness: 0.3; innovation: 1.0; clarity: 0.6",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "mimo-v2-flash",
+          "scoring_mode": "llm_judge",
+          "score": 0.76,
+          "dimension": "D",
+          "difficulty_level": "L3",
+          "reason": "Rubric weighted score: feasibility: 0.6; method_choice: 1.0; completeness: 0.6; innovation: 1.0; clarity: 0.6",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.42,
+          "dimension": "D",
+          "difficulty_level": "L3",
+          "reason": "Rubric weighted score: feasibility: 0.3; method_choice: 0.6; completeness: 0.3; innovation: 0.6; clarity: 0.3",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.5-highspeed",
+          "scoring_mode": "llm_judge",
+          "score": 0.5,
+          "dimension": "D",
+          "difficulty_level": "L3",
+          "reason": "Rubric weighted score: feasibility: 0.6; method_choice: 0.6; completeness: 0.3; innovation: 1.0; clarity: 0.0",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.7_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.7",
+          "scoring_mode": "llm_judge",
+          "score": 0.24,
+          "dimension": "D",
+          "difficulty_level": "L3",
+          "reason": "Rubric weighted score: feasibility: 0.3; method_choice: 0.3; completeness: 0.3; innovation: 0.0; clarity: 0.3",
+          "issues": []
+        }
+      ]
+    },
+    {
+      "sample_id": "CS-EVO-00450",
+      "dimension": "D",
+      "difficulty_level": "L4",
+      "judge_count": 8,
+      "score_mean": 0.585,
+      "score_std": 0.1264,
+      "score_min": 0.42,
+      "score_max": 0.84,
+      "bucket_counts": {
+        "high": 1,
+        "medium": 7
+      },
+      "majority_bucket": "medium",
+      "bucket_agreement_rate": 0.875,
+      "dimension_label_agreement_rate": 1.0,
+      "source_support_proxy": {
+        "source_ref_present": true,
+        "reasoning_steps_present": true,
+        "note": "This proxy checks dataset traceability fields only; it does not re-read source documents."
+      },
+      "judges": [
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-flash",
+          "scoring_mode": "llm_judge",
+          "score": 0.42,
+          "dimension": "D",
+          "difficulty_level": "L4",
+          "reason": "Rubric weighted score: feasibility: 0.6; method_choice: 0.0; completeness: 0.6; innovation: 0.3; clarity: 0.6",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.62,
+          "dimension": "D",
+          "difficulty_level": "L4",
+          "reason": "Rubric weighted score: feasibility: 0.6; method_choice: 1.0; completeness: 0.3; innovation: 0.6; clarity: 0.6",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5",
+          "scoring_mode": "llm_judge",
+          "score": 0.48,
+          "dimension": "D",
+          "difficulty_level": "L4",
+          "reason": "Rubric weighted score: feasibility: 0.6; method_choice: 0.6; completeness: 0.3; innovation: 0.3; clarity: 0.6",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.68,
+          "dimension": "D",
+          "difficulty_level": "L4",
+          "reason": "Rubric weighted score: feasibility: 1.0; method_choice: 0.6; completeness: 0.6; innovation: 0.6; clarity: 0.6",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "mimo-v2-flash",
+          "scoring_mode": "llm_judge",
+          "score": 0.62,
+          "dimension": "D",
+          "difficulty_level": "L4",
+          "reason": "Rubric weighted score: feasibility: 0.6; method_choice: 1.0; completeness: 0.6; innovation: 0.3; clarity: 0.6",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.84,
+          "dimension": "D",
+          "difficulty_level": "L4",
+          "reason": "Rubric weighted score: feasibility: 1.0; method_choice: 0.6; completeness: 0.6; innovation: 1.0; clarity: 1.0",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.5-highspeed",
+          "scoring_mode": "llm_judge",
+          "score": 0.54,
+          "dimension": "D",
+          "difficulty_level": "L4",
+          "reason": "Rubric weighted score: feasibility: 0.6; method_choice: 0.3; completeness: 0.6; innovation: 0.6; clarity: 0.6",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.7_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.7",
+          "scoring_mode": "llm_judge",
+          "score": 0.48,
+          "dimension": "D",
+          "difficulty_level": "L4",
+          "reason": "Rubric weighted score: feasibility: 0.6; method_choice: 0.3; completeness: 0.6; innovation: 0.3; clarity: 0.6",
+          "issues": []
+        }
+      ]
+    },
+    {
+      "sample_id": "CS-EVO-00356",
+      "dimension": "D",
+      "difficulty_level": "L2",
+      "judge_count": 14,
+      "score_mean": 0.5829,
+      "score_std": 0.2015,
+      "score_min": 0.15,
+      "score_max": 1.0,
+      "bucket_counts": {
+        "high": 2,
+        "low": 1,
+        "medium": 11
+      },
+      "majority_bucket": "medium",
+      "bucket_agreement_rate": 0.7857,
+      "dimension_label_agreement_rate": 1.0,
+      "source_support_proxy": {
+        "source_ref_present": true,
+        "reasoning_steps_present": true,
+        "note": "This proxy checks dataset traceability fields only; it does not re-read source documents."
+      },
+      "judges": [
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-flash",
+          "scoring_mode": "llm_judge",
+          "score": 0.56,
+          "dimension": "D",
+          "difficulty_level": "L2",
+          "reason": "Rubric weighted score: feasibility: 1.0; method_choice: 0.6; completeness: 0.6; innovation: 0.0; clarity: 0.6",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.58,
+          "dimension": "D",
+          "difficulty_level": "L2",
+          "reason": "Rubric weighted score: feasibility: 1.0; method_choice: 0.3; completeness: 1.0; innovation: 0.0; clarity: 0.6",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/gemma3_4b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "gemma3:4b",
+          "scoring_mode": "sample",
+          "score": 0.95,
+          "dimension": "D",
+          "difficulty_level": "L2",
+          "reason": "答案清晰地阐述了混合自动机建模的理由，并准确解释了其在CPS中的适用性，包括连续动力学和离散事件的建模能力，以及形式化验证的潜力。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/llama3.2_3b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "llama3.2:3b",
+          "scoring_mode": "sample",
+          "score": 1.0,
+          "dimension": "D",
+          "difficulty_level": "L2",
+          "reason": "基于混合自动机的CPS建模，考虑了连续动力学和离散动力学的统一形式化框架，能够精确刻画系统的混合动态，并支持形式化验证和硬件实现的实时性要求",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5",
+          "scoring_mode": "llm_judge",
+          "score": 0.48,
+          "dimension": "D",
+          "difficulty_level": "L2",
+          "reason": "Rubric weighted score: feasibility: 0.6; method_choice: 0.6; completeness: 0.6; innovation: 0.0; clarity: 0.6",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.56,
+          "dimension": "D",
+          "difficulty_level": "L2",
+          "reason": "Rubric weighted score: feasibility: 0.6; method_choice: 0.6; completeness: 0.6; innovation: 0.0; clarity: 1.0",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "mimo-v2-flash",
+          "scoring_mode": "llm_judge",
+          "score": 0.7,
+          "dimension": "D",
+          "difficulty_level": "L2",
+          "reason": "Rubric weighted score: feasibility: 0.6; method_choice: 1.0; completeness: 0.6; innovation: 0.3; clarity: 1.0",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.56,
+          "dimension": "D",
+          "difficulty_level": "L2",
+          "reason": "Rubric weighted score: feasibility: 0.6; method_choice: 0.6; completeness: 0.6; innovation: 0.0; clarity: 1.0",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.5-highspeed",
+          "scoring_mode": "llm_judge",
+          "score": 0.48,
+          "dimension": "D",
+          "difficulty_level": "L2",
+          "reason": "Rubric weighted score: feasibility: 0.6; method_choice: 0.6; completeness: 0.6; innovation: 0.0; clarity: 0.6",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.7_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.7",
+          "scoring_mode": "llm_judge",
+          "score": 0.54,
+          "dimension": "D",
+          "difficulty_level": "L2",
+          "reason": "Rubric weighted score: feasibility: 0.6; method_choice: 0.6; completeness: 0.6; innovation: 0.3; clarity: 0.6",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_2b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:2b",
+          "scoring_mode": "sample",
+          "score": 0.6,
+          "dimension": "D",
+          "difficulty_level": "L2",
+          "reason": "模型答案完整阐述了混合自动机的适用性，但内容截断导致后续关于控制器参数整定、验证指标体系及具体整定步骤的关键信息缺失，无法完全满足题目对“详细说明”的要求。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_35b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:35b",
+          "scoring_mode": "sample",
+          "score": 0.15,
+          "dimension": "D",
+          "difficulty_level": "L2",
+          "reason": "模型回答在关键部分（建模理由、架构设计、参数整定及验证指标）均严重截断，未能提供完整的控制方案，无法有效评估其可行性与正确性。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_4b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:4b",
+          "scoring_mode": "sample",
+          "score": 0.4,
+          "dimension": "D",
+          "difficulty_level": "L2",
+          "reason": "模型答案在建模理由部分存在严重截断，且未提供题目要求的控制器参数整定步骤和验证指标体系，导致关键内容缺失。",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/qwen3.5_9b_sample_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "qwen3.5:9b",
+          "scoring_mode": "sample",
+          "score": 0.6,
+          "dimension": "D",
+          "difficulty_level": "L2",
+          "reason": "模型选择理由充分且架构设计合理，但参数整定步骤缺失且验证指标体系未展开，导致方案不完整。",
+          "issues": []
+        }
+      ]
+    },
+    {
+      "sample_id": "CS-EVO-00190",
+      "dimension": "D",
+      "difficulty_level": "L3",
+      "judge_count": 8,
+      "score_mean": 0.375,
+      "score_std": 0.1636,
+      "score_min": 0.12,
+      "score_max": 0.54,
+      "bucket_counts": {
+        "low": 3,
+        "medium": 5
+      },
+      "majority_bucket": "medium",
+      "bucket_agreement_rate": 0.625,
+      "dimension_label_agreement_rate": 1.0,
+      "source_support_proxy": {
+        "source_ref_present": true,
+        "reasoning_steps_present": true,
+        "note": "This proxy checks dataset traceability fields only; it does not re-read source documents."
+      },
+      "judges": [
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-flash",
+          "scoring_mode": "llm_judge",
+          "score": 0.12,
+          "dimension": "D",
+          "difficulty_level": "L3",
+          "reason": "Rubric weighted score: feasibility: 0.0; method_choice: 0.3; completeness: 0.0; innovation: 0.0; clarity: 0.3",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/deepseek_v4_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "deepseek-v4-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.12,
+          "dimension": "D",
+          "difficulty_level": "L3",
+          "reason": "Rubric weighted score: feasibility: 0.3; method_choice: 0.3; completeness: 0.0; innovation: 0.0; clarity: 0.0",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5",
+          "scoring_mode": "llm_judge",
+          "score": 0.42,
+          "dimension": "D",
+          "difficulty_level": "L3",
+          "reason": "Rubric weighted score: feasibility: 0.6; method_choice: 0.6; completeness: 0.3; innovation: 0.3; clarity: 0.3",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2.5_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2.5-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.54,
+          "dimension": "D",
+          "difficulty_level": "L3",
+          "reason": "Rubric weighted score: feasibility: 0.6; method_choice: 0.6; completeness: 0.6; innovation: 0.3; clarity: 0.6",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_flash_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "mimo-v2-flash",
+          "scoring_mode": "llm_judge",
+          "score": 0.48,
+          "dimension": "D",
+          "difficulty_level": "L3",
+          "reason": "Rubric weighted score: feasibility: 0.6; method_choice: 0.6; completeness: 0.3; innovation: 0.3; clarity: 0.6",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/mimo_v2_pro_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiMo-v2-pro",
+          "scoring_mode": "llm_judge",
+          "score": 0.48,
+          "dimension": "D",
+          "difficulty_level": "L3",
+          "reason": "Rubric weighted score: feasibility: 0.6; method_choice: 0.3; completeness: 0.6; innovation: 0.3; clarity: 0.6",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.5_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.5-highspeed",
+          "scoring_mode": "llm_judge",
+          "score": 0.54,
+          "dimension": "D",
+          "difficulty_level": "L3",
+          "reason": "Rubric weighted score: feasibility: 0.6; method_choice: 0.6; completeness: 0.6; innovation: 0.3; clarity: 0.6",
+          "issues": []
+        },
+        {
+          "source_file": "benchmark/eval/results/judge_matrix/minimax_2.7_judge.json",
+          "model": "deepseek-v4-flash",
+          "judge_model": "MiniMax-M2.7",
+          "scoring_mode": "llm_judge",
+          "score": 0.3,
+          "dimension": "D",
+          "difficulty_level": "L3",
+          "reason": "Rubric weighted score: feasibility: 0.3; method_choice: 0.3; completeness: 0.3; innovation: 0.3; clarity: 0.3",
+          "issues": []
+        }
+      ]
+    }
+  ],
+  "boundary_notes": [
+    "This is a small-sample review consistency replay over existing judge_matrix artifacts; no new judge API or human review was performed.",
+    "Agreement is computed over score buckets high/medium/low for the same answer model where judge records are available.",
+    "source_support_proxy only checks source_ref and reasoning_steps presence in the dataset; it does not claim source-document rereading.",
+    "The 30-record sample is a review example and must not be extrapolated as a full-dataset manual acceptance rate."
+  ]
+}

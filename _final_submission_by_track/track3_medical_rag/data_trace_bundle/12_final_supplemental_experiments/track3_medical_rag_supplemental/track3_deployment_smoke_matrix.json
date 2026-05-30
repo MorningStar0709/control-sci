@@ -1,0 +1,155 @@
+{
+  "status": "available",
+  "generated_at": "2026-05-24T17:59:26+0800",
+  "task": "Track 3 Task 8 - Deployment Smoke Matrix and Final Packaging",
+  "evaluation_mode": "static_readiness_plus_light_cli_smoke",
+  "entrypoint_matrix": [
+    {
+      "entrypoint": "cli_track3",
+      "path": "controlsci/cli/track3.py",
+      "exists": true,
+      "size_bytes": 13867,
+      "purpose": "CLI track3 index/search/ask/eval commands"
+    },
+    {
+      "entrypoint": "cli_app",
+      "path": "controlsci/cli/app.py",
+      "exists": true,
+      "size_bytes": 2155,
+      "purpose": "Main CLI app entrypoint"
+    },
+    {
+      "entrypoint": "rest_api",
+      "path": "controlsci/api/medical_rag.py",
+      "exists": true,
+      "size_bytes": 71470,
+      "purpose": "Medical RAG FastAPI/functional API"
+    },
+    {
+      "entrypoint": "frontend_launcher",
+      "path": "_final_submission_by_track/track3_medical_rag/run/run_frontend.ps1",
+      "exists": true,
+      "size_bytes": 11036,
+      "purpose": "Frontend launcher in final bundle"
+    },
+    {
+      "entrypoint": "dockerfile",
+      "path": "_final_submission_by_track/track3_medical_rag/run/Dockerfile",
+      "exists": true,
+      "size_bytes": 879,
+      "purpose": "Container build file"
+    },
+    {
+      "entrypoint": "docker_compose",
+      "path": "_final_submission_by_track/track3_medical_rag/run/docker-compose.yml",
+      "exists": true,
+      "size_bytes": 1402,
+      "purpose": "Docker compose runtime"
+    },
+    {
+      "entrypoint": "npm_launcher",
+      "path": "_final_submission_by_track/track3_medical_rag/npm/controlmind/bin/controlmind.js",
+      "exists": true,
+      "size_bytes": 4096,
+      "purpose": "NPM CLI launcher"
+    },
+    {
+      "entrypoint": "rag_flywheel",
+      "path": "_final_submission_by_track/track3_medical_rag/run/run_task3_rag_flywheel.ps1",
+      "exists": true,
+      "size_bytes": 10435,
+      "purpose": "RAG flywheel reproducibility script"
+    },
+    {
+      "entrypoint": "demo_verify",
+      "path": "_final_submission_by_track/track3_medical_rag/run/verify_task3_demo.ps1",
+      "exists": true,
+      "size_bytes": 7227,
+      "purpose": "Demo verification script"
+    }
+  ],
+  "executed_smoke_checks": [
+    {
+      "name": "track3_eval_zh_ask_cli",
+      "status": "passed",
+      "command": [
+        "D:\\APP\\Develop\\miniconda3\\envs\\myenv\\python.exe",
+        "-m",
+        "controlsci.cli",
+        "track3",
+        "eval",
+        "--case-set",
+        "zh_ask",
+        "--json"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-05-24T17:59:26+0800",
+      "stdout_preview": "{\n  \"status\": \"ok\",\n  \"case_set\": \"zh_ask\",\n  \"generated_at\": \"2026-05-15T12:51:04+0800\",\n  \"k\": 3,\n  \"index\": \"index_bge_m3\",\n  \"summary\": {\n    \"cases\": 6,\n    \"hit_at_k\": 6,\n    \"hit_rate\": 1.0,\n    \"label_hit_at_k\": 6,\n    \"label_hit_rate\": 1.0,\n    \"mean_first_hit_rank\": 1.0,\n    \"mean_citation_coverage\": 1.0,\n    \"query_languages\": [\n      \"zh\"\n    ],\n    \"bridged_cases\": 6,\n    \"multi_query_cases\": 2\n  },\n  \"trace_jsonl\": \"benchmark\\\\eval\\\\results\\\\medical_rag_zh_ask_traces.jsonl\",\n  \"trace_stats\": {\n    \"available\": true,\n    \"records\": 6,\n    \"claim_count\": 25,\n    \"supported_claims\": 25,\n    \"mean_citation_coverage\": 1.0\n  },\n  \"source\": \"D:\\\\WorkPlace\\\\AI\\\\MinerU\\\\benchmark\\\\eval\\\\results\\\\medical_rag_eval_zh_ask.json\"\n}",
+      "stderr_preview": ""
+    },
+    {
+      "name": "track3_supplemental_status_cli",
+      "status": "passed",
+      "command": [
+        "D:\\APP\\Develop\\miniconda3\\envs\\myenv\\python.exe",
+        "-m",
+        "controlsci.cli",
+        "track3",
+        "supplemental",
+        "status",
+        "--json"
+      ],
+      "exit_code": 0,
+      "started_at": "2026-05-24T17:59:26+0800",
+      "stdout_preview": "{\n  \"status\": \"available\",\n  \"summary_path\": \"benchmark/eval/results/track3_supplemental_summary.json\",\n  \"summary_exists\": true,\n  \"generated_at\": \"2026-05-24T17:59:01+0800\",\n  \"task_count\": 7,\n  \"available_task_count\": 7,\n  \"registered_task_count\": 1,\n  \"registered_tasks\": [\n    {\n      \"name\": \"deployment-smoke\",\n      \"module\": \"benchmark.eval.track3_deployment_smoke_matrix\",\n      \"output\": \"benchmark/eval/results/track3_deployment_smoke_matrix.json\",\n      \"summary_output\": \"benchmark/eval/results/track3_supplemental_summary.json\"\n    }\n  ],\n  \"tasks\": [\n    {\n      \"name\": \"task1_pipeline_ablation\",\n      \"status\": \"available\",\n      \"exists\": true,\n      \"path\": \"benchmark/eval/results/track3_rag_pipeline_ablation.json\",\n      \"evaluation_mode\": \"existing_artifact_replay_no_new_api_call\"\n    },\n    {\n      \"name\": \"task2_safety_refusal_stress\",\n      \"status\": \"available\",\n      \"exists\": true,\n      \"path\": \"benchmark/eval/results/track3_safety_refusal_stress.json\",\n      \"eva",
+      "stderr_preview": ""
+    }
+  ],
+  "not_run_checks": [
+    {
+      "name": "track3_index_check_cli",
+      "status": "not_run_environment_dependency",
+      "command": [
+        "D:\\APP\\Develop\\miniconda3\\envs\\myenv\\python.exe",
+        "-m",
+        "controlsci.cli",
+        "track3",
+        "index",
+        "--check",
+        "--json"
+      ],
+      "reason": "Health check imports the full Medical RAG API stack and local index/model dependencies; Task 8 records static readiness instead of risking a long environment-bound check."
+    },
+    {
+      "name": "docker_compose_up",
+      "status": "not_run_environment_dependency",
+      "command": [
+        "docker",
+        "compose",
+        "up"
+      ],
+      "reason": "Docker daemon and service ports are environment dependent; compose files are included in static readiness matrix."
+    },
+    {
+      "name": "frontend_demo_launch",
+      "status": "not_run_environment_dependency",
+      "command": [
+        "powershell",
+        "-File",
+        "run/run_frontend.ps1"
+      ],
+      "reason": "Frontend smoke is a long-running service launch; static launcher presence is audited here."
+    }
+  ],
+  "summary": {
+    "entrypoint_count": 9,
+    "entrypoint_available_count": 9,
+    "executed_passed_count": 2,
+    "executed_failed_count": 0,
+    "not_run_count": 3
+  },
+  "boundary_notes": [
+    "This smoke matrix is a deployment readiness and light CLI verification record, not a full Docker/frontend runtime certification.",
+    "Environment-dependent checks are explicitly listed as not_run_environment_dependency rather than reported as success."
+  ]
+}

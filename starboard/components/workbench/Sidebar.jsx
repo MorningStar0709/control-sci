@@ -6,7 +6,7 @@ const navGroups = [
     title: '工作台',
     items: [
       { href: '/home', label: '总览', desc: '项目能力地图', icon: 'overview' },
-      { href: '/demo', label: '演示路径', desc: '顺序验证入口', icon: 'route' },
+      { href: '/demo', label: '工作台导览', desc: '三赛道导览', icon: 'route' },
     ],
   },
   {

@@ -1,11 +1,11 @@
-# ControlMind 云端 Demo 功能导览
+# ControlMind 云端 Demo 展示导览
 
 > 本文件定位：说明云端 Demo 如何承载三赛道公开体验、来源回放与边界展示。云端 Demo 是完整系统的公开交互切面，不替代本地私有执行、长任务复现和原始数据审计。
 
 ## 访问入口
 
-- 云端 Demo：https://demo.askiler.com/
-- HTTP 入口：http://demo.askiler.com/（会自动跳转到 HTTPS）
+- 云端 Demo：[https://demo.askiler.com/](https://demo.askiler.com/)
+- HTTP 入口：[http://demo.askiler.com/](http://demo.askiler.com/)（会自动跳转到 HTTPS）
 - 前端访问码：`ControlMind@2026`
 
 打开页面后，在顶部状态栏的“访问码”输入框填入上述访问码并点击“保存”。该访问码只用于解锁公开云端实时调用，不是服务器后台密码；公开页面仍只处理公开 PDF、公开 URL 或脱敏问题。
@@ -16,11 +16,11 @@
 
 云端 Demo 不是完整系统的替代品。它保留公开 PDF 解析、出题评分、任务规划和医学 RAG 来源回放；私有语料、索引、模型权重和批量实验留在本地完整系统内复核。
 
-## 演示路径页
+## 展示导览页
 
 打开 `/demo`。页面提供一条从总览、赛道样例到证据核验的推荐路径。
 
-“后端 API 闭环”和“验收核验”体现了云端切面的设计原则：能公开执行的动作保留实时入口，长任务展示已验证产物回放。云端页面与完整工作台保持同一套边界，不展示私有资产可用性，也不把回放伪装成实时全量执行。
+“公开 API 闭环”和“来源核验”体现了云端切面的设计原则：能公开执行的动作保留实时入口，长任务展示已验证产物回放。云端页面与完整工作台保持同一套边界，不展示私有资产可用性，也不把回放伪装成实时全量执行。
 
 ## 赛道一：公开论文解析、出题与评分
 
@@ -42,9 +42,11 @@
 
 ## 来源矩阵
 
-打开 `/evidence`。按三赛道查看报告、数据、API 和验收路径之间的对应关系。
+打开 `/evidence`。按三赛道查看报告、数据、API 和复核路径之间的对应关系。
 
-这一页面连接报告、数据、API 与验收路径。云端展示内容可以回到 DATA-TRACE、trace JSONL、CLI 和样例包。
+这一页面连接报告、数据、API 与复核路径。云端展示内容可以回到 DATA-TRACE、trace JSONL、CLI 和样例包。
+
+本地 Track1 页面中的“公开核验路径”不直接打开磁盘文档，而是统一收敛到来源矩阵。这样可以避免 demo 页面出现环境相关的失效链接，同时保持报告、DATA-TRACE、manifest 与 CLI 的复核入口一致。
 
 ## 云端状态与边界页
 
@@ -58,3 +60,11 @@
 - 患者材料、私有文档、chunk、索引、模型权重和批量实验日志不进入公网展示。
 - 医学回答仅作为文献证据综合与机制解释，不构成诊疗、处方或急诊建议。
 - trace 回放不是静态装饰页面，而是完整系统中已验证链路的公开镜像。
+
+## 边界复核证据
+
+| 页面 / 能力 | 复核证据 | 说明 |
+|:---|:---|:---|
+| `/track1` 最小复核工作台 | `run_reviewer_demo.ps1 -Track 1`、DATA-TRACE、来源矩阵 | 页面证明交互闭环可运行，完整排行榜、Judge 与训练实验不在 demo 复刻 |
+| `/track2` 协议回放 | `track2_fallback/`、`track2_agent_reliability/`、DATA-TRACE #169-173 | 页面展示 intent / DAG / resource policy；真实文件存在性由来源矩阵和 CLI 验证 |
+| `/track3` 安全边界 | `track3_refusal/SUMMARY.md`、`track3_medical_rag_supplemental/track3_privacy_boundary_audit.json`、DATA-TRACE #150/#185 | 证据不足或高风险个人诊疗请求返回拒答，不检索、不上传原始医疗上下文 |

@@ -17,4 +17,4 @@
 | 赛道二 Data Agent | [track2_agent/](track2_agent/) | [track2_agent/README.md](track2_agent/README.md) |
 | 赛道三 Medical RAG | [track3_medical_rag/](track3_medical_rag/) | [track3_medical_rag/README.md](track3_medical_rag/README.md) |
 
-三份演示 PPT 已放入各赛道包的 `bonus/` 目录。三赛道演示视频（各约 114 MB）因超过 GitHub 单文件 100 MB 限制未上传，仅 PPT 在仓库中。
+三份演示 PPT 已放入各赛道包的 `bonus/` 目录。本地最终提交包还包含三份演示视频（各约 114 MB）；若同步到 GitHub 仓库，视频可能因超过单文件 100 MB 限制而不随仓库上传，评审以本地最终提交包内容为准。

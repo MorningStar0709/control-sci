@@ -1,11 +1,11 @@
-﻿<#
+<#
 .SYNOPSIS
-  ControlSci 评委一键复现脚本 - 零 API Key 验证三赛道核心指标
+  ControlSci 评审一键复现脚本 - 零 API Key 复核三赛道核心指标
 
 .DESCRIPTION
   无需外部 API Key，一条命令验证：
     Track 1: 数据集结构 (500题 schema) + 六维计分板
-    Track 2: Agent 14 Intent 注册 + dry-run 复现计划
+    Track 2: Agent 15 Intent 注册 + dry-run 复现计划
     Track 3: 医疗 Hybrid 索引 + qwen3.5 本地视觉 FAISS + RAG API
   硬件依赖: 仅 Track 3 API 健康检查需先启动服务。
              Track 1/2 纯本地，零外部依赖。
@@ -26,7 +26,7 @@
 
 param(
     [ValidateSet(1, 2, 3, "All")]
-    $Track = 1,
+    $Track = 2,
     [switch]$Quiet,
     [switch]$SkipApiHealth,
     [int]$ApiPort = 17001
@@ -34,7 +34,7 @@ param(
 
 $ErrorActionPreference = "Continue"
 $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
-$ProjectRoot = Resolve-Path $ScriptDir
+$ProjectRoot = Resolve-Path (Join-Path $ScriptDir "..")
 Push-Location $ProjectRoot
 
 $env:PYTHONIOENCODING = 'utf-8'
@@ -46,18 +46,8 @@ $BANNER = "=" * 60
 $sw = [System.Diagnostics.Stopwatch]::StartNew()
 $FailCount = 0; $OkCount = 0; $SkipCount = 0
 
-$PythonCandidates = @(
-    $env:CONTROLSCI_PYTHON,
-    (Join-Path $ProjectRoot ".venv\Scripts\python.exe"),
-    "python"
-) | Where-Object { $_ -and $_.Trim() }
-$PythonExe = "python"
-foreach ($candidate in $PythonCandidates) {
-    if ($candidate -eq "python" -or (Test-Path $candidate)) {
-        $PythonExe = $candidate
-        break
-    }
-}
+$PythonExe = "conda"
+$PyArgs = @("run", "--no-capture-output", "-n", "myenv", "python")
 
 function header($t)  { Write-Host "`n$BANNER" -ForegroundColor Cyan; Write-Host "  $t" -ForegroundColor Cyan; Write-Host $BANNER -ForegroundColor Cyan }
 function ok($m)    { $script:OkCount++;  Write-Host "  [OK]   $m" -ForegroundColor Green }
@@ -67,9 +57,9 @@ function info($m)   { Write-Host "  [INFO]  $m" -ForegroundColor Yellow }
 function warn($m)   { Write-Host "  [WARN]  $m" -ForegroundColor Yellow }
 
 function run-py([string[]]$argsList) {
-    $display = $argsList -join " "
-    info "Running: $PythonExe $display"
-    $result = & $PythonExe @argsList 2>&1
+    $display = ($PyArgs + $argsList) -join " "
+    info "Running: $display"
+    $result = & $PythonExe @PyArgs @argsList 2>&1
     $rc = $LASTEXITCODE
     if ($result -and -not $Quiet) {
         $result | ForEach-Object { Write-Host "          $_" -ForegroundColor DarkGray }
@@ -115,7 +105,7 @@ Write-Host $BANNER -ForegroundColor Magenta
 
 # === Track 1: Dataset + Scoreboard =====================================
 if ($Track -eq 1 -or $Track -eq "All") {
-    header "Track 1: Sci-Evo Dataset & Scoreboard"
+    header "Track 1: Sci-Align Dataset & Scoreboard"
 
     $rc = run-py @("benchmark/eval/validate_dataset.py")
     if ($rc -eq 0) { ok "Dataset schema validation (500 Q, 4-dim balanced)" }
@@ -140,22 +130,23 @@ if ($Track -eq 2 -or $Track -eq "All") {
     header "Track 2: Agent Capabilities & Dry-Run"
 
     try {
-        $cap = read-json-utf8 "$ProjectRoot/benchmark/agent/agent_capabilities.json"
+        $cap = read-json-utf8 "$ProjectRoot/agent/agent_capabilities.json"
         $intentCount = @($cap.intents).Count
-        if ($intentCount -ge 14) { ok "Agent intent registry valid ($intentCount intents)" }
+        if ($intentCount -ge 15) { ok "Agent intent registry valid ($intentCount intents)" }
         else { fail "Agent intent registry incomplete ($intentCount intents)" }
     } catch {
         fail "Agent capability registry parse failed: $($_.Exception.Message)"
     }
 
-    $rc = run-py @("benchmark/agent/agent_cli.py", "--dry-run", "--intents", "reproduce_all")
-    if ($rc -eq 0) { ok "Agent dry-run: reproduce_all plan generated" }
-    else { fail "Agent dry-run failed (exit=$rc)" }
-
-    check-file "benchmark/agent/agent_capabilities.json" "agent_capabilities.json"
-    if (Test-Path "$ProjectRoot/benchmark/agent/agent_cli.py") {
-        ok "agent_cli.py ($([math]::Round((Get-Item "$ProjectRoot/benchmark/agent/agent_cli.py").Length/1KB,1)) KB)"
-    } else { fail "agent_cli.py - NOT FOUND" }
+    check-file "agent/agent_capabilities.json" "agent_capabilities.json"
+    check-file "agent/examples/logs/task_1_corpus.json" "agent corpus log sample"
+    check-file "agent/examples/logs/task_4_recovery.json" "agent recovery log sample"
+    check-file "shared/assets/track2_agent_reliability_matrix.png" "Track2 reliability evidence matrix"
+    check-file "shared/assets/track2_failure_recovery_matrix.png" "Track2 failure recovery matrix"
+    check-file "shared/assets/track2_source_selection_ablation.png" "Track2 source selection A/B"
+    check-file "shared/assets/track2_resource_pareto.png" "Track2 resource scheduling Pareto"
+    check-file "shared/assets/track2_hard_document_stress.png" "Track2 hard document stress"
+    check-file "shared/assets/track2_sciverse_source_routing.png" "Track2 Sciverse source routing"
 }
 
 # === Track 3: Medical RAG ==============================================

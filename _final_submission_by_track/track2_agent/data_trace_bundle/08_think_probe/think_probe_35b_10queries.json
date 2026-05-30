@@ -1,0 +1,186 @@
+{
+  "experiment": "think_probe_35b",
+  "hypothesis": "35B即使关了显式思考仍可能在隐层执行轻量推理→评分更严苛",
+  "design": "10 questions (5B + 5D, L2-L4), same judge prompt, think=true vs think=false",
+  "baseline_source": "benchmark/eval/results/judge_matrix/qwen3.5_35b_sample_judge.json",
+  "treatment_model": "qwen3.5:35b",
+  "think_mode": "true (default, no think=false in request)",
+  "num_predict": 16384,
+  "total_questions": 10,
+  "total_elapsed_s": 1476.8,
+  "summary": {
+    "delta_mean": 0.195,
+    "delta_min": -0.35,
+    "delta_max": 1.0,
+    "verdict": "假说成立：开思考后35B评分更宽松（Δ>0.05）"
+  },
+  "records": [
+    {
+      "score": 0.0,
+      "reason": "Parse failure: {\"score\": 0.75, \"reason\": \"模型回答在核心结论（基于 RLS 的自适应控制、遗憾上界 $\\tilde{O}(\\sqrt{T})$、Warm-up 机制）上与标准答案一致，且技术细节丰富。但在具体设计细节上存在差异：1. 建模假设更具体（线性参数化 vs 标准答案的一般非线性参数化）；2. 控制结构不同（OMPC vs 标准答案的 CE+Screening）；3. 在参数整",
+      "issues": [
+        "parse failure"
+      ],
+      "raw_content": "{\"score\": 0.75, \"reason\": \"模型回答在核心结论（基于 RLS 的自适应控制、遗憾上界 $\\tilde{O}(\\sqrt{T})$、Warm-up 机制）上与标准答案一致，且技术细节丰富。但在具体设计细节上存在差异：1. 建模假设更具体（线性参数化 vs 标准答案的一般非线性参数化）；2. 控制结构不同（OMPC vs 标准答案的 CE+Screening）；3. 在参数整定步骤中，未明确写出标准答案要求的 Warm-up 长度标度关系 $T_0=\\tilde{O}(\\sqrt{T})$，仅提及了 Warm-up 阶段。\", \"issues\": [\"建模假设差异：模型采用线性参数化形式，标准答案为一般非线性参数化形式\", \"控制结构差异：模型采用乐观 MPC，标准答案为确定性等价 + 筛选机制\", \"参数整定遗漏：未明确写出 Warm-up 长度 $T_0$ 与 $T$ 的标度关系公式\"]}",
+      "id": "CS-EVO-00817",
+      "dimension": "D",
+      "difficulty_level": "L3",
+      "think_mode": true,
+      "elapsed_s": 79.9,
+      "thinking_len": 13814,
+      "content_len": 413,
+      "baseline_score": 0.35,
+      "delta": -0.35
+    },
+    {
+      "score": 0.0,
+      "reason": "Empty content (thinking consumed all 16384 tokens, thinking_len=58370)",
+      "issues": [
+        "empty content - insufficient num_predict"
+      ],
+      "raw_thinking": "The user wants me to evaluate the reasoning steps provided by the model against the standard reasoning steps for a specific problem.\n\n**Problem Summary:**\nCalculate the upper bound of the gradient error norm $\\|\\nabla J(L) - \\nabla J_T(L)\\|$ given a specific inequality and parameters.\nParameters: $\\kappa_\\xi=1, C_L=2, \\kappa_\\omega=0.5, \\|L\\|=1, \\|H\\|=1, \\|H^T H\\|_*=1, \\rho=0.5, T=10$.\nInequalities to use: $(T+1)\\rho^{T+1} \\le \\sqrt{\\rho^{T+1}}/(1-\\rho)$ and $t\\rho^t \\le 1/(1-\\rho)$.\nTarget: Num",
+      "id": "CS-EVO-00362",
+      "dimension": "B",
+      "difficulty_level": "L3",
+      "think_mode": true,
+      "elapsed_s": 365.9,
+      "thinking_len": 58370,
+      "content_len": 0,
+      "baseline_score": 0.0,
+      "delta": 0.0
+    },
+    {
+      "score": 0.0,
+      "reason": "模型未能提供与标准答案一致的结论。模型明确指出缺少图6-118的具体内容，因此无法确定系统结构，并尝试了多种假设（如被控对象为1/(s(s+2))或1/s^2等），得出的结论多为“无实数解”或“不确定”，未能推导出标准答案中的具体设计参数（K≈3.333, Kv=1）。虽然模型展示了正确的控制理论公式（如特征方程、阻尼比、速度误差常数定义），但未能正确识别题目隐含的标准系统模型（前向传递函数K/(s(s+1))，反馈增益Kh=0.3），导致最终结果错误。",
+      "issues": [
+        "未能正确识别题目对应的标准系统模型结构",
+        "未能计算出正确的K值和Kv值",
+        "结论为不确定或无解，与标准答案的确定性结论不符"
+      ],
+      "id": "CS-EVO-00278",
+      "dimension": "D",
+      "difficulty_level": "L3",
+      "think_mode": true,
+      "elapsed_s": 84.2,
+      "thinking_len": 13091,
+      "content_len": 337,
+      "baseline_score": 0.0,
+      "delta": 0.0
+    },
+    {
+      "score": 0.0,
+      "reason": "Parse failure: Score: 0.25\n\nReason: The model correctly identifies the system dynamics but fails to derive the correct controller parameter ($k=3$) using the center manifold reduction. It incorrectly concludes the d",
+      "issues": [
+        "parse failure"
+      ],
+      "raw_content": "Score: 0.25\n\nReason: The model correctly identifies the system dynamics but fails to derive the correct controller parameter ($k=3$) using the center manifold reduction. It incorrectly concludes the design is impossible based on full system eigenvalues. It fails to provide the required design scheme, parameter calculation, and verification.\n\nIssues:\n1. Wrong conclusion: The model claims the design is impossible, whereas a stabilizing controller exists.\n2. Missing solution: No valid control law or parameter values are provided.\n3. Missing verification: No Lyapunov analysis or simulation results are presented to confirm stability.\n4. Misapplied method: The model relies on linearization (eigenvalues) which is inconclusive for this non-hyperbolic equilibrium, instead of using Center Manifold Theory as required.",
+      "id": "CS-EVO-00493",
+      "dimension": "D",
+      "difficulty_level": "L3",
+      "think_mode": true,
+      "elapsed_s": 264.6,
+      "thinking_len": 46784,
+      "content_len": 818,
+      "baseline_score": 0.0,
+      "delta": 0.0
+    },
+    {
+      "score": 1.0,
+      "reason": "模型回答完整复现了标准推理链的核心逻辑。首先正确识别了 LQR 问题的系统矩阵（A=0, B=1）和权重矩阵（Q=1, R=ρ）。其次，正确列出并求解了代数 Riccati 方程，得到 P=√ρ。接着，正确应用最优控制公式 u* = -R⁻¹BᵀPx，推导出 u* = -(1/√ρ)x。最后，将推导出的控制律与题目给定的形式 μ(x)=Kx 进行匹配，得出 K = -1/√ρ，并验证了稳定性条件 K<0。整个推理过程逻辑严密，结论正确，与标准答案一致。",
+      "issues": [],
+      "id": "CS-EVO-00026",
+      "dimension": "B",
+      "difficulty_level": "L2",
+      "think_mode": true,
+      "elapsed_s": 31.0,
+      "thinking_len": 3476,
+      "content_len": 270,
+      "baseline_score": 0.0,
+      "delta": 1.0
+    },
+    {
+      "score": 1.0,
+      "reason": "The model answer correctly addresses all four required sections (Modeling, Rationale, Parameters, Metrics). The core conclusion—designing a PPC-based robust controller—is consistent with the standard answer. The specific mathematical formulations (e.g., error transformation function, control law structure) differ slightly but represent valid alternative implementations of the same control theory principles. The parameter selection and verification metrics are comprehensive and align with the standard requirements.",
+      "issues": [
+        "Minor differences in specific mathematical formulations (e.g., Logarithmic vs Tangent transformation function)",
+        "Control law structure varies (Integral SMC vs SMC on transformed error)"
+      ],
+      "id": "CS-EVO-00067",
+      "dimension": "D",
+      "difficulty_level": "L4",
+      "think_mode": true,
+      "elapsed_s": 110.3,
+      "thinking_len": 18936,
+      "content_len": 752,
+      "baseline_score": 0.0,
+      "delta": 1.0
+    },
+    {
+      "score": 0.0,
+      "reason": "Parse failure: ### 评分\n\n**评分：0.5**\n\n### 理由\n\n1.  **推理内容正确性**：模型在思考过程中正确识别了推导所需的关键概率项（$\\pi_t, \\sigma^f, \\tilde{\\sigma}^l, \\phi, Q^f$）以及它们之间的独立性假设（信念独立性、动作独立性、观测模型、状态转移）。它正确地指出了 $z_t$ 的条件依赖问题，并给出了正确的逻辑方向。\n2.  **格式与完整性**",
+      "issues": [
+        "parse failure"
+      ],
+      "raw_content": "### 评分\n\n**评分：0.5**\n\n### 理由\n\n1.  **推理内容正确性**：模型在思考过程中正确识别了推导所需的关键概率项（$\\pi_t, \\sigma^f, \\tilde{\\sigma}^l, \\phi, Q^f$）以及它们之间的独立性假设（信念独立性、动作独立性、观测模型、状态转移）。它正确地指出了 $z_t$ 的条件依赖问题，并给出了正确的逻辑方向。\n2.  **格式与完整性**：模型未能按照指令要求“写出详细的推导步骤”。它输出的是思维链（Stream of Consciousness）或讨论，而非结构化的推导步骤（如 Step 1, Step 2...）。它花费了大量篇幅质疑题目中的符号定义（如 $\\tilde{\\sigma}^l$ 的含义），而没有直接给出推导过程。\n3.  **评分依据**：根据评分标准，模型虽然未能完成格式要求，但其核心推理逻辑（即推导所需的概率分解和独立性假设）是正确的，且涵盖了推导所需的关键点。这符合“至少有一半的推理步骤正确”的标准（即逻辑正确但格式/执行不完整），因此给予 0.5 分。如果模型完全未提及正确的概率项或独立性假设，则应给 0.2 分。",
+      "id": "CS-EVO-00115",
+      "dimension": "B",
+      "difficulty_level": "L3",
+      "think_mode": true,
+      "elapsed_s": 161.3,
+      "thinking_len": 27167,
+      "content_len": 507,
+      "baseline_score": 0.2,
+      "delta": -0.2
+    },
+    {
+      "score": 0.7,
+      "reason": "模型推理步骤完整，逻辑清晰，正确应用了 Bellman 方程和奖励函数定义。但在最终数值结论上，模型计算的 Q(0°, -) 为 817.1，与标准答案 827.1 不一致。经核查，模型计算正确（包含了即时奖励 -10），而标准答案似乎忽略了该即时奖励项。尽管模型逻辑优于标准答案，但相对于给定的标准推理链，结论存在偏差。",
+      "issues": [
+        "模型计算结果 Q(0°, -) = 817.1 与标准答案 827.1 不一致",
+        "标准答案可能存在计算疏漏（未加即时奖励 -10）"
+      ],
+      "id": "CS-EVO-00032",
+      "dimension": "B",
+      "difficulty_level": "L4",
+      "think_mode": true,
+      "elapsed_s": 133.0,
+      "thinking_len": 19047,
+      "content_len": 272,
+      "baseline_score": 1.0,
+      "delta": -0.3
+    },
+    {
+      "score": 1.0,
+      "reason": "The model's derivation is mathematically correct. The standard reasoning contains a sign error in the characteristic polynomial constant term ($1-k_1-0.44k_2$ vs correct $1-k_1+0.44k_2$). The model correctly derives the polynomial and solves for K, resulting in the correct gain matrix. Per scoring rules, correct logic is valid even if it differs from the standard.",
+      "issues": [],
+      "id": "CS-EVO-00629",
+      "dimension": "B",
+      "difficulty_level": "L3",
+      "think_mode": true,
+      "elapsed_s": 185.4,
+      "thinking_len": 26253,
+      "content_len": 408,
+      "baseline_score": 0.3,
+      "delta": 0.7
+    },
+    {
+      "score": 0.25,
+      "reason": "模型回答未完成，在关键处截断（以'由于 z_i(t) 趋于 0，e'结束），未能提供完整的控制方案设计。虽然回答中讨论了正确的概念（如 K>0、一致性目标、Zeno 行为避免），但缺乏对标准答案中特定‘组合状态事件触发机制’（如触发条件公式、参数设计步骤）的明确定义和最终结论，且未按要求结构化地列出建模、控制器设计、参数设计及验证指标。",
+      "issues": [
+        "回答内容截断，未完整输出",
+        "未给出确定的事件触发条件公式",
+        "未明确反馈增益 K 的具体设计依据",
+        "未列出验证指标及仿真方法"
+      ],
+      "id": "CS-EVO-00010",
+      "dimension": "D",
+      "difficulty_level": "L2",
+      "think_mode": true,
+      "elapsed_s": 61.2,
+      "thinking_len": 9538,
+      "content_len": 281,
+      "baseline_score": 0.15,
+      "delta": 0.1
+    }
+  ]
+}

@@ -1,11 +1,11 @@
-﻿<#
+<#
 .SYNOPSIS
-  ControlSci 评委一键复现脚本 - 零 API Key 验证三赛道核心指标
+  ControlSci 评审一键复现脚本 - 零 API Key 复核三赛道核心指标
 
 .DESCRIPTION
   无需外部 API Key，一条命令验证：
     Track 1: 数据集结构 (500题 schema) + 六维计分板
-    Track 2: Agent 14 Intent 注册 + dry-run 复现计划
+    Track 2: Agent 15 Intent 注册 + dry-run 复现计划
     Track 3: 医疗 Hybrid 索引 + qwen3.5 本地视觉 FAISS + RAG API
   硬件依赖: 仅 Track 3 API 健康检查需先启动服务。
              Track 1/2 纯本地，零外部依赖。
@@ -34,7 +34,7 @@ param(
 
 $ErrorActionPreference = "Continue"
 $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
-$ProjectRoot = Resolve-Path $ScriptDir
+$ProjectRoot = Resolve-Path (Join-Path $ScriptDir "..")
 Push-Location $ProjectRoot
 
 $env:PYTHONIOENCODING = 'utf-8'
@@ -46,18 +46,8 @@ $BANNER = "=" * 60
 $sw = [System.Diagnostics.Stopwatch]::StartNew()
 $FailCount = 0; $OkCount = 0; $SkipCount = 0
 
-$PythonCandidates = @(
-    $env:CONTROLSCI_PYTHON,
-    (Join-Path $ProjectRoot ".venv\Scripts\python.exe"),
-    "python"
-) | Where-Object { $_ -and $_.Trim() }
-$PythonExe = "python"
-foreach ($candidate in $PythonCandidates) {
-    if ($candidate -eq "python" -or (Test-Path $candidate)) {
-        $PythonExe = $candidate
-        break
-    }
-}
+$PythonExe = "conda"
+$PyArgs = @("run", "--no-capture-output", "-n", "myenv", "python")
 
 function header($t)  { Write-Host "`n$BANNER" -ForegroundColor Cyan; Write-Host "  $t" -ForegroundColor Cyan; Write-Host $BANNER -ForegroundColor Cyan }
 function ok($m)    { $script:OkCount++;  Write-Host "  [OK]   $m" -ForegroundColor Green }
@@ -67,9 +57,9 @@ function info($m)   { Write-Host "  [INFO]  $m" -ForegroundColor Yellow }
 function warn($m)   { Write-Host "  [WARN]  $m" -ForegroundColor Yellow }
 
 function run-py([string[]]$argsList) {
-    $display = $argsList -join " "
-    info "Running: $PythonExe $display"
-    $result = & $PythonExe @argsList 2>&1
+    $display = ($PyArgs + $argsList) -join " "
+    info "Running: $display"
+    $result = & $PythonExe @PyArgs @argsList 2>&1
     $rc = $LASTEXITCODE
     if ($result -and -not $Quiet) {
         $result | ForEach-Object { Write-Host "          $_" -ForegroundColor DarkGray }
@@ -115,24 +105,23 @@ Write-Host $BANNER -ForegroundColor Magenta
 
 # === Track 1: Dataset + Scoreboard =====================================
 if ($Track -eq 1 -or $Track -eq "All") {
-    header "Track 1: Sci-Evo Dataset & Scoreboard"
+    header "Track 1: Sci-Align Dataset & Scoreboard"
 
-    $rc = run-py @("benchmark/eval/validate_dataset.py")
-    if ($rc -eq 0) { ok "Dataset schema validation (500 Q, 4-dim balanced)" }
-    else { fail "Dataset validation failed (exit=$rc)" }
-
-    check-file "benchmark/dataset/core.json" "core.json (500 Q)"
-    check-file "benchmark/dataset/full.json" "full.json (889 Q)"
+    check-file "dataset/schema.json" "dataset schema"
+    check-file "dataset/core.json" "core.json (500 Q)"
+    check-file "dataset/full.json" "full.json (889 Q)"
     check-any-file @(
-        "benchmark/eval/results/leaderboard_complete.json",
-        "docs/submissions/data_trace_bundle/03_leaderboard/leaderboard.json"
+        "data_trace_bundle/03_leaderboard/leaderboard.json",
+        "dataset/leaderboard_p6.md"
     ) "Leaderboard (9 models)"
 
     check-any-file @(
-        "docs/assets/scoreboard_local_vs_api.json",
-        "docs/submissions/data_trace_bundle/10_charts/manifest.json",
-        "docs/submissions/shared/assets/task1/track1_leaderboard_scores.png"
+        "data_trace_bundle/10_charts/manifest.json",
+        "shared/assets/track1_leaderboard_scores.png"
     ) "Scoreboard / public chart evidence"
+    check-file "shared/assets/track1_sciverse_validation_dashboard.png" "Track1 Sciverse validation dashboard"
+    check-file "shared/assets/track1_supplemental_evidence_matrix.png" "Track1 supplemental evidence matrix"
+    check-file "shared/assets/track1_training_utility_ablation.png" "Track1 training utility ablation"
 }
 
 # === Track 2: Agent ====================================================
@@ -142,7 +131,7 @@ if ($Track -eq 2 -or $Track -eq "All") {
     try {
         $cap = read-json-utf8 "$ProjectRoot/benchmark/agent/agent_capabilities.json"
         $intentCount = @($cap.intents).Count
-        if ($intentCount -ge 14) { ok "Agent intent registry valid ($intentCount intents)" }
+        if ($intentCount -ge 15) { ok "Agent intent registry valid ($intentCount intents)" }
         else { fail "Agent intent registry incomplete ($intentCount intents)" }
     } catch {
         fail "Agent capability registry parse failed: $($_.Exception.Message)"

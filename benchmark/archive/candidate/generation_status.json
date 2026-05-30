@@ -1,0 +1,29 @@
+{
+  "progress": "50/50",
+  "percent": 100.0,
+  "rate": 0.8,
+  "eta_min": 0,
+  "dimensions": {
+    "A": 10,
+    "B": 15,
+    "C": 10,
+    "D": 15
+  },
+  "consecutive_failures": 0,
+  "questions_since_reset": 0,
+  "token_usage": {
+    "prompt": 70282,
+    "completion": 151517
+  },
+  "elapsed_sec": 3819.0,
+  "provider": "minimax",
+  "status": "completed",
+  "quality": {
+    "total_checks": 100,
+    "bad_checks": 1,
+    "reset_count": 3,
+    "consecutive_bad": 0,
+    "bad_ratio": 0.01
+  },
+  "last_updated": "11:39:24"
+}

@@ -1,0 +1,67 @@
+{
+  "analysis": "sciverse_leaderboard",
+  "generated_at": "2026-05-23T19:05:26",
+  "source": "Sciverse 14 papers → D12 question generation → D14 3-model evaluation",
+  "config": {
+    "models": [
+      "qwen3.5:4b",
+      "qwen3.5:9b",
+      "qwen3.5:35b"
+    ],
+    "judge": "deepseek-v4-flash",
+    "n_questions": 30
+  },
+  "results": [
+    {
+      "model": "qwen3.5:4b",
+      "source": "Sciverse (14 papers)",
+      "overall_score": 0.6727,
+      "total_questions": 30,
+      "dimension_scores": {
+        "A": 0.4333,
+        "B": 0.8889,
+        "C": 0.6667,
+        "D": 0.62
+      },
+      "complete": true
+    },
+    {
+      "model": "qwen3.5:9b",
+      "source": "Sciverse (14 papers)",
+      "overall_score": 0.742,
+      "total_questions": 30,
+      "dimension_scores": {
+        "A": 0.4333,
+        "B": 1.0,
+        "C": 0.75,
+        "D": 0.6844
+      },
+      "complete": true
+    },
+    {
+      "model": "qwen3.5:35b",
+      "source": "Sciverse (14 papers)",
+      "overall_score": 0.828,
+      "total_questions": 30,
+      "dimension_scores": {
+        "A": 0.4833,
+        "B": 1.0,
+        "C": 1.0,
+        "D": 0.7711
+      },
+      "complete": true
+    }
+  ],
+  "arxiv_500_reference": {
+    "model": "deepseek-v4-flash",
+    "overall_score": 0.6431,
+    "n_questions": 500
+  },
+  "comparison": {
+    "sciverse_avg_score": 0.7476,
+    "arxiv_500_score": 0.6431,
+    "delta": 0.1045,
+    "comparable": true,
+    "ranking_consistent": true
+  }
+}

@@ -1,35 +1,46 @@
-# DATA-TRACE Bundle — 可复现溯源资产集中导航
+# Track 2 DATA-TRACE Bundle — Data Agent Evidence Index
 
-本目录是 [DATA-TRACE.md](../shared/DATA-TRACE.md) 的配套数据包。
-所有文件均从项目仓库中以**复制**方式采集（源文件未移动），按报告章节分组。
+本目录是 Track 2 Data Agent final package 的赛道裁剪证据包。文件均为提交包内真实存在的副本，完整清单与 SHA-256 见 `manifest.json`。
 
-## 结构
+## Included
 
-| 子目录 | DATA-TRACE 章节 | 内容 |
+| 子目录 | 内容 |
+|:--|:--|
+| `01_corpus_scale/` | 语料规模与文档结构统计 |
+| `02_benchmark/` | 与 Agent 任务复用的 Sci-Align 数据入口 |
+| `03_leaderboard/` | Agent 评测链路引用的排行榜与 scorecard evidence |
+| `04_qlora_ppl/` | 训练 / PPL 探针引用证据 |
+| `05_cross_modal/` | 跨模态审计摘要 |
+| `06_visual_audit/` | 视觉审计结果 |
+| `07_flywheel/` | Agent 飞轮公开论文、日志与能力配置 |
+| `08_think_probe/` | Think 模式探针结果 |
+| `10_charts/` | 提交报告图表与 chart manifest |
+| `11_throughput/` | 吞吐短测 |
+| `12_final_supplemental_experiments/` | Track 2 reliability 与跨赛道 sanity evidence |
+| `13_sciverse_integration/` | SciVerse 集成 readiness evidence |
+
+## Excluded
+
+| 目录 | 原因 |
+|:--|:--|
+| `09_medical_rag/`、`09_medical_rag_large/` | 属于 Track 3 Medical RAG final package |
+| `10_charts_large/` | 大型 embedding cache 不随 Track 2 裁剪包分发 |
+
+## Supplemental Focus
+
+Track 2 的新增补充实验证据位于 `12_final_supplemental_experiments/track2_agent_reliability/`，覆盖 router robustness、failure injection、source-selection ablation、resource Pareto 与 hard-document stress。
+
+Agent 相关入口另见 final package 根目录的 `agent/`、`run/`、`track2_agent_20_cases.md` 与 `track2_agent_deploy.md`。
+
+## Evidence Boundary
+
+| 类型 | 目录 | 用途 |
 |:--|:--|:--|
-| `01_corpus_scale/` | 一 / 十四 | 语料规模统计与 MinerU/PyMuPDF 扫描教材文档入口对比 (#1-16, #137) |
-| `02_benchmark/` | 二 | Benchmark 数据集与跨模态索引 (#17-23) |
-| `03_leaderboard/` | 四 | 排行榜、评测结果与修订清单 (#38-42, #106-108) |
-| `04_qlora_ppl/` | 五 | QLoRA 微调 & PPL (#47-54) |
-| `05_cross_modal/` | 六 | 跨模态对齐审计 (#55-58) |
-| `06_visual_audit/` | 八 | MiMo 全量视觉审计 (#71) |
-| `07_flywheel/` | 七 | Agent 能力配置、飞轮日志与原始文献 (#22, #59-64) |
-| `08_think_probe/` | 八 | Think 模式对照实验 (#75) |
-| `09_medical_rag/` | 十一 | 赛道三 Medical RAG 与合成 smoke (#88-105, #117-120) |
-| `09_medical_rag_large/` | 十一 | 医疗 RAG 原始索引与检索缓存 |
-| `10_charts/` | 十 | 嵌入分析 PNG 图表与提交插图 manifest (#79-86) |
-| `10_charts_large/` | 十 | 语料嵌入矩阵缓存 |
-| `11_throughput/` | 十一 / 附录性能 | GPU 吞吐与 HF embedding 短测 (#145-146) |
-| `12_final_supplemental_experiments/` | 附录补充验收 | 三赛道最小入口、Track1 本地 JSON 加载、Track2 本地 DAG dry-run、Track3 安全拒答边界 |
+| Track 2 primary evidence | `07_flywheel/`、`08_think_probe/`、`12_final_supplemental_experiments/track2_agent_reliability/`、`12_final_supplemental_experiments/track2_fallback/` | 支撑 Intent Router、DAG 执行、失败恢复、source selection、资源调度与 Agent dry-run 复核结论 |
+| Shared data / evaluation evidence | `01_corpus_scale/`、`02_benchmark/`、`03_leaderboard/`、`04_qlora_ppl/`、`05_cross_modal/`、`06_visual_audit/`、`11_throughput/` | Agent 复用的科学数据、排行榜、训练与跨模态审计底座，不单独替代 Track 1 主证据 |
+| Shared acceptance evidence | `12_final_supplemental_experiments/minimal_acceptance/`、`12_final_supplemental_experiments/track1_load/`、`12_final_supplemental_experiments/track3_refusal/` | 用于说明三赛道统一验收入口与边界控制，不作为 Track 2 主结论证据 |
+| Cross-track integration evidence | `13_sciverse_integration/` | 用于说明 Sciverse intent 与三赛道集成链路；具体 Agent 结论以本表 primary evidence 为准 |
 
-## 完整清单
-
-所有文件的 SHA-256 校验值见 `manifest.json`。
-
-## 排除文件
-
-无。三份主报告和 DATA-TRACE 中引用的可定位数据源文件均已复制入本包；报告、脚本、命令、git log 等非数据源不重复复制。
-
-## 许可
+## License
 
 CC-BY-4.0。飞轮 arXiv 论文版权归原作者所有。

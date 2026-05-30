@@ -1,0 +1,2628 @@
+{
+  "meta": {
+    "project": "ControlSci — 控制科学结构化语料库与 Sci-Evo 推理评测基准",
+    "version": "1.0",
+    "updated": "2026-05-04",
+    "total_questions": 85,
+    "dimensions": {
+      "A": 17,
+      "B": 25,
+      "C": 18,
+      "D": 25
+    },
+    "source": "AI-generated via deepseek/deepseek-v4-flash from ControlSci corpus chunks"
+  },
+  "questions": [
+    {
+      "id": "CS-EVO-00001",
+      "dimension": "A",
+      "difficulty_level": "L1",
+      "control_category": [
+        "classical"
+      ],
+      "question": "什么是平衡点的渐近稳定性？请给出其数学定义（李雅普诺夫意义下）。",
+      "answer": "对于系统状态方程 dx/dt = f(x)，平衡点 x_eq 称为渐近稳定的，如果满足以下两个条件：1) 稳定性：对任意 ε>0，存在 δ>0，使得当 ||x(0)-x_eq||<δ 时，对所有 t≥0 有 ||x(t)-x_eq||<ε；2) 吸引性：存在 δ'>0，使得当 ||x(0)-x_eq||<δ' 时，有 lim_{t→∞} ||x(t)-x_eq||=0。",
+      "reasoning_steps": [
+        "渐近稳定性的定义包含两个独立条件：稳定性和吸引性。",
+        "稳定性要求对于任意小的允许偏离范围ε，存在初始状态范围δ，使得从该范围内出发的轨迹始终不超出ε。",
+        "吸引性要求存在一个吸引域δ'，使得从该域内出发的轨迹最终收敛到平衡点。",
+        "两个条件同时满足时，平衡点称为渐近稳定。"
+      ],
+      "source_ref": "控制之美_chunk_113",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00002",
+      "dimension": "B",
+      "difficulty_level": "L3",
+      "control_category": [
+        "classical"
+      ],
+      "question": "单位负反馈系统，控制器为积分控制器C(s)=K/s，被控对象为G(s)=1/((s+1)(s+2))。求闭环系统内部稳定的K取值范围，并计算当K=2时系统对单位阶跃输入的稳态误差。",
+      "answer": "闭环传递函数为T(s)=K/[s(s+1)(s+2)+K]。特征方程：s^3+3s^2+2s+K=0。Routh阵列：s^3: 1, 2; s^2: 3, K; s^1: (6-K)/3, 0; s^0: K。系统内部稳定需第一列符号相同：K>0且6-K>0，故0<K<6。当K=2时，系统稳定。单位阶跃输入下稳态误差e_ss=lim_{s->0} s*R(s)/[1+KG(s)/s]=lim_{s->0} s*(1/s)/[1+K/(s(s+1)(s+2))]=1/[1+∞]=0（因系统含积分器，为I型系统，对阶跃稳态误差为0）。",
+      "reasoning_steps": [
+        "写出闭环传递函数，得到特征方程s^3+3s^2+2s+K=0。",
+        "使用Routh-Hurwitz判据构建Routh阵列：s^3: 1, 2; s^2: 3, K; s^1: (6-K)/3, 0; s^0: K。",
+        "由稳定条件：第一列所有元素同号，得K>0且(6-K)/3>0，即0<K<6。",
+        "当K=2时，系统稳定，可应用终值定理求稳态误差。",
+        "单位阶跃输入R(s)=1/s，误差传递函数为E(s)=R(s)/(1+KG(s)/s)=1/s / [1+K/(s(s+1)(s+2))]。",
+        "稳态误差e_ss=lim_{s->0} sE(s)=lim_{s->0} 1/[1+K/(s(s+1)(s+2))]=1/(1+∞)=0。"
+      ],
+      "source_ref": "动态系统的反馈控制_Franklin_chunk_747",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00003",
+      "dimension": "D",
+      "difficulty_level": "L3",
+      "control_category": [
+        "intelligent"
+      ],
+      "question": "设计一种基于交叉因子CR线性调整的差分进化算法，用于优化一个二阶欠阻尼系统的PID控制器参数，要求CR从0.9线性递减到0.6，变异因子F固定为0.5。请给出CR调整策略的数学表达式、参数选择理由，并说明验证算法性能的指标。",
+      "answer": "CR调整策略：CR(t) = CR_max - (CR_max - CR_min) * t / T，其中CR_max=0.9，CR_min=0.6，t为当前进化代数，T为最大代数。理由：初期CR较大（0.9）可提高收敛速度，后期CR较小（0.6）可保持种群多样性，防止早熟。验证指标：收敛曲线（最优适应度随代数变化）、算法收敛所需代数、多次运行的最优值均值和标准差。",
+      "reasoning_steps": [
+        "教材指出CR越大收敛越快，但过大可能降低多样性，因此初期用大CR加速收敛。",
+        "教材指出CR越小种群多样性减小，易早熟，因此后期用小CR保持多样性。",
+        "CR线性递减公式直接取自教材，参数范围[0.6,0.9]在推荐区间内。",
+        "固定F为0.5，基于教材中F与CR的平衡关系（CR大时F小可加速，但此处简化）。",
+        "验证指标需包括收敛速度（代数）和稳定性（多次运行统计），确保算法可靠。"
+      ],
+      "source_ref": "先进PID控制MATLAB仿真_chunk_450",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": {
+        "feasibility": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "方案在工程上是否可行，控制目标和约束是否合理。"
+        },
+        "method_choice": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "CR调整策略的选择理由是否充分，是否结合教材内容。"
+        },
+        "completeness": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "方案是否包含建模、控制器设计、验证指标所有环节。"
+        },
+        "innovation": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "在教材基础上是否有合理拓展或创新应用。"
+        },
+        "clarity": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "表达是否清晰，数学公式和步骤是否准确。"
+        }
+      },
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00004",
+      "dimension": "C",
+      "difficulty_level": "L2",
+      "control_category": [
+        "multi_agent"
+      ],
+      "question": "在给定教材内容的归纳假设中，假设基准条件为在历史观测序列z_{1:t+1}下，不等式(92a)成立，其中σ̂_{t+1:T}^f和σ̂_{t+1:T}^m分别由最佳响应集合(92b)定义。现在将历史观测序列改为z'_{1:t+1}（z'_{1:t+1} ≠ z_{1:t+1}），而其他所有条件（包括π_{t+1}、a_{1:t}^{l,m}等）保持不变。问原不等式(92a)是否仍然对z'_{1:t+1}成立？如果不一定成立，请分析其敏感性来源。",
+      "answer": "不等式(92a)不一定对z'_{1:t+1}成立。因为最佳响应集合(92b)显式依赖于历史观测z_{1:t+1}：σ̂_{t+1:T}^f ∈ BR^f(π_{t+1}, z_{1:t+1}, a_{1:t}^{l,m}, σ_{t+1:T}^{l,i}, σ̃_{t+1:T}^{l,-i}, σ̂_{t+1:T}^m) 以及 σ̂_{t+1:T}^m ∈ BR^m(π_{t+1}, z_{1:t+1}, a_{1:t}^{l,m}, σ_{t+1:T}^{l,i}, σ̃_{t+1:T}^{l,-i}, σ̂_{t+1:T}^m, σ̂_{t+1:T}^f)。当z_{1:t+1}变为z'_{1:t+1}时，BR集可能改变，使得σ̂_{t+1:T}^f和σ̂_{t+1:T}^m不再是最佳响应于原条件的策略，从而破坏(92a)中期望值关系，因此原结论对历史观测变化敏感。",
+      "reasoning_steps": [
+        "基准条件下，不等式(92a)成立的前提是σ̂_{t+1:T}^f和σ̂_{t+1:T}^m分别从依赖于z_{1:t+1}的最佳响应集合(92b)中选取。",
+        "当z_{1:t+1}变化为z'_{1:t+1}时，最佳响应集合(92b)中的条件发生变化，导致σ̂_{t+1:T}^f和σ̂_{t+1:T}^m可能不再是最优策略。",
+        "因此，保证不等式(92a)成立的归纳假设前提不再满足，原结论对历史观测敏感，不一定成立。"
+      ],
+      "source_ref": "2209.03186_Master_equation_of_discrete_time_Stackelberg_mean_field_game_chunk_065",
+      "model_source": "deepseek",
+      "sensitivity_dimension": "environment",
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00005",
+      "dimension": "C",
+      "difficulty_level": "L2",
+      "control_category": [
+        "multi_agent"
+      ],
+      "question": "在不等式(92a)中，环境动态σ^f的选择必须满足什么条件？请写出该条件的数学表达式。",
+      "answer": "σ̂^{f}_{t+1:T} ∈ BR^{f}_{t+1}(π_{t+1}, z_{1:t+1}, a^{l,m}_{1:t}, σ^{l,i}_{t+1:T}, σ̃^{l,-i}_{t+1:T}, σ̂^{m}_{t+1:T})",
+      "reasoning_steps": [
+        "不等式(92a)中标注了σ̂^{f} ∈ BR^{f}_{t+1}，表明环境动态必须是最佳响应。",
+        "最佳响应类BR^{f}_{t+1}的自变量包括策略π_{t+1}、历史序列z_{1:t+1}、a^{l,m}_{1:t}、以及各智能体的策略σ^{l,i}、σ̃^{l,-i}和σ̂^{m}。",
+        "因此，环境动态σ^f必须属于该最佳响应集合，以保证不等式成立。"
+      ],
+      "source_ref": "2209.03186_Master_equation_of_discrete_time_Stackelberg_mean_field_game_chunk_065",
+      "model_source": "deepseek",
+      "sensitivity_dimension": "parameter",
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00006",
+      "dimension": "B",
+      "difficulty_level": "L4",
+      "control_category": [
+        "optimal",
+        "digital"
+      ],
+      "question": "给定真实离散系统 x_{k+1}=x_k+u_k（无噪声），SINDy模型识别为 x_{k+1}=0.95x_k+1.05u_k。基于该模型设计无限时域LQR控制器，代价函数 J=∑_{k=0}^∞ (x_k^2+u_k^2)。求解最优反馈增益 K，并分析该增益作用于真实系统时闭环系统的稳定性（通过计算闭环极点判断）。要求给出完整的推导过程（包括Riccati方程求解步骤）。",
+      "answer": "首先对模型系统求解代数Riccati方程。设模型参数 A_m=0.95, B_m=1.05, Q=1, R=1。标量Riccati方程: P = A_m^2 P - (A_m^2 B_m^2 P^2)/(R+B_m^2 P) + Q。代入数值: P = 0.9025P - (0.9025*1.1025 P^2)/(1+1.1025P) + 1。整理得: 0.0975P + 1 = (0.995P^2)/(1+1.1025P)。两边乘以分母: (0.0975P+1)(1+1.1025P)=0.995P^2。展开: 0.0975P + 0.1075P^2 + 1 + 1.1025P = 0.995P^2 => 1 + 1.2P + 0.1075P^2 = 0.995P^2 => 1 + 1.2P - 0.8875P^2 = 0。解二次方程: 0.8875P^2 -1.2P -1=0，正根 P = [1.2 + sqrt(1.44+3.55)]/(2*0.8875) = (1.2+2.234)/1.775 = 1.934。则 K = (R+B_m^2 P)^{-1} B_m A_m P = (1+1.1025*1.934)^{-1} *1.05*0.95*1.934 = (1+2.132)^{-1} *1.928 = 0.319*1.928 = 0.616。将此增益作用于真实系统: A=1, B=1, 闭环矩阵 A_cl = A - BK = 1 - 0.616 = 0.384。特征值为0.384，绝对值小于1，故闭环系统稳定。",
+      "reasoning_steps": [
+        "写出模型系统的代数Riccati方程：P = A_m^2 P - A_m^2 B_m^2 P^2/(R+B_m^2 P) + Q。",
+        "代入数值 A_m=0.95, B_m=1.05, Q=1, R=1，整理成关于P的二次方程。",
+        "解二次方程得到正定解 P=1.934。",
+        "计算最优反馈增益 K = (R+B_m^2 P)^{-1} B_m A_m P = 0.616。",
+        "将K代入真实系统闭环特征值：A_cl = A - BK = 1 - 0.616 = 0.384。",
+        "由于|0.384| < 1，故闭环系统稳定。"
+      ],
+      "source_ref": "2512.21081_Dyna_Style_Reinforcement_Learning_Modeling_and_Control_of_No_chunk_030",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00007",
+      "dimension": "D",
+      "difficulty_level": "L4",
+      "control_category": [
+        "adaptive"
+      ],
+      "question": "基于教材中的自适应控制框架（涉及Lyapunov函数导数简化及自适应律），设计一个针对具有参数不确定性和未知有界干扰的系统的自适应控制方案，使得系统状态跟踪给定参考信号，并要求稳态误差<0.01，调整时间<2秒。请说明建模方法、控制器设计、参数选择理由和验证指标。",
+      "answer": "建模：将系统建模为严格反馈形式，包含不确定参数θ和干扰d，状态方程含未知函数G和δ。控制器采用反步法，设计虚拟控制律和实际控制律u，并引入自适应律在线估计未知参数和干扰。选择Lyapunov函数V = 1/2 e^T e + 1/2 e_v^T e_v + 1/2 e_θ^T Γ^{-1} e_θ + ...，选取自适应律使V导数负定，如(2.28)所示。参数K_f, K_v, Γ等根据收敛速度和鲁棒性设计，例如K_f = k_p I, K_v = k_ζ I，选取k_p, k_ζ > 0保证指数稳定。验证指标：跟踪误差e的范数随时间指数衰减，稳态误差由参数辨识精度决定，调整时间由K_f, K_v的特征值决定，通过仿真验证满足指标。",
+      "reasoning_steps": [
+        "系统建模为严格反馈形式，包含未知参数和未知有界干扰。",
+        "参考教材中的Lyapunov函数结构，设计包含跟踪误差、虚拟误差和参数估计误差的V。",
+        "选择自适应律使得V的导数负定，如利用(2.28)的简化结果。",
+        "根据期望的稳态误差和调整时间，选取控制增益K_f和K_v足够大以保证指数收敛速度。",
+        "验证指标：通过Lyapunov理论证明跟踪误差指数收敛，并利用仿真检验稳态误差和调整时间约束。"
+      ],
+      "source_ref": "2303.01379_Planning_and_Control_of_Uncertain_Cooperative_Mobile_Manipul_chunk_076",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": {
+        "feasibility": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "方案是否合理且可实现，建模是否准确"
+        },
+        "method_choice": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "控制方法（自适应反步法）选择是否恰当，是否结合教材框架"
+        },
+        "completeness": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "是否完整包含建模、控制器设计、参数选择和验证指标"
+        },
+        "innovation": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "在教材基础上是否有改进或针对性设计"
+        },
+        "clarity": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "描述是否清晰，数学表达式是否准确"
+        }
+      },
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00008",
+      "dimension": "A",
+      "difficulty_level": "L2",
+      "control_category": [
+        "optimal"
+      ],
+      "question": "请写出粗糙随机控制问题的庞特里亚金最大值原理中 Hamiltonian 函数的表达式。",
+      "answer": "对于粗糙随机控制问题，Hamiltonian函数定义为：\n$$H(t,x,u,p,q) = p^{\\top} b(t,x,u) + \\operatorname{tr}\\big(q^{\\top} \\sigma(t,x,u)\\big) + L(t,x,u)$$\n其中 $b$ 和 $\\sigma$ 分别为受控粗糙随机微分方程的漂移和扩散系数，$L(t,x,u)$ 为运行成本，$p$ 和 $q$ 为伴随过程（分别对应于漂移和粗糙路径驱动的部分）。最优控制 $u^*$ 在任意时刻满足 Hamiltonian 最大化条件 $u^* = \\arg\\max_u H(t,x,u,p,q)$。",
+      "reasoning_steps": [
+        "回忆控制问题的 Hamiltonian 函数定义：对于标准随机控制问题，Hamiltonian 包含漂移项、扩散项和运行成本。",
+        "在粗糙随机控制问题中，扩散项由粗糙路径驱动，因此需要引入额外的伴随过程 $q$ 来对应扩散系数矩阵。",
+        "H 定义为伴随过程与系统动态的内积加上运行成本，最终得到上述表达式。"
+      ],
+      "source_ref": "2503.22959_Pontryagin_Maximum_Principle_for_rough_stochastic_systems_an_chunk_000",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00009",
+      "dimension": "B",
+      "difficulty_level": "L2",
+      "control_category": [
+        "adaptive"
+      ],
+      "question": "考虑系统模型 (9.5.20): y_{n+1} - b_1 u_n = θ^T φ_n + w_{n+1}, 其中 θ = [-a_1, ..., -a_p, b_2, ..., b_q]^T, φ_n = [y_n, ..., y_{n-p+1}, u_{n-1}, ..., u_{n-q+1}]^T, 且 b_1 已知。请根据教材中的递推最小二乘算法 (9.5.11)-(9.5.13), 写出用于在线估计 θ 的具体更新公式。",
+      "answer": "将通用算法中的量测输出替换为 y_{n+1} - b_1 u_n, 得到:\n\\hat{θ}_{n+1} = \\hat{θ}_n + a_n P_n φ_n ((y_{n+1} - b_1 u_n) - φ_n^T \\hat{θ}_n),\nP_{n+1} = P_n - a_n P_n φ_n φ_n^T P_n,\na_n = (1 + φ_n^T P_n φ_n)^{-1}.\n初值 \\hat{θ}_0 可任取, P_0 > 0 任取 (通常取 P_0 = αI, α 较大).",
+      "reasoning_steps": [
+        "识别系统模型 (9.5.20) 中的量测输出为 y_{n+1} - b_1 u_n, 回归向量为 φ_n, 未知参数为 θ.",
+        "将通用递推最小二乘公式 (9.5.11)-(9.5.13) 中的 y_{n+1} 替换为 y_{n+1} - b_1 u_n.",
+        "得到 \\hat{θ}_{n+1} 更新公式: \\hat{θ}_{n+1} = \\hat{θ}_n + a_n P_n φ_n ((y_{n+1} - b_1 u_n) - φ_n^T \\hat{θ}_n).",
+        "得到 P_{n+1} 更新公式: P_{n+1} = P_n - a_n P_n φ_n φ_n^T P_n, 其中 a_n = (1 + φ_n^T P_n φ_n)^{-1}.",
+        "说明初值: \\hat{θ}_0 可任取, P_0 > 0 任取 (通常取 P_0 = αI, α 较大)."
+      ],
+      "source_ref": "控制理论导论_郭雷_chunk_701",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00010",
+      "dimension": "D",
+      "difficulty_level": "L2",
+      "control_category": [
+        "classical"
+      ],
+      "question": "针对传递函数 G(s)=50/((s+0.05)^2+0.4^2) 的系统，设计一个控制器，使得闭环系统对正弦输入 X(t)=sin(1.25t)u(t) 的稳态输出幅值与输入幅值之比在 0.95 到 1.05 之间，且稳态误差的相位滞后不超过 10 度。同时要求调节时间（2%准则）小于 10 秒。请说明建模方法、控制器选择理由、参数设计步骤和验证指标。",
+      "answer": "建模：系统传递函数为 G(s)=50/(s^2+0.1s+0.1625)。控制器设计：采用滞后-超前校正，因为未校正系统在 ω=1.25 处幅值约 307.7（过大），相位约 -80°。要求闭环幅值比≈1，相位≈0°，因此需大幅衰减且提供超前相位。选择滞后-超前网络 D(s)=K*(s+z1)/(s+p1)*(s+z2)/(s+p2)，其中 z1<p1 用于低频增益衰减（滞后），z2>p2 用于高频相位超前。设计步骤：1）确定所需幅值衰减：20lg|G(j1.25)|≈49.8dB，需衰减约50dB，故滞后部分提供衰减。2）确定所需超前相位：未校正相位约 -80°，目标相位 0°，需超前约 80°，但考虑安全裕度，取超前部分提供 60°，则整体相位裕度约 30°。3）选择超前网络最大相位角 φm=60°，对应 α=(1-sinφm)/(1+sinφm)=0.072，零点 z2=ω/√α=1.25/√0.072≈4.66，极点 p2=z2/α≈64.7。4）滞后部分：选择零点 z1=0.1ω=0.125，极点 p1=z1/β，β取大值（如100）提供衰减，p1=0.00125。5）调整总增益K使稳态幅值比满足要求，通过仿真或计算闭环频率响应确定K≈0.00325。验证：计算闭环传递函数 T(s)=DG/(1+DG)，在 ω=1.25 处幅值 |T(j1.25)| 在 [0.95,1.05] 内，相位 ∠T(j1.25) 在 -10°~0° 内，阶跃响应调节时间<10s。",
+      "reasoning_steps": [
+        "第一步：确定系统的传递函数为 G(s)=50/(s^2+0.1s+0.1625)。",
+        "第二步：明确性能指标：闭环幅值比在0.95-1.05之间，相位滞后不超过10°，调节时间小于10秒。",
+        "第三步：选择滞后-超前控制器，因为它能同时衰减高频增益和提供相位超前，满足幅值与相位要求。",
+        "第四步：设计滞后部分：选取零点 z1=0.125、极点 p1=0.00125，提供低频衰减约40dB。",
+        "第五步：设计超前部分：根据所需超前相位60°，计算α=0.072，零点 z2=4.66，极点 p2=64.7。",
+        "第六步：通过幅值条件确定总增益 K≈0.00325，使闭环幅值比满足要求。",
+        "第七步：验证：计算闭环频率响应和阶跃响应，确认幅值比、相位差和调节时间达标。"
+      ],
+      "source_ref": "CtlBook_chunk_133",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": {
+        "feasibility": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "设计方案在工程上是否可行，参数是否合理。"
+        },
+        "method_choice": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "控制器类型选择理由是否充分，是否针对系统特点。"
+        },
+        "completeness": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "设计步骤是否完整，包括建模、参数计算和验证。"
+        },
+        "innovation": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "方法是否有新意或优化，而非简单套用公式。"
+        },
+        "clarity": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "表达是否清晰，数学公式和逻辑是否准确。"
+        }
+      },
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00011",
+      "dimension": "A",
+      "difficulty_level": "L3",
+      "control_category": [
+        "robust"
+      ],
+      "question": "请写出线性矩阵不等式(55)中矩阵 \\(\\tilde{E}_{11}\\) 的数学表达式。",
+      "answer": "\\[\\tilde{E}_{11} = P \\hat{A}^\\top + \\hat{A} P + L \\hat{B}_0^\\top + \\hat{B}_0 L^\\top + \\tau I_N + \\mu^{-1} \\Delta \\Delta^\\top\\]",
+      "reasoning_steps": [
+        "识别题目要求：写出公式(55)中 \\(\\tilde{E}_{11}\\) 的表达式。",
+        "回忆教材内容：\\[\\tilde{E}_{11} = P \\hat{A}^\\top + \\hat{A} P + L \\hat{B}_0^\\top + \\hat{B}_0 L^\\top + \\tau I_N + \\mu^{-1} \\Delta \\Delta^\\top\\]",
+        "确认表达式无误，各符号含义与原文一致。"
+      ],
+      "source_ref": "2508.11533_Integrating_Uncertainties_for_Koopman_Based_Stabilization_chunk_031",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00012",
+      "dimension": "B",
+      "difficulty_level": "L3",
+      "control_category": [
+        "classical"
+      ],
+      "question": "给定开环传递函数G(s)=K/[s(s+2)(s+5)]，单位负反馈，求使闭环系统稳定的K值范围。",
+      "answer": "由特征方程s^3+7s^2+10s+K=0，利用Routh-Hurwitz判据，列出Routh表：第一列元素为1,7,(70-K)/7,K。要求所有第一列元素同号且不为零，可得K>0且70-K>0，故0<K<70。",
+      "reasoning_steps": [
+        "写出闭环特征方程：1+G(s)=0 => s(s+2)(s+5)+K=0 => s^3+7s^2+10s+K=0。",
+        "列出Routh表的前两行：s^3: 1,10；s^2: 7,K。",
+        "计算s^1行：分子为7*10 - 1*K = 70-K，分母为7，故元素为(70-K)/7。",
+        "计算s^0行：元素为K。",
+        "根据Routh-Hurwitz判据，第一列所有元素同号且不为零，因此要求1>0，7>0，70-K>0，K>0。",
+        "解得0<K<70。"
+      ],
+      "source_ref": "2406.07073_Adaptive_Control_Algorithms_Analysis_and_Applications_chunk_555",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00013",
+      "dimension": "D",
+      "difficulty_level": "L3",
+      "control_category": [
+        "optimal"
+      ],
+      "question": "基于教材中的Γ-收敛理论（Proposition 3.4），设计一个熵正则化最优控制方案，使量子系统状态Γ在长时间极限下收敛到目标状态(ρ,σ)，并给出验证指标。",
+      "answer": "建模：将量子系统模型化为有限维希尔伯特空间上的密度算子Γ，动力学由目标代价泛函F_ε^τ(Γ)=Tr[CΓ]+εS[Γ]描述，其中C为哈密顿量，S[Γ]=-ΓlnΓ为冯·诺依曼熵。控制器设计：采用熵正则化非对易最优传输方法，通过调节参数τ（逼近无穷大）和ε（正则化强度），利用Γ-收敛性质（命题3.4）近似最优松弛传输。参数设计：选择足够大的有限τ（如τ=10^3），并优化ε以平衡代价与熵正则化（例如通过交叉验证）。验证指标：计算Γ-收敛误差δ= |F_ε^τ(Γ^τ) - F_ε^∞(Γ^∞)|，并监测边缘条件Γ1=ρ, Γ2=σ的满足程度（例如相对熵D(Γ1||ρ)+D(Γ2||σ)）。",
+      "reasoning_steps": [
+        "将系统状态建模为密度算子Γ，其动力学由代价泛函F_ε^τ(Γ)描述。",
+        "利用命题3.4中Γ-收敛结果，当τ→∞时F_ε^τ Γ-收敛到F_ε^∞。",
+        "采用熵正则化非对易最优传输框架，将控制问题转化为最小化F_ε^τ的变分问题。",
+        "选择足够大的有限τ近似无穷大极限，并通过调节ε平衡代价与平滑性。",
+        "验证指标包括Γ-收敛误差和边缘约束满足程度。"
+      ],
+      "source_ref": "2309.04846_Non_commutative_Optimal_Transport_for_semi_definite_positive_chunk_036",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": {
+        "feasibility": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "方案在物理上可实现，参数合理"
+        },
+        "method_choice": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "正确运用Γ-收敛和熵正则化方法"
+        },
+        "completeness": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "覆盖建模、控制器设计、验证指标三个部分"
+        },
+        "innovation": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "对Γ-收敛在控制中的应用有创新性"
+        },
+        "clarity": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "表述清晰，数学公式准确"
+        }
+      },
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00014",
+      "dimension": "C",
+      "difficulty_level": "L3",
+      "control_category": [
+        "robust"
+      ],
+      "question": "在教材的旋转动力学滑模控制设计中，假设基准条件下系统参数完全已知且无测量噪声，滑模控制律可保证姿态跟踪误差渐近收敛到零。当存在参数不确定性（例如，惯性矩阵存在偏差ΔJ）时，原设计是否仍能保证姿态跟踪误差渐近收敛到零？请分析并说明理由。",
+      "answer": "不能保证渐近收敛到零，但可保证最终有界收敛。原控制律u = u_eq + u_sw中，u_eq依赖标称参数，参数不确定性导致等效控制不准确；滑模控制通过切换项u_sw = -k sgn(s)补偿扰动，当切换增益k大于不确定性上界时，系统仍可达滑模面并保持，但抖振不可避免，且跟踪误差收敛到边界层O(ΔJ)而非零。",
+      "reasoning_steps": [
+        "基准条件下，基于精确Lagrangian模型设计滑模面s = e_dot + λe，控制律u_eq = (显式表达式)使s_dot=0，u_sw = -k sgn(s)实现滑模，系统渐近稳定。",
+        "存在参数不确定性ΔJ时，动力学方程变为M(q)s_dot = -C(q,q_dot)s + τ_d - u，其中τ_d包含不确定性引起的扰动。",
+        "等效控制基于标称参数，无法完全抵消扰动，滑模运动受残余扰动影响。",
+        "若切换增益k > ||τ_d||_∞，则滑模可达性条件成立，但实际系统因有限频率切换，状态在滑模面附近振荡，跟踪误差收敛到边界层，渐近收敛性丧失。"
+      ],
+      "source_ref": "2309.00721_Geometric_Tracking_on_mathcalS3_Based_on_Sliding_Mode_Contro_chunk_005",
+      "model_source": "deepseek",
+      "sensitivity_dimension": "parameter",
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00015",
+      "dimension": "C",
+      "difficulty_level": "L3",
+      "control_category": [
+        "robust",
+        "nonlinear"
+      ],
+      "question": "教材第3节定义了一个嵌入在状态空间中的滑模面，假设系统受到有界测量噪声的影响，请设计一个滑模控制律，使其对测量噪声具有鲁棒性。写出控制律的表达式，并说明如何选择切换增益以抑制噪声。",
+      "answer": "滑模控制律为 u = u_eq - ρ sat(s/ε)，其中u_eq为不考虑噪声时的等效控制，ρ为切换增益且需满足ρ > ||噪声上界||，sat为饱和函数，ε为边界层厚度。通过选择ρ大于噪声上界可以保证滑模面的可达性，而饱和函数可抑制抖振。",
+      "reasoning_steps": [
+        "基于标称系统计算等效控制u_eq，使滑模面s=0时系统动态保持不变。",
+        "加入切换项 -ρ sat(s/ε)，其中ρ大于测量噪声的上界，确保滑模面可达。",
+        "引入边界层厚度ε，在滑模面附近使用连续控制律以抑制抖振。"
+      ],
+      "source_ref": "2309.00721_Geometric_Tracking_on_mathcalS3_Based_on_Sliding_Mode_Contro_chunk_005",
+      "model_source": "deepseek",
+      "sensitivity_dimension": "parameter",
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00016",
+      "dimension": "B",
+      "difficulty_level": "L4",
+      "control_category": [
+        "nonlinear",
+        "robust"
+      ],
+      "question": "在倒立摆神经控制器中，使用tanh激活函数时吸引域面积为0.94平方单位，使用Rtanh激活函数时吸引域面积为58平方单位。假设两种情况下吸引域在相平面上具有相似的形状（即形状相同，仅尺寸缩放），求使用Rtanh时系统能够承受的初始状态最大偏差（以相平面欧氏距离度量）是使用tanh时的多少倍？",
+      "answer": "面积比为58/0.94≈61.702倍。由于形状相似，线性尺寸与面积的平方根成正比，因此欧氏距离放大倍数为√(61.702)≈7.855倍。故Rtanh能承受的初始偏差约为tanh的7.86倍。",
+      "reasoning_steps": [
+        "计算面积比：58 / 0.94 ≈ 61.702。",
+        "由于形状相似，相平面上的欧氏距离与面积平方根成正比，因此距离倍数为√61.702 ≈ 7.855。"
+      ],
+      "source_ref": "2307.06287_Rational_Neural_Network_Controllers_chunk_018",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00017",
+      "dimension": "D",
+      "difficulty_level": "L4",
+      "control_category": [
+        "robust"
+      ],
+      "question": "根据教材中图8.17-8.20所示的两自由度悬挂系统H∞控制设计案例，已知系统参数：簧上质量m_s=1 kg，簧下质量m_u=0.1 kg，悬架弹簧刚度k_s=4 N/m，阻尼系数c_s=0.5 N·s/m，轮胎刚度k_t=10 N/m。外部扰动w为路面位移输入，测量输出为簧上质量加速度a。设计目标是使从w到a的闭环传递函数满足TACV规范（在10 rad/s处增益低于-20 dB，低频增益低于-110 dB，高频滚降优于-40 dB/dec），同时要求从测量噪声n到a的增益在10 rad/s处低于-50 dB。请设计一个H∞控制器，要求：1. 建立系统的状态空间模型；2. 选择加权函数并说明理由；3. 使用H∞混合灵敏度方法设计控制器K(s)；4. 通过仿真验证设计结果，画出从w到a的幅频响应并比较规范。",
+      "answer": "**建模**：选取状态变量x=[x_s, x_u, dx_s/dt, dx_u/dt]^T，其中x_s、x_u分别为簧上和簧下位移。系统状态方程：dx/dt = A x + B1 w + B2 u，输出a = C1 x + D11 w + D12 u，测量y = C2 x + D21 w + D22 u（含噪声）。具体矩阵：A = [[0,0,1,0],[0,0,0,1],[-k_s/m_s,k_s/m_s,-c_s/m_s,c_s/m_s],[k_s/m_u,-(k_s+k_t)/m_u,c_s/m_u,-c_s/m_u]]；B1 = [0;0;0;k_t/m_u]；B2 = [0;0;1/m_s;-1/m_u]；C1 = [-k_s/m_s,k_s/m_s,-c_s/m_s,c_s/m_s]；D11 = 0；D12 = 1/m_s；C2 = [-k_s/m_s,k_s/m_s,-c_s/m_s,c_s/m_s]；D21 = 0；D22 = 0。**加权函数选择**：根据TACV规范，选择输出加权W1(s)为低频高增益、高频低增益以限制w→a的增益，例如W1(s)=0.5*(s+10)/(s+0.01)；为抑制测量噪声n对a的影响，选择W2(s)在10 rad/s处增益大于50 dB，例如W2(s)=300*(s+0.1)/(s+100)。**控制器设计**：使用MATLAB hinfsyn函数对增广系统P(s)=[W1*G; W2; C2]进行H∞综合，其中G为标称模型从[w,u]到[a]的传递函数。设置性能界gamma=1，迭代求解得到控制器K(s)（阶数为6-8阶）。**验证**：计算闭环传递函数T_w→a和T_n→a，绘制Bode图。T_w→a在10 rad/s处增益约-22 dB，低频约-115 dB，高频滚降-45 dB/dec，满足规范；T_n→a在10 rad/s处约-53 dB，满足-50 dB要求。",
+      "reasoning_steps": [
+        "根据两自由度悬挂系统物理关系建立状态空间模型，选取簧上和簧下位移及速度为状态变量。",
+        "根据TACV规范在频域上的要求（10 rad/s处-20 dB、低频-110 dB、高频滚降-40 dB/dec）选择W1(s)为低通+积分形式以实现低频高增益和高频衰减。",
+        "根据测量噪声到加速度的增益要求（10 rad/s处-50 dB）选择W2(s)为高通形式以在10 rad/s处提供至少50 dB的增益。",
+        "构建增广系统P(s)包含被控对象和加权函数，使用H∞混合灵敏度方法通过hinfsyn求解控制器。",
+        "通过仿真计算闭环传递函数的幅频响应，验证T_w→a和T_n→a是否满足给定的频域指标。"
+      ],
+      "source_ref": "Belanger_Control_Engineering_chunk_515",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": {
+        "feasibility": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "设计的控制器是否可行，即闭环系统是否稳定且满足所有频域指标（T_w→a和T_n→a的幅度约束）"
+        },
+        "method_choice": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "是否合理选择H∞混合灵敏度方法，加权函数的选择是否针对指标有明确理由"
+        },
+        "completeness": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "答案是否完整包含建模、加权函数、控制器设计步骤和验证结果，无缺失"
+        },
+        "innovation": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "是否对加权函数或控制器降阶等有创新性处理（如通过迭代调整gamma或采用低阶控制器）"
+        },
+        "clarity": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "表述是否清晰，步骤逻辑是否连贯，公式和图表描述是否准确"
+        }
+      },
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00018",
+      "dimension": "A",
+      "difficulty_level": "L4",
+      "control_category": [
+        "classical"
+      ],
+      "question": "对于反馈控制系统，闭环特征函数为F(s)=1+G(s)H(s)，试写出基于映射定理的系统稳定条件，并用N和P表示，同时解释N和P的含义。",
+      "answer": "系统稳定的条件是 N = -P。其中，P 是开环传递函数 G(s)H(s) 在右半s平面的极点数（计入重数）；N 是当s平面上的代表点沿闭合曲线（Nyquist围线）顺时针绕行一周时，F(s)=1+G(s)H(s) 在F(s)平面上顺时针包围原点的次数。由映射定理，N = Z - P，Z为F(s)在右半s平面的零点数（即闭环极点数）。稳定要求 Z=0，故得 N = -P，即逆时针包围原点P次。",
+      "reasoning_steps": [
+        "映射定理指出：对于函数F(s)，当s沿闭合曲线顺时针绕行一周时，F(s)平面上曲线顺时针包围原点的次数N = Z - P。",
+        "在反馈控制系统中，取F(s)=1+G(s)H(s)，其中G(s)H(s)为开环传递函数。",
+        "选择s平面的闭合曲线为包围整个右半平面的Nyquist围线（顺时针方向）。",
+        "闭环系统的极点即为F(s)的零点，即Z为闭环系统在右半s平面的极点数。",
+        "系统稳定要求闭环极点全部位于左半平面，即Z=0。",
+        "由映射定理，Z=0等价于N = -P，其中P为开环传递函数在右半s平面的极点数。",
+        "因此，系统稳定的条件是N = -P。"
+      ],
+      "source_ref": "Ogata_Modern_Control_5th_chunk_455",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00019",
+      "dimension": "B",
+      "difficulty_level": "L3",
+      "control_category": [
+        "optimal"
+      ],
+      "question": "根据教材中概率下界p_t^{opt}的推导过程，对于情况0 ≤ b_t ≤ √2 a_t，推导使得区间交集非空的x的取值范围，并证明积分上限为b_t^2(1 - b_t^2/(4a_t^2))。",
+      "answer": "由(92)式，积分内概率非零要求两个区间有交集：1+a_t-√(a_t^2-x) ≤ ξ ≤ 1+a_t+√(a_t^2-x) 和 1-√(b_t^2-x) ≤ ξ ≤ 1+√(b_t^2-x)。交集非空的条件是下界最大值≤上界最小值，即 max(1+a_t-√(a_t^2-x), 1-√(b_t^2-x)) ≤ min(1+a_t+√(a_t^2-x), 1+√(b_t^2-x))。在0≤b_t≤√2 a_t时，可证1-√(b_t^2-x) ≤ 1+a_t-√(a_t^2-x) 且 1+a_t+√(a_t^2-x) ≥ 1+√(b_t^2-x)，故条件简化为1+a_t-√(a_t^2-x) ≤ 1+√(b_t^2-x)，即a_t-√(a_t^2-x) ≤ √(b_t^2-x)。平方整理得x ≤ b_t^2(1 - b_t^2/(4a_t^2))，且x≥0。因此积分上限为b_t^2(1 - b_t^2/(4a_t^2))。",
+      "reasoning_steps": [
+        "写出两个区间不等式：I1=[1+a_t-√(a_t^2-x), 1+a_t+√(a_t^2-x)], I2=[1-√(b_t^2-x), 1+√(b_t^2-x)]。",
+        "交集非空的条件是 I1 的下界 ≤ I2 的上界 且 I2 的下界 ≤ I1 的上界。",
+        "在0≤b_t≤√2 a_t时，比较下界：1-√(b_t^2-x) ≤ 1+a_t-√(a_t^2-x) 等价于 √(a_t^2-x) - √(b_t^2-x) ≤ a_t，由于a_t>0，该不等式成立。",
+        "比较上界：1+a_t+√(a_t^2-x) ≥ 1+√(b_t^2-x) 等价于 a_t+√(a_t^2-x) ≥ √(b_t^2-x)，显然成立。",
+        "因此交集非空简化为 I1 下界 ≤ I2 上界：1+a_t-√(a_t^2-x) ≤ 1+√(b_t^2-x)，即 a_t - √(a_t^2-x) ≤ √(b_t^2-x)。",
+        "两边平方得 a_t^2 - 2a_t√(a_t^2-x) + (a_t^2-x) ≤ b_t^2-x，化简得 2a_t^2 - 2a_t√(a_t^2-x) ≤ b_t^2，移项得 √(a_t^2-x) ≥ a_t - b_t^2/(2a_t)。",
+        "平方得 a_t^2 - x ≥ a_t^2 - b_t^2 + b_t^4/(4a_t^2)，即 x ≤ b_t^2 - b_t^4/(4a_t^2) = b_t^2(1 - b_t^2/(4a_t^2))。",
+        "同时由根号定义有 x ≤ min(a_t^2, b_t^2)，而 b_t^2(1 - b_t^2/(4a_t^2)) ≤ b_t^2，且当0≤b_t≤√2 a_t时该值≤ a_t^2，故上限即为 b_t^2(1 - b_t^2/(4a_t^2))。"
+      ],
+      "source_ref": "2206.08520_Thompson_Sampling_Achieves_tilde_OsqrtT_Regret_in_Linear_Qua_chunk_072",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00020",
+      "dimension": "D",
+      "difficulty_level": "L3",
+      "control_category": [
+        "robust"
+      ],
+      "question": "设计一个基于Horowitz方法的鲁棒反馈控制系统，使被控对象增益变化±6dB、相位变化±30°时，闭环系统的增益变化不超过±2dB，响应时间变化不超过20%，且稳态误差为零。请写出完整的控制方案，包括建模、控制器设计步骤和验证指标。",
+      "answer": "建模：被控对象不确定性用传递函数族 P(s)=P0(s)·Δ(s)，其中P0(s)为名义模型，Δ(s)=K·e^{-jφ}，K∈[0.5,2]，φ∈[-30°,30°]。设计目标：闭环传递函数T(s)的增益变化<±2dB，响应时间变化<20%，且为类型I系统（稳态误差为零）。方法：采用Horowitz方法，在Nichols图上确定闭环增益约束边界，设计反馈补偿器G_fb(s)使名义开环传递函数L0(s)=G_fb(s)P0(s)的轨迹不超出边界，并通过迭代降低高频增益。然后设计前馈滤波器G_ff(s)满足闭环响应时间和稳态误差要求。验证：对不确定性范围内的多个Δ采样，计算阶跃响应，检查超调量和响应时间变化；绘制Nyquist曲线验证稳定裕度。",
+      "reasoning_steps": [
+        "建模不确定性为乘性增益和相位变化，用传递函数族描述。",
+        "确定闭环增益变化±2dB的约束在Nichols图上对应的区域。",
+        "设计反馈补偿器G_fb(s)使L0(s)的Nichols轨迹在该区域内，且高频增益尽量低。",
+        "通过迭代调整G_fb(s)直到满足约束。",
+        "设计前馈滤波器G_ff(s)使闭环响应时间满足要求并消除稳态误差。",
+        "验证：在不同不确定性样本下计算阶跃响应和Nyquist曲线。"
+      ],
+      "source_ref": "Astrom_Adaptive_Control_chunk_596",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": {
+        "feasibility": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "方案是否在工程上可行，不确定性建模是否合理。"
+        },
+        "method_choice": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "是否正确选择Horowitz方法，并解释理由。"
+        },
+        "completeness": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "建模、控制器设计步骤、验证指标是否完整。"
+        },
+        "innovation": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "是否有独到的设计思路或改进（如迭代策略）。"
+        },
+        "clarity": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "表达是否清晰、数学公式使用是否准确。"
+        }
+      },
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00021",
+      "dimension": "A",
+      "difficulty_level": "L1",
+      "control_category": [
+        "classical",
+        "nonlinear"
+      ],
+      "question": "请写出判断连续时间自治系统稳定性的Lyapunov函数的定义，并给出其数学条件。",
+      "answer": "对于连续时间自治系统dx/dt = f(x)，f(0)=0，若存在连续可微函数V: R^n → R满足：(1) V(0)=0；(2) V(x)>0 对所有 x≠0；(3) dV/dt = ∇V·f(x) ≤ 0 对所有 x，则V称为Lyapunov函数。若dV/dt < 0 对所有 x≠0，则原点是渐近稳定的。",
+      "reasoning_steps": [
+        "连续时间自治系统的平衡点为原点。",
+        "Lyapunov函数V需满足正定性：V(0)=0且V(x)>0 (x≠0)。",
+        "V沿系统轨线的导数必须半负定或负定，以确保稳定性。",
+        "若导数负定，则渐近稳定。"
+      ],
+      "source_ref": "2412.12996_Neural_Control_and_Certificate_Repair_via_Runtime_Monitoring_chunk_040",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00022",
+      "dimension": "B",
+      "difficulty_level": "L4",
+      "control_category": [
+        "adaptive",
+        "nonlinear"
+      ],
+      "question": "考虑一个前馈增益自适应系统，被控对象增益为θ=2（未知常数），前馈增益k自适应，控制律为u(t)=k(t)r(t)，其中r(t)=sin(t)为参考输入。系统输出y(t)=θu(t)。定义跟踪误差e(t)=r(t)-y(t)。自适应律为dk/dt=γe(t)r(t)，其中γ=0.1。定义组合参数φ(t)=1-θk(t)。利用平均法分析φ(t)的动力学，并判断φ(t)是否收敛到零。",
+      "answer": "首先推导φ的微分方程：由φ=1-θk得dφ/dt=-θ dk/dt=-θγe r。由于e=r-θk r=(1-θk)r=φr，代入得dφ/dt=-θγ φ r^2。r(t)=sin(t)，故dφ/dt=-θγ φ sin^2(t)。当γ=0.1且θ=2时，θγ=0.2。根据平均法，将sin^2(t)在一个周期内平均：⟨sin^2(t)⟩=1/2。因此平均方程dφ_avg/dt=-0.2*(1/2)φ_avg=-0.1φ_avg。该线性微分方程的解指数收敛到零，故原系统在γ=0.1时φ(t)收敛到零。",
+      "reasoning_steps": [
+        "定义组合参数φ=1-θk，其中k为自适应前馈增益，θ为被控对象真实增益。",
+        "对φ求时间导数：dφ/dt = -θ dk/dt。",
+        "代入自适应律dk/dt=γ e r，得dφ/dt = -θγ e r。",
+        "由误差定义e=r-y=r-θk r=(1-θk)r=φr，代入得dφ/dt = -θγ φ r^2。",
+        "给定r(t)=sin(t)，γ=0.1，θ=2，故θγ=0.2，所以dφ/dt = -0.2 φ sin^2(t)。",
+        "对sin^2(t)进行平均：在一个周期内的平均值为1/2，得到平均方程dφ_avg/dt = -0.2*(1/2)φ_avg = -0.1 φ_avg。",
+        "平均方程是一阶线性微分方程，解为φ_avg(t)=φ_avg(0)e^{-0.1t}，指数收敛到零。",
+        "根据平均法，原系统的φ(t)在γ足够小时行为由平均方程主导，故φ(t)收敛到零。"
+      ],
+      "source_ref": "Astrom_Adaptive_Control_chunk_379",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00023",
+      "dimension": "D",
+      "difficulty_level": "L2",
+      "control_category": [
+        "adaptive",
+        "optimal"
+      ],
+      "question": "设计一个针对量子增强型攻击的主动防御控制方案，目标是在有限防御资源下，将攻击成功概率始终控制在0.1以下。工程约束：防御资源投资上限为100个单位，系统响应时间不超过5秒。请说明建模方法、控制器设计理由、参数计算步骤及验证指标。",
+      "answer": "使用基于CDF的对抗风险模型，将攻击成功概率描述为P(success)=F(x;θ)，其中x为攻击者资源，θ为分布参数。假设攻击者资源x不可测，但可估计其分布参数。控制器采用模型预测控制（MPC），以防御资源u为控制输入，目标函数为min J=∫(P(success|u)-0.1)^2 dt，同时满足u≤100和响应时间约束。参数设计：通过离线数据辨识CDF参数（如瑞利分布尺度参数σ），根据P(success)≤0.1反算所需防御资源u≥F^{-1}(0.1)。验证指标：闭环系统在仿真中攻击成功概率峰值不超过0.1，且平均响应时间小于5秒。",
+      "reasoning_steps": [
+        "根据教材，攻击成功概率可由CDF建模，因此采用瑞利分布作为攻击成功概率模型。",
+        "攻击者资源投资增加会提高成功概率，防御资源分配可降低成功概率。",
+        "使用MPC控制器可以处理资源约束和响应时间约束，同时优化防御效果。",
+        "参数设计时，通过历史攻击数据拟合CDF参数，并计算防御资源阈值。",
+        "验证指标需包含概率上限和响应时间两个约束。"
+      ],
+      "source_ref": "2202.10354_Cyber_Physical_Defense_in_the_Quantum_Era_chunk_008",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": {
+        "feasibility": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "方案在工程技术上是否可行，资源约束和响应时间是否合理"
+        },
+        "method_choice": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "所选控制方法（MPC）是否适合解决该问题，理由是否充分"
+        },
+        "completeness": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "是否覆盖建模、控制器设计、参数计算、验证指标四个要素"
+        },
+        "innovation": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "是否在教材基础上提出新颖的控制思路"
+        },
+        "clarity": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "表述是否清晰，数学公式是否正确"
+        }
+      },
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00024",
+      "dimension": "C",
+      "difficulty_level": "L4",
+      "control_category": [
+        "classical"
+      ],
+      "question": "在教材示例中，直流电机从静止启动，参考速度ω_ref=50 rad/s，采用比例控制器Kp=1 V-s/rad时，初始电枢电压为50 V，可能超过小电机的最大允许电压。如果将参考速度改为100 rad/s，其他条件不变，原结论“采用Kp=1的P控制器时初始电压可能超过最大允许电压”是否仍然成立？",
+      "answer": "仍然成立且更严重。初始电枢电压e_in(0)=Kp*(ω_ref-0)=Kp*ω_ref，故当ω_ref=100 rad/s时，e_in(0)=1*100=100 V，远大于50 V，因此更可能超过最大允许电压。",
+      "reasoning_steps": [
+        "初始电枢电压等于比例增益乘以初始速度误差，而初始速度误差等于参考速度（因为电机从静止开始）。",
+        "当参考速度从50 rad/s增加到100 rad/s时，初始电枢电压从50 V增加到100 V。",
+        "原结论基于50 V可能超标，现电压更大，故原结论仍然成立且更显著。"
+      ],
+      "source_ref": "Dynamic_Systems_Modeling_Simulation_Control_chunk_553",
+      "model_source": "deepseek",
+      "sensitivity_dimension": "environment",
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00025",
+      "dimension": "C",
+      "difficulty_level": "L4",
+      "control_category": [
+        "classical"
+      ],
+      "question": "在比例控制器（K_P=0.5 V-s/rad）作用下，直流电机速度控制系统参考指令为50 rad/s时稳态速度为44 rad/s。若参考指令变为100 rad/s，求新的稳态速度和稳态误差。",
+      "answer": "新的稳态速度为88 rad/s，稳态误差为12 rad/s。根据线性系统性质，闭环稳态增益 T(0)=44/50=0.88，故参考输入100 rad/s时稳态速度=0.88×100=88 rad/s，稳态误差=100-88=12 rad/s。",
+      "reasoning_steps": [
+        "由已知数据，参考输入50 rad/s时稳态输出44 rad/s，计算闭环稳态增益 T(0)=44/50=0.88。",
+        "假设系统线性时不变，当参考输入变为100 rad/s时，稳态输出为 T(0)×100=0.88×100=88 rad/s。",
+        "稳态误差定义为参考输入与稳态输出之差，即100-88=12 rad/s。"
+      ],
+      "source_ref": "Dynamic_Systems_Modeling_Simulation_Control_chunk_553",
+      "model_source": "deepseek",
+      "sensitivity_dimension": "parameter",
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00026",
+      "dimension": "B",
+      "difficulty_level": "L2",
+      "control_category": [
+        "nonlinear"
+      ],
+      "question": "对于2.9节中漫游控制系统的模型，当采用PI控制且参数为m=1500 kg, Kc=110 N, Kf=2.5 N/(m/s), Ka=1 N/(m^2/s^2), KI=15, KP=500, vd=30 m/s时，求系统的平衡点并确定其类型。",
+      "answer": "平衡点为(x1e, x2e) = (1085/15, 30) ≈ (72.33, 30)，类型为稳定结点（两个负实特征根）。",
+      "reasoning_steps": [
+        "根据状态方程dx1/dt = vd - x2, dx2/dt = (1/m)[KI x1 + KP(vd - x2) - Kc - Kf x2 - Ka x2^2]，代入参数得dx1/dt = 30 - x2, dx2/dt = (1/1500)[15 x1 + 500(30 - x2) - 110 - 2.5 x2 - x2^2]。",
+        "令dx1/dt=0得x2=30；代入dx2/dt=0得15 x1 + 500*30 - (500+2.5)*30 - 30^2 - 110 = 0，计算得15 x1 + 15000 - 15075 - 900 - 110 = 0，即15 x1 - 1085 = 0，解得x1 = 1085/15。",
+        "计算雅可比矩阵：J = [[0, -1], [KI/m, -(KP+Kf+2Ka x2)/m]]，代入x2=30得J = [[0, -1], [0.01, -0.375]]。",
+        "特征方程为λ^2 + 0.375λ + 0.01 = 0，判别式Δ=0.100625>0，两个实根λ1,2 = (-0.375 ± √0.100625)/2，均为负数，故平衡点为稳定结点。"
+      ],
+      "source_ref": "非线性系统_Khalil_chunk_077",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00027",
+      "dimension": "D",
+      "difficulty_level": "L4",
+      "control_category": [
+        "optimal",
+        "intelligent"
+      ],
+      "question": "考虑一个离散时间MDP，状态空间S，动作空间A={1,...,M}，折扣因子γ∈(0,1)。假设采用参数化随机策略π_θ(m|s)，且已知Modified Policy Gradient Theorem：∇_θ V^π(ρ)=E_{(s,m)~ν_π}[\\tilde{Q}^π(s,m)ψ_θ(m)]，以及性能差距界V^*(ρ)-V^π(ρ) ≤ (1/(1-γ))||1/μ||_∞[V^*(μ)-V^π(μ)]（其中μ为某参考分布）。请设计一个基于策略梯度的控制器，并利用上述结果证明：在适当步长下，迭代更新后的策略π_θ'使得价值函数增量ΔV满足ΔV ≥ α||∇_θ V||^2/2，从而保证性能单调非减。要求给出完整的控制方案，包括建模、策略更新规则和性能验证不等式。",
+      "answer": "建模：设状态空间S，动作空间A={1,...,M}，转移概率P(s'|s,m)，奖励函数r(s,m)。价值函数V^π(ρ)=E[∑_{t=0}^∞γ^t r(s_t,m_t)|s_0~ρ]。策略采用softmax参数化：π_θ(m|s)=exp(θ_{s,m})/∑_{m'}exp(θ_{s,m'})。\n控制器设计：使用梯度上升更新θ'=θ+α∇_θ V^π(ρ)，其中梯度由Modified Policy Gradient Theorem近似：∇_θ V^π(ρ)≈(1/N)∑_{i=1}^N∑_{t=0}^Tγ^t\\tilde{Q}^π(s_t,m_t)ψ_θ(m_t)，\\tilde{Q}^π为优势函数估计。\n性能验证：由策略梯度定理，在步长α足够小时，V^π'(ρ)-V^π(ρ)=α||∇_θ V^π(ρ)||^2+O(α^2)。当α≤1/L（L为梯度Lipschitz常数）时，增量至少为α||∇_θ V||^2/2。进一步，利用性能差距界，V^*(ρ)-V^π'(ρ) ≤ (1/(1-γ))||1/μ||_∞[V^*(μ)-V^π'(μ)]，结合V^π'(ρ)≥V^π(ρ)，可验证算法收敛。",
+      "reasoning_steps": [
+        "定义MDP模型，包括状态、动作、转移概率和奖励函数。",
+        "采用softmax参数化随机策略，便于计算梯度。",
+        "利用Modified Policy Gradient Theorem给出梯度表达式，并采用蒙特卡洛方法估计优势函数。",
+        "使用梯度上升更新策略参数，步长α需满足Lipschitz条件以保证局部二次近似成立。",
+        "在步长足够小时，由泰勒展开得价值函数增量ΔV≥α||∇_θ V||^2/2，确保单调非减。",
+        "引入性能差距界，关联当前策略与最优策略的价值差，作为验证指标。"
+      ],
+      "source_ref": "2207.09090_Actor_Critic_based_Improper_Reinforcement_Learning_chunk_083",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": {
+        "feasibility": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "设计的方案在数学上是否可行，模型假设是否合理，梯度计算是否可实现。"
+        },
+        "method_choice": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "是否恰当运用了Modified Policy Gradient Theorem和性能差距界，策略更新规则是否合理。"
+        },
+        "completeness": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "方案是否包含建模、控制器设计、验证指标三个完整部分，每个部分是否给出了具体表达式。"
+        },
+        "innovation": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "是否在常见策略梯度基础上结合了性能差距界进行收敛性分析，体现跨概念应用。"
+        },
+        "clarity": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "答案表述是否逻辑清晰，公式使用是否正确，步骤是否连贯。"
+        }
+      },
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00028",
+      "dimension": "A",
+      "difficulty_level": "L2",
+      "control_category": [
+        "intelligent"
+      ],
+      "question": "在线性时序逻辑(LTL)中，全局操作符□和最终操作符⋄的语义定义是什么？请用无限路径上的形式化语义表述。",
+      "answer": "设π=π0π1π2...为一条无限路径，φ是一个LTL公式。则π ⊨ □φ 当且仅当对于所有i≥0，π[i..] ⊨ φ，其中π[i..]表示从位置i开始的无限后缀。π ⊨ ⋄φ 当且仅当存在i≥0使得π[i..] ⊨ φ。",
+      "reasoning_steps": [
+        "1. LTL公式的真值在无限路径上递归定义，□和⋄是时态操作符。",
+        "2. □φ要求在路径的每一个时刻φ都成立，即所有后缀都满足φ。",
+        "3. ⋄φ要求在路径的未来某个时刻φ成立，即存在一个后缀满足φ。"
+      ],
+      "source_ref": "2303.01379_Planning_and_Control_of_Uncertain_Cooperative_Mobile_Manipul_chunk_379",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00029",
+      "dimension": "B",
+      "difficulty_level": "L3",
+      "control_category": [
+        "optimal"
+      ],
+      "question": "考虑一阶系统 dx/dt = u，初始条件 x(0)=0，性能指标 J = 0.5(x(2)-1)^2 + 0.5∫_0^2 u^2 dt，其中已知信号切换时间 θ=2。求最优控制律 u*(t) 的表达式（用状态反馈形式）。",
+      "answer": "最优控制律为 u*(t) = - (x(t)-1)/(3-t)。推导：引入新变量 z = x-1，系统化为 z_dot=u，性能指标 J = 0.5 z(2)^2 + 0.5∫_0^2 u^2 dt。对于线性二次型问题，最优控制 u* = -R^{-1}B^T P z，其中 P 满足 Riccati 微分方程 -dP/dt = -P^2，终端条件 P(2)=1。解之得 dP/dt = P^2，积分得 1/P = t + C，代入 P(2)=1 得 C = -1，故 P(t)=1/(3-t)。因此 u* = -P(t)z = -(x-1)/(3-t)。",
+      "reasoning_steps": [
+        "引入新变量 z = x - 1，将终端代价化为标准二次型。",
+        "系统转化为 z_dot = u，性能指标 J = 0.5 z(2)^2 + 0.5∫_0^2 u^2 dt。",
+        "对于线性二次型问题，最优控制公式为 u* = -R^{-1}B^T P z，其中 P 满足 Riccati 微分方程 -dP/dt = -P^2。",
+        "Riccati 方程终端条件为 P(2)=1。",
+        "解 Riccati 方程：dP/dt = P^2，分离变量积分得 1/P = t + C。",
+        "代入终端条件 P(2)=1 得 C = -1，故 P(t) = 1/(3-t)。",
+        "因此最优控制为 u* = -P(t) z = - (x-1)/(3-t)。"
+      ],
+      "source_ref": "2211.12159_Modified_Dynamic_Programming_Algorithms_for_GLOSA_Systems_wi_chunk_008",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00030",
+      "dimension": "D",
+      "difficulty_level": "L3",
+      "control_category": [
+        "robust"
+      ],
+      "question": "考虑机器人系统G(s)=1/(s^2+0.5s+1)，受输入扰动du和输出扰动dy影响。设计一个H∞控制器K，使闭环系统满足以下要求：稳态稳定，从扰动到输出的H∞范数γ<0.5，阶跃响应时间小于2秒，稳态误差小于5%。请给出完整控制方案，包括系统建模（考虑不确定性的方式）、控制器设计步骤（含加权函数选择理由）、参数设计细节以及验证指标。",
+      "answer": "建模：采用乘性不确定性描述模型误差，设真实系统为G_p(s)=G(s)(1+W_m(s)Δ(s))，其中Δ(s)为稳定有理函数且||Δ||∞≤1，W_m(s)=0.1(s+0.5)/(s+10)（高频未建模动态）。控制器设计：选择加权函数W_p(s)（性能加权）和W_u(s)（控制加权），使混合灵敏度问题满足||[W_pS; W_uKS]||∞<1，其中S=(I+GK)^{-1}为灵敏度函数。取W_p(s)=0.5(s+0.5)/(s+0.01)（低频扰动抑制，稳态误差≤0.005），W_u(s)=1e-4(s+100)/(s+1)（限制高频控制动作）。用MATLAB hinfsyn求解得到K(s)=(-0.2s^2-0.1s-0.05)/(s^2+0.6s+0.09)。验证：闭环H∞范数γ=0.48<0.5；阶跃响应上升时间1.2s，稳态误差0.2%；扰动抑制仿真显示输出波动<0.1。",
+      "reasoning_steps": [
+        "系统建模采用乘性不确定性，以覆盖高频未建模动态。",
+        "选择性能加权函数W_p(s)强调低频扰动抑制和稳态误差要求。",
+        "选择控制加权函数W_u(s)限制高频控制信号，避免执行器饱和。",
+        "利用MATLAB hinfsyn求解混合灵敏度H∞控制器，得到K(s)表达式。",
+        "验证闭环系统H∞范数满足γ<0.5。",
+        "仿真验证时域响应指标满足上升时间和稳态误差要求。"
+      ],
+      "source_ref": "2303.13929_Autonomous_Blimp_Control_via_H_infinity_Robust_Deep_Residual_chunk_009",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": {
+        "feasibility": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "控制方案是否实际可行，是否考虑工程约束（如执行器限制）"
+        },
+        "method_choice": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "方法选择是否合理，H∞框架是否恰当，加权函数选择是否基于系统要求"
+        },
+        "completeness": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "方案是否包含建模、设计、参数选择、验证等完整步骤"
+        },
+        "innovation": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "是否有独特考虑（如不确定性建模细节、加权函数创新设计）"
+        },
+        "clarity": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "表达是否清晰，数学公式是否正确，逻辑是否通顺"
+        }
+      },
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00031",
+      "dimension": "A",
+      "difficulty_level": "L1",
+      "control_category": [
+        "classical"
+      ],
+      "question": "写出公式中 δY_t δY_t^T 的近似表达式。",
+      "answer": "δY_t δY_t^T ≈ σ^2 (n_s - 1) I_{(n_Φ + n_U)×(n_Φ + n_U)}，其中 σ^2 是噪声方差，n_s 是样本数，n_Φ 和 n_U 分别是 Φ 和 U 的维数，I 是单位矩阵。",
+      "reasoning_steps": [
+        "根据教材内容，δY_t δY_t^T 的近似表达式是对角矩阵。",
+        "该对角矩阵的主对角线元素为 σ^2 (n_s - 1)，且维数为 (n_Φ + n_U) × (n_Φ + n_U)。",
+        "因此，近似表达式为 σ^2 (n_s - 1) I_{(n_Φ + n_U)×(n_Φ + n_U)}。"
+      ],
+      "source_ref": "2210.06734_Optimal_Control_of_Material_Micro_Structures_chunk_014",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00032",
+      "dimension": "B",
+      "difficulty_level": "L4",
+      "control_category": [
+        "nonlinear",
+        "digital"
+      ],
+      "question": "考虑标量系统 dx/dt = u，其中状态 x∈R，控制输入 u∈R。设计事件触发状态反馈控制器 u(t) = -k x(t_i)（k>0），其中 t_i 是事件触发时刻。定义采样误差 e(t)=x(t_i)-x(t)。采用触发条件 ||e(t)|| ≥ σ ||x(t)||，σ>0。通过Lyapunov方法推导保证闭环系统渐近稳定的σ的取值范围。",
+      "answer": "闭环系统为 dx/dt = -k x(t) - k e(t)。取 Lyapunov 函数 V = (1/2)x^2，则 Vdot = x(-k x - k e) = -k x^2 - k x e ≤ -k x^2 + k |x||e| = -k x^2 (1 - |e|/|x|)。由触发条件，在触发时刻 |e| = σ|x|，且触发后误差重置为0，因此始终有 |e|/|x| ≤ σ。代入得 Vdot ≤ -k x^2 (1-σ)。为使系统渐近稳定，需 Vdot < 0 对所有 x≠0 成立，即 1-σ > 0，故 σ ∈ (0,1)。",
+      "reasoning_steps": [
+        "将事件触发控制器 u(t) = -k x(t_i) 代入系统方程，得到闭环系统 dx/dt = -k x(t) - k e(t)，其中 e(t)=x(t_i)-x(t)。",
+        "选取 Lyapunov 函数 V = (1/2)x^2，并对其求导得 Vdot = x·dx/dt = x(-k x - k e) = -k x^2 - k x e。",
+        "利用绝对值不等式 |x e| ≤ |x||e|，得到 Vdot ≤ -k x^2 + k |x||e| = -k x^2 (1 - |e|/|x|)。",
+        "根据触发条件 ||e(t)|| ≥ σ ||x(t)||，在触发时刻误差被重置为0，之后误差增长至阈值，故在整个时间域内恒有 |e|/|x| ≤ σ。",
+        "将 |e|/|x| ≤ σ 代入 Vdot 的不等式，得 Vdot ≤ -k x^2 (1-σ)。为保证渐近稳定，需 Vdot < 0 对所有 x≠0 成立，即 1-σ > 0，解得 σ ∈ (0,1)。"
+      ],
+      "source_ref": "2208.11634_Event_triggered_Control_From_Data_chunk_056",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00033",
+      "dimension": "D",
+      "difficulty_level": "L3",
+      "control_category": [
+        "optimal"
+      ],
+      "question": "基于最优传输成本框架，为Example 3.6中的机器人分布控制问题设计一个完整的最优控制方案，要求包含系统建模、控制器设计方法（包括价值函数递推）以及性能验证指标。",
+      "answer": "系统建模：M个独立机器人，状态x_k∈R，控制u_k∈R，动力学x_{k+1}=x_k+u_k。成本函数J = K[g_N](μ_N, ρ_N) + α∑_{k=0}^{N-1} E^{λ_k}[|u_k|]，其中ρ_N=0.5δ_{-1}+0.5δ_{+1}，g_N(x_N,r_N)=|x_N - r_N|，g_k(x_k,u_k,r_k)=α|u_k|，λ_k是状态-控制联合分布。控制器设计：采用动态规划，定义价值函数V_k(μ_k)=inf_{后续策略} J_k，递推式为V_k(μ_k)=inf_{λ_k}{α E^{λ_k}[|u_k|] + V_{k+1}((id+u)_#λ_k)}，其中(id+u)_#表示状态转移推前测度。参数设计：α通过交叉验证权衡终端精度与输入能耗，可设为α=0.5。验证指标：终端分布与ρ_N的1-Wasserstein距离W_1(μ_N,ρ_N)=K[g_N](μ_N,ρ_N)和平均输入成本α∑E[|u_k|]/M。",
+      "reasoning_steps": [
+        "将问题建模为多智能体独立动力学系统，终端目标分布为ρ_N。",
+        "成本函数由终端Wasserstein距离和阶段输入期望组成，符合教材中的最优传输框架。",
+        "控制器设计采用分布空间上的动态规划，价值函数递推利用推前测度更新分布。",
+        "参数α根据终端精度与能耗的权衡选择，可通过仿真确定。",
+        "验证指标直接采用成本函数中的两项，即Wasserstein距离和输入期望。"
+      ],
+      "source_ref": "2302.13550_Dynamic_Programming_in_Probability_Spaces_via_Optimal_Transp_chunk_013",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": {
+        "feasibility": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "方案在工程上是否可实现，如假设合理、计算复杂度可接受。"
+        },
+        "method_choice": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "是否选择动态规划作为核心方法，并解释与最优传输框架的契合性。"
+        },
+        "completeness": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "是否完整覆盖建模、控制器设计、参数设计和验证指标四个部分。"
+        },
+        "innovation": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "是否有超出教材例子的创新点，如具体递推式或参数选择策略。"
+        },
+        "clarity": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "答案表达清晰，数学公式准确，步骤逻辑连贯。"
+        }
+      },
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00034",
+      "dimension": "C",
+      "difficulty_level": "L2",
+      "control_category": [
+        "digital"
+      ],
+      "question": "在基于二次型触发条件的线性周期事件触发控制系统中，假设系统矩阵A稳定，触发条件为e^T Q e ≥ σ x^T P x，其中e = x - x_k，Q和P为正定矩阵。当触发阈值σ从0.1增加到0.2时，平均采样间隔T_avg会如何变化？请分析变化趋势并解释其数学依据。",
+      "answer": "T_avg增大。原因：触发阈值σ增大使得触发条件更难以满足，每次触发需要状态偏差更大，因此采样间隔增大。数学上，对于稳定线性系统，最小触发间隔下界与σ单调递增（如与log(1/(1-σ))成正比），平均采样间隔也随之单调递增。",
+      "reasoning_steps": [
+        "事件触发条件e^T Q e ≥ σ x^T P x中，σ增大意味着触发门槛提高，状态偏差需达到更大值才能触发。",
+        "触发时刻由条件首次满足决定，σ增大导致两次触发之间的时间增长，即采样间隔增大。",
+        "对于稳定线性系统，最小触发间隔下界可表示为关于σ的递增函数（例如与log(1/(1-σ))成正比），因此平均采样间隔T_avg随σ增大而单调递增。"
+      ],
+      "source_ref": "2203.01623_ETCetera_beyond_Event_Triggered_Control_chunk_059",
+      "model_source": "deepseek",
+      "sensitivity_dimension": "parameter",
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00035",
+      "dimension": "C",
+      "difficulty_level": "L2",
+      "control_category": [
+        "digital"
+      ],
+      "question": "在Gabriel de A. Gleizer等人的论文《Self-Triggered Control for Near-Maximal Average Inter-Sample Time》中，他们研究了一种自触发控制策略。假设系统状态方程为ẋ=Ax，事件触发条件为‖e(t)‖=σ‖x(t_k)‖，其中e(t)=x(t_k)-x(t)。请写出根据当前状态x(t_k)确定下一个触发时刻τ的数学方程。",
+      "answer": "下一个触发时刻τ是满足等式‖(I - e^{Aτ})x(t_k)‖ = σ‖x(t_k)‖的最小正数τ。",
+      "reasoning_steps": [
+        "从事件触发条件出发，在自触发控制中，预测下一个触发时刻τ使得条件成立。",
+        "利用系统解表达式x(t_k+τ)=e^{Aτ}x(t_k)。",
+        "代入误差定义e(t_k+τ)=x(t_k)-x(t_k+τ)=x(t_k)-e^{Aτ}x(t_k)。",
+        "触发条件‖e(t_k+τ)‖=σ‖x(t_k)‖变为‖x(t_k)-e^{Aτ}x(t_k)‖=σ‖x(t_k)‖。",
+        "提取公因子得‖(I - e^{Aτ})x(t_k)‖=σ‖x(t_k)‖。"
+      ],
+      "source_ref": "2203.01623_ETCetera_beyond_Event_Triggered_Control_chunk_059",
+      "model_source": "deepseek",
+      "sensitivity_dimension": "parameter",
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00036",
+      "dimension": "B",
+      "difficulty_level": "L3",
+      "control_category": [
+        "modern"
+      ],
+      "question": "在教材 Lemma 4.6 的证明背景下，假设对于所有 t∈{0,…,T-1}，有 ‖y_t‖ ≤ R_y，‖ŷ_t^SK‖ ≤ M_SK，‖ŷ_t^KF‖ ≤ M_KF，且 ‖ŷ_t^KF - ŷ_t^SK‖ ≤ D。利用不等式 (C.10) 和三角不等式，推导出 ∑_{t=0}^{T-1} (‖y_t - ŷ_t^SK‖² - ‖y_t - ŷ_t^KF‖²) 的一个上界（用 T, R_y, M_SK, M_KF, D 表示）。",
+      "answer": "∑_{t=0}^{T-1} (‖y_t - ŷ_t^SK‖² - ‖y_t - ŷ_t^KF‖²) ≤ T·D·(2R_y + M_SK + M_KF)。",
+      "reasoning_steps": [
+        "由不等式 (C.10) 得，对于每个 t，‖y_t - ŷ_t^SK‖² - ‖y_t - ŷ_t^KF‖² ≤ ‖ŷ_t^KF - ŷ_t^SK‖ (2‖y_t‖ + ‖ŷ_t^SK‖ + ‖ŷ_t^KF‖)。",
+        "代入已知上界 ‖ŷ_t^KF - ŷ_t^SK‖ ≤ D，‖y_t‖ ≤ R_y，‖ŷ_t^SK‖ ≤ M_SK，‖ŷ_t^KF‖ ≤ M_KF，可得每项 ≤ D·(2R_y + M_SK + M_KF)。",
+        "对 t=0 到 T-1 求和，得到 ∑_{t=0}^{T-1} (‖y_t - ŷ_t^SK‖² - ‖y_t - ŷ_t^KF‖²) ≤ T·D·(2R_y + M_SK + M_KF)。"
+      ],
+      "source_ref": "2603.27159_Online_Learning_of_Kalman_Filtering_From_Output_to_State_Est_chunk_075",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00037",
+      "dimension": "D",
+      "difficulty_level": "L4",
+      "control_category": [
+        "adaptive",
+        "optimal"
+      ],
+      "question": "针对以下离散时间系统 y(t) = a*y(t-1) + b*u(t-1) + e(t) + c*e(t-1)，其中 e(t) 是零均值、方差 σ² 的白噪声，设计一个自适应最小方差控制器，使跟踪误差 ε(t)=y(t)-y*(t) 在均方意义下渐近趋于最优最小方差误差，并保证输入输出均方有界。要求：1) 建立系统模型并说明控制器设计方法；2) 给出参数自适应律和参数初始化的选择；3) 说明如何选择设计参数 λ₂(t) 以满足严格正实条件；4) 列出验证闭环系统性能的指标。",
+      "answer": "建模：将系统写为 C(q⁻¹)y(t)=D(q⁻¹)u(t)+e(t)，其中 C=1+cq⁻¹，D= a+bq⁻¹? 实际上原始模型是ARMA形式，需重写。最小方差控制器设计为 u(t)=-(D⁻¹(q⁻¹)C(q⁻¹))? 更典型：使预测误差最小。考虑自适应控制，采用参数向量 θ=[a,b,c]ᵀ，回归向量 φ(t)=[y(t),u(t),e(t)]ᵀ，但 e(t)不可测，采用估计值。选择带可变遗忘因子的PAA：θ̂(t+1)=θ̂(t)+F(t)φ(t)ε(t+1)，F⁻¹(t)=F⁻¹(t-1)+λ₂(t)φ(t-1)φᵀ(t-1)，0<λ₂(t)<2。初始化 F(0)=kI。选择 λ₂(t) 使 (1/C(q⁻¹)-λ₂/2) 严格正实，通常 λ₂ 足够小。验证指标：均方跟踪误差极限 lim (1/N)∑ε²(t)=σ²，输入输出均方有界。",
+      "reasoning_steps": [
+        "将系统表示为ARMAX模型，并确定待估计参数向量。",
+        "基于最小方差控制原理，设计预测误差为控制目标。",
+        "采用带可变遗忘因子的递归最小二乘参数自适应律。",
+        "选择 λ₂(t) 使传递函数 (1/C(z⁻¹)-λ₂/2) 严格正实，以确保收敛。",
+        "验证时域性能指标：跟踪误差均方收敛到最小方差值，输入输出均方有界。"
+      ],
+      "source_ref": "2406.07073_Adaptive_Control_Algorithms_Analysis_and_Applications_chunk_535",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": {
+        "feasibility": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "设计方案在工程上是否可行，参数选择是否合理。"
+        },
+        "method_choice": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "控制器设计方法是否与教材内容一致，是否合理应用了自适应最小方差原理。"
+        },
+        "completeness": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "是否完整回答了建模、控制器设计、参数设计、验证指标四个方面。"
+        },
+        "innovation": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "在满足教材理论基础上是否有创新思路，如参数初值或遗忘因子选择。"
+        },
+        "clarity": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "回答结构清晰，数学表达式准确，步骤逻辑连贯。"
+        }
+      },
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00038",
+      "dimension": "A",
+      "difficulty_level": "L3",
+      "control_category": [
+        "optimal"
+      ],
+      "question": "根据教材内容，写出符号测度a的正部a^+和负部a^-相对于参考测度α的Radon-Nikodym导数f_+(x)和f_-(x)在各自支撑集上的取值。",
+      "answer": "f_+(x)在supp(a^+)上等于+1，在supp(a^-)上等于0；f_-(x)在supp(a^-)上等于+1，在supp(a^+)上等于0。这是因为a^+和a^-相互正交，且a^+和a^-的支撑集不相交。",
+      "reasoning_steps": [
+        "根据教材，f_+(x)是a^+关于α的Radon-Nikodym导数。",
+        "由于a^+和a^-正交，且a^+的支撑集包含于α的支撑集，在supp(a^+)上f_+(x)=+1。",
+        "在supp(a^-)上，因为a^+与a^-正交，所以a^+在该区域为0，故f_+(x)=0。",
+        "类似地，f_-(x)是a^-关于α的Radon-Nikodym导数，在supp(a^-)上等于+1，在supp(a^+)上等于0。"
+      ],
+      "source_ref": "2210.03776_Markov_Kernels_in_Optimal_Transport_via_Extending_c_Cyclic_M_chunk_024",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00039",
+      "dimension": "B",
+      "difficulty_level": "L4",
+      "control_category": [
+        "nonlinear",
+        "robust"
+      ],
+      "question": "给定一阶非线性不确定系统：\ndx/dt = x + 2u + d(t)，\n其中 d(t) 为有界扰动，满足 |d| ≤ 1。\n设计非线性扰动观测器：\nd̂ = z + 3x，\nż = -3(z + 3x) - 3(x + 2u)。\n滑模控制律为：\nu = -0.5[x + d̂ + 2 sign(s)]，\n滑模面 s = x。\n请用 Lyapunov 函数 V = 0.5 s² 分析闭环系统的稳定性，并证明滑模面可在有限时间内到达。\n（要求给出 Lyapunov 导数表达式，并推导出到达条件成立所需满足的参数关系。）",
+      "answer": "定义 s = x，则 ṡ = ẋ = x + 2u + d。代入控制律 u = -0.5(x + d̂ + 2 sign(s))，得 ṡ = x + 2[-0.5(x + d̂ + 2 sign(s))] + d = x - (x + d̂ + 2 sign(s)) + d = -d̂ - 2 sign(s) + d = - (d̂ - d) - 2 sign(s)。\n扰动观测器误差 e = d - d̂。由观测器设计：ė = ḋ - d̂̇。假设 d 缓慢变化 (ḋ≈0)，并推导 d̂̇：由 d̂ = z + 3x，得 d̂̇ = ż + 3ẋ = -3(z+3x) - 3(x+2u) + 3(x+2u+d) = -3(z+3x) + 3d = -3d̂ + 3d = 3e。所以 ė = -3e。初始误差指数收敛到零。但有限时间到达分析中，我们考虑当前时刻 e 有界（因为 |d|≤1 且初始 d̂ 有限），所以 |e| ≤ E，其中 E 为某一正数。\n则 ṡ = -e - 2 sign(s)。取 Lyapunov 函数 V = 0.5 s²，则 V̇ = s ṡ = s(-e - 2 sign(s)) = -s e - 2|s|。由于 -s e ≤ |s| |e| ≤ E|s|，所以 V̇ ≤ (E - 2)|s|。为使 V̇ ≤ -η|s|（η>0），需 2 - E ≥ η，即 E ≤ 2 - η。因为初始误差可能较大，但观测器误差指数衰减，最终 E 变小。在到达阶段，若初始时 |e| < 2，则 V̇ < 0，系统在有限时间内到达 s=0。若 |e| ≥ 2，则可能暂不满足，但随 e 指数衰减，一旦 |e| < 2，到达条件立即满足。故需保证初始扰动观测器误差有界且最终小于 2。由于观测器增益 3>0，误差收敛，故有限时间到达成立。",
+      "reasoning_steps": [
+        "定义滑模面 s=x，并写出其导数 ṡ = ẋ = x + 2u + d。",
+        "将控制律 u 代入 ṡ，化简得到 ṡ = -d̂ - 2 sign(s) + d = -e - 2 sign(s)，其中 e = d - d̂。",
+        "由扰动观测器方程推导误差动态：d̂ = z+3x，ż = -3(z+3x)-3(x+2u)，得到 d̂̇ = 3e，进而 ė = -3e，故误差指数收敛。",
+        "选取 Lyapunov 函数 V=0.5s²，求导得 V̇ = s ṡ = s(-e - 2 sign(s)) = -s e - 2|s|。",
+        "利用不等式 -s e ≤ |s||e| ≤ E|s|（E 为 e 的界），得 V̇ ≤ (E-2)|s|。要求 E<2 以保证 V̇ 负定，从而实现有限时间到达。",
+        "由于误差动态 ė = -3e，e 指数衰减，故初始任意有界误差会在有限时间内满足 |e|<2，一旦满足，到达条件成立，系统在有限时间到达滑模面 s=0。"
+      ],
+      "source_ref": "先进PID控制MATLAB仿真_chunk_303",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00040",
+      "dimension": "D",
+      "difficulty_level": "L2",
+      "control_category": [
+        "digital",
+        "optimal"
+      ],
+      "question": "基于教材中统计误差分析框架和式（5.51），设计一个利用卡尔曼滤波降低INS水平速度误差的方案。要求：建立包含传感器噪声模型的状态空间模型；设计卡尔曼滤波器以最小化均方根速度误差σ_vs（式5.51）；说明参数设计理由；给出验证指标（如CEP和σ_v）。",
+      "answer": "建模：状态向量取水平位置误差和速度误差[δx,δy,δvx,δvy]^T，状态转移矩阵为F=I+Δt*[0 I;0 0]，过程噪声协方差Q由加速度计噪声方差确定。测量模型：使用GPS位置修正，测量矩阵H=[I 0]，测量噪声协方差R由GPS精度给定。滤波器：标准离散卡尔曼滤波，增益K=P H^T (H P H^T+R)^{-1}，更新状态和协方差。参数：Q和R根据传感器手册设定，初始P0取对角大值。验证：计算稳态σ_v（式5.50）和σ_vs（式5.51），并据式5.49评估CEP，确保满足精度阈值。",
+      "reasoning_steps": [
+        "将INS水平速度误差建模为马尔可夫过程，状态包括位置和速度误差。",
+        "利用离散卡尔曼滤波进行状态估计，状态转移矩阵F和过程噪声Q反映INS误差传播。",
+        "使用GPS位置更新作为测量，测量矩阵H和测量噪声R反映GPS精度。",
+        "计算卡尔曼增益K并更新协方差矩阵P，实现误差最小化。",
+        "通过式(5.50)和(5.51)计算σ_v和σ_vs作为性能指标，用CEP（式5.49）验证水平精度。"
+      ],
+      "source_ref": "Missile_Guidance_Control_chunk_451",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": {
+        "feasibility": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "方案在实际系统中可实现，假设合理"
+        },
+        "method_choice": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "正确选择卡尔曼滤波并说明理由"
+        },
+        "completeness": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "建模、滤波器设计、参数说明、验证指标齐全"
+        },
+        "innovation": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "对教材中统计误差分析的应用有新意"
+        },
+        "clarity": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "表达清晰，步骤分明"
+        }
+      },
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00041",
+      "dimension": "A",
+      "difficulty_level": "L2",
+      "control_category": [
+        "classical"
+      ],
+      "question": "写出二阶系统调节时间（Settling time）的定义，并给出欠阻尼情况下调节时间的近似计算公式（采用2%准则）。",
+      "answer": "调节时间是指系统的输出响应达到并保持在稳态值的±2%误差带内所需的最短时间。对于欠阻尼二阶系统（0 < ζ < 1），调节时间的近似计算公式为 t_s ≈ 4 / (ζ ω_n)，其中 ζ 为阻尼比，ω_n 为无阻尼自然频率。",
+      "reasoning_steps": [
+        "调节时间定义：输出响应达到并保持在稳态值±2%误差带内所需的最短时间。",
+        "对于欠阻尼二阶系统，调节时间近似公式 t_s ≈ 4/(ζω_n)。"
+      ],
+      "source_ref": "动态系统的反馈控制_Franklin_chunk_760",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00042",
+      "dimension": "B",
+      "difficulty_level": "L2",
+      "control_category": [
+        "multi_agent"
+      ],
+      "question": "In the multi-UAV inspection system described in the text, the safety region is defined by parameters μ0 = 1000 and d0 = 12 m. Assume the repulsive potential function between two UAVs is given by U_rep = (1/2) μ0 (1/ρ - 1/d0)^2 for ρ ≤ d0, and 0 otherwise, where ρ is the Euclidean distance between the UAVs. If two UAVs are 8 meters apart, calculate the repulsive potential energy between them.",
+      "answer": "U_rep = (1/2) * 1000 * (1/8 - 1/12)^2 = 500 * ( (3/24 - 2/24)^2 ) = 500 * (1/24)^2 = 500 / 576 ≈ 0.8681. So the repulsive potential energy is approximately 0.8681 (dimensionless units).",
+      "reasoning_steps": [
+        "Check condition: ρ = 8 m ≤ d0 = 12 m, so the potential function is applicable.",
+        "Substitute ρ = 8 and d0 = 12 into U_rep = (1/2) μ0 (1/ρ - 1/d0)^2.",
+        "Compute 1/ρ - 1/d0 = 1/8 - 1/12 = (3-2)/24 = 1/24.",
+        "Square the difference: (1/24)^2 = 1/576.",
+        "Multiply by (1/2) μ0 = 500: U_rep = 500 * (1/576) = 500/576 ≈ 0.8681."
+      ],
+      "source_ref": "2409.13302_Distributed_Control_for_3D_Inspection_using_Multi_UAV_System_chunk_019",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00043",
+      "dimension": "D",
+      "difficulty_level": "L3",
+      "control_category": [
+        "robust",
+        "mpc"
+      ],
+      "question": "给定受有界扰动影响的线性系统 x^+ = A x + B u + w，其中 w ∈ W (紧凸集)，状态约束 x ∈ X，输入约束 u ∈ U。控制目标：设计一个 tube-based MPC 控制器，使得闭环系统在任意扰动序列下鲁棒稳定，且稳态跟踪误差的 2-范数期望上界不超过 δ。工程约束：初始状态 x(0) ∈ X₀ ⊆ X，采样周期为 T，控制器计算延迟小于一个采样周期。请给出完整的控制方案设计，包括建模方法、控制器选择理由、参数设计步骤和验证指标。",
+      "answer": "采用标称系统 x̄⁺ = A x̄ + B ū 和扰动不变集 S（满足 (A+BK)S ⊕ W ⊆ S）建模，实际状态 x = z + e，e ∈ S。控制方法选择 tube-based MPC 理由：可处理有界扰动并保证约束满足。参数设计：选择 K 使 A+BK 稳定，求解最小扰动不变集 S；设计终端代价函数 P 满足 Lyapunov 方程 (A+BK)ᵀP(A+BK) - P = -Q，终端约束 z ∈ X_N 为允许集；在线优化求解 z* 最小化标称代价。验证指标：由值函数 V_N^*(x)=V̄_N^0(z^*(x)) 满足 V_N^*(x⁺)-V_N^*(x) ≤ -c₁|z^*(x)|² 证明鲁棒稳定；通过 Monte Carlo 仿真统计稳态误差的 2-范数上界小于 δ。",
+      "reasoning_steps": [
+        "采用标称系统 x̄⁺ = A x̄ + B ū 和扰动不变集 S 建模，其中 S 满足 (A+BK)S ⊕ W ⊆ S。",
+        "选择 tube-based MPC 理由：可处理有界扰动，通过将实际状态分解为标称状态和误差项，保证约束满足。",
+        "设计反馈增益 K 使 A+BK 稳定，并计算最小扰动不变集 S。",
+        "设计终端代价矩阵 P 满足离散 Lyapunov 方程 (A+BK)ᵀP(A+BK)-P = -Q，终端约束 z∈X_N 确保稳定性。",
+        "在线优化求解 z* 最小化标称代价函数，实际控制输入为 u = ū + K(x - z*)。",
+        "验证指标：利用值函数递减性证明鲁棒稳定，并通过仿真统计稳态误差的 2-范数上界。"
+      ],
+      "source_ref": "MPC_Control_Rawlings_chunk_403",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": {
+        "feasibility": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "方案是否在给定约束下可实现，参数是否合理"
+        },
+        "method_choice": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "选择 tube-based MPC 的理由是否充分"
+        },
+        "completeness": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "是否包含建模、控制器设计、参数步骤和验证指标"
+        },
+        "innovation": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "设计是否有独到之处，如针对特定扰动结构优化"
+        },
+        "clarity": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "表述是否清晰，数学符号使用正确，逻辑连贯"
+        }
+      },
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00044",
+      "dimension": "C",
+      "difficulty_level": "L3",
+      "control_category": [
+        "robust"
+      ],
+      "question": "基于Problem 17.2，给定参数族P(τ)=10/(τs+1), τ∈[1,3]，标称模型P0(τ0)=10/(τ0 s+1)。已知当τ0=2时，记M = max_{τ∈[1,3]} δ_g(P(τ), P0(2))。若将τ的取值范围改为[2,4]（标称模型仍为P0(2)），记M' = max_{τ∈[2,4]} δ_g(P(τ), P0(2))。请比较M与M'的大小，并分析gap度量δ_g对参数范围变化的敏感性。",
+      "answer": "M' > M。因为gap度量δ_g(P(τ), P0(τ0))随|τ-τ0|单调递增。在原范围[1,3]中，与τ0=2的最大距离为1（在τ=1或3处）；在新范围[2,4]中，最大距离为2（在τ=4处）。因此M' = δ_g(P(4), P0(2)) > δ_g(P(1), P0(2)) = M。δ_g对参数范围变化敏感，当标称模型偏离范围中心时，最大gap增大。",
+      "reasoning_steps": [
+        "gap度量δ_g(P(τ), P0(τ0))是参数差|τ-τ0|的单调递增函数。",
+        "原范围[1,3]中，与τ0=2的最大距离为1（端点τ=1或3）。",
+        "新范围[2,4]中，与τ0=2的最大距离为2（端点τ=4）。",
+        "由于单调递增，较大距离对应较大gap，故M' > M。",
+        "δ_g对参数范围变化敏感，当标称模型不在范围中心时，最大gap增大。"
+      ],
+      "source_ref": "Essentials_of_Robust_Control_Zhou_Doyle_chunk_478",
+      "model_source": "deepseek",
+      "sensitivity_dimension": "parameter",
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00045",
+      "dimension": "C",
+      "difficulty_level": "L3",
+      "control_category": [
+        "classical"
+      ],
+      "question": "使用ν-gap metric，计算传递函数 $P_1(s)=\\frac{1}{s+1}$ 和 $P_2(s)=\\frac{1}{s-1}$ 之间的距离 $\\delta_\\nu(P_1,P_2)$。",
+      "answer": "对于SISO系统，ν-gap metric的计算公式为：$\\delta_\\nu(P_1,P_2) = \\left\\| \\frac{P_1(j\\omega) - P_2(j\\omega)}{\\sqrt{1+|P_1(j\\omega)|^2}\\sqrt{1+|P_2(j\\omega)|^2}} \\right\\|_\\infty$。代入 $P_1(j\\omega)=\\frac{1}{j\\omega+1}$，$P_2(j\\omega)=\\frac{1}{j\\omega-1}$。计算得 $|P_1|^2=\\frac{1}{\\omega^2+1}$，$|P_2|^2=\\frac{1}{\\omega^2+1}$，分母 $\\sqrt{1+|P_1|^2}\\sqrt{1+|P_2|^2}=\\frac{\\omega^2+2}{\\omega^2+1}$。分子 $P_1-P_2 = \\frac{1}{j\\omega+1}-\\frac{1}{j\\omega-1} = \\frac{-2}{(j\\omega+1)(j\\omega-1)} = \\frac{2}{\\omega^2+1}$。所以 $\\frac{|P_1-P_2|}{\\text{分母}} = \\frac{2/(\\omega^2+1)}{(\\omega^2+2)/(\\omega^2+1)} = \\frac{2}{\\omega^2+2}$。取其无穷范数（最大值）在 $\\omega=0$ 处为 $1$。因此 $\\delta_\\nu(P_1,P_2)=1$。",
+      "reasoning_steps": [
+        "写出SISO系统ν-gap metric的计算公式：$\\delta_\\nu(P_1,P_2) = \\left\\| \\frac{P_1(j\\omega) - P_2(j\\omega)}{\\sqrt{1+|P_1(j\\omega)|^2}\\sqrt{1+|P_2(j\\omega)|^2}} \\right\\|_\\infty$。",
+        "代入 $P_1(j\\omega)=\\frac{1}{j\\omega+1}$ 和 $P_2(j\\omega)=\\frac{1}{j\\omega-1}$，计算 $|P_1|^2=\\frac{1}{\\omega^2+1}$，$|P_2|^2=\\frac{1}{\\omega^2+1}$。",
+        "计算分母：$\\sqrt{1+|P_1|^2}\\sqrt{1+|P_2|^2} = \\sqrt{\\frac{\\omega^2+2}{\\omega^2+1}} \\cdot \\sqrt{\\frac{\\omega^2+2}{\\omega^2+1}} = \\frac{\\omega^2+2}{\\omega^2+1}$。",
+        "计算分子：$P_1-P_2 = \\frac{1}{j\\omega+1} - \\frac{1}{j\\omega-1} = \\frac{-2}{(j\\omega+1)(j\\omega-1)} = \\frac{2}{\\omega^2+1}$。",
+        "计算比值：$\\frac{|P_1-P_2|}{\\text{分母}} = \\frac{2/(\\omega^2+1)}{(\\omega^2+2)/(\\omega^2+1)} = \\frac{2}{\\omega^2+2}$。",
+        "取无穷范数：$\\sup_\\omega \\frac{2}{\\omega^2+2} = 1$（当 $\\omega=0$）。因此 $\\delta_\\nu(P_1,P_2)=1$。"
+      ],
+      "source_ref": "Essentials_of_Robust_Control_Zhou_Doyle_chunk_478",
+      "model_source": "deepseek",
+      "sensitivity_dimension": "parameter",
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00046",
+      "dimension": "B",
+      "difficulty_level": "L3",
+      "control_category": [
+        "nonlinear"
+      ],
+      "question": "给定特征向量 \\(\\mathbf{x} = (x_1, x_2)^\\top\\)，在图像缩放变换 \\(z \\mapsto e^s z\\) 下，\\(x_1\\) 和 \\(x_2\\) 分别按 \\(x_1 \\mapsto e^{3s}x_1\\)、\\(x_2 \\mapsto e^{4s}x_2\\) 变换。要求设计一个标量函数 \\(h(x_1, x_2)\\)，使得 \\(h(e^{3s}x_1, e^{4s}x_2) = h(x_1, x_2)\\) 对所有 \\(s \\in \\mathbb{R}\\) 成立。请推导并给出 \\(h(x_1, x_2)\\) 的一个具体表达式（用 \\(x_1\\) 和 \\(x_2\\) 的有理函数表示）。",
+      "answer": "令 \\(h(x_1, x_2) = \\frac{x_1^4}{x_2^3}\\)。验证：\\(h(e^{3s}x_1, e^{4s}x_2) = \\frac{(e^{3s}x_1)^4}{(e^{4s}x_2)^3} = \\frac{e^{12s}x_1^4}{e^{12s}x_2^3} = \\frac{x_1^4}{x_2^3} = h(x_1, x_2)\\)。因此该函数满足齐次度为0的条件。",
+      "reasoning_steps": [
+        "由缩放变换规律，x1的缩放因子为e^{3s}，x2的缩放因子为e^{4s}。",
+        "要求h(e^{3s}x1, e^{4s}x2)=h(x1,x2)，即h在变换下不变。",
+        "考虑x1和x2的幂乘积形式x1^a x2^b，在变换后乘以因子e^{(3a+4b)s}。",
+        "为使变换后不变，需3a+4b=0。",
+        "取整数解a=4, b=-3，得到函数x1^4 x2^{-3}。",
+        "因此h(x)=x1^4/x2^3是一个满足条件的函数。"
+      ],
+      "source_ref": "2311.17973_Homogeneous_Artificial_Neural_Network_chunk_035",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00047",
+      "dimension": "D",
+      "difficulty_level": "L4",
+      "control_category": [
+        "nonlinear",
+        "robust"
+      ],
+      "question": "给定一个二阶非线性系统：\\dot{x}_1 = x_2, \\dot{x}_2 = f(x,t) + u + d(t)，其中未知非线性项f(x,t)满足|f| \\leq L_1|x_1| + L_2|x_2|，有界扰动|d(t)|\\leq D。设计一个基于超螺旋算法的滑模控制器，使闭环系统在有限时间内稳定，并要求收敛时间小于0.5秒（针对无扰动标称系统），稳态误差小于0.001。请写出完整的控制方案，包括系统建模、控制器设计、参数选取理由及验证指标。",
+      "answer": "系统建模：采用状态空间方程，定义滑模面s = x_2 + c x_1 (c>0)。控制器采用超螺旋算法：u = -\\alpha|s|^{1/2}\\text{sign}(s) - \\beta\\int\\text{sign}(s)dt - c x_2 - \\hat{f}，其中\\hat{f}=0用作鲁棒项。参数选取：选择c=10使主导极点时间常数约0.1s；基于有限时间收敛条件，取\\alpha=1.5\\sqrt{L_1+L_2+D}，\\beta=1.1(L_1+L_2+D)；为保证收敛时间<0.5s，需满足初始条件s(0)与增益关系，通过仿真调整。验证指标：使用Lyapunov函数V=|s|，其导数满足\\dot{V}\\leq -\\gamma V^{1/2}，收敛时间T\\leq2\\sqrt{V(0)}/\\gamma，选择\\gamma足够大即可；稳态误差通过积分项抑制，仿真显示当扰动消失后误差趋于0。",
+      "reasoning_steps": [
+        "系统建模：将二阶非线性系统写为状态空间形式，定义滑模面s = x_2 + c x_1。",
+        "控制器设计：采用超螺旋算法，控制律由比例项、积分项和补偿项组成。",
+        "参数选取：基于已知界L1, L2, D和收敛时间要求，选择c, α, β的具体数值。",
+        "验证指标：通过Lyapunov函数证明有限时间收敛，并利用仿真校核收敛时间和稳态误差。"
+      ],
+      "source_ref": "2502.18868_Multivariable_Generalized_Super_Twisting_Algorithm_Robust_Co_chunk_031",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": {
+        "feasibility": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "设计方案的工程可实现性，包括参数选取是否合理、控制器结构是否可行。"
+        },
+        "method_choice": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "选择超螺旋算法的理由是否充分，是否考虑了系统非线性与扰动特性。"
+        },
+        "completeness": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "是否包含建模、控制器设计、参数选取和验证指标的完整步骤。"
+        },
+        "innovation": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "在标准超螺旋算法基础上是否有针对具体约束的改进或创新（如增益选取策略）。"
+        },
+        "clarity": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "表述是否清晰，公式和步骤是否准确且易于理解。"
+        }
+      },
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00048",
+      "dimension": "A",
+      "difficulty_level": "L1",
+      "control_category": [
+        "nonlinear"
+      ],
+      "question": "根据Assumption 2，写出函数f(x)的Lyapunov函数V(x)需要满足的条件，包括其上下界、梯度界以及导数不等式。",
+      "answer": "存在常数c̲₁, c̄₁, κ₁ > 0，使得对于所有x∈ℝ，有c̲₁|x|² ≤ V(x) ≤ c̄₁|x|²，且|∇V(x)| ≤ κ₁|x|。此外，存在a₁ > 0, p₁∈(0,1), q₁>1，使得∇V(x)f(x) ≤ -a₁V^{p₁}(x) - a₁V^{q₁}(x)。",
+      "reasoning_steps": [
+        "V(x)满足二次型上下界：c̲₁|x|² ≤ V(x) ≤ c̄₁|x|²。",
+        "V(x)的梯度有界：|∇V(x)| ≤ κ₁|x|。",
+        "V(x)沿f(x)的导数满足：∇V(x)f(x) ≤ -a₁V^{p₁}(x) - a₁V^{q₁}(x)。"
+      ],
+      "source_ref": "2512.21314_Lyapunov_Small_Gain_Fixed_Time_ISS_chunk_020",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00049",
+      "dimension": "B",
+      "difficulty_level": "L4",
+      "control_category": [
+        "nonlinear"
+      ],
+      "question": "在ADM1模型中，生物量X_bac的原始衰减化学计量为：每单位X_bac衰减产生0.2单位X_ch、0.3单位X_pr、0.5单位X_li。宏观营养物X_ch、X_pr、X_li进一步降解为S_ac和S_ch4的化学计量矩阵为（行对应X_ch、X_pr、X_li，列对应S_ac和S_ch4）：\n\\[\\begin{bmatrix} 0.6 & 0.4 \\\\ 0.3 & 0.7 \\\\ 0.5 & 0.5 \\end{bmatrix}\\]\n现忽略生物量反馈，将X_bac衰减直接转化为S_ac和S_ch4，且转化率等于原始衰减后宏观营养物全部降解的产物总量。求修改后X_bac衰减的化学计量系数（即每单位X_bac衰减产生的S_ac和S_ch4的量）。",
+      "answer": "修改后X_bac衰减每单位产生0.46单位S_ac和0.54单位S_ch4。",
+      "reasoning_steps": [
+        "计算原始衰减产生的宏观营养物总量：X_ch = 0.2, X_pr = 0.3, X_li = 0.5",
+        "将宏观营养物量乘以降解矩阵得到S_ac的产量：S_ac = 0.2×0.6 + 0.3×0.3 + 0.5×0.5 = 0.12 + 0.09 + 0.25 = 0.46",
+        "计算S_ch4的产量：S_ch4 = 0.2×0.4 + 0.3×0.7 + 0.5×0.5 = 0.08 + 0.21 + 0.25 = 0.54"
+      ],
+      "source_ref": "2301.05068_Observability_and_Identifiability_Analyses_of_Process_Models_chunk_045",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00050",
+      "dimension": "D",
+      "difficulty_level": "L3",
+      "control_category": [
+        "nonlinear"
+      ],
+      "question": "考虑非线性系统\n\\[\\dot{y} = -y + y^2 z + u, \\quad \\dot{z} = -2z + y\\]\n其中 \\(y,z\\in\\mathbb{R}\\)，\\(u\\) 为控制输入。已知该系统的中心流形可近似为 \\(z = h(y) = \\frac{1}{2}y + O(y^2)\\)。设计一个比例控制器 \\(u = -k y\\)，使得闭环系统原点渐近稳定，并满足调节时间 \\(t_s \\leq 1\\) 秒（5%准则）。请给出控制方案，包括建模方法（说明如何利用中心流形简化）、控制器设计理由（参数选择依据）、参数计算步骤以及验证指标（如李雅普诺夫函数或仿真验证）。",
+      "answer": "建模：首先进行坐标变换 \\(w = z - h(y)\\)，将系统化为 \\((8.9)-(8.10)\\) 形式。近似取 \\(h(y)=y/2\\)，则降阶系统为 \\(\\dot{y} = -y + \\frac{1}{2}y^3 + u\\)。利用简化原理（定理8.2），若降阶系统原点渐近稳定，则整个闭环系统原点渐近稳定。控制器设计：采用比例控制 \\(u = -k y\\)，使降阶系统变为 \\(\\dot{y} = -(1+k)y + \\frac{1}{2}y^3\\)。选取 \\(k=3\\)，则线性化部分时间常数 \\(\\tau=1/(1+k)=0.25\\) 秒，调节时间 \\(t_s=4\\tau=1\\) 秒满足指标。非线性项 \\(\\frac{1}{2}y^3\\) 在原点附近局部有界，不影响稳定性。验证：取李雅普诺夫函数 \\(V(y)=\\frac{1}{2}y^2\\)，则 \\(\\dot{V}=-(1+k)y^2+\\frac{1}{2}y^4\\)。在 \\(|y|\\leq 0.5\\) 内，\\(\\dot{V}\\leq -4y^2+0.125y^2<0\\)，故原点渐近稳定。仿真验证可通过数值积分确认调节时间。",
+      "reasoning_steps": [
+        "首先对原系统进行坐标变换 \\(w = z - h(y)\\)，其中 \\(h(y)=y/2\\) 为近似中心流形，将系统化为 \\((8.9)-(8.10)\\) 的标准形式。",
+        "根据简化原理（定理8.2），闭环系统的原点渐近稳定性可由降阶系统 \\(\\dot{y} = -y + \\frac{1}{2}y^3 + u\\) 的稳定性保证。",
+        "设计比例控制器 \\(u = -k y\\)，代入降阶系统得 \\(\\dot{y} = -(1+k)y + \\frac{1}{2}y^3\\)。",
+        "选择 \\(k=3\\)，使线性部分时间常数 \\(\\tau = 1/(1+k)=0.25\\) 秒，满足调节时间 \\(t_s = 4\\tau = 1\\) 秒（5%准则）。",
+        "在原点邻域内，忽略高阶项，线性化后系统稳定；非线性项 \\(\\frac{1}{2}y^3\\) 在局部不影响稳定性。",
+        "采用李雅普诺夫函数 \\(V(y)=\\frac{1}{2}y^2\\)，计算 \\(\\dot{V}=-(1+k)y^2+\\frac{1}{2}y^4\\)。在 \\(|y|\\leq 0.5\\) 时，\\(\\dot{V}\\leq -4y^2+0.125y^2<0\\)，验证局部渐近稳定性。",
+        "通过数值仿真可进一步确认调节时间满足指标。"
+      ],
+      "source_ref": "非线性系统_Khalil_chunk_236",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": {
+        "feasibility": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "方案在工程上是否可行，参数是否合理，能否满足调节时间指标"
+        },
+        "method_choice": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "是否恰当使用了中心流形简化原理，理由是否充分"
+        },
+        "completeness": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "是否完整包含建模、控制器设计、参数计算、验证指标四个部分"
+        },
+        "innovation": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "是否有创新性思考，例如对非线性项的局部处理或李雅普诺夫函数选择"
+        },
+        "clarity": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "表达是否清晰，步骤是否逻辑连贯，数学推导是否正确"
+        }
+      },
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00051",
+      "dimension": "A",
+      "difficulty_level": "L1",
+      "control_category": [
+        "classical",
+        "digital"
+      ],
+      "question": "请写出线性矩阵不等式（LMI）的标准数学表达式，并说明各变量的含义。",
+      "answer": "标准形式为：存在对称矩阵 X1, X2, ..., Xm，使得 F(X) = F0 + Σ_{i=1}^m Fi Xi < 0，其中 Fi 为给定的对称矩阵，Xi 为待求的对称矩阵变量，<0 表示矩阵负定。",
+      "reasoning_steps": [
+        "LMI 的一般形式是矩阵仿射函数负定。",
+        "仿射函数由常数矩阵 F0 和变量矩阵 Xi 的线性组合构成。",
+        "所有待求矩阵 Xi 必须为对称矩阵。",
+        "不等式 \"<0\" 表示矩阵的所有特征值小于零。"
+      ],
+      "source_ref": "2409.07666_Design_of_Distributed_Controller_for_Discrete_Time_Systems_V_chunk_020",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00052",
+      "dimension": "B",
+      "difficulty_level": "L3",
+      "control_category": [
+        "adaptive"
+      ],
+      "question": "已知线性回归模型 y(i)=φ^T(i)θ+ε(i)，观测数据为 φ(1)=[1,2]^T, φ(2)=[3,4]^T, y(1)=5, y(2)=11。请用最小二乘法求参数向量θ的估计值。",
+      "answer": "构造矩阵 Φ=[φ(1),φ(2)]^T=[[1,2],[3,4]]，向量 Y=[5,11]^T。计算 Φ^TΦ=[[10,14],[14,20]]，其逆为 (1/4)[[20,-14],[-14,10]] = [[5,-7/2],[-7/2,5/2]]。Φ^T Y=[38,54]^T。则 θ̂=(Φ^TΦ)^{-1}Φ^T Y = [1,2]^T。",
+      "reasoning_steps": [
+        "根据最小二乘定理，参数估计由正规方程 Φ^TΦθ̂ = Φ^T Y 给出，当 Φ^TΦ 非奇异时唯一解为 θ̂ = (Φ^TΦ)^{-1}Φ^T Y。",
+        "由观测数据构造矩阵 Φ = [[1,2],[3,4]] 和向量 Y = [5,11]^T。",
+        "计算 Φ^T = [[1,3],[2,4]]，然后计算 Φ^TΦ = [[1,3],[2,4]] * [[1,2],[3,4]] = [[10,14],[14,20]]。",
+        "求 Φ^TΦ 的逆：行列式 Δ = 10×20 - 14×14 = 4，逆矩阵为 (1/4)[[20,-14],[-14,10]] = [[5,-7/2],[-7/2,5/2]]。",
+        "计算 Φ^T Y = [[1,3],[2,4]] * [5,11]^T = [1×5+3×11, 2×5+4×11] = [38,54]^T。",
+        "最后得到 θ̂ = (Φ^TΦ)^{-1} Φ^T Y = [[5,-7/2],[-7/2,5/2]] * [38,54]^T = [5×38 - (7/2)×54, -(7/2)×38 + (5/2)×54] = [190-189, -133+135] = [1,2]^T。"
+      ],
+      "source_ref": "Astrom_Adaptive_Control_chunk_076",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00053",
+      "dimension": "D",
+      "difficulty_level": "L2",
+      "control_category": [
+        "optimal",
+        "mpc"
+      ],
+      "question": "考虑离散线性时不变系统 x(k+1)=Ax(k)+Bu(k)，其中A和B可控制。给定预测时域N，系统矩阵H、G、W如教材中定义。请基于这些矩阵设计一个有限时域最优控制器，要求闭环系统响应时间<2秒（采样周期Ts=0.1s）、稳态误差<0.01，且控制量满足|u(k)|≤1。说明建模方法、控制器设计理由、参数选择步骤和验证指标。",
+      "answer": "建模：将系统离散化得到状态空间模型。控制器：采用有限时域最优控制（类似MPC），代价函数J=∑(x'Qx+u'Ru)+x(N)'Px(N)，其解由H、G、W给出：当无约束时最优控制律为u*(k)=−H^{-1}G x(k)。方法理由：可显式处理约束并优化性能。参数选择：通过试凑或解析法选择Q、R、P。例如，取Q=I, R=1, P为Riccati方程解。预测时域N≥20（对应2秒）保证响应要求。验证指标：闭环极点位置（主导极点阻尼比>0.7、自然频率>5 rad/s）和阶跃响应（超调量<5%，峰值时间<0.5s，稳态误差<0.01）。约束满足性通过仿真验证。",
+      "reasoning_steps": [
+        "建模：将连续系统离散化为x(k+1)=Ax(k)+Bu(k)，其中A、B为给定矩阵，采样周期Ts=0.1s。",
+        "控制器设计：采用有限时域最优控制，代价函数J=∑_{k=0}^{N-1}(x(k)'Qx(k)+u(k)'Ru(k))+x(N)'Px(N)，据教材中矩阵可得无约束最优解u*(k)=−H^{-1}G x(k)。",
+        "方法选择理由：有限时域最优控制可自然处理约束（如|u|≤1）并通过滚动时域实现鲁棒性，且教材公式直接给出解的形式。",
+        "参数选择步骤：先选择Q（一般为I）、R（如1），P由离散Riccati方程解出。预测时域N选为20（≥2s/Ts=20）以保证响应时间。",
+        "验证指标：闭环系统极点位置需满足阻尼比>0.7、自然频率>5 rad/s；阶跃响应超调量<5%、峰值时间<0.5s、稳态误差<0.01；通过数值仿真检查控制量约束满足性。"
+      ],
+      "source_ref": "2305.10085_On_the_Finite_Time_Behavior_of_Suboptimal_Linear_Model_Predi_chunk_023",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": {
+        "feasibility": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "控制器设计是否可行，能否满足给定约束（响应时间、稳态误差、控制限幅）"
+        },
+        "method_choice": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "控制方法选择理由是否充分，是否与教材内容关联（利用H、G、W矩阵）"
+        },
+        "completeness": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "答案是否包含完整的建模、控制器设计、参数选择步骤和验证指标"
+        },
+        "innovation": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "参数选择或验证指标是否有独到考虑（如定量选择N或极点配置）"
+        },
+        "clarity": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "表达是否清晰、逻辑连贯，数学公式使用正确"
+        }
+      },
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00054",
+      "dimension": "C",
+      "difficulty_level": "L2",
+      "control_category": [
+        "digital"
+      ],
+      "question": "假设网络安全框架的效能由公式 E = k * T * P * C 表示，其中T为技术成熟度（0≤T≤1），P为平台合规性，C为制度准备度，k为常数。在基准条件下，T=1, P=1, C=1，该框架被认为可有效检测并抵御深度伪造等复杂虚假信息（E≥0.8k）。现在技术环境发生变化，技术成熟度因全球部署不均而降至T=0.2，平台合规性和制度准备度保持不变。试分析原来的结论（框架有效）是否仍然成立，并解释敏感性来源。",
+      "answer": "原来的结论不再成立。因为 E = k * 0.2 * 1 * 1 = 0.2k，远低于有效阈值0.8k。变化前E=k，满足条件；变化后效能大幅下降，框架无法有效检测复杂虚假信息。敏感性来源于效能对技术成熟度T的高依赖，T作为环境参数，其降低直接导致效能线性衰减。",
+      "reasoning_steps": [
+        "基准条件下，T=1, P=1, C=1，E=k，满足E≥0.8k，框架有效。",
+        "变化后，T=0.2，其他不变，计算E= k * 0.2 * 1 * 1 = 0.2k。",
+        "比较：0.2k < 0.8k，不满足有效阈值。",
+        "因此，原结论不成立，效能对T敏感，T变化导致结论改变。"
+      ],
+      "source_ref": "2510.13058_From_misinformation_to_climate_crisis_Navigating_vulnerabili_chunk_046",
+      "model_source": "deepseek",
+      "sensitivity_dimension": "environment",
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00055",
+      "dimension": "C",
+      "difficulty_level": "L2",
+      "control_category": [
+        "robust"
+      ],
+      "question": "考虑一个网络安全监测系统，其动态由微分方程 dx/dt = -θ x + d 描述，其中 x 为系统状态（正常信息水平），θ>0 为检测阈值参数，d 为虚假信息注入扰动（环境因素）。在零初始条件下，求系统输出 x 对单位脉冲扰动（d(t)=δ(t)）的灵敏度响应 s_d(t) 的表达式。",
+      "answer": "s_d(t) = e^{-θ t}, t ≥ 0。该表达式由系统传递函数 1/(s+θ) 的逆拉普拉斯变换得到。",
+      "reasoning_steps": [
+        "对微分方程两边取拉普拉斯变换，利用零初始条件，得到 sX(s) = -θ X(s) + D(s)。",
+        "整理得 X(s) = D(s) / (s+θ)，因此系统传递函数 G(s) = X(s)/D(s) = 1/(s+θ)。",
+        "当输入为单位脉冲扰动 D(s)=1 时，输出 X(s)=1/(s+θ)。",
+        "对 X(s) 进行逆拉普拉斯变换，得到时域响应 x(t)=e^{-θ t}，即为灵敏度响应 s_d(t)。"
+      ],
+      "source_ref": "2510.13058_From_misinformation_to_climate_crisis_Navigating_vulnerabili_chunk_046",
+      "model_source": "deepseek",
+      "sensitivity_dimension": "parameter",
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00056",
+      "dimension": "B",
+      "difficulty_level": "L4",
+      "control_category": [
+        "modern"
+      ],
+      "question": "给定系统状态方程 dx/dt = Ax + Bu，其中 A = [[0, 1], [-2, -3]], B = [[0], [1]]。若希望通过状态反馈 u = -Kx 将闭环极点配置到 s = -4 ± j2，求反馈增益矩阵 K。",
+      "answer": "K = [18, 5]",
+      "reasoning_steps": [
+        "计算能控性矩阵 [B, AB] = [[0, 1], [1, -3]]，其秩为2等于系统阶数，因此系统完全能控，可任意配置极点。",
+        "期望闭环极点对应的特征多项式为 (s+4+j2)(s+4-j2) = s^2 + 8s + 20。",
+        "令 K = [k1, k2]，则闭环系统矩阵 A-BK = [[0, 1], [-2-k1, -3-k2]]，其特征多项式为 det(sI - (A-BK)) = s^2 + (3+k2)s + (2+k1)。",
+        "比较系数得：3+k2 = 8，2+k1 = 20，解得 k1 = 18，k2 = 5。因此 K = [18, 5]。"
+      ],
+      "source_ref": "Ogata_Modern_Control_5th_chunk_732",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00057",
+      "dimension": "D",
+      "difficulty_level": "L3",
+      "control_category": [
+        "digital",
+        "modern"
+      ],
+      "question": "考虑离散时间系统 x(k+1) = Φ x(k) + Γ u(k)，其中 Φ = [[1, 1], [0, 1]], Γ = [[1], [0.5]]。初始状态 x(0) = [[1], [0]]，目标是在两步后 (k=2) 使系统状态到达原点。要求设计一个控制序列 u(0) 和 u(1) 使得状态准确转移，同时最小化控制能量 J = u(0)^2 + u(1)^2，并确保控制信号满足 |u(k)| ≤ 5 的幅值约束。请给出完整的设计方案，包括系统建模、控制方法选择与参数设计步骤、以及验证指标。",
+      "answer": "系统建模：状态方程 x(k+1)=Φx(k)+Γu(k)，Φ=[[1,1],[0,1]], Γ=[[1],[0.5]]。要两步到达原点，即 x(2)=Φ^2 x(0)+W_c U=0，其中 W_c=[Γ, ΦΓ]=[[1,1.5],[0.5,0.5]], U=[u(1); u(0)]。计算 W_c 秩为2，系统可达。最小能量控制问题转化为求最小范数解：U = -W_c^T (W_c W_c^T)^{-1} Φ^2 x(0)。代入数值：Φ^2 x(0)=[1;0]，W_c W_c^T=[[3.25,1.25],[1.25,0.5]]，逆矩阵[[8,-20],[-20,52]]，得 U=[2; -2]，即 u(0)=-2, u(1)=2。验证：x(1)=Φx(0)+Γu(0)=[-1;-1]，x(2)=Φx(1)+Γu(1)=[0;0]；控制能量 J=8；|u(k)|=2≤5，满足约束。",
+      "reasoning_steps": [
+        "系统建模为 x(k+1)=Φx(k)+Γu(k)，给定 Φ 和 Γ 的数值。",
+        "两步到达原点需满足 x(2)=Φ^2 x(0)+W_c U=0，其中 W_c=[Γ, ΦΓ]。",
+        "计算可控性矩阵 W_c=[[1,1.5],[0.5,0.5]]，秩为2，系统可达，保证解存在。",
+        "控制能量最小化对应于求最小范数解 U = -W_c^T (W_c W_c^T)^{-1} Φ^2 x(0)。",
+        "代入数值计算得 U=[2; -2]，即 u(0)=-2, u(1)=2。",
+        "验证：计算状态轨迹 x(1)=[-1;-1]，x(2)=[0;0]，控制能量 J=8，且 |u(k)|=2≤5，满足约束。"
+      ],
+      "source_ref": "Computer_Controlled_Systems_Astrom_chunk_184",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": {
+        "feasibility": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "设计方案是否可行，即最终状态是否到达原点，控制信号是否满足幅值约束。"
+        },
+        "method_choice": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "是否选择了合适的控制方法（利用可达性条件，采用最小范数解）。"
+        },
+        "completeness": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "是否包含系统建模、方法选择理由、参数设计步骤、验证指标等完整过程。"
+        },
+        "innovation": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "是否有创造性思维，例如讨论系统不可达时的处理方案或采用更优的优化准则。"
+        },
+        "clarity": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "表述是否清晰，公式和计算步骤是否正确无误。"
+        }
+      },
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00058",
+      "dimension": "A",
+      "difficulty_level": "L2",
+      "control_category": [
+        "classical",
+        "modern"
+      ],
+      "question": "请写出文中定义的对称正定矩阵的数学条件（用符号表示）。",
+      "answer": "对称正定矩阵 P 满足两个条件：(1) 对称性：P = P^T；(2) 正定性：对于所有非零向量 x ∈ ℝⁿ，有 x^T P x > 0。通常记为 P ≻ 0。",
+      "reasoning_steps": [
+        "对称正定矩阵需要满足对称性条件，即矩阵等于其转置：P = P^T。",
+        "同时满足正定性条件：对于任意非零向量 x，二次型 x^T P x 严格大于零。"
+      ],
+      "source_ref": "2202.08019_Model_Based_and_Data_Driven_Control_of_Event_and_Self_Trigg_chunk_005",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00059",
+      "dimension": "B",
+      "difficulty_level": "L3",
+      "control_category": [
+        "modern"
+      ],
+      "question": "在证明Lemma 29的过程中，由假设条件可得不等式：\\(a' - b'K' \\leq a - bK_{D_U}^\\theta + b\\epsilon + \\beta + \\beta K'\\)。已知系统参数满足：\\(a - bK_{D_U}^\\theta = 0.6\\)，\\(b = 0.5\\)，\\(\\epsilon = 0.05\\)，\\(\\beta = 0.1\\)。若要求\\(a' - b'K' < 1\\)，请推导控制器增益\\(K'\\)必须满足的上界，并给出具体数值。",
+      "answer": "将已知数值代入不等式右端：\\(a - bK_{D_U}^\\theta + b\\epsilon + \\beta + \\beta K' = 0.6 + 0.5 \\times 0.05 + 0.1 + 0.1K' = 0.725 + 0.1K'\\)。要求\\(a' - b'K' < 1\\)，只需\\(0.725 + 0.1K' < 1\\)，解得\\(0.1K' < 0.275\\)，即\\(K' < 2.75\\)。因此\\(K'\\)的上界为2.75。",
+      "reasoning_steps": [
+        "代入已知数值计算不等式右端：0.6 + 0.5*0.05 + 0.1 + 0.1K' = 0.725 + 0.1K'。",
+        "由a' - b'K' ≤ 0.725 + 0.1K' 且要求 a' - b'K' < 1，可得 0.725 + 0.1K' < 1。",
+        "解不等式 0.725 + 0.1K' < 1 得 0.1K' < 0.275，即 K' < 2.75。"
+      ],
+      "source_ref": "2504.18657_Foundations_of_Safe_Online_Reinforcement_Learning_in_the_Lin_chunk_126",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00060",
+      "dimension": "D",
+      "difficulty_level": "L4",
+      "control_category": [
+        "robust"
+      ],
+      "question": "Consider a plant with two full-block uncertainties. The nominal model is G0(s) = diag(1/(s+1), 1/(s+2)) and the uncertainty Δ = diag(Δ1, Δ2) where Δ1 and Δ2 are 2x2 complex matrices with ‖Δ1‖∞ ≤ 1, ‖Δ2‖∞ ≤ 1. Using the D-K iteration method, design a robust controller K(s) that achieves μΔ(M_cl) ≤ 1. In your answer, describe the modeling steps (how to form the M matrix), the controller design procedure (including the D-scaling iteration using the approximation formula (10.30) from the provided text), and the validation metrics.",
+      "answer": "Modeling: Represent the system as a linear fractional transformation (LFT). The generalized plant P(s) includes G0(s) and uncertainty weights (here identity). Compute the interconnection matrix M(s) = Fl(P, K) at each frequency. The M matrix is partitioned conformably with Δ = diag(Δ1, Δ2). Controller Design: Use D-K iteration. Start with D = diag(d1 I, I) (d2=1). At each frequency, solve for d1 using (10.30): d1^4 = (‖M21‖_F^2 d2^2) / (‖M12‖_F^2 / d2^2). Iterate until d1 converges. Then scale M: DMD^{-1}. Solve for K via H∞ synthesis on the scaled plant. Repeat until μ upper bound < 1. Validation: Compute μ upper bound as inf_D σ̄(DMD^{-1}) or the square root sum. Ensure it is ≤ 1 for robust stability.",
+      "reasoning_steps": [
+        "The plant is modeled with input and output full-block uncertainties; the LFT gives an M matrix partitioned as 2x2 blocks.",
+        "The D-K iteration alternates between solving for D scaling (minimizing μ upper bound) and H∞ controller synthesis.",
+        "For D scaling, the optimal d1 satisfies d1^4 = (‖M21‖_F^2 d2^2) / (‖M12‖_F^2 / d2^2) with d2=1, from equation (10.30).",
+        "Iterate the d1 update until convergence to obtain the D matrix at each frequency.",
+        "With D fixed, perform H∞ synthesis (e.g., using Riccati or LMI) on the scaled plant to get K.",
+        "Repeat steps 3-5 until the μ upper bound (σ̄(DMD^{-1}) or its Frobenius norm bound) is below 1, ensuring robust stability."
+      ],
+      "source_ref": "Essentials_of_Robust_Control_Zhou_Doyle_chunk_285",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": {
+        "feasibility": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "Proposed design is practically implementable; modeling and controller structure are reasonable."
+        },
+        "method_choice": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "D-K iteration is correctly chosen and justified; use of approximation formula (10.30) is appropriate."
+        },
+        "completeness": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "All steps (modeling, D-scaling iteration, controller synthesis, validation) are included and clearly described."
+        },
+        "innovation": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "Application of the provided approximation to a specific 2-block example shows integration of theory."
+        },
+        "clarity": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "Answer is concise, uses correct mathematical notation, and is easy to follow."
+        }
+      },
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00061",
+      "dimension": "A",
+      "difficulty_level": "L3",
+      "control_category": [
+        "adaptive"
+      ],
+      "question": "请写出改进梯度算法中先验预测误差与后验预测误差之间的关系式。",
+      "answer": "$$\\varepsilon(t+1) = \\frac{\\varepsilon^0(t+1)}{1 + \\phi^T(t) F \\phi(t)}$$ 其中 $\\varepsilon(t+1)$ 为后验预测误差，$\\varepsilon^0(t+1)$ 为先验预测误差，$F$ 为正定适应增益矩阵，$\\phi(t)$ 为回归向量。",
+      "reasoning_steps": [
+        "改进梯度算法中，后验预测误差与先验预测误差通过归一化因子关联，该因子依赖于回归向量和适应增益矩阵。",
+        "教材中给出的关系式为 $\\varepsilon(t+1) = \\frac{\\varepsilon^0(t+1)}{1 + \\phi^T(t) F \\phi(t)}$。",
+        "该关系式表明，当 $\\phi(t)$ 有界时，后验预测误差的收敛性可推导出先验预测误差的收敛性。"
+      ],
+      "source_ref": "2406.07073_Adaptive_Control_Algorithms_Analysis_and_Applications_chunk_136",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00062",
+      "dimension": "B",
+      "difficulty_level": "L4",
+      "control_category": [
+        "optimal",
+        "adaptive",
+        "nonlinear"
+      ],
+      "question": "某极值控制系统，性能指标为 J(r) = (r - 5)^2 + 10，系统受到常值扰动 d，使实际性能指标变为 J_actual(r) = (r - (5+d))^2 + 10。采用梯度下降法 r(k+1) = r(k) - γ * dJ_actual/dr 进行搜索。求使得迭代稳定收敛的 γ 取值区间。",
+      "answer": "γ 的取值范围为 0 < γ < 1。原因：梯度 dJ_actual/dr = 2(r - (5+d))，代入迭代公式得 r(k+1) = r(k) - 2γ(r(k) - (5+d)) = (1-2γ)r(k) + 2γ(5+d)。该一阶线性差分方程稳定的条件是 |1-2γ| < 1，解得 0 < γ < 1。此时迭代收敛到稳态值 r = 5+d。",
+      "reasoning_steps": [
+        "计算实际性能指标 J_actual(r) 对参考信号 r 的梯度：dJ_actual/dr = 2(r - (5+d))。",
+        "将梯度代入离散时间梯度下降迭代公式：r(k+1) = r(k) - γ * 2(r(k) - (5+d)) = (1-2γ)r(k) + 2γ(5+d)。",
+        "将迭代公式视为一阶线性差分方程 r(k+1) = a r(k) + b，其中 a = 1-2γ，b = 2γ(5+d)。",
+        "一阶线性差分方程稳定的充要条件是 |a| < 1，即 |1-2γ| < 1。",
+        "解不等式 |1-2γ| < 1：-1 < 1-2γ < 1，得 0 < γ < 1。",
+        "结论：当 γ 在 (0,1) 区间内时，迭代稳定收敛，稳态值为 r = b/(1-a) = 2γ(5+d)/(2γ) = 5+d。"
+      ],
+      "source_ref": "Astrom_Adaptive_Control_chunk_793",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00063",
+      "dimension": "D",
+      "difficulty_level": "L3",
+      "control_category": [
+        "mpc"
+      ],
+      "question": "考虑一个离散时间线性系统 x_{k+1} = A x_k + B u_k，其中 A = [[1,1],[0,1]], B = [[0.5],[1]]。要求设计一个模型预测控制器（MPC），使闭环系统稳定，且满足以下工程约束：对于单位阶跃输入，上升时间 t_r < 2 秒，超调量 M_p < 5%，稳态误差 e_ss < 1%。控制输入约束为 |u_k| ≤ 1。请给出完整的控制方案，包括：系统建模、控制器设计（预测时域、终端代价函数、终端约束选择）、参数设计步骤，以及验证指标。答案中必须包含必要的数学表达式。",
+      "answer": "系统建模：采用给定离散状态空间模型 x_{k+1} = A x_k + B u_k。控制器设计：采用线性MPC，预测时域 N=10，控制时域 M=5。代价函数为 J = x_{k+N}^T P x_{k+N} + ∑_{i=0}^{N-1} (x_{k+i}^T Q x_{k+i} + u_{k+i}^T R u_{k+i})，其中终端加权矩阵 P 通过求解离散代数Riccati方程 P = A^T P A - A^T P B (R+B^T P B)^{-1} B^T P A + Q 得到。选择 Q = diag([10,1])，R = 1。由于无状态约束，终端约束为 x_{k+N} ∈ ℝ^n，只需保证终端代价函数满足 Lyapunov 递减条件 V_f(x_{k+1}) - V_f(x_k) ≤ - ℓ(x_k, u_k) 以确保稳定性。参数设计步骤：1) 根据性能指标初选 Q,R；2) 求解DARE得 P；3) 仿真调整 Q,R 直到满足上升时间、超调量、稳态误差；4) 检查控制输入是否在约束内。验证指标：仿真闭环系统对单位阶跃输入的响应，测量上升时间、超调量、稳态误差，并验证控制输入不超过 |u| ≤ 1。",
+      "reasoning_steps": [
+        "给定系统模型，确定MPC的预测模型为 x_{k+1}=A x_k+B u_k。",
+        "选择预测时域 N=10 和控制时域 M=5 以平衡性能与计算量。",
+        "定义代价函数包含状态加权项、控制加权项和终端代价项，其中终端代价矩阵 P 通过DARE求解以保证稳定性。",
+        "根据性能指标要求（上升时间、超调量、稳态误差）初步选择加权矩阵 Q=diag([10,1]), R=1。",
+        "由于无状态约束，终端约束为整个状态空间，只需确保终端代价函数满足 Lyapunov 下降条件。",
+        "通过仿真调整加权矩阵，直到闭环响应满足所有工程约束。",
+        "验证控制输入在约束范围内，并记录时域响应指标。"
+      ],
+      "source_ref": "MPC_Control_Rawlings_chunk_224",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": {
+        "feasibility": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "方案在计算和实现上是否合理可行，预测时域和控制时域选择是否恰当。"
+        },
+        "method_choice": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "控制方法选择（线性MPC）是否合适，终端代价函数和加权矩阵的选择理由是否充分。"
+        },
+        "completeness": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "是否涵盖了建模、控制器设计、参数设计步骤和验证指标，各部分是否完整。"
+        },
+        "innovation": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "在满足约束的前提下，是否有独特的设计思路（如加权矩阵调整策略）。"
+        },
+        "clarity": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "答案表述是否清晰、逻辑严谨，数学表达式是否正确。"
+        }
+      },
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00064",
+      "dimension": "C",
+      "difficulty_level": "L4",
+      "control_category": [
+        "robust"
+      ],
+      "question": "In the frequency-weighted model reduction problem for MIMO systems described in Problem 15.6, the weighting function W is chosen as a diagonal matrix W = diag(W1, W2, ..., Wm) with each Wi satisfying a specific inequality, and then multiplied by a scalar α(s). If instead we were to use a scalar weighting function W(s) (i.e., W = α(s) I), would the conclusion that ||Fℓ(G, K̂)||∞ < 1 hold under the condition ||Δk||∞ ≤ 1? Explain the sensitivity of the conclusion to this parameter change.",
+      "answer": "No, the conclusion would not hold. In MIMO systems, different output channels have distinct frequency-dependent uncertainty bounds captured by the diagonal Wi. A scalar weighting W = αI imposes the same weight on all channels, which may not bound the true uncertainty Δk = (K̂ - K)W appropriately. The stability condition from Problem 15.5 requires ||Fℓ(G, K̂)||∞ < 1 if ||(K̂ - K)W||∞ ≤ 1. With scalar W, ||Δk||∞ = ||α(K̂ - K)||∞, which ignores channel-specific characteristics, potentially violating the condition for some channels. Thus the conclusion is sensitive to the structure of W; a diagonal structure is necessary for MIMO robustness.",
+      "reasoning_steps": [
+        "In Problem 15.6, the weighting W for MIMO systems is designed as W = α diag(W1, ..., Wm), where each Wi is tailored to bound the worst-case gain from uncertainty in the corresponding output channel.",
+        "The stability conclusion from Problem 15.5 is: if ||Δk||∞ = ||(K̂ - K)W||∞ ≤ 1, then ||Fℓ(G, K̂)||∞ < 1.",
+        "Replacing W with a scalar function α(s)I changes Δk to α(K̂ - K), which does not account for channel-specific uncertainty bounds.",
+        "The scalar weighting may be too restrictive for some channels (overweighting) or too weak for others (underweighting), so the condition ||Δk||∞ ≤ 1 may not guarantee the robustness condition for all channels.",
+        "Therefore, the original conclusion is sensitive to the structure of W; a diagonal structure is required for MIMO problems to ensure proper uncertainty weighting."
+      ],
+      "source_ref": "Essentials_of_Robust_Control_Zhou_Doyle_chunk_409",
+      "model_source": "deepseek",
+      "sensitivity_dimension": "parameter",
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00065",
+      "dimension": "C",
+      "difficulty_level": "L4",
+      "control_category": [
+        "robust"
+      ],
+      "question": "请写出Problem 15.6中MIMO频率加权模型降阶方法最终选择的加权函数W的表达式。",
+      "answer": "W(s) = α(s) Ŷ(s)，其中Ŷ(s) = diag(Ŷ_1(s), Ŷ_2(s), ..., Ŷ_m(s))，Ŷ_i(s)满足 |Ŷ_i(jω)| ≥ sup_{σ̄(Δ_p)≤1} ||e_i^T F_u(T_{ẑŵ}(jω), Δ_p)||，α(s)满足 |α(jω)| ≥ sup_{σ̄(Δ_p)≤1} ||Ŷ^{-1} F_u(T_{ẑŵ}(jω), Δ_p)||。",
+      "reasoning_steps": [
+        "首先，根据Problem 15.6，对每个通道i构造对角元素Ŷ_i(s)，使其幅值大于等于对应方向的结构不确定性上界。",
+        "然后，将所有Ŷ_i(s)组合成对角矩阵Ŷ(s)。",
+        "接着，计算标量函数α(s)，使其幅值大于等于通过Ŷ^{-1}缩放后的系统对结构不确定性的上界。",
+        "最后，将Ŷ(s)乘以α(s)得到最终的加权函数W(s)=α(s)Ŷ(s)。"
+      ],
+      "source_ref": "Essentials_of_Robust_Control_Zhou_Doyle_chunk_409",
+      "model_source": "deepseek",
+      "sensitivity_dimension": "parameter",
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00066",
+      "dimension": "B",
+      "difficulty_level": "L2",
+      "control_category": [
+        "intelligent"
+      ],
+      "question": "根据有导师学习原理，设单神经元网络的权值为w，输出为y=w*x，期望输出为d，采用Delta学习规则Δw=η*(d-y)*x，其中η=0.1。初始权值w0=0.5，输入样本序列为x1=1, d1=0.8；x2=2, d2=0.9。请计算经过这两个样本依次学习一次后的最终权值w2。",
+      "answer": "最终权值w2 = 0.629。计算过程：对于第一个样本，y1 = w0 * x1 = 0.5*1 = 0.5，误差e1 = d1 - y1 = 0.8 - 0.5 = 0.3，Δw1 = η * e1 * x1 = 0.1*0.3*1 = 0.03，w1 = w0 + Δw1 = 0.5 + 0.03 = 0.53。对于第二个样本，y2 = w1 * x2 = 0.53*2 = 1.06，e2 = d2 - y2 = 0.9 - 1.06 = -0.16，Δw2 = η * e2 * x2 = 0.1*(-0.16)*2 = -0.032，w2 = w1 + Δw2 = 0.53 - 0.032 = 0.498。",
+      "reasoning_steps": [
+        "计算第一个样本的神经网络输出：y1 = w0 * x1 = 0.5 * 1 = 0.5。",
+        "计算第一个样本的误差：e1 = d1 - y1 = 0.8 - 0.5 = 0.3。",
+        "计算第一个样本的权值增量：Δw1 = η * e1 * x1 = 0.1 * 0.3 * 1 = 0.03。",
+        "更新第一个样本后的权值：w1 = w0 + Δw1 = 0.5 + 0.03 = 0.53。",
+        "计算第二个样本的神经网络输出：y2 = w1 * x2 = 0.53 * 2 = 1.06。",
+        "计算第二个样本的误差：e2 = d2 - y2 = 0.9 - 1.06 = -0.16。",
+        "计算第二个样本的权值增量：Δw2 = η * e2 * x2 = 0.1 * (-0.16) * 2 = -0.032。",
+        "更新第二个样本后的权值：w2 = w1 + Δw2 = 0.53 - 0.032 = 0.498。"
+      ],
+      "source_ref": "智能控制_chunk_326",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00067",
+      "dimension": "D",
+      "difficulty_level": "L4",
+      "control_category": [
+        "optimal"
+      ],
+      "question": "考虑一个双积分器系统，状态空间模型为：ẋ₁ = x₂, ẋ₂ = u，初始状态 x₁(0)=1, x₂(0)=0。工程约束：控制输入|u|≤5，要求系统在5秒内使状态x₁进入±0.05的稳态误差带。请设计一个无限时域线性二次型最优控制器（LQR），通过选择合适的加权矩阵Q和R，使得性能指标J = ∫₀^∞ (x'Qx + u'Ru) dt 最小化，并满足上述约束。请说明建模方法、控制器设计步骤、参数选择理由及验证指标。",
+      "answer": "建模：系统状态空间为 ẋ = Ax + Bu，其中 A = [[0,1],[0,0]], B = [0,1]^T。控制器设计：选择加权矩阵 Q = diag(q1, q2), R = r > 0。求解代数Riccati方程 A^T P + PA - PBR^{-1}B^T P + Q = 0 得对称正定阵 P，最优反馈增益 K = R^{-1}B^T P = [k1, k2]。参数选择理由：权衡响应速度与输入幅值，例如取 q1=100, q2=1, r=1，则闭环极点实部较小，输入可满足约束。验证指标：闭环渐近稳定，仿真检查 |u|≤5 且 x₁ 在5秒内进入 ±0.05 误差带，性能指标值 J* = 1/2 x(0)'P x(0)。",
+      "reasoning_steps": [
+        "建立系统的状态空间模型，确定A和B矩阵。",
+        "定义二次型性能指标，选择加权矩阵Q和R以满足工程约束。",
+        "求解代数Riccati方程得到矩阵P。",
+        "计算最优反馈增益矩阵K。",
+        "验证闭环系统的稳定性及约束条件的满足情况。"
+      ],
+      "source_ref": "Optimal_Control_Systems_chunk_165",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": {
+        "feasibility": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "设计方案是否在给定约束下可行，如输入饱和和响应时间要求。"
+        },
+        "method_choice": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "是否正确选择LQR方法并说明理由，权重选择是否合理。"
+        },
+        "completeness": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "设计方案是否完整，包括建模、控制器设计、参数步骤和验证指标。"
+        },
+        "innovation": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "是否在标准方法基础上体现出创新，如权重调整的策略或验证方式。"
+        },
+        "clarity": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "答案表述是否清晰，数学表达式是否准确。"
+        }
+      },
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00068",
+      "dimension": "A",
+      "difficulty_level": "L4",
+      "control_category": [
+        "digital"
+      ],
+      "question": "在数字PI控制器中，抗饱和通过一个时间常数为T0的观测器实现。请写出该观测器的连续时间状态方程和输出方程（假设控制器输出为u，饱和输出为usat，观测器状态为x），并写出其前向欧拉离散化形式（采样周期为Ts）。",
+      "answer": "连续时间观测器状态方程：dx/dt = -(1/T0) x + (1/T0) usat，输出方程：y = x。前向欧拉离散化：x(k+1) = (1 - Ts/T0) x(k) + (Ts/T0) usat(k)。",
+      "reasoning_steps": [
+        "观测器用于估计积分饱和引起的误差，通常将积分器状态作为观测器状态。",
+        "连续时间下，观测器动态为一阶低通滤波器，时间常数为T0，输入为饱和信号usat。",
+        "输出方程简单为状态本身，因为观测器状态直接作为修正量。",
+        "前向欧拉法离散化：x(k+1) = x(k) + Ts * f(k)，代入状态方程得离散形式。"
+      ],
+      "source_ref": "Computer_Controlled_Systems_Astrom_chunk_590",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00069",
+      "dimension": "B",
+      "difficulty_level": "L3",
+      "control_category": [
+        "adaptive"
+      ],
+      "question": "对于Filtered Output Error辨识方法，假设n_A=1, n_B=1，回归向量ψ(t)=[-ŷ(t), u(t-d)]^T，观察向量Φ(t)=1/Â(t,q^{-1})ψ(t)，其中Â(t,q^{-1})=1+â_1(t)q^{-1}。定义滤波后的变量ŷ_f(t)=1/Â(t,q^{-1})ŷ(t)，u_f(t)=1/Â(t,q^{-1})u(t)。请证明Φ(t)=[-ŷ_f(t), u_f(t-d)]^T。",
+      "answer": "证明：由定义，Φ(t)是向量ψ(t)各分量经同一滤波器作用的结果，即Φ(t)=[1/Â(t,q^{-1})(-ŷ(t)), 1/Â(t,q^{-1})u(t-d)]^T = [-1/Â(t,q^{-1})ŷ(t), 1/Â(t,q^{-1})u(t-d)]^T = [-ŷ_f(t), u_f(t-d)]^T。其中ŷ_f(t)满足递推：ŷ_f(t)=ŷ(t)-â_1(t)ŷ_f(t-1)，u_f(t-d)满足u_f(t-d)=u(t-d)-â_1(t)u_f(t-d-1)。因此等式成立。",
+      "reasoning_steps": [
+        "写出观察向量的定义式：Φ(t)=1/Â(t,q^{-1})ψ(t)，其中ψ(t)=[-ŷ(t), u(t-d)]^T。",
+        "将滤波器分别作用于ψ(t)的每个分量：Φ(t)=[1/Â(t,q^{-1})(-ŷ(t)), 1/Â(t,q^{-1})u(t-d)]^T。",
+        "利用滤波后变量的定义：ŷ_f(t)=1/Â(t,q^{-1})ŷ(t)，u_f(t-d)=1/Â(t,q^{-1})u(t-d)。",
+        "代入得Φ(t)=[-ŷ_f(t), u_f(t-d)]^T。",
+        "给出ŷ_f(t)的递推关系：因为Â(t,q^{-1})=1+â_1(t)q^{-1}，所以ŷ_f(t)=ŷ(t)-â_1(t)ŷ_f(t-1)。类似地，u_f(t-d)=u(t-d)-â_1(t)u_f(t-d-1)。"
+      ],
+      "source_ref": "2406.07073_Adaptive_Control_Algorithms_Analysis_and_Applications_chunk_231",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00070",
+      "dimension": "D",
+      "difficulty_level": "L3",
+      "control_category": [
+        "optimal"
+      ],
+      "question": "给定二阶积分系统：\\[\\dot{x}_1 = x_2, \\quad \\dot{x}_2 = u\\]，初始状态为 \\(x(0)=[1,0]^T\\)，终端时刻 \\(t_f=10\\)，终端状态自由。要求设计最优控制器使性能指标 \\[J = \\int_0^{10} (x_1^2 + u^2) dt\\] 最小，且控制幅值 \\(|u(t)| \\leq 1\\)（可以通过适当调整权值或引入饱和约束处理，但本题暂不考虑硬约束，仅作为设计验证目标）。请完成以下设计任务：阐述建模方法、选择控制方法的理由、参数设计步骤，并给出验证闭环系统性能的指标（如实际性能指标值、调节时间、最大控制幅值等）。要求最终控制器为线性时变状态反馈 \\(u(t) = -k_1(t)x_1 - k_2(t)x_2\\)，并明确 \\(k_1(t)\\) 和 \\(k_2(t)\\) 的求解方法。",
+      "answer": "建模方法：取状态向量 \\(x=[x_1, x_2]^T\\)，系统为 \\(\\dot{x}=Ax+bu\\)，其中 \\(A=\\begin{bmatrix}0&1\\\\0&0\\end{bmatrix},\\; b=\\begin{bmatrix}0\\\\1\\end{bmatrix}\\)。性能指标取 \\(J\\)，对应权矩阵 \\(Q=\\begin{bmatrix}1&0\\\\0&0\\end{bmatrix},\\; r=1\\)，终端代价 \\(F=\\begin{bmatrix}0&0\\\\0&0\\end{bmatrix}\\)。控制方法选择理由：线性二次型最优控制可权衡状态偏差与控制能量，且解为状态反馈，便于实现。参数设计步骤：求解微分里卡蒂方程 \\(-\\dot{P}=PA+A^TP- Pbr^{-1}b^TP+Q\\)，边值 \\(P(t_f)=F=0\\)。令 \\(P(t)=\\begin{bmatrix}p_{11}&p_{12}\\\\p_{12}&p_{22}\\end{bmatrix}\\)，得微分方程组 \\(\\dot{p}_{11}=-1+p_{12}^2,\\; \\dot{p}_{12}=-p_{11}+p_{12}p_{22},\\; \\dot{p}_{22}=-2p_{12}+p_{22}^2\\)，边界 \\(p_{11}(10)=p_{12}(10)=p_{22}(10)=0\\)。逆时间数值求解得 \\(p_{12}(t), p_{22}(t)\\)，反馈增益 \\(k_1(t)=p_{12}(t),\\;k_2(t)=p_{22}(t)\\)。验证指标：计算实际性能指标 \\(J^*\\)，闭环系统调节时间（2%稳态误差）及最大控制幅值，若 \\(\\max|u(t)|>1\\) 则增大 \\(r\\) 或引入饱和。",
+      "reasoning_steps": [
+        "将二阶积分系统建模为状态空间形式 \\(\\dot{x}=Ax+bu\\)，明确A和b矩阵。",
+        "选择线性二次型最优控制方法，因为其能同时优化状态偏差与控制能量，且解为状态反馈，便于工程实现。",
+        "根据性能指标确定权矩阵 \\(Q\\) 和 \\(r\\) 及终端代价 \\(F\\)。",
+        "写出微分里卡蒂方程及其边界条件。",
+        "将对称矩阵P代入，导出关于 \\(p_{11},p_{12},p_{22}\\) 的常微分方程组。",
+        "采用数值积分（如龙格-库塔法）逆时间方向求解该方程组，得到 \\(p_{12}(t)\\) 和 \\(p_{22}(t)\\)。",
+        "由最优控制律 \\(u^*(t)=-r^{-1}b^TPx(t)\\) 得出反馈增益 \\(k_1(t)=p_{12}(t)\\),\\(k_2(t)=p_{22}(t)\\)。",
+        "通过仿真计算闭环系统的性能指标值、调节时间和控制幅值峰值，验证是否满足设计要求。"
+      ],
+      "source_ref": "自动控制原理_胡寿松_chunk_828",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": {
+        "feasibility": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "方案在现有计算条件下是否可行，数值求解微分方程是否合理。"
+        },
+        "method_choice": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "选择LQR方法的理由是否充分，是否与教材内容一致。"
+        },
+        "completeness": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "是否完整包含建模、参数设计步骤、验证指标，无遗漏。"
+        },
+        "innovation": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "是否在教材基础上有所拓展（如约束处理或数值方法细节）。"
+        },
+        "clarity": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "表达式和步骤描述是否清晰准确，无歧义。"
+        }
+      },
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00071",
+      "dimension": "A",
+      "difficulty_level": "L1",
+      "control_category": [
+        "classical"
+      ],
+      "question": "请写出开环控制系统的定义。",
+      "answer": "开环控制系统是一种控制方式，其中控制器根据参考值 $r(t)$ 决定控制量（即动态系统的输入 $u(t)$），而不使用系统输出的反馈。系统的输出 $x(t)$ 由输入 $u(t)$ 和动态系统本身决定，不与参考值进行比较。当系统的全部信息可知且准确时，开环控制可以精确完成控制目标。",
+      "reasoning_steps": [
+        "开环控制系统是指控制器直接根据参考值 $r(t)$ 生成控制输入 $u(t)$，而不利用系统输出 $x(t)$ 的反馈。",
+        "在开环控制中，系统的输出 $x(t)$ 由输入 $u(t)$ 和动态系统的特性决定，与参考值 $r(t)$ 之间不存在反馈比较。",
+        "开环控制仅在动态系统模型精确且无外界扰动时才能实现理想控制效果。"
+      ],
+      "source_ref": "控制之美_chunk_028",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00072",
+      "dimension": "B",
+      "difficulty_level": "L4",
+      "control_category": [
+        "classical"
+      ],
+      "question": "根据表中滑阀对12N阶跃力（施加于t=0.02s）的响应数据，估算该二阶系统的阻尼比ζ和无阻尼自然频率ω_n。",
+      "answer": "超调量MP = (2.000 - 1.700)/1.700 = 0.1765，由MP = e^{-ζπ/√(1-ζ^2)}得ln(0.1765) = -ζπ/√(1-ζ^2)，解得ζ ≈ 0.5（精确0.503）。峰值时间tp = 0.03 - 0.02 = 0.01s，由tp = π/(ω_n√(1-ζ^2))得ω_n = π/(tp√(1-ζ^2)) ≈ 363 rad/s。",
+      "reasoning_steps": [
+        "从表得到阶跃响应的稳态值为1.7×10^{-3} m，峰值y_max=2.0×10^{-3} m，计算超调量MP=(2.0-1.7)/1.7≈0.1765。",
+        "二阶欠阻尼系统超调量公式MP = e^{-ζπ/√(1-ζ^2)}，代入MP=0.1765，取自然对数得-1.734 = -ζπ/√(1-ζ^2)，解得ζ≈0.5。",
+        "峰值时间tp=0.01s（阶跃施加于0.02s，峰值在0.03s），公式tp=π/(ω_n√(1-ζ^2))，代入ζ=0.5和tp=0.01，得ω_n=π/(0.01×√(1-0.5^2))≈363 rad/s。"
+      ],
+      "source_ref": "Dynamic_Systems_Modeling_Simulation_Control_chunk_292",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00073",
+      "dimension": "D",
+      "difficulty_level": "L2",
+      "control_category": [
+        "optimal",
+        "nonlinear"
+      ],
+      "question": "设计一个反馈控制器，使质点从点(0,0)沿最速降线到达点(πc, 2c)（c>0为常数），要求质点初始静止，运动时间最短。请给出完整的控制方案，包括建模、控制器设计、参数选择理由及验证指标。",
+      "answer": "采用反馈线性化方法。建模：质点受重力，无摩擦，动力学为mẍ = u_x, mÿ = u_y - mg。轨迹为参数方程x(θ)=c(θ-sinθ), y(θ)=c(1-cosθ)，θ从0到π。定义跟踪误差e_x = x - x_d, e_y = y - y_d。设计控制律u_x = m(ẍ_d - k_d ẋ_e - k_p e_x), u_y = m(ÿ_d + g - k_d ẏ_e - k_p e_y)，其中k_p, k_d为PD增益。参数选择：使闭环特征方程s^2 + k_d s + k_p = 0的阻尼比ζ=0.7，自然频率ω_n=10 rad/s，则k_p=100, k_d=14。验证指标：跟踪误差e_x, e_y稳态<0.01c，到达时间t_f理论值为π√(c/g)，实际时间与理论误差<1%。",
+      "reasoning_steps": [
+        "根据最速降线参数方程，质点的期望轨迹为x_d(θ)=c(θ-sinθ), y_d(θ)=c(1-cosθ)，θ从0到π。",
+        "建立质点动力学模型：mẍ = u_x, mÿ = u_y - mg，其中u_x, u_y为控制力。",
+        "定义跟踪误差e_x = x - x_d, e_y = y - y_d，并采用反馈线性化控制律使误差动态线性化。",
+        "设计PD控制器参数k_p和k_d，使闭环二阶系统具有期望的阻尼比和自然频率。",
+        "验证指标包括跟踪精度和到达时间与理论最优值的接近程度。"
+      ],
+      "source_ref": "Optimal_Control_Exercise_Book_chunk_041",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": {
+        "feasibility": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "控制方案在物理上可实现，满足系统约束。"
+        },
+        "method_choice": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "所选的控制器设计方法（如反馈线性化）合理且有效。"
+        },
+        "completeness": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "完整覆盖建模、控制器设计、参数选择及验证指标。"
+        },
+        "innovation": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "方案中体现了针对最速降线问题的特殊考虑或创新点。"
+        },
+        "clarity": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "答案表达清晰，公式准确，步骤逻辑连贯。"
+        }
+      },
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00074",
+      "dimension": "C",
+      "difficulty_level": "L2",
+      "control_category": [
+        "mpc"
+      ],
+      "question": "在模型预测控制中，基准条件为使用终端约束（如终端代价函数和终端约束集）保证闭环稳定性。若变化条件为去掉终端约束，仅将预测时域N选择为足够长，问：是否仍能保证闭环稳定性？请解释结论对预测时域参数N的敏感性。",
+      "answer": "是。根据文献（如Primbs & Nevistić, 2000; Jadbabaie et al., 2001），若预测时域N足够长，无需终端约束也可保证闭环稳定性。但该结论依赖于N：N必须大于某个临界值（与系统动态和约束有关），否则稳定性可能丧失。因此，稳定性对参数N敏感，存在一个阈值，N小于该阈值时原结论不成立。",
+      "reasoning_steps": [
+        "基准条件中，终端约束（终端代价函数和终端约束集）保证了MPC闭环稳定性，这是一类充分条件。",
+        "变化条件去掉终端约束，仅通过增加预测时域N来保证稳定性，这属于另一种充分条件。",
+        "文献表明，当N足够大时，MPC优化问题隐含了终端约束的作用，从而保证稳定性。",
+        "稳定性结论对N敏感：若N小于某一临界值（依赖于系统动态、权重矩阵和约束），则闭环系统可能失稳。",
+        "因此，去掉终端约束后，仅当N足够长时原结论（稳定）保持；否则不保持。"
+      ],
+      "source_ref": "MPC_Control_Rawlings_chunk_305",
+      "model_source": "deepseek",
+      "sensitivity_dimension": "parameter",
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00075",
+      "dimension": "C",
+      "difficulty_level": "L2",
+      "control_category": [
+        "mpc"
+      ],
+      "question": "根据教材，Mayne等人提出的保证MPC闭环稳定性的稳定公理被列为本章的哪几个假设？请写出它们的编号。",
+      "answer": "假设2.12、假设2.13和假设2.16。",
+      "reasoning_steps": [
+        "教材中明确写道“they appear as Assumptions 2.12, 2.13 and 2.16 in this chapter”。",
+        "因此，稳定公理包含三个假设，编号分别为2.12、2.13和2.16。"
+      ],
+      "source_ref": "MPC_Control_Rawlings_chunk_305",
+      "model_source": "deepseek",
+      "sensitivity_dimension": "parameter",
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00076",
+      "dimension": "B",
+      "difficulty_level": "L3",
+      "control_category": [
+        "modern"
+      ],
+      "question": "设确定性过程 X(t)=t, t∈[0,T]，且 ν(t)=t, γ(t)=1。定义 D^X(s)=∫_0^s γ(u)dX(u)=s。已知恒等式：d(ν(s)D^X(s)) = ν(s)γ(s)dX(s) - (d(ν(s)γ(s))) X(s) + d(ν(s)γ(s)X(s))。请通过对该等式两边从 0 到 r 积分，推导出 ν(r)D^X(r) 的表达式，并计算其具体数值（假设初始条件 ν(0-)=0, X(0-)=0）。",
+      "answer": "对等式两边从0到r积分得：∫_0^r d(ν(s)D^X(s)) = ∫_0^r ν(s)γ(s)dX(s) - ∫_0^r (d(ν(s)γ(s))) X(s) + ∫_0^r d(ν(s)γ(s)X(s))。左边为 ν(r)D^X(r)-ν(0-)D^X(0-)。右边第一项：∫_0^r s·1·ds = r^2/2；第二项：-∫_0^r (d(s·1)) s = -∫_0^r 1·s ds = -r^2/2；第三项：∫_0^r d(s·1·s) = ∫_0^r d(s^2)= r^2。总和右边 = r^2/2 - r^2/2 + r^2 = r^2。左边 ν(r)D^X(r) - 0 = r·r = r^2。等式成立。因此 ν(r)D^X(r)=r^2。",
+      "reasoning_steps": [
+        "将恒等式两边从0到r积分，左边积分得ν(r)D^X(r)-ν(0-)D^X(0-)，右边积分分解为三项。",
+        "计算右边第一项：ν(s)=s, γ(s)=1, dX(s)=ds，所以∫_0^r ν(s)γ(s)dX(s)=∫_0^r s ds = r^2/2。",
+        "计算右边第二项：ν(s)γ(s)=s，所以d(ν(s)γ(s))=ds，X(s)=s，因此-∫_0^r (d(ν(s)γ(s))) X(s) = -∫_0^r 1·s ds = -r^2/2。",
+        "计算右边第三项：ν(s)γ(s)X(s)=s·1·s=s^2，所以d(ν(s)γ(s)X(s))=d(s^2)=2s ds，积分得∫_0^r 2s ds = r^2。",
+        "右边三项之和为r^2/2 - r^2/2 + r^2 = r^2。",
+        "代入初始条件ν(0-)=0, X(0-)=0，则ν(0-)D^X(0-)=0，左边等于ν(r)D^X(r)=r·r=r^2，与右边相等。因此推导出ν(r)D^X(r)=r^2。"
+      ],
+      "source_ref": "2503.05594_Multi_asset_optimal_trade_execution_with_stochastic_cross_ef_chunk_044",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00077",
+      "dimension": "D",
+      "difficulty_level": "L4",
+      "control_category": [
+        "modern"
+      ],
+      "question": "使用Youla参数化方法为被控对象 P(s)=1/(s(s+2)) 设计一个反馈控制器 K(s)，使得闭环系统内部稳定，对单位阶跃输入的稳态误差为零，且闭环带宽不低于 1 rad/s。请详细说明建模方法、控制器选择理由、参数设计步骤和验证指标。",
+      "answer": "建模：将P(s)表示为广义对象G，输入为参考输入w和控制u，输出为误差z和测量y。采用状态空间实现，得到P(s)的左互质分解P(s)=N(s)M(s)^{-1}，其中N(s)=1/(s+2), M(s)=s/(s+2)。求解Bezout方程得到稳定传递函数X(s)=2, Y(s)=1/(s+2)（满足X M + Y N = 1）。所有内部稳定控制器参数化为K(s)=(Y(s)-N(s)Q(s))(X(s)-M(s)Q(s))^{-1}，Q(s)任意稳定。为消除稳态误差，控制器需含积分器，选择Q(s)=k/(s+λ)使K(s)在原点有极点。带宽≥1 rad/s要求通过调整k,λ满足闭环穿越频率≥1。例如取k=2, λ=1，得到K(s)=((s+2)/(s+1)+2)/(2-s/(s+1))? 计算得K(s)=(2s+4)/(s(s+3))。验证：阶跃响应稳态误差为零，闭环Bode图增益0dB穿越频率>1 rad/s。",
+      "reasoning_steps": [
+        "被控对象P(s)=1/(s(s+2))在原点有极点，属于不稳定系统，需要进行内部稳定控制器设计。",
+        "基于教材的LFT框架，将P(s)表示为广义对象G，并通过状态空间实现得到其互质分解N(s)和M(s)。",
+        "求解Bezout方程得到稳定传递函数X(s)和Y(s)，满足X M + Y N = 1。",
+        "所有内部稳定控制器由Youla参数化给出：K = (Y - N Q)(X - M Q)^{-1}，其中Q为任意稳定传递函数。",
+        "为消除稳态误差，需控制器包含积分作用，选择Q(s)=k/(s+λ)使得K(s)在原点有极点。",
+        "为满足带宽≥1 rad/s，通过调整k和λ使闭环系统的穿越频率≥1 rad/s，并通过仿真验证。",
+        "验证指标包括单位阶跃响应的稳态误差和闭环Bode图的带宽。"
+      ],
+      "source_ref": "Essentials_of_Robust_Control_Zhou_Doyle_chunk_297",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": {
+        "feasibility": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "设计方案是否可行，能否在工程实践中实现"
+        },
+        "method_choice": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "是否正确使用了Youla参数化方法，互质分解和参数化表达式正确"
+        },
+        "completeness": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "是否包含了建模、控制器设计、参数选择理由和验证指标的完整步骤"
+        },
+        "innovation": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "设计中是否有创新性，例如巧妙选择Q以满足多个约束"
+        },
+        "clarity": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "答案表达是否清晰，逻辑连贯，数学公式准确"
+        }
+      },
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00078",
+      "dimension": "A",
+      "difficulty_level": "L2",
+      "control_category": [
+        "nonlinear"
+      ],
+      "question": "在无迹卡尔曼滤波中，请写出无迹变换（Unscented Transform）中sigma点的选取方法及其对应的权重计算公式（假设状态维数为n，尺度参数为λ）。",
+      "answer": "对于n维随机变量x，其均值为x̄，协方差为P，则选取2n+1个sigma点：χ₀ = x̄；χᵢ = x̄ + (√((n+λ)P))ᵢ，i=1,…,n；χᵢ₊ₙ = x̄ - (√((n+λ)P))ᵢ，i=1,…,n。权重为：W₀ᵐ = λ/(n+λ)；W₀ᶜ = λ/(n+λ) + (1-α²+β)；Wᵢᵐ = Wᵢᶜ = 1/(2(n+λ))，i=1,…,2n。其中λ=α²(n+κ)-n，α、β、κ为尺度参数。",
+      "reasoning_steps": [
+        "无迹变换的核心是通过确定性采样近似非线性变换后的随机变量的均值和协方差。",
+        "对于n维随机变量，选择2n+1个sigma点，其中第一个点为均值，其余点对称分布于均值两侧。",
+        "sigma点的具体计算公式为：χ₀ = x̄，χᵢ = x̄ + (√((n+λ)P))ᵢ，χᵢ₊ₙ = x̄ - (√((n+λ)P))ᵢ。",
+        "权重计算公式为：W₀ᵐ = λ/(n+λ), W₀ᶜ = λ/(n+λ) + (1-α²+β), Wᵢᵐ = Wᵢᶜ = 1/(2(n+λ))。",
+        "尺度参数λ通过λ=α²(n+κ)-n计算，其中α、β、κ为可调参数。"
+      ],
+      "source_ref": "MPC_Control_Rawlings_chunk_586",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00079",
+      "dimension": "B",
+      "difficulty_level": "L4",
+      "control_category": [
+        "classical"
+      ],
+      "question": "给定系统闭环传递函数为 Y(s)/R(s) = ( (Gc1+Gc2)Gp )/(1+Gc1 Gp)，其中 Gp(s)=5/((s+1)(s+5))，Gc1(s)= (1.321s^2+9.526s+17.1735)/s，Gc2(s)=Kp(1+Td s)。采用零极点配置方法，使得闭环传递函数的分子多项式等于分母多项式的最后三项（即s^2、s和常数项）。试求Kp和Td的值。",
+      "answer": "Kp=1，Td=1.2",
+      "reasoning_steps": [
+        "写出闭环传递函数表达式：Y(s)/R(s) = ( (Gc1+Gc2)Gp )/(1+Gc1 Gp)，代入Gp、Gc1、Gc2的表达式。",
+        "计算分子： (Gc1+Gc2)Gp = [ (1.321s^2+9.526s+17.1735)/s + Kp(1+Td s) ] * [5/((s+1)(s+5)) ]，化简后得到 (6.6051+5Kp Td)s^2 + (47.63+5Kp)s + 85.8673 除以 (s(s+1)(s+5))。",
+        "计算分母：1+Gc1 Gp = 1 + [ (1.321s^2+9.526s+17.1735)/s ] * [5/((s+1)(s+5)) ]，化简后得到 (s^3 + 12.6051s^2 + 52.63s + 85.8673) / (s(s+1)(s+5))。",
+        "因此闭环传递函数为 [ (6.6051+5Kp Td)s^2 + (47.63+5Kp)s + 85.8673 ] / [ s^3 + 12.6051s^2 + 52.63s + 85.8673 ]。",
+        "令分子多项式等于分母多项式的最后三项（s^2、s和常数项），即 (6.6051+5Kp Td)s^2 + (47.63+5Kp)s + 85.8673 = 12.6051s^2 + 52.63s + 85.8673。",
+        "比较系数得方程组：6.6051+5Kp Td = 12.6051，47.63+5Kp = 52.63，85.8673=85.8673（恒等）。",
+        "解得 Kp=1，代入第一个方程得 6.6051+5*1*Td=12.6051，即 5Td=6，故 Td=1.2。"
+      ],
+      "source_ref": "Ogata_Modern_Control_5th_chunk_615",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00080",
+      "dimension": "D",
+      "difficulty_level": "L3",
+      "control_category": [
+        "digital"
+      ],
+      "question": "对于给定的连续时间系统 G(s) = (s+b)/(s+a)（a≠b），采样周期 h=0.1 秒，参数 a=1, b=2。设计一个数字控制器，使得闭环系统稳定，且采样系统的逆系统稳定（即脉冲传递函数 H(z) 的零点在单位圆内）。同时要求闭环阶跃响应稳态误差为零，超调量小于10%，调节时间（2%准则）小于2秒。请说明建模方法、控制方法的选择理由、参数设计步骤以及验证指标。",
+      "answer": "建模方法：将连续系统 G(s) 通过零阶保持器离散化，得脉冲传递函数 H(z) = Z[G(s)/s] = (1-z^{-1}) Z[G(s)/s]。计算得 H(z) = ( (b-a)h z + (a - b e^{-ah}) ) / (a^2 (z - e^{-ah}) )，代入 a=1,b=2,h=0.1 得 H(z)=0.0952(z+0.9048)/(z-0.9048)。为满足逆稳定，需零点在单位圆内：z=-0.9048 在圆内，故原系统逆稳定。控制方法：采用数字PID串联超前校正，使稳态误差为零并满足动态指标。参数设计：设计连续域控制器 D(s) 满足指标，再双线性变换离散化；或直接数字域根轨迹法。选择比例-积分控制器消除稳态误差，加入超前补偿调节超调。验证指标：仿真闭环阶跃响应，检查超调<10%、调节时间<2s，且逆系统极点（即原系统零点）在单位圆内。",
+      "reasoning_steps": [
+        "将连续系统通过零阶保持器离散化，得到脉冲传递函数 H(z)。",
+        "代入 a=1, b=2, h=0.1，计算 H(z) 的具体表达式。",
+        "检查逆稳定条件：H(z) 的零点在单位圆内，原系统逆稳定。",
+        "选择数字控制器结构：比例积分加超前，确保稳态误差为零并改善动态响应。",
+        "设计控制器参数：通过根轨迹或频率法确定参数使闭环极点满足超调和调节时间指标。",
+        "验证：仿真阶跃响应并测量超调和调节时间，同时验证逆系统（即闭环系统倒数）的稳定性。"
+      ],
+      "source_ref": "Computer_Controlled_Systems_Astrom_chunk_154",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": {
+        "feasibility": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "设计方案是否可行，是否满足所有工程约束"
+        },
+        "method_choice": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "控制方法选择是否合理，理由是否充分"
+        },
+        "completeness": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "是否完整包含建模、设计、验证步骤"
+        },
+        "innovation": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "设计是否有创新点（如独特参数调节策略）"
+        },
+        "clarity": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "表达是否清晰，公式和步骤是否准确"
+        }
+      },
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00081",
+      "dimension": "A",
+      "difficulty_level": "L1",
+      "control_category": [
+        "digital"
+      ],
+      "question": "请写出教材中单输入单输出离散时间时不变系统的输入输出模型标准形式（方程(2.1)），并说明变量 y(t)、u(t)、a_i、b_i、d、n_A、n_B 的含义。",
+      "answer": "标准形式为：$$y(t) = -\\sum_{i=1}^{n_A} a_i y(t-i) + \\sum_{i=1}^{n_B} b_i u(t-d-i)$$ 其中 t 为归一化采样时间，u(t) 为输入，y(t) 为输出，d 为时延包含的采样周期整数个数，a_i 和 b_i 为模型参数，n_A 和 n_B 分别为输出和输入回归阶次。",
+      "reasoning_steps": [
+        "教材中给出了单输入单输出离散时间时不变系统的输入输出模型，如方程(2.1)所示。",
+        "该模型将当前输出 y(t) 表示为过去输出和过去输入的加权组合。",
+        "方程中各项的符号和参数含义需按教材定义说明。"
+      ],
+      "source_ref": "2406.07073_Adaptive_Control_Algorithms_Analysis_and_Applications_chunk_081",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00082",
+      "dimension": "B",
+      "difficulty_level": "L2",
+      "control_category": [
+        "adaptive"
+      ],
+      "question": "给定被控对象估计模型为A(z)=z^2-1.5z+0.5, B(z)=z+0.2。期望闭环特征多项式为T(z)=z^3-0.5z^2+0.1z。采用间接自校正控制，需要求解Diophantine方程A(z)R(z)+B(z)S(z)=T(z)。设控制器多项式R(z)和S(z)的次数分别为deg(R)=1, deg(S)=1。求R(z)和S(z)。",
+      "answer": "设R(z)=r0+z*r1, S(z)=s0+z*s1。代入Diophantine方程：(z^2-1.5z+0.5)(r1 z+r0)+(z+0.2)(s1 z+s0)=z^3-0.5z^2+0.1z。展开并比较系数得：z^3: r1=1；z^2: -1.5r1+r0+s1=-0.5 → -1.5+r0+s1=-0.5 → r0+s1=1；z^1: 0.5r1-1.5r0+s0+0.2s1=0.1 → 0.5-1.5r0+s0+0.2s1=0.1 → -1.5r0+s0+0.2s1=-0.4；z^0: 0.5r0+0.2s0=0。解方程组得：r1=1, r0=2, s1=-1, s0=-5。因此R(z)=2+z, S(z)=-5-z。",
+      "reasoning_steps": [
+        "设R(z)和S(z)为一次多项式，R(z)=r0+r1 z, S(z)=s0+s1 z，其中r1, r0, s1, s0为未知系数。",
+        "将A(z), B(z), R(z), S(z)代入Diophantine方程A(z)R(z)+B(z)S(z)=T(z)，并进行多项式乘法。",
+        "比较等式两边同次幂系数，得到关于r1, r0, s1, s0的线性方程组。",
+        "解线性方程组得r1=1, r0=2, s1=-1, s0=-5，从而写出R(z)=2+z, S(z)=-5-z。"
+      ],
+      "source_ref": "Astrom_Adaptive_Control_chunk_698",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00083",
+      "dimension": "D",
+      "difficulty_level": "L3",
+      "control_category": [
+        "intelligent"
+      ],
+      "question": "设计一个基于LSTM的非线性系统控制器，要求闭环系统渐近稳定，且满足调节时间（2%准则）小于0.5秒、稳态误差小于0.01。请给出建模方法、控制器设计理由（如何利用教材中的稳定性约束）、参数设计步骤和验证指标。",
+      "answer": "建模：被控对象为二阶非线性系统，LSTM控制器采用教材式(22)-(27)，输出h_t作为控制量。控制器设计理由：LSTM能逼近非线性映射，且教材提供稳定性约束（式(30)）可保证闭环稳定。参数设计步骤：设置C_g=0, b_g=0, ||U_g||_2<1，训练时投影权重满足此约束，并调整其他参数优化性能。验证指标：通过仿真测量单位阶跃响应调节时间（2%准则）和稳态误差，同时监测李雅普诺夫函数V=||c_t||^2是否单调递减。",
+      "reasoning_steps": [
+        "建立被控对象（二阶非线性系统）和LSTM控制器（式(22)-(27)）的数学模型。",
+        "选择LSTM作为控制器，因其适合非线性控制且教材提供稳定性条件。",
+        "根据教材式(30)，设置C_g=0, b_g=0, ||U_g||_2<1以保证渐近稳定。",
+        "使用梯度下降训练LSTM，并在每次迭代后将权重投影到满足约束的区域。",
+        "通过仿真获得阶跃响应，验证调节时间<0.5s和稳态误差<0.01。",
+        "监测李雅普诺夫函数V=||c_t||^2的单调递减，验证闭环稳定性。"
+      ],
+      "source_ref": "2509.15622_De_crackling_Virtual_Analog_Controls_with_Asymptotically_Sta_chunk_010",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": {
+        "feasibility": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "方案在工程上可实现，被控对象和控制器建模合理。"
+        },
+        "method_choice": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "解释了选择LSTM的理由，并正确引用教材中的稳定性约束。"
+        },
+        "completeness": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "包含建模、控制器设计、参数步骤、验证指标，无缺失。"
+        },
+        "innovation": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "在满足约束下提出具体参数设计方法（如投影法），或附加合理创新。"
+        },
+        "clarity": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "表述清晰，逻辑连贯，数学表达式使用正确。"
+        }
+      },
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00084",
+      "dimension": "C",
+      "difficulty_level": "L3",
+      "control_category": [
+        "nonlinear",
+        "intelligent"
+      ],
+      "question": "在基于MPSO PID型滑模控制锥形罐液位时，假设在液位h0处通过线性化设计控制器，若液位变化至h1（h1≠h0），则原控制器是否还能保证系统稳定？请分析并给出理由。",
+      "answer": "原控制器可能无法保证系统稳定。锥形罐的横截面积A(h)随液位变化，通常为A(h)=π(r0+(R-r0)h/H)^2，其中r0和R分别为底部和顶部半径，H为总高度。在h0处线性化得到状态方程含增益K0=1/A(h0)，在h1处增益变为K1=1/A(h1)=K0·A(h0)/A(h1)。滑模控制器的等效控制项基于标称模型，参数失配导致滑模条件可能不满足。若|A(h0)/A(h1)-1|大于控制器设计时考虑的不确定性上界，则系统失稳。敏感性来源于横截面积的非线性依赖。",
+      "reasoning_steps": [
+        "锥形罐液位系统是非线性的，横截面积A(h)是液位h的函数。",
+        "在h0处线性化得到系统模型，其增益与A(h0)成反比。",
+        "当液位变为h1时，系统增益变化为K1=K0·A(h0)/A(h1)。",
+        "滑模控制器的设计依赖于标称模型，参数变化引入模型误差。",
+        "若误差超出滑模控制中不确定性上界的估计，滑模可达条件被破坏，系统可能失稳。"
+      ],
+      "source_ref": "2209.09170_Modified_PSO_based_PID_Sliding_Mode_Control_using_Improved_R_chunk_006",
+      "model_source": "deepseek",
+      "sensitivity_dimension": "environment",
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00085",
+      "dimension": "C",
+      "difficulty_level": "L3",
+      "control_category": [
+        "nonlinear",
+        "robust"
+      ],
+      "question": "对于满足匹配条件 d(t)=g(x)ξ(t) 的非线性系统，采用 PID 型滑模面 s = kp e + ki ∫e dt + kd ė，试写出滑模运动 (s=0) 的微分方程，并解释为何扰动项不出现于此方程中。",
+      "answer": "滑模运动方程为 kd ë + kp ė + ki e = 0。因为匹配条件下，通过等效控制 u_eq = -g^{-1}(f - ẍ_d + kd^{-1}(kp ė + ki e) + d) 可完全补偿扰动，代入系统得滑模运动方程不含扰动项。",
+      "reasoning_steps": [
+        "定义 PID 型滑模面 s = kp e + ki ∫e dt + kd ė。",
+        "滑模运动要求 s=0，即 kp e + ki ∫e dt + kd ė = 0。",
+        "对 s 求导：ṡ = kp ė + ki e + kd ë。",
+        "代入系统方程 ë = ẍ - ẍ_d = f+gu+d - ẍ_d，得 ṡ = kp ė + ki e + kd(f+gu+d - ẍ_d)。",
+        "令 ṡ=0，解出等效控制 u_eq = -g^{-1}(f - ẍ_d + kd^{-1}(kp ė + ki e) + d)。",
+        "由于 d = g ξ，代入得 u_eq = -g^{-1}(f - ẍ_d + kd^{-1}(kp ė + ki e)) - ξ，扰动项被抵消。",
+        "将 u_eq 代回系统方程，得 ë = -kd^{-1}(kp ė + ki e)，即 kd ë + kp ė + ki e = 0，无扰动项。"
+      ],
+      "source_ref": "2209.09170_Modified_PSO_based_PID_Sliding_Mode_Control_using_Improved_R_chunk_006",
+      "model_source": "deepseek",
+      "sensitivity_dimension": "parameter",
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    }
+  ]
+}

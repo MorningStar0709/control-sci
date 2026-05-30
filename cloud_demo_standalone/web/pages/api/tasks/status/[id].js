@@ -1,4 +1,4 @@
-import { taskStore } from '../store';
+import { taskStore, toPublicTask, verifyTaskOwner } from '../store';
 
 export default function handler(req, res) {
   res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
@@ -10,5 +10,10 @@ export default function handler(req, res) {
     res.status(404).json({ status: 'failed', error: 'task not found' });
     return;
   }
-  res.status(200).json(task);
+  const token = req.headers['x-task-token'] || req.query.token;
+  if (!verifyTaskOwner(task, token)) {
+    res.status(403).json({ status: 'failed', error: 'task token required' });
+    return;
+  }
+  res.status(200).json(toPublicTask(task));
 }

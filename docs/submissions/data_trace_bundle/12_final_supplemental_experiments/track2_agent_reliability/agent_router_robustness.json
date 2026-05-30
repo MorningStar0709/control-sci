@@ -1,0 +1,819 @@
+{
+  "schema_version": "1.0",
+  "experiment": "track2_router_robustness_baseline",
+  "created_at": "2026-05-23 21:06:33",
+  "router_model": "deepseek-v4-flash",
+  "prompt_variant": "baseline_existing_agent_cli",
+  "api_key_present": true,
+  "summary": {
+    "total_cases": 25,
+    "success_cases": 25,
+    "error_cases": 0,
+    "intent_chain_consistency": 1.0,
+    "first_intent_accuracy": 0.64,
+    "dry_run_success_rate": 1.0,
+    "dependency_repair_rate": 0.32,
+    "single_intent_degradation_rate": 0.44,
+    "call_count": 25,
+    "by_family": {
+      "literature_search": {
+        "total": 5,
+        "matched": 5,
+        "first_match": 5,
+        "errors": 0,
+        "match_rate": 1.0,
+        "first_intent_accuracy": 1.0
+      },
+      "cross_document_audit": {
+        "total": 5,
+        "matched": 5,
+        "first_match": 1,
+        "errors": 0,
+        "match_rate": 1.0,
+        "first_intent_accuracy": 0.2
+      },
+      "multi_format_parse": {
+        "total": 5,
+        "matched": 5,
+        "first_match": 5,
+        "errors": 0,
+        "match_rate": 1.0,
+        "first_intent_accuracy": 1.0
+      },
+      "model_evaluation": {
+        "total": 5,
+        "matched": 5,
+        "first_match": 0,
+        "errors": 0,
+        "match_rate": 1.0,
+        "first_intent_accuracy": 0.0
+      },
+      "sciverse_search": {
+        "total": 5,
+        "matched": 5,
+        "first_match": 5,
+        "errors": 0,
+        "match_rate": 1.0,
+        "first_intent_accuracy": 1.0
+      }
+    }
+  },
+  "records": [
+    {
+      "case_id": "literature_01",
+      "input": "检索 2025 年之后关于 control barrier function 和 safe reinforcement learning 的前沿论文。",
+      "expected_family": "literature_search",
+      "acceptable_intents": [
+        "arxiv_search",
+        "sciverse_search"
+      ],
+      "expected_first_intents": [
+        "arxiv_search",
+        "sciverse_search"
+      ],
+      "predicted_intents": [
+        "arxiv_search"
+      ],
+      "predicted_descriptions": [
+        "使用自研 searching-arxiv-papers Skill 检索 2025 年之后关于 control barrier function 和 safe reinforcement learning 的前沿论文"
+      ],
+      "dry_run_status": "success",
+      "dependency_repair": false,
+      "matched_acceptable": true,
+      "first_intent_match": true,
+      "intent_chain_match": true,
+      "single_intent_degradation": true,
+      "status": "success",
+      "duration_ms": 3382,
+      "error": ""
+    },
+    {
+      "case_id": "literature_02",
+      "input": "帮我找几篇最新的模型预测控制综述，优先覆盖正式出版物。",
+      "expected_family": "literature_search",
+      "acceptable_intents": [
+        "sciverse_search",
+        "arxiv_search"
+      ],
+      "expected_first_intents": [
+        "sciverse_search",
+        "arxiv_search"
+      ],
+      "predicted_intents": [
+        "sciverse_search"
+      ],
+      "predicted_descriptions": [
+        "使用 Sciverse API 检索最新的模型预测控制（Model Predictive Control）综述论文，优先过滤正式出版物（期刊/会议）"
+      ],
+      "dry_run_status": "success",
+      "dependency_repair": false,
+      "matched_acceptable": true,
+      "first_intent_match": true,
+      "intent_chain_match": true,
+      "single_intent_degradation": true,
+      "status": "success",
+      "duration_ms": 3149,
+      "error": ""
+    },
+    {
+      "case_id": "literature_03",
+      "input": "搜索 differentiable MPC 方向的 arXiv 预印本，并准备后续加入评测基准。",
+      "expected_family": "literature_search",
+      "acceptable_intents": [
+        "arxiv_search",
+        "mineru_parse",
+        "corpus_parse",
+        "benchmark_build"
+      ],
+      "expected_first_intents": [
+        "arxiv_search"
+      ],
+      "predicted_intents": [
+        "arxiv_search",
+        "mineru_parse",
+        "corpus_parse"
+      ],
+      "predicted_descriptions": [
+        "使用 searching-arxiv-papers skill 检索 differentiable MPC 方向的 arXiv 预印本，下载 PDF 到默认目录",
+        "调用 MinerU API 解析下载的 PDF 为结构化 Markdown，提取公式和图片",
+        "加载解析后的 Markdown 文件，生成结构化语料 chunk，为后续评测基准构建做准备"
+      ],
+      "dry_run_status": "success",
+      "dependency_repair": false,
+      "matched_acceptable": true,
+      "first_intent_match": true,
+      "intent_chain_match": true,
+      "single_intent_degradation": false,
+      "status": "success",
+      "duration_ms": 9432,
+      "error": ""
+    },
+    {
+      "case_id": "literature_04",
+      "input": "查找卡尔曼滤波在工业过程控制中的最新文献证据。",
+      "expected_family": "literature_search",
+      "acceptable_intents": [
+        "sciverse_search",
+        "arxiv_search"
+      ],
+      "expected_first_intents": [
+        "sciverse_search",
+        "arxiv_search"
+      ],
+      "predicted_intents": [
+        "sciverse_search"
+      ],
+      "predicted_descriptions": [
+        "使用 Sciverse API 检索卡尔曼滤波在工业过程控制中的最新文献证据，返回相关论文的元数据"
+      ],
+      "dry_run_status": "success",
+      "dependency_repair": false,
+      "matched_acceptable": true,
+      "first_intent_match": true,
+      "intent_chain_match": true,
+      "single_intent_degradation": true,
+      "status": "success",
+      "duration_ms": 6058,
+      "error": ""
+    },
+    {
+      "case_id": "literature_05",
+      "input": "给我发现一批控制科学新论文，后面要进入数据飞轮。",
+      "expected_family": "literature_search",
+      "acceptable_intents": [
+        "arxiv_search",
+        "sciverse_search",
+        "mineru_parse",
+        "corpus_parse"
+      ],
+      "expected_first_intents": [
+        "arxiv_search",
+        "sciverse_search"
+      ],
+      "predicted_intents": [
+        "arxiv_search"
+      ],
+      "predicted_descriptions": [
+        "使用自研 searching-arxiv-papers Skill 检索控制科学领域的最新论文，包括控制理论、自适应控制、模型预测控制等方向"
+      ],
+      "dry_run_status": "success",
+      "dependency_repair": false,
+      "matched_acceptable": true,
+      "first_intent_match": true,
+      "intent_chain_match": true,
+      "single_intent_degradation": true,
+      "status": "success",
+      "duration_ms": 4604,
+      "error": ""
+    },
+    {
+      "case_id": "audit_01",
+      "input": "审计这批论文中的图片和公式是否语义一致，并输出质量报告。",
+      "expected_family": "cross_document_audit",
+      "acceptable_intents": [
+        "corpus_parse",
+        "cross_modal_audit",
+        "corpus_quality_report"
+      ],
+      "expected_first_intents": [
+        "corpus_parse",
+        "cross_modal_audit"
+      ],
+      "predicted_intents": [
+        "corpus_parse",
+        "cross_modal_audit",
+        "corpus_quality_report"
+      ],
+      "predicted_descriptions": [
+        "使用 MinerU 批量解析论文为结构化 Markdown 语料",
+        "使用 MiMo-V2.5 原生视觉模型全量扫描语料 chunk，审计图片-公式语义对齐",
+        "基于 chunk 统计和跨模态审计结果，使用 DeepSeek 分析生成全维度质量报告"
+      ],
+      "dry_run_status": "success",
+      "dependency_repair": false,
+      "matched_acceptable": true,
+      "first_intent_match": true,
+      "intent_chain_match": true,
+      "single_intent_degradation": false,
+      "status": "success",
+      "duration_ms": 10408,
+      "error": ""
+    },
+    {
+      "case_id": "audit_02",
+      "input": "检查语料库里公式、图像和 chunk 统计之间有没有明显错配。",
+      "expected_family": "cross_document_audit",
+      "acceptable_intents": [
+        "cross_modal_audit",
+        "corpus_quality_report"
+      ],
+      "expected_first_intents": [
+        "cross_modal_audit",
+        "corpus_quality_report"
+      ],
+      "predicted_intents": [
+        "corpus_parse",
+        "cross_modal_audit"
+      ],
+      "predicted_descriptions": [
+        "自动补齐依赖: 语料解析",
+        "使用 MiMo-V2.5 原生视觉模型全量扫描语料 chunk，审计公式-图像-文本统计之间的跨模态对齐质量，检测错配"
+      ],
+      "dry_run_status": "success",
+      "dependency_repair": true,
+      "matched_acceptable": true,
+      "first_intent_match": false,
+      "intent_chain_match": true,
+      "single_intent_degradation": false,
+      "status": "success",
+      "duration_ms": 3887,
+      "error": ""
+    },
+    {
+      "case_id": "audit_03",
+      "input": "对已有 arXiv 语料做跨模态对齐审计，重点看图表说明和公式引用。",
+      "expected_family": "cross_document_audit",
+      "acceptable_intents": [
+        "cross_modal_audit"
+      ],
+      "expected_first_intents": [
+        "cross_modal_audit"
+      ],
+      "predicted_intents": [
+        "corpus_parse",
+        "cross_modal_audit"
+      ],
+      "predicted_descriptions": [
+        "自动补齐依赖: 语料解析",
+        "对已有的 arXiv 语料 chunk 执行跨模态对齐审计，重点检查图表说明与公式引用的语义一致性，使用 MiMo-V2.5 原生视觉模型"
+      ],
+      "dry_run_status": "success",
+      "dependency_repair": true,
+      "matched_acceptable": true,
+      "first_intent_match": false,
+      "intent_chain_match": true,
+      "single_intent_degradation": false,
+      "status": "success",
+      "duration_ms": 4226,
+      "error": ""
+    },
+    {
+      "case_id": "audit_04",
+      "input": "生成一份语料全维度质量诊断，包含 chunk 完整度、公式抽取率和图片匹配情况。",
+      "expected_family": "cross_document_audit",
+      "acceptable_intents": [
+        "corpus_quality_report",
+        "cross_modal_audit"
+      ],
+      "expected_first_intents": [
+        "corpus_quality_report",
+        "cross_modal_audit"
+      ],
+      "predicted_intents": [
+        "corpus_parse",
+        "cross_modal_audit",
+        "corpus_quality_report"
+      ],
+      "predicted_descriptions": [
+        "自动补齐依赖: 语料解析",
+        "自动补齐依赖: 跨模态对齐审计",
+        "基于 chunk 统计和跨模态审计结果，使用 DeepSeek 分析生成全维度质量报告，包含 chunk 完整度、公式抽取率和图片匹配情况"
+      ],
+      "dry_run_status": "success",
+      "dependency_repair": true,
+      "matched_acceptable": true,
+      "first_intent_match": false,
+      "intent_chain_match": true,
+      "single_intent_degradation": false,
+      "status": "success",
+      "duration_ms": 4974,
+      "error": ""
+    },
+    {
+      "case_id": "audit_05",
+      "input": "我想知道当前语料是否适合继续训练和出题，请先做质量审计。",
+      "expected_family": "cross_document_audit",
+      "acceptable_intents": [
+        "corpus_quality_report",
+        "cross_modal_audit"
+      ],
+      "expected_first_intents": [
+        "corpus_quality_report",
+        "cross_modal_audit"
+      ],
+      "predicted_intents": [
+        "corpus_parse",
+        "cross_modal_audit",
+        "corpus_quality_report"
+      ],
+      "predicted_descriptions": [
+        "加载并验证当前语料库的 chunk 结构和完整性，确保后续审计步骤有可用的结构化数据",
+        "使用 MiMo-V2.5 模型审计图片与公式的跨模态语义对齐质量",
+        "结合 chunk 统计和跨模态审计结果，使用 DeepSeek 生成全维度语料质量报告，评估是否适合继续训练和出题"
+      ],
+      "dry_run_status": "success",
+      "dependency_repair": false,
+      "matched_acceptable": true,
+      "first_intent_match": false,
+      "intent_chain_match": true,
+      "single_intent_degradation": false,
+      "status": "success",
+      "duration_ms": 6097,
+      "error": ""
+    },
+    {
+      "case_id": "parse_01",
+      "input": "把这批 PDF 和 PPT 解析成结构化 Markdown，保留公式、表格和图片。",
+      "expected_family": "multi_format_parse",
+      "acceptable_intents": [
+        "multi_format_parse",
+        "mineru_parse",
+        "corpus_parse"
+      ],
+      "expected_first_intents": [
+        "multi_format_parse",
+        "mineru_parse",
+        "corpus_parse"
+      ],
+      "predicted_intents": [
+        "multi_format_parse"
+      ],
+      "predicted_descriptions": [
+        "使用 MinerU API 解析 data/sources/ 目录下的 PDF 和 PPT 文件为结构化 Markdown，保留公式、表格和图片"
+      ],
+      "dry_run_status": "success",
+      "dependency_repair": false,
+      "matched_acceptable": true,
+      "first_intent_match": true,
+      "intent_chain_match": true,
+      "single_intent_degradation": true,
+      "status": "success",
+      "duration_ms": 3516,
+      "error": ""
+    },
+    {
+      "case_id": "parse_02",
+      "input": "调用 MinerU 解析下载的论文，并导出图片资源。",
+      "expected_family": "multi_format_parse",
+      "acceptable_intents": [
+        "mineru_parse",
+        "corpus_parse"
+      ],
+      "expected_first_intents": [
+        "mineru_parse",
+        "corpus_parse"
+      ],
+      "predicted_intents": [
+        "mineru_parse"
+      ],
+      "predicted_descriptions": [
+        "调用 MinerU API 解析下载的 PDF 为结构化 Markdown，含公式提取和图片导出"
+      ],
+      "dry_run_status": "success",
+      "dependency_repair": false,
+      "matched_acceptable": true,
+      "first_intent_match": true,
+      "intent_chain_match": true,
+      "single_intent_degradation": true,
+      "status": "success",
+      "duration_ms": 3341,
+      "error": ""
+    },
+    {
+      "case_id": "parse_03",
+      "input": "把企业技术报告和表格文档统一转成可检索的语料。",
+      "expected_family": "multi_format_parse",
+      "acceptable_intents": [
+        "multi_format_parse",
+        "corpus_parse",
+        "mineru_parse"
+      ],
+      "expected_first_intents": [
+        "multi_format_parse",
+        "corpus_parse",
+        "mineru_parse"
+      ],
+      "predicted_intents": [
+        "multi_format_parse"
+      ],
+      "predicted_descriptions": [
+        "使用 MinerU API 批量解析企业技术报告（PDF/Word）和表格文档（Excel/CSV），统一输出为结构化 Markdown 语料"
+      ],
+      "dry_run_status": "success",
+      "dependency_repair": false,
+      "matched_acceptable": true,
+      "first_intent_match": true,
+      "intent_chain_match": true,
+      "single_intent_degradation": true,
+      "status": "success",
+      "duration_ms": 5077,
+      "error": ""
+    },
+    {
+      "case_id": "parse_04",
+      "input": "解析这 23 本控制科学教材为结构化语料。",
+      "expected_family": "multi_format_parse",
+      "acceptable_intents": [
+        "corpus_parse",
+        "mineru_parse"
+      ],
+      "expected_first_intents": [
+        "corpus_parse",
+        "mineru_parse"
+      ],
+      "predicted_intents": [
+        "corpus_parse"
+      ],
+      "predicted_descriptions": [
+        "使用 MinerU 批量解析 23 本控制科学教材为结构化 Markdown 语料"
+      ],
+      "dry_run_status": "success",
+      "dependency_repair": false,
+      "matched_acceptable": true,
+      "first_intent_match": true,
+      "intent_chain_match": true,
+      "single_intent_degradation": true,
+      "status": "success",
+      "duration_ms": 2143,
+      "error": ""
+    },
+    {
+      "case_id": "parse_05",
+      "input": "处理一批 Word、PPTX、XLSX 和扫描图片，统一进入科学文档 schema。",
+      "expected_family": "multi_format_parse",
+      "acceptable_intents": [
+        "multi_format_parse",
+        "corpus_parse"
+      ],
+      "expected_first_intents": [
+        "multi_format_parse",
+        "corpus_parse"
+      ],
+      "predicted_intents": [
+        "multi_format_parse"
+      ],
+      "predicted_descriptions": [
+        "使用 MinerU API 批量解析 Word、PPTX、XLSX 和扫描图片，统一转换为结构化 Markdown 并纳入科学文档 schema"
+      ],
+      "dry_run_status": "success",
+      "dependency_repair": false,
+      "matched_acceptable": true,
+      "first_intent_match": true,
+      "intent_chain_match": true,
+      "single_intent_degradation": true,
+      "status": "success",
+      "duration_ms": 2488,
+      "error": ""
+    },
+    {
+      "case_id": "eval_01",
+      "input": "在 ControlSci benchmark 上评测 deepseek-v4-flash 模型。",
+      "expected_family": "model_evaluation",
+      "acceptable_intents": [
+        "model_evaluate",
+        "quality_arbitrate",
+        "leaderboard_viz"
+      ],
+      "expected_first_intents": [
+        "model_evaluate",
+        "quality_arbitrate"
+      ],
+      "predicted_intents": [
+        "corpus_parse",
+        "benchmark_build",
+        "quality_arbitrate",
+        "model_evaluate"
+      ],
+      "predicted_descriptions": [
+        "自动补齐依赖: 语料解析",
+        "自动补齐依赖: 评测数据集构建",
+        "自动补齐依赖: 质量仲裁",
+        "在 ControlSci benchmark 上评测 deepseek-v4-flash 模型"
+      ],
+      "dry_run_status": "success",
+      "dependency_repair": true,
+      "matched_acceptable": true,
+      "first_intent_match": false,
+      "intent_chain_match": true,
+      "single_intent_degradation": false,
+      "status": "success",
+      "duration_ms": 3008,
+      "error": ""
+    },
+    {
+      "case_id": "eval_02",
+      "input": "对比 API Judge 和本地 Ollama Judge 的评分差异。",
+      "expected_family": "model_evaluation",
+      "acceptable_intents": [
+        "multi_judge_compare",
+        "model_evaluate"
+      ],
+      "expected_first_intents": [
+        "multi_judge_compare",
+        "model_evaluate"
+      ],
+      "predicted_intents": [
+        "corpus_parse",
+        "benchmark_build",
+        "quality_arbitrate",
+        "model_evaluate",
+        "multi_judge_compare"
+      ],
+      "predicted_descriptions": [
+        "自动补齐依赖: 语料解析",
+        "自动补齐依赖: 评测数据集构建",
+        "自动补齐依赖: 质量仲裁",
+        "自动补齐依赖: 模型评测",
+        "使用 DeepSeek API Judge 和 Ollama 本地 Judge 双路径评测，生成一致性对比"
+      ],
+      "dry_run_status": "success",
+      "dependency_repair": true,
+      "matched_acceptable": true,
+      "first_intent_match": false,
+      "intent_chain_match": true,
+      "single_intent_degradation": false,
+      "status": "success",
+      "duration_ms": 3603,
+      "error": ""
+    },
+    {
+      "case_id": "eval_03",
+      "input": "基于现有语料生成 500 道评测题，并跑全模型排行榜。",
+      "expected_family": "model_evaluation",
+      "acceptable_intents": [
+        "benchmark_build",
+        "quality_arbitrate",
+        "model_evaluate",
+        "leaderboard_viz"
+      ],
+      "expected_first_intents": [
+        "benchmark_build"
+      ],
+      "predicted_intents": [
+        "corpus_parse",
+        "benchmark_build",
+        "quality_arbitrate",
+        "model_evaluate",
+        "leaderboard_viz"
+      ],
+      "predicted_descriptions": [
+        "自动补齐依赖: 语料解析",
+        "基于现有已解析语料，使用三 Provider 生成 500 道控制科学评测题",
+        "对生成的 500 道题目进行双层 LLM 仲裁，确保质量与一致性",
+        "跑全模型评测：使用 deepseek-v4-flash, qwen3.5:9b, mimo-v2-flash 等主流模型在仲裁后的数据集上评测",
+        "基于模型评测结果，生成完整排行榜 JSON 和可视化 HTML"
+      ],
+      "dry_run_status": "success",
+      "dependency_repair": true,
+      "matched_acceptable": true,
+      "first_intent_match": false,
+      "intent_chain_match": true,
+      "single_intent_degradation": false,
+      "status": "success",
+      "duration_ms": 14333,
+      "error": ""
+    },
+    {
+      "case_id": "eval_04",
+      "input": "评估 qwen3.5:9b 在控制理论题上的表现，并更新排行榜。",
+      "expected_family": "model_evaluation",
+      "acceptable_intents": [
+        "model_evaluate",
+        "leaderboard_viz"
+      ],
+      "expected_first_intents": [
+        "model_evaluate",
+        "quality_arbitrate"
+      ],
+      "predicted_intents": [
+        "corpus_parse",
+        "benchmark_build",
+        "quality_arbitrate",
+        "model_evaluate",
+        "leaderboard_viz"
+      ],
+      "predicted_descriptions": [
+        "自动补齐依赖: 语料解析",
+        "自动补齐依赖: 评测数据集构建",
+        "自动补齐依赖: 质量仲裁",
+        "使用 deepseek-v4-flash 作为评测引擎，评估 qwen3.5:9b 在控制理论题上的表现",
+        "读取评测结果，更新排行榜并生成可视化 HTML 与 JSON"
+      ],
+      "dry_run_status": "success",
+      "dependency_repair": true,
+      "matched_acceptable": true,
+      "first_intent_match": false,
+      "intent_chain_match": true,
+      "single_intent_degradation": false,
+      "status": "success",
+      "duration_ms": 6843,
+      "error": ""
+    },
+    {
+      "case_id": "eval_05",
+      "input": "对新生成的问题做质量仲裁，再用三个模型跑一遍评测。",
+      "expected_family": "model_evaluation",
+      "acceptable_intents": [
+        "quality_arbitrate",
+        "model_evaluate"
+      ],
+      "expected_first_intents": [
+        "quality_arbitrate"
+      ],
+      "predicted_intents": [
+        "corpus_parse",
+        "benchmark_build",
+        "quality_arbitrate",
+        "model_evaluate"
+      ],
+      "predicted_descriptions": [
+        "自动补齐依赖: 语料解析",
+        "自动补齐依赖: 评测数据集构建",
+        "对已生成的评测数据集进行双层 LLM 仲裁，过滤低质题目",
+        "评测 deepseek-v4-flash 在仲裁后的数据集上的表现"
+      ],
+      "dry_run_status": "success",
+      "dependency_repair": true,
+      "matched_acceptable": true,
+      "first_intent_match": false,
+      "intent_chain_match": true,
+      "single_intent_degradation": false,
+      "status": "success",
+      "duration_ms": 10153,
+      "error": ""
+    },
+    {
+      "case_id": "sciverse_01",
+      "input": "用 Sciverse 搜索最新的模型预测控制论文。",
+      "expected_family": "sciverse_search",
+      "acceptable_intents": [
+        "sciverse_search"
+      ],
+      "expected_first_intents": [
+        "sciverse_search"
+      ],
+      "predicted_intents": [
+        "sciverse_search"
+      ],
+      "predicted_descriptions": [
+        "使用 Sciverse API 搜索最新的模型预测控制（Model Predictive Control）论文"
+      ],
+      "dry_run_status": "success",
+      "dependency_repair": false,
+      "matched_acceptable": true,
+      "first_intent_match": true,
+      "intent_chain_match": true,
+      "single_intent_degradation": false,
+      "status": "success",
+      "duration_ms": 2090,
+      "error": ""
+    },
+    {
+      "case_id": "sciverse_02",
+      "input": "检索闭环胰岛素临床试验证据，优先正式出版医学文献。",
+      "expected_family": "sciverse_search",
+      "acceptable_intents": [
+        "sciverse_search",
+        "medical_rag"
+      ],
+      "expected_first_intents": [
+        "sciverse_search",
+        "medical_rag"
+      ],
+      "predicted_intents": [
+        "sciverse_search"
+      ],
+      "predicted_descriptions": [
+        "使用 Sciverse API 检索闭环胰岛素临床试验的正式出版医学文献，返回结构化文献列表。"
+      ],
+      "dry_run_status": "success",
+      "dependency_repair": false,
+      "matched_acceptable": true,
+      "first_intent_match": true,
+      "intent_chain_match": true,
+      "single_intent_degradation": true,
+      "status": "success",
+      "duration_ms": 4160,
+      "error": ""
+    },
+    {
+      "case_id": "sciverse_03",
+      "input": "找 2024 年后的卡尔曼滤波前沿文献，不局限 arXiv。",
+      "expected_family": "sciverse_search",
+      "acceptable_intents": [
+        "sciverse_search",
+        "arxiv_search"
+      ],
+      "expected_first_intents": [
+        "sciverse_search"
+      ],
+      "predicted_intents": [
+        "sciverse_search"
+      ],
+      "predicted_descriptions": [
+        "使用 Sciverse API 检索2024年后的卡尔曼滤波前沿文献，不限于arXiv数据库"
+      ],
+      "dry_run_status": "success",
+      "dependency_repair": false,
+      "matched_acceptable": true,
+      "first_intent_match": true,
+      "intent_chain_match": true,
+      "single_intent_degradation": true,
+      "status": "success",
+      "duration_ms": 3715,
+      "error": ""
+    },
+    {
+      "case_id": "sciverse_04",
+      "input": "从 Sciverse 里找跨学科控制科学论文，返回 top 5。",
+      "expected_family": "sciverse_search",
+      "acceptable_intents": [
+        "sciverse_search"
+      ],
+      "expected_first_intents": [
+        "sciverse_search"
+      ],
+      "predicted_intents": [
+        "sciverse_search"
+      ],
+      "predicted_descriptions": [
+        "使用 Sciverse API 检索跨学科控制科学论文，返回 top 5"
+      ],
+      "dry_run_status": "success",
+      "dependency_repair": false,
+      "matched_acceptable": true,
+      "first_intent_match": true,
+      "intent_chain_match": true,
+      "single_intent_degradation": false,
+      "status": "success",
+      "duration_ms": 2471,
+      "error": ""
+    },
+    {
+      "case_id": "sciverse_05",
+      "input": "搜索正式出版物里关于 differentiable MPC 的最新结果。",
+      "expected_family": "sciverse_search",
+      "acceptable_intents": [
+        "sciverse_search"
+      ],
+      "expected_first_intents": [
+        "sciverse_search"
+      ],
+      "predicted_intents": [
+        "sciverse_search"
+      ],
+      "predicted_descriptions": [
+        "使用 Sciverse API 搜索关于 differentiable MPC 的最新正式出版物"
+      ],
+      "dry_run_status": "success",
+      "dependency_repair": false,
+      "matched_acceptable": true,
+      "first_intent_match": true,
+      "intent_chain_match": true,
+      "single_intent_degradation": false,
+      "status": "success",
+      "duration_ms": 2954,
+      "error": ""
+    }
+  ]
+}

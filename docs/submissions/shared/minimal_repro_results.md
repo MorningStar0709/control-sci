@@ -14,7 +14,7 @@
 
 | 层级 | 目标 | 默认命令 | 使用场景 |
 |---|---|---|---|
-| L1 秒级证据 | 确认三赛道交付物存在且可读 | `python demo/cli/controlscidemo all --quick` | 样例回放 |
+| L1 秒级证据 | 确认三赛道交付物存在且可读 | `conda run --no-capture-output -n myenv python demo/cli/controlscidemo all --quick` | 样例回放 |
 | L2 最小真实闭环 | 跑通数据校验、真实 API 小样本评测、leaderboard、Agent 校验、Medical RAG 检索/API | `.\run_minimal_repro.ps1 -Limit 10` | 关键路径复现 |
 | L3 完整离线复现 | 500 题评测、QLoRA、索引重建 | `--limit 0 --resume` 或赛道报告附录命令 | 报告级复现 |
 
@@ -219,7 +219,7 @@ conda run --no-capture-output -n myenv python -m controlsci.api.medical_rag --ch
 临时启动服务：
 
 ```powershell
-conda run -n myenv python -m controlsci.api.medical_rag --host 127.0.0.1 --port 17001
+conda run --no-capture-output -n myenv python -m controlsci.api.medical_rag --host 127.0.0.1 --port 17001
 ```
 
 检索请求：

@@ -1,0 +1,152 @@
+{
+  "schema_version": "1.0",
+  "experiment": "track1_training_utility_ablation",
+  "created_at": "2026-05-23 23:14:59",
+  "status": "ok",
+  "evaluation_mode": "existing_qlora_ppl_and_score_artifact_summary_no_new_training",
+  "inputs": {
+    "ppl": "benchmark/eval/results/sciverse_qlora_ppl.json",
+    "train_ppl": "benchmark/eval/results/sciverse_qlora_train_ppl.json",
+    "controlsci_ppl": "finetune/output/perplexity_delta.json",
+    "controlsci_9b_ppl": "finetune/output/perplexity_delta_9b.json",
+    "finetuned_report": "finetune/output/eval_finetuned_report.json",
+    "baseline_report": "finetune/output/eval_baseline_4b_report.json",
+    "config": "finetune/config/qlora_sciverse.yaml",
+    "train_file": "finetune/data/sciverse/train.jsonl",
+    "val_file": "finetune/data/sciverse/val.jsonl"
+  },
+  "training_split": {
+    "status": "available",
+    "config_source": "finetune/config/qlora_sciverse.yaml",
+    "train_file": "finetune/data/sciverse/train.jsonl",
+    "val_file": "finetune/data/sciverse/val.jsonl",
+    "train_items": 785,
+    "val_items": 139,
+    "model_name": "principled-intelligence/Qwen3.5-4B-text-only",
+    "lora_r": 8,
+    "num_train_epochs": 1,
+    "max_seq_length": 2048
+  },
+  "groups": [
+    {
+      "name": "sciverse_trained_4b",
+      "role": "in_domain_sciverse_train_then_ppl_probe",
+      "status": "available",
+      "source": "benchmark/eval/results/sciverse_qlora_train_ppl.json",
+      "analysis": "sciverse_qlora_train_ppl",
+      "base_model": "principled-intelligence/Qwen3.5-4B-text-only",
+      "qlora_adapter": "D:\\WorkPlace\\AI\\MinerU\\finetune\\output\\qlora-sciverse\\checkpoint-99",
+      "sample_count": 139,
+      "paper_count": null,
+      "base_avg_ppl": 19.85,
+      "qlora_avg_ppl": 4.3,
+      "delta_ppl": -15.55,
+      "delta_percent": -78.3,
+      "ppl_improvement_status": "ppl_improved"
+    },
+    {
+      "name": "sciverse_transfer_9b_existing_adapter",
+      "role": "cross_source_existing_adapter_ppl_probe",
+      "status": "available",
+      "source": "benchmark/eval/results/sciverse_qlora_ppl.json",
+      "analysis": "sciverse_qlora_ppl_probe",
+      "base_model": "Qwen/Qwen3.5-9B",
+      "qlora_adapter": "D:\\WorkPlace\\AI\\MinerU\\finetune\\output\\qlora-final",
+      "sample_count": 112,
+      "paper_count": 14,
+      "base_avg_ppl": 17.55,
+      "qlora_avg_ppl": 17.83,
+      "delta_ppl": 0.28,
+      "delta_percent": 1.6,
+      "ppl_improvement_status": "ppl_regressed"
+    },
+    {
+      "name": "controlsci_4b_existing_adapter",
+      "role": "controlsci_existing_adapter_ppl_probe",
+      "status": "available",
+      "source": "finetune/output/perplexity_delta.json",
+      "analysis": "perplexity_delta",
+      "base_model": "principled-intelligence/Qwen3.5-4B-text-only",
+      "qlora_adapter": "finetune\\output\\qlora-final",
+      "sample_count": 89,
+      "paper_count": null,
+      "base_avg_ppl": 8.4,
+      "qlora_avg_ppl": 3.9,
+      "delta_ppl": -4.5,
+      "delta_percent": -53.6,
+      "ppl_improvement_status": "ppl_improved"
+    },
+    {
+      "name": "controlsci_9b_existing_adapter",
+      "role": "controlsci_9b_existing_adapter_ppl_probe",
+      "status": "available",
+      "source": "finetune/output/perplexity_delta_9b.json",
+      "analysis": "perplexity_delta_9b",
+      "base_model": "Qwen/Qwen3.5-9B",
+      "qlora_adapter": "finetune\\output\\qlora-final",
+      "sample_count": 89,
+      "paper_count": null,
+      "base_avg_ppl": 6.48,
+      "qlora_avg_ppl": 4.0,
+      "delta_ppl": -2.48,
+      "delta_percent": -38.3,
+      "ppl_improvement_status": "ppl_improved"
+    }
+  ],
+  "ppl_delta": {
+    "available_groups": 4,
+    "missing_groups": 0,
+    "ppl_improved_groups": [
+      "sciverse_trained_4b",
+      "controlsci_4b_existing_adapter",
+      "controlsci_9b_existing_adapter"
+    ],
+    "ppl_regressed_groups": [
+      "sciverse_transfer_9b_existing_adapter"
+    ],
+    "strongest_ppl_improvement": {
+      "name": "sciverse_trained_4b",
+      "role": "in_domain_sciverse_train_then_ppl_probe",
+      "status": "available",
+      "source": "benchmark/eval/results/sciverse_qlora_train_ppl.json",
+      "analysis": "sciverse_qlora_train_ppl",
+      "base_model": "principled-intelligence/Qwen3.5-4B-text-only",
+      "qlora_adapter": "D:\\WorkPlace\\AI\\MinerU\\finetune\\output\\qlora-sciverse\\checkpoint-99",
+      "sample_count": 139,
+      "paper_count": null,
+      "base_avg_ppl": 19.85,
+      "qlora_avg_ppl": 4.3,
+      "delta_ppl": -15.55,
+      "delta_percent": -78.3,
+      "ppl_improvement_status": "ppl_improved"
+    }
+  },
+  "score_delta_if_available": {
+    "status": "available",
+    "comparison": "4b_finetuned_vs_4b_baseline",
+    "finetuned_source": "finetune/output/eval_finetuned_report.json",
+    "baseline_source": "finetune/output/eval_baseline_4b_report.json",
+    "sample_count": 89,
+    "finetuned_score": 0.4635,
+    "baseline_score": 0.4669,
+    "delta": -0.0034,
+    "dimension_delta": {
+      "A": -0.0105,
+      "B": 0.036,
+      "C": 0.0,
+      "D": -0.0385
+    },
+    "boundary": "Reasoning score delta is reported separately from PPL delta and must not be inferred from perplexity alone."
+  },
+  "interpretation": {
+    "ppl_improvement": "Negative delta_percent means the adapter assigns lower perplexity to the evaluated text fragments.",
+    "reasoning_score_improvement": "Reasoning score must be read from judge reports when available; it is not inferred from PPL.",
+    "task5_claim": "The available artifacts support training utility evidence, especially in-domain Sciverse QLoRA PPL reduction, but do not support a blanket reasoning ability improvement claim."
+  },
+  "boundary_notes": [
+    "This Task 5 summary reuses existing QLoRA, PPL, and judge artifacts and does not run new training or inference.",
+    "PPL reduction is evidence of language-model fit to the evaluated corpus, not a direct proof of better control-science reasoning.",
+    "Missing groups are recorded as missing_group and no replacement numbers are fabricated.",
+    "Adapter checkpoint availability is not assumed; this summary audits JSON artifacts and data/config files present on disk."
+  ]
+}

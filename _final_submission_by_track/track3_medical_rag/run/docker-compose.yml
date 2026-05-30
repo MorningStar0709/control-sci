@@ -1,3 +1,6 @@
+# Run this compose file from source repository live mode, not from a standalone evidence-only bundle.
+# The final Track 3 bundle carries data_trace_bundle evidence for replay; it does not include benchmark/ and controlsci/ sources needed by rag-api build.
+# From the source repository root, use: docker compose -f _final_submission_by_track/track3_medical_rag/run/docker-compose.yml up
 services:
   ollama:
     image: ollama/ollama:latest
@@ -22,7 +25,9 @@ services:
       start_period: 60s
 
   rag-api:
-    build: .
+    build:
+      context: ../../..
+      dockerfile: _final_submission_by_track/track3_medical_rag/run/Dockerfile
     ports:
       - "8001:8001"
     environment:
@@ -31,7 +36,7 @@ services:
       ollama:
         condition: service_healthy
     volumes:
-      - ./data:/app/data
+      - ../../../data:/app/data
 
 volumes:
   ollama_data:

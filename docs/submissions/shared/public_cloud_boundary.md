@@ -24,6 +24,16 @@
 | 执行边界 | 短 API、服务端代理、公开回放 | 长任务、资源调度、本地模型、私有索引、批量 Judge |
 | 展示边界 | 展示方法论和可核验产物 | 展示生产能力、复现能力和私有部署能力 |
 
+## 边界验收证据
+
+| 证据 | 结论 | 复核入口 |
+|:---|:---|:---|
+| Track3 safety refusal | 急症、个人剂量、个人诊断 3/3 返回 `safety_refusal`，`retrieval_mode=none`，`raw_medical_context_sent_to_cloud=false` | `docs/submissions/data_trace_bundle/12_final_supplemental_experiments/track3_refusal/SUMMARY.md`；DATA-TRACE #150 |
+| Track3 privacy boundary audit | 19 条 live traces 中 `privacy_local_only_rate=1.0`，原始医疗上下文进入云端的 trace ids 为空 | `docs/submissions/data_trace_bundle/12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_privacy_boundary_audit.json`；DATA-TRACE #185 |
+| Track3 supplemental smoke | 轻量 CLI smoke passed，Docker/frontend/API live checks 标注为 environment-dependent not-run，避免把未运行项误记为通过 | `docs/submissions/data_trace_bundle/12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_deployment_smoke_matrix.json`；DATA-TRACE #189 |
+
+这些证据把“不上云”的原则落到可审计字段：高风险医学请求不检索、不转发原始医学上下文；环境依赖项只声明 not-run，不伪装成云端已完成验证。
+
 ## 为什么这样设计
 
 如果把完整系统直接搬到公网，既会暴露密钥和私有资产，也会把长任务稳定性、额度消耗和数据合规风险推给演示环境。如果云端只做静态页面，又无法体现系统具备可用能力。

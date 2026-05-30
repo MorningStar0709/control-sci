@@ -1,0 +1,40 @@
+{
+  "meta": {
+    "project": "ControlSci — 控制科学结构化语料库与 Sci-Evo 推理评测基准",
+    "version": "1.0",
+    "updated": "2026-05-04",
+    "total_questions": 1,
+    "dimensions": {
+      "A": 1,
+      "B": 0,
+      "C": 0,
+      "D": 0
+    },
+    "source": "AI-generated via deepseek/deepseek-v4-flash from ControlSci corpus chunks"
+  },
+  "questions": [
+    {
+      "id": "CS-EVO-00001",
+      "dimension": "A",
+      "difficulty_level": "L1",
+      "control_category": [
+        "classical",
+        "modern"
+      ],
+      "question": "写出阿克曼公式（Ackermann's formula）用于状态反馈极点配置的数学表达式，并说明各符号的含义。",
+      "answer": "阿克曼公式为：K = [0 0 … 0 1] * C⁻¹(A) * φ(A)，其中A和B是系统的状态空间矩阵，C = [B AB A²B … Aⁿ⁻¹B]是可控性矩阵，φ(s) = (s - p₁)(s - p₂)…(s - pₙ)是期望的特征多项式，K是状态反馈增益矩阵。",
+      "reasoning_steps": [
+        "阿克曼公式用于计算状态反馈增益矩阵K，使得闭环系统矩阵A-BK的极点配置在期望位置。",
+        "公式形式为K = [0 0 … 0 1] * C⁻¹(A) * φ(A)，其中C是可控性矩阵。",
+        "φ(A)是期望特征多项式在矩阵A处的值，即φ(A) = (A - p₁I)(A - p₂I)…(A - pₙI)。",
+        "可控性矩阵C = [B AB A²B … Aⁿ⁻¹B]必须可逆（系统完全可控）。"
+      ],
+      "source_ref": "Ogata_Modern_Control_5th_chunk_842",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    }
+  ]
+}

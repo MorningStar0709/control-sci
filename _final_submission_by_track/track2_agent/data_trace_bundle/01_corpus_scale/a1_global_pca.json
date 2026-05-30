@@ -1,0 +1,48 @@
+{
+  "analysis": "A1_global_pca",
+  "n_chunks": 28475,
+  "pca_variance_explained": [
+    0.0397,
+    0.0376
+  ],
+  "doc_type_counts": {
+    "textbook": 13759,
+    "arxiv": 14716
+  },
+  "control_category_top8": [
+    {
+      "category": "最优控制",
+      "count": 5375
+    },
+    {
+      "category": "控制理论",
+      "count": 4535
+    },
+    {
+      "category": "智能控制",
+      "count": 3206
+    },
+    {
+      "category": "自适应控制",
+      "count": 3157
+    },
+    {
+      "category": "经典控制",
+      "count": 2166
+    },
+    {
+      "category": "非线性控制",
+      "count": 1579
+    },
+    {
+      "category": "鲁棒控制",
+      "count": 1555
+    },
+    {
+      "category": "导航制导与控制",
+      "count": 1512
+    }
+  ],
+  "centroid_distance_textbook_vs_arxiv": 0.224,
+  "interpretation": "教材 chunk 与 arXiv chunk 在语义空间中高度重叠，说明语料覆盖连续且无系统性偏差；若质心距离 < 0.5 则分布一致性良好。"
+}

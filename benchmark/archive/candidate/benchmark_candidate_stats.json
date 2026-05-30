@@ -1,0 +1,32 @@
+{
+  "total_questions": 360,
+  "dimensions": {
+    "A": 72,
+    "B": 108,
+    "C": 72,
+    "D": 108
+  },
+  "difficulty_levels": {
+    "L1": 28,
+    "L2": 97,
+    "L3": 134,
+    "L4": 101
+  },
+  "control_categories": {
+    "adaptive": 44,
+    "classical": 75,
+    "digital": 19,
+    "intelligent": 46,
+    "modern": 53,
+    "mpc": 20,
+    "multi_agent": 64,
+    "nonlinear": 52,
+    "optimal": 69,
+    "robust": 44
+  },
+  "consistency_status": {
+    "auto_passed": 46,
+    "needs_review": 174,
+    "reviewed_kept": 140
+  }
+}

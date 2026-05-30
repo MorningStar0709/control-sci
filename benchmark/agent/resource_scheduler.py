@@ -88,6 +88,7 @@ PUBLIC_OR_SANITIZED_INTENTS = {
     "multi_judge_compare",
     "leaderboard_viz",
     "reproduce_all",
+    "sciverse_search",
 }
 
 AUTO_PROVIDER_MAPPING = {
@@ -104,6 +105,7 @@ AUTO_PROVIDER_MAPPING = {
     "local_finetune": ("ollama", "chat"),
     "multi_format_parse": ("mineru", "chat"),
     "medical_rag": ("ollama", "chat"),
+    "sciverse_search": ("api", "chat"),
     "reproduce_all": ("script", "chat"),
 }
 
@@ -121,6 +123,7 @@ LOCAL_PROVIDER_MAPPING = {
     "local_finetune": ("ollama", "chat"),
     "multi_format_parse": ("mineru", "chat"),
     "medical_rag": ("ollama", "chat"),
+    "sciverse_search": ("api", "chat"),
     "reproduce_all": ("script", "chat"),
 }
 

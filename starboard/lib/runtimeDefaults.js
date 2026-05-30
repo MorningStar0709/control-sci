@@ -72,8 +72,8 @@ export const PROFILE_LABELS = {
   demo_replay: '产物复现',
   local_private: '本地私有',
   hybrid_judge: '混合裁判',
-  cloud_demo: '公开演示',
-  cloud_fast: '云端执行',
+  cloud_demo: '公开展示',
+  cloud_fast: '云端候选（需授权）',
 };
 
 export function mergeRuntimeDefaults(options, current) {
@@ -112,7 +112,7 @@ export function privacyBoundaryText(config) {
     return '默认本地，云端兜底。公开文档只有显式授权后才会使用云端 API，私有/敏感文档仍本地解析。';
   }
   if (config?.profile === 'cloud_demo') {
-    return '公开演示入口已开启；原文默认不上云，官方 API 只作为公开资料的显式兜底。';
+    return '公开展示入口已开启；原文默认不上云，官方 API 只作为公开资料的显式兜底。';
   }
   if (config?.profile === 'hybrid_judge') {
     return '解析与检索默认本地；云端模型只处理公开/脱敏裁判任务。';

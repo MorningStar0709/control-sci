@@ -1,0 +1,135 @@
+{
+  "generated_at": "2026-05-22T13:47:01.789264+00:00",
+  "input": {
+    "queries": [
+      "PID稳定性边界",
+      "Kalman状态估计",
+      "GPS导航控制",
+      "Lyapunov稳定性",
+      "数字离散控制",
+      "神经网络控制",
+      "Pontryagin最优",
+      "状态空间现代",
+      "线性系统理论",
+      "H-infinity鲁棒"
+    ]
+  },
+  "summary": {
+    "total": 10,
+    "consistent": 10,
+    "partial": 0,
+    "inconsistent": 0
+  },
+  "spots": [
+    {
+      "label": "PID稳定性边界",
+      "query": "PID controller stability margin analysis root locus",
+      "subfield": "PID控制",
+      "alignment": "consistent",
+      "score": 0.990265429019928,
+      "title": "Emerging Solutions for e-Mobility and Smart Grids: Select Proceedings of ICRES 2020",
+      "chunk_preview": "\n\n. To improve stability limit and phase margin along with reduction in steady-state error, a PID controller is designed to improvise the stability limit along with\n\nFig. 15.11 Root locus of the syste",
+      "page_no": 197,
+      "doc_id": "dd04d99b0d8047cf9622db0285367d15ccbe29b193303d903d2dc853f6a66f7a"
+    },
+    {
+      "label": "Kalman状态估计",
+      "query": "Kalman filter state estimation covariance convergence",
+      "subfield": "估计与定位",
+      "alignment": "consistent",
+      "score": 0.9916113018989563,
+      "title": "Linear Minimum Variance Filters for Measurement Bias Characterization",
+      "chunk_preview": "\n\nThe bias characterization (or Schmidt-Kalman) filter is an optimal technique for including the effects of measurement biases on state estimation accuracy. Its covariance matrix is more consistent wi",
+      "page_no": 4,
+      "doc_id": "3ca0362f397717fa5dde83b35372e9fcbbe94869985a89da40dce6983249bfaf"
+    },
+    {
+      "label": "GPS导航控制",
+      "query": "GPS navigation Kalman filter attitude determination",
+      "subfield": "导航制导与控制",
+      "alignment": "consistent",
+      "score": 0.9839271903038025,
+      "title": "Neural Network-based GPS/INS Integrated System for Spacecraft Attitude Determination",
+      "chunk_preview": "# 4 Conclusions\n\nA BPNN algorithm is used in the adaptive Kalman filtering for GPS/INS integration with attitude determination. The inaccuracies in the estimation are corrected by the BPNN. Based on s",
+      "page_no": 4,
+      "doc_id": "c6643ff60a1f64e5d94283282d2ec889c0632b3f9b042e1c2395f9e87e38d3b7"
+    },
+    {
+      "label": "Lyapunov稳定性",
+      "query": "Lyapunov stability theorem proof nonlinear system",
+      "subfield": "控制理论",
+      "alignment": "consistent",
+      "score": 0.996101975440979,
+      "title": "A Game-Theoretic Rent-Seeking Framework for Improving Multipath TCP Performance",
+      "chunk_preview": "\n\nWe apply Lyapunov’s theorem to prove the stability of the nonlinear dynamic system represented by Equation (3). We make use of the following Lyapunov stability theorem to test the stability of the s",
+      "page_no": 9,
+      "doc_id": "1a49412d3a37b110d43077d2d2acdf6c899f4e85f41c5b24fba02145679d4f67"
+    },
+    {
+      "label": "数字离散控制",
+      "query": "digital control discrete time Z-transform stability",
+      "subfield": "数字控制",
+      "alignment": "consistent",
+      "score": 0.9820887446403503,
+      "title": "A Methodology to Teach Students to Implement Digital Controllers Using Embedded Systems",
+      "chunk_preview": "\n\nThe Digital Control Systems (DCS) course is highly demanded in our undergraduate electrical engineering curriculum. The Introduction to Control Systems course, as well as basic knowledge of electron",
+      "page_no": 1,
+      "doc_id": "67383ed26781e359d3217711d1cf500c28c3bec3032ee3389aa74279665941e7"
+    },
+    {
+      "label": "神经网络控制",
+      "query": "neural network adaptive control backpropagation",
+      "subfield": "智能控制",
+      "alignment": "consistent",
+      "score": 0.9932629466056824,
+      "title": "NEURAL-NETWORK FOR STRUCTURE CONTROL",
+      "chunk_preview": "\n\n. In this paper, the backpropagation-throughtime neural control algorithm is adapted for the structure subjected to dynamic loadings. Because both the neural-emulator network and the neural-action n",
+      "page_no": 1,
+      "doc_id": "db3792daf43b9f0e330ee6075211af48dcc54e6309397703512cac7a2fc42610"
+    },
+    {
+      "label": "Pontryagin最优",
+      "query": "Pontryagin minimum principle optimal control Hamiltonian",
+      "subfield": "最优控制",
+      "alignment": "consistent",
+      "score": 0.9989546537399292,
+      "title": "Supervisory Power Management Control Algorithms for Hybrid Electric Vehicles: A Survey",
+      "chunk_preview": "\n\n. The minimum principle, which is formulated and derived by Pontryagin [13] in the 1950s, states that any optimal control, along with the optimal state trajectory, must solve the so-called Hamiltoni",
+      "page_no": 3,
+      "doc_id": "c404aef4efee58c86543560f62935e07713ff41388462f10947128a018f6817c"
+    },
+    {
+      "label": "状态空间现代",
+      "query": "state space representation controllability observability",
+      "subfield": "现代控制",
+      "alignment": "consistent",
+      "score": 0.995635449886322,
+      "title": "Embedded Digital Control with Microcontrollers",
+      "chunk_preview": "\n\nWe can obtain properties of the LTI system from its state-space representation as well. To do so, we will introduce the time-domain analysis first. Then, we will check the stability of the system. A",
+      "page_no": 257,
+      "doc_id": "f582c6b28fd45482da68e2d4736018f3d616c5eadc9ec7c3d1102149dfd7763f"
+    },
+    {
+      "label": "线性系统理论",
+      "query": "linear system theory transfer function pole zero",
+      "subfield": "线性系统",
+      "alignment": "consistent",
+      "score": 0.9040297865867615,
+      "title": "Extended Transfer-Function and Pole-Zero Cancellation in Linear Time-Varying Systems",
+      "chunk_preview": "\n\nIn this paper, we have attempted to generalize the concept of pole-zero cancellation to LTV systems. We have introduced the concept of extended transfer-function, which is a counterpart of the trans",
+      "page_no": 5,
+      "doc_id": "2c7ccbbf0d79c47b06313f4291509190c9692fbeea8b595ed68c8d3eacd58d88"
+    },
+    {
+      "label": "H-infinity鲁棒",
+      "query": "H-infinity robust control synthesis uncertainty",
+      "subfield": "鲁棒控制",
+      "alignment": "consistent",
+      "score": 0.8714350461959839,
+      "title": "H[infinity] control and filtering of two-dimensional systems",
+      "chunk_preview": "\n\nTheorem 5.3.2. Consider the 2-D uncertain system (5.19)-(5.21). Then, the robust \\(H_{\\infty}\\) control problem is solvable if for some positive scalars \\(\\varepsilon_{1}>0\\) and \\(\\varepsilon_{2}>0",
+      "page_no": 58,
+      "doc_id": "a086789db7ffdbcb3c7b88d55d2c16c03afe7cc8c8d95286e68772b6a176b731"
+    }
+  ]
+}

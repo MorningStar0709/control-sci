@@ -1,0 +1,8 @@
+data\pdf\textbooks\Belanger_Control_Engineering.pdf
+data\pdf\textbooks\Astrom_Adaptive_Control.pdf
+data\pdf\textbooks\Computer_Controlled_Systems_Astrom.pdf
+data\pdf\textbooks\Optimal_Control_Systems.pdf
+data\pdf\textbooks\线性系统理论_郑大钟.pdf
+data\pdf\textbooks\控制之美.pdf
+data\pdf\textbooks\CtlBook.pdf
+data\pdf\textbooks\最优控制理论与应用.pdf

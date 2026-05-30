@@ -20,6 +20,7 @@ const HOP_BY_HOP_HEADERS = new Set([
   'transfer-encoding',
   'upgrade',
 ]);
+const PROXY_HEADER_ALLOWLIST = new Set(['accept', 'content-type', 'x-demo-code', 'x-request-id', 'x-runtime-profile']);
 
 const pathMap = {
   health: '/api/health',
@@ -76,7 +77,7 @@ function track1ParseResult(mode = 'replay') {
     status: mode,
     parse_ok: true,
     mode,
-    detail: mode === 'replay' ? '云端公开演示复用已验证解析摘要；公开 URL/上传 PDF 可走 MinerU 官方 API。' : 'MinerU 官方 API 解析结果已进入云端演示链路。',
+    detail: mode === 'replay' ? '在线展示版复用已验证解析摘要；公开 URL/上传 PDF 可走 MinerU 官方 API。' : 'MinerU 官方 API 解析结果已进入在线展示链路。',
     markdown_preview: TRACK1_SOURCE,
     markdown_chars: TRACK1_SOURCE.length,
     stats: {
@@ -165,7 +166,7 @@ const TRACK2_TEMPLATES = [
   { id: 'flywheel', label: 'Quick Proof 飞轮', goal: '检索公开论文 → MinerU 解析 → 生成 ABCD 题 → 快速评测' },
   { id: 'eval40', label: '四维抽样评测', goal: '从 core.json 按 A/B/C/D 四维分层抽样 → Judge 评分 → 输出维度结果' },
   { id: 'check_index', label: '检索来源摘要核验', goal: '核验医学 RAG 回放资产、manifest 与 chunk 统计摘要' },
-  { id: 'evidence_bundle', label: '验收包来源核验', goal: '核验 DATA-TRACE、manifest、README 与可复现命令' },
+  { id: 'evidence_bundle', label: '证据包来源查看', goal: '查看 DATA-TRACE、manifest、README 与可复现命令' },
   { id: 'visual_audit', label: '视觉审计样本', goal: '核验图文审计样本、能力配置与报告引用' },
 ];
 
@@ -173,13 +174,13 @@ const TRACK2_CAPABILITIES = {
   intents: [
     { id: 'paper_ingest', name: '论文解析', description: '公开论文获取、MinerU Markdown 解析与结构化落盘' },
     { id: 'quiz_eval', name: '出题评测', description: 'ABCD 题型生成、模型答题与 Judge 评分' },
-    { id: 'artifact_audit', name: '来源核验', description: '验收产物、日志、报告引用与可复现命令核验' },
+    { id: 'artifact_audit', name: '来源查看', description: '证据产物、日志、报告引用与可复现命令查看' },
     { id: 'visual_audit', name: '视觉质检', description: '公式、图表、版面和 Markdown 质量审计' },
   ],
   resource_scheduler_config: {
     resource_types: {
       mineru_parser: { label: 'MinerU Parser', policy: 'cloud demo uses public/desensitized input only' },
-      judge_model: { label: '评审模型', policy: '仅使用已验证 trace 回放' },
+      judge_model: { label: 'Judge Model', policy: '仅使用已验证 trace 回放' },
       artifact_store: { label: 'Artifact Store', policy: 'DATA-TRACE first' },
     },
   },
@@ -203,13 +204,13 @@ function track2ArtifactResult(kind = 'agent_plan', query = '') {
     {
       step: '组织 DAG',
       intent_id: 'artifact_audit',
-      intent_name: '来源核验',
+      intent_name: '来源查看',
       resource: 'Artifact Store',
       status: 'validated_artifact',
-      note: '读取已保存日志、manifest 与验收摘要',
+      note: '读取已保存日志、manifest 与来源摘要',
     },
     {
-      step: '输出验收摘要',
+      step: '输出来源摘要',
       intent_id: 'quiz_eval',
       intent_name: '出题评测',
       resource: 'Judge Model',
@@ -222,12 +223,12 @@ function track2ArtifactResult(kind = 'agent_plan', query = '') {
     mode: 'artifact_reuse',
     template_id: template.id,
     summary: [
-      `${template.label} 已按完整工作台协议完成云端演示核验。`,
+      `${template.label} 已按完整工作台协议完成在线展示回放。`,
       `目标：${template.goal}`,
       '本页面复用 Agent 工作台的数据结构：意图识别、DAG、资源调度、来源路径和可复现命令同时呈现。',
-      '公开云端版只展示公开或脱敏材料的已验证 trace；不在页面现场启动长链路。',
+      '在线展示版只呈现公开或脱敏材料的已验证 trace；不在页面现场启动长链路。',
     ].join('\n'),
-    validation_summary: '已核验：模板、能力注册表、来源清单、最小闭环摘要与可复现命令均可追溯。',
+    validation_summary: '已整理：模板、能力注册表、来源清单、最小闭环摘要与可复现命令均可追溯。',
     command: `controlmind agent run --template ${template.id} --profile public-cloud-demo --limit 1`,
     steps,
     dag: steps.map((step, index) => ({
@@ -239,7 +240,7 @@ function track2ArtifactResult(kind = 'agent_plan', query = '') {
     })),
     detected_intents: [
       { id: 'paper_ingest', name: '论文解析', confidence: 0.92 },
-      { id: 'artifact_audit', name: '来源核验', confidence: 0.95 },
+      { id: 'artifact_audit', name: '来源查看', confidence: 0.95 },
       { id: 'quiz_eval', name: '出题评测', confidence: 0.88 },
     ],
     paper: {
@@ -251,7 +252,7 @@ function track2ArtifactResult(kind = 'agent_plan', query = '') {
       { id: 'A1', dimension: 'A', question: '说明 MinerU 解析产物如何进入四维题目生成。' },
       { id: 'B1', dimension: 'B', question: '解释 Agent 为什么要保留来源核验与降级策略。' },
       { id: 'C1', dimension: 'C', question: '判断公开云端回放版与完整系统的边界差异。' },
-      { id: 'D1', dimension: 'D', question: '设计一个最小可复现数据飞轮验收链路。' },
+      { id: 'D1', dimension: 'D', question: '设计一个最小可复现数据飞轮追溯链路。' },
     ],
     score_summary: { quick_avg: 0.86 },
     sources: [
@@ -374,7 +375,7 @@ async function handleTrack1(path, req, res) {
     await readRaw(req);
     res.status(200).json({
       filename: `cloud_upload_${Date.now()}.pdf`,
-      message: '公开 PDF 已进入云端演示区',
+      message: '公开 PDF 已进入在线展示区',
       pipeline_steps: [
         { step: 1, label: '接收上传', status: 'done', note: '20MB limit' },
         { step: 2, label: '等待解析', status: 'ready', note: 'MinerU official API' },
@@ -433,7 +434,7 @@ function fallbackFor(path) {
   if (path === 'runtime/options') {
     return {
       mode: 'pure_cloud_only',
-      profiles: [{ id: 'pure_cloud_demo', label: '公开云端 Demo' }],
+      profiles: [{ id: 'pure_cloud_demo', label: '在线展示版' }],
       parser_backends: [{ id: 'mineru_official', label: 'MinerU 官方 API' }],
       generation_backends: [{ id: 'deepseek', label: 'DeepSeek API' }],
       private_assets: [],
@@ -453,7 +454,8 @@ function proxy(req, res, targetUrl, path) {
     const url = new URL(targetUrl);
     const headers = {};
     Object.entries(req.headers || {}).forEach(([key, value]) => {
-      if (!HOP_BY_HOP_HEADERS.has(key.toLowerCase())) headers[key] = value;
+      const lower = key.toLowerCase();
+      if (!HOP_BY_HOP_HEADERS.has(lower) && PROXY_HEADER_ALLOWLIST.has(lower)) headers[key] = value;
     });
     headers.host = url.host;
 

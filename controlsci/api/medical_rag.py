@@ -30,6 +30,7 @@ from controlsci.api.settings import get_settings
 from controlsci.core.paths import PROJECT_ROOT
 from controlsci.medical.indexing import _load_chunk_texts, load_manifest, search_hybrid
 from controlsci.medical.embedding_providers import read_index_metadata
+from controlsci.medical.terminology import get_terminology_manager
 
 LOCAL_MEDICAL_ROOT = PROJECT_ROOT / "data" / "sources_medical"
 DEMO_MEDICAL_ROOT = PROJECT_ROOT / "data" / "demo_cloud" / "medical"
@@ -528,46 +529,6 @@ def _clean_model_choice(model: str | None) -> str:
     return value
 
 
-_ZH_RETRIEVAL_TERMS = [
-    ("主要终点", "primary endpoint", "specific"),
-    ("次要终点", "secondary endpoint", "specific"),
-    ("终点", "endpoint outcome", "specific"),
-    ("安全性", "safety adverse events", "specific"),
-    ("严重不良事件", "serious adverse event safety endpoint", "specific"),
-    ("不良事件", "adverse events", "specific"),
-    ("总生存", "overall survival", "specific"),
-    ("总体生存", "overall survival", "specific"),
-    ("无进展生存", "progression free survival", "specific"),
-    ("生存曲线", "survival curve", "specific"),
-    ("中位生存", "median overall survival", "specific"),
-    ("纳入排除", "inclusion criteria exclusion criteria", "specific"),
-    ("纳入标准", "inclusion criteria", "specific"),
-    ("排除标准", "exclusion criteria", "specific"),
-    ("随机对照", "randomized controlled trial", "specific"),
-    ("随机试验", "randomized clinical trial", "specific"),
-    ("意向治疗", "intention to treat population", "specific"),
-    ("分析人群", "analysis population", "specific"),
-    ("统计分析", "statistical analysis", "specific"),
-    ("化疗", "chemotherapy", "specific"),
-    ("剂量减少", "dose reduction", "specific"),
-    ("治疗延迟", "treatment delay", "specific"),
-    ("毒性", "toxicity adverse events", "specific"),
-    ("闭环胰岛素", "closed loop insulin", "specific"),
-    ("自适应闭环", "adaptive closed loop insulin", "specific"),
-    ("闭环", "closed loop", "specific"),
-    ("低血糖", "hypoglycaemia hypoglycemia", "specific"),
-    ("48个月", "48 months insulin requirements closed loop", "specific"),
-    ("胰岛素需求", "insulin requirements daily insulin dose", "specific"),
-    ("儿童", "children adolescents type 1 diabetes", "specific"),
-    ("青少年", "children adolescents type 1 diabetes", "specific"),
-    ("1型糖尿病", "type 1 diabetes", "specific"),
-    ("血糖", "glucose insulin diabetes", "specific"),
-    ("证据", "evidence clinical trial", "generic"),
-    ("研究", "clinical study", "generic"),
-    ("试验", "clinical trial", "generic"),
-]
-
-
 def _contains_cjk(text: str) -> bool:
     return bool(re.search(r"[\u4e00-\u9fff]", text or ""))
 
@@ -598,11 +559,8 @@ def _unique_queries(items: list[str]) -> list[str]:
 def _rewrite_query_for_retrieval(query: str) -> dict:
     original = (query or "").strip()
     ascii_terms = " ".join(re.findall(r"[A-Za-z0-9][A-Za-z0-9\-]*", original))
-    matched = []
-    for zh, en, kind in _ZH_RETRIEVAL_TERMS:
-        pos = original.find(zh)
-        if pos >= 0:
-            matched.append({"source": zh, "rewrite": en, "kind": kind, "pos": pos})
+    terminology = get_terminology_manager()
+    matched = terminology.find_matches(original)
 
     if not _contains_cjk(original):
         clean = _dedupe_words(ascii_terms or original)
@@ -627,18 +585,20 @@ def _rewrite_query_for_retrieval(query: str) -> dict:
         english_parts.append("clinical trial outcome safety evidence")
 
     search_query = _dedupe_words(" ".join(english_parts))
-    search_queries = _unique_queries([
-        search_query,
-        " ".join(item["rewrite"] for item in ordered_matches if item["source"] in {"主要终点", "次要终点", "终点", "安全性", "严重不良事件", "不良事件", "总生存", "总体生存", "无进展生存", "纳入排除", "纳入标准", "排除标准", "统计分析", "意向治疗", "分析人群"}),
-        " ".join(item["rewrite"] for item in ordered_matches if item["source"] in {"化疗", "剂量减少", "治疗延迟", "毒性", "闭环胰岛素", "自适应闭环", "闭环", "低血糖", "48个月", "胰岛素需求", "儿童", "青少年", "1型糖尿病", "血糖"}),
-    ])
+    search_queries = _unique_queries(
+        [
+            search_query,
+            " ".join(item["rewrite"] for item in ordered_matches if item.get("search_group", "") == "1"),
+            " ".join(item["rewrite"] for item in ordered_matches if item.get("search_group", "") == "2"),
+        ]
+    )
     return {
         "original_query": original,
         "search_query": search_query,
         "search_queries": search_queries[:3] or [search_query],
         "query_language": "zh",
         "query_rewrites": [{"source": item["source"], "rewrite": item["rewrite"]} for item in ordered_matches],
-        "rewrite_method": "rule_based_medical_terms",
+        "rewrite_method": "terminology_based",
     }
 
 

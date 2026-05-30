@@ -1,0 +1,254 @@
+{
+  "generated_at": "2026-05-22T16:23:07.052457+00:00",
+  "config": {
+    "description": "5 组典型查询在三源上的对比实验。通过 Sciverse agentic-search + meta-search 获取定量数据，结合已知的 arXiv/PMC 特性，构建 Agent 源选择决策矩阵。",
+    "three_sources": {
+      "arXiv": "250 万篇预印本，实时更新，2025 前沿唯一覆盖源",
+      "PMC_local": "控制科学×医学交叉文献，本地索引 3,348 chunk，隐私优先",
+      "Sciverse": "5.16 亿记录，2500 万 AI-Ready 全文，814 语言，跨学科全覆盖"
+    }
+  },
+  "summary": {
+    "total_queries": 5,
+    "source_preferences": {
+      "arXiv": 1,
+      "PMC_local": 1,
+      "Sciverse": 3
+    },
+    "avg_sciverse_meta_total": 19595433.0
+  },
+  "decision_matrix": [
+    {
+      "id": "Q1",
+      "label": "前沿预印本",
+      "preferred": "arXiv",
+      "sciverse_coverage": "7,359,598",
+      "sciverse_coverage_stars": "★★★★★",
+      "sciverse_relevance_stars": "★★★☆☆",
+      "sciverse_latest_year": 2025.0,
+      "sciverse_recency": "🟢 2025+",
+      "decision_rule": "Sciverse 收录正式出版物有出版延迟；PMC 偏向临床试验。arXiv 在 2025 前沿上独有优势。"
+    },
+    {
+      "id": "Q2",
+      "label": "跨学科广度",
+      "preferred": "Sciverse",
+      "sciverse_coverage": "11,775,859",
+      "sciverse_coverage_stars": "★★★★★",
+      "sciverse_relevance_stars": "★★★★☆",
+      "sciverse_latest_year": 2025.0,
+      "sciverse_recency": "🟢 2025+",
+      "decision_rule": "Sciverse 5.16 亿记录、814 语言，arXiv 仅 250 万预印本、PMC 仅生物医学。跨学科广度上 Sciverse 是唯一选择。"
+    },
+    {
+      "id": "Q3",
+      "label": "医疗隐私",
+      "preferred": "PMC 本地",
+      "sciverse_coverage": "8,422,111",
+      "sciverse_coverage_stars": "★★★★★",
+      "sciverse_relevance_stars": "★★★☆☆",
+      "sciverse_latest_year": 2021.0,
+      "sciverse_recency": "🔴 <2023",
+      "decision_rule": "医疗 RAG 受 ResourceScheduler 隐私约束，`medical_rag` 强制路由到本地 Ollama。Sciverse 和 arXiv 不能用于涉隐私医疗查询。"
+    },
+    {
+      "id": "Q4",
+      "label": "教材与经典",
+      "preferred": "Sciverse",
+      "sciverse_coverage": "60,362,921",
+      "sciverse_coverage_stars": "★★★★★",
+      "sciverse_relevance_stars": "★★★☆☆",
+      "sciverse_latest_year": 2020.0,
+      "sciverse_recency": "🔴 <2023",
+      "decision_rule": "Sciverse 收录教材和手册（如 The Control Handbook），arXiv 以预印本为主不含教材，PMC 以论文为主。"
+    },
+    {
+      "id": "Q5",
+      "label": "AI 控制交叉",
+      "preferred": "Sciverse",
+      "sciverse_coverage": "10,056,676",
+      "sciverse_coverage_stars": "★★★★★",
+      "sciverse_relevance_stars": "★★★☆☆",
+      "sciverse_latest_year": 2024.0,
+      "sciverse_recency": "🟡 2023-2024",
+      "decision_rule": "Sciverse 同时收录 NeurIPS/ICLR 等 AI 会议和控制工程期刊。arXiv 和 PMC 按领域分割，覆盖率不足。"
+    }
+  ],
+  "cases": [
+    {
+      "id": "Q1",
+      "label": "前沿预印本",
+      "query": "control barrier function safety filter 2025",
+      "user_profile": "需要最新 2025 年预印本，arXiv 是唯一能覆盖 2025 未发表论文的源",
+      "preferred_source": "arXiv",
+      "decision_rationale": "Sciverse 收录正式出版物有出版延迟；PMC 偏向临床试验。arXiv 在 2025 前沿上独有优势。",
+      "sciverse_agentic": {
+        "total_retrieved": 3,
+        "top_scores": [
+          0.3167489767074585,
+          0.3101290464401245,
+          0.10998743772506714
+        ],
+        "avg_score": 0.2456,
+        "top_titles": [
+          "Advanced safety filter based on SOS Control Barrier and Lyapunov Functions",
+          "Advanced safety filter based on SOS Control Barrier and Lyapunov Functions",
+          "Advanced safety filter based on SOS Control Barrier and Lyapunov Functions"
+        ],
+        "year_range": [],
+        "sample_doc_ids": [
+          "feb34029327e46d4c27771d96b92cabdf562e656464a0c94407f6d57f8f067e0",
+          "feb34029327e46d4c27771d96b92cabdf562e656464a0c94407f6d57f8f067e0"
+        ]
+      },
+      "sciverse_meta": {
+        "total_count": 7359598,
+        "sample_years": [
+          2021.0,
+          2024.0,
+          2025.0
+        ]
+      }
+    },
+    {
+      "id": "Q2",
+      "label": "跨学科广度",
+      "query": "Lyapunov stability theorem OR optimal control OR Kalman filter",
+      "user_profile": "需要覆盖控制科学全部子领域的文献总量",
+      "preferred_source": "Sciverse",
+      "decision_rationale": "Sciverse 5.16 亿记录、814 语言，arXiv 仅 250 万预印本、PMC 仅生物医学。跨学科广度上 Sciverse 是唯一选择。",
+      "sciverse_agentic": {
+        "total_retrieved": 3,
+        "top_scores": [
+          0.984613299369812,
+          0.947260856628418,
+          0.916452944278717
+        ],
+        "avg_score": 0.9494,
+        "top_titles": [
+          "Stability and Robustness of Multivariable Feedback Systems",
+          "Partially Observed Markov Decision Processes: From Filtering to Controlled Sensing",
+          "STABILIZED CONTROLLER DESIGN FOR ATTITUDE AND ALTITUDE CONTROLLING OF QUAD-ROTOR UNDER DISTURBANCE A"
+        ],
+        "year_range": [],
+        "sample_doc_ids": [
+          "0c41ee2d1003e51fe95598b5e56c45ba58c43534b0dfe41be2a5a755af86f435",
+          "92644e1536ef8dd9e310d350be610af99b099aef649371501070aa08e5cc3e7e"
+        ]
+      },
+      "sciverse_meta": {
+        "total_count": 11775859,
+        "sample_years": [
+          2005.0,
+          2013.0,
+          2025.0
+        ]
+      }
+    },
+    {
+      "id": "Q3",
+      "label": "医疗隐私",
+      "query": "closed loop insulin glucose control clinical trial 2023",
+      "user_profile": "医疗文献检索须本地执行，不能将查询发到外部 API",
+      "preferred_source": "PMC 本地",
+      "decision_rationale": "医疗 RAG 受 ResourceScheduler 隐私约束，`medical_rag` 强制路由到本地 Ollama。Sciverse 和 arXiv 不能用于涉隐私医疗查询。",
+      "sciverse_agentic": {
+        "total_retrieved": 3,
+        "top_scores": [
+          0.9010754823684692,
+          0.843833327293396,
+          0.7914164662361145
+        ],
+        "avg_score": 0.8454,
+        "top_titles": [
+          "Clinical and experimental treatment of type 1 diabetesPerspectives on immunopathology and Clinical a",
+          "Decision Support Systems and Closed Loop",
+          "Fully closed-loop insulin delivery Improves glucose control of inpatients with type 2 diabetes recei"
+        ],
+        "year_range": [],
+        "sample_doc_ids": [
+          "ac023f97795b6c878e9a370f4c4f4680d2b34530b2d605e45b49e2ebc762e18f",
+          "455d22039621b660a22a65fd0c5ee7375ae2c45331209ec4b04972c2090feccb"
+        ]
+      },
+      "sciverse_meta": {
+        "total_count": 8422111,
+        "sample_years": [
+          2009.0,
+          2019.0,
+          2021.0
+        ]
+      }
+    },
+    {
+      "id": "Q4",
+      "label": "教材与经典",
+      "query": "fundamentals of modern control theory textbook",
+      "user_profile": "需要教材、手册等经典教学资源，非前沿论文",
+      "preferred_source": "Sciverse",
+      "decision_rationale": "Sciverse 收录教材和手册（如 The Control Handbook），arXiv 以预印本为主不含教材，PMC 以论文为主。",
+      "sciverse_agentic": {
+        "total_retrieved": 3,
+        "top_scores": [
+          0.9200549125671387,
+          0.8246523141860962,
+          0.6521241664886475
+        ],
+        "avg_score": 0.7989,
+        "top_titles": [
+          "环路法及最佳状态反馈系统设计",
+          "百卷本经济全书  经济控制论",
+          "Simulation of control and stabilization of the lubricant-coolant flow"
+        ],
+        "year_range": [],
+        "sample_doc_ids": [
+          "805fd6f1580eef0042cfd917012e8658569d58594fff091308df7d9917c9d011",
+          "649d77309c0954810a4a30567ab35655306bb282d00591cb75f03b916771f834"
+        ]
+      },
+      "sciverse_meta": {
+        "total_count": 60362921,
+        "sample_years": [
+          1993.0,
+          2014.0,
+          2020.0
+        ]
+      }
+    },
+    {
+      "id": "Q5",
+      "label": "AI 控制交叉",
+      "query": "reinforcement learning model predictive control quadrotor 2024",
+      "user_profile": "AI+控制交叉领域，需要同时覆盖 AI 会议和控制工程期刊",
+      "preferred_source": "Sciverse",
+      "decision_rationale": "Sciverse 同时收录 NeurIPS/ICLR 等 AI 会议和控制工程期刊。arXiv 和 PMC 按领域分割，覆盖率不足。",
+      "sciverse_agentic": {
+        "total_retrieved": 3,
+        "top_scores": [
+          0.30361929535865784,
+          0.2745151221752167,
+          0.2656227648258209
+        ],
+        "avg_score": 0.2813,
+        "top_titles": [
+          "Reinforcement learning and model predictive control for robust embedded quadrotor guidance and contr",
+          "Experimental quadrotor flight performance using computationally efficient and recursively feasible l",
+          "Learning Dynamics for Improving Control of Overactuated Flying Systems"
+        ],
+        "year_range": [],
+        "sample_doc_ids": [
+          "40e436498b420366d59fe85eceffa6a6663e18885e42c1e8babd3790defd035d",
+          "e2bb475560a0257851dbca2f1a22b007dde278baf024e0c43dab8f3c35e6d3da"
+        ]
+      },
+      "sciverse_meta": {
+        "total_count": 10056676,
+        "sample_years": [
+          2022.0,
+          2023.0,
+          2024.0
+        ]
+      }
+    }
+  ]
+}

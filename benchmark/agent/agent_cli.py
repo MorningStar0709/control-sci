@@ -160,6 +160,7 @@ class IntentRegistry:
             ("local_finetune", 9, "本地微调", "train_qlora.py + Ollama", "local_gpu"),
             ("reproduce_all", 10, "全量复现", "run_agent.ps1 全链路", "script"),
             ("medical_rag", 11, "医疗RAG全流程", "medical_rag_handler.py", "script"),
+            ("sciverse_search", 12, "Sciverse文献检索", "sciverse_search_handler.py", "api"),
         ]
         for pid, rank, name, tool, rt in builtin:
             self._intents[pid] = {
@@ -737,6 +738,7 @@ class Executor:
             "reproduce_all": self._exec_reproduce_all,
             "multi_format_parse": self._exec_multi_format_parse,
             "medical_rag": self._exec_medical_rag,
+            "sciverse_search": self._exec_sciverse_search,
         }
 
     def execute(self, step: PlanStep, dry_run: bool = False,
@@ -1481,6 +1483,18 @@ class Executor:
         logger.info("  → cmd: %s", _safe_cmd(cmd))
         return _run_subprocess(cmd, timeout=54000, env_extra={"_MRAG_CONDA_WRAPPED": "1"})
 
+    def _exec_sciverse_search(self, params: dict, resolved=None) -> Tuple[int, str, str]:
+        from benchmark.agent.sciverse_search_handler import handle_sciverse_search
+
+        result = handle_sciverse_search({
+            "query": params.get("query", "model predictive control"),
+            "top_k": int(params.get("top_k", 5)),
+        })
+        n_hits = result.get("total_hits", 0)
+        titles = [h.get("title", "")[:60] for h in result.get("hits", [])[:3]]
+        logger.info("  → sciverse_search: %d hits, top: %s", n_hits, titles)
+        return (0, f"sciverse_search completed: {n_hits} hits", json.dumps(result, ensure_ascii=False, default=str))
+
 
 # ============================================================
 # ControlSciAgentCLI — main orchestrator
@@ -1923,7 +1937,9 @@ def main():
         for i in registry.list_intents():
             deps = i.get("depends_on", [])
             dep_str = f" 依赖: {', '.join(deps)}" if deps else ""
-            print(f"  {i.get('rank', '-'):2d}. [{i['intent_id']:<25s}] {i.get('name', '')}")
+            rank = i.get("rank", "-")
+            rank_str = str(rank).rjust(4)
+            print(f"  {rank_str}. [{i['intent_id']:<25s}] {i.get('name', '')}")
             print(f"      工具: {', '.join(i.get('toolchain', ['-']))}{dep_str}")
             print(f"      资源: {i.get('resource_type', '-')}")
             print()

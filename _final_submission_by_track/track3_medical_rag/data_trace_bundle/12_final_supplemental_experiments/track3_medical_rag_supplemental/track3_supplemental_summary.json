@@ -1,0 +1,136 @@
+{
+  "status": "available",
+  "generated_at": "2026-05-24T17:59:26+0800",
+  "task": "Track 3 Supplemental Experiments Summary",
+  "evaluation_mode": "existing_task_json_aggregation",
+  "task_count": 7,
+  "available_task_count": 7,
+  "tasks": [
+    {
+      "name": "task1_pipeline_ablation",
+      "path": "benchmark/eval/results/track3_rag_pipeline_ablation.json",
+      "exists": true,
+      "status": "available",
+      "task": "Track 3 Task 1 - RAG Pipeline Ablation",
+      "evaluation_mode": "existing_artifact_replay_no_new_api_call",
+      "acceptance_check": {
+        "required_top_level_fields_present": true,
+        "has_at_least_one_actual_json_ablation_dimension": true,
+        "available_dimensions": [
+          "retrieval_provider_ablation",
+          "answer_audit_ablation",
+          "vision_ablation"
+        ]
+      }
+    },
+    {
+      "name": "task2_safety_refusal_stress",
+      "path": "benchmark/eval/results/track3_safety_refusal_stress.json",
+      "exists": true,
+      "status": "available",
+      "task": "Track 3 Task 2 - Medical Safety Refusal Stress Test",
+      "evaluation_mode": "static_triage_replay_no_new_api_call",
+      "case_count": 24,
+      "privacy_local_only_rate": 1.0
+    },
+    {
+      "name": "task3_medbench_ei_taxonomy",
+      "path": "benchmark/eval/results/track3_medbench_ei_taxonomy.json",
+      "exists": true,
+      "status": "available",
+      "task": "Track 3 Task 3 - MedBench Evidence-Insufficient Taxonomy",
+      "evaluation_mode": "existing_medbench_result_replay_no_new_inference",
+      "acceptance_check": {
+        "required_summary_fields_present": true,
+        "llm_key_numbers_traceable": true,
+        "vlm_35b_key_numbers_traceable": true,
+        "vlm_9b_key_numbers_traceable": true,
+        "degraded_reason_present_for_llm": true
+      }
+    },
+    {
+      "name": "task4_privacy_boundary_audit",
+      "path": "benchmark/eval/results/track3_privacy_boundary_audit.json",
+      "exists": true,
+      "status": "available",
+      "task": "Track 3 Task 4 - Privacy Boundary and Cloud Dependency Audit",
+      "evaluation_mode": "static_code_and_live_trace_audit_no_new_api_call",
+      "acceptance_check": {
+        "required_top_level_fields_present": true,
+        "privacy_matrix_present": true,
+        "trace_privacy_summary_present": true,
+        "cloud_dependency_inventory_present": true,
+        "missing_trace_fields_recorded": true,
+        "mimo_not_private_default": true
+      }
+    },
+    {
+      "name": "task5_semantic_chunk_quality",
+      "path": "benchmark/eval/results/track3_semantic_chunk_quality.json",
+      "exists": true,
+      "status": "available",
+      "task": "Track 3 Task 5 - Semantic Chunk Quality Challenge Set",
+      "evaluation_mode": "semantic_chunk_manifest_and_markdown_audit_no_gold_accuracy_claim",
+      "covered_target_section_count": 9,
+      "acceptance_check": {
+        "required_top_level_fields_present": true,
+        "target_section_counts_present": true,
+        "field_coverage_present": true,
+        "sample_records_present": true,
+        "risk_flags_present": true,
+        "covered_at_least_four_target_sections": true
+      }
+    },
+    {
+      "name": "task6_zh_ask_robustness",
+      "path": "benchmark/eval/results/track3_zh_ask_robustness.json",
+      "exists": true,
+      "status": "available",
+      "task": "Track 3 Task 6 - Chinese Ask Adversarial Rewrite Robustness",
+      "evaluation_mode": "query_rewrite_static_replay",
+      "base_case_count": 7,
+      "variant_count": 21,
+      "rewrite_success_rate": 1.0,
+      "intent_consistency_rate": 1.0,
+      "acceptance_check": {
+        "required_top_level_fields_present": true,
+        "base_case_count_present": true,
+        "variant_count_present": true,
+        "rewrite_success_rate_present": true,
+        "intent_consistency_rate_present": true,
+        "cases_present": true,
+        "no_variant_hit_at_k_reported": true
+      }
+    },
+    {
+      "name": "task7_evidence_card_completeness",
+      "path": "benchmark/eval/results/track3_evidence_card_completeness.json",
+      "exists": true,
+      "status": "available",
+      "task": "Track 3 Task 7 - Evidence Card Completeness Audit",
+      "evaluation_mode": "existing_structured_rag_evidence_card_audit_no_new_api_call",
+      "case_count": 8,
+      "card_count": 24,
+      "claim_binding_coverage": 1.0,
+      "citation_whitelist_pass_rate": 1.0,
+      "acceptance_check": {
+        "required_top_level_fields_present": true,
+        "card_field_coverage_present": true,
+        "claim_binding_coverage_present": true,
+        "audit_status_distribution_present": true,
+        "sample_cards_present": true
+      }
+    }
+  ],
+  "deployment_smoke_matrix": {
+    "path": "benchmark/eval/results/track3_deployment_smoke_matrix.json",
+    "entrypoints": 9,
+    "entrypoints_available": 9,
+    "executed_smoke_checks": 2,
+    "not_run_checks": 3
+  },
+  "boundary_notes": [
+    "Summary aggregates Task 1-7 JSON evidence and Task 8 deployment readiness; it does not add new model inference.",
+    "Deployment checks distinguish executed smoke checks from environment-dependent checks that were not run."
+  ]
+}

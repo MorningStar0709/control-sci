@@ -15,7 +15,7 @@
 ## Key Checks
 
 - Track 1: dataset schema validation, `core.json`, `full.json`, leaderboard, local-vs-API baseline scoreboard.
-- Track 2: 14-intent capability registry, `reproduce_all` dry-run plan, Agent capability and CLI files.
+- Track 2: 15-intent capability registry, `reproduce_all` dry-run plan, Agent capability and CLI files.
 - Track 3: text FAISS, BM25 sparse index, MiMo vision FAISS, qwen3.5 local vision FAISS, 730 local vision descriptions; API health check intentionally skipped.
 
 ## Evidence

@@ -1,0 +1,285 @@
+{
+  "status": "available",
+  "generated_at": "2026-05-24T15:35:39+0800",
+  "task": "Track 3 Task 4 - Privacy Boundary and Cloud Dependency Audit",
+  "evaluation_mode": "static_code_and_live_trace_audit_no_new_api_call",
+  "api_source": "controlsci/api/medical_rag.py",
+  "trace_source": "benchmark/eval/results/medical_rag_live_traces.jsonl",
+  "api_code_audit": {
+    "source": "controlsci/api/medical_rag.py",
+    "exists": true,
+    "patterns": {
+      "api_profile": 1,
+      "cloud_demo_branch": 21,
+      "path_traversal_guard": 5,
+      "safe_source_file": 1,
+      "raw_context_flag": 2,
+      "local_only_privacy": 3,
+      "cloud_model_blocklist": 4,
+      "local_ollama_call": 4,
+      "live_trace_writer": 1,
+      "safety_refusal_no_retrieval": 2
+    },
+    "all_required_patterns_present": true
+  },
+  "privacy_matrix": [
+    {
+      "stage": "local_private_api_profile",
+      "default_location": "local workstation",
+      "local_or_cloud": "local",
+      "raw_medical_context_sent_to_cloud": false,
+      "evidence_source": "controlsci/api/medical_rag.py::_api_profile and health.components.privacy_boundary",
+      "boundary": "Default profile is local_private unless cloud demo is explicitly enabled by environment variables."
+    },
+    {
+      "stage": "cloud_demo_public_bundle",
+      "default_location": "public demo bundle",
+      "local_or_cloud": "cloud-demo-safe-public-material",
+      "raw_medical_context_sent_to_cloud": false,
+      "evidence_source": "DEMO_MODE/cloud_demo branch and public_evidence_bundle health field",
+      "boundary": "Cloud demo is only for public evidence replay with path/text exposure controls, not private medical context processing."
+    },
+    {
+      "stage": "retrieval_index_and_chunks",
+      "default_location": "data/sources_medical local index",
+      "local_or_cloud": "local",
+      "raw_medical_context_sent_to_cloud": false,
+      "evidence_source": "trace.retrieval_mode/index_id/source_summary and _index_meta",
+      "boundary": "Hybrid FAISS/BM25 retrieval runs against local indexed chunks."
+    },
+    {
+      "stage": "safety_refusal",
+      "default_location": "local policy branch",
+      "local_or_cloud": "local",
+      "raw_medical_context_sent_to_cloud": false,
+      "evidence_source": "_safety_refusal audit.prompt_policy=safety_triage_no_retrieval",
+      "boundary": "Safety refusals do not enter retrieval and do not produce citations."
+    },
+    {
+      "stage": "answer_synthesis",
+      "default_location": "local Ollama endpoint",
+      "local_or_cloud": "local",
+      "raw_medical_context_sent_to_cloud": false,
+      "evidence_source": "_clean_model_choice and _call_local_ollama_chat",
+      "boundary": "Medical RAG synthesis blocks deepseek/openai/minimax/mimo model choices and uses local Ollama for private context."
+    },
+    {
+      "stage": "mimo_visual_reference",
+      "default_location": "optional/public reference material",
+      "local_or_cloud": "optional_external_reference_not_private_default",
+      "raw_medical_context_sent_to_cloud": false,
+      "evidence_source": "competition report and Task4 boundary policy",
+      "boundary": "MiMo is treated only as public material quality reference or optional visual path, not as a required private deployment dependency."
+    }
+  ],
+  "trace_privacy_summary": {
+    "source": "benchmark/eval/results/medical_rag_live_traces.jsonl",
+    "status": "available",
+    "record_count": 19,
+    "status_counts": {
+      "local_rag": 14,
+      "safety_refusal": 5
+    },
+    "retrieval_mode_counts": {
+      "hybrid": 14,
+      "none": 5
+    },
+    "index_id_counts": {
+      "bge_m3": 14
+    },
+    "privacy_local_only_count": 19,
+    "privacy_local_only_rate": 1.0,
+    "raw_medical_context_not_sent_to_cloud_count": 19,
+    "raw_medical_context_not_sent_to_cloud_rate": 1.0,
+    "raw_medical_context_sent_to_cloud_true_trace_ids": [],
+    "safety_refusal_count": 5,
+    "safety_refusal_no_retrieval_rate": 1.0,
+    "source_summary_total_chunks": {
+      "min": 0,
+      "max": 3,
+      "sum": 42
+    },
+    "missing_fields": {
+      "required_fields": [
+        "trace_id",
+        "generated_at",
+        "status",
+        "question",
+        "retrieval_mode",
+        "privacy",
+        "citations",
+        "claim_count",
+        "supported_claims",
+        "citation_coverage",
+        "abstain",
+        "abstain_reason",
+        "answer_audit",
+        "safety_triage",
+        "source_summary",
+        "audit"
+      ],
+      "missing_field_counts": {},
+      "records_with_missing_fields": 0
+    },
+    "sample_records": [
+      {
+        "trace_id": "5252d6422c",
+        "status": "safety_refusal",
+        "retrieval_mode": "none",
+        "index_id": null,
+        "privacy": "local_only",
+        "raw_medical_context_sent_to_cloud": false,
+        "source_total_chunks": 0
+      },
+      {
+        "trace_id": "3895b59e8c30",
+        "status": "local_rag",
+        "retrieval_mode": "hybrid",
+        "index_id": "bge_m3",
+        "privacy": "local_only",
+        "raw_medical_context_sent_to_cloud": false,
+        "source_total_chunks": 3
+      },
+      {
+        "trace_id": "8c05afc16eda",
+        "status": "local_rag",
+        "retrieval_mode": "hybrid",
+        "index_id": "bge_m3",
+        "privacy": "local_only",
+        "raw_medical_context_sent_to_cloud": false,
+        "source_total_chunks": 3
+      },
+      {
+        "trace_id": "89bf62d86392",
+        "status": "local_rag",
+        "retrieval_mode": "hybrid",
+        "index_id": "bge_m3",
+        "privacy": "local_only",
+        "raw_medical_context_sent_to_cloud": false,
+        "source_total_chunks": 3
+      },
+      {
+        "trace_id": "8aa9c4901baa",
+        "status": "local_rag",
+        "retrieval_mode": "hybrid",
+        "index_id": "bge_m3",
+        "privacy": "local_only",
+        "raw_medical_context_sent_to_cloud": false,
+        "source_total_chunks": 3
+      },
+      {
+        "trace_id": "33ca22c5b802",
+        "status": "local_rag",
+        "retrieval_mode": "hybrid",
+        "index_id": "bge_m3",
+        "privacy": "local_only",
+        "raw_medical_context_sent_to_cloud": false,
+        "source_total_chunks": 3
+      },
+      {
+        "trace_id": "d594b3e8a0",
+        "status": "safety_refusal",
+        "retrieval_mode": "none",
+        "index_id": null,
+        "privacy": "local_only",
+        "raw_medical_context_sent_to_cloud": false,
+        "source_total_chunks": 0
+      },
+      {
+        "trace_id": "91a19dda3a",
+        "status": "safety_refusal",
+        "retrieval_mode": "none",
+        "index_id": null,
+        "privacy": "local_only",
+        "raw_medical_context_sent_to_cloud": false,
+        "source_total_chunks": 0
+      }
+    ]
+  },
+  "cloud_dependency_inventory": [
+    {
+      "component": "FAISS dense index",
+      "dependency_type": "local_file_index",
+      "default_required": true,
+      "cloud_dependency": false,
+      "evidence": "medical.index path from _dense_path and trace retrieval_mode=hybrid/local_rag"
+    },
+    {
+      "component": "BM25 sparse index",
+      "dependency_type": "local_file_index",
+      "default_required": true,
+      "cloud_dependency": false,
+      "evidence": "bm25.pkl path from _sparse_path and trace retrieval_mode=hybrid/local_rag"
+    },
+    {
+      "component": "Ollama qwen3.5:9b synthesis",
+      "dependency_type": "local_model_service",
+      "default_required": true,
+      "cloud_dependency": false,
+      "evidence": "_call_local_ollama_chat posts to configured local Ollama base URL"
+    },
+    {
+      "component": "DeepSeek/OpenAI/MiniMax/MiMo cloud models",
+      "dependency_type": "blocked_cloud_model_choices_for_private_context",
+      "default_required": false,
+      "cloud_dependency": false,
+      "evidence": "_clean_model_choice raises for deepseek/openai/minimax/mimo in Medical RAG synthesis"
+    },
+    {
+      "component": "MiMo API visual reference",
+      "dependency_type": "optional_public_reference_or_visual_comparison",
+      "default_required": false,
+      "cloud_dependency": "optional_for_public_reference_only",
+      "evidence": "Not required by live trace; explicitly bounded in privacy matrix"
+    },
+    {
+      "component": "cloud_demo public evidence bundle",
+      "dependency_type": "public_demo_mode",
+      "default_required": false,
+      "cloud_dependency": "public_material_only",
+      "evidence": "health public_evidence_bundle branch; not private context upload"
+    },
+    {
+      "component": "live trace audit",
+      "dependency_type": "local_jsonl_evidence",
+      "default_required": true,
+      "cloud_dependency": false,
+      "evidence": "19 local trace records; api pattern coverage=True"
+    }
+  ],
+  "missing_trace_fields": {
+    "required_fields": [
+      "trace_id",
+      "generated_at",
+      "status",
+      "question",
+      "retrieval_mode",
+      "privacy",
+      "citations",
+      "claim_count",
+      "supported_claims",
+      "citation_coverage",
+      "abstain",
+      "abstain_reason",
+      "answer_audit",
+      "safety_triage",
+      "source_summary",
+      "audit"
+    ],
+    "missing_field_counts": {},
+    "records_with_missing_fields": 0
+  },
+  "boundary_notes": [
+    "MiMo is not treated as a private Medical RAG default dependency; it is only an optional public visual reference or comparison path.",
+    "All live trace records with audit.raw_medical_context_sent_to_cloud=false are counted as no raw medical context sent to cloud.",
+    "This audit verifies code and trace privacy boundaries, not legal compliance certification."
+  ],
+  "acceptance_check": {
+    "required_top_level_fields_present": true,
+    "privacy_matrix_present": true,
+    "trace_privacy_summary_present": true,
+    "cloud_dependency_inventory_present": true,
+    "missing_trace_fields_recorded": true,
+    "mimo_not_private_default": true
+  }
+}

@@ -470,7 +470,7 @@ def generate_descriptions(scan_items, max_images=None, resume=False, dry_run=Fal
     return descs
 
 
-def build_vision_index(descriptions):
+def build_vision_index(descriptions, embedding_provider="ollama", embedding_model="qwen3-embedding:4b"):
     """Phase 3: 构建视觉 FAISS 索引 + visual chunks manifest"""
     print(f"\n[Phase 3] 构建视觉索引...")
 
@@ -503,11 +503,12 @@ def build_vision_index(descriptions):
     INDEX_DIR.mkdir(parents=True, exist_ok=True)
     faiss = __import__('faiss')
 
-    from benchmark.eval.chunk_embedding_analysis import get_embeddings
+    from controlsci.medical.embedding_providers import embed_texts
 
     print(f"  [Dense] 获取 {len(texts)} 条视觉描述嵌入向量...", flush=True)
     t0 = time.time()
-    embeddings = get_embeddings(texts, progress_label="vision_embed", cache_path=str(EMBED_CACHE))
+    embeddings = embed_texts(texts, provider=embedding_provider, model=embedding_model,
+                             progress_label="vision_embed", cache_path=str(EMBED_CACHE))
     elapsed = time.time() - t0
     print(f"  [Dense] 嵌入完成: {embeddings.shape}, 耗时 {elapsed:.1f}s", flush=True)
 
@@ -538,7 +539,7 @@ def build_vision_index(descriptions):
     return index, visual_chunks
 
 
-def test_search(descriptions):
+def test_search(descriptions, embedding_provider="ollama", embedding_model="qwen3-embedding:4b"):
     """Phase 4: 测试检索"""
     print(f"\n[Phase 4] 视觉检索测试...")
 
@@ -553,7 +554,7 @@ def test_search(descriptions):
     index = faiss_module.read_index(str(vision_idx_path))
     visual_chunks = json.loads(chunks_path.read_text(encoding="utf-8"))
 
-    from benchmark.eval.chunk_embedding_analysis import get_embeddings
+    from controlsci.medical.embedding_providers import embed_texts
 
     test_queries = [
         "血糖变化趋势图",
@@ -567,7 +568,7 @@ def test_search(descriptions):
     ]
 
     for q in test_queries:
-        q_emb = get_embeddings([q])
+        q_emb = embed_texts([q], provider=embedding_provider, model=embedding_model)
         q_emb_norm = q_emb.copy()
         faiss_module.normalize_L2(q_emb_norm)
         scores, indices = index.search(q_emb_norm, 3)
@@ -634,6 +635,10 @@ def main():
     parser.add_argument("--max-images", type=int, default=None, help="最大处理图片数（调试用）")
     parser.add_argument("--dry-run", action="store_true", help="仅扫描 + 打印前 3 张图片信息，不调用 API")
     parser.add_argument("--resume", action="store_true", help="从 checkpoint 断点续跑 Phase 2")
+    parser.add_argument("--embedding-provider", default="ollama", choices=["ollama", "hf", "hf_local", "transformers"],
+                        help="嵌入向量 Provider (默认 ollama)")
+    parser.add_argument("--embedding-model", default="qwen3-embedding:4b",
+                        help="嵌入模型名 (ollama) 或 HuggingFace 路径 (hf)")
     args = parser.parse_args()
 
     configure_paths(args.md_dir, args.chunks_dir, args.vision_dir, args.index_dir)
@@ -671,14 +676,16 @@ def main():
 
     # Phase 3: 构建索引
     if not args.skip_index:
-        build_vision_index(descriptions)
+        build_vision_index(descriptions, embedding_provider=args.embedding_provider,
+                           embedding_model=args.embedding_model)
 
     # 摘要
     print_summary(descriptions)
 
     # Phase 4: 测试检索
     if not args.skip_index and not args.dry_run:
-        test_search(descriptions)
+        test_search(descriptions, embedding_provider=args.embedding_provider,
+                    embedding_model=args.embedding_model)
 
     print(f"\n  完成。")
 

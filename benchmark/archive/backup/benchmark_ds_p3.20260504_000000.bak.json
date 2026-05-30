@@ -1,0 +1,37 @@
+{
+  "meta": {
+    "project": "ControlSci — 控制科学结构化语料库与 Sci-Evo 推理评测基准",
+    "version": "1.0",
+    "updated": "2026-05-04",
+    "total_questions": 1,
+    "dimensions": {
+      "A": 1,
+      "B": 0,
+      "C": 0,
+      "D": 0
+    },
+    "source": "AI-generated via deepseek/deepseek-v4-flash from ControlSci corpus chunks"
+  },
+  "questions": [
+    {
+      "id": "CS-EVO-00001",
+      "dimension": "A",
+      "difficulty_level": "L1",
+      "control_category": [
+        "nonlinear"
+      ],
+      "question": "根据PPC误差变换方法，写出原始跟踪误差e_{p_i}与变换误差ε_{p_i}之间的数学关系式。",
+      "answer": "e_{p_i} = ρ_{p_i} T(ε_{p_i})，其中ρ_{p_i}(t)是时变性能函数，T: R→(-1,1)是光滑严格递增解析函数，满足T(0)=0，且当ζ→-∞时T(ζ)→-1，当ζ→+∞时T(ζ)→1。",
+      "reasoning_steps": [
+        "PPC误差变换将约束误差转换为无约束误差，原始误差e_{p_i}与变换误差ε_{p_i}通过性能函数ρ_{p_i}和变换函数T关联。",
+        "根据教材公式(6.13)，关系式为e_{p_i} = ρ_{p_i} T(ε_{p_i})，其中T满足光滑、严格递增、T(0)=0，且极限为±1。"
+      ],
+      "source_ref": "2303.01379_Planning_and_Control_of_Uncertain_Cooperative_Mobile_Manipul_chunk_513",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    }
+  ]
+}

@@ -25,7 +25,7 @@ export default function TopStatusBar({ profile, onProfileChange, onOpenSettings 
         <ControlMindLogo size="sm" />
         <span className="leading-tight">
           <span className="block text-[15px] font-semibold tracking-tight">ControlMind</span>
-          <span className="block text-[11px] text-gray-600 font-normal leading-snug">科学评测工作台</span>
+          <span className="block text-[11px] text-gray-600 font-normal leading-snug">科学复现工作台</span>
         </span>
       </span>
 

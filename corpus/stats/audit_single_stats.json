@@ -1,0 +1,23 @@
+{
+  "total_docs": 1,
+  "total_formulas": 281,
+  "total_tables": 2,
+  "total_images": 18,
+  "total_chars": 103851,
+  "total_lines": 1807,
+  "failed_docs": 0,
+  "failures": [],
+  "per_doc": [
+    {
+      "id": "T10",
+      "filename": "Optimal_Control_Exercise_Book",
+      "formula_count": 281,
+      "block_formula_count": 281,
+      "inline_formula_count": 0,
+      "table_count": 2,
+      "image_count": 18,
+      "char_count": 103851,
+      "line_count": 1807
+    }
+  ]
+}

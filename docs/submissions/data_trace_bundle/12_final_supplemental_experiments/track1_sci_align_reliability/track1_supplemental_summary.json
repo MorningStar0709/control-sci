@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0",
+  "experiment": "track1_supplemental_summary",
+  "created_at": "2026-05-24 14:30:48",
+  "status": "ok",
+  "evaluation_mode": "summary_only_existing_task_json_no_new_experiment",
+  "inputs": {
+    "input_dir": "benchmark/eval/results"
+  },
+  "completed_task_count": 7,
+  "expected_task_count": 7,
+  "tasks": [
+    {
+      "task": "Task 1",
+      "name": "AI-Ready consumption smoke test",
+      "source": "benchmark/eval/results/track1_ai_ready_smoke.json",
+      "core_claim": "core=500、full=889，required field / reasoning_steps / source_ref coverage 均为 1.0。",
+      "boundary": "本地 JSON、schema 与格式转换验收，不宣称远端 HuggingFace 可用性。"
+    },
+    {
+      "task": "Task 2",
+      "name": "Integrity and traceability audit",
+      "source": "benchmark/eval/results/track1_sci_align_integrity_audit.json",
+      "core_claim": "500 题 unique_id、required fields、dimension、source_ref、reasoning_steps 全量通过，issue_count=0。",
+      "boundary": "source_ref 解析仅声明本地 multimodal_index 可解析。"
+    },
+    {
+      "task": "Task 3",
+      "name": "Cross-modal weakness taxonomy",
+      "source": "benchmark/eval/results/track1_multimodal_error_taxonomy.json",
+      "core_claim": "20 个 replay 样本覆盖 7 类对齐原因，标签分布为 {'consistent': 10, 'inconsistent': 9, 'partial': 1}。",
+      "boundary": "复用既有跨模态审计描述，不新增视觉模型调用。"
+    },
+    {
+      "task": "Task 4",
+      "name": "Dimension discriminability calibration",
+      "source": "benchmark/eval/results/track1_dimension_discriminability.json",
+      "core_claim": "9 模型 × 500 题；range_order=['D', 'C', 'B', 'A']，A/B range mean=0.117，C/D range mean=0.397。",
+      "boundary": "使用 leaderboard 聚合分数，不做逐题显著性检验。"
+    },
+    {
+      "task": "Task 5",
+      "name": "Training utility ablation summary",
+      "source": "benchmark/eval/results/track1_training_utility_ablation.json",
+      "core_claim": "Sciverse split=785/139；最强 PPL 改善 sciverse_trained_4b delta=-78.3%；4B score delta=-0.0034。",
+      "boundary": "PPL 改善与 reasoning score 改善分开记录。"
+    },
+    {
+      "task": "Task 6",
+      "name": "External format compatibility",
+      "source": "benchmark/eval/results/track1_export_format_compatibility.json",
+      "core_claim": "50 条分层样本，4 种格式转换成功，关键字段保留率 1.0。",
+      "boundary": "结构兼容不等于外部平台官方认证或社区采用。"
+    },
+    {
+      "task": "Task 7",
+      "name": "Small-sample review consistency",
+      "source": "benchmark/eval/results/track1_sample_review_consistency.json",
+      "core_claim": "30 条样本，mapped_question_count=500，mean bucket agreement=0.7345，dimension agreement=1.0。",
+      "boundary": "小样本 replay，不外推为全量人工验收。"
+    }
+  ],
+  "paradigm_boundary": {
+    "sci_align_choice": "控制科学对象天然由文本、公式、图像、系统框图和仿真曲线共同表达，因此本项目以跨模态对齐与可追溯评测作为主范式。",
+    "sci_evo_boundary": "本项目保留勘误、自修正和数据飞轮记录，但不把失败修正轨迹作为主数据产品；Sci-Evo 更适合建模科学假设演化和实验修正链。",
+    "report_narrative": "科学对象 → 对齐结构 → 实验验证 → 证据边界。"
+  },
+  "report_insert_suggestion": {
+    "section": "§4.8 补充实验：Sci-Align 数据集的可消费性、可追溯性与边界验证",
+    "table_columns": [
+      "实验",
+      "核心发现",
+      "边界"
+    ]
+  },
+  "ppt_outline": [
+    "Slide 1: Sci-Align 为什么适合控制科学：文本 / 公式 / 图片 / 系统框图共同定义科学对象。",
+    "Slide 2: 七项补充实验矩阵：AI-ready、完整性、跨模态 taxonomy、区分度、训练可用性、格式兼容、小样本复核。",
+    "Slide 3: 证据边界：PPL 不等于推理能力，格式兼容不等于平台认证，小样本复核不外推为全量人工验收。"
+  ],
+  "demo_script": [
+    "打开 track1_supplemental_summary.json，展示每个结论都有 source JSON。",
+    "运行 Task 6 格式兼容命令，展示 50 条样本可转为 4 种格式。",
+    "强调 Sci-Align 是科学对象对齐基座，Sci-Evo 是后续可扩展的演化轨迹层。"
+  ],
+  "boundary_notes": [
+    "This summary does not create new experimental claims; it only aggregates Task 1-7 JSON artifacts.",
+    "External report wording must not reproduce competition scoring criteria directly.",
+    "All claims in report/presentation should cite the specific JSON path listed in tasks[].source."
+  ]
+}

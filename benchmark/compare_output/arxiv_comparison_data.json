@@ -1,0 +1,74 @@
+[
+  {
+    "doc_name": "2406.07073_Adaptive_Control_Algorithms_Analysis_and_Applications",
+    "pdf_size_mb": 6.4,
+    "total_pages": 607,
+    "pymupdf": {
+      "processing_seconds": 1.071,
+      "seconds_per_page": 0.0018,
+      "total_chars": 1052179,
+      "math_unicode_chars": 9708,
+      "formula_dense_pages": [
+        {
+          "page": 118,
+          "parse_time_ms": 1.0,
+          "char_count": 1251,
+          "math_unicode_chars": 89,
+          "latex_keyword_count": 0,
+          "short_line_count": 7,
+          "whitespace_ratio": 0.169,
+          "raw_text_snippet": "98\n3\nParameter Adaptation Algorithms—Deterministic Environment\n+ 1\n2\nt1\n\b\nt=0\nφT (t)F(t)φ(t)ν2(t + 1) −1\n2\nt1\n\b\nt=0\nλ2(t)[ ˜θT (t + 1)φ(t)]2\n≥−1\n2\n˜θT (0)F(0)−1 ˜θ(0) −1\n2\nt1\n\b\nt=0\nλ2(t)[ ˜θT (t + 1)φ(t)]2\n(3.226)\nProof Taking into account (3.223), one has:\n˜θT (t + 1)φ(t)ν(t + 1) = ˜θT (t + 1)F(t)−"
+        },
+        {
+          "page": 456,
+          "parse_time_ms": 0.5,
+          "char_count": 1377,
+          "math_unicode_chars": 80,
+          "latex_keyword_count": 0,
+          "short_line_count": 0,
+          "whitespace_ratio": 0.159,
+          "raw_text_snippet": "436\n12\nIndirect Adaptive Control\n× [ ˜θ(t) + α(t)F(t + 1) ¯φ(t)¯ε0(t + 1)]\n= ˜θT (t)F(t)−1 ˜θ(t) + α(t)[ ˜θT (t) ¯φ(t)]2\n+ 2α(t) ˜θ(t) ¯φ(t)¯ε0(t + 1)\n+ α2(t) ¯φT (t)F(t + 1) ¯φ(t)[¯ε0(t + 1)]2\n= ˜θ(t)F(t)−1 ˜θ(t) + α(t)[ ˜θT (t) ¯φ(t) + ¯ε0(t + 1)]2\n+ α(t)[ε0(t + 1)]2[α(t) ¯φ(t)F(t + 1) ¯φ(t) −1]\n("
+        },
+        {
+          "page": 367,
+          "parse_time_ms": 1.0,
+          "char_count": 1253,
+          "math_unicode_chars": 79,
+          "latex_keyword_count": 0,
+          "short_line_count": 10,
+          "whitespace_ratio": 0.126,
+          "raw_text_snippet": "10.6\nData Normalization\n347\nFig. 10.5 Interpretation of\nthe signal η(t) in (10.100)\n≤\n\u000e t\u0003\nτ=0\n∥μ−(t−τ)hT (t −τ)∥2\n\u000f1/2\u000e t\u0003\nτ=0\n∥μ(t−τ)φ(τ)∥2\n\u000f1/2\n;\n0 < μ < 1\n(10.99)\n(The Schwarz inequality has been used: \nt\nτ=0 |f (τ)g(τ)| ≤[\nt\nτ=0 |f (τ)|2]1/2\n[\nt\nτ=0 |g(τ)|2]1/2.) Let us deﬁne the signal η(t) as"
+        },
+        {
+          "page": 151,
+          "parse_time_ms": 0.5,
+          "char_count": 2141,
+          "math_unicode_chars": 78,
+          "latex_keyword_count": 0,
+          "short_line_count": 1,
+          "whitespace_ratio": 0.164,
+          "raw_text_snippet": "4.2\nThe Averaging Method\n131\nwhere:\nf ( ˆθ) = E{φ(t, ˆθ)ν(t + 1, ˆθ)}\n(4.59)\nG( ˆθ) = E{φ(t, ˆθ)φT (t, ˆθ)}\n(4.60)\nThe ﬁrst step for effectively applying the associated ODE for convergence analy-\nsis of a certain scheme is the evaluation of f ( ˆθ) (see also the example discussed ear-\nlier) which re"
+        },
+        {
+          "page": 363,
+          "parse_time_ms": 0.52,
+          "char_count": 1424,
+          "math_unicode_chars": 74,
+          "latex_keyword_count": 0,
+          "short_line_count": 1,
+          "whitespace_ratio": 0.166,
+          "raw_text_snippet": "10.5\nPAA with Projection\n343\nTherefore, the projection algorithm is, in many cases, as follows:\nˆθ(t + 1) = ˆθp(t) + F(t)φ(t)ν(t + 1)\n(10.73)\nF(t + 1)−1 = λ1(t)F(t)−1 + λ2(t)φ(t)φ(t)T\n0 < λ1(t) < 1; 0 ≤λ2(t) < 2\n(10.74)\nν(t + 1) = y(t + 1) −ˆθT (t + 1)φ(t) =\ny(t + 1) −ˆθT\np (t)φ(t)\n1 + φT (t)F(t)φ(t"
+        }
+      ]
+    },
+    "mineru": {
+      "total_chars": 1458405,
+      "formula_count": 5813,
+      "block_formulas": 2195,
+      "inline_formulas": 3618,
+      "formulas_with_tag": 0,
+      "chars_per_formula": 250.9
+    },
+    "match_rate_pct": 2.1
+  }
+]

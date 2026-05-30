@@ -6,6 +6,8 @@
     Starts the Next.js frontend under starboard. By default, the server runs
     in the current terminal so startup errors are visible. Use -Background for
     demo recording or long-lived local use.
+    In the standalone final bundle, use -EvidenceOnly to validate submitted
+    evidence JSON without requiring frontend/backend source files.
 
 .PARAMETER Port
     Frontend port. Defaults to 3000.
@@ -53,6 +55,7 @@ param(
     [switch]$StartBackend,
     [switch]$Install,
     [switch]$Force,
+    [switch]$EvidenceOnly,
     [switch]$Help
 )
 
@@ -66,7 +69,8 @@ if ($Help) {
 }
 
 $ErrorActionPreference = "Stop"
-$ROOT = (Resolve-Path $PSScriptRoot).Path
+$BUNDLE_ROOT = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
+$ROOT = $BUNDLE_ROOT
 $FRONTEND_DIR = Join-Path $ROOT "starboard"
 $LOG_PATH = Join-Path $FRONTEND_DIR "next-server.log"
 $ERR_LOG_PATH = Join-Path $FRONTEND_DIR "next-server.err.log"
@@ -76,11 +80,58 @@ $MYENV_PYTHON = if ($env:CONTROLMIND_PYTHON) { $env:CONTROLMIND_PYTHON } elseif 
 $NEXT_BIN = Join-Path $FRONTEND_DIR "node_modules\.bin\next.cmd"
 $URL = "http://localhost:$Port"
 $BACKEND_URL = "http://127.0.0.1:$BackendPort"
+$EVIDENCE_EVAL_JSON = Join-Path $BUNDLE_ROOT "data_trace_bundle\09_medical_rag\medical_rag_eval.json"
+$EVIDENCE_ZH_ASK_JSON = Join-Path $BUNDLE_ROOT "data_trace_bundle\09_medical_rag\medical_rag_eval_zh_ask.json"
+$EVIDENCE_DEPLOYMENT_SMOKE_MATRIX_JSON = Join-Path $BUNDLE_ROOT "data_trace_bundle\12_final_supplemental_experiments\track3_medical_rag_supplemental\track3_deployment_smoke_matrix.json"
+$EVIDENCE_SUPPLEMENTAL_SUMMARY_JSON = Join-Path $BUNDLE_ROOT "data_trace_bundle\12_final_supplemental_experiments\track3_medical_rag_supplemental\track3_supplemental_summary.json"
 
 function Write-Ok { param([string]$Msg) Write-Host "[OK] $Msg" -ForegroundColor Green }
 function Write-Warn { param([string]$Msg) Write-Host "[WARN] $Msg" -ForegroundColor Yellow }
 function Write-Info { param([string]$Msg) Write-Host "[INFO] $Msg" -ForegroundColor Gray }
 function Write-Err { param([string]$Msg) Write-Host "[ERROR] $Msg" -ForegroundColor Red }
+
+function Assert-File {
+    param([string]$Path, [string]$Label)
+    if (-not (Test-Path $Path)) {
+        throw "$Label missing: $Path"
+    }
+    Write-Ok "$Label ready: $Path"
+}
+
+function Invoke-EvidenceOnlyCheck {
+    Assert-File -Path $EVIDENCE_EVAL_JSON -Label "Track3 retrieval evidence JSON"
+    Assert-File -Path $EVIDENCE_ZH_ASK_JSON -Label "Track3 Chinese Ask evidence JSON"
+    Assert-File -Path $EVIDENCE_DEPLOYMENT_SMOKE_MATRIX_JSON -Label "Track3 deployment smoke matrix evidence JSON"
+    Assert-File -Path $EVIDENCE_SUPPLEMENTAL_SUMMARY_JSON -Label "Track3 supplemental summary evidence JSON"
+    $matrix = Get-Content $EVIDENCE_DEPLOYMENT_SMOKE_MATRIX_JSON -Raw -Encoding UTF8 | ConvertFrom-Json
+    $summary = Get-Content $EVIDENCE_SUPPLEMENTAL_SUMMARY_JSON -Raw -Encoding UTF8 | ConvertFrom-Json
+    if ($summary.status -notin @("available", "ok")) {
+        throw "Track3 supplemental summary status is not available: $($summary.status)"
+    }
+    $executed = @($matrix.executed_smoke_checks)
+    $notRun = @($matrix.not_run_checks)
+    if (-not ($executed | Where-Object { $_.name -eq "track3_supplemental_status_cli" -and $_.status -eq "passed" })) {
+        throw "Track3 supplemental status CLI smoke is missing or not passed."
+    }
+    if (($notRun | Where-Object { $_.status -ne "not_run_environment_dependency" }).Count -gt 0) {
+        throw "Deployment matrix has environment-dependent checks reported with an unexpected status."
+    }
+    if ([int]$summary.deployment_smoke_matrix.executed_smoke_checks -ne $executed.Count) {
+        throw "Supplemental summary executed smoke count does not match deployment matrix."
+    }
+    if ([int]$summary.deployment_smoke_matrix.not_run_checks -ne $notRun.Count) {
+        throw "Supplemental summary not-run count does not match deployment matrix."
+    }
+    Write-Ok "Final bundle evidence-only validation passed."
+}
+
+if ($EvidenceOnly -or -not (Test-Path $FRONTEND_DIR)) {
+    if (-not $EvidenceOnly) {
+        Write-Warn "Frontend source is not present in this final bundle; switching to evidence-only validation."
+    }
+    Invoke-EvidenceOnlyCheck
+    exit 0
+}
 
 function Test-Command {
     param([string]$Name)

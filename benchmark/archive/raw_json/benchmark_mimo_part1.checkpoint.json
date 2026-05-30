@@ -1,0 +1,331 @@
+{
+  "meta": {
+    "project": "ControlSci — 控制科学结构化语料库与 Sci-Evo 推理评测基准",
+    "version": "1.0",
+    "updated": "2026-05-04",
+    "total_questions": 10,
+    "dimensions": {
+      "A": 2,
+      "B": 3,
+      "C": 2,
+      "D": 3
+    },
+    "source": "AI-generated via deepseek/deepseek-v4-flash"
+  },
+  "questions": [
+    {
+      "id": "CS-EVO-00001",
+      "dimension": "A",
+      "difficulty_level": "L1",
+      "control_category": [
+        "multi_agent",
+        "optimal"
+      ],
+      "question": "在均场博弈中，均场分布是如何定义的？请写出其数学表达式。",
+      "answer": "在均场博弈中，均场分布是描述群体状态概率分布的测度。对于离散时间有限状态空间均场博弈，设状态空间S为有限集，代理人的状态为s_t^i ∈ S。均场分布μ_t定义为概率向量，其中μ_t(s) = lim_{N→∞} (1/N) ∑_{i=1}^N I(s_t^i = s)，I为指示函数。当状态空间连续时，均场分布μ_t是一个概率测度，定义为μ_t(A) = lim_{N→∞} (1/N) ∑_{i=1}^N P(s_t^i ∈ A)，对于任意可测集A。",
+      "reasoning_steps": [
+        "均场博弈研究大量相互作用的代理人，每个代理人的状态是随机变量。",
+        "群体状态的经验分布定义为(1/N) ∑_{i=1}^N δ_{s_t^i}，其中δ是狄拉克测度。",
+        "当代理人数目N趋于无穷时，经验分布收敛到均场分布μ_t。",
+        "因此，均场分布μ_t定义为该极限，即μ_t = lim_{N→∞} (1/N) ∑_{i=1}^N δ_{s_t^i}。"
+      ],
+      "source_ref": "2310.10828_Robustness_and_Approximation_of_Discrete_time_Mean_field_Gam_chunk_066",
+      "model_source": "mimo",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00002",
+      "dimension": "B",
+      "difficulty_level": "L3",
+      "control_category": [
+        "intelligent"
+      ],
+      "question": "给定智能体的信念更新规则为 $b_{t+1} = \\alpha b_t + (1-\\alpha) P_t$，其中 $\\alpha = 0.5$，策略序列 $P_t = 10 (1 - e^{-0.1 t})$，初始信念 $b_0 = 0$。推导信念 $b_t$ 的闭式表达式。",
+      "answer": "信念 $b_t$ 的闭式表达式为 $b_t = 10 - 10 (0.5)^t - \\frac{5 (0.5)^{t-1} [1 - (2 e^{-0.1})^t]}{1 - 2 e^{-0.1}}$。推导过程如下：从递归关系 $b_{t+1} = 0.5 b_t + 0.5 P_t$ 出发，通过迭代得到通解 $b_t = (0.5)^t b_0 + 0.5 \\sum_{k=0}^{t-1} (0.5)^{t-1-k} P_k$。代入 $b_0 = 0$ 和 $P_k = 10 (1 - e^{-0.1 k})$，得 $b_t = 5 \\sum_{k=0}^{t-1} (0.5)^{t-1-k} (1 - e^{-0.1 k})$。将求和拆分为两部分：$5 \\sum_{k=0}^{t-1} (0.5)^{t-1-k} - 5 \\sum_{k=0}^{t-1} (0.5)^{t-1-k} e^{-0.1 k}$。第一部分求和为几何级数，计算得 $10 (1 - (0.5)^t)$。第二部分求和通过变量替换和几何级数公式计算，令 $r = 2 e^{-0.1}$，得 $5 (0.5)^{t-1} \\frac{1 - r^t}{1 - r}$。合并两部分并简化，得到最终闭式表达式。当 $t \\to \\infty$ 时，$b_t \\to 10$，表明信念收敛到策略稳态值。",
+      "reasoning_steps": [
+        "从信念更新规则 $b_{t+1} = 0.5 b_t + 0.5 P_t$ 和初始条件 $b_0 = 0$ 出发，通过迭代推导通解 $b_t = 0.5 \\sum_{k=0}^{t-1} (0.5)^{t-1-k} P_k$。",
+        "代入策略序列 $P_k = 10 (1 - e^{-0.1 k})$，将 $b_t$ 表达式拆分为两个求和项：$b_t = 5 \\sum_{k=0}^{t-1} (0.5)^{t-1-k} - 5 \\sum_{k=0}^{t-1} (0.5)^{t-1-k} e^{-0.1 k}$。",
+        "计算第一个求和项：$\\sum_{k=0}^{t-1} (0.5)^{t-1-k} = \\sum_{m=0}^{t-1} (0.5)^m = \\frac{1 - (0.5)^t}{1 - 0.5} = 2 (1 - (0.5)^t)$，因此该项为 $10 (1 - (0.5)^t)$。",
+        "计算第二个求和项：令 $r = 2 e^{-0.1}$，则 $\\sum_{k=0}^{t-1} (0.5)^{t-1-k} e^{-0.1 k} = (0.5)^{t-1} \\sum_{k=0}^{t-1} r^k = (0.5)^{t-1} \\frac{1 - r^t}{1 - r}$，因此该项为 $5 (0.5)^{t-1} \\frac{1 - r^t}{1 - r}$。",
+        "合并两个求和项并简化，得到闭式表达式 $b_t = 10 - 10 (0.5)^t - \\frac{5 (0.5)^{t-1} [1 - (2 e^{-0.1})^t]}{1 - 2 e^{-0.1}}$。",
+        "分析收敛性：当 $t \\to \\infty$ 时，$(0.5)^t \\to 0$ 且 $(2 e^{-0.1})^t \\to 0$（因为 $2 e^{-0.1} \\approx 1.8096 > 1$，但指数项在求和中抵消），因此 $b_t \\to 10$，即信念收敛到策略稳态值 $P^* = 10$。"
+      ],
+      "source_ref": "2511.19726_An_Adaptive_Data_Integrated_Agent_Based_Modeling_Framework_f_chunk_022",
+      "model_source": "mimo",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00003",
+      "dimension": "D",
+      "difficulty_level": "L3",
+      "control_category": [
+        "optimal",
+        "mpc"
+      ],
+      "question": "教材中讨论了参数二次规划问题：$\\min_u V(x,u)$，其中$V(x,u)=\\frac{1}{2}(x-u)^2+\\frac{u^2}{2}$，约束集$\\mathbb{Z}=\\{(x,u)\\mid u\\ge 1,\\ u+x/2\\ge 2,\\ u+x\\ge 2\\}$。假设该问题描述了一个一步预测的最优控制问题，系统动态为$x_{k+1}=x_k+u_k$，其中$x$是状态，$u$是控制输入。请设计一个基于该参数二次规划的显式模型预测控制器，即求解反馈控制律$u^0(x)$，并给出至少两个验证指标（如约束满意度、闭环性能等）来评估该控制器的有效性。要求完整写出建模过程、控制器设计步骤和验证方法。",
+      "answer": "**建模**：系统动态为$x_{k+1}=x_k+u_k$，预测时域$N=1$，代价函数$V(x_k,u_k)=\\frac{1}{2}(x_k-u_k)^2+\\frac{u_k^2}{2}$，约束集$\\mathbb{Z}$。在每个时刻$k$，求解优化问题$\\min_{u_k} V(x_k,u_k)$，满足$u_k\\ge 1,\\ u_k+x_k/2\\ge 2,\\ u_k+x_k\\ge 2$。\n\n**控制律推导**：根据教材，无约束解$u_{\\mathrm{uc}}^0(x)=x/2$。考虑约束，最优解$u^0(x)$分区域：\n- 区域$X_1=(-\\infty,0]$：约束$u\\ge 2-x$激活，$u^0(x)=2-x$。\n- 区域$X_2=[0,2]$：约束$u\\ge 2-x/2$激活，$u^0(x)=2-x/2$。\n- 区域$X_3=[2,\\infty)$：无约束激活，$u^0(x)=x/2$。\n故控制律为分段仿射：\n$$u^0(x)=\\begin{cases} 2-x, & x\\le 0 \\\\ 2-x/2, & 0\\le x\\le 2 \\\\ x/2, & x\\ge 2 \\end{cases}$$\n\n**验证指标**：\n1. **约束满意度**：对状态空间中的采样点，计算$\\max\\{0, 1-u^0(x), 2-u^0(x)-x/2, 2-u^0(x)-x\\}$，最大值为零表示约束始终满足。\n2. **闭环性能**：定义代价函数$V(x_k,u^0(x_k))$，对一系列初始状态，计算平均代价或最坏情况代价，与无约束最优代价$V_{\\mathrm{uc}}^0(x)=x^2/4$比较，评估约束引起的性能损失。\n3. **闭环稳定性**：分析闭环系统$x_{k+1}=x_k+u^0(x_k)$的状态轨迹，验证是否收敛至原点（因控制律使代价函数下降，且$V^0(x)$为Lyapunov函数候选）。",
+      "reasoning_steps": [
+        "建立系统动态模型和一步最优控制问题。",
+        "求解无约束最优解$u_{\\mathrm{uc}}^0(x)=x/2$。",
+        "根据约束激活情况，划分状态区域$X_1$, $X_2$, $X_3$。",
+        "在每个区域中，将$u^0(x)$约束在边界上或保持为无约束解。",
+        "得到分段仿射控制律表达式。",
+        "定义约束满意度指标，通过最大约束违反值验证。",
+        "定义闭环性能指标，通过与无约束代价比较衡量性能损失。",
+        "定义稳定性指标，利用Lyapunov函数或轨迹仿真验证收敛性。"
+      ],
+      "source_ref": "MPC_Control_Rawlings_chunk_763",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": {
+        "feasibility": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "控制器设计是否可行，建模是否合理，控制律是否满足约束。"
+        },
+        "method_choice": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "是否正确选择参数二次规划方法，并基于教材内容推导显式控制律。"
+        },
+        "completeness": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "答案是否包含完整的建模、控制律推导和验证指标，且数学表达正确。"
+        },
+        "innovation": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "验证指标是否合理且有新意，例如使用Lyapunov方法或结合仿真统计。"
+        },
+        "clarity": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "表达是否清晰，步骤是否逻辑连贯，公式是否准确。"
+        }
+      },
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00004",
+      "dimension": "C",
+      "difficulty_level": "L2",
+      "control_category": [
+        "modern"
+      ],
+      "question": "考虑一个线性定常系统，其传递函数矩阵F(s)是严格真有理分式矩阵，且所有极点位于左半开平面（即系统稳定）。根据教材，系统增益的度量满足公式(7.5.4): ||F||_2^2 = ||F||_∞^2。现假设F(s)的某个极点移动到右半平面（系统变得不稳定），而其他参数保持不变。问：公式(7.5.4)是否仍然成立？请说明原因。",
+      "answer": "不成立。因为H2范数定义要求传递函数矩阵属于H2空间，即严格真且所有极点位于左半开平面（稳定）。不稳定的F(s)不属于H2空间，其H2范数无定义（积分可能发散或解析性不满足），因此公式(7.5.4)不再适用。H∞范数在虚轴上无极点时可定义，但两者的等价关系不再成立。",
+      "reasoning_steps": [
+        "基准条件：F(s)稳定，所有极点位于左半开平面，因此属于H2空间，根据教材定理，公式(7.5.4)成立。",
+        "变化条件：F(s)的某个极点移动到右半平面，系统变得不稳定。",
+        "不稳定系统不属于H2空间，因为H2空间要求函数在右半平面解析且满足平方可积，不稳定F(s)在右半平面有极点，不解析，且其H2范数积分发散。",
+        "由于H2范数无定义，公式(7.5.4)不再成立。"
+      ],
+      "source_ref": "控制理论导论_郭雷_chunk_570",
+      "model_source": "deepseek",
+      "sensitivity_dimension": "parameter",
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00005",
+      "dimension": "C",
+      "difficulty_level": "L2",
+      "control_category": [
+        "robust"
+      ],
+      "question": "根据教材中公式(7.5.4)，写出线性定常系统的传递函数矩阵F(s)的H2范数平方与H∞范数平方的关系式，并解释其中σ̄(F(jω))的含义。",
+      "answer": "关系式为：||F||_2^2 = ||F||_∞^2 = sup_{ω∈R} σ̄(F(jω))，其中σ̄(F(jω))表示F(jω)的最大奇异值，即矩阵F^H(jω)F(jω)的最大特征值的平方根。",
+      "reasoning_steps": [
+        "教材公式(7.5.4)给出||F||_2^2 = sup_{ω∈R} ||F(jω)||^2 = sup_{ω∈R} σ̄(F(jω)) = ||F||_∞^2。",
+        "||F||_∞定义为sup_{ω∈R} σ̄(F(jω))，因此||F||_2^2等于||F||_∞^2。",
+        "σ̄(F(jω))是F(jω)的奇异值，具体为矩阵F^H(jω)F(jω)的最大特征值的平方根。"
+      ],
+      "source_ref": "控制理论导论_郭雷_chunk_570",
+      "model_source": "deepseek",
+      "sensitivity_dimension": "parameter",
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00006",
+      "dimension": "B",
+      "difficulty_level": "L4",
+      "control_category": [
+        "optimal",
+        "intelligent"
+      ],
+      "question": "给定离散时间线性系统 x_{k+1} = A x_k + B u_k，其中 A = [1, 0.5; 0, 0.8], B = [0; 1]。在强化学习中，为了保证闭环稳定性，采用Lyapunov-based方法，选择Lyapunov函数 V(x) = x^T P x，P = [2, 1; 1, 2]（正定）。假设控制策略为 u_k = -K x_k，K = [k1, k2]。推导当 k1 和 k2 满足什么条件时，系统是渐近稳定的，即对于所有非零 x_k，有 V(x_{k+1}) - V(x_k) < 0。",
+      "answer": "推导过程如下：首先，闭环系统矩阵为 A_cl = A - B K = [1, 0.5; -k1, 0.8 - k2]。Lyapunov差为 ΔV = V(x_{k+1}) - V(x_k) = x_k^T M x_k，其中 M = A_cl^T P A_cl - P。计算得 M = [2k1^2 - 2k1, 2k1 k2 - 2.1k1 - k2 + 0.8; 2k1 k2 - 2.1k1 - k2 + 0.8, 2k2^2 - 4.2k2 + 0.58]。对于渐近稳定，需要 M 负定，即对于2x2对称矩阵，条件为 M11 < 0 且 det(M) > 0。由 M11 = 2k1(k1 - 1) < 0 得 0 < k1 < 1。det(M) > 0 给出 (2k1^2 - 2k1)(2k2^2 - 4.2k2 + 0.58) - (2k1 k2 - 2.1k1 - k2 + 0.8)^2 > 0。因此，k1 和 k2 必须同时满足 0 < k1 < 1 和上述不等式。",
+      "reasoning_steps": [
+        "计算闭环系统矩阵 A_cl = A - B K = [1, 0.5; -k1, 0.8 - k2]。",
+        "计算 Lyapunov 差 ΔV = V(x_{k+1}) - V(x_k) = x_k^T (A_cl^T P A_cl - P) x_k。",
+        "定义矩阵 M = A_cl^T P A_cl - P，并计算其元素：M11 = 2k1^2 - 2k1, M12 = M21 = 2k1 k2 - 2.1k1 - k2 + 0.8, M22 = 2k2^2 - 4.2k2 + 0.58。",
+        "对于渐近稳定，需要 M 负定，即对于2x2对称矩阵，条件为 M11 < 0 且 det(M) > 0。",
+        "由 M11 < 0 得 2k1(k1 - 1) < 0，解得 0 < k1 < 1。",
+        "由 det(M) > 0 得 (2k1^2 - 2k1)(2k2^2 - 4.2k2 + 0.58) - (2k1 k2 - 2.1k1 - k2 + 0.8)^2 > 0。"
+      ],
+      "source_ref": "2207.08730_A_framework_for_online_stabilizing_reinforcement_learning_chunk_002",
+      "model_source": "mimo",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00007",
+      "dimension": "D",
+      "difficulty_level": "L4",
+      "control_category": [
+        "nonlinear",
+        "mpc"
+      ],
+      "question": "基于Theorem 10.2.1中的姿态指数方法，设计一个移动机器人的轨迹跟踪控制系统，以在前馈S-curve轨迹下实现最大位置误差小于5 cm和最大航向误差小于1度的性能指标。请提供完整的控制方案，包括建模方法、控制器设计步骤、参数设计理由和验证指标。",
+      "answer": "建模方法：采用机器人运动学模型，在全局坐标系G和机器人坐标系R下，姿态更新由公式(10.3)描述：^G[Δx, Δy, Δθ]^T = R(θ) * M(Δθ) * [Δx, Δy, Δθ]^T，其中R(θ) = [[cosθ, -sinθ, 0], [sinθ, cosθ, 0], [0, 0, 1]]是旋转矩阵，M(Δθ) = [[sinΔθ/Δθ, (cosΔθ-1)/Δθ, 0], [(1-cosΔθ)/Δθ, sinΔθ/Δθ, 0], [0, 0, 1]]。对于小Δθ，使用近似公式(10.4)：sinΔθ/Δθ ≈ 1 - Δθ^2/6, (cosΔθ-1)/Δθ ≈ -Δθ/2, (1-cosΔθ)/Δθ ≈ Δθ/2。控制方法选择：采用模型预测控制（MPC）进行轨迹跟踪，因为MPC能处理多变量系统、约束优化，并基于姿态指数方法预测未来状态，适合S-curve轨迹的跟踪。参数设计步骤：首先，基于轨迹特性（如曲率）和采样时间dt=20 ms，设置MPC预测时域N_p=10、控制时域N_c=5；其次，设计权重矩阵Q=diag(10,10,1)（状态误差权重）和R=diag(0.1,0.1)（控制输入权重），以平衡跟踪精度和控制 effort；然后，通过仿真调整参数，确保满足误差约束。验证指标：定义位置误差e_pos = sqrt((x-x_ref)^2 + (y-y_ref)^2)和航向误差e_θ = |θ-θ_ref|，要求最大e_pos < 0.05 m、最大e_θ < π/180 rad（约1度）；同时计算均方根误差（RMSE）作为整体性能指标，RMSE_pos = sqrt(mean(e_pos^2))和RMSE_θ = sqrt(mean(e_θ^2))，目标RMSE_pos < 0.02 m、RMSE_θ < 0.5度。",
+      "reasoning_steps": [
+        "建立机器人运动学模型，使用全局和机器人坐标系，姿态更新由公式(10.3)给出。",
+        "对于小角度变化，应用近似公式(10.4)以简化姿态指数计算。",
+        "选择模型预测控制（MPC）作为轨迹跟踪控制器，因为它能处理约束并优化未来状态预测。",
+        "设计MPC参数：预测时域N_p=10、控制时域N_c=5、采样时间dt=20 ms，权重矩阵Q和R基于误差分析设置。",
+        "定义验证指标e_pos和e_θ，并通过仿真验证控制方案满足最大误差约束和RMSE目标。"
+      ],
+      "source_ref": "FRC_Controls_Engineering_chunk_340",
+      "model_source": "mimo",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": {
+        "feasibility": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "方案是否基于给定约束（如误差指标和轨迹特性）可行，包括建模和控制器设计的合理性。"
+        },
+        "method_choice": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "控制方法（MPC）选择是否合理，基于姿态指数方法和轨迹跟踪需求。"
+        },
+        "completeness": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "方案是否完整覆盖建模、控制器设计、参数选择和验证指标所有部分。"
+        },
+        "innovation": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "是否有创新点，如将姿态指数方法与MPC结合以提高跟踪精度。"
+        },
+        "clarity": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "表达是否清晰，逻辑步骤是否连贯，数学公式是否准确。"
+        }
+      },
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00008",
+      "dimension": "A",
+      "difficulty_level": "L2",
+      "control_category": [
+        "classical"
+      ],
+      "question": "根据教材内容，写出所有平面外误差系数的数学表达式。",
+      "answer": "平面外误差系数有四个，数学表达式如下：\n1. \\((\\partial L / \\partial n)_{\\hat{n}}\\)，表示横向位置L对位置扰动δn的偏导数；\n2. \\((\\partial L / \\partial V_n)_{\\hat{n}}\\)，表示横向位置L对速度扰动δV_n的偏导数；\n3. \\((\\partial V_L / \\partial n)_{\\hat{n}}\\)，表示横向速度V_L对位置扰动δn的偏导数；\n4. \\((\\partial V_L / \\partial V_n)_{\\hat{n}}\\)，表示横向速度V_L对速度扰动δV_n的偏导数。\n其中，\\(\\hat{n}\\)是垂直于轨迹平面的单位向量。",
+      "reasoning_steps": [
+        "教材指出平面外扰动只产生平面外误差，且没有交叉耦合。",
+        "初始点存在两个平面外扰动：位置扰动δn和速度扰动δV_n。",
+        "这些扰动在终点时间t1产生横向位置L和横向速度V_L的误差。",
+        "因此，误差系数定义为L和V_L对n和V_n的偏导数，在n̂方向上。"
+      ],
+      "source_ref": "Missile_Guidance_Control_chunk_576",
+      "model_source": "mimo",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00009",
+      "dimension": "B",
+      "difficulty_level": "L2",
+      "control_category": [
+        "multi_agent",
+        "modern"
+      ],
+      "question": "考虑一个线性时不变系统，状态空间模型为：\\[\\dot{x} = A x + B u, \\quad y = C x\\] 其中 \\( A = \\begin{bmatrix} 0 & 1 \\\\ -1 & -2 \\end{bmatrix} \\), \\( B = \\begin{bmatrix} 0 \\\\ 1 \\end{bmatrix} \\), \\( C = \\begin{bmatrix} 1 & 0 \\end{bmatrix} \\)。设计一个分布式观测器，其动态为：\\[\\dot{\\hat{x}}_i = A \\hat{x}_i + B u + L (y_i - C \\hat{x}_i) + \\sum_{j \\in N_i} (\\hat{x}_j - \\hat{x}_i)\\] 其中 \\( L \\) 是观测器增益矩阵，\\( N_i \\) 是代理 \\( i \\) 的邻居集。假设通信图是连通的，且拉普拉斯矩阵 \\( L_G \\) 的特征值为 \\( \\lambda_1 = 0 \\), \\( \\lambda_2 = 2 \\)。求 \\( L \\) 的取值范围，使得观测误差系统渐近稳定。",
+      "answer": "首先，定义观测误差 \\( e_i = x - \\hat{x}_i \\)，则误差动态为 \\(\\dot{e}_i = (A - L C) e_i + \\sum_{j \\in N_i} (e_j - e_i)\\)。令 \\( e = [e_1^T, e_2^T]^T \\)，系统可写为 \\(\\dot{e} = (I_2 \\otimes (A - L C) - L_G \\otimes I_2) e\\)。由于 \\( L_G \\) 可对角化，通过变换 \\( \\tilde{e} = (V^T \\otimes I_2) e \\) 解耦为 \\(\\dot{\\tilde{e}}_1 = (A - L C) \\tilde{e}_1\\) 和 \\(\\dot{\\tilde{e}}_2 = (A - L C - 2I_2) \\tilde{e}_2\\)。因此，观测误差系统渐近稳定当且仅当矩阵 \\( A - L C \\) 和 \\( A - L C - 2I_2 \\) 都是Hurwitz的。设 \\( L = \\begin{bmatrix} l_1 \\\\ l_2 \\end{bmatrix} \\)，则 \\( A - L C = \\begin{bmatrix} -l_1 & 1 \\\\ -1-l_2 & -2 \\end{bmatrix} \\) 和 \\( A - L C - 2I_2 = \\begin{bmatrix} -l_1-2 & 1 \\\\ -1-l_2 & -4 \\end{bmatrix} \\)。对于 \\( A - L C \\) 是Hurwitz，需要迹小于零且行列式大于零：迹 \\( -l_1 - 2 < 0 \\) 得 \\( l_1 > -2 \\)，行列式 \\( 2l_1 + 1 + l_2 > 0 \\) 得 \\( 2l_1 + l_2 > -1 \\)。对于 \\( A - L C - 2I_2 \\) 是Hurwitz，需要迹 \\( -l_1 - 6 < 0 \\) 得 \\( l_1 > -6 \\)，行列式 \\( 4l_1 + l_2 + 9 > 0 \\) 得 \\( 4l_1 + l_2 > -9 \\)。结合条件，由于 \\( l_1 > -2 \\) 比 \\( l_1 > -6 \\) 更严格，所以 \\( l_1 > -2 \\)。同时，\\( l_2 \\) 必须满足 \\( 2l_1 + l_2 > -1 \\) 和 \\( 4l_1 + l_2 > -9 \\)，即 \\( l_2 > \\max(-1 - 2l_1, -9 - 4l_1) \\)。因此，\\( L \\) 的取值范围为 \\( l_1 > -2 \\) 且 \\( l_2 > \\max(-1 - 2l_1, -9 - 4l_1) \\)。",
+      "reasoning_steps": [
+        "观测误差动态为 \\(\\dot{e}_i = (A - LC) e_i + \\sum_{j \\in N_i} (e_j - e_i)\\)。",
+        "误差系统可表示为 \\(\\dot{e} = (I_2 \\otimes (A - LC) - L_G \\otimes I_2) e\\)。",
+        "通过拉普拉斯矩阵对角化，稳定性等价于 \\(A - LC\\) 和 \\(A - LC - 2I_2\\) 都是Hurwitz的。",
+        "计算 \\(A - LC\\) 和 \\(A - LC - 2I_2\\) 的Hurwitz条件，得到关于 \\(l_1\\) 和 \\(l_2\\) 的不等式。",
+        "求解不等式并结合条件，得到 \\(L\\) 的取值范围。"
+      ],
+      "source_ref": "2512.00393_Distributed_Observer_and_Controller_Design_for_Linear_System_chunk_058",
+      "model_source": "mimo",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": null,
+      "consistency_status": "needs_review"
+    },
+    {
+      "id": "CS-EVO-00010",
+      "dimension": "D",
+      "difficulty_level": "L2",
+      "control_category": [
+        "optimal"
+      ],
+      "question": "基于Lemma 12.2中的谱分解方法，设计一个离散时间反馈控制器，使系统传递函数G(z)=B(z)/A(z)满足闭环稳定、零稳态误差和调节时间不超过5个采样周期的工程约束。请给出完整的设计方案。",
+      "answer": "建模方法：系统建模为离散时间线性时不变系统，传递函数为G(z)=B(z)/A(z)，其中A(z)是monic多项式，且A(z)和B(z)没有共同根在单位圆外或单位圆上。控制方法选择理由：谱分解方法适用于最优控制问题，可以处理性能约束和鲁棒性；Lemma 12.2保证了方程(12.49)解的存在性和唯一性，从而可以设计控制器。参数设计步骤：1) 确定谱分解问题(12.46)的解P(z)，其中P(z)是稳定多项式（所有根在单位圆内）；2) 检查A(z)和B(z)满足Lemma 12.2的条件；3) 求解方程(12.49)：A*(z)X(z) + r P(z) S*(z) = B(z) C*(z) 和 z^d B*(z)X(z) - r P(z) R*(z) = -ρ A(z) C*(z)，其中r、ρ、d、C(z)是给定参数，得到多项式X(z)、R*(z)、S*(z)，满足deg X(z) < n，deg R*(z) ≤ n，deg S*(z) < n，n=deg A(z)；4) 构造控制器K(z) = X(z)/S(z)。验证指标：1) 稳定性：计算闭环特征多项式A(z)S(z) + B(z)X(z)，检查其根是否在单位圆内；2) 稳态误差：对于单位阶跃输入，稳态误差为lim_{z→1} (1-z^{-1}) (1 - T(z))，其中T(z)=B(z)X(z)/(A(z)S(z)+B(z)X(z))是闭环传递函数，应为零；3) 响应时间：通过仿真或分析，确保阶跃响应的调节时间（从0到95%稳态值的时间）小于5个采样周期；4) 鲁棒性：计算闭环系统的H∞范数，确保其小于给定界以处理乘性不确定性。",
+      "reasoning_steps": [
+        "系统传递函数为G(z)=B(z)/A(z)，其中A(z)是monic多项式。",
+        "控制目标是设计反馈控制器K(z)使得闭环系统稳定并满足性能约束。",
+        "选择谱分解方法，因为它基于Lemma 12.2可以保证解的存在性和唯一性。",
+        "根据Lemma 12.2，求解方程(12.49)得到多项式X(z)和S*(z)。",
+        "构造控制器K(z) = X(z)/S(z)。",
+        "验证闭环极点位置、稳态误差和响应时间以确保满足工程约束。"
+      ],
+      "source_ref": "Computer_Controlled_Systems_Astrom_chunk_743",
+      "model_source": "deepseek",
+      "sensitivity_dimension": null,
+      "sibling_id": null,
+      "rubric": {
+        "feasibility": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "设计方案是否在工程上可行，是否满足所有给定的约束条件（如稳定性、稳态误差、响应时间）。"
+        },
+        "method_choice": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "是否选择了谱分解方法，并正确基于Lemma 12.2进行控制器设计，方法与问题相关。"
+        },
+        "completeness": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "设计方案是否完整，包括建模、控制器设计、参数整定和验证指标，无遗漏关键步骤。"
+        },
+        "innovation": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "设计是否有创新点，或对标准方法的改进，但基于教材内容可适度评价。"
+        },
+        "clarity": {
+          "max_score": 1,
+          "weight": 0.2,
+          "description": "表达是否清晰、逻辑是否连贯、数学公式是否准确，易于理解。"
+        }
+      },
+      "consistency_status": "needs_review"
+    }
+  ]
+}

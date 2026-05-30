@@ -1,0 +1,2877 @@
+{
+  "status": "available",
+  "generated_at": "2026-05-24T15:26:27+0800",
+  "task": "Track 3 Task 3 - MedBench Evidence-Insufficient Taxonomy",
+  "evaluation_mode": "existing_medbench_result_replay_no_new_inference",
+  "report_reference": {
+    "path": "docs/submissions/track3_medical_rag_report.md",
+    "exists": true,
+    "evidence_boundary_mentions": 37
+  },
+  "results_dir": "benchmark/eval/results",
+  "llm_ei_summary": {
+    "source": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2_quality.json",
+    "detail_source": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+    "model": "qwen3.5:35b",
+    "modality": "LLM/text",
+    "total_questions": 330,
+    "evidence_insufficient": 280,
+    "ei_rate": 0.8485,
+    "taxonomy_records_from_per_question": 263,
+    "granularity": "subset_level_plus_inferred_per_item_examples",
+    "degraded_reason": "per_item_reason_unavailable",
+    "subsets": {
+      "MedDiag": {
+        "subset": "MedDiag",
+        "total": 30,
+        "answered": 30,
+        "pending": 0,
+        "errors": 0,
+        "insufficient": 28,
+        "insufficient_rate": 0.9333,
+        "avg_answer_len": 390.3,
+        "format_flags": {
+          "has_diagnosis_word": 30
+        }
+      },
+      "MedExam": {
+        "subset": "MedExam",
+        "total": 150,
+        "answered": 150,
+        "pending": 0,
+        "errors": 0,
+        "insufficient": 135,
+        "insufficient_rate": 0.9,
+        "avg_answer_len": 133.1,
+        "format_flags": {
+          "single_choice_only": 11
+        }
+      },
+      "MedLitQA": {
+        "subset": "MedLitQA",
+        "total": 30,
+        "answered": 30,
+        "pending": 0,
+        "errors": 0,
+        "insufficient": 29,
+        "insufficient_rate": 0.9667,
+        "avg_answer_len": 565.9,
+        "format_flags": {
+          "chinese_answer": 30
+        }
+      },
+      "MedReportQC": {
+        "subset": "MedReportQC",
+        "total": 30,
+        "answered": 30,
+        "pending": 0,
+        "errors": 0,
+        "insufficient": 13,
+        "insufficient_rate": 0.4333,
+        "avg_answer_len": 472.6,
+        "format_flags": {
+          "json_like": 14
+        }
+      },
+      "MedRxPlan": {
+        "subset": "MedRxPlan",
+        "total": 30,
+        "answered": 30,
+        "pending": 0,
+        "errors": 0,
+        "insufficient": 25,
+        "insufficient_rate": 0.8333,
+        "avg_answer_len": 554.9,
+        "format_flags": {
+          "mentions_medication": 30
+        }
+      },
+      "MedSummary": {
+        "subset": "MedSummary",
+        "total": 30,
+        "answered": 30,
+        "pending": 0,
+        "errors": 0,
+        "insufficient": 22,
+        "insufficient_rate": 0.7333,
+        "avg_answer_len": 252.6,
+        "format_flags": {
+          "summary_like": 8
+        }
+      },
+      "MedTreat": {
+        "subset": "MedTreat",
+        "total": 30,
+        "answered": 30,
+        "pending": 0,
+        "errors": 0,
+        "insufficient": 28,
+        "insufficient_rate": 0.9333,
+        "avg_answer_len": 400.2,
+        "format_flags": {
+          "has_diagnosis_word": 30
+        }
+      }
+    },
+    "taxonomy_counts": {
+      "domain_coverage_gap": 40,
+      "model_conservative_abstention": 146,
+      "retrieval_mismatch": 30,
+      "therapy_decision_gap": 47
+    },
+    "subset_ei_counts_from_quality": {
+      "MedDiag": 28,
+      "MedExam": 135,
+      "MedLitQA": 29,
+      "MedReportQC": 13,
+      "MedRxPlan": 25,
+      "MedSummary": 22,
+      "MedTreat": 28
+    }
+  },
+  "vlm_35b_ei_summary": {
+    "source": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_vlm_report.json",
+    "model": "qwen3.5:35b",
+    "modality": "VLM/text+vision/35b",
+    "total_questions": 300,
+    "evidence_insufficient": 13,
+    "ei_rate": 0.0433,
+    "taxonomy_records_from_per_question": 13,
+    "granularity": "per_item",
+    "degraded_reason": null,
+    "subsets": {
+      "MedClass": {
+        "total": 30,
+        "answered": 30,
+        "errors": 0,
+        "evidence_insufficient": 4,
+        "avg_hits": 5.0,
+        "coverage": 1.0,
+        "ei_rate": 0.1333
+      },
+      "MedCourse": {
+        "total": 30,
+        "answered": 30,
+        "errors": 0,
+        "evidence_insufficient": 1,
+        "avg_hits": 5.0,
+        "coverage": 1.0,
+        "ei_rate": 0.0333
+      },
+      "MedDetect": {
+        "total": 30,
+        "answered": 30,
+        "errors": 0,
+        "evidence_insufficient": 0,
+        "avg_hits": 5.0,
+        "coverage": 1.0,
+        "ei_rate": 0.0
+      },
+      "MedDiffDx": {
+        "total": 30,
+        "answered": 30,
+        "errors": 0,
+        "evidence_insufficient": 0,
+        "avg_hits": 5.0,
+        "coverage": 1.0,
+        "ei_rate": 0.0
+      },
+      "MedGen": {
+        "total": 30,
+        "answered": 30,
+        "errors": 0,
+        "evidence_insufficient": 0,
+        "avg_hits": 5.0,
+        "coverage": 1.0,
+        "ei_rate": 0.0
+      },
+      "MedOCR": {
+        "total": 30,
+        "answered": 30,
+        "errors": 0,
+        "evidence_insufficient": 0,
+        "avg_hits": 5.0,
+        "coverage": 1.0,
+        "ei_rate": 0.0
+      },
+      "MedQC": {
+        "total": 30,
+        "answered": 30,
+        "errors": 0,
+        "evidence_insufficient": 0,
+        "avg_hits": 5.0,
+        "coverage": 1.0,
+        "ei_rate": 0.0
+      },
+      "MedSeqIm": {
+        "total": 30,
+        "answered": 30,
+        "errors": 0,
+        "evidence_insufficient": 2,
+        "avg_hits": 5.0,
+        "coverage": 1.0,
+        "ei_rate": 0.0667
+      },
+      "MedTherapy": {
+        "total": 30,
+        "answered": 30,
+        "errors": 0,
+        "evidence_insufficient": 2,
+        "avg_hits": 5.0,
+        "coverage": 1.0,
+        "ei_rate": 0.0667
+      },
+      "MedVQA": {
+        "total": 30,
+        "answered": 30,
+        "errors": 0,
+        "evidence_insufficient": 4,
+        "avg_hits": 5.0,
+        "coverage": 1.0,
+        "ei_rate": 0.1333
+      }
+    },
+    "taxonomy_counts": {
+      "image_region_mismatch": 8,
+      "temporal_reasoning_gap": 3,
+      "therapy_decision_gap": 2
+    },
+    "subset_ei_counts": {
+      "MedClass": 4,
+      "MedCourse": 1,
+      "MedSeqIm": 2,
+      "MedTherapy": 2,
+      "MedVQA": 4
+    }
+  },
+  "vlm_9b_ei_summary": {
+    "source": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_vlm_report_9b.json",
+    "model": "qwen3.5:9b",
+    "modality": "VLM/text+vision/9b",
+    "total_questions": 300,
+    "evidence_insufficient": 25,
+    "ei_rate": 0.0833,
+    "taxonomy_records_from_per_question": 25,
+    "granularity": "per_item",
+    "degraded_reason": null,
+    "subsets": {
+      "MedClass": {
+        "total": 30,
+        "answered": 30,
+        "errors": 0,
+        "evidence_insufficient": 2,
+        "avg_hits": 5.0,
+        "coverage": 1.0,
+        "ei_rate": 0.0667
+      },
+      "MedCourse": {
+        "total": 30,
+        "answered": 30,
+        "errors": 0,
+        "evidence_insufficient": 2,
+        "avg_hits": 5.0,
+        "coverage": 1.0,
+        "ei_rate": 0.0667
+      },
+      "MedDetect": {
+        "total": 30,
+        "answered": 30,
+        "errors": 0,
+        "evidence_insufficient": 0,
+        "avg_hits": 5.0,
+        "coverage": 1.0,
+        "ei_rate": 0.0
+      },
+      "MedDiffDx": {
+        "total": 30,
+        "answered": 30,
+        "errors": 0,
+        "evidence_insufficient": 0,
+        "avg_hits": 5.0,
+        "coverage": 1.0,
+        "ei_rate": 0.0
+      },
+      "MedGen": {
+        "total": 30,
+        "answered": 30,
+        "errors": 0,
+        "evidence_insufficient": 1,
+        "avg_hits": 5.0,
+        "coverage": 1.0,
+        "ei_rate": 0.0333
+      },
+      "MedOCR": {
+        "total": 30,
+        "answered": 30,
+        "errors": 0,
+        "evidence_insufficient": 0,
+        "avg_hits": 5.0,
+        "coverage": 1.0,
+        "ei_rate": 0.0
+      },
+      "MedQC": {
+        "total": 30,
+        "answered": 30,
+        "errors": 0,
+        "evidence_insufficient": 0,
+        "avg_hits": 5.0,
+        "coverage": 1.0,
+        "ei_rate": 0.0
+      },
+      "MedSeqIm": {
+        "total": 30,
+        "answered": 30,
+        "errors": 0,
+        "evidence_insufficient": 9,
+        "avg_hits": 5.0,
+        "coverage": 1.0,
+        "ei_rate": 0.3
+      },
+      "MedTherapy": {
+        "total": 30,
+        "answered": 30,
+        "errors": 0,
+        "evidence_insufficient": 7,
+        "avg_hits": 5.0,
+        "coverage": 1.0,
+        "ei_rate": 0.2333
+      },
+      "MedVQA": {
+        "total": 30,
+        "answered": 30,
+        "errors": 0,
+        "evidence_insufficient": 4,
+        "avg_hits": 5.0,
+        "coverage": 1.0,
+        "ei_rate": 0.1333
+      }
+    },
+    "taxonomy_counts": {
+      "image_region_mismatch": 6,
+      "model_conservative_abstention": 1,
+      "temporal_reasoning_gap": 11,
+      "therapy_decision_gap": 7
+    },
+    "subset_ei_counts": {
+      "MedClass": 2,
+      "MedCourse": 2,
+      "MedGen": 1,
+      "MedSeqIm": 9,
+      "MedTherapy": 7,
+      "MedVQA": 4
+    }
+  },
+  "taxonomy_counts": {
+    "domain_coverage_gap": 40,
+    "image_region_mismatch": 14,
+    "model_conservative_abstention": 147,
+    "retrieval_mismatch": 30,
+    "temporal_reasoning_gap": 14,
+    "therapy_decision_gap": 56
+  },
+  "taxonomy_by_modality": {
+    "LLM/text": {
+      "domain_coverage_gap": 40,
+      "model_conservative_abstention": 146,
+      "retrieval_mismatch": 30,
+      "therapy_decision_gap": 47
+    },
+    "VLM/text+vision/35b": {
+      "image_region_mismatch": 8,
+      "temporal_reasoning_gap": 3,
+      "therapy_decision_gap": 2
+    },
+    "VLM/text+vision/9b": {
+      "image_region_mismatch": 6,
+      "model_conservative_abstention": 1,
+      "temporal_reasoning_gap": 11,
+      "therapy_decision_gap": 7
+    }
+  },
+  "taxonomy_by_subset": {
+    "MedClass": {
+      "image_region_mismatch": 6
+    },
+    "MedCourse": {
+      "temporal_reasoning_gap": 3
+    },
+    "MedDiag": {
+      "domain_coverage_gap": 18,
+      "model_conservative_abstention": 6,
+      "retrieval_mismatch": 2
+    },
+    "MedExam": {
+      "domain_coverage_gap": 4,
+      "model_conservative_abstention": 117,
+      "retrieval_mismatch": 13
+    },
+    "MedGen": {
+      "model_conservative_abstention": 1
+    },
+    "MedLitQA": {
+      "domain_coverage_gap": 5,
+      "model_conservative_abstention": 14,
+      "retrieval_mismatch": 7
+    },
+    "MedReportQC": {
+      "domain_coverage_gap": 8,
+      "model_conservative_abstention": 2,
+      "retrieval_mismatch": 1
+    },
+    "MedRxPlan": {
+      "therapy_decision_gap": 19
+    },
+    "MedSeqIm": {
+      "temporal_reasoning_gap": 11
+    },
+    "MedSummary": {
+      "domain_coverage_gap": 5,
+      "model_conservative_abstention": 7,
+      "retrieval_mismatch": 7
+    },
+    "MedTherapy": {
+      "therapy_decision_gap": 9
+    },
+    "MedTreat": {
+      "therapy_decision_gap": 28
+    },
+    "MedVQA": {
+      "image_region_mismatch": 8
+    }
+  },
+  "taxonomy_records": [
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0001",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedDiag-0001-133-b06d9c38e8",
+      "subset": "MedDiag",
+      "question_preview": "## 任务类型：诊断推荐 角色定义：你是一名经验丰富的基层全科医生。 任务目标：请仔细阅读以下患者信息，并回答后续问题。 ## 患者信息 患者男性，65岁，2型糖尿病病史5年，一直在三级医院就诊。15分钟前外出活动时突发心悸、出汗，被同伴送来社区医疗站。否认其他慢性病病史。近日因胃部不适进食量较少，已持续活动2个多小时。目前用药：优降糖2.5mg每日3次。平素空腹血糖控制在4-6mmol/L，近期无类似症状出现。查体：神志清楚，血压15",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "原因说明：** 提供的三篇文献片段（[文献1]、[文献2]、[文献3]）主要涉及临床试验的受试者撤回标准、ICU患者数据收集方法以及安全性结局（如糖尿病酮症酸中毒、严重低血糖事件的定义），**并未包含**关于该特定患者病例（65岁男性、服用优降糖后出现心悸出汗、血糖2.8mmol/L等具体信息）的诊断标准、症状描述或诊断依据。 因此，无法仅依据这些文献片段得出该患者的初步诊断及其依据。",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "outcome_measures",
+        "data_collection",
+        "population",
+        "_inclusion_criteria_other",
+        "methods"
+      ],
+      "retrieval_sources": [
+        "PMC12838616",
+        "PMC8982306",
+        "PMC12801964",
+        "PMC6561428",
+        "PMC7691962"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0002",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedDiag-0002-128-ff5c27d5a7",
+      "subset": "MedDiag",
+      "question_preview": "## 任务类型：诊断推荐 角色定义：你是一名经验丰富的基层全科医生。 任务目标：请仔细阅读以下患者信息，并回答后续问题。 ## 患者信息 患者男性，65岁，反复发热伴尿频、尿急、尿痛、腰痛32年，再发加重2天。此次发作无明显诱因，持续性发热38-39℃，无寒战。双侧腰痛，部位局限，无放射痛。尿频每日10余次，排尿时疼痛加重，尿外观无异常。自服诸氟沙星无效。既往平均每年发作1-2次，抗感染治疗有效。曾做静脉肾盂造影，诊为\"外伤后下尿路狭窄",
+      "ei_flag": true,
+      "ei_category": "retrieval_mismatch",
+      "ei_reason_text": "说明：** 提供的三篇文献片段（[文献1]、[文献2]、[文献3]）分别涉及克罗恩病/溃疡性结肠炎的排除标准、糖尿病酮症酸中毒等安全性结局评估、以及durvalumab治疗期间的间质性肺病评估。这些内容均与患者（65岁男性，反复发热、尿路刺激征、腰痛、脓尿等）的泌尿系统感染诊断无关。 **结论：** 由于文献中缺乏关于泌尿系统感染（如急性肾盂肾炎）的诊断标准、症状描述或实验室检查解读，无法依据现有文献片段给出该患者的初步诊断及依据。 （注：若依据患者信息本身进行临床推断，该患者最可能的诊断为**急性肾盂肾炎**",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "population",
+        "_inclusion_criteria_other",
+        "outcome_measures",
+        "_population_other"
+      ],
+      "retrieval_sources": [
+        "PMC8982306",
+        "PMC5814509",
+        "PMC10493474",
+        "PMC12742169",
+        "PMC7691962"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0003",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedDiag-0003-111-cac3d77764",
+      "subset": "MedDiag",
+      "question_preview": "## 任务类型：诊断推荐 角色定义：你是一名经验丰富的基层全科医生。 任务目标：请仔细阅读以下患者信息，并回答后续问题。 ## 患者信息 患者男性，16岁，2周来感头晕，今日来社区门诊就诊。查体发现血压170/100mmHg，心率96次/分，律齐。无高血压家族史，1年前曾测血压正常，无其他疾病史。2周前曾有咽痛、低热史，近期晨起眼皮发胀，尿量较少但无血尿，乏力症状不明显。辅助检查：尿常规示红细胞(++++)、蛋白(+++)；肾功能正常；",
+      "ei_flag": true,
+      "ei_category": "domain_coverage_gap",
+      "ei_reason_text": "说明**： 提供的三篇文献片段（[文献1]、[文献2]、[文献3]）主要涉及临床试验的资格标准、安全性结局（如糖尿病酮症酸中毒、低血糖）以及心血管健康趋势的参考文献列表。这些片段中**不包含**关于青少年高血压、急性肾炎、血尿、蛋白尿等具体症状的诊疗指南、诊断标准或病例分析信息。 因此，无法依据“只使用提供的文献片段中的信息”这一要求，结合患者信息（16岁男性、高血压、血尿、蛋白尿、近期咽痛史等）得出初步诊断及其依据。 **建议**： 根据患者临床表现（青少年、高血压、血尿、蛋白尿、近期感染史），临床高度怀疑*",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "outcome_measures",
+        "references",
+        "primary_outcome",
+        "population",
+        "_inclusion_criteria_other"
+      ],
+      "retrieval_sources": [
+        "PMC8982306",
+        "PMC7691962",
+        "PMC7414682"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0004",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedDiag-0004-82-0ba06f0a3f",
+      "subset": "MedDiag",
+      "question_preview": "## 任务类型：诊断推荐 角色定义：你是一名经验丰富的基层全科医生。 任务目标：请仔细阅读以下患者信息，并回答后续问题。 ## 患者信息 患儿，男，1岁4个月，足月顺产。 发热1天，体温最高39°C，口服退热药后可降至正常，伴鼻塞，无抽搐、咳嗽、流涕、皮疹、呕吐、腹泻等；精神欠佳，食欲减退，大小便正常。 体格检查 T38.7°C，体重11kg，身长79cm，头围47cm；精神可，面色及口唇红润，全身皮肤未见皮疹。咽部充血，扁桃体Ⅰ度肿大",
+      "ei_flag": true,
+      "ei_category": "domain_coverage_gap",
+      "ei_reason_text": "原因说明：** 提供的三篇文献片段内容如下： - [文献1] 讨论的是镰状细胞贫血（SCA）的纳入标准及羟基脲治疗。 - [文献2] 讨论的是用于脓毒症诊断的可穿戴神经形态系统。 - [文献3] 讨论的是糖尿病酮症酸中毒、严重低血糖等安全性结局。 这些文献片段中**没有任何信息**涉及1岁4个月患儿发热、上呼吸道感染症状、血常规解读或急性上呼吸道感染的诊断依据。因此，无法依据现有文献片段得出该患儿的初步诊断及依据。 **结论：** 文献信息不足以回答该问题。",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "_results_other",
+        "_inclusion_criteria_other",
+        "_randomization_other",
+        "outcome_measures"
+      ],
+      "retrieval_sources": [
+        "PMC12216833",
+        "PMC7691962",
+        "PMC6561428",
+        "PMC8982306"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0005",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedDiag-0005-92-41b072cea5",
+      "subset": "MedDiag",
+      "question_preview": "## 任务类型：诊断推荐 角色定义：你是一名经验丰富的基层全科医生。 任务目标：请仔细阅读以下患者信息，并回答后续问题。 ## 患者信息 患者，女性，28岁，大学本科学历，小学教师。 （一）主观资料（S） 阴道出血1周，右下腹痛12小时，加重1小时。 患者1周前出现阴道不规则出血，在家自测尿hCG呈阳性，自服黄体酮胶囊保胎治疗7日，阴道出血稍有缓解。12小时前无明显诱因出现右下腹隐痛，按压时加重，休息无缓解，1小时前疼痛加重，急来社区卫",
+      "ei_flag": true,
+      "ei_category": "domain_coverage_gap",
+      "ei_reason_text": "原因说明：** 提供的三篇文献片段内容如下： - [文献1] 讨论的是临床试验中干预措施的中止或修改标准。 - [文献2] 是作者单位信息和收稿/录用日期。 - [文献3] 列出了糖尿病酮症酸中毒、严重低血糖等安全性结局指标。 这些片段均**不包含**关于异位妊娠、腹痛、阴道出血的诊断标准、临床依据或相关医学知识。虽然患者信息中提到了“超声提示：子宫附件所见考虑异位妊娠破裂；腹盆腔出血”，但这属于患者病例资料，而非检索到的“文献片段”内容。根据任务要求“只使用提供的文献片段中的信息”，无法基于现有文献片段给出诊断",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "outcome_measures",
+        "_front_matter_other",
+        "intervention",
+        "_introduction_other",
+        "_inclusion_criteria_other"
+      ],
+      "retrieval_sources": [
+        "PMC8982306",
+        "PMC7691962",
+        "PMC13019998",
+        "PMC11241942"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0006",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedDiag-0006-105-1ec70ad06b",
+      "subset": "MedDiag",
+      "question_preview": "## 任务类型：诊断推荐 角色定义：你是一名经验丰富的基层全科医生。 任务目标：请仔细阅读以下患者信息，并回答后续问题。 ## 患者信息 患者男性，70岁，因腹泻3天就诊，每日排稀便3次，伴恶心但未呕吐。患者无头晕，发病前进食隔夜剩饭菜，无发热，有轻度腹痛但无明显里急后重感，粪便为稀便，无黏液及脓血。查体：神志清，血压100/70mmHg，脉搏88次/分，体温36.5℃。辅助检查：便常规示白细胞0～1个/HP；血常规示血红蛋白14g/d",
+      "ei_flag": true,
+      "ei_category": "domain_coverage_gap",
+      "ei_reason_text": "原因说明：** 提供的三篇文献片段（[文献1]、[文献2]、[文献3]）均为某项关于特定药物（如VDZ或UST）临床试验的**排除标准**或**安全性结果**列表，内容涉及糖尿病酮症酸中毒、低血糖、造口、瘘管病等特定情况。这些片段中**不包含**关于急性腹泻、食物中毒或急性胃肠炎的**诊断标准、诊断依据或疾病定义**。 因此，无法依据现有文献片段得出该患者的初步诊断或列出诊断依据。 **建议：** 需要补充关于“急性腹泻”、“食物中毒”或“急性胃肠炎”诊断标准的医学文献片段，才能完成该任务。",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "population",
+        "_introduction_other",
+        "_inclusion_criteria_other",
+        "outcome_measures"
+      ],
+      "retrieval_sources": [
+        "PMC8982306",
+        "PMC12742169",
+        "PMC7691962",
+        "PMC7414682",
+        "PMC11241942"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0007",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedDiag-0007-50-9710db9529",
+      "subset": "MedDiag",
+      "question_preview": "## 任务类型：诊断推荐 角色定义：你是一名经验丰富的基层全科医生。 任务目标：请仔细阅读以下患者信息，并回答后续问题。 ## 患者信息 患者男性，48岁，已婚，大学专科学历。主诉：黑便3日，腹痛1日。3日前排成形黑便2～3次/日，量约30g/次，无腹痛腹胀、恶心呕吐、呕血、头晕头痛、畏寒发热，未处理；1日前进食约2小时后出现上腹部隐痛，无放射痛、呕血、恶心呕吐、畏寒发热、胸闷心悸，精神食欲睡眠可，小便正常。既往痛风10余年，规律服非布",
+      "ei_flag": true,
+      "ei_category": "domain_coverage_gap",
+      "ei_reason_text": "原因说明：** 提供的三篇文献片段（[文献1]、[文献2]、[文献3]）均为某项临床试验的**排除标准**（Exclusion criteria）或**安全性结果**（Safety outcomes）列表，内容涉及糖尿病酮症酸中毒、造口、瘘管性疾病等特定研究入组条件。这些片段中**不包含**关于黑便、腹痛、上消化道出血的病因分析、诊断标准或临床诊疗指南信息。 因此，无法依据现有文献片段推导该患者的初步诊断及其依据。 **补充说明（基于患者信息而非文献）：** *注：虽然任务要求仅使用文献片段，但作为临床研究员，",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "_introduction_other",
+        "_inclusion_criteria_other",
+        "exclusion_criteria",
+        "outcome_measures"
+      ],
+      "retrieval_sources": [
+        "PMC12928687",
+        "PMC8982306",
+        "PMC12742169",
+        "PMC7691962",
+        "PMC11241942"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0008",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedDiag-0008-5-6e261aaa78",
+      "subset": "MedDiag",
+      "question_preview": "## 任务类型：诊断推荐 角色定义：你是一名经验丰富的基层全科医生。 任务目标：请仔细阅读以下患者信息，并回答后续问题。 ## 患者信息 患者，女性，42岁，诉间断咳嗽1周。患者于7天前开始咳嗽，多为阵发性干咳，痰少、白黏，有时伴喘鸣，症状以夜间明显。伴有鼻塞、流涕，为清水鼻涕，无发热、胸痛、咯血等症状。以为是感冒，自服酚麻美敏、阿奇霉素、急支糖浆等药物，症状无明显缓解。既往有鼻炎史，间断发作；且5年内有2次闻刺激性气味后出现气促、喘鸣",
+      "ei_flag": true,
+      "ei_category": "domain_coverage_gap",
+      "ei_reason_text": "说明：** 提供的三篇文献片段（[文献1]、[文献2]、[文献3]）内容分别涉及药物剂量调整统计、糖尿病酮症酸中毒等安全性结局评估、以及durvalumab治疗期间的间质性肺炎诊断流程。这些片段中**没有任何信息**涉及咳嗽、哮喘、鼻炎、装修污染或相关疾病的诊断标准与依据。 因此，无法依据“只使用提供的文献片段中的信息”这一要求，结合文献内容来推导患者的初步诊断及依据。 *注：虽然根据您提供的“患者信息”部分，临床逻辑上可推断为“咳嗽变异性哮喘”或“过敏性咳嗽（与环境刺激有关）”，但这属于利用患者病史进行的临床",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "outcome_measures",
+        "_inclusion_criteria_other",
+        "results",
+        "_population_other"
+      ],
+      "retrieval_sources": [
+        "PMC8982306",
+        "PMC7691962",
+        "PMC11339407",
+        "PMC10493474"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0009",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedDiag-0009-52-5a2ce26367",
+      "subset": "MedDiag",
+      "question_preview": "## 任务类型：诊断推荐 角色定义：你是一名经验丰富的基层全科医生。 任务目标：请仔细阅读以下患者信息，并回答后续问题。 ## 患者信息 患者男性，53岁，大学学历，已婚，公司管理人员。主诉：发现血糖升高3年，血脂异常1周。3年前体检空腹血糖8.9mmol/L，HbA1c9.1%，无典型“三多一少”，当地医院诊为“2型糖尿病”，先后予二甲双胍、格列吡嗪、阿卡波糖、达格列净等治疗；近半年规律服二甲双胍0.5g3次/日、达格列净5mg1次/",
+      "ei_flag": true,
+      "ei_category": "domain_coverage_gap",
+      "ei_reason_text": "原因说明：** 提供的三篇文献片段内容如下： - **文献1**：仅描述了生化检测系统的设备型号及检测项目（如空腹血糖、血脂等），未包含任何关于疾病诊断标准、诊断依据或具体病例分析的内容。 - **文献2**：仅列出了安全性结局指标（如糖尿病酮症酸中毒、严重低血糖等），未涉及诊断流程或依据。 - **文献3**：仅为参考文献的标题列表（关于2型糖尿病管理共识），未提供具体的诊断标准或该患者的诊断依据。 由于文献中缺乏关于“2型糖尿病”、“血脂异常”或“代谢综合征”的具体诊断标准、症状体征描述及诊断依据的文本信息，",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "outcome_measures",
+        "references",
+        "_outcome_measures_other",
+        "population",
+        "_inclusion_criteria_other"
+      ],
+      "retrieval_sources": [
+        "PMC8982306",
+        "PMC3041664",
+        "PMC5439542",
+        "PMC7691962",
+        "PMC7414682"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0010",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedDiag-0012-118-c4b87c05d4",
+      "subset": "MedDiag",
+      "question_preview": "## 任务类型：诊断推荐 角色定义：你是一名经验丰富的基层全科医生。 任务目标：请仔细阅读以下患者信息，并回答后续问题。 ## 患者信息 患者，28岁男性，2小时前搬运重物时突发胸痛、憋气，含服硝酸甘油1片后症状未缓解反而加重。现病史：胸痛位于胸部正中，向左上臂放射，持续20余分钟。既往有类似轻度发作史，休息后可缓解，偶有体力活动时头晕、黑曚。家族史：父亲和哥哥有中年猝死史。查体：生命体征平稳（体温36.1℃，脉搏68次/分，呼吸16次",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "原因说明：** 提供的三篇文献片段（[文献1]、[文献2]、[文献3]）分别涉及心脏病统计报告、糖尿病酮症酸中毒等安全性结果以及初级保健诊所的试验资格，**均未包含**关于该患者具体症状（如胸痛、杂音特征）、体征（如胸骨左缘杂音随体位变化）或心电图表现（异常Q波）与特定疾病（如肥厚型心肌病）之间关联的诊断依据或临床指南信息。 因此，无法仅依据“提供的文献片段”给出该患者的初步诊断及依据。 *(注：作为临床研究员，若依据通用医学知识，该患者表现高度提示**肥厚型梗阻性心肌病（HOCM）**，依据包括：年轻男性、劳",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "_randomization_other",
+        "outcome_measures",
+        "references",
+        "population",
+        "_inclusion_criteria_other"
+      ],
+      "retrieval_sources": [
+        "PMC8585847",
+        "PMC8982306",
+        "PMC6561428",
+        "PMC7691962",
+        "PMC7414682"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0011",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedDiag-0013-106-8d914473a7",
+      "subset": "MedDiag",
+      "question_preview": "## 任务类型：诊断推荐 角色定义：你是一名经验丰富的基层全科医生。 任务目标：请仔细阅读以下患者信息，并回答后续问题。 ## 患者信息 患者男性，21岁，2小时前骑车上坡时突发左侧胸痛。疼痛呈针刺样，伴轻度气短，与呼吸活动相关。既往无类似发作史及高血压病史。查体：生命体征平稳（BP110/70mmHg，P100次/分，T36.6℃，R26次/分），口唇无发绀；左侧胸廓略隆起，叩诊呈鼓音，语颤消失，呼吸音减弱，未闻及啰音；心音听诊第二心",
+      "ei_flag": true,
+      "ei_category": "domain_coverage_gap",
+      "ei_reason_text": "原因说明：** 1. **文献内容不相关**： * [文献1] 讨论的是 durvalumab 治疗期间的间质性肺病（ILD）评估及肿瘤学随访。 * [文献2] 讨论的是糖尿病酮症酸中毒、严重低血糖及器械不良事件等安全性结果。 * [文献3] 仅为标题，无具体临床内容。 2. **缺乏关键信息**：提供的文献片段中没有任何关于“自发性气胸”、“胸痛”、“肺压缩”、“胸廓隆起”、“叩诊鼓音”或“语颤消失”等与患者症状和体征相关的描述，也没有提及针对该病例的诊断标准或依据。 因",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "outcome_measures",
+        "pharmacokinetics",
+        "_results_other",
+        "_population_other",
+        "_inclusion_criteria_other"
+      ],
+      "retrieval_sources": [
+        "PMC11622436",
+        "PMC8982306",
+        "PMC5439542",
+        "PMC10493474",
+        "PMC7691962"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0012",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedDiag-0014-143-603cd1796e",
+      "subset": "MedDiag",
+      "question_preview": "## 任务类型：诊断推荐 角色定义：你是一名经验丰富的基层全科医生。 任务目标：请仔细阅读以下患者信息，并回答后续问题。 ## 患者信息 足月女婴，生后第5天。生后第2天出现皮肤轻微黄染，今日家长发现黄染加重，无发热，母乳喂养良好。查血清胆红素11.5mg/dl。 ## 问题 请简述一下患者的初步诊断和诊断依据 ## 输出要求 1. **初步诊断**：请给出最可能的初步诊断。 2. **诊断依据**：详细列出初步诊断的依据，包括症状、体",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "原因说明：** 提供的三篇文献片段（文献1、文献2、文献3）主要涉及镰状细胞贫血（SCA）的入组标准、新生儿结局（如低血糖、黄疸、呼吸窘迫）以及药物安全性（如糖尿病酮症酸中毒、低血糖事件）的研究指标。这些片段**并未包含**关于足月女婴生后第5天出现黄疸、血清胆红素水平（11.5mg/dl）的病理生理机制、诊断标准或鉴别诊断的具体医学知识。 因此，无法依据现有文献片段得出该患者的初步诊断或列出诊断依据。",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "_results_other",
+        "_inclusion_criteria_other",
+        "outcome_measures"
+      ],
+      "retrieval_sources": [
+        "PMC8982306",
+        "PMC10803438",
+        "PMC7691962",
+        "PMC7618672"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0013",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedDiag-0016-25-77619830e8",
+      "subset": "MedDiag",
+      "question_preview": "## 任务类型：诊断推荐 角色定义：你是一名经验丰富的基层全科医生。 任务目标：请仔细阅读以下患者信息，并回答后续问题。 ## 患者信息 患者，男性，48岁，主诉：口干、多饮、多食、多尿7年。当时无排尿困难，无尿路刺激症状。曾外院查血糖增高（具体不详），诊断为2型糖尿病，曾口服消渴丸、格列齐特（达美康）、二甲双胍等药物治疗，平素监测血糖较少，控制情况欠佳。 3年前门诊随访发现蛋白尿（-）或（±），视物模糊，未引起重视，之后下肢间断出现水",
+      "ei_flag": true,
+      "ei_category": "domain_coverage_gap",
+      "ei_reason_text": "原因说明：** 提供的三篇文献片段（[文献1] 排除标准、[文献2] 安全性结果、[文献3] 参考文献列表）仅涉及糖尿病研究的一般性排除标准、不良事件记录及参考文献索引，**完全未包含**关于糖尿病肾病、高血压、糖尿病足等疾病的诊断标准、临床特征或诊断依据的具体描述。 虽然患者信息中提供了详细的病史、体征和实验室数据（如蛋白尿、高血糖、高血压、足趾发黑等），但根据任务要求“只使用提供的文献片段中的信息”，由于文献片段中缺乏支持诊断的医学知识内容，无法基于文献推导出诊断结论。 **结论：** 文献信息不足以回答患",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "inclusion_criteria",
+        "_inclusion_criteria_other",
+        "outcome_measures",
+        "references"
+      ],
+      "retrieval_sources": [
+        "PMC8363503",
+        "PMC8982306",
+        "PMC6009467",
+        "PMC7691962"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0014",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedDiag-0017-47-33fa10d26d",
+      "subset": "MedDiag",
+      "question_preview": "## 任务类型：诊断推荐 角色定义：你是一名经验丰富的基层全科医生。 任务目标：请仔细阅读以下患者信息，并回答后续问题。 ## 患者信息 患者男性，65岁，已婚，高中学历，退休。主诉：双下肢水肿3个月，腹部胀痛2个月。3个月前无诱因出现双下肢水肿伴胸闷，平躺明显，无胸痛、咳粉红色泡沫痰、恶心呕吐、呕血黑便、腹痛腹胀、畏寒发热及泌尿系症状，自行服中药（不详）无效；2个月前起上腹胀痛，无放射痛，与体位及饮食无关，伴牙龈出血、厌油腻、食欲差，",
+      "ei_flag": true,
+      "ei_category": "domain_coverage_gap",
+      "ei_reason_text": "原因说明：** 提供的三篇文献片段（[文献1]、[文献2]、[文献3]）分别涉及镰状细胞贫血（SCA）的入组标准、基线评估项目（包括CA19-9检测）以及糖尿病酮症酸中毒等安全性结局，**均未包含**关于肝硬化、乙肝、腹水、脾大或门静脉高压等疾病的诊断标准、症状描述或诊断依据。 虽然患者信息（65岁男性，乙肝病史，脾大，腹水，低白蛋白等）在临床逻辑上高度指向“乙肝后肝硬化失代偿期”，但根据任务要求“只使用提供的文献片段中的信息”，由于文献中缺乏相关支持内容，无法基于现有文献生成诊断依据。",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "outcome_measures",
+        "population",
+        "_inclusion_criteria_other",
+        "data_collection"
+      ],
+      "retrieval_sources": [
+        "PMC12928687",
+        "PMC8982306",
+        "PMC5814509",
+        "PMC12742169",
+        "PMC7691962"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0015",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedDiag-0018-94-a73f1e077c",
+      "subset": "MedDiag",
+      "question_preview": "## 任务类型：诊断推荐 角色定义：你是一名经验丰富的基层全科医生。 任务目标：请仔细阅读以下患者信息，并回答后续问题。 ## 患者信息 患者，女性，53岁，已婚，大学本科学历，干部。 子宫＋双附件切除术5年，腰背疼痛2年，加重1个月。 （一）主观资料（S） 患者5年前因子宫肌瘤、卵巢囊肿行子宫＋双附件切除术，术前月经无异常；术后曾间断服用“替勃龙片”半年，后自行停药。近2年感腰背疼痛明显，弯腰及下蹲时加重；1年前滑倒致腕部骨折，已治愈",
+      "ei_flag": true,
+      "ei_category": "domain_coverage_gap",
+      "ei_reason_text": "原因说明：** 提供的三篇文献片段（[文献1]、[文献2]、[文献3]）主要涉及基线评估的一般项目（如肿瘤标志物、糖尿病酮症酸中毒等安全性指标）或患者特征收集（如出生日期、生活习惯、肌酐等），**并未包含**关于“骨质疏松症”的诊断标准、腰背疼痛的鉴别诊断、骨密度T值的临床意义或绝经后妇女相关疾病的诊疗指南。 虽然患者信息（S和O部分）提供了足够的临床资料（如T值-2.7、绝经史、骨折史等）来支持诊断，但根据您的任务要求\"**只使用提供的文献片段中的信息**\"，由于文献片段中缺乏相关医学知识支持，无法依据文献推导",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "outcome_measures",
+        "data_collection",
+        "_outcome_measures_other",
+        "population",
+        "_inclusion_criteria_other"
+      ],
+      "retrieval_sources": [
+        "PMC12928687",
+        "PMC8982306",
+        "PMC3002358",
+        "PMC5814509",
+        "PMC7691962"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0016",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedDiag-0019-6-38f5301b70",
+      "subset": "MedDiag",
+      "question_preview": "## 任务类型：诊断推荐 角色定义：你是一名经验丰富的基层全科医生。 任务目标：请仔细阅读以下患者信息，并回答后续问题。 ## 患者信息 患者，男性，26岁，主诉：咳嗽、气促5小时。患者运动后突发剧烈咳嗽，干咳为主，伴气促，无胸痛、咯血，无恶心、呕吐，无心前区压榨感，无肩背部放射痛。既往体健。否认吸烟史。体格检查：身高180cm，体重56kg。T36.5°C，P120次/分，R33次/分。右肺触觉语颤减弱，叩诊呈鼓音。听诊呼吸音消失。左",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "原因说明：** 提供的三篇文献片段内容如下： - [文献1] 讨论的是 durvalumab 治疗期间的间质性肺病（ILD）评估及影像学检查（CT/PET/CT）。 - [文献2] 讨论的是糖尿病酮症酸中毒、严重低血糖等安全性结局。 - [文献3] 讨论的是患者特征（如年龄、吸烟史、体重等）的收集方法。 这些片段中**均未包含**关于“自发性气胸”的诊断标准、症状描述或体征分析，也没有提及该患者具体的影像学检查结果（如胸部X光或CT结果）。虽然患者信息（运动后突发咳嗽、气促、右肺语颤减弱、叩诊鼓音、呼吸音消失）在",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "outcome_measures",
+        "_population_other",
+        "population",
+        "_inclusion_criteria_other",
+        "results"
+      ],
+      "retrieval_sources": [
+        "PMC11339407",
+        "PMC8982306",
+        "PMC5814509",
+        "PMC10493474",
+        "PMC7691962"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0017",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedDiag-0020-126-aab954875a",
+      "subset": "MedDiag",
+      "question_preview": "## 任务类型：诊断推荐 角色定义：你是一名经验丰富的基层全科医生。 任务目标：请仔细阅读以下患者信息，并回答后续问题。 ## 患者信息 患者女性，50岁，因发作性腹痛3个月，2天来再伴发热来诊。疼痛位于右上腹，呈持续性，向背部放散，发作诱因为进食炸鸡腿，伴恶心、呕吐及腹胀。发热38.5℃，伴发冷无寒战，尿色呈浓茶色，粪便成形、色浅。既往曾诊断胆石症，抗感染治疗后好转，无其他慢性病史。查体：体温38.5℃，心肺听诊无异常，血压120/8",
+      "ei_flag": true,
+      "ei_category": "domain_coverage_gap",
+      "ei_reason_text": "原因说明：** 您提供的三篇文献片段（[文献1]、[文献2]、[文献3]）分别涉及克罗恩病/溃疡性结肠炎的排除标准、糖尿病酮症酸中毒等安全性结局指标、以及基线评估中的肿瘤标志物检测。这些片段中**没有任何内容**涉及胆石症、胆管炎、腹痛、黄疸或相关实验室检查（如肝功能、B超结果）的诊断标准或依据。 虽然您提供了详细的患者信息（50岁女性，右上腹痛、发热、黄疸、胆总管结石等），但根据任务要求“只使用提供的文献片段中的信息”，由于文献片段中缺乏支持诊断的医学知识，无法基于现有文献生成诊断依据。 **结论：** 文献",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "data_collection",
+        "_inclusion_criteria_other",
+        "outcome_measures",
+        "inclusion_criteria"
+      ],
+      "retrieval_sources": [
+        "PMC12928687",
+        "PMC8600696",
+        "PMC8982306",
+        "PMC12742169",
+        "PMC7691962"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0018",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedDiag-0021-34-2b99b26fc1",
+      "subset": "MedDiag",
+      "question_preview": "## 任务类型：诊断推荐 角色定义：你是一名经验丰富的基层全科医生。 任务目标：请仔细阅读以下患者信息，并回答后续问题。 ## 患者信息 患者，女性，33岁，主诉：左眼闭合困难、口角向右歪斜半天。患者于半天前突然发现左眼闭合困难，左眼流泪及伴有不适感，梢有刺痛。同时出现口角向右歪斜，时有流延。舌尖尝味不敏感，但无头痛、头晕及呕吐，无肢体麻木、乏力，无发热，无听觉过敏，无耳痛。患者几天前曾在寒冷的环境中进行过露天工作，而且休息较差，并伴有",
+      "ei_flag": true,
+      "ei_category": "domain_coverage_gap",
+      "ei_reason_text": "原因说明：** 您提供的三篇文献片段（[文献1]、[文献2]、[文献3]）分别涉及临床试验干预措施的终止标准、免疫治疗期间的肺部评估以及糖尿病相关不良事件的安全性结果。这些片段中**完全不包含**关于面神经炎（Bell's palsy）或周围性面瘫的诊断标准、症状描述或诊断依据。 虽然患者信息（左眼闭合困难、口角歪斜、额纹变浅、无疱疹等）在临床逻辑上高度提示“特发性面神经麻痹（Bell's palsy）”，但根据任务要求\"**只使用提供的文献片段中的信息**\"，由于文献中缺乏相关医学知识支持，无法基于现有文献生成",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "_inclusion_criteria_other",
+        "intervention",
+        "outcome_measures",
+        "_population_other"
+      ],
+      "retrieval_sources": [
+        "PMC13019998",
+        "PMC8982306",
+        "PMC10493474",
+        "PMC12742169",
+        "PMC7691962"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0019",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedDiag-0022-46-229ff7eff3",
+      "subset": "MedDiag",
+      "question_preview": "## 任务类型：诊断推荐 角色定义：你是一名经验丰富的基层全科医生。 任务目标：请仔细阅读以下患者信息，并回答后续问题。 ## 患者信息 患者男性，70岁，已婚，大学本科，退休，因“间断反酸、嗳气5年，加重1个月”就诊。5年前无明显诱因出现反酸、嗳气，伴胸骨后及剑突下烧灼感、腹胀，夜间或平卧时加重，无吞咽困难、恶心呕吐、腹痛腹泻，自行口服“奥美拉唑1片，1次/日”可缓解，曾在外院胃镜示“慢性浅表性胃炎”，治疗后反酸及烧灼感消失，但嗳气间",
+      "ei_flag": true,
+      "ei_category": "domain_coverage_gap",
+      "ei_reason_text": "原因说明：** 提供的三篇文献片段（[文献1]、[文献2]、[文献3]）主要涉及患者一般特征描述、安全性结局（如糖尿病酮症酸中毒、低血糖）以及特定癌症研究的入组标准，**均未包含**关于“反酸、嗳气、食管裂孔疝”等具体症状的诊断标准、鉴别诊断依据或针对该病例的医学分析。 虽然患者信息（病史、查体、胃镜结果）中包含了足够的信息来做出诊断（如反流性食管炎、食管裂孔疝、慢性胃炎），但根据任务要求“只使用提供的文献片段中的信息”，由于文献片段中缺乏相关诊断依据，无法完成基于文献的推导。 **结论：** 文献信息不足以回",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "results",
+        "population",
+        "_inclusion_criteria_other",
+        "outcome_measures"
+      ],
+      "retrieval_sources": [
+        "PMC9502603",
+        "PMC11339407",
+        "PMC8982306",
+        "PMC5814509",
+        "PMC7691962"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0020",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedDiag-0023-21-f29e6fa0e2",
+      "subset": "MedDiag",
+      "question_preview": "## 任务类型：诊断推荐 角色定义：你是一名经验丰富的基层全科医生。 任务目标：请仔细阅读以下患者信息，并回答后续问题。 ## 患者信息 患者，女性，42岁，主诉：间断颜面及双下肢水肿2年，加重1周。患者2年前无明显诱因出现面部水肿，以晨起明显，伴双下肢轻度水肿、尿少、乏力、食欲不振。曾到当地卫生院就诊，测血压偏高（150/95mmHg），化验尿蛋白（++），尿隐血（+），尿白细胞（-），镜检白细胞8~10/HP，间断服过中药，水肿时轻",
+      "ei_flag": true,
+      "ei_category": "retrieval_mismatch",
+      "ei_reason_text": "原因说明：** 1. **文献内容不匹配**：提供的三篇文献片段（[文献1]、[文献2]、[文献3]）主要涉及镰状细胞贫血（SCA）的入组标准、患者特征记录及糖尿病酮症酸中毒等安全性结局，与患者信息中描述的“颜面及双下肢水肿、高血压、血尿、蛋白尿”等肾脏疾病症状完全无关。 2. **缺乏关键信息**：文献片段中未包含任何关于肾小球肾炎、肾病综合征或相关肾脏疾病的诊断标准、症状描述或诊断依据。 3. **无法推导**：由于文献中没有任何关于该患者具体病情（如水肿、高血压、尿检异常）的医学描述或诊断逻辑，无法从中",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "population",
+        "_inclusion_criteria_other",
+        "outcome_measures"
+      ],
+      "retrieval_sources": [
+        "PMC8982306",
+        "PMC5814509",
+        "PMC10829799",
+        "PMC7691962",
+        "PMC7414682"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0021",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedDiag-0024-72-a109e3cd3d",
+      "subset": "MedDiag",
+      "question_preview": "## 任务类型：诊断推荐 角色定义：你是一名经验丰富的基层全科医生。 任务目标：请仔细阅读以下患者信息，并回答后续问题。 ## 患者信息 患者，女性，58岁，已婚，初中学历，农民。 反复上腹痛6年，加重1个月。 患者6年来无明显诱因反复出现中上腹隐痛，间歇性，不向别处放射，无转移性腹痛，与进食及体位变化无关，无反酸、嗳气，无恶心、呕吐，无畏寒、发热，无腹胀、腹泻、肛门停止排便排气等。当地县人民医院胃镜示“慢性浅表性胃炎”，Hp(+++)",
+      "ei_flag": true,
+      "ei_category": "domain_coverage_gap",
+      "ei_reason_text": "原因说明：** 提供的三篇文献片段（[文献1]、[文献2]、[文献3]）均为临床试验的排除标准、安全性指标或受试者入选标准，内容涉及癌症病史排除、糖尿病酮症酸中毒、低血糖事件及化疗前患者筛选等。这些片段中**不包含**任何关于“胃腺癌”、“慢性胃炎”或“胃溃疡”的诊断标准、症状描述、体征特征或诊断依据的医学知识。 虽然患者信息中明确提到“活检示‘胃腺癌’\"，但根据任务要求“只使用提供的文献片段中的信息”，由于文献片段中缺乏支持该诊断的医学依据描述，无法按照要求列出基于文献的诊断依据。 **结论：** 文献信息不",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "exclusion_criteria",
+        "outcome_measures",
+        "_introduction_other",
+        "population",
+        "_inclusion_criteria_other"
+      ],
+      "retrieval_sources": [
+        "PMC9502603",
+        "PMC12928687",
+        "PMC8982306",
+        "PMC7691962",
+        "PMC11241942"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0022",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedDiag-0025-108-19dbaa48a5",
+      "subset": "MedDiag",
+      "question_preview": "## 任务类型：诊断推荐 角色定义：你是一名经验丰富的基层全科医生。 任务目标：请仔细阅读以下患者信息，并回答后续问题。 ## 患者信息 患者女性，75岁，糖尿病20年，2年以来皮下注射胰岛素控制血糖，但未规律检测血糖。近2天来患者出现咳嗽、咳痰并发热，体温最高39°C，食欲明显减退，遂自行停用胰岛素。半日前患者明显乏力，并出现剧烈呕吐，神志淡漠。无其他慢性病史。查体：血压90/60mmHg，体温38.7℃，呼吸频率26次/分、呼吸深大",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "原因说明：** 提供的三篇文献片段（[文献1]、[文献2]、[文献3]）主要涉及临床试验的受试者撤回标准、亚组分析策略以及安全性结局（如糖尿病酮症酸中毒、严重低血糖等）的统计描述，**并未包含**关于该具体患者病例的病史描述、体征分析、实验室检查解读或诊断标准的具体内容。 因此，无法仅依据这些片段得出该患者的初步诊断及诊断依据。需要结合临床指南或包含该病例详细分析的医学文献才能完成回答。",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "outcome_measures",
+        "_results_other",
+        "_outcome_measures_other",
+        "population",
+        "_inclusion_criteria_other"
+      ],
+      "retrieval_sources": [
+        "PMC8982306",
+        "PMC5439542",
+        "PMC12801964",
+        "PMC6561428",
+        "PMC7691962"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0023",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedDiag-0026-8-042e301c54",
+      "subset": "MedDiag",
+      "question_preview": "## 任务类型：诊断推荐 角色定义：你是一名经验丰富的基层全科医生。 任务目标：请仔细阅读以下患者信息，并回答后续问题。 ## 患者信息 患者，女性，50岁，主诉：反复气促1年，加重12天。患者1年前行走1500m即会出现呼吸困难，休息可缓解，未予重视。12天前因外出旅游爬山后出现明显气促，目前穿衣服及脱衣服时稍气促，伴双下肢水肿，即至门诊就诊，查甲状腺功能：正常。NT-proBNP3659pg/ml。心电图示窦性心动过速，ST-T波改",
+      "ei_flag": true,
+      "ei_category": "domain_coverage_gap",
+      "ei_reason_text": "原因说明：** 提供的文献片段（文献1、文献2、文献3）主要涉及心脏病统计报告、糖尿病酮症酸中毒等安全性结局以及射血分数降低的心力衰竭（HFrEF）的背景介绍，**并未包含**关于该具体患者病例的诊疗指南、诊断标准或针对该患者症状（如气促、水肿、NT-proBNP升高、胸腔积液等）的具体诊断依据分析。 虽然文献3提到了“心力衰竭（HF）”是主要医疗负担，但缺乏将患者具体临床表现（如NT-proBNP 3659pg/ml、双下肢水肿、胸腔积液等）与特定疾病（如心力衰竭）建立诊断逻辑的文本支持。因此，无法仅依据提供的",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "outcome_measures",
+        "references",
+        "introduction",
+        "_discussion_other",
+        "_inclusion_criteria_other"
+      ],
+      "retrieval_sources": [
+        "PMC8585847",
+        "PMC8982306",
+        "PMC7691962"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0024",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedDiag-0027-9-e886709aa5",
+      "subset": "MedDiag",
+      "question_preview": "## 任务类型：诊断推荐 角色定义：你是一名经验丰富的基层全科医生。 任务目标：请仔细阅读以下患者信息，并回答后续问题。 ## 患者信息 患者，女性，66岁，主诉:阵发性心悸1天。患者1天来有阵发性心悸，无胸痛、胸闷、气促，无黑蒙、头晕、晕厥，无发热、咳嗽，无多汗、多食、消瘦，无黑便、血尿。到本院心内科门诊就诊，查心电图示心房颤动。患者以往无类似症状发作，无高血压、糖尿病及心脏病史，无脑梗死及外周血管粥样硬化病史。1个月前体格检查心电图",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "原因说明：** 提供的三篇文献片段内容如下： - [文献1] 涉及颤动（tremor）对室颤（VF）信号的影响及信号恢复数据。 - [文献2] 涉及糖尿病酮症酸中毒、严重低血糖及器械不良事件等安全性结果。 - [文献3] 标题仅为\"ECG中的震颤抑制”，无具体正文内容。 这些片段均未包含关于**心房颤动（Atrial Fibrillation）的诊断标准、临床特征、症状体征或心脏彩超解读**等医学信息，因此无法依据这些文献片段为这位66岁女性患者提供初步诊断及诊断依据。 **注：** 根据您提供的“患者信息”部",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "front_matter",
+        "outcome_measures",
+        "other",
+        "_results_other",
+        "_inclusion_criteria_other"
+      ],
+      "retrieval_sources": [
+        "PMC7691962",
+        "PMC8982306",
+        "PMC2645399",
+        "PMC6454722"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0025",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedDiag-0028-7-10cc43a741",
+      "subset": "MedDiag",
+      "question_preview": "## 任务类型：诊断推荐 角色定义：你是一名经验丰富的基层全科医生。 任务目标：请仔细阅读以下患者信息，并回答后续问题。 ## 患者信息 患者，男性，62岁，主诉:咳嗽、咳痰3个月，痰中带血伴低热1周。患者近3个月来无明显诱因出现咳嗽，为阵发性干咳，咳少量白痰，伴活动后气促，自服头孢呋辛等药物2周，症状无缓解。近1周出现痰中带血，疲乏无力，自测体温为37.5~37.9°C。发病以来饮食正常、大小便正常，体重减轻约5.0kg。既往体健。吸",
+      "ei_flag": true,
+      "ei_category": "domain_coverage_gap",
+      "ei_reason_text": "原因说明：** 提供的三篇文献片段（[文献1]、[文献2]、[文献3]）主要涉及肺癌患者的回顾性研究设计、安全性指标（如糖尿病酮症酸中毒）以及基线评估项目（如CEA、CA19-9检测），**并未包含**关于该具体患者病例（62岁男性、咳嗽咳痰、痰中带血、右下肺呼吸音低、右上肺结节等）的诊断标准、鉴别诊断逻辑或针对该病例的具体分析结论。 虽然文献中提到了“胸部X线”、“细胞角蛋白片段19 (CYFRA21-1)\"（文献3提及CA19-9，文献1提及病理诊断）等检查手段，但缺乏将这些检查结果与患者具体症状（如右上肺结",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "outcome_measures",
+        "data_collection",
+        "_population_other",
+        "population",
+        "_inclusion_criteria_other"
+      ],
+      "retrieval_sources": [
+        "PMC7691962",
+        "PMC8982306",
+        "PMC12928687",
+        "PMC10493474"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedDiag-0026",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedDiag-0029-29-73bfa58da8",
+      "subset": "MedDiag",
+      "question_preview": "## 任务类型：诊断推荐 角色定义：你是一名经验丰富的基层全科医生。 任务目标：请仔细阅读以下患者信息，并回答后续问题。 ## 患者信息 患者，女性，58岁，家庭妇女，主诉：多饮、多食、多尿半年，加重伴乏力1周。患者于半年前开始无明显诱因下出现多饮、多食、多尿症状，并有体重下降约3kg，未予重视，当时未测血糖，也未治疗，1周前症状加重伴乏力明显，且病程中出现视物模糊，无恶心、欲吐症状，无腹痛、腹泻，就诊于当地医院，测空腹血糖10mmol",
+      "ei_flag": true,
+      "ei_category": "domain_coverage_gap",
+      "ei_reason_text": "原因说明：** 提供的三篇文献片段（[文献1]、[文献2]、[文献3]）仅涉及血糖检测仪器型号、糖尿病酮症酸中毒等安全性结局指标以及排除标准（如非1型糖尿病），**完全未包含**关于糖尿病的诊断标准、临床症状描述、体征特征或具体的诊断依据分析。 虽然患者信息中提供了详细的病史、体格检查和实验室数据（如空腹血糖11mmol/L、餐后血糖22.4mmol/L、HbA1c 11.8%等），但根据任务要求“只使用提供的文献片段中的信息”，由于文献片段中缺乏支持诊断的医学知识或标准，无法依据现有文献推导出诊断结论。 **",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "inclusion_criteria",
+        "_inclusion_criteria_other",
+        "_outcome_measures_other",
+        "outcome_measures"
+      ],
+      "retrieval_sources": [
+        "PMC6009467",
+        "PMC8982306",
+        "PMC3041664",
+        "PMC7691962"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0027",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0030-3-ffe8e3834d",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "无法回答>",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "outcome_measures",
+        "references",
+        "secondary_outcome",
+        "_results_other",
+        "population"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC10803438",
+        "PMC6009467",
+        "PMC5439542",
+        "PMC5490215"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0028",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0032-3-48ef3b0587",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "无法回答该问题。 提供的文献片段主要涉及临床试验设计方法（如文献3提到的平衡分配方法）和抗生素剂量研究方案（文献2），并未包含关于“老年病临床特点”的描述或相关医学知识。因此，无法从给定信息中判断哪一项不是老年病的临床特点。",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "outcome_measures",
+        "references",
+        "secondary_outcome",
+        "_results_other",
+        "population"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC10803438",
+        "PMC6009467",
+        "PMC5439542",
+        "PMC5490215"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0029",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0033-3-f65afc2906",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "无法回答>",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "outcome_measures",
+        "references",
+        "secondary_outcome",
+        "_results_other",
+        "population"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC10803438",
+        "PMC6009467",
+        "PMC5439542",
+        "PMC5490215"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0030",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0034-3-618651675a",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "domain_coverage_gap",
+      "ei_reason_text": "无法回答该问题。 提供的文献片段包括： - [文献1] 标题为 \"Additional Clinical Pearls\"，无具体内容。 - [文献2] 关于重症脓毒症患者β-内酰胺类抗生素标准剂量与双倍剂量的研究方案（BULLSEYE study），未涉及老年病临床特点。 - [文献3] 关于中耳积液临床试验分配方法的统计学文献，未涉及老年病临床特点。 这些片段中均不包含关于“老年病临床特点”（如多病共存、疾病发展缓慢、单一病种、发病方式独特、临床表现不典型等）的描述，因此无法判断哪一项不是老年病的临床特点。",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "references",
+        "secondary_outcome",
+        "_results_other",
+        "_introduction_other",
+        "population"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC5439542",
+        "PMC5490215",
+        "PMC6009467"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0031",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0035-4-7abdcf7340",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "无法回答该问题。 提供的文献片段仅包含手术部位感染、器官衰竭天数等通用术语列表（文献1），一项关于β-内酰胺抗生素剂量的研究方案标题（文献2），以及“附加临床要点”的标题（文献3）。这些片段中均未包含关于十二指肠溃疡穿孔术后并发症（如盆腔脓肿、膈下脓肿等）的临床表现、诊断依据或治疗建议的具体信息。 因此，无法基于现有文献确定最可能的术后并发症。",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "_secondary_outcome_other",
+        "secondary_outcome",
+        "_results_other",
+        "population",
+        "_inclusion_criteria_other"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC6009467",
+        "PMC7526307",
+        "PMC5439542",
+        "PMC12742169"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0032",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0036-4-088bf8be48",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "无法回答该问题。 提供的文献片段仅包含手术部位感染、器官衰竭天数等通用术语列表（文献1），一项关于β-内酰胺抗生素剂量研究的方案标题（文献2），以及“额外临床要点”的标题（文献3）。这些片段中均未包含关于十二指肠溃疡穿孔术后并发症（如盆腔脓肿、膈下脓肿等）的临床表现、诊断标准或鉴别诊断的具体信息，因此无法依据现有文献判断该患者的最可能并发症。 <无法回答>",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "_secondary_outcome_other",
+        "secondary_outcome",
+        "_results_other",
+        "population",
+        "_inclusion_criteria_other"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC6009467",
+        "PMC7526307",
+        "PMC5439542",
+        "PMC12742169"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0033",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0037-4-c64db25152",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "<文献信息不足以回答>",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "_secondary_outcome_other",
+        "secondary_outcome",
+        "_results_other",
+        "population",
+        "_inclusion_criteria_other"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC6009467",
+        "PMC7526307",
+        "PMC5439542",
+        "PMC12742169"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0034",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0038-4-42c337d53e",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "无法回答该临床问题。 提供的文献片段仅包含手术部位感染、器官衰竭天数等通用术语列表（文献1），一项关于β-内酰胺抗生素剂量的研究方案标题（文献2），以及“额外临床要点”的标题（文献3）。这些片段中均未包含关于十二指肠溃疡穿孔术后并发症（如盆腔脓肿、膈下脓肿等）的临床表现、诊断标准或鉴别诊断的具体信息，因此无法依据现有文献判断该患者最可能的术后并发症。 <无法回答>",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "_secondary_outcome_other",
+        "secondary_outcome",
+        "_results_other",
+        "population",
+        "_inclusion_criteria_other"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC6009467",
+        "PMC7526307",
+        "PMC5439542",
+        "PMC12742169"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0035",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0039-4-38fe7bda04",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "<文献信息不足以回答>",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "_secondary_outcome_other",
+        "secondary_outcome",
+        "_results_other",
+        "population",
+        "_inclusion_criteria_other"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC6009467",
+        "PMC7526307",
+        "PMC5439542",
+        "PMC12742169"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0036",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0040-5-4c55927cc5",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "<文献信息不足以回答该问题>",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "_randomization_other",
+        "secondary_outcome",
+        "intervention",
+        "_results_other",
+        "population"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC11466402",
+        "PMC6009467",
+        "PMC5439542",
+        "PMC6561428"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0037",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0041-5-761bcbc51f",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "无法回答该问题。>",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "_randomization_other",
+        "secondary_outcome",
+        "intervention",
+        "_results_other",
+        "population"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC11466402",
+        "PMC6009467",
+        "PMC5439542",
+        "PMC6561428"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0038",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0042-5-8e09691cb7",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "<文献信息不足以回答该问题>",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "_randomization_other",
+        "secondary_outcome",
+        "intervention",
+        "_results_other",
+        "population"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC11466402",
+        "PMC6009467",
+        "PMC5439542",
+        "PMC6561428"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0039",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0043-5-67afff13c3",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "retrieval_mismatch",
+      "ei_reason_text": "无法回答该问题。 <文献1>、<文献2>、<文献3> 的内容主要涉及抗生素剂量方案、败血症研究协议及临床要点，与胆囊结石的治疗无关。 因此，基于提供的文献片段，无法确定正确选项。",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "_randomization_other",
+        "secondary_outcome",
+        "intervention",
+        "_results_other",
+        "population"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC11466402",
+        "PMC6009467",
+        "PMC5439542",
+        "PMC6561428"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0040",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0044-5-f2a2b06854",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "无法回答该问题。>",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "_randomization_other",
+        "secondary_outcome",
+        "intervention",
+        "_results_other",
+        "population"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC11466402",
+        "PMC6009467",
+        "PMC5439542",
+        "PMC6561428"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0041",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0045-14-5a39afded6",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "无法回答> 提供的文献片段中未包含关于肺癌非转移性全身症状（如吞咽困难、库欣综合征、骨关节病、重症肌无力、男子乳腺发育）的具体信息或相关讨论，因此无法根据给定材料确定哪个症状不常见。",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "population",
+        "introduction",
+        "secondary_outcome",
+        "_population_other"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC6009467",
+        "PMC7118863",
+        "PMC10493474"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0042",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0046-14-4b0ab6dd47",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "无法回答> 提供的文献片段中未包含关于肺癌非转移性全身症状（如吞咽困难、骨关节病、男子乳腺发育、重症肌肉无力、库欣综合征）的常见性或具体描述信息，因此无法基于给定文献回答该问题。",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "secondary_outcome",
+        "introduction",
+        "_results_other",
+        "_population_other",
+        "population"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC6009467",
+        "PMC7118863",
+        "PMC5439542",
+        "PMC10493474"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0043",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0047-14-21ebe45285",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "无法回答> 提供的文献片段中未包含关于肺癌非转移性全身症状（如男子乳腺发育、吞咽困难、库欣综合征、重症肌肉无力、骨关节病）的流行病学或临床特征信息，因此无法基于现有材料判断哪一项不常见。",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "front_matter",
+        "secondary_outcome",
+        "introduction",
+        "_population_other",
+        "population"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC4617442",
+        "PMC6009467",
+        "PMC7118863",
+        "PMC10493474"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0044",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0048-14-a75876147a",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "无法回答该问题。 提供的文献片段[文献1]涉及姑息治疗数据集的背景信息，[文献2]涉及脓毒症患者β-内酰胺类抗生素的剂量研究，[文献3]仅为标题“Additional Clinical Pearls”。这些片段均未包含关于肺癌非转移性全身症状（如重症肌肉无力、骨关节病、吞咽困难、男子乳腺发育、库欣综合征）的具体信息或讨论。 因此，无法基于给定文献确定哪个症状在肺癌中不常见。",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "secondary_outcome",
+        "introduction",
+        "_results_other",
+        "_population_other",
+        "population"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC6009467",
+        "PMC7118863",
+        "PMC5439542",
+        "PMC10493474"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0045",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0049-14-06a5b9e649",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "无法回答该问题。 提供的文献片段分别涉及： 1. 姑息治疗基本数据集的背景信息（文献1）。 2. 重症脓毒症患者使用β-内酰胺抗生素的剂量研究方案（文献2）。 3. 化疗与放疗同步治疗的适应症及禁忌症（文献3）。 这些片段均未包含关于“肺癌非转移性全身症状”及其具体表现（如男子乳腺发育、吞咽困难、重症肌肉无力、库欣综合征、骨关节病）的讨论或数据，因此无法从中判断哪一项是不常见的症状。 <无法回答>",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "front_matter",
+        "secondary_outcome",
+        "introduction",
+        "_population_other",
+        "population"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC4617442",
+        "PMC6009467",
+        "PMC7118863",
+        "PMC10493474"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0046",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0050-15-316aaffa48",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "结论，其中未包含关于高血压性心脏病伴二度房室传导阻滞患者禁用降压药物的具体信息，也未提及硝苯地平、氢氯噻嗪、美托洛尔、哌唑嗪或卡托普利在该特定临床情境下的禁忌症。因此，无法基于给定文献确定正确选项。",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "secondary_outcome",
+        "conclusion",
+        "_discussion_other",
+        "_introduction_other",
+        "population"
+      ],
+      "retrieval_sources": [
+        "PMC8585847",
+        "PMC6009467",
+        "PMC11929207"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0047",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0051-15-7962e96ce7",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "无法回答该问题。>",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "secondary_outcome",
+        "conclusion",
+        "_discussion_other",
+        "_introduction_other",
+        "population"
+      ],
+      "retrieval_sources": [
+        "PMC8585847",
+        "PMC6009467",
+        "PMC11929207"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0048",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0052-15-a9190d61a8",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "<文献信息不足以回答该问题> 提供的文献片段主要涉及药物 Vericiguat 的药代动力学/药效学分析（文献1、文献3）以及关于β-内酰胺类抗生素在脓毒症患者中给药方案的临床试验方案（文献2）。这些片段均未包含关于原发性高血压、高血压性心脏病、二度房室传导阻滞患者降压药物选择禁忌的具体临床指南或研究数据，因此无法判断美托洛尔（β受体阻滞剂）等药物在此特定病情下是否禁用。",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "secondary_outcome",
+        "conclusion",
+        "_discussion_other",
+        "_introduction_other",
+        "population"
+      ],
+      "retrieval_sources": [
+        "PMC8585847",
+        "PMC6009467",
+        "PMC11929207"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0049",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0053-15-c16ec39d5a",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "<文献信息不足以回答> 提供的文献片段主要讨论了药物Vericiguat在心力衰竭患者中的药代动力学/药效学相关性及其对血压的短期和长期影响（文献1、文献3），以及一项关于β-内酰胺类抗生素在脓毒症患者中标准剂量与双倍剂量的研究方案（文献2）。这些片段均未包含关于高血压性心脏病伴二度房室传导阻滞患者禁用特定降压药物（如美托洛尔等）的临床指导或禁忌症信息。因此，无法根据给定文献回答该临床问题。",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "secondary_outcome",
+        "conclusion",
+        "_discussion_other",
+        "_introduction_other",
+        "population"
+      ],
+      "retrieval_sources": [
+        "PMC8585847",
+        "PMC6009467",
+        "PMC11929207"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0050",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0054-15-b57a8eee6b",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "无法回答> 提供的文献片段主要涉及药物Vericiguat的药代动力学/药效学分析（文献1、3）以及β-内酰胺类抗生素在脓毒症患者中的剂量研究（文献2），均未包含关于高血压性心脏病伴二度房室传导阻滞患者降压药物选择的具体信息，因此无法根据给定文献判断哪种药物不能应用。",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "secondary_outcome",
+        "conclusion",
+        "_discussion_other",
+        "_introduction_other",
+        "population"
+      ],
+      "retrieval_sources": [
+        "PMC8585847",
+        "PMC6009467",
+        "PMC11929207"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0051",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0055-19-6af3a715f0",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "结论。* **基于严格遵循“只使用提供的文献片段中的信息”这一要求，实际上应回答“文献信息不足以回答”。但鉴于题目要求必须从选项中选出一个序号填入<>，且通常此类题目考察的是对错误选项的识别，若必须作答，基于通用医学知识推断C为错误选项的可能性最大，但需再次强调此结论非源自提供片段。** **修正回答（严格遵循指令）：** 由于提供的文献片段中完全没有关于放射防护、X线剂量、继发射线危害或防护措施的内容，无法依据文献判断哪个说法是错误的。 **但在必须选择一个选项的格式要求下（假设题目隐含考察通用知识或存在文",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "population",
+        "_data_collection_other",
+        "secondary_outcome",
+        "primary_outcome"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC6009467",
+        "PMC6417075",
+        "PMC3002358",
+        "PMC10882371"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0052",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0056-19-f60c343b14",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "无法回答> 提供的文献片段（文献1、2、3）主要涉及β-内酰胺类抗生素在脓毒症患者中的剂量研究方案及主要结局指标，未包含任何关于放射防护方法、X线剂量、继发射线危害或放射防护措施的描述。因此，基于现有文献无法判断选项A、B、C、D、E中哪一项说法错误。",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "secondary_outcome",
+        "primary_outcome",
+        "_population_other",
+        "population",
+        "_data_collection_other"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC4617442",
+        "PMC6009467",
+        "PMC6417075",
+        "PMC3002358"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0053",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0057-19-7c87f30668",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "无法回答> 提供的文献片段（文献1、文献2、文献3）主要涉及β-内酰胺类抗生素在脓毒症患者中的剂量研究方案及结果指标，未包含任何关于放射防护方法、X线危害、距离防护或辐射安全范围的信息。因此，无法基于给定文献判断选项A-E中哪一项说法错误。",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "population",
+        "_data_collection_other",
+        "secondary_outcome",
+        "primary_outcome"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC6009467",
+        "PMC6417075",
+        "PMC3002358",
+        "PMC10882371"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0054",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0058-19-568b26bee7",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "无法回答该问题。 提供的文献片段仅包含标题（如\"Primary outcome measures\"、\"Secondary outcome measures\"）和一个关于β-内酰胺类抗生素在脓毒症患者中剂量研究的试验方案（BULLSEYE study protocol）的标题及作者信息，**未包含任何关于放射防护方法、措施或X线危害的具体内容**。因此，无法基于现有信息判断选项A、B、C、D、E中哪一个是错误的。 <无法回答>",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "population",
+        "_data_collection_other",
+        "secondary_outcome",
+        "primary_outcome"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC6009467",
+        "PMC6417075",
+        "PMC3002358",
+        "PMC10882371"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0055",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0059-19-01336e32c6",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "无法回答该问题。 提供的文献片段仅包含标题（如\"Primary outcome measures\"、\"Standard versus double dosing...\"、\"Measures\"）以及部分作者姓名和图像链接，**未包含任何关于放射防护方法、X线照射剂量、距离防护或继发射线危害的具体内容**。因此，无法依据现有信息判断选项A、B、C、D、E中哪一项是错误的。 答：<无>",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "secondary_outcome",
+        "primary_outcome",
+        "_population_other",
+        "population",
+        "_data_collection_other"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC4617442",
+        "PMC6009467",
+        "PMC6417075",
+        "PMC3002358"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0056",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0060-22-94841f48a7",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "<文献信息不足以回答该问题> 提供的文献片段主要涉及 durvalumab 治疗期间的评估（文献1）以及关于β-内酰胺类抗生素在脓毒症患者中给药方案的临床试验方案（文献2），均未包含关于73岁女性患者胸痛、呼吸困难及肺灌注/通气显像结果与肺动脉栓塞诊断之间关联的医学依据。因此，无法根据现有片段判断该病例应诊断为肺水肿、肺气肿、肺部感染、肺动脉栓塞还是肺结核。",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "_results_other",
+        "population",
+        "secondary_outcome",
+        "_population_other"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC5439542",
+        "PMC6009467",
+        "PMC10493474"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0057",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0061-22-f5dffb6c04",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "<文献信息不足以回答>",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "_results_other",
+        "population",
+        "secondary_outcome",
+        "_population_other"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC5439542",
+        "PMC6009467",
+        "PMC10493474"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0058",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0062-22-7ae2d4891f",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "<文献信息不足以回答该问题>",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "_results_other",
+        "population",
+        "secondary_outcome",
+        "_population_other"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC5439542",
+        "PMC6009467",
+        "PMC10493474"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0059",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0065-25-8f894413d6",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "无法回答该问题。 提供的文献片段仅包含关于Somapacitan的药代动力学（文献1、3）以及关于β-内酰胺类抗生素在脓毒症患者中用量的研究方案（文献2），其中并未提及内分泌功能减退的动态功能试验（如兴奋试验、抑制试验等）的相关信息。 因此，无法基于给定文献确定正确选项。",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "_pharmacokinetics_other",
+        "secondary_outcome",
+        "intervention",
+        "population",
+        "_baseline_characteristics_other"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC12574440",
+        "PMC6009467",
+        "PMC6325982"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0060",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0066-25-b458129839",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "无法回答该问题。 提供的文献片段仅包含关于\"Somapacitan\"的药代动力学（文献1、3）以及关于“重症脓毒症患者β-内酰胺类抗生素标准剂量与双倍剂量”的研究方案（文献2），其中并未提及内分泌功能减退的动态功能试验（如兴奋试验、抑制试验等）的相关信息。 因此，无法基于给定文献确定正确选项。",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "_pharmacokinetics_other",
+        "secondary_outcome",
+        "intervention",
+        "population",
+        "_baseline_characteristics_other"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC12574440",
+        "PMC6009467",
+        "PMC6325982"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0061",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0067-25-2898d1256d",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "无法回答该问题。 提供的文献片段主要涉及： - 文献1：关于Somapacitan的药代动力学（Pharmacodynamics）。 - 文献2：关于β-内酰胺类抗生素在脓毒症患者中的给药方案研究方案。 - 文献3：关于临床试验的终点指标（如空腹C肽、BMI、FEV1等）。 这些片段均未提及内分泌功能减退的动态功能试验（如激发试验、拮抗试验、负荷试验、兴奋试验或抑制试验）的具体定义或分类。因此，无法基于给定信息确定正确选项。 <无法回答>",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "_pharmacokinetics_other",
+        "secondary_outcome",
+        "intervention",
+        "population",
+        "_baseline_characteristics_other"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC12574440",
+        "PMC6009467",
+        "PMC6325982"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0062",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0068-25-8aa229d440",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "无法回答该问题。 提供的文献片段仅包含关于\"Somapacitan\"的药代动力学（文献1、3）以及关于“β-内酰胺类抗生素在脓毒症患者中标准剂量与双倍剂量”的研究方案（文献2），其中并未提及内分泌功能减退的动态功能试验（如兴奋试验、抑制试验等）的相关信息。 因此，无法基于给定文献确定正确选项。",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "_pharmacokinetics_other",
+        "secondary_outcome",
+        "intervention",
+        "population",
+        "_baseline_characteristics_other"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC12574440",
+        "PMC6009467",
+        "PMC6325982"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0063",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0069-25-6028a65147",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "无法回答该问题。 提供的文献片段仅包含关于 Somapacitan 的药代动力学（文献1、文献3）以及关于β-内酰胺类抗生素在脓毒症患者中给药方案的临床试验方案（文献2），其中并未提及“内分泌功能减退的动态功能试验”或相关选项（负荷试验、兴奋试验、激发试验、抑制试验、拮抗试验）的信息。 因此，无法基于给定文献确定正确选项。",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "_pharmacokinetics_other",
+        "secondary_outcome",
+        "intervention",
+        "population",
+        "_baseline_characteristics_other"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC12574440",
+        "PMC6009467",
+        "PMC6325982"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0064",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0070-29-a71c63d7b2",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "无法回答该临床问题。",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "_pharmacokinetics_other",
+        "secondary_outcome",
+        "_population_other",
+        "population",
+        "_baseline_characteristics_other"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC12574440",
+        "PMC6009467",
+        "PMC6325982"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0065",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0071-29-69ec886ebe",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "无法回答该临床问题。 提供的文献片段仅涉及生长激素类似物Somapacitan的药代动力学（文献1、3）以及关于脓毒症患者β-内酰胺类抗生素给药方案的临床试验方案（文献2），其中没有任何关于脾脏肿大（肋下3cm，脐水平线以上）与黑热病、感染性心内膜炎、骨髓纤维化、肝硬化或粟粒型肺结核之间诊断关联的信息。 因此，无法从给定信息中确定正确选项。",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "_pharmacokinetics_other",
+        "secondary_outcome",
+        "_population_other",
+        "population",
+        "_baseline_characteristics_other"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC12574440",
+        "PMC6009467",
+        "PMC6325982"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0066",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0072-29-bac7d07e0d",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "无法回答该临床问题。",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "_pharmacokinetics_other",
+        "secondary_outcome",
+        "_population_other",
+        "population",
+        "_baseline_characteristics_other"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC12574440",
+        "PMC6009467",
+        "PMC6325982"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0067",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0073-29-5aedfb974a",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "无法回答**该临床问题。",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "_pharmacokinetics_other",
+        "secondary_outcome",
+        "_results_other",
+        "population",
+        "_baseline_characteristics_other"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC5439542",
+        "PMC6009467",
+        "PMC6325982"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0068",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0074-29-d74ff16c82",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "<文献信息不足以回答该问题>",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "secondary_outcome",
+        "_results_other",
+        "_population_other",
+        "population",
+        "_baseline_characteristics_other"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC12574440",
+        "PMC6009467",
+        "PMC5439542",
+        "PMC6325982"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0069",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0075-32-23678f3317",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "<文献信息不足以回答该问题>",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "population",
+        "secondary_outcome",
+        "intervention",
+        "_population_other"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC6009467",
+        "PMC11466402",
+        "PMC10493474"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0070",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0080-46-7ef94b8ad3",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "无法回答该问题。 提供的文献片段仅包含标题（如\"Inclusion and exclusion criteria\"、\"Standard versus double dosing...\"、\"Additional Clinical Pearls\"）和作者信息，未包含关于“结节性甲状腺肿手术适应证”的任何具体医学内容或选项分析。 因此，无法基于现有信息判断哪项不属于手术适应证。",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "_randomization_other",
+        "secondary_outcome",
+        "intervention",
+        "_results_other",
+        "population"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC11466402",
+        "PMC6009467",
+        "PMC5439542",
+        "PMC6561428"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0071",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0082-46-f55a65dfb4",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "无法回答该问题。 提供的文献片段仅包含标题（如\"Inclusion and exclusion criteria\"、\"Standard versus double dosing of beta-lactam antibiotics...\"）和作者列表，**未包含任何关于结节性甲状腺肿手术适应证的具体医学内容**。因此，无法从给定信息中判断哪一项不属于手术适应证。 <无法回答>",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "_randomization_other",
+        "secondary_outcome",
+        "_results_other",
+        "population",
+        "_inclusion_criteria_other"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC6937062",
+        "PMC6009467",
+        "PMC5439542",
+        "PMC6561428"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0072",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0083-46-a2ebc94654",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "<文献信息不足以回答> 提供的文献片段仅包含研究方案的标题、包含/排除标准的标题（Box 1）、一项关于β-内酰胺抗生素在脓毒症患者中使用的研究协议（BULLSEYE study），以及“额外临床要点”的标题。这些片段中没有任何关于结节性甲状腺肿手术适应证的内容，因此无法判断哪一项不属于其手术适应证。",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "_randomization_other",
+        "secondary_outcome",
+        "intervention",
+        "_results_other",
+        "population"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC11466402",
+        "PMC6009467",
+        "PMC5439542",
+        "PMC6561428"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0073",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0084-46-dca6c273c0",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "无法回答该问题。 提供的文献片段仅包含标题（如\"Inclusion and exclusion criteria\"、\"Standard versus double dosing of beta-lactam antibiotics...\"等）和少量作者信息，**未包含任何关于结节性甲状腺肿手术适应证的内容**，也未提及甲状腺炎、甲亢或压迫症状等相关临床信息。 因此，无法基于给定文献确定正确选项。",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "_randomization_other",
+        "secondary_outcome",
+        "intervention",
+        "_results_other",
+        "population"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC11466402",
+        "PMC6009467",
+        "PMC5439542",
+        "PMC6561428"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0074",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0085-52-255c82b226",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "<文献信息不足以回答该问题>",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "front_matter",
+        "_randomization_other",
+        "secondary_outcome",
+        "data_collection",
+        "population"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC12928687",
+        "PMC6009467",
+        "PMC5490215",
+        "PMC6561428"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0075",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0086-52-b84d498f64",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "<文献信息不足以回答该问题>",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "front_matter",
+        "_randomization_other",
+        "secondary_outcome",
+        "data_collection",
+        "population"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC12928687",
+        "PMC6009467",
+        "PMC5490215",
+        "PMC6561428"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0076",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0087-52-ddaf40ea5f",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "<文献信息不足以回答>",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "front_matter",
+        "_randomization_other",
+        "secondary_outcome",
+        "data_collection",
+        "population"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC12928687",
+        "PMC6009467",
+        "PMC5490215",
+        "PMC6561428"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0077",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0088-52-b264da7920",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "<文献信息不足以回答>",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "_randomization_other",
+        "secondary_outcome",
+        "data_collection",
+        "population",
+        "_inclusion_criteria_other"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC12928687",
+        "PMC6009467",
+        "PMC6561428",
+        "PMC12742169"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0078",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0089-52-c529a342af",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "<文献信息不足以回答该问题> 提供的文献片段主要涉及基线评估（如肿瘤标志物CA19-9检测）、β-内酰胺类抗生素在脓毒症患者中的剂量研究方案以及入组排除标准，均未包含关于“回肠-结肠型肠套叠”与“盲肠癌梗阻”的鉴别诊断方法或相关检查措施（如X线钡剂灌肠、血性黏液便、腹部包块等）的具体信息。因此，无法基于给定文献片段确定正确选项。",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "_randomization_other",
+        "secondary_outcome",
+        "data_collection",
+        "population",
+        "_inclusion_criteria_other"
+      ],
+      "retrieval_sources": [
+        "PMC11929207",
+        "PMC12928687",
+        "PMC6009467",
+        "PMC6561428",
+        "PMC12742169"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0079",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0090-61-14ae6b5501",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "无法回答该临床问题。 因此，基于现有文献无法确定正确选项。 <无答案>",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "_study_design_other",
+        "secondary_outcome",
+        "_primary_outcome_other",
+        "_results_other",
+        "population"
+      ],
+      "retrieval_sources": [
+        "PMC8585847",
+        "PMC11929207",
+        "PMC6009467",
+        "PMC5439542",
+        "PMC3002358"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    },
+    {
+      "taxonomy_id": "EI-MedBench-LLM-text-MedExam-0080",
+      "source_file": "D:/WorkPlace/AI/MinerU/data/sources_medical/medbench/medbench_core_subsets_v2.json",
+      "model": "qwen3.5:35b",
+      "modality": "LLM/text",
+      "query_id": "MB-MedExam-0091-61-ea85bdecbf",
+      "subset": "MedExam",
+      "question_preview": "## 任务：请回答单项选择题，从问题选项中选出一个正确回答的序号，填写到<>中。 ## 要求：1. 只从给定的选项中选择序号，填写到<>中；2. 需要区分大小写；3. 不要输出文字。 ## 任务示例：题目： 男性，31岁。驾车翻入河中，被救起后送当地县医院。入院诊断:1.左胸3、4、5、6肋骨骨折、血气胸；2.左前臂尺桡骨骨折；3.右大腿股骨中1/3骨折。当即施行左胸腔闭式引流、尺桡骨及股骨切开复位内固定术。术后始终左胸疼痛，呼吸困难。",
+      "ei_flag": true,
+      "ei_category": "model_conservative_abstention",
+      "ei_reason_text": "无法回答该问题。>",
+      "retrieval_count": 5,
+      "vision_retrieval_count": null,
+      "context_chunks_used": 3,
+      "retrieval_labels": [
+        "_study_design_other",
+        "secondary_outcome",
+        "_primary_outcome_other",
+        "population",
+        "_data_collection_other"
+      ],
+      "retrieval_sources": [
+        "PMC8585847",
+        "PMC11929207",
+        "PMC6009467",
+        "PMC3002358",
+        "PMC6561428"
+      ],
+      "error": "",
+      "elapsed_seconds": null
+    }
+  ],
+  "taxonomy_record_count": 301,
+  "boundary_notes": [
+    "LLM per-item files do not expose an explicit evidence_insufficient boolean, so LLM sample records are inferred from refusal/insufficiency wording and aggregate counts are taken from the quality JSON.",
+    "VLM 35B and 9B taxonomy records use explicit per_question.evidence_insufficient fields from existing MedBench JSON artifacts.",
+    "This taxonomy describes evidence boundary and retrieval/format failure modes; it is not an official MedBench score or clinical correctness assessment."
+  ],
+  "acceptance_check": {
+    "required_summary_fields_present": true,
+    "llm_key_numbers_traceable": true,
+    "vlm_35b_key_numbers_traceable": true,
+    "vlm_9b_key_numbers_traceable": true,
+    "degraded_reason_present_for_llm": true
+  }
+}

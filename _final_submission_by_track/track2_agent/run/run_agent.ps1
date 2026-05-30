@@ -116,7 +116,7 @@ $ErrorActionPreference = "Stop"
 $env:PYTHONIOENCODING = 'utf-8'
 $env:PYTHONUTF8 = '1'
 [Console]::OutputEncoding = [System.Text.UTF8Encoding]::new($false)
-$ROOT = $PSScriptRoot
+$ROOT = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
 $PYTHON = "conda"
 $ENV_FLAGS = @("run", "--no-capture-output", "-n", "myenv", "python")
 
@@ -153,6 +153,7 @@ $METADATA_JSON  = Join-Path $ROOT "corpus\metadata.json"
 $ANALYZE_OUT    = Join-Path $ROOT "analyze\outputs"
 $QLORA_DIR      = Join-Path $ROOT "finetune\output\qlora"
 $QLORA_FINAL    = Join-Path $ROOT "finetune\output\qlora-final"
+$STANDALONE_BUNDLE = -not (Test-Path (Join-Path $ROOT "benchmark\eval\evaluate.py"))
 
 $START_TIME = Get-Date
 
@@ -319,6 +320,15 @@ if (-not $EffectiveSkipLocalJudge)  { $TOTAL_STEPS++ }
 function Next-Step {
     $script:STEP++
     return $script:STEP
+}
+
+if ($STANDALONE_BUNDLE) {
+    if ($Execute) {
+        Write-Err "This Track2 final bundle contains submitted evidence, not the full benchmark source tree. Run .\run\run_reviewer_demo.ps1 for package verification, or run this script from the public repository root for full reproduction."
+        exit 1
+    }
+    Write-Warn "Standalone final bundle detected. Use .\run\run_reviewer_demo.ps1 for package verification; full reproduction requires the public repository root."
+    exit 0
 }
 
 # ============================================================

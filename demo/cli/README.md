@@ -6,19 +6,19 @@
 
 ```bash
 # Track1 — 科学数据对齐演示 (5 题)
-python demo/cli/controlscidemo track1 --quick
+conda run --no-capture-output -n myenv python demo/cli/controlscidemo track1 --quick
 
 # Track2 — Agent 智能体演示 (5 题)
-python demo/cli/controlscidemo track2 --quick
+conda run --no-capture-output -n myenv python demo/cli/controlscidemo track2 --quick
 
 # Track3 — 医疗 RAG 问答演示 (5 题)
-python demo/cli/controlscidemo track3 --quick
+conda run --no-capture-output -n myenv python demo/cli/controlscidemo track3 --quick
 
 # 三赛道全跑
-python demo/cli/controlscidemo all --quick
+conda run --no-capture-output -n myenv python demo/cli/controlscidemo all --quick
 
 # 指定数量
-python demo/cli/controlscidemo track1 --sample 10
+conda run --no-capture-output -n myenv python demo/cli/controlscidemo track1 --sample 10
 ```
 
 说明：

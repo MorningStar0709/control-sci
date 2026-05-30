@@ -1,6 +1,6 @@
 """Deprecated compatibility entrypoint for the ControlSci Agent.
 
-Use benchmark/agent/agent_cli.py for the maintained 14-intent router.
+Use benchmark/agent/agent_cli.py for the maintained 15-intent router.
 This wrapper intentionally avoids the legacy implementation so old calls do
 not bypass current privacy, logging, and scheduler policies.
 """

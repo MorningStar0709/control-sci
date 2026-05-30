@@ -6,14 +6,14 @@ const steps = [
   { id: 2, label: 'Track1：论文到评测', desc: '选择样例或上传 PDF，验证解析、出题与评分链路', href: '/track1' },
   { id: 3, label: 'Track2：Agent 工作流', desc: '输入任务目标，查看 intent、DAG 与资源调度', href: '/track2' },
   { id: 4, label: 'Track3：Medical RAG', desc: '输入临床文献问题，验证检索 chunk、引用回答与结论校验', href: '/track3' },
-  { id: 5, label: '来源矩阵', desc: '核验努力、来源、评分理由与交付物之间的对应关系', href: '/evidence' },
+  { id: 5, label: '来源矩阵', desc: '查看努力、来源、依据说明与交付物之间的对应关系', href: '/evidence' },
 ];
 
 const cliCommands = [
-  'python demo/cli/controlscidemo track1 --quick',
-  'python demo/cli/controlscidemo track2 --quick',
-  'python demo/cli/controlscidemo track3 --quick',
-  'python demo/cli/controlscidemo all --quick',
+  'conda run --no-capture-output -n myenv python demo/cli/controlscidemo track1 --quick',
+  'conda run --no-capture-output -n myenv python demo/cli/controlscidemo track2 --quick',
+  'conda run --no-capture-output -n myenv python demo/cli/controlscidemo track3 --quick',
+  'conda run --no-capture-output -n myenv python demo/cli/controlscidemo all --quick',
 ];
 
 export default function DemoPage() {
@@ -21,7 +21,7 @@ export default function DemoPage() {
     <SectionWrapper>
       <div className="custom-screen space-y-6">
         <div>
-          <h1 className="text-gray-800 text-3xl font-semibold sm:text-4xl mb-2">演示路径</h1>
+          <h1 className="text-gray-800 text-3xl font-semibold sm:text-4xl mb-2">工作台导览</h1>
           <p className="text-gray-500 text-sm">按顺序点击即可完整验证三赛道能力，也可以跳转到任一页面独立复现。</p>
         </div>
 

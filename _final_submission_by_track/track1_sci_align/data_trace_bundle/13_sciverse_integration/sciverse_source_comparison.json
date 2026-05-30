@@ -1,0 +1,126 @@
+{
+  "generated_at": "2026-05-22T13:58:40.915242+00:00",
+  "input": {
+    "queries": [
+      "MPC临床控制",
+      "Lyapunov稳定性",
+      "强化学习控制",
+      "闭环胰岛素",
+      "卡尔曼滤波"
+    ]
+  },
+  "summary": {
+    "sciverse_avg_total": 7085105.0,
+    "queries": 5
+  },
+  "cases": [
+    {
+      "label": "MPC临床控制",
+      "query": "model predictive control clinical trial insulin",
+      "domain": "控制×医学",
+      "sciverse": {
+        "total_count": 11257813,
+        "sample_years": [
+          2007.0,
+          2016.0,
+          2018.0
+        ],
+        "sample_titles": [
+          "Introduction to Stochastic MPC",
+          "Multivariable Model Predictive Control",
+          "PID Control Using Extended Non-minimal State Space Model Optimization"
+        ]
+      },
+      "narrative_arxiv": "控制理论 MPC 算法",
+      "narrative_sciverse": "临床试验 + 教材"
+    },
+    {
+      "label": "Lyapunov稳定性",
+      "query": "Lyapunov stability nonlinear control proof",
+      "domain": "控制理论",
+      "sciverse": {
+        "total_count": 5265242,
+        "sample_years": [
+          2002.0,
+          2011.0,
+          2015.0,
+          2017.0,
+          2019.0
+        ],
+        "sample_titles": [
+          "A Universal Formula for Asymptotic Stabilization with Bounded Controls",
+          "Numerically-Robust Inductive Proof Rules for Continuous Dynamical Systems",
+          "Distributed Consensus Control of Multi-USV Systems"
+        ]
+      },
+      "narrative_arxiv": "理论证明预印本",
+      "narrative_sciverse": "教材 + 正式出版"
+    },
+    {
+      "label": "强化学习控制",
+      "query": "deep reinforcement learning robot control 2024",
+      "domain": "智能控制",
+      "sciverse": {
+        "total_count": 7221397,
+        "sample_years": [
+          2018.0,
+          2020.0,
+          2021.0,
+          2022.0,
+          2024.0
+        ],
+        "sample_titles": [
+          "Learning Control Policy with Previous Experiences from Robot Simulator",
+          "Reinforcement Learning for Multi-Robot System: A Review",
+          "Robot Motion Planning Under Uncertain Condition Using Deep Reinforcement Learning"
+        ]
+      },
+      "narrative_arxiv": "2024-2026 前沿",
+      "narrative_sciverse": "全学科 + 教材"
+    },
+    {
+      "label": "闭环胰岛素",
+      "query": "closed loop artificial pancreas insulin glucose control",
+      "domain": "医学控制",
+      "sciverse": {
+        "total_count": 7564872,
+        "sample_years": [
+          2007.0,
+          2009.0,
+          2011.0,
+          2017.0,
+          2021.0
+        ],
+        "sample_titles": [
+          "The Artificial Pancreas: How Sweet Engineering Will Solve Bitter Problems",
+          "Artificial pancreas: an emerging approach to treat Type 1 diabetes",
+          "Fully Closed Loop Glucose Control With a Bihormonal Artificial Pancreas in Adults With Type 1 Diabet"
+        ]
+      },
+      "narrative_arxiv": "少量交叉",
+      "narrative_sciverse": "大量临床文献"
+    },
+    {
+      "label": "卡尔曼滤波",
+      "query": "Kalman filter state estimation navigation GPS 2024",
+      "domain": "信号处理",
+      "sciverse": {
+        "total_count": 4116200,
+        "sample_years": [
+          2013.0,
+          2015.0,
+          2016.0,
+          2021.0,
+          2023.0
+        ],
+        "sample_titles": [
+          "On Designing PMI Kalman Filter for INS/GPS Integrated Systems With Unknown Sensor Errors",
+          "Ship tracking based on the fusion of Kalman filter and particle filter",
+          "Low-Cost Onboard Multisensor State Estimator Based on Global Mixed Sampling Optimization Filter"
+        ]
+      },
+      "narrative_arxiv": "2024+ 预印本",
+      "narrative_sciverse": "全时期 + 教材"
+    }
+  ]
+}

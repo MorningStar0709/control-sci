@@ -24,7 +24,7 @@ controlmind wrapper-doctor
 The launcher resolves Python in this order:
 
 1. `CONTROLMIND_PYTHON`
-2. `conda run -n myenv python`
+2. `conda run --no-capture-output -n myenv python`
 3. `python3` / `python` on `PATH`
 
 Set `CONTROLMIND_HOME` when running from outside the repository.

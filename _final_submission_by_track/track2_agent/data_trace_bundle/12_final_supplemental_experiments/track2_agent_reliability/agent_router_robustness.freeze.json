@@ -1,0 +1,6 @@
+{
+  "frozen_at": "2026-05-23 21:11:09",
+  "source": "benchmark/eval/results/agent_router_robustness.json",
+  "sha256": "62AF2DD0A30B76D09A437D14758E200091968707006938E2D34A0B8F272C4F96",
+  "note": "Task 1 baseline frozen before Task 2 failure injection experiment."
+}

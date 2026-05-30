@@ -1,0 +1,303 @@
+{
+  "schema_version": "1.0",
+  "experiment": "track1_sci_align_integrity_audit",
+  "created_at": "2026-05-23 22:53:11",
+  "evaluation_mode": "local_dataset_integrity_and_traceability_audit",
+  "inputs": {
+    "dataset": "benchmark/dataset/core.json",
+    "multimodal_index": "benchmark/dataset/multimodal_index.json"
+  },
+  "total_questions": 500,
+  "unique_id_rate": 1.0,
+  "unique_id_summary": {
+    "unique_ids": 500,
+    "duplicate_ids": [],
+    "rate": 1.0
+  },
+  "required_field_coverage": {
+    "complete_records": 500,
+    "complete_rate": 1.0,
+    "by_field": {
+      "id": {
+        "present": 500,
+        "coverage": 1.0
+      },
+      "question": {
+        "present": 500,
+        "coverage": 1.0
+      },
+      "answer": {
+        "present": 500,
+        "coverage": 1.0
+      },
+      "dimension": {
+        "present": 500,
+        "coverage": 1.0
+      },
+      "difficulty_level": {
+        "present": 500,
+        "coverage": 1.0
+      },
+      "control_category": {
+        "present": 500,
+        "coverage": 1.0
+      },
+      "reasoning_steps": {
+        "present": 500,
+        "coverage": 1.0
+      },
+      "source_ref": {
+        "present": 500,
+        "coverage": 1.0
+      },
+      "consistency_status": {
+        "present": 500,
+        "coverage": 1.0
+      }
+    }
+  },
+  "dimension_validity_rate": 1.0,
+  "dimension_summary": {
+    "valid": 500,
+    "rate": 1.0,
+    "distribution": {
+      "A": 125,
+      "B": 125,
+      "C": 125,
+      "D": 125
+    }
+  },
+  "reasoning_steps_coverage": {
+    "present": 500,
+    "coverage": 1.0
+  },
+  "source_ref_resolved_rate": 1.0,
+  "source_ref_summary": {
+    "resolved": 500,
+    "unresolved": 0,
+    "source_ref_resolved_rate": 1.0,
+    "unresolved_source_ref": [],
+    "source_ref_mismatch_count": 0,
+    "source_ref_mismatch_ids": []
+  },
+  "multimodal_linkage_summary": {
+    "image_linked_count": 91,
+    "formula_linked_count": 372,
+    "image_formula_linked_count": 74,
+    "cooccurrence_distribution": {
+      "formula_only": 298,
+      "image_formula": 74,
+      "image_only": 17,
+      "text_only": 111
+    }
+  },
+  "linkage_records_sample": [
+    {
+      "sample_id": "CS-EVO-00071",
+      "source_ref": "2201.05599_Smart_Magnetic_Microrobots_Learn_to_Swim_with_Deep_Reinforce_chunk_047",
+      "resolved": true,
+      "resolution_method": "question_id",
+      "chunk_path": "eval\\2201.05599_Smart_Magnetic_Microrobots_Learn_to_Swim_with_Deep_Reinforce_chunk_047.md",
+      "image_count": 0,
+      "formula_count": 0,
+      "cooccurrence_type": "text_only"
+    },
+    {
+      "sample_id": "CS-EVO-00011",
+      "source_ref": "2201.02997_Performance_Analysis_of_Event_Triggered_Consensus_Control_fo_chunk_010",
+      "resolved": true,
+      "resolution_method": "question_id",
+      "chunk_path": "train\\2201.02997_Performance_Analysis_of_Event_Triggered_Consensus_Control_fo_chunk_010.md",
+      "image_count": 0,
+      "formula_count": 23,
+      "cooccurrence_type": "formula_only"
+    },
+    {
+      "sample_id": "CS-EVO-00666",
+      "source_ref": "智能控制_chunk_307",
+      "resolved": true,
+      "resolution_method": "question_id",
+      "chunk_path": "train\\智能控制_chunk_307.md",
+      "image_count": 0,
+      "formula_count": 0,
+      "cooccurrence_type": "text_only"
+    },
+    {
+      "sample_id": "CS-EVO-00704",
+      "source_ref": "2510.17276_Breaking_and_Fixing_Defenses_Against_Control_Flow_Hijacking_chunk_020",
+      "resolved": true,
+      "resolution_method": "question_id",
+      "chunk_path": "train\\2510.17276_Breaking_and_Fixing_Defenses_Against_Control_Flow_Hijacking_chunk_020.md",
+      "image_count": 0,
+      "formula_count": 0,
+      "cooccurrence_type": "text_only"
+    },
+    {
+      "sample_id": "CS-EVO-00825",
+      "source_ref": "Belanger_Control_Engineering_chunk_375",
+      "resolved": true,
+      "resolution_method": "question_id",
+      "chunk_path": "train\\Belanger_Control_Engineering_chunk_375.md",
+      "image_count": 0,
+      "formula_count": 36,
+      "cooccurrence_type": "formula_only"
+    },
+    {
+      "sample_id": "CS-EVO-00471",
+      "source_ref": "2303.01379_Planning_and_Control_of_Uncertain_Cooperative_Mobile_Manipul_chunk_379",
+      "resolved": true,
+      "resolution_method": "question_id",
+      "chunk_path": "train\\2303.01379_Planning_and_Control_of_Uncertain_Cooperative_Mobile_Manipul_chunk_379.md",
+      "image_count": 0,
+      "formula_count": 20,
+      "cooccurrence_type": "formula_only"
+    },
+    {
+      "sample_id": "CS-EVO-00815",
+      "source_ref": "自动控制原理_胡寿松_chunk_368",
+      "resolved": true,
+      "resolution_method": "question_id",
+      "chunk_path": "train\\自动控制原理_胡寿松_chunk_368.md",
+      "image_count": 6,
+      "formula_count": 26,
+      "cooccurrence_type": "image_formula"
+    },
+    {
+      "sample_id": "CS-EVO-00068",
+      "source_ref": "2201.05599_Smart_Magnetic_Microrobots_Learn_to_Swim_with_Deep_Reinforce_chunk_041",
+      "resolved": true,
+      "resolution_method": "question_id",
+      "chunk_path": "train\\2201.05599_Smart_Magnetic_Microrobots_Learn_to_Swim_with_Deep_Reinforce_chunk_041.md",
+      "image_count": 0,
+      "formula_count": 0,
+      "cooccurrence_type": "text_only"
+    },
+    {
+      "sample_id": "CS-EVO-00380",
+      "source_ref": "2503.22959_Pontryagin_Maximum_Principle_for_rough_stochastic_systems_an_chunk_003",
+      "resolved": true,
+      "resolution_method": "question_id",
+      "chunk_path": "train\\2503.22959_Pontryagin_Maximum_Principle_for_rough_stochastic_systems_an_chunk_003.md",
+      "image_count": 0,
+      "formula_count": 4,
+      "cooccurrence_type": "formula_only"
+    },
+    {
+      "sample_id": "CS-EVO-00245",
+      "source_ref": "2503.22959_Pontryagin_Maximum_Principle_for_rough_stochastic_systems_an_chunk_021",
+      "resolved": true,
+      "resolution_method": "question_id",
+      "chunk_path": "train\\2503.22959_Pontryagin_Maximum_Principle_for_rough_stochastic_systems_an_chunk_021.md",
+      "image_count": 0,
+      "formula_count": 22,
+      "cooccurrence_type": "formula_only"
+    },
+    {
+      "sample_id": "CS-EVO-00129",
+      "source_ref": "2505.13475_Causality_for_Cyber_Physical_Systems_chunk_065",
+      "resolved": true,
+      "resolution_method": "question_id",
+      "chunk_path": "train\\2505.13475_Causality_for_Cyber_Physical_Systems_chunk_065.md",
+      "image_count": 2,
+      "formula_count": 0,
+      "cooccurrence_type": "image_only"
+    },
+    {
+      "sample_id": "CS-EVO-00942",
+      "source_ref": "2303.01379_Planning_and_Control_of_Uncertain_Cooperative_Mobile_Manipul_chunk_455",
+      "resolved": true,
+      "resolution_method": "question_id",
+      "chunk_path": "train\\2303.01379_Planning_and_Control_of_Uncertain_Cooperative_Mobile_Manipul_chunk_455.md",
+      "image_count": 0,
+      "formula_count": 26,
+      "cooccurrence_type": "formula_only"
+    },
+    {
+      "sample_id": "CS-EVO-00939",
+      "source_ref": "2307.08762_Geometric_Extended_State_Observer_on_SE3_with_Fast_Finite_Ti_chunk_051",
+      "resolved": true,
+      "resolution_method": "question_id",
+      "chunk_path": "eval\\2307.08762_Geometric_Extended_State_Observer_on_SE3_with_Fast_Finite_Ti_chunk_051.md",
+      "image_count": 0,
+      "formula_count": 0,
+      "cooccurrence_type": "text_only"
+    },
+    {
+      "sample_id": "CS-EVO-00205",
+      "source_ref": "2405.02809_Does_Optimal_Control_Always_Benefit_from_Better_Prediction_A_chunk_006",
+      "resolved": true,
+      "resolution_method": "question_id",
+      "chunk_path": "train\\2405.02809_Does_Optimal_Control_Always_Benefit_from_Better_Prediction_A_chunk_006.md",
+      "image_count": 0,
+      "formula_count": 0,
+      "cooccurrence_type": "text_only"
+    },
+    {
+      "sample_id": "CS-EVO-00913",
+      "source_ref": "最优控制理论与应用_chunk_145",
+      "resolved": true,
+      "resolution_method": "question_id",
+      "chunk_path": "train\\最优控制理论与应用_chunk_145.md",
+      "image_count": 0,
+      "formula_count": 16,
+      "cooccurrence_type": "formula_only"
+    },
+    {
+      "sample_id": "CS-EVO-00746",
+      "source_ref": "2204.07041_Distributed_Optimal_Control_with_Recovered_Robustness_for_Un_chunk_010",
+      "resolved": true,
+      "resolution_method": "question_id",
+      "chunk_path": "train\\2204.07041_Distributed_Optimal_Control_with_Recovered_Robustness_for_Un_chunk_010.md",
+      "image_count": 0,
+      "formula_count": 27,
+      "cooccurrence_type": "formula_only"
+    },
+    {
+      "sample_id": "CS-EVO-01027",
+      "source_ref": "2205.02913_Exponentially_Stable_Adaptive_Optimal_Control_of_Uncertain_L_chunk_011",
+      "resolved": true,
+      "resolution_method": "question_id",
+      "chunk_path": "train\\2205.02913_Exponentially_Stable_Adaptive_Optimal_Control_of_Uncertain_L_chunk_011.md",
+      "image_count": 0,
+      "formula_count": 17,
+      "cooccurrence_type": "formula_only"
+    },
+    {
+      "sample_id": "CS-EVO-00805",
+      "source_ref": "Dynamic_Systems_Modeling_Simulation_Control_chunk_669",
+      "resolved": true,
+      "resolution_method": "question_id",
+      "chunk_path": "eval\\Dynamic_Systems_Modeling_Simulation_Control_chunk_669.md",
+      "image_count": 2,
+      "formula_count": 11,
+      "cooccurrence_type": "image_formula"
+    },
+    {
+      "sample_id": "CS-EVO-00078",
+      "source_ref": "2201.05959_Master_Equation_for_Discrete_Time_Stackelberg_Mean_Field_Gam_chunk_001",
+      "resolved": true,
+      "resolution_method": "question_id",
+      "chunk_path": "train\\2201.05959_Master_Equation_for_Discrete_Time_Stackelberg_Mean_Field_Gam_chunk_001.md",
+      "image_count": 0,
+      "formula_count": 0,
+      "cooccurrence_type": "text_only"
+    },
+    {
+      "sample_id": "CS-EVO-00772",
+      "source_ref": "2403.09179_Synchronisation_Oriented_Design_Approach_for_Adaptive_Contro_chunk_049",
+      "resolved": true,
+      "resolution_method": "question_id",
+      "chunk_path": "eval\\2403.09179_Synchronisation_Oriented_Design_Approach_for_Adaptive_Contro_chunk_049.md",
+      "image_count": 0,
+      "formula_count": 22,
+      "cooccurrence_type": "formula_only"
+    }
+  ],
+  "issues": [],
+  "issue_summary": {},
+  "boundary_notes": [
+    "source_ref_resolved_rate only claims resolvability against the local multimodal_index.json.",
+    "image/formula linkage counts are derived from multimodal_index entries, not from fresh document parsing.",
+    "If issues is non-empty, report wording must preserve the unresolved or mismatch boundary."
+  ]
+}

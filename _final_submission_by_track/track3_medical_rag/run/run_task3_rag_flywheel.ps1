@@ -1,4 +1,4 @@
-﻿<#
+<#
 .SYNOPSIS
     Task3 Medical RAG reproducible flywheel.
 
@@ -30,23 +30,34 @@ param(
     [switch]$SkipSynthesis,
     [switch]$SkipZhAsk,
     [switch]$SkipDemoVerify,
-    [switch]$NoStartServices
+    [switch]$SkipSupplemental,
+    [switch]$EvidenceOnly,
+    [switch]$NoStartServices,
+    [switch]$DryRun
 )
 
 $ErrorActionPreference = "Stop"
 $env:PYTHONIOENCODING = "utf-8"
 $env:PYTHONUTF8 = "1"
 
-$ROOT = (Resolve-Path $PSScriptRoot).Path
+$BUNDLE_ROOT = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
+$SOURCE_ROOT = (Resolve-Path (Join-Path $PSScriptRoot "..\..\..")).Path
+$ROOT = $SOURCE_ROOT
 $MyEnvPython = if ($env:CONTROLMIND_PYTHON) { $env:CONTROLMIND_PYTHON } elseif ($env:CONTROLSCI_PYTHON) { $env:CONTROLSCI_PYTHON } else { "" }
 $EvalScript = Join-Path $ROOT "benchmark\eval\medical_rag_eval.py"
 $EvalJson = Join-Path $ROOT "benchmark\eval\results\medical_rag_eval.json"
 $SmokeJson = Join-Path $ROOT "benchmark\eval\results\medical_rag_eval_synthesis_smoke.json"
 $ZhAskJson = Join-Path $ROOT "benchmark\eval\results\medical_rag_eval_zh_ask.json"
 $ZhAskTrace = Join-Path $ROOT "benchmark\eval\results\medical_rag_zh_ask_traces.jsonl"
+$SupplementalMatrixJson = Join-Path $ROOT "benchmark\eval\results\track3_deployment_smoke_matrix.json"
+$SupplementalSummaryJson = Join-Path $ROOT "benchmark\eval\results\track3_supplemental_summary.json"
 $VerifyScript = Join-Path $ROOT "verify_task3_demo.ps1"
 $ChunksManifest = Join-Path $ROOT "data\sources_medical\chunks\chunks_manifest.json"
 $PublicEvidenceManifest = Join-Path $ROOT "docs\submissions\data_trace_bundle\manifest.json"
+$EvidenceEvalJson = Join-Path $BUNDLE_ROOT "data_trace_bundle\09_medical_rag\medical_rag_eval.json"
+$EvidenceZhAskJson = Join-Path $BUNDLE_ROOT "data_trace_bundle\09_medical_rag\medical_rag_eval_zh_ask.json"
+$EvidenceDeploymentSmokeMatrixJson = Join-Path $BUNDLE_ROOT "data_trace_bundle\12_final_supplemental_experiments\track3_medical_rag_supplemental\track3_deployment_smoke_matrix.json"
+$EvidenceSupplementalSummaryJson = Join-Path $BUNDLE_ROOT "data_trace_bundle\12_final_supplemental_experiments\track3_medical_rag_supplemental\track3_supplemental_summary.json"
 
 function Write-Step {
     param([string]$Message)
@@ -78,6 +89,34 @@ function Assert-File {
     Write-Ok "$Label ready: $Path"
 }
 
+function Invoke-EvidenceOnlyCheck {
+    Write-Step "Evidence-only validation"
+    Assert-File -Path $EvidenceEvalJson -Label "Track3 retrieval evidence JSON"
+    Assert-File -Path $EvidenceZhAskJson -Label "Track3 Chinese Ask evidence JSON"
+    Assert-File -Path $EvidenceDeploymentSmokeMatrixJson -Label "Track3 deployment smoke matrix evidence JSON"
+    Assert-File -Path $EvidenceSupplementalSummaryJson -Label "Track3 supplemental summary evidence JSON"
+    $matrix = Read-Json -Path $EvidenceDeploymentSmokeMatrixJson
+    $summary = Read-Json -Path $EvidenceSupplementalSummaryJson
+    if ($summary.status -notin @("available", "ok")) {
+        throw "Track3 supplemental summary status is not available: $($summary.status)"
+    }
+    $executed = @($matrix.executed_smoke_checks)
+    $notRun = @($matrix.not_run_checks)
+    if (-not ($executed | Where-Object { $_.name -eq "track3_supplemental_status_cli" -and $_.status -eq "passed" })) {
+        throw "Track3 supplemental status CLI smoke is missing or not passed."
+    }
+    if (($notRun | Where-Object { $_.status -ne "not_run_environment_dependency" }).Count -gt 0) {
+        throw "Deployment matrix has environment-dependent checks reported with an unexpected status."
+    }
+    if ([int]$summary.deployment_smoke_matrix.executed_smoke_checks -ne $executed.Count) {
+        throw "Supplemental summary executed smoke count does not match deployment matrix."
+    }
+    if ([int]$summary.deployment_smoke_matrix.not_run_checks -ne $notRun.Count) {
+        throw "Supplemental summary not-run count does not match deployment matrix."
+    }
+    Write-Ok "Final bundle evidence-only validation passed."
+}
+
 function Read-Json {
     param([string]$Path)
     return Get-Content $Path -Raw -Encoding UTF8 | ConvertFrom-Json
@@ -91,10 +130,54 @@ function Read-JsonLines {
 Write-Host ""
 Write-Host "Task3 Medical RAG Flywheel" -ForegroundColor Cyan
 Write-Info "Root: $ROOT"
+Write-Info "Bundle root: $BUNDLE_ROOT"
+Write-Info "Source root: $SOURCE_ROOT"
 Write-Info "TopK: $TopK"
 Write-Info "Synthesis model: $SynthesisModel"
 Write-Info "Main path: existing local corpus -> fixed eval -> local synthesis smoke -> Chinese Ask trace -> demo verification"
 Write-Info "PMC download is excluded from this reproducible loop."
+
+if ($DryRun) {
+    Write-Step "Dry-run plan"
+    Write-Info "Would check RAG eval script: $EvalScript"
+    Write-Info "Would check medical chunks manifest: $ChunksManifest"
+    Write-Info "Would check BGE M3 FAISS/BM25 indexes under data\sources_medical\index_bge_m3"
+    if (-not $SkipRetrieval) {
+        Write-Info "Would run retrieval eval -> $EvalJson"
+    } else {
+        Write-Warn "Retrieval eval skipped by -SkipRetrieval."
+    }
+    if (-not $SkipSynthesis) {
+        Write-Info "Would run local synthesis smoke with $SynthesisModel -> $SmokeJson"
+    } else {
+        Write-Warn "Synthesis smoke skipped by -SkipSynthesis."
+    }
+    if (-not $SkipZhAsk) {
+        Write-Info "Would run Chinese Ask bridge and trace eval -> $ZhAskJson / $ZhAskTrace"
+    } else {
+        Write-Warn "Chinese Ask eval skipped by -SkipZhAsk."
+    }
+    if (-not $SkipDemoVerify) {
+        Write-Info "Would run demo/API verifier: $VerifyScript"
+    } else {
+        Write-Warn "Demo verification skipped by -SkipDemoVerify."
+    }
+    if (-not $SkipSupplemental) {
+        Write-Info "Would refresh supplemental deployment smoke matrix -> $SupplementalMatrixJson / $SupplementalSummaryJson"
+    } else {
+        Write-Warn "Supplemental refresh skipped by -SkipSupplemental."
+    }
+    Write-Ok "Dry-run finished without touching evaluation artifacts."
+    exit 0
+}
+
+if ($EvidenceOnly -or -not (Test-Path $EvalScript)) {
+    if (-not $EvidenceOnly) {
+        Write-Warn "Source repository files are not present in this final bundle; switching to evidence-only validation."
+    }
+    Invoke-EvidenceOnlyCheck
+    exit 0
+}
 
 Assert-File -Path $EvalScript -Label "RAG eval script"
 if (-not ($SkipRetrieval -and $SkipSynthesis -and $SkipZhAsk)) {
@@ -112,7 +195,7 @@ if (-not ($SkipRetrieval -and $SkipSynthesis -and $SkipZhAsk)) {
 }
 
 if (-not $SkipRetrieval) {
-    Write-Step "Step 1/4: fixed multi-index retrieval evaluation"
+    Write-Step "Step 1/5: fixed multi-index retrieval evaluation"
     Invoke-MyEnvPython -ArgsList @(
         $EvalScript,
         "--k", "$TopK",
@@ -132,7 +215,7 @@ if (-not $SkipRetrieval) {
 }
 
 if (-not $SkipSynthesis) {
-    Write-Step "Step 2/4: local evidence-bounded synthesis smoke"
+    Write-Step "Step 2/5: local evidence-bounded synthesis smoke"
     Invoke-MyEnvPython -ArgsList @(
         $EvalScript,
         "--k", "$TopK",
@@ -158,7 +241,7 @@ if (-not $SkipSynthesis) {
 }
 
 if (-not $SkipZhAsk) {
-    Write-Step "Step 3/4: Chinese Ask bridge and trace evaluation"
+    Write-Step "Step 3/5: Chinese Ask bridge and trace evaluation"
     Invoke-MyEnvPython -ArgsList @(
         $EvalScript,
         "--k", "$TopK",
@@ -200,7 +283,7 @@ if (-not $SkipZhAsk) {
 }
 
 if (-not $SkipDemoVerify) {
-    Write-Step "Step 4/4: demo/API verification"
+    Write-Step "Step 4/5: demo/API verification"
     Assert-File -Path $VerifyScript -Label "Task3 demo verifier"
     $verifyArgs = @()
     if ($NoStartServices) {
@@ -212,10 +295,26 @@ if (-not $SkipDemoVerify) {
     Write-Warn "Skipping demo verification."
 }
 
+if (-not $SkipSupplemental) {
+    Write-Step "Step 5/5: supplemental deployment smoke matrix refresh"
+    Invoke-MyEnvPython -ArgsList @(
+        "-m", "benchmark.eval.track3_deployment_smoke_matrix",
+        "--output", $SupplementalMatrixJson,
+        "--summary-output", $SupplementalSummaryJson
+    )
+    Assert-File -Path $SupplementalMatrixJson -Label "Track3 supplemental deployment smoke matrix"
+    Assert-File -Path $SupplementalSummaryJson -Label "Track3 supplemental summary"
+    Write-Ok "Supplemental deployment smoke matrix refreshed."
+} else {
+    Write-Warn "Skipping supplemental refresh."
+}
+
 Write-Step "Summary"
 Write-Ok "Task3 RAG flywheel finished."
 Write-Info "Retrieval artifact: benchmark\eval\results\medical_rag_eval.json"
 Write-Info "Synthesis artifact: benchmark\eval\results\medical_rag_eval_synthesis_smoke.json"
 Write-Info "Chinese Ask artifact: benchmark\eval\results\medical_rag_eval_zh_ask.json"
 Write-Info "Chinese Ask trace: benchmark\eval\results\medical_rag_zh_ask_traces.jsonl"
+Write-Info "Supplemental deployment matrix: benchmark\eval\results\track3_deployment_smoke_matrix.json"
+Write-Info "Supplemental summary: benchmark\eval\results\track3_supplemental_summary.json"
 Write-Info "Traceability docs: docs\submissions\shared\DATA-TRACE.md and docs\submissions\track3_medical_rag_report.md"

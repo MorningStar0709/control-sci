@@ -20,7 +20,7 @@ const TRACK1_SAMPLE_SOURCE = [
   '一个简化稳定性条件可写为 $\\dot V(x_t) < 0$。在实际评测中，模型回答需要说明 Lyapunov 泛函选择、LMI 可行性含义、保守性来源，以及该判据不能直接证明未建模扰动或超出时滞上界的情形。',
 ].join('\n');
 
-export function PageHeader({ title = '演示路径', desc }) {
+export function PageHeader({ title = '展示导览', desc }) {
   return (
     <div className="border-b pb-5">
       <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-3">
@@ -57,10 +57,10 @@ export function ShowcaseHeader({ health }) {
     <section className="border rounded-lg bg-white overflow-hidden">
       <div className="p-6 lg:p-7 grid grid-cols-1 lg:grid-cols-[1.4fr_0.9fr] gap-6">
         <div>
-          <div className="text-[11px] font-mono text-gray-500 mb-3">ControlMind 公开演示工作台</div>
-          <h1 className="text-3xl sm:text-4xl font-semibold text-gray-900 leading-tight">面向公开评审的科学文档智能评测工作台</h1>
+          <div className="text-[11px] font-mono text-gray-500 mb-3">ControlMind 在线展示版</div>
+          <h1 className="text-3xl sm:text-4xl font-semibold text-gray-900 leading-tight">科学文档智能处理成果展示台</h1>
           <p className="mt-4 text-sm text-gray-600 max-w-3xl">
-            延续完整系统的三赛道设计，云端只开放适合公开展示的解析、出题、评分、任务规划和医学 RAG 来源回放；私有语料和长任务保留在受控环境中。
+            延续完整系统的三赛道设计，在线版本聚焦公开样例体验、成果浏览和来源回放；私有语料、长任务和本地索引保留在受控环境中复现。
           </p>
           <div className="mt-5 grid grid-cols-1 md:grid-cols-3 gap-2">
             {[
@@ -105,8 +105,8 @@ export function ShowcaseHeader({ health }) {
 export function Notice() {
   return (
     <div className="border rounded-lg p-5 bg-gray-50 text-sm text-gray-600 space-y-2">
-      <p><strong className="text-gray-800">验证原则：</strong>云端页面必须与完整工作台同构；能执行的按钮才叫执行，不能公开执行的能力只做产物回放和来源核验。</p>
-      <p>纯云端 Demo 只处理公开/脱敏材料；实时能力由服务端代理 MinerU 官方 API 与 DeepSeek，密钥不进入浏览器。</p>
+      <p><strong className="text-gray-800">展示原则：</strong>在线页面与完整工作台保持同构；适合公开体验的按钮提供轻量操作，重资产能力以结果回放和来源查看呈现。</p>
+      <p>在线展示版只处理公开/脱敏材料；实时能力由服务端代理 MinerU 官方 API 与 DeepSeek，密钥不进入浏览器。</p>
     </div>
   );
 }
@@ -114,8 +114,8 @@ export function Notice() {
 export function OutcomeStrip() {
   const items = [
     ['可部署', 'Ubuntu 双服务部署，公网入口只暴露工作台。'],
-    ['可演示', '公开 URL、PDF 上传、任务规划、医学来源回放都可操作。'],
-    ['可核验', 'health/runtime/tracks/quiz/grade/rag 都有独立 API 可测。'],
+    ['可体验', '公开 URL、PDF 上传、任务规划、医学来源回放都可浏览。'],
+    ['可追溯', 'health/runtime/tracks/quiz/grade/rag 都有独立入口可查看。'],
     ['边界清楚', '无私有资产入口，密钥不进浏览器。'],
   ];
   return (
@@ -146,7 +146,7 @@ export function AchievementOverview() {
       title: '赛道二：Data Agent',
       desc: '把语料生产从脚本流水线升级为可规划、可恢复、可审计的执行协议。',
       metrics: [
-        ['14', 'Intent 能力'],
+        ['15', 'Intent 能力'],
         ['4', '推理轨道'],
         ['9,207', '视觉审计判决'],
         ['391s', '飞轮闭环'],
@@ -185,17 +185,17 @@ export function AchievementOverview() {
 
 export function DemoRouteMap() {
   const routes = [
-    ['1', '确认状态', '查看 MinerU、DeepSeek、额度、上传限制是否满足公开演示条件。', '/health'],
+    ['1', '确认状态', '查看 MinerU、DeepSeek、额度、上传限制是否满足公开展示条件。', '/health'],
     ['2', '进入赛道一', '用公开 PDF URL 或摘要完成解析、出题和评分的最小闭环。', '/track1'],
     ['3', '进入赛道二', '输入公开任务目标，生成 intent、DAG、资源策略和产物来源摘要。', '/track2'],
     ['4', '进入赛道三', '回放医学 RAG 案例，展示来源、结论状态和安全边界。', '/track3'],
-    ['5', '查看来源矩阵', '把三赛道报告、数据、API 和验收路径逐项对上。', '/evidence'],
+    ['5', '查看来源矩阵', '把三赛道报告、数据、API 和复现路径逐项对上。', '/evidence'],
   ];
   return (
     <section className="border rounded-lg bg-white p-5">
       <div className="flex items-center justify-between gap-3 mb-4">
         <div>
-          <h2 className="text-sm font-semibold text-gray-900">推荐演示顺序</h2>
+          <h2 className="text-sm font-semibold text-gray-900">推荐浏览顺序</h2>
           <p className="text-xs text-gray-500 mt-1">这页只保留操作路径，不再重复总览页的成果陈列。</p>
         </div>
         <span className="rounded border bg-gray-50 px-2 py-1 text-[11px] font-mono text-gray-600">五步导览</span>
@@ -223,13 +223,13 @@ export function LocalCloudMirrorMap() {
     <section className="border rounded-lg bg-white overflow-hidden">
       <div className="p-5 border-b">
         <h2 className="text-sm font-semibold text-gray-900">公开展示边界</h2>
-        <p className="text-xs text-gray-500 mt-1">三赛道能力按公开评审场景重新呈现：可实时体验的保留为云端操作，重资产能力以来源和产物回放方式核验。</p>
+        <p className="text-xs text-gray-500 mt-1">三赛道能力按公开访问场景重新呈现：可实时体验的保留为云端操作，重资产能力以来源和产物回放方式呈现。</p>
       </div>
       <div className="overflow-x-auto">
         <table className="w-full text-xs">
           <thead className="bg-gray-50 text-gray-500">
             <tr>
-              {['赛道', '完整系统能力', '云端保留能力', '云端砍掉能力'].map(h => <th key={h} className="text-left font-medium px-4 py-3 whitespace-nowrap">{h}</th>)}
+              {['赛道', '完整系统能力', '在线展示能力', '本地复现能力'].map(h => <th key={h} className="text-left font-medium px-4 py-3 whitespace-nowrap">{h}</th>)}
             </tr>
           </thead>
           <tbody>
@@ -256,8 +256,8 @@ export function ApiPipeline() {
     <section className="border rounded-lg bg-white p-5">
       <div className="flex items-center justify-between gap-3 mb-4">
         <div>
-          <h2 className="text-sm font-semibold text-gray-900">后端 API 闭环</h2>
-          <p className="text-xs text-gray-500 mt-1">不是静态演示，云端保留的关键动作都有可独立验收的 API；长任务只做产物回放。</p>
+          <h2 className="text-sm font-semibold text-gray-900">在线服务与回放链路</h2>
+          <p className="text-xs text-gray-500 mt-1">不是静态截图，在线版本保留适合公开体验的轻量操作；长任务与私有索引以产物回放呈现。</p>
         </div>
         <span className="rounded border bg-gray-50 px-2 py-1 text-[11px] font-mono text-gray-600">服务端代理</span>
       </div>
@@ -289,7 +289,7 @@ export function CapabilityMatrix() {
     <section className="border rounded-lg bg-white overflow-hidden">
       <div className="p-5 border-b">
         <h2 className="text-sm font-semibold text-gray-900">成果矩阵</h2>
-        <p className="text-xs text-gray-500 mt-1">把成果拆成输入、云端能力、可见输出，方便评审逐项检查。</p>
+        <p className="text-xs text-gray-500 mt-1">把成果拆成输入、云端能力和可见输出，方便访问者逐项浏览。</p>
       </div>
       <div className="overflow-x-auto">
         <table className="w-full text-xs">
@@ -319,7 +319,7 @@ const trackEvidenceMatrix = [
     title: 'ControlMind Sci-Align 评测基座',
     effort: '362 PDF 文档 · 253,012 LaTeX 公式 · 11,554 嵌入图片 · 28,514 语义 chunk · 500 核心评测题 · A/B/C/D 四维平衡',
     scoring: '评分依据不是单次 API 成功，而是控制科学语料被结构化后，能够进入四维 Benchmark、自动出题、模型答题与 Judge 评分，并保留题目、参考答案、评分理由和来源路径。',
-    deliverable: '赛道一公开演示：MinerU 官方 API 解析公开 PDF，DeepSeek 基于解析文本出题并评分。',
+    deliverable: '赛道一在线展示：MinerU 官方 API 解析公开 PDF，DeepSeek 基于解析文本出题并评分。',
     report_path: 'docs/submissions/track1_sci_align_report.md · docs/submissions/shared/DATA-TRACE.md',
     sources: [
       ['track1_sci_align_report.md', 'docs/submissions/track1_sci_align_report.md', 156],
@@ -334,9 +334,9 @@ const trackEvidenceMatrix = [
     code: 'T2',
     role: 'Agent 工作流与数据飞轮',
     title: 'ControlMind Data Agent 执行协议',
-    effort: '14 Intent 能力 · 4 推理轨道 · 9,207 视觉审计判决 · 391s 数据飞轮闭环 · 62ms 故障降级案例 · 17 跨领域零改动模块',
-    scoring: '评分依据是 Agent 把自然语言目标拆成 intent、DAG、资源调度、执行摘要和来源日志，而不是把固定 pipeline 包装成智能体。云端版只展示公开任务规划和核验摘要，不执行长任务。',
-    deliverable: '赛道二公开演示：展示意图路由、资源调度、执行校验、日志与来源的协议结构。',
+    effort: '15 Intent 能力 · 4 推理轨道 · 9,207 视觉审计判决 · 391s 数据飞轮闭环 · 62ms 故障降级案例 · 17 跨领域协议复用',
+    scoring: '依据说明是 Agent 把自然语言目标拆成 intent、DAG、资源调度、执行摘要和来源日志，而不是把固定 pipeline 包装成智能体。在线版展示公开任务规划和来源摘要，不执行长任务。',
+    deliverable: '赛道二在线展示：呈现意图路由、资源调度、执行校验、日志与来源的协议结构。',
     report_path: 'docs/submissions/track2_agent_report.md · docs/submissions/judge_quickstart.md',
     sources: [
       ['track2_agent_report.md', 'docs/submissions/track2_agent_report.md', 132],
@@ -352,14 +352,14 @@ const trackEvidenceMatrix = [
     role: '医学来源约束 RAG',
     title: '医学 RAG 来源问答与安全边界',
     effort: '3,348 医学文段 · FAISS + BM25 · 混合 RRF · BGE M3 / 高维索引 / BGE Small · 结论校验 · 安全拒答',
-    scoring: '评分依据是医学回答必须先检索后合成，保留文段、引用、结论支撑状态和拒答边界。云端版只回放已验证 trace，不声称现场访问私有资产。',
-    deliverable: '赛道三公开演示：按 Ask 页口径回放已验证来源、中文回答、结论状态和安全声明。',
+    scoring: '依据说明是医学回答必须先检索后合成，保留文段、引用、结论支撑状态和拒答边界。在线版回放已验证 trace，不声称现场访问私有资产。',
+    deliverable: '赛道三在线展示：按 Ask 页口径回放已验证来源、中文回答、结论状态和安全声明。',
     report_path: 'docs/submissions/track3_medical_rag_report.md · docs/submissions/shared/DATA-TRACE.md',
     sources: [
       ['track3_medical_rag_report.md', 'docs/submissions/track3_medical_rag_report.md', 148],
       ['医学 RAG 评测', 'docs/submissions/data_trace_bundle/07_medical_rag/', 96],
       ['视觉描述产物', 'docs/submissions/data_trace_bundle/06_medical_vision/', 72],
-      ['评审快速导览', 'docs/submissions/judge_quickstart.md', 54],
+      ['快速导览', 'docs/submissions/judge_quickstart.md', 54],
       ['医学 RAG API', '/api/demo/medical-rag/ask', 0],
     ],
   },
@@ -394,10 +394,10 @@ const trackShowcases = {
   track2: {
     title: '赛道二：ControlMind Data Agent',
     subtitle: '把科学文档语料生产从脚本流水线升级为可规划、可恢复、可审计的 Agent 执行协议。',
-    note: '云端版本展示 Agent 协议、能力矩阵和公开任务规划；不启动长任务或私有语料重跑。',
+    note: '在线版本展示 Agent 协议、能力矩阵和公开任务规划；不启动长任务或私有语料重跑。',
     pain: [
       ['人工语料产线成本高', '文献检索、解析调参、视觉质检、出题、评测和排行榜更新累计约 558 工时。'],
-      ['脚本流水线不可恢复', '固定 pipeline 只能按顺序跑，缺少失败降级、checkpoint 和质量验收协议。'],
+      ['脚本流水线不可恢复', '固定 pipeline 只能按顺序跑，缺少失败降级、checkpoint 和质量闭环协议。'],
       ['云端边界难执行', '公开材料、私有原文、chunk、索引和微调产物需要由系统自动路由。'],
       ['跨模态质检难规模化', '图片、公式、表格和正文需要统一审计，不能依赖人工逐篇抽查。'],
     ],
@@ -419,7 +419,7 @@ const trackShowcases = {
   track3: {
     title: '赛道三：医学 RAG 来源回放',
     subtitle: '按 Ask 页口径回放检索来源、中文回答、结论状态和安全边界。',
-    note: '完整系统包含私有医学 RAG；云端版本展示公开/脱敏案例回放，不声称现场访问私有医学资产。',
+    note: '完整系统包含私有医学 RAG；在线版本展示公开/脱敏案例回放，不声称现场访问私有医学资产。',
     pain: [
       ['医学回答必须有来源', '不能凭模型记忆直接生成医学结论，必须先检索、再合成、再校验。'],
       ['中文问题对英文文献', '用户用中文问，系统要能命中英文论文 chunk 并回到中文解释。'],
@@ -470,7 +470,7 @@ export function TrackShowcase({ id }) {
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
         <div className="xl:col-span-2 rounded-lg border bg-white p-5">
           <div className="text-sm font-semibold text-gray-900">核心成果指标</div>
-          <div className="mt-1 text-xs text-gray-500">沿用完整工作台的成果口径，云端只做公开展示和轻量核验。</div>
+          <div className="mt-1 text-xs text-gray-500">沿用完整工作台的成果口径，在线版本聚焦公开展示和轻量查看。</div>
           <div className="mt-4 grid grid-cols-2 md:grid-cols-3 gap-3">
             {data.metrics.map(([value, label]) => (
               <div key={label} className="rounded border bg-gray-50 px-3 py-3">
@@ -481,7 +481,7 @@ export function TrackShowcase({ id }) {
           </div>
         </div>
         <div className="rounded-lg border bg-white p-5">
-          <div className="text-sm font-semibold text-gray-900">协议 / 评分依据</div>
+          <div className="text-sm font-semibold text-gray-900">协议 / 依据说明</div>
           <div className="mt-4 space-y-2">
             {data.protocol.map(([label, text]) => (
               <div key={label} className="rounded border bg-gray-50 px-3 py-2">
@@ -507,14 +507,14 @@ export function EvidenceMatrix() {
           <div className="text-xs font-mono text-gray-500 mb-3">数据追溯台 / 公开展示矩阵</div>
           <h1 className="text-gray-900 text-3xl font-semibold sm:text-4xl mb-3">来源矩阵</h1>
           <p className="text-gray-600 text-sm leading-7">
-            三条赛道的核心来源、评分理由和公开交付物集中在一屏。云端版展示公开可讲的成果来源链，并把长任务替换为可访问 API 或公开报告路径。
+            三条赛道的核心来源、依据说明和公开交付物集中在一屏。在线版展示公开可讲的成果来源链，并把长任务替换为可访问 API 或公开报告路径。
           </p>
         </div>
         <Link href="/api/demo/health" className="self-start lg:self-auto px-4 py-2 border rounded bg-white text-xs text-gray-700 hover:bg-gray-50">打开 health API</Link>
       </header>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
         <div className="border rounded-lg bg-white p-4"><div className="text-[11px] font-mono text-gray-500">赛道数量</div><div className="mt-2 text-2xl font-semibold text-gray-900">{trackEvidenceMatrix.length}</div><div className="mt-1 text-xs text-gray-600">论文评测 / Agent / 医学 RAG</div></div>
-        <div className="border rounded-lg bg-white p-4"><div className="text-[11px] font-mono text-gray-500">来源条目</div><div className="mt-2 text-2xl font-semibold text-gray-900">{fileCount}</div><div className="mt-1 text-xs text-gray-600">报告、数据、API 与验收路径</div></div>
+        <div className="border rounded-lg bg-white p-4"><div className="text-[11px] font-mono text-gray-500">来源条目</div><div className="mt-2 text-2xl font-semibold text-gray-900">{fileCount}</div><div className="mt-1 text-xs text-gray-600">报告、数据、API 与复现路径</div></div>
         <div className="border rounded-lg bg-white p-4"><div className="text-[11px] font-mono text-gray-500">引用体量</div><div className="mt-2 text-2xl font-semibold text-gray-900">{sizeText(totalKb)}</div><div className="mt-1 text-xs text-gray-600">公开索引体量，不代表完整私有语料</div></div>
       </div>
       <div className="space-y-5">
@@ -539,7 +539,7 @@ export function EvidenceMatrix() {
                   </div>
                 </section>
                 <section>
-                  <div className="text-[11px] font-mono tracking-wider text-gray-500 mb-2">评分依据</div>
+                  <div className="text-[11px] font-mono tracking-wider text-gray-500 mb-2">依据说明</div>
                   <p className="text-sm leading-6 text-gray-700">{track.scoring}</p>
                 </section>
               </div>
@@ -588,7 +588,7 @@ export function MetricGrid({ health }) {
   const backendDisconnected = Array.isArray(health?.issues) && health.issues.some(issue => String(issue).includes('API is not reachable'));
   const inactiveLabel = backendDisconnected ? '后端未连接' : '回放模式';
   const items = [
-    ['运行模式', health?.profile === 'pure_cloud_demo' ? '公开演示' : (health?.profile || '公开演示')],
+    ['运行模式', health?.profile === 'pure_cloud_demo' ? '在线展示' : (health?.profile || '在线展示')],
     ['MinerU', health?.components?.mineru_official_api?.available ? '已配置' : inactiveLabel],
     ['DeepSeek', health?.components?.deepseek_api?.available ? '已配置' : inactiveLabel],
     ['今日额度', `${quota.remaining ?? '-'}/${quota.limit ?? '-'}`],
@@ -774,7 +774,7 @@ export function Track1Card() {
               <div className="flex items-center justify-between gap-3">
                 <div>
                   <div className="text-sm font-semibold text-gray-900">公开/脱敏解析文本</div>
-                  <p className="mt-1 text-xs text-gray-500">现场演示可直接使用内置摘要，保证出题评分闭环稳定。</p>
+              <p className="mt-1 text-xs text-gray-500">在线展示可直接使用内置摘要，保证出题评分闭环稳定。</p>
                 </div>
                 <button onClick={() => { setSourceText(TRACK1_SAMPLE_SOURCE); setResult({ status: 'sample_loaded', markdown_preview: TRACK1_SAMPLE_SOURCE, markdown_chars: TRACK1_SAMPLE_SOURCE.length }); }} className="px-3 py-1.5 rounded border text-xs text-gray-700 hover:bg-gray-50">填入内置摘要</button>
               </div>
@@ -783,7 +783,7 @@ export function Track1Card() {
           value={sourceText}
           onChange={e => setSourceText(e.target.value)}
           rows={8}
-          placeholder="上传解析完成后自动填入，也可以粘贴公开/脱敏摘要用于出题评分验收"
+          placeholder="上传解析完成后自动填入，也可以粘贴公开/脱敏摘要用于出题评分体验"
           className="w-full border rounded px-3 py-2 text-sm"
         />
               <div className="mt-2 flex flex-col md:flex-row gap-2">
@@ -798,7 +798,7 @@ export function Track1Card() {
           <div className="space-y-3 mb-4">
             {parseSteps.map(item => <PipelineStep key={item.step} {...item} />)}
           </div>
-          {result?.error && <ErrorCallout message={String(result.error)} hint="可改用内置摘要继续完成公开闭环演示。" />}
+          {result?.error && <ErrorCallout message={String(result.error)} hint="可改用内置摘要继续完成公开闭环体验。" />}
             {result && (
               <div className="overflow-hidden rounded-lg border bg-gray-50 p-4 text-xs text-gray-700">
                 {result.markdown_preview ? (
@@ -902,7 +902,7 @@ export function Track2Card() {
       <div className="p-5 border-b bg-gray-50">
         <div className="text-[11px] font-mono text-gray-500 mb-2">赛道二 / Data Agent 产物回放</div>
         <h3 className="text-xl font-semibold text-gray-900">Data Agent 产物回放</h3>
-        <p className="mt-2 text-sm text-gray-600 max-w-3xl">对齐赛道二页面：展示任务目标、DAG、日志、指标和来源产物。云端不执行长任务，只回放已验证产物。</p>
+        <p className="mt-2 text-sm text-gray-600 max-w-3xl">对齐赛道二页面：展示任务目标、DAG、日志、指标和来源产物。在线版本不执行长任务，只回放已验证产物。</p>
       </div>
       <div className="p-5 space-y-5">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -1088,7 +1088,7 @@ export function AcceptanceCard({ runtime, health, tracks }) {
     mineru_official: 'MinerU 官方 API',
   };
   const checks = [
-    `运行模式：${runtime?.mode === 'pure_cloud_only' ? '公开云端模式' : (runtime?.mode || '公开云端模式')}`,
+    `运行模式：${runtime?.mode === 'pure_cloud_only' ? '在线展示模式' : (runtime?.mode || '在线展示模式')}`,
     `私有资产入口：关闭`,
     `解析后端：${(runtime?.parser_backends || []).map(x => parserLabels[x.id] || x.label || x.id).join('、') || 'MinerU 官方 API'}`,
     `赛道数量：${tracks?.tracks?.length ?? 3}`,
@@ -1097,13 +1097,13 @@ export function AcceptanceCard({ runtime, health, tracks }) {
   ];
   return (
     <section className="border rounded-lg p-5 bg-white">
-      <h2 className="text-sm font-semibold text-gray-800 mb-2">验收核验</h2>
-      <p className="text-xs text-gray-500 mb-3">核验云端展示、运行策略、后端 API 与公开交付物之间的对应关系。</p>
+      <h2 className="text-sm font-semibold text-gray-800 mb-2">展示链路</h2>
+      <p className="text-xs text-gray-500 mb-3">查看在线展示、运行策略、后端 API 与公开交付物之间的对应关系。</p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
         {checks.map(item => <div key={item} className="rounded border bg-gray-50 px-3 py-2 text-[11px] text-gray-700">{item}</div>)}
       </div>
       <div className="mt-3 grid grid-cols-1 md:grid-cols-4 gap-2">
-        {['解析 API 已接入', '出题评分 API 已接入', '规划 API 已接入', 'RAG API 已接入'].map(item => (
+        {['公开解析体验', '出题评分体验', '规划流程展示', 'RAG 来源回放'].map(item => (
           <div key={item} className="rounded border bg-green-50 px-3 py-2 text-[11px] text-green-700">{item}</div>
         ))}
       </div>

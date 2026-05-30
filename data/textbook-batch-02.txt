@@ -1,0 +1,7 @@
+data\pdf\textbooks\自抗扰控制技术.pdf
+data\pdf\textbooks\控制理论导论_郭雷.pdf
+data\pdf\textbooks\智能控制.pdf
+data\pdf\textbooks\先进PID控制MATLAB仿真.pdf
+data\pdf\textbooks\自动控制原理_胡寿松.pdf
+data\pdf\textbooks\动态系统的反馈控制_Franklin.pdf
+data\pdf\textbooks\非线性系统_Khalil.pdf

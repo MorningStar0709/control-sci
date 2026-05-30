@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-05-17T20:05:00",
+  "generated_at": "2026-05-24T16:22:20",
   "project": "ControlSci — 2026 MinerU Challenge",
   "generator": "scripts/build_data_trace_bundle.py",
   "strategy": "copy (源文件未移动)",
   "description": "DATA-TRACE 配套数据集中导航包。所有数据均可在仓库原始位置找到。",
-  "total_size_mb": 395.85,
+  "total_size_mb": 400.96,
   "files": [
     {
       "bundle_path": "01_corpus_scale/a1_global_pca.json",
@@ -442,10 +442,10 @@
     },
     {
       "bundle_path": "12_final_supplemental_experiments/README.md",
-      "source_path": "docs/evidence/final_supplemental_experiments/README.md",
-      "size_bytes": 1315,
+      "source_path": "docs/submissions/data_trace_bundle/12_final_supplemental_experiments/README.md",
+      "size_bytes": 2065,
       "size_mb": 0.0,
-      "sha256": "dfff51a762d4ffc204efcd767c2964fabecb123c3f48c1b61090e39e0ac8ba16"
+      "sha256": "7c8185dabd6f46983c98479f1e5cb3ebd216bb540105d93c62bd303c2cededd8"
     },
     {
       "bundle_path": "12_final_supplemental_experiments/track1_load/local_json_load_dataset.log",
@@ -551,6 +551,349 @@
       "size_bytes": 1844,
       "size_mb": 0.0,
       "sha256": "a94724c20095aca16704e3c4ae50e464a142f9ac8479af62c66084655ee713a6"
+    },
+    {
+      "bundle_path": "13_sciverse_integration/medbench_sciverse_report.json",
+      "source_path": "benchmark/eval/results/medical/medbench_sciverse_report.json",
+      "size_bytes": 303194,
+      "size_mb": 0.29,
+      "sha256": "35c93af51457226236b52ab62fcc21a3a99b201e4a28c47c9bcd41f928cf9b99"
+    },
+    {
+      "bundle_path": "13_sciverse_integration/sciverse_14_subfield_coverage.json",
+      "source_path": "benchmark/eval/results/sciverse_14_subfield_coverage.json",
+      "size_bytes": 4398,
+      "size_mb": 0.0,
+      "sha256": "a2e5262032b23c9a1b9ba672fa0d53d891105cd596295f2530395332f2cfd873"
+    },
+    {
+      "bundle_path": "13_sciverse_integration/sciverse_alignment_spot.json",
+      "source_path": "benchmark/eval/results/sciverse_alignment_spot.json",
+      "size_bytes": 7076,
+      "size_mb": 0.01,
+      "sha256": "3e06a37d00039b6b94f93157a1942999fd9a326322b9667ce7d2281039c89d25"
+    },
+    {
+      "bundle_path": "13_sciverse_integration/sciverse_cross_modal_audit.json",
+      "source_path": "benchmark/eval/results/sciverse_cross_modal_audit.json",
+      "size_bytes": 13967,
+      "size_mb": 0.01,
+      "sha256": "4687fb6ab8b6342cb25cd5c9e6a1876b648ee1795b1893d4aa0417b13fff5f88"
+    },
+    {
+      "bundle_path": "13_sciverse_integration/sciverse_cross_source_eval.json",
+      "source_path": "benchmark/eval/results/sciverse_cross_source_eval.json",
+      "size_bytes": 108538,
+      "size_mb": 0.1,
+      "sha256": "bd15274d111eba1d076358d68d3a9923c8392efe4be20831b437a793462e1992"
+    },
+    {
+      "bundle_path": "13_sciverse_integration/sciverse_fused_rrf.json",
+      "source_path": "benchmark/eval/results/medical/sciverse_fused_rrf.json",
+      "size_bytes": 42611,
+      "size_mb": 0.04,
+      "sha256": "4eb240fb835350520ff9ab28a77e11880a4dfe950119bd2ffbc6bcbcd0690f86"
+    },
+    {
+      "bundle_path": "13_sciverse_integration/sciverse_hybrid_compare.json",
+      "source_path": "benchmark/eval/results/medical/sciverse_hybrid_compare.json",
+      "size_bytes": 28760,
+      "size_mb": 0.03,
+      "sha256": "788fcf8e81cfb58d957f1bae29b8586baca382e64a1d6e439da74fc7cbb4949e"
+    },
+    {
+      "bundle_path": "13_sciverse_integration/sciverse_qlora_ppl.json",
+      "source_path": "benchmark/eval/results/sciverse_qlora_ppl.json",
+      "size_bytes": 2596,
+      "size_mb": 0.0,
+      "sha256": "18f45bbfed5019aca4fd216f4a68d8c101dc028fb7da495417ffcf762bfa5317"
+    },
+    {
+      "bundle_path": "13_sciverse_integration/sciverse_qlora_train_ppl.json",
+      "source_path": "benchmark/eval/results/sciverse_qlora_train_ppl.json",
+      "size_bytes": 3554,
+      "size_mb": 0.0,
+      "sha256": "3ee827aad49fce8fd2dcc06dd4869bdbe62183b9b7185fb1709c3311c2d3ebcd"
+    },
+    {
+      "bundle_path": "13_sciverse_integration/sciverse_source_comparison.json",
+      "source_path": "benchmark/eval/results/sciverse_source_comparison.json",
+      "size_bytes": 3980,
+      "size_mb": 0.0,
+      "sha256": "4ceb7731a3fcb7bea947e2d223d8d73489e35b35b0cabdb8dec1376a63a76623"
+    },
+    {
+      "bundle_path": "13_sciverse_integration/sciverse_source_selection_showcase.json",
+      "source_path": "benchmark/eval/results/sciverse_source_selection_showcase.json",
+      "size_bytes": 10046,
+      "size_mb": 0.01,
+      "sha256": "a82fcd4512e6112caae2d4a02117aa5aefe7d198301747361c4a5ce1fea1bc22"
+    },
+    {
+      "bundle_path": "13_sciverse_integration/sciverse_subfield_comparison.json",
+      "source_path": "benchmark/eval/results/sciverse_subfield_comparison.json",
+      "size_bytes": 7258,
+      "size_mb": 0.01,
+      "sha256": "b417f289ea130de4976feab62ed4281e07ba84fe55126da31b6a4de4876c9ae3"
+    },
+    {
+      "bundle_path": "13_sciverse_integration/sciverse_visual_audit_report.json",
+      "source_path": "benchmark/eval/results/sciverse_visual_audit_report.json",
+      "size_bytes": 83902,
+      "size_mb": 0.08,
+      "sha256": "2f0c6b94e14cf2486d963995221e3cae2d17bc04410634b2e2bef67c273c90fb"
+    },
+    {
+      "bundle_path": "13_sciverse_integration/sciverse_visual_audit_results.jsonl",
+      "source_path": "benchmark/eval/results/sciverse_visual_audit_results.jsonl",
+      "size_bytes": 100407,
+      "size_mb": 0.1,
+      "sha256": "b6c6ecd55c5549c5509bf09fdb3408445aea0b350b714c13f77e7137cde57b88"
+    },
+    {
+      "bundle_path": "13_sciverse_integration/qlora_training/train.jsonl",
+      "source_path": "finetune/data/sciverse/train.jsonl",
+      "size_bytes": 570345,
+      "size_mb": 0.54,
+      "sha256": "7dd8f11a60c1a340b1c31b1fda96bd065aabe6843d3ddae6dca1880a064e463b"
+    },
+    {
+      "bundle_path": "13_sciverse_integration/qlora_training/val.jsonl",
+      "source_path": "finetune/data/sciverse/val.jsonl",
+      "size_bytes": 97707,
+      "size_mb": 0.09,
+      "sha256": "82cf8ce39661304d05e6cf05922ef8af33632cc5d0db470626186a16963ffd3d"
+    },
+    {
+      "bundle_path": "13_sciverse_integration/qlora_training/qlora_sciverse.yaml",
+      "source_path": "finetune/config/qlora_sciverse.yaml",
+      "size_bytes": 1372,
+      "size_mb": 0.0,
+      "sha256": "f6faab09d3b978b1be5c52fdf546006630d3a449e782a46085414f27339b4721"
+    },
+    {
+      "bundle_path": "13_sciverse_integration/sciverse_medical_expansion.json",
+      "source_path": "benchmark/eval/results/medical/sciverse_medical_expansion.json",
+      "size_bytes": 2035120,
+      "size_mb": 1.94,
+      "sha256": "93e6e199da311ecfc53882ce2d7a97af8dc9d6965bdf25c2a3ed4b25c20dffbe"
+    },
+    {
+      "bundle_path": "13_sciverse_integration/sciverse_medical_closure_v3.json",
+      "source_path": "benchmark/eval/results/medical/sciverse_medical_closure_v3.json",
+      "size_bytes": 506458,
+      "size_mb": 0.48,
+      "sha256": "0a557e77304337eb919b4c83884d3cb7b75cfebf50e4d07670575e96d02daafa"
+    },
+    {
+      "bundle_path": "13_sciverse_integration/sciverse_leaderboard.json",
+      "source_path": "benchmark/eval/results/sciverse_leaderboard.json",
+      "size_bytes": 1536,
+      "size_mb": 0.0,
+      "sha256": "d231243d7b2b1576225177124795032ef976afc183c2e3743e684ea510efd52f"
+    },
+    {
+      "bundle_path": "13_sciverse_integration/sciverse_lb_qwen3.5_4b.json",
+      "source_path": "benchmark/eval/results/sciverse_lb_qwen3.5_4b.json",
+      "size_bytes": 236458,
+      "size_mb": 0.23,
+      "sha256": "68f62b2134e6236796406bf5a336edf7681f7a1dc6cbf6ac2bcbbbc59ce605c0"
+    },
+    {
+      "bundle_path": "13_sciverse_integration/sciverse_lb_qwen3.5_9b.json",
+      "source_path": "benchmark/eval/results/sciverse_lb_qwen3.5_9b.json",
+      "size_bytes": 199165,
+      "size_mb": 0.19,
+      "sha256": "d178237e7987efcbf761c9b4832d4d7862efd183ff65cb3d6acfabb9dc9222af"
+    },
+    {
+      "bundle_path": "13_sciverse_integration/sciverse_lb_qwen3.5_35b.json",
+      "source_path": "benchmark/eval/results/sciverse_lb_qwen3.5_35b.json",
+      "size_bytes": 221930,
+      "size_mb": 0.21,
+      "sha256": "1bea4d627c7ab59237e35b9f520ed8fa5f1f00a8809435d083b3e699b5a0b91b"
+    },
+    {
+      "bundle_path": "13_sciverse_integration/d15_sciverse_flywheel_trace.json",
+      "source_path": "benchmark/agent/logs/d15_sciverse_flywheel_trace.json",
+      "size_bytes": 14961,
+      "size_mb": 0.01,
+      "sha256": "127a4334f96c401925e12b96fce27c81f2377e45a628aea62b6edb70eaf362d0"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track2_agent_reliability/agent_router_robustness.json",
+      "source_path": "benchmark/eval/results/agent_router_robustness.json",
+      "size_bytes": 27045,
+      "size_mb": 0.03,
+      "sha256": "62af2dd0a30b76d09a437d14758e200091968707006938e2d34a0b8f272c4f96"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track2_agent_reliability/agent_router_robustness.freeze.json",
+      "source_path": "benchmark/eval/results/agent_router_robustness.freeze.json",
+      "size_bytes": 274,
+      "size_mb": 0.0,
+      "sha256": "8a93776af07ce82e1f8ee87e40b7ace98a65599fbac335b16fe7fc5898c573e8"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track2_agent_reliability/agent_failure_injection_matrix.json",
+      "source_path": "benchmark/eval/results/agent_failure_injection_matrix.json",
+      "size_bytes": 12319,
+      "size_mb": 0.01,
+      "sha256": "d7e110fa49e99cfd6bf4ee5ea3cbe87abec2edbe921cce1435c0c6080bfc5439"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track2_agent_reliability/agent_source_selection_ablation.json",
+      "source_path": "benchmark/eval/results/agent_source_selection_ablation.json",
+      "size_bytes": 25930,
+      "size_mb": 0.02,
+      "sha256": "ac7dcdbac910be357135ea30d8d29b2d6a9fdeb4033dbf9362dd43dd796a8271"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track2_agent_reliability/SUMMARY.md",
+      "source_path": "docs/submissions/data_trace_bundle/12_final_supplemental_experiments/track2_agent_reliability/SUMMARY.md",
+      "size_bytes": 4068,
+      "size_mb": 0.0,
+      "sha256": "d09ac96df9fc3813d1e69032b8e9c4e8f08329b88e4a8587a6157cf29c4e626b"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track2_agent_reliability/agent_resource_pareto.json",
+      "source_path": "benchmark/eval/results/agent_resource_pareto.json",
+      "size_bytes": 14974,
+      "size_mb": 0.01,
+      "sha256": "add836a4e6d9b4c06d3f35d4ec9a12d18fdee12936aa59d3b75e9a4fd7ce7acf"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track2_agent_reliability/agent_hard_document_stress.json",
+      "source_path": "benchmark/eval/results/agent_hard_document_stress.json",
+      "size_bytes": 13838,
+      "size_mb": 0.01,
+      "sha256": "60b93f00d517f369e0aebf621de168a8468d93674f46837938c27180ae092065"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track1_sci_align_reliability/track1_ai_ready_smoke.json",
+      "source_path": "benchmark/eval/results/track1_ai_ready_smoke.json",
+      "size_bytes": 12043,
+      "size_mb": 0.01,
+      "sha256": "52f6008e2e20f298369491b77603f14c1daeccc1a055278695205da3ea21ad90"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track1_sci_align_reliability/track1_sci_align_integrity_audit.json",
+      "source_path": "benchmark/eval/results/track1_sci_align_integrity_audit.json",
+      "size_bytes": 10830,
+      "size_mb": 0.01,
+      "sha256": "80151c635ad3684f69cb4ec8f895b6e1b3823c8d8a98ac673c1d713293141eae"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track1_sci_align_reliability/track1_multimodal_error_taxonomy.json",
+      "source_path": "benchmark/eval/results/track1_multimodal_error_taxonomy.json",
+      "size_bytes": 9699,
+      "size_mb": 0.01,
+      "sha256": "ec96fbf0481aeae37c5ff210eed4bdc47fb3a73df4ee4428b513d4d33a924e90"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track1_sci_align_reliability/track1_dimension_discriminability.json",
+      "source_path": "benchmark/eval/results/track1_dimension_discriminability.json",
+      "size_bytes": 18119,
+      "size_mb": 0.02,
+      "sha256": "4fe7c1473b818540bd92b19e8e38a81106e41b40d46c200629d34d18adbd9636"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track1_sci_align_reliability/track1_training_utility_ablation.json",
+      "source_path": "benchmark/eval/results/track1_training_utility_ablation.json",
+      "size_bytes": 6296,
+      "size_mb": 0.01,
+      "sha256": "a3bd1d9a75512c9b31846bee0d19e360215d6fc3f340b34b8e713f9c1d659c56"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track1_sci_align_reliability/track1_export_format_compatibility.json",
+      "source_path": "benchmark/eval/results/track1_export_format_compatibility.json",
+      "size_bytes": 9149,
+      "size_mb": 0.01,
+      "sha256": "d6a4be5d3767e984cff7bcdf7ce910db85556331bebee47c27a9beffab7463a0"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track1_sci_align_reliability/track1_sample_review_consistency.json",
+      "source_path": "benchmark/eval/results/track1_sample_review_consistency.json",
+      "size_bytes": 259281,
+      "size_mb": 0.25,
+      "sha256": "2e11295e28728d7b07b3ec77dd7a7b2d3fe1a29bfd291fcb9b02b38747008f14"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track1_sci_align_reliability/track1_supplemental_summary.json",
+      "source_path": "benchmark/eval/results/track1_supplemental_summary.json",
+      "size_bytes": 4848,
+      "size_mb": 0.0,
+      "sha256": "04192ac49d754079ceb8e756e4fc0b3f2832251a77dfa9c85f298f18d3925d24"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track1_sci_align_reliability/SUMMARY.md",
+      "source_path": "docs/submissions/data_trace_bundle/12_final_supplemental_experiments/track1_sci_align_reliability/SUMMARY.md",
+      "size_bytes": 2473,
+      "size_mb": 0.0,
+      "sha256": "e808bebce6ea9b8c78574786ad4047312838655e58dbabb227255d16894c3856"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_rag_pipeline_ablation.json",
+      "source_path": "benchmark/eval/results/track3_rag_pipeline_ablation.json",
+      "size_bytes": 8441,
+      "size_mb": 0.01,
+      "sha256": "00a5315dbb3ffe802bd4b98df27195113fc1a485e2af584fb70a102a4b03e058"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_safety_refusal_stress.json",
+      "source_path": "benchmark/eval/results/track3_safety_refusal_stress.json",
+      "size_bytes": 23258,
+      "size_mb": 0.02,
+      "sha256": "83cbc0f346acce33b23ed7088739d5f439d90af47a70005e841463767438b69f"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_medbench_ei_taxonomy.json",
+      "source_path": "benchmark/eval/results/track3_medbench_ei_taxonomy.json",
+      "size_bytes": 165739,
+      "size_mb": 0.16,
+      "sha256": "afbb08968ba7b0723e5f3070015c9e40c993fd734e23a98c160b8460c30a4721"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_privacy_boundary_audit.json",
+      "source_path": "benchmark/eval/results/track3_privacy_boundary_audit.json",
+      "size_bytes": 10144,
+      "size_mb": 0.01,
+      "sha256": "28ba3a941ef989bcceb0d4039a353962d4539230228520654218d047e9b5416d"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_semantic_chunk_quality.json",
+      "source_path": "benchmark/eval/results/track3_semantic_chunk_quality.json",
+      "size_bytes": 33934,
+      "size_mb": 0.03,
+      "sha256": "b2a6f75407b43bebec9e472757b553a4cdee1682a6679bc7e93c7220952c9921"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_zh_ask_robustness.json",
+      "source_path": "benchmark/eval/results/track3_zh_ask_robustness.json",
+      "size_bytes": 41352,
+      "size_mb": 0.04,
+      "sha256": "5c30832ad94c6e7a4a6f3ce49d7a369cebe82310345f856f28aca4e0ba5aa3c0"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_evidence_card_completeness.json",
+      "source_path": "benchmark/eval/results/track3_evidence_card_completeness.json",
+      "size_bytes": 30768,
+      "size_mb": 0.03,
+      "sha256": "86ca9fd5d83dd2fa3f1347f5388b5e9f54b744e4888fceef7003e860d2c15b69"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_deployment_smoke_matrix.json",
+      "source_path": "benchmark/eval/results/track3_deployment_smoke_matrix.json",
+      "size_bytes": 6779,
+      "size_mb": 0.01,
+      "sha256": "9ad5b3c61dbd92cf8d75f007a660897222f955cf1a2274ca4f568058555280f5"
+    },
+    {
+      "bundle_path": "12_final_supplemental_experiments/track3_medical_rag_supplemental/track3_supplemental_summary.json",
+      "source_path": "benchmark/eval/results/track3_supplemental_summary.json",
+      "size_bytes": 5308,
+      "size_mb": 0.01,
+      "sha256": "f2539c5f35277dad2d944dda8aafb3aeb7e9f50347cf0d2fc29b680c16e32f33"
     }
   ],
   "excluded": [],

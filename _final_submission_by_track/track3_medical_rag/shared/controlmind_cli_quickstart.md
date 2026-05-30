@@ -7,13 +7,13 @@ The internal Python package remains `controlsci` for compatibility. The public c
 ## Install
 
 ```powershell
-pip install -e .
+conda run --no-capture-output -n myenv pip install -e .
 ```
 
 Without installation:
 
 ```powershell
-python -m controlsci.cli --help
+conda run --no-capture-output -n myenv python -m controlsci.cli --help
 ```
 
 FastAPI-backed commands should run in `myenv`:
@@ -27,17 +27,17 @@ conda run --no-capture-output -n myenv python -m controlsci.cli health --output 
 ControlMind exposes a Python console script through `pyproject.toml`. The command below installs the local Python entrypoint and keeps the implementation inside `controlsci`.
 
 ```powershell
-pip install -e .
+conda run --no-capture-output -n myenv pip install -e .
 controlmind --help
 controlmind doctor
 controlmind run acceptance
 ```
 
-Without installation, run the same commands through `python -m controlsci.cli`.
+Without installation, run the same commands through `conda run --no-capture-output -n myenv python -m controlsci.cli`.
 
 ## npm Launcher
 
-ControlMind also provides a lightweight npm launcher for demos and reproducible handoff. It does not reimplement the Python core; it locates the project, selects a Python/Conda runtime, and forwards commands to `python -m controlsci.cli`.
+ControlMind also provides a lightweight npm launcher for demos and reproducible handoff. It does not reimplement the Python core; it locates the project, selects a Python/Conda runtime, and forwards commands to `conda run --no-capture-output -n myenv python -m controlsci.cli`.
 
 ```powershell
 npm install -g ./npm/controlmind
@@ -46,7 +46,7 @@ controlmind wrapper-doctor
 controlmind run acceptance
 ```
 
-Runtime resolution order: `CONTROLMIND_PYTHON`, `conda run -n myenv python`, then system `python3/python`. Set `CONTROLMIND_HOME` when running from outside the repository.
+Runtime resolution order: `CONTROLMIND_PYTHON`, `conda run --no-capture-output -n myenv python`, then system `python3/python`. Set `CONTROLMIND_HOME` when running from outside the repository.
 
 ## Core Commands
 

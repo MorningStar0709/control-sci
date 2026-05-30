@@ -24,7 +24,7 @@
 
 ### 1.2 三接口架构
 
-```
+```text
 CLI                  REST API               Docker
 │                    │                      │
 └─────┬──────────────┴──────────┬───────────┘
@@ -39,19 +39,32 @@ CLI                  REST API               Docker
 
 ---
 
-## 2. Docker 部署（推荐，零环境依赖）
+## 2. 源码仓库 Docker live mode
+
+独立提交包默认用于 evidence-only 复核；Docker live mode 需要在完整源码仓库根目录运行，不能把 standalone final bundle 理解为自包含 Docker API 包。
+
+### 2.0 构建边界
+
+Track 3 提交包区分两种运行模式：
+
+| 模式 | 入口 | 适用场景 | 边界 |
+|:---|:---|:---|:---|
+| final bundle evidence-only | `run\run_task3_rag_flywheel.ps1 -EvidenceOnly` | 评审独立提交包中的证据 JSON | 不启动 API，不构建 Docker，不要求 `benchmark/controlsci/starboard` 源码目录 |
+| source repo live mode | `docker compose -f _final_submission_by_track/track3_medical_rag/run/docker-compose.yml up` | 在完整源码仓库中启动 live API / Docker | 需要源码根目录包含 `benchmark/`、`controlsci/` 和索引数据 |
+
+Docker smoke 属于环境依赖检查；如果未实际运行 Docker daemon、端口服务和容器健康检查，只能记录为 `not_run_environment_dependency`，不得写成 passed。
 
 ### 2.1 前置条件
 
 - Docker Desktop
 - 可用磁盘空间 > 5 GB（Ollama 镜像 + qwen3-embedding:4b 模型 + 索引文件）
-- 无需 Python / Conda / GPU
+- 无需宿主机 Python / Conda / GPU；但需要完整源码仓库和 `data/sources_medical` 索引数据
 
 ### 2.2 启动
 
 ```bash
-# 项目根目录
-docker compose up
+# 完整源码仓库根目录
+docker compose -f _final_submission_by_track/track3_medical_rag/run/docker-compose.yml up
 ```
 
 首次启动流程：
@@ -59,7 +72,8 @@ docker compose up
 2. FAISS 索引自动加载（34 MB text + 7 MB vision）
 3. REST API 在 `http://localhost:8001` 就绪
 
-> 端口说明：`8001` 是独立 Docker/CLI 部署示例端口；本地 Starboard 工作台默认连接 `17001`，可用 `run_reviewer_demo.ps1 -Track 3 -ApiPort 17001` 复核。
+> 端口说明：`8001` 是独立 Docker/CLI 部署示例端口；本地 Starboard 工作台默认连接 `17001`。standalone final bundle 可用 `.
+un\verify_task3_demo.ps1 -EvidenceOnly` 复核已提交证据，完整源码仓库可通过统一 reviewer demo 复核 live mode。
 
 ### 2.3 验证
 
@@ -97,8 +111,7 @@ curl http://localhost:8001/api/health
 ```powershell
 # Conda 环境（Python 3.12）
 conda create -n myenv python=3.12
-conda activate myenv
-conda run -n myenv pip install fastapi uvicorn httpx numpy faiss-cpu rank-bm25 scikit-learn scipy matplotlib
+conda run --no-capture-output -n myenv pip install fastapi uvicorn httpx numpy faiss-cpu rank-bm25 scikit-learn scipy matplotlib
 
 # Ollama 本地服务（用于 qwen3-embedding:4b）
 ollama pull qwen3-embedding:4b
@@ -111,11 +124,10 @@ ollama pull qwen3-embedding:4b
 $env:PYTHONIOENCODING='utf-8'
 
 # 1. 医疗文献切片（medical_mode）
-conda run --no-capture-output -n myenv python -c "
-from pipeline.chunk_corpus import build_chunks
-build_chunks('data/sources_medical/md', medical_mode=True,
-             chunks_dir='data/sources_medical/chunks')
-"
+# Windows + Conda 环境下不要使用多行 python -c；请先在 _scratch\build_medical_chunks.py 写入以下逻辑后运行：
+# from pipeline.chunk_corpus import build_chunks
+# build_chunks('data/sources_medical/md', medical_mode=True, chunks_dir='data/sources_medical/chunks')
+conda run --no-capture-output -n myenv python _scratch\build_medical_chunks.py
 
 # 2. 构建索引（文本 + 视觉，需先完成 MinerU 解析）
 conda run --no-capture-output -n myenv python -m controlsci.medical.indexing
@@ -127,7 +139,7 @@ conda run --no-capture-output -n myenv uvicorn controlsci.api.medical_rag:app --
 本地 Starboard 工作台同机联调时可改用：
 
 ```powershell
-conda run -n myenv python -m controlsci.api.medical_rag --host 127.0.0.1 --port 17001
+conda run --no-capture-output -n myenv python -m controlsci.api.medical_rag --host 127.0.0.1 --port 17001
 ```
 
 ---
@@ -135,11 +147,14 @@ conda run -n myenv python -m controlsci.api.medical_rag --host 127.0.0.1 --port 
 ## 4. 一键复现（全流程）
 
 ```powershell
-# 从 PMC 文献下载到 RAG 检索的全部步骤
+# standalone final bundle evidence-only 复核
+.\run\run_task3_rag_flywheel.ps1 -EvidenceOnly
+
+# 完整源码仓库中的 PMC 下载到 RAG 检索全流程入口
 run_medical_agent.ps1
 ```
 
-`run_medical_agent.ps1` 执行内容：
+`run_medical_agent.ps1` 是完整源码仓库入口，执行内容：
 1. PMC E-utilities API 检索 → 下载 100 篇文献
 2. MinerU 批量解析 → 结构化 .md
 3. 医疗章节本体切片 → 3,348 chunks
